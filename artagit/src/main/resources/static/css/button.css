@@ -1,0 +1,95 @@
+.btn{
+    padding: .4em .8em;
+    color: #fff;
+    
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    
+    border: 1px solid #BCBCBC;
+    border-radius: 10px;
+    background-color: #FC93AD;
+
+    font-size: 12px;
+}
+
+.btn-default{
+    /* border: 1px solid #BCBCBC;
+    border-radius: 10px;
+    background-color: #FC93AD;
+
+    font-size: 12px; */
+}
+
+.btn-default-fill{
+    background-color: #FF6C9E;
+    border: 0.3px solid #FC93AD;
+}
+
+.btn-default-line{
+    border: 1px solid #8686869c;
+    background-color: #fff;
+    color: #3a3a3a;
+    
+}
+    .btn-default-line-rec{
+        border-radius: 0;
+    }
+    .btn-default-line-left-radius{
+        border-radius: 5px 0 0 5px;
+    }
+    .btn-default-line-right-radius{
+        border-radius: 0 5px 5px 0;
+    }
+
+.btn-hpg {
+    width: 320px;
+    height: 18px;
+    font-size: 12px;
+}
+
+.btn-login{
+    padding: .4em 2.8em;
+}
+.btn-login-xl{
+    width: 295px;
+    height: 40px;
+    
+    font-size: 18px;
+    font-weight: 600;
+}
+.btn-booking{
+    padding: 0;
+    border-radius: 0;
+    width: 100%;
+    height: 44px;
+
+    font-size: 18px
+}
+.btn-report{
+    font-size: 18px
+}
+
+.btn-payment-list{
+    display: inline-flex;
+}   
+.btn-payment{
+    box-sizing: border-box;
+    width: 80px;
+    height: 36px;
+}
+    .btn-rec{
+        border-radius: 0;
+    }
+    .btn-left-radius{
+        border-radius: 5px 0 0 5px;
+    }
+    .btn-right-radius{
+        border-radius: 0 5px 5px 0;
+    }
+
+
+
+.btn-size-1{
+    min-width: 80px;
+}

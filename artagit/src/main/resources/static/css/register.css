@@ -1,0 +1,16 @@
+.main-container{
+    padding-top: 50px;
+}
+
+.reg-list form>h1{
+    text-align: center;
+    padding-bottom: 18px;
+
+}
+.reg-list-input-box>div{
+    gap: 34px;
+}
+
+.reg-button-box{
+    padding-top: 37px;
+}

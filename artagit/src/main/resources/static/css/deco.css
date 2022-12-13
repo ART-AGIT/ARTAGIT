@@ -1,0 +1,70 @@
+.deco {
+    /* 박스 맞추기, 정렬을 할 때는 무족권 flex~ */
+    /* 슈도엘리먼트로 만든 자식(아이콘)과 그 아래 자식인 문자('전체')를 정렬하려면 부모로 정렬을 해야한다. */
+    /* 수직정렬 할 때는 align-items */
+    color: #262626;
+}
+
+.deco::before {
+    /* 컨텐트 값을 넣어줘야 슈도엘리먼트를 자식으로서 사용할 수 있다. */
+    content: '';
+    width: 27px;
+    height: 30px;
+
+    padding: .4em 0.8em;
+    display: flex; /* 가상 요소 가운데 정렬 */
+    margin-left: auto;
+
+    background-color: #494949bd;
+    
+    mask-size: 27px 30px;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-size: 27px 30px;
+}
+
+.deco-mini::before {
+    width: 23px;
+    height: 20px;
+    mask-size: 23px 26px;
+    -webkit-mask-size: 23px 26px;
+}
+
+.deco-ticket-on{
+    color: #FF6B90;
+}
+
+.deco-ticket::before {
+    mask-image: url(../image/ticket.svg); /* mask 속성 사용할 때 앞에 접두사(ex.webkit)을 안붙이면 현재 mask 기능이 지원되는 브라우저에서는 모두 적용이 된다. */
+    -webkit-mask-image: url(../image/ticket.svg);
+}
+
+.deco-heart::before {
+    mask-image: url(../image/heart.svg); 
+    -webkit-mask-image: url(../image/heart.svg);
+}
+
+.deco-heart-red::before {
+    mask-image: url(../image/heart-red.svg); 
+    -webkit-mask-image: url(../image/heart-red.svg);
+    background-color: rgb(255, 73, 73);
+}
+
+.deco-smile::before {
+    mask-image: url(../image/smile.svg); 
+    -webkit-mask-image: url(../image/smile.svg);
+}
+
+.deco-write::before {
+    mask-image: url(../image/write.svg); 
+    -webkit-mask-image: url(../image/write.svg);
+}
+
+.deco-url::before {
+    mask-image: url(../image/url.svg); 
+    -webkit-mask-image: url(../image/url.svg);
+}
+
+.deco-map::before {
+    mask-image: url(../image/map.svg);
+    -webkit-mask-image: url(../image/map.svg);
+}
