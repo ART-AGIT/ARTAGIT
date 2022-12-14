@@ -1,3 +1,4 @@
+## git commit message convention
 //type 더 추가하고 싶으면 얼마든지  
 ✨ feat : 새로운 기능에 대한 커밋   
 🐛 fix : 버그 수정에 대한 커밋  
