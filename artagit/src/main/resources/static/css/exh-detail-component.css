@@ -1,0 +1,117 @@
+/* 전시 상세 설명 */
+.exh-detail-section{
+    padding-top: 50px;
+}
+.exh-detail-table{
+    display: grid;
+    grid-template-columns: 0.8fr 2fr;
+    /* grid-template-rows: ; */
+    padding: 0 20px;
+    font-size: 14px;
+    grid-template-rows: repeat(11,22px);
+    align-items: center;
+}
+
+.exh-detail{
+    border : 1px solid #9E9E9E;
+    border-radius:10px; 
+    padding: 20px 0; 
+
+}
+
+.title{
+    text-align: center;
+    border-bottom: 1px solid #9E9E9E;
+    padding-bottom: 20px; 
+    margin: 0 10px 0 10px;
+
+    font-size: 18px;
+}
+
+.exh-detail-img-box{
+    display:flex;
+    /* grid-area: img; */
+    justify-content: center;
+    align-self: center;
+    padding: 10px;
+}
+
+.exh-detail-img{
+    /* align-items: center; */
+    width: 146px;
+    
+
+}
+.item:nth-child(odd){
+    font-weight: bold;
+}
+
+.exhDetail-button-list{
+    display: flex;
+    gap:10px;
+    justify-content:center;
+    padding-top : 20px;
+}
+
+/* 결제 상세내역 */
+.payDetail{
+    font-size: 16px;
+    padding : 20px;
+}
+
+.exh-detail-pay{
+    /* width: 300px; */
+}
+
+.exh-detailPay-table{
+    /* display:flex; */
+    /* flex-direction: column; */
+    /* grid-template-columns: 0.5fr 1.5fr 0.5fr 1fr 1fr 1fr;  */
+    /* grid-template-rows: repeat(4, 50px); */
+    /* border: 1px solid #9E9E9E; */
+    /* border-radius: 10px; */
+    /* height: 197px; */
+    /* align-items: center; */
+    /* justify-items: center; */
+    /* vertical-align: middle; */
+
+    /* grid version */
+    display: grid;
+    grid-template-columns: 0.5fr 1.5fr 0.5fr 1fr 1fr 1fr;
+    border: 1px solid #9E9E9E;
+    /* align-items: center; */
+    
+    border-radius: 10px;    
+}
+.pay{
+    height: 50px;
+    display: flex;
+    border-bottom: 1px solid #9E9E9E;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+   
+}
+.pay:nth-child(n+25):nth-child(-n+30){
+    border-bottom: none; 
+}
+
+
+
+
+
+
+
+.pay-wrapper{
+    width: 100%;
+    display: flex;
+    border-bottom: 1px solid #9E9E9E;
+
+    /* justify-content: center; */
+    /* align-self: center; */
+}
+.pay-wrapper:last-child{
+    border:none;
+}
+
+
