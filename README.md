@@ -1,4 +1,29 @@
-# git commit message convention  
+# SpringBoot-Project-ARTAGIT
+전시 소개 플래폼  
+## 프로젝트 소개  
+~~~~~  
+
+## 개발기간  
+2022-12-10 - 진행중  
+
+### 멤버구성
+주성균(조장) : 각자 맡은역활 쓰기  
+김정현 :   
+양호정 :   
+황보은진 : 
+이진희 :   
+이상민 :  
+김유민 :  
+
+
+## 개발환경
+- java 17
+- jkd 17.0.4
+- IDE STS 4.0
+- database : maria DB
+- ORM : Mybatis
+
+## git commit message convention  
 ### 제목 (Subject)  
 - 커밋 메시지 제목은 제일 앞에 제목의 타입을 붙여준다. 커밋 타입의 종류는 위 내용을 참고한다.  
 - 제목은 50자를 넘기지 않고, 대문자로 작성하고 마침표를 붙이지 않는다.  
