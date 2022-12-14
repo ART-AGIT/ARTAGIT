@@ -1,7 +1,8 @@
 # SpringBoot-Project-ARTAGIT
 전시 소개 플래폼  
 ## 프로젝트 소개  
-
+Art Agit
+아트아지트 입니다.
 
 ## 개발기간  
 2022-12-10 - 진행중  
