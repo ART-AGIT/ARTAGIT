@@ -95,6 +95,16 @@
 .icon-toggle-up{
     -webkit-mask-image: url(../image/toggleUp.svg);
 }
+
+.icon-view{
+    -webkit-mask-image: url(../image/icons/view-icon.svg);
+}
+.icon-like-up{
+    -webkit-mask-image: url(../image/icons/like-up-icon.svg);
+}
+.icon-comment{
+    -webkit-mask-image: url(../image/icons/comment-icon.svg);
+}
 .icon-arrow-right{
     -webkit-mask-image: url(../image/arrow-right.svg);
 }
