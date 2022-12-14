@@ -1,0 +1,107 @@
+/* .text {
+    color: #545454;
+}
+
+.menu-list {
+    display: inline-block;
+    width: 100%;
+    height: 50px;
+}
+
+/*.text-box {
+    font-size: 13px;
+}
+ */
+
+/* =========================== */
+
+.mypage-likeExh{
+    border-bottom: 1px solid #9E9E9E;
+    padding: 20px 0; 
+}
+
+.mypage-likeExh:last-child{
+    border:none;
+   /* 맨 마지막 줄 없애기 */
+
+}
+
+
+/* ----------------------- */
+.mypage-likeExh{
+    
+    display:grid;
+    grid-template: 
+        "img blank" 83px
+        "img icon-heart" 20px
+        "img title" 21px
+        "img exhPlace" 20px
+        "img exhDate" 20px/146px 1fr;
+        
+}
+
+
+.icon-heart-red{
+    grid-area: icon-heart;
+    margin-left: 10px;
+    display:inline-flex;
+    align-items: center;
+}
+.mypage-likeExh>h1{
+    grid-area: title;
+    margin-left: 10px;
+    font-size: 17px;
+    display:inline-flex;
+    align-items: center;
+    
+   
+}
+.mypage-exhPlace{
+    grid-area: exhPlace;
+    margin-left: 10px;
+    display:inline-flex;
+    align-items: center;
+    font:#8E8E8E;
+   
+
+}
+.mypage-exhDate{
+    grid-area:exhDate;
+    margin-left: 10px;
+    display:inline-flex;
+    align-items: center;
+    font:#8E8E8E;
+  
+}
+    /* justify-self: flex-end; */
+
+/* .menu-option-input{
+    width: 12px;
+    height: 12px;
+    border: 1px solid #A24F17;
+   
+} */
+
+/* .menu-option-input-on{
+    background-color: #A24F17;
+} */
+
+/* .menu-option{
+    display:inline-flex;
+    align-items: center;
+    grid-area: option;
+} */
+
+.mypage-likeExh-img-box{
+    grid-area: img;
+    
+}
+
+.mypage-likeExh-img{
+    width: 146px;
+    height: 164px;
+    
+
+}
+
+/* ----------------------------------- */
