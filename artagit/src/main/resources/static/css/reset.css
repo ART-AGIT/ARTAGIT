@@ -4,7 +4,7 @@
 그대로 사용하기에는 적합하지 않다.
 그래서 지우는게 필요하다. > reset.css 파일이다. */
 
-body, h1, h2, ul, li, button, dd, dt{
+body, h1, h2, ul, li, button, dd, dt,hr{
     margin: 0;
     padding: 0;
 }

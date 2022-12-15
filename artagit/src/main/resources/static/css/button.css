@@ -13,13 +13,7 @@
     font-size: 12px;
 }
 
-.btn-default{
-    /* border: 1px solid #BCBCBC;
-    border-radius: 10px;
-    background-color: #FC93AD;
 
-    font-size: 12px; */
-}
 
 .btn-default-fill{
     background-color: #FF6C9E;
@@ -92,4 +86,13 @@
 
 .btn-size-1{
     min-width: 80px;
+}
+
+.btn-unregister{
+    background-color: #FFFFFF;
+    color: red;
+    border: 1px solid #2E2E2E;
+    border-radius: 10px;
+    width: 54px;
+    height: 18px;
 }
