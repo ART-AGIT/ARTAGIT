@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.artagit.web.dao.ExhibitionDao">
+	<select id="getList" resultType="com.artagit.web.entity.Exhibition">
+		select * from Exhibition
+			<trim prefix="WHERE" prefixOverrides="AND | OR">
+				<if test="field != null">
+					${field} like '%${input}%'
+				</if>
+			</trim>
+			limit #{(page-1)*10}, 10
+	</select>
+	
+	<select id="get" resultType="com.artagit.web.entity.Exhibition">
+		select * from Exhibition
+			where id = #{id}
+	</select>
+	
+	<select id="count" resultType="int">
+		select count(id) from Exhibition
+			where name like '%${input}%'	
+	</select>
+	
+	<insert id="insert" parameterType="com.artagit.web.entity.Exhibition">
+		INSERT INTO Exhibition
+		(name,
+		content,
+		poster,
+		detailImage,
+		startDate,
+		endDate,
+		startTime,
+		endTime,
+		ticketPrice,
+		ticketStock,
+		artist,
+		memId,
+<!-- 		cateId, -->
+<!-- 		stateId, -->
+		museumId)
+		VALUES
+		(#{name},
+		#{content},
+		#{poster},
+		#{detailImage},
+		#{startDate},
+		#{endDate},
+		#{startTime},
+		#{endTime},
+		#{ticketPrice},
+		#{ticketStock},
+		#{artist},
+		#{memId},
+<!-- 		#{cateId}, -->
+<!-- 		#{stateId}, -->
+		#{museumId});
+	</insert>
+	
+<!-- 	<update id="update" parameterType="com.artagit.web.entity.Exhibition"> -->
+<!-- 		update Exhibition -->
+<!-- 		<set> -->
+<!-- 			<if test="name != null">name = #{name},</if> -->
+<!-- 			<if test="price != null">price = #{price},</if> -->
+<!-- 			<if test="img != null">img = #{img},</if> -->
+<!-- 		</set> -->
+<!-- 			where id = #{id} -->
+<!-- 	</update> -->
+
+	<delete id="delete">
+		delete from Exhibition
+			where id = #{id}
+	</delete>
+
+</mapper>
