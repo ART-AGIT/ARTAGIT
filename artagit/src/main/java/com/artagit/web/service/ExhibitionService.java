@@ -4,8 +4,8 @@ import java.util.List;
 
 import com.artagit.web.entity.Exhibition;
 
+// 직접적인 서비스 모음
 public interface ExhibitionService {
-	// 직접적인 서비스 모음
 	
 	// 전시 등록 메서드
 	// 반환타입 int => 몇 건? 성공or실패?
@@ -13,5 +13,6 @@ public interface ExhibitionService {
 
 	// 모든 전시 목록 불러오는 메서드
 	List<Exhibition> getList(int page);
-
+	
+	Exhibition getExhById(int exhId);
 }
