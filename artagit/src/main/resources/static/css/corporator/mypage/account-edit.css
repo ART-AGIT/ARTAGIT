@@ -1,0 +1,89 @@
+body{
+    padding-top: 50px;
+}
+/* .main-container{
+    padding-top: 10px;
+} */
+
+.reg-list form>h1{
+    text-align: center;
+    padding-bottom: 18px;
+
+}
+.reg-list-input-box>div{
+    gap: 34px;
+}
+
+.reg-button-box{
+    display: flex;
+    padding: 20px 0;
+    justify-content: center;
+    gap : 20px;
+}
+
+/*  */
+.toggle{
+    display: flex;
+    margin-top: 10px;
+    /* text-align: center; */
+    border: 1px solid #414141;
+    border-radius: 70px;
+    line-height : 37px;
+    align-items: center;
+}
+.toggle > h1{
+    font-size: 16px;
+    padding-left: 10px;
+    padding-right: 170px;
+    /* line-height : 37px; */
+    
+}
+.account{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.account>h1{
+    padding-bottom: 5px;
+    border-bottom: 2px solid #B9B9B9;
+}
+
+.account-img{
+    width:100px;
+    height: 100px;
+    border-radius: 70px;
+    position: relative;
+    
+}
+
+.img{
+   display: flex;
+   justify-content: center;
+}
+
+.img-edit{
+    width: 30px;
+    height: 30px;
+    /* background : url("../../../image/write-on.png") no-repeat; */
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    
+}
+
+.corpMem{
+    background-color: #414141;
+    border-radius: 20px;
+    color: white;
+    font-size: 14px;
+    font-weight: normal;
+    width: 63px;
+    height: 18px;
+
+    text-align: center;
+}
+
+.exh-name{
+    font-size: 18px;
+    font-weight: 600;
+}
