@@ -68,13 +68,13 @@
 }
 
 .deco-url::before {
-    mask-image: url(../image/url.svg); 
-    -webkit-mask-image: url(../image/url.svg);
+    mask-image: url(../image/icons/share.svg); 
+    -webkit-mask-image: url(../image/icons/share.svg);
 }
 
 .deco-map::before {
-    mask-image: url(../image/map.svg);
-    -webkit-mask-image: url(../image/map.svg);
+    mask-image: url(../image/icons/location.svg);
+    -webkit-mask-image: url(../image/icons/location.svg);
 }
 
 /* =================================================== */
