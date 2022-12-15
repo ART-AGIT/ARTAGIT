@@ -16,8 +16,8 @@ public interface ExhibitionDao {
 	Exhibition get(int id);
 	int count(String query);
 	
-	int insert(Exhibition menu);
-	int update(Exhibition menu);
+	int insert(Exhibition exhibiiton);
+	int update(Exhibition exhibiiton);
 	int delete(int id);
 	
 }
