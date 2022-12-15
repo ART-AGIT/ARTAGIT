@@ -133,6 +133,10 @@ hr {
     border:0; 
 }
 
+.content-box {
+    margin: 0 10px;
+}
+
 .warning {
     height: 150px;
 }
