@@ -22,3 +22,68 @@ window.addEventListener("load", function(){
     })
 })
 
+
+{/* <h1>5. 스타일 다루기 : 아이템 이동</h1> */}
+window.addEventListener("load", function(){
+    var section = this.document.querySelector("#s5");
+
+    var box = section.querySelector(".box");
+
+    var btnPrev = section.querySelector(".btn-prev");
+    var btnNext = section.querySelector(".btn-next");
+
+    var lis = section.querySelectorAll("li");
+
+    var offIndex = 0;
+
+    box.onclick = function(e){
+        e.preventDefault();
+        e.stopPropagation();
+
+        // offIndex++;
+
+        var size = lis.length;
+
+        lis[(0+offIndex)%size].className="card-1th";
+        lis[(1+offIndex)%size].className="card-2th";
+        lis[(2+offIndex)%size].className="card-3th";
+        
+        if(e.target.nodeName != "LI")
+            return;
+
+
+        
+    }
+
+
+
+    btnPrev.onclick = function(e){
+        e.preventDefault();
+
+        offIndex++;
+
+        var size = lis.length;
+        lis[(0+offIndex)%size].className="card-1th";
+        lis[(1+offIndex)%size].className="card-2th";
+        lis[(2+offIndex)%size].className="card-3th";
+
+        
+
+        console.log(offIndex);
+    }
+
+    btnNext.onclick = function(e){
+        e.preventDefault();
+
+        offIndex++;
+
+        var size = lis.length;
+        lis[(0+offIndex)%size].className="card-1th";
+        lis[(1+offIndex)%size].className="card-2th";
+        lis[(2+offIndex)%size].className="card-3th";
+
+        console.log("다음");
+    }
+
+});
+
