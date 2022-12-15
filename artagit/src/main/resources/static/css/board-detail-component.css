@@ -1,0 +1,80 @@
+.post-detail-header{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    border-bottom: 1px solid #BCBCBC;
+}
+
+
+.current-location{
+    display: flex;
+}
+.current-location > div{
+        padding-right: 10px;
+}
+
+.post-detail-title{
+    display: grid;
+    grid-template: 
+    "title time" 3fr
+    "info report" 2fr /3fr 1fr;
+    padding: 5px;
+    border-bottom: 1px solid #BCBCBC;
+}
+.post-title{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    grid-area: title;
+    word-break: break-all;
+    padding-bottom: 5px;
+}
+.post-reg-time{
+    display:flex;
+    align-items: center;
+    text-justify: flex-end;
+    justify-content:flex-end;
+    grid-area: time;
+    padding-bottom: 5px;
+}
+
+.post-info{
+    display:flex;
+    align-items: center;
+    
+    display: flex;
+    grid-area: info
+}
+
+.report-icon{
+    grid-area: report;
+    display:flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.post-content-message{
+    min-height: 200px;
+}
+
+.post-content{
+    padding: 10px 0 10px 0;
+    border-bottom: 1px solid #BCBCBC;
+}
+
+.like{
+    display:flex;
+    justify-content: flex-end;
+}
+.comment-title{
+    font-weight: normal;
+    font-size: 14px;
+}
+.comment-title-wrapper{
+    display:flex;
+  
+}
+.comment{
+    padding: 5px;
+    border-bottom: 1px solid #BCBCBC;   
+}
