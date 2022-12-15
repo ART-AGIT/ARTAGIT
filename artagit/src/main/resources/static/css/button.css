@@ -26,6 +26,11 @@
     border: 0.3px solid #FC93AD;
 }
 
+.btn-default-fill-off{
+    background-color: #FFBFCF;
+    border: 0.3px solid #FFBFCF;
+}
+
 .btn-default-line{
     border: 1px solid #8686869c;
     background-color: #fff;
