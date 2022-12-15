@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.newlecture.web.dao.MemberDao">
-	<select id="getList" resultType="com.newlecture.web.entity.Member">
+<mapper namespace="com.artagit.web.dao.MemberDao">
+	<select id="getList" resultType="com.artagit.web.entity.Member">
 		select * from Member
 			<trim prefix="WHERE" prefixOverrides="AND | OR">
 				<if test="field != null">
@@ -12,7 +12,7 @@
 			limit #{(page-1)*10}, 10
 	</select>
 	
-	<select id="get" resultType="com.newlecture.web.entity.Member">
+	<select id="get" resultType="com.artagit.web.entity.Member">
 		select * from Member
 			where id = #{id}
 	</select>
@@ -22,13 +22,13 @@
 			where name like '%${input}%'	
 	</select>
 	
-	<insert id="insert" parameterType="com.newlecture.web.entity.Member">
+	<insert id="insert" parameterType="com.artagit.web.entity.Member">
 		insert into Member(roleId, LoginId, password, name, phone, nickname, email, image, regDate, useYN)
 			values(${roleId}, #{LoginId}, #{password}, #{name}, #{phone}, #{nickname}, #{email}, #{image}, #{regDate}, #{useYN})
 	</insert>
 	
-	<update id="update" parameterType="com.newlecture.web.entity.Menu">
-		update Menu
+	<update id="update" parameterType="com.artagit.web.entity.Member">
+		update Member
 		<set>
 			<if test="name != null">name = #{name},</if>
 			<if test="price != null">price = #{price},</if>
