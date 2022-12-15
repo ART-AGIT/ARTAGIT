@@ -1,0 +1,35 @@
+.form{
+    padding: 50px 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.joinForm{
+    display: flex;
+    justify-content: center;
+}
+
+.clearfix{
+    display: flex;
+}
+
+.check01{
+    font-size: 22px;
+    font-weight: bold;
+    padding-bottom: 34px;
+}
+
+.checkBtn,.checkAllBtn{
+    border-radius: 50px;
+    padding-right: 13px;
+}
+    
+li{
+    line-height:300%;
+}
+
+.ok-btn{
+    display: flex;
+    padding-top: 20px;
+    justify-content: center;
+}
