@@ -2,6 +2,7 @@ package com.artagit.web.service;
 
 import com.artagit.web.entity.Member;
 
+<<<<<<< HEAD
 
 public interface MemberService {
 	
@@ -9,4 +10,10 @@ public interface MemberService {
 
 //	void insertMember(Member member);
 	
+=======
+public interface MemberService {
+	
+	void insertMember(Member member);
+
+>>>>>>> dev
 }

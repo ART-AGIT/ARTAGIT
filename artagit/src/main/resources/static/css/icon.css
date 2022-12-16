@@ -106,11 +106,11 @@
     -webkit-mask-image: url(../image/icons/comment-icon.svg);
 }
 .icon-arrow-right{
-    -webkit-mask-image: url(../image/arrow-right.svg);
+    -webkit-mask-image: url(../image/icons/arrow-right.svg);
 }
 
 .icon-arrow-right-sm{
-    padding: 0em 1em;
+    padding: 0em;
     width: 10px;
     height: 10px;
     -webkit-mask-size: 10px 10px;

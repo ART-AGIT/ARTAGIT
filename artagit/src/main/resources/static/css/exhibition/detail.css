@@ -20,11 +20,12 @@
 }
 
 .mini-menu-list {
-    padding: 10px 10px 0px 0px;
+    padding: 10px;
     display: flex;
     justify-content: flex-end;
     font-size: 11px;
     /* font-weight: bold; */
+    border-bottom: 1px solid rgba(157, 157, 157, 0.353);
 }
 
 li {
@@ -41,13 +42,15 @@ li {
     /* 2 x 7 */
     margin-left: 15px;
     display: grid;
-    grid-template: "title title" 35px
-                    "exh-author author" 24px
-                    "exh-place place" 24px
-                    "exh-date date" 24px
-                    "exh-time time" 24px
-                    "exh-phone phone" 24px
-                    "exh-addr addr" 24px / 75px;
+    grid-template:
+        "title title" 36px
+        "exh-author author" 25px
+        "exh-place place" 25px
+        "exh-date date" 25px
+        "exh-time time" 25px
+        "exh-phone phone" 25px
+        "exh-addr addr" 25px / 75px;
+    align-items: center;
 }
 
 .exh-author, .exh-place, .exh-date, .exh-time, .exh-phone, .exh-address {
@@ -58,6 +61,7 @@ form>h1 {
     grid-area: title;
     font-size: 20px;
     font-weight: 500;
+    margin:5px 0;
 }
 
 .exh-author {
@@ -127,11 +131,11 @@ form>h1 {
     width: 100%;
 }
 
-hr {
+/* hr {
     background:rgba(157, 157, 157, 0.353);
     height:1px;
     border:0; 
-}
+} */
 
 .content-box {
     margin: 0 10px;
