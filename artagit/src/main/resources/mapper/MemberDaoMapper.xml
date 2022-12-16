@@ -39,6 +39,17 @@
 			where id = #{id}
 	</update>
 
+
+	<update id="withdrawal " parameterType="com.artagit.web.entity.Member">
+		update Member
+		<set>useYN = 'N'</set>
+		where id=38;
+		
+
+	</update>
+
+
+
 	<delete id="delete">
 		delete from Member
 			where id = #{id}
