@@ -5,6 +5,8 @@
     width: 100%;
     height: 50px;
     background-color: #fff;
+
+    z-index: 999;
 }
 .header-wrapper{
     display: flex;
@@ -18,6 +20,9 @@
     .header-box div{
         align-self: center;
     }
+.logo>a{
+    color: #FF6C9E;
+}
 
 
 
