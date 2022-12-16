@@ -32,7 +32,7 @@
 
 .deco-mini::before {
     width: 23px;
-    height: 20px;
+    height: 30px;
     mask-size: 23px 26px;
     -webkit-mask-size: 23px 26px;
 

@@ -42,13 +42,15 @@ li {
     /* 2 x 7 */
     margin-left: 15px;
     display: grid;
-    grid-template: "title title" 35px
-                    "exh-author author" 24px
-                    "exh-place place" 24px
-                    "exh-date date" 24px
-                    "exh-time time" 24px
-                    "exh-phone phone" 24px
-                    "exh-addr addr" 24px / 75px;
+    grid-template:
+        "title title" 36px
+        "exh-author author" 25px
+        "exh-place place" 25px
+        "exh-date date" 25px
+        "exh-time time" 25px
+        "exh-phone phone" 25px
+        "exh-addr addr" 25px / 75px;
+    align-items: center;
 }
 
 .exh-author, .exh-place, .exh-date, .exh-time, .exh-phone, .exh-address {
