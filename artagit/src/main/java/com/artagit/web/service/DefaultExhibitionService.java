@@ -28,6 +28,7 @@ public class DefaultExhibitionService implements ExhibitionService {
 	@Override
 	// 전시 등록 메서드
 	public int reg(Exhibition exhibition) {
+
 		return exhDao.insert(exhibition);
 	}
 

@@ -1,10 +1,12 @@
 :root{
-    --color-white: #fff;
-    --color-black: #000;
-    --color-gray: #707070;
+
 }
 
 body{
+    --color-white: #fff;
+    --color-black: #000;
+    --color-gray: #707070;
+
     background-color: var(--color-black);
     color: var(--color-white);
     transition: 1s;
@@ -118,40 +120,6 @@ body.bg-white{
 .main-banner-box .btn-list>a{
     color: white;
 }
-
-
-
-/* .main-banner{
-    height: 600px;
-}
-
-.main-banner>ul{
-    display: flex;
-    height: 100%;
-    position: relative;
-
-    align-items: center;
-    justify-content: center;
-
-
-}
-.main-banner>ul>li{
-    position: absolute;
-}
-.img-1{
-    left: 0;
-}
-.img-2{
-    left: 25%;
-}
-.img-3{
-    left: 50%;
-}
-.main-banner>ul>li img{
-    width: 200px;
-    height: 270px;
-} */
-
 
 .main-community-section{
     border-bottom: 1px solid #fff;
