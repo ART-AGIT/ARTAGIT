@@ -5,6 +5,7 @@
     align-items: center;
 }
 .reg-list-input-box{
+    width: 300px;
     display: flex;
     flex-direction: column;
     padding: 2px 0;
@@ -22,6 +23,7 @@
 }
     .reg-list-input-box>div>span{
         padding: 0 14px;
+        line-height: 35px;
     }
 .exhibition-input-date{
     display: inline-flex;
@@ -44,4 +46,7 @@
 
 .input{
     font-size: 14px;
+}
+.reg-list-input-box input[type=file]{
+    line-height: 45px;
 }

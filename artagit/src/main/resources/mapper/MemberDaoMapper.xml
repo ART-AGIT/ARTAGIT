@@ -23,8 +23,8 @@
 	</select>
 	
 	<insert id="insert" parameterType="com.artagit.web.entity.Member">
-		insert into Member(roleId, LoginId, password, name, phone, nickname, email, image, regDate, useYN)
-			values(${roleId}, #{LoginId}, #{password}, #{name}, #{phone}, #{nickname}, #{email}, #{image}, #{regDate}, #{useYN})
+		insert into Member(loginId, password, name, phone, nickname, email, image)
+			values(#{loginId}, #{password}, #{name}, #{phone}, #{nickname}, #{email}, #{image})
 	</insert>
 	
 	<update id="update" parameterType="com.artagit.web.entity.Member">
