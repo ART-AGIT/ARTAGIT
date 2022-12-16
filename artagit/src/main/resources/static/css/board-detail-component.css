@@ -17,15 +17,18 @@
 .post-detail-title{
     display: grid;
     grid-template: 
-    "title time" 3fr
-    "info report" 2fr /3fr 1fr;
+    "title time" 1fr
+    "info report" 25px /3fr 1fr;
     padding: 5px;
     border-bottom: 1px solid #BCBCBC;
+}
+.post-detail-title a{
+    justify-content: flex-end;
 }
 .post-title{
     display:flex;
     align-items: center;
-    justify-content: center;
+    justify-content: left;
     grid-area: title;
     word-break: break-all;
     padding-bottom: 5px;
@@ -42,17 +45,22 @@
 .post-info{
     display:flex;
     align-items: center;
-    
     display: flex;
     grid-area: info
 }
-
-.report-icon{
-    grid-area: report;
+.post-info > div{
     display:flex;
+    padding-right: 5px;
     align-items: center;
-    justify-content: flex-end;
 }
+
+.profile-photo{
+    height: 12px;
+    width: 12px;
+}
+
+
+
 .post-content-message{
     min-height: 200px;
 }
@@ -67,14 +75,41 @@
     justify-content: flex-end;
 }
 .comment-title{
+    
     font-weight: normal;
     font-size: 14px;
 }
 .comment-title-wrapper{
     display:flex;
-  
+     padding: 10px 0 10px 0;
+    border-bottom: 1px solid #BCBCBC; 
 }
 .comment{
+    display:flex;
+    flex-direction: column;
     padding: 5px;
-    border-bottom: 1px solid #BCBCBC;   
+   
+}
+
+.comment-detail{
+    display: flex;
+    flex-direction: column;
+
+      padding: 10px 0 10px 0;
+    border-bottom: 1px solid #BCBCBC;
+}
+.comment-writer-wrapper{
+    display:flex;
+    justify-content: space-between;
+}
+.comment-writer{
+    display:flex;
+}
+
+
+.comment-page{
+    display:flex;
+    justify-content: center;
+    padding: 10px 0 10px 0;
+    border-bottom: 1px solid #BCBCBC;
 }
