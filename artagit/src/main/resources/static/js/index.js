@@ -25,9 +25,9 @@ window.addEventListener("load", function(){
 
 {/* <h1>5. 스타일 다루기 : 아이템 이동</h1> */}
 window.addEventListener("load", function(){
-    var section = this.document.querySelector("#s5");
+    var section = this.document.querySelector(".main-banner-box");
 
-    var box = section.querySelector(".box");
+    var box = section.querySelector(".main-banner");
 
     var btnPrev = section.querySelector(".btn-prev");
     var btnNext = section.querySelector(".btn-next");
@@ -50,9 +50,6 @@ window.addEventListener("load", function(){
         
         if(e.target.nodeName != "LI")
             return;
-
-
-        
     }
 
 
