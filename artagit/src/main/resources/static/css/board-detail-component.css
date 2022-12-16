@@ -1,0 +1,137 @@
+.post-detail-header{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    border-bottom: 1px solid #BCBCBC;
+}
+
+
+.current-location{
+    display: flex;
+}
+.current-location > div{
+        padding-right: 10px;
+}
+
+.post-detail-title{
+    display: grid;
+    grid-template: 
+    "title time" 1fr
+    "info report" 25px /3fr 1fr;
+    padding: 5px;
+    border-bottom: 1px solid #BCBCBC;
+}
+.post-detail-title a{
+    justify-content: flex-end;
+}
+.post-title{
+    display:flex;
+    align-items: center;
+    justify-content: left;
+    grid-area: title;
+    word-break: break-all;
+    padding-bottom: 5px;
+}
+.post-reg-time{
+    display:flex;
+    align-items: center;
+    text-justify: flex-end;
+    justify-content:flex-end;
+    grid-area: time;
+    padding-bottom: 5px;
+}
+
+.post-info{
+    display:flex;
+    align-items: center;
+    display: flex;
+    grid-area: info
+}
+.post-info > div{
+    display:flex;
+    padding-right: 5px;
+    align-items: center;
+}
+
+.profile-photo{
+    height: 12px;
+    width: 12px;
+}
+
+
+
+.post-content-message{
+    min-height: 200px;
+}
+
+.post-content{
+    padding: 10px 0 10px 0;
+    border-bottom: 1px solid #BCBCBC;
+}
+
+.like{
+    display:flex;
+    justify-content: flex-end;
+}
+.comment-title{
+    
+    font-weight: normal;
+    font-size: 14px;
+}
+.comment-title-wrapper{
+    display:flex;
+     padding: 10px 0 10px 0;
+    border-bottom: 1px solid #BCBCBC; 
+}
+.comment{
+    display:flex;
+    flex-direction: column;
+    padding: 5px;
+   
+}
+
+.comment-detail{
+    display: flex;
+    flex-direction: column;
+
+      padding: 10px 0 10px 0;
+    border-bottom: 1px solid #BCBCBC;
+}
+.comment-writer-wrapper{
+    display:flex;
+    justify-content: space-between;
+}
+.comment-writer{
+    display:flex;
+}
+
+
+.comment-page{
+    display:flex;
+    justify-content: center;
+    padding: 10px 0 10px 0;
+    border-bottom: 1px solid #BCBCBC;
+}
+
+.re-comment{
+    display:flex;
+}
+
+.re-comment>div:nth-child(2){
+    padding-left: 10px;
+}
+
+.comment-writing{
+    display:flex;
+    
+}
+
+.btn{
+   
+}
+
+textarea{
+    width: 100px;
+    height: 100px;
+}

@@ -1,7 +1,7 @@
 /* :root{
     margin: 10px;
 } */
-
+                             
 .btn{
     padding: .4em .8em;
     color: #fff;
@@ -109,4 +109,15 @@
     border-radius: 10px;
     width: 54px;
     height: 18px;
+}
+.btn-next{
+    position: absolute;
+width: 36px;
+height: 36px;
+left: 81px;
+top: 813px;
+
+border-radius: 10px;
+transform: rotate(-180deg);
+
 }

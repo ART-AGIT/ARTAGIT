@@ -20,17 +20,6 @@ public class ExhibitionController {
 	@Autowired // Field DI (DI 외에 별도로 실행해야 하는 로직이 없는 경우, Field에 Autowired 를 한다.)
 	private ExhibitionService service;
 	
-	public ExhibitionController() {
-
-	}
-
-	public ExhibitionController(ExhibitionService service) {
-		this.service = service;
-	}
-	
-	////////////////// setService 는 안해도 되는건지?
-	
-	
    /********************** 전시등록 시작 **********************/
 	@GetMapping("exh-reg")
 	// 전시 등록 페이지를 불러오는 메서드
@@ -42,11 +31,10 @@ public class ExhibitionController {
 	
 	@PostMapping("exh-reg") // form 양식에 입력한 값들을 exh-reg.html 로 보낸다.
 	// 입력한 정보를 받아 DB에 등록하는 메서드
-	public String reg(Exhibition form){
-		System.out.println("등록한 전시 ===> "+form);
+	public String reg(Exhibition exhibition){
+		System.out.println("등록한 전시 ===> "+ exhibition);
 		
 		// form 에 입력한 값들이 exhibition 객체로 생성된다.
-		Exhibition exhibition = form;
 	    service.reg(exhibition);
 	    
 	    return "redirect:exh-reg";

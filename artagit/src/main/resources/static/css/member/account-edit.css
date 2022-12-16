@@ -1,0 +1,53 @@
+.edit-button-box{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    /* width: 62px;
+    height: 29px; */
+}
+.edit-button-box button{
+    
+}
+.leave-button-box{
+    border: 1px solid #BCBCBC;
+    border-radius: 10px;
+    background-color: #FC93AD;
+
+    font-size: 10px;
+}
+.unregister{
+    display: flex;
+    justify-content: flex-end;
+    padding: 30px;
+}
+.face{
+    /* 일단회원이미지입니다 */
+    border-radius: 70px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-self: center;
+}
+.member-face{
+    display: flex;
+    justify-content: center;
+}
+.member{
+    
+    
+    
+}
+.mem-grade{
+    background-color: #FFBFCF;
+    border-radius: 20px;
+    width: 60px;
+    height: 18px;
+    text-align: center;
+}
+.member-name-grade{
+    
+    display: flex;
+    flex-direction:column;
+    /* justify-content: center; */
+    margin-left: 37%;
+}
