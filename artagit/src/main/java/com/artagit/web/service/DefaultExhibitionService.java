@@ -11,22 +11,13 @@ import com.artagit.web.entity.Exhibition;
 @Service
 public class DefaultExhibitionService implements ExhibitionService {
 	
-	@Autowired
-	private ExhibitionDao exhDao;
-	
-	// 기본생성자
-	public DefaultExhibitionService() {
-
-	}
-	
-	public DefaultExhibitionService(ExhibitionDao exhDao) {
-		this.exhDao = exhDao;
-	}
+	@Autowired // Field DI (DI 외에 별도로 실행해야 하는 로직이 없는 경우, Field에 Autowired 를 한다.)
+	private ExhibitionDao exhDao; // DB를 가져오는 용도
 
 	@Override
-	// 인터페이스를 구현하는 메서드
+	// 전시 등록 메서드
 	public int reg(Exhibition exhibition) {
-		return exhDao.insert(exhibition);
+		exhDao.insert(exhibition);
 	}
 
 	@Override
@@ -39,5 +30,14 @@ public class DefaultExhibitionService implements ExhibitionService {
 		List<Exhibition> list = exhDao.getList(offset, size);
 		
 		return list;
+	}
+
+	@Override
+	// 전시 상세 정보 가져오는 메서드
+	public Exhibition getExhById(int id) {
+		
+		Exhibition exh = exhDao.get(id);
+		
+		return exh;
 	}
 }
