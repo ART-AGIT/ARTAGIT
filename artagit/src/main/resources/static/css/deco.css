@@ -19,9 +19,9 @@
     width: 27px;
     height: 30px;
 
-    padding: .4em 0.8em;
+    /* padding: .4em 0.8em; */
     display: flex; /* 가상 요소 가운데 정렬 */
-    margin-left: auto;
+    margin: auto;
 
     background-color: #494949bd;
     
@@ -35,6 +35,8 @@
     height: 20px;
     mask-size: 23px 26px;
     -webkit-mask-size: 23px 26px;
+
+    box-sizing: border-box;
 }
 
 .deco-ticket-on{
