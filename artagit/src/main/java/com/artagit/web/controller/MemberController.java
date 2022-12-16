@@ -37,9 +37,8 @@ public class MemberController {
 	
 	@PostMapping("signup")
 	public String create(Member form) {
-		Member member = form;
 		
-		service.insertMember(member);
+		service.insertMember(form);
 		return "redirect:signup";
 		
 	}
