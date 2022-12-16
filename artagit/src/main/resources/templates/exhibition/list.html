@@ -46,13 +46,14 @@
             <section class="exhibition-list">
                 <section th:each="list: ${lists}" class="exhibition">
                     <form action="">
-                        <h1 th:text="list.name" >이노니머스 프로젝트</h1>
+                        <h1 th:text="${list.name}" >이노니머스 프로젝트</h1>
                         <div class="exhibition-img-box">
-                            <a href=""><img th:src="list.img"  class="exhibition-img" src="/image/anonymousProject.png" alt=""></a>
+	                    	<input type="hidden" name="exh-id" th:value="${exh.id}">
+                            <a href="detail.html" th:href="detail"><img th:src="list.img"  class="exhibition-img" src="/image/anonymousProject.png" alt=""></a>
                             <a class="icon icon-heart exhibition-heart" href="" style="background-color: #fff;"></a>
                         </div>
-                        <div th:text="list.startDate" class="exhibititon-date">2022.11.25(금) ~ 2023.04.02(일)</div>
-                        <div th:text="list.name" class="exhibition-place">그라운드시소 서촌</div>
+                        <div th:text="${list.startDate}" class="exhibititon-date">2022.11.25(금) ~ 2023.04.02(일)</div>
+                        <div th:text="${list.name}" class="exhibition-place">그라운드시소 서촌</div>
                     </form>
                 </section>
               
