@@ -124,9 +124,14 @@
 
 .comment-writing{
     display:flex;
-
+    
 }
 
 .btn{
-    max-height: 25px;
+   
+}
+
+textarea{
+    width: 100px;
+    height: 100px;
 }
