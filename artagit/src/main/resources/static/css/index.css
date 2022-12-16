@@ -1,0 +1,272 @@
+:root{
+    --color-white: #fff;
+    --color-black: #000;
+    --color-gray: #707070;
+}
+
+body{
+    background-color: var(--color-black);
+    color: var(--color-white);
+    transition: 1s;
+}
+
+body.bg-white{
+    background-color: var(--color-white);
+    color: var(--color-black);
+}
+
+.main-seciton{
+    border-top: 2px solid var(--color-black);
+    padding: 10px 0;
+
+}
+    .main-seciton > h1{
+        padding: 10px 0;
+    }
+
+.main-container{
+    padding: 50px 0;
+}
+
+.main-banner-box .main-banner{
+    height: 600px;
+
+    /* Item-layout */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.main-banner-box .main-banner ul{
+    /* reset */
+    padding: 0;
+    margin: 0;
+
+    /* layout */
+    width: 400px;
+    height: 100%;
+
+    /* item-layout */
+    position: relative;
+
+    display: flex;
+    align-items: center;
+}
+
+.main-banner-box .main-banner li{
+    /* reset */
+    list-style: none;
+
+    /* text */
+    font-weight: bold;
+    font-size: 36px;
+    color: #fff;
+
+    /* layout */
+    position: absolute;
+    box-sizing: border-box;
+    width: 100px;
+    height: 150px;
+    border: 3px solid #fff;
+    border-radius: 10px;
+
+    /* item-layout */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* effect */
+    transition: left 1s, width 1s, height 1s, background-color 1s;
+}
+
+
+.main-banner-box .main-banner li.card-1th{
+    left: 0;
+
+    width: 100px;
+    height: 150px;
+
+
+    z-index: 1;
+}
+
+.main-banner-box .main-banner li.card-2th{
+    left: calc(50% - 60px);
+
+    width: 120px;
+    height: 180px;
+    background-color: blue;
+
+    z-index: 2;
+}
+
+.main-banner-box .main-banner li.card-3th{
+    left: calc(100% - 100px);
+
+    width: 100px;
+    height: 150px;
+    background-color: #00000077;
+
+    z-index: 0;
+}
+
+.main-banner-box .btn-list{
+    position: absolute;
+    bottom: 0;
+}
+.main-banner-box .btn-list>a{
+    color: white;
+}
+
+
+
+/* .main-banner{
+    height: 600px;
+}
+
+.main-banner>ul{
+    display: flex;
+    height: 100%;
+    position: relative;
+
+    align-items: center;
+    justify-content: center;
+
+
+}
+.main-banner>ul>li{
+    position: absolute;
+}
+.img-1{
+    left: 0;
+}
+.img-2{
+    left: 25%;
+}
+.img-3{
+    left: 50%;
+}
+.main-banner>ul>li img{
+    width: 200px;
+    height: 270px;
+} */
+
+
+.main-community-section{
+    border-bottom: 1px solid #fff;
+}
+.main-list-box{
+    width: 100%;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+.main-list-box>div{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+}
+.main-list{
+    min-width: 180px;
+    height: 200px;
+    border: 1px solid var(--color-gray);
+
+    flex-shrink: 1;
+}
+    .main-list>h1{
+        padding: 10px 0;
+        border-bottom: 0.3px solid var(--color-gray);
+    }
+    .main-list>div{
+        padding: 10px 0;
+    }
+
+/* ============================================================ */
+.exhibition-list{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+    
+}
+.exhibition{
+    padding: 5px;
+    border: 1px solid #707070;
+
+    flex-shrink: 1;
+
+}
+.exhibition form{
+    position: relative;
+    display: grid;
+    grid-template: 
+    "img " 240px
+    "title" 24px
+    "date" 20px
+    "place" 20px
+    / 1fr;
+
+    justify-items: center;
+
+
+}
+    .exhibition form>h1{
+        grid-area: title;
+        font-size: 16px;
+
+        justify-self: center;
+        align-self: center;
+    }
+    .exhibition-img-box{
+        grid-area: img;
+        position: relative;
+
+        justify-self: center;
+        align-self: center;
+        
+ 
+    }
+        .exhibition-img{
+            width: 100%;
+            height: 100%;
+
+            transition: .5s;
+            
+        }
+
+        .exhibition-heart{
+            position: absolute;
+            z-index: 1;
+
+            right: 0px;
+            bottom: 0px;
+        }
+
+    .exhibititon-date{
+        grid-area: date;
+        font-size: 12px;
+
+        justify-self: center;
+        align-self: center;
+    }
+    .exhibition-place{
+        grid-area: place;
+
+        font-size: 12px;
+
+        justify-self: center;
+        align-self: center;
+    }
+/* ========================================================= */
+
+@media (min-width: 992px) {
+    .exhibition-list{
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .main-list-box>div{
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+
+}
+

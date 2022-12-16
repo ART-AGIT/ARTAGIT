@@ -7,13 +7,19 @@
     /* flex-direction: row; */
     /* align-items: center; */
 }
+
 .menu-list > li{
     display: flex;
     justify-self: center;
-    margin:0;
+    margin: right 10px;;
     padding:0;
 }
 
 .menu-box{
     padding : 20px;
+}
+.menu-box > ul{
+    
+    display: flex;
+   margin-left: 120px;
 }

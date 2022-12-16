@@ -5,19 +5,28 @@
     width: 100%;
     height: 50px;
     background-color: #fff;
+
+    z-index: 999;
 }
 .header-wrapper{
+    height: 100%;
     display: flex;
     flex-direction: column;
+    /* justify-content: center; */
 }
 .header-box{
+    
     display: flex;
+    align-items: center;
     justify-content: space-between;
     padding: 5px 15px;
 }
     .header-box div{
         align-self: center;
     }
+.logo>a{
+    color: #FF6C9E;
+}
 
 
 
@@ -56,4 +65,8 @@
     padding: 5px;
     display: block;
     margin: 0;
+}
+
+main{
+    padding-top: 50px;
 }

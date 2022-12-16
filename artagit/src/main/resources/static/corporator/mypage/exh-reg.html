@@ -10,6 +10,7 @@
     <link href="../../css/deco.css" type="text/css" rel="stylesheet">
     <link href="../../css/style.css" type="text/css" rel="stylesheet">
 
+    <link href="../../css/mypage-menu-component.css" type="text/css" rel="stylesheet">
     <link href="../../css/reg-component.css" type="text/css" rel="stylesheet">
     <link href="../../css/icon.css" type="text/css" rel="stylesheet">
     <link href="../../css/button.css" type="text/css" rel="stylesheet">
@@ -26,6 +27,7 @@
 </head>
 
 <script src="../../js/header-menu.js"></script>
+
 <body>
     <header class="header">
         <section class="header-wrapper">
@@ -63,31 +65,15 @@
 
     <main>
         <!-- <div class="menu-list"> -->
-        <div class="my">
-            <div>
-                <div>
-
-                    <a class="icon icon-ticket" href=""></a>
-                        <!-- <img src="../../image/전시등록수정.svg"> -->
-                        
-                </div>
-                <div class="myexh ">나의 등록전시</div> 
-            </div>
-
-            <div>
-                <div>
-
-                    <a class="icon icon-smile" href=""></a>   
-                        <!-- <img src="../../image/회원정보수정.svg"> -->
-                </div>
-
-                    <div class="">회원정보수정</div>
-            </div>
+        <div class="menu-box">
+            <ul class="menu-list">
+                <li><a class="deco deco-ticket" href="">나의 등록전시</a></li>
                 
-           
+                <li><a class="deco deco-smile" href="">회원 정보수정</a></li>
+            </ul>
         </div>
-        <!-- </div> -->
         <hr>
+        
         <div class="step">
 
             <div class="circle">
@@ -108,7 +94,7 @@
         </div>
 
         <section class="reg-list">
-            
+
             <div class="reg-list-input-box">
                 <label for="">전시명</label>
                 <input type="text" class="input input-lg">
@@ -147,22 +133,28 @@
                     <input type="time" class="input input-sm">
                 </div>
             </div>
-            <div class="reg-list-input-box">
-                <label for="">관람료</label>
-                <div>
-                    <input type="number" class="input input-md">
-                    <span>(단위: 원)</span>
+            <div class="price-count">
+                <div class="reg-list-input-box">
+                    <label for="">관람료</label>
+                    <div>
+                        <input type="number" class="input input-md">
+                        <span>(단위: 원)</span>
+                    </div>
                 </div>
-            </div>
-            <div class="reg-list-input-box">
-                <label for="">재고</label>
-                <div>
-                    <input type="number" class="input input-md" placeholder="(무제한: 9999장)">
-                    <span>(단위: 장)</span>
+                <div class="reg-list-input-box">
+                    <label for="">재고</label>
+                    <div>
+                        <input type="number" class="input input-md" placeholder="(무제한: 9999장)">
+                        <span>(단위: 장)</span>
+                    </div>
                 </div>
             </div>
         </section>
-    
+
+        <div class="exh-reg-button-box">
+            <button type="submit" class="btn "></button>
+        </div>
+
         <div class="step">
 
             <div class="circle">
@@ -181,9 +173,9 @@
             </div>
 
         </div>
-    
+
         <section class="reg-list">
-            
+
             <div class="reg-list-input-box">
                 <label for="">주최</label>
                 <input type="text" class="input input-lg">
@@ -196,10 +188,10 @@
                 <label for="">전화번호</label>
                 <input type="tel" class="input input-lg">
             </div>
-            
+
         </section>
-    
-    
+
+
         <div class="step">
 
             <div class="circle">
@@ -218,24 +210,24 @@
             </div>
 
         </div>
-    
+
         <section class="reg-list">
-           
+
             <div class="reg-list-input-box">
                 <label for="">전시설명</label>
                 <textarea class="input" id="" name="" rows="15" cols="10" placeholder="내용을 입력해주세요."></textarea>
             </div>
             <div class="reg-list-input-box">
                 <label for="">포스터 이미지</label>
-                <input type="file" class="input input-sm">
+                <input type="file" class="input input-lg">
             </div>
             <div class="reg-list-input-box">
                 <label for="">상세 이미지</label>
-                <input type="file" class="input input-sm">
+                <input type="file" class="input input-lg">
             </div>
-            
+
         </section>
-        
+
 
     </main>
 </body>
