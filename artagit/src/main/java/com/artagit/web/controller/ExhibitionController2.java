@@ -19,22 +19,6 @@ public class ExhibitionController2 {
 	@Autowired
 	private ExhibitionService service;
 	
-	public ExhibitionController2() {
-
-	}
-
-	public ExhibitionController2(ExhibitionService service) {
-		this.service = service;
-	}
-
-//	@GetMapping("list")
-//	public String getList(Model model) {
-//		
-//		List<Exhibition> lists = service.getList(0);
-//		model.addAttribute("lists", lists);
-//		
-//		return "exhibition/list";
-//	}
 	
 	/********************** 전시조회 시작 **********************/
 	@GetMapping("list")
@@ -42,8 +26,8 @@ public class ExhibitionController2 {
 			@RequestParam(defaultValue = "1", name = "p") int page,
 			Model model) {
 		
-		List<Exhibition> list = service.getList(page);
-		model.addAttribute("list", list);
+		List<Exhibition> lists = service.getList(page);
+		model.addAttribute("lists", lists);
 		
 		return "exhibition/list";
 	}
