@@ -3,10 +3,13 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     margin: 0;
+
+    
     /* justify-content: space-around; */
     /* flex-direction: row; */
     /* align-items: center; */
 }
+
 .menu-list > li{
     display: flex;
     justify-self: center;
@@ -22,3 +25,9 @@
     display: flex;
    margin-left: 120px;
 }
+
+/* .mypage-menu-list {
+    padding: 30px 5px 0px 5px;
+    display: flex;
+    justify-content: space-around;
+} */
