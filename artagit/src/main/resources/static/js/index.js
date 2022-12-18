@@ -23,46 +23,45 @@ window.addEventListener("load", function(){
 })
 
 
-{/* <h1>5. 스타일 다루기 : 아이템 이동</h1> */}
 window.addEventListener("load", function(){
     var section = this.document.querySelector(".main-banner-box");
 
     var box = section.querySelector(".main-banner");
 
-    var btnPrev = section.querySelector(".btn-prev");
-    var btnNext = section.querySelector(".btn-next");
+    var btnPrev = section.querySelector(".btn-prev-img");
+    var btnNext = section.querySelector(".btn-next-img");
 
     var lis = section.querySelectorAll("li");
 
     var offIndex = 0;
 
-    box.onclick = function(e){
-        e.preventDefault();
-        e.stopPropagation();
+    // box.onclick = function(e){
+    //     e.preventDefault();
+    //     e.stopPropagation();
 
-        // offIndex++;
+    //     offIndex++;
 
-        var size = lis.length;
+    //     var size = lis.length;
 
-        lis[(0+offIndex)%size].className="card-1th";
-        lis[(1+offIndex)%size].className="card-2th";
-        lis[(2+offIndex)%size].className="card-3th";
+    //     lis[(0+offIndex)%size].className="img-1";
+    //     lis[(1+offIndex)%size].className="img-2";
+    //     lis[(2+offIndex)%size].className="img-3";
         
-        if(e.target.nodeName != "LI")
-            return;
-    }
-
-
+    //     if(e.target.nodeName != "LI")
+    //         return;
+    // }
 
     btnPrev.onclick = function(e){
         e.preventDefault();
 
-        offIndex++;
+        offIndex--;
+        if(offIndex<0)
+            offIndex=3;
 
         var size = lis.length;
-        lis[(0+offIndex)%size].className="card-1th";
-        lis[(1+offIndex)%size].className="card-2th";
-        lis[(2+offIndex)%size].className="card-3th";
+        lis[(0+offIndex)%size].className="img-1";
+        lis[(1+offIndex)%size].className="img-2";
+        lis[(2+offIndex)%size].className="img-3";
 
         
 
@@ -75,9 +74,9 @@ window.addEventListener("load", function(){
         offIndex++;
 
         var size = lis.length;
-        lis[(0+offIndex)%size].className="card-1th";
-        lis[(1+offIndex)%size].className="card-2th";
-        lis[(2+offIndex)%size].className="card-3th";
+        lis[(0+offIndex)%size].className="img-1";
+        lis[(1+offIndex)%size].className="img-2";
+        lis[(2+offIndex)%size].className="img-3";
 
         console.log("다음");
     }
