@@ -1,21 +1,25 @@
+/* header */
 .header{
+    --color-background: #FDFBF9;
+
     position: fixed;
-    top: 0;
+    top:  0;
     left: 0;
     width: 100%;
     height: 50px;
-    background-color: #fff;
+    background-color: var(--color-background);
 
     z-index: 999;
 }
 .header-wrapper{
-    height: 100%;
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
+    
+    justify-content: center;
 }
 .header-box{
-    
+    line-height: 40px;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -24,24 +28,24 @@
     .header-box div{
         align-self: center;
     }
+/* logo 색 */
 .logo>a{
     color: #FF6C9E;
 }
+/* ===== pc버젼 header 숨기기 ===== */
+.header-pc{
+    display: none;
+}
 
-
-
-
-
+/* -----------햄버거버튼 눌렀을 때------------- */
 .sub-menu-box{
     display: none;
     padding: 5px 15px;
-    background-color: #fff;
+    background-color: var(--color-background);
 }
     .sub-menu-box.show{
         display: block;
-        /* padding: 5px 15px; */
-        z-index: 1;
-        
+        z-index: 999;
     }
 .sub-menu{
     display: flex;
@@ -61,12 +65,216 @@
     align-items: flex-end;
 }
 .sub-menu li{
-    color: #fff;
+    color: var(--color-background);
     padding: 5px;
     display: block;
     margin: 0;
 }
-
+/* ----- fixed 때문에 윗부분이 가려져, main 부분에 padding 줌 ----------- */
 main{
     padding-top: 50px;
 }
+
+
+
+/* -------------------------------------------------------------------------- */
+
+@media (min-width: 992px) {
+    .header{
+        display: none;
+        z-index: 999;
+    }
+
+    .header-pc{
+        display: block;
+        /* padding-top: 40px; */
+        width: 100%;
+        background-color: #FDFBF9;
+        
+        position: fixed;
+        z-index: 10;
+    }
+    
+    .content-box{
+        height: 100px;
+    
+        border-bottom: 1px solid black;
+        padding: 0 20px;
+        margin: 0 auto;
+    
+        display: flex;
+        align-items: center;
+        top: 0;
+        left: 0;
+    
+        justify-content: space-between;
+    
+    }
+        .content-box>section{
+            display: inline-block;
+        }
+    
+        .main-menu{
+            width: 500px;
+            height: 50px;
+            margin: 0 auto;
+            display: inline-block;
+            justify-items: center;
+            align-items: center;
+        
+        }
+            .main-menu>ul{
+                height: 100%;
+                display: flex;
+                align-items: center;
+            }
+            .main-menu>ul>li {
+                display: inline-block; 
+                line-height: 50px;
+                width: 100%;
+                height: 100%;
+                text-align: center;
+            }
+            .main-menu>ul>li>a{
+                height: 100%;
+                width: 100%;
+                display: inline-block;
+            }
+            .main-menu>ul>li:hover>a{
+                cursor: pointer;
+                background-color:#F7A7BB;
+                color: #fff;
+                transition: 1s;
+            }
+                .main-menu>ul>li:hover>.sub-menu{
+                    display: block;
+        
+                    cursor: pointer;
+                    background-color:#F7A7BB;
+                    color: #fff;
+
+                    transition: 1s;
+                }
+                .sub-menu{
+                    display: none;
+                    padding: 0;
+        
+                    position: relative;
+                    z-index: 10;
+                }
+                .sub-menu>li{
+        
+                }
+                .sub-menu a{
+                    display: block;
+                    padding: 10px 0;
+                }
+                .sub-menu a:hover{
+                    text-decoration: underline;
+        
+                }
+    
+                
+                /* .nav-search{
+                    display: flex;
+                    display: block;
+                }
+                .nav-search:hover>div{
+                    top: 0px;
+                    transition: 1s;
+    
+                    top:-200px;
+                    display: hidden;
+    
+                }
+                    .main-menu>ul>li>div{
+                    position: relative;
+                    border: 1px solid black;
+                    width: 140px;
+                    height: 40px;
+                    }
+                    .search{
+                        width: 100%;
+                        height: 100%;
+                        border-radius: 24px;
+                        
+    
+                        padding: 10px;
+    
+                        background-image: url(../image/icons/search.svg);
+                        background-repeat: no-repeat;
+                        background-position: right 8px center;
+    
+                        position: absolute;
+                        top:-200px;
+    
+                        display: hidden;
+                    } */
+    
+                    /*기본 팝업*/
+                    .nav-search:hover .search{
+                        display: block;
+                        top: 0px;
+                        transition: 1s;
+        
+                    }
+                    .main-menu>ul>li>div{
+                    position: relative;
+                    }
+                    .search{
+                        width: 160px;
+                        height: 40px;
+                        border-radius: 24px;
+                        
+    
+                        padding: 10px;
+    
+                        background-image: url(../image/icons/search.svg);
+                        background-repeat: no-repeat;
+                        background-position: right 8px center;
+    
+                        position: absolute;
+                        top:-200px;
+    
+                        display: hidden;
+                    }
+    
+                /* .search-container.show{
+                    display: block;
+                    top: 0px;
+                    transition: 1s;
+    
+                    z-index: 2;
+                }
+                .search-container{
+                    position: absolute;
+                    width: 1300px;
+                    height: 100px;
+                    
+                    display: none;
+    
+                    top: 0px;
+                }
+    
+                .search-container .box{       
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+    
+                .search{
+                    width: 100%;
+                    height: 48px;
+                    position: relative;
+    
+                    padding: 13px 15px;
+    
+                    font-size: 24px;
+                    
+                } */
+                
+    
+    
+}
+
+

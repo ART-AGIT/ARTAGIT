@@ -1,0 +1,70 @@
+.text {
+    color: #545454;
+}
+
+.pay-state {
+    color: #FF5171;
+    font-weight: bold;
+}
+
+.text-box {
+    font-size: 13px;
+}
+
+form {
+    border-top: 1.5px solid rgba(157, 157, 157, 0.353);
+    padding-top: 15px;
+}
+
+.pay-list form {
+    margin: 15px 0;
+    display: grid;
+    grid-template: "img state" 50px
+                    "img title" 23px
+                    "img place" 18px
+                    "img date" 18px
+                    "img btn" 55px / 170px;
+}
+
+.exh-img-box {
+    grid-area: img;
+}
+
+.pay-state {
+    grid-area: state;
+    justify-self: start;
+    align-self: end;
+}
+
+.exh-title {
+    grid-area: title;
+    justify-self: start;
+    align-self: end;
+}
+
+.exh-place {
+    grid-area: place;
+    justify-self: start;
+    align-self: center;
+}
+
+.exh-date {
+    grid-area: date;
+    justify-self: start;
+    align-self: center;
+}
+
+.button-list {
+    grid-area: btn;
+    /* display: inline-flex; */
+    align-self: end;
+    justify-self: start;
+}
+
+.exh-img {
+    margin-left: 10px;
+}
+
+.btn-default-fill {
+    margin-right: 5px;
+}
