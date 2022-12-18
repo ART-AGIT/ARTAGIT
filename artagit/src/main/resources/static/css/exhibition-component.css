@@ -75,7 +75,7 @@
     }
 /* ========================================================= */
 
-@media (min-width: 768px) {
+@media (min-width: 992px) {
     .exhibition-list{
         grid-template-columns: repeat(3, 1fr);
     }
