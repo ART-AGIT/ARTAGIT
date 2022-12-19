@@ -30,7 +30,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 5px 15px;
+    padding: 0px 15px;
 }
     .header-box div{
         align-self: center;
@@ -48,7 +48,7 @@
 .sub-menu-box{
     height: 0;
     overflow: hidden;
-    padding: 5px 15px;
+    padding: 0px 15px;
     background-color: var(--color-background);
 
     transition: 1s;
@@ -83,7 +83,7 @@
 }
 /* ----- fixed 때문에 윗부분이 가려져, main 부분에 padding 줌 ----------- */
 main{
-    padding-top: 50px;
+    padding-top: 70px;
     /* effect */
     transition: 1s;
 }   
