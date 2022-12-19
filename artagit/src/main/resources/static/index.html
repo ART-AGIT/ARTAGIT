@@ -15,7 +15,7 @@
     
     <link href="css/header.css" type="text/css" rel="stylesheet">
     <link href="css/footer.css" type="text/css" rel="stylesheet">
-    <link href="css/exhibition-component.css" type="text/css" rel="stylesheet">
+    <link href="css/component/exhibition-list.css" type="text/css" rel="stylesheet">
     <link href="css/index.css" type="text/css" rel="stylesheet">
 
     <link href="css/utils.css" type="text/css" rel="stylesheet">
@@ -71,17 +71,17 @@
                     <h1 class="d-none">목록선택</h1>
                     <ul>
                         <li>
-                            <a href="/exhibition/list.html">전시</a>
+                            <a href="exhibition/list.html">전시</a>
                             <ul class="sub-menu">
-                                <li><a href="">진행 전시</a></li>
-                                <li><a href="">전시 예정</a></li>
+                                <li><a href="exhibition/list.html">진행 전시</a></li>
+                                <li><a href="exhibition/list.html">전시 예정</a></li>
                             </ul>
                         </li>
                         <li>
-                            <a href="">커뮤니티</a>
+                            <a href="board/list.html">커뮤니티</a>
                             <ul class="sub-menu">
-                                <li><a href="">-</a></li>
-                                <li><a href="">-</a></li>
+                                <li><a href="board/list.html">-</a></li>
+                                <li><a href="board/list.html">-</a></li>
                             </ul>
                         </li>
                         <li class="search-btn">
@@ -91,7 +91,7 @@
                                 <!-- <img src="../image/icons/search.svg" alt=""> -->
                             </div>
                         </li>
-                        <li><a href="">로그인</a></li>
+                        <li><a href="login.html">로그인</a></li>
                     </ul>
 
                 </nav>
@@ -106,9 +106,9 @@
             <h1 class="d-none">메인배너</h1>
             <div class="main-banner">
                 <ul>
-                    <li class="img-1"><a href=""><img src="image/anonymousProject.png" alt=""></a></li>
-                    <li class="img-2"><a href=""><img src="image/anonymousProject.png" alt=""></a></li>
-                    <li class="img-3"><a href=""><img src="image/anonymousProject.png" alt=""></a></li>
+                    <li class="img-1"><a href="exhibition/detail.html"><img src="image/anonymousProject.png" alt=""></a></li>
+                    <li class="img-2"><a href="exhibition/detail.html"><img src="image/anonymousProject.png" alt=""></a></li>
+                    <li class="img-3"><a href="exhibition/detail.html"><img src="image/anonymousProject.png" alt=""></a></li>
                 </ul>
                 <div class="btn-list">
                     <a class="btn-prev-img" href="">이전</a>
@@ -122,27 +122,29 @@
 
         <section class="main-seciton main-community-section">
             <h1>커뮤니티 글</h1>
-            <div class="main-list-box">
+            <div class="main-community-box">
                 <div>
-                    <section class="main-list">
-                        <h1>Entity...</h1>
-                        <div>
-                            <span>노래 추천합니다. 르세라핌 - antifragile</span>
-                        </div>
-                    </section>
-                    <section class="main-list">
+                    <a href="board/list.html">
+                        <section class="main-community">
+                            <h1>Entity...</h1>
+                            <div>
+                                <span>노래 추천합니다. 르세라핌 - antifragile</span>
+                            </div>
+                        </section>
+                    </a>
+                    <section class="main-community">
                         <h1>회원님들 그만 싸우세요</h1>
                         <div>
                             <span>제발 그만 싸우세요</span>
                         </div>
                     </section>
-                    <section class="main-list">
+                    <section class="main-community">
                         <h1>BIGWAVE</h1>
                         <div>
                             <span>피하지마</span>
                         </div>
                     </section>
-                    <section class="main-list">
+                    <section class="main-community">
                         <h1>설빙</h1>
                         <div>
                             <span>같이가요</span>
@@ -160,7 +162,7 @@
                     <form action="">
                         <h1>이노니머스 프로젝트</h1>
                         <div class="exhibition-img-box">
-                            <a href=""><img class="exhibition-img" src="/image/anonymousProject.png" alt=""></a>
+                            <a href="exhibition/detail.html"><img class="exhibition-img" src="/image/anonymousProject.png" alt=""></a>
                             <a class="icon icon-heart exhibition-heart" href="" style="background-color: #fff;"></a>
                         </div>
                         <div class="exhibititon-date">2022.11.25(금) ~ 2023.04.02(일)</div>
@@ -171,7 +173,7 @@
                     <form action="">
                         <h1>이노니머스 프로젝트</h1>
                         <div class="exhibition-img-box">
-                            <a href=""><img class="exhibition-img" src="/image/anonymousProject.png" alt=""></a>
+                            <a href="exhibition/detail.html"><img class="exhibition-img" src="/image/anonymousProject.png" alt=""></a>
                             <a class="icon icon-heart exhibition-heart" href="" style="background-color: #fff;"></a>
                         </div>
                         <div class="exhibititon-date">2022.11.25(금) ~ 2023.04.02(일)</div>
@@ -182,7 +184,7 @@
                     <form action="">
                         <h1>이노니머스 프로젝트</h1>
                         <div class="exhibition-img-box">
-                            <a href=""><img class="exhibition-img" src="/image/anonymousProject.png" alt=""></a>
+                            <a href="exhibition/detail.html"><img class="exhibition-img" src="/image/anonymousProject.png" alt=""></a>
                             <a class="icon icon-heart exhibition-heart" href="" style="background-color: #fff;"></a>
                         </div>
                         <div class="exhibititon-date">2022.11.25(금) ~ 2023.04.02(일)</div>
@@ -193,7 +195,7 @@
                     <form action="">
                         <h1>이노니머스 프로젝트</h1>
                         <div class="exhibition-img-box">
-                            <a href=""><img class="exhibition-img" src="/image/anonymousProject.png" alt=""></a>
+                            <a href="exhibition/detail.html"><img class="exhibition-img" src="/image/anonymousProject.png" alt=""></a>
                             <a class="icon icon-heart exhibition-heart" href="" style="background-color: #fff;"></a>
                         </div>
                         <div class="exhibititon-date">2022.11.25(금) ~ 2023.04.02(일)</div>
@@ -209,7 +211,7 @@
                     <form action="">
                         <h1>이노니머스 프로젝트</h1>
                         <div class="exhibition-img-box">
-                            <a href=""><img class="exhibition-img" src="/image/anonymousProject.png" alt=""></a>
+                            <a href="exhibition/detail.html"><img class="exhibition-img" src="/image/anonymousProject.png" alt=""></a>
                             <a class="icon icon-heart exhibition-heart" href="" style="background-color: #fff;"></a>
                         </div>
                         <div class="exhibititon-date">2022.11.25(금) ~ 2023.04.02(일)</div>
@@ -220,7 +222,7 @@
                     <form action="">
                         <h1>이노니머스 프로젝트</h1>
                         <div class="exhibition-img-box">
-                            <a href=""><img class="exhibition-img" src="/image/anonymousProject.png" alt=""></a>
+                            <a href="exhibition/detail.html"><img class="exhibition-img" src="/image/anonymousProject.png" alt=""></a>
                             <a class="icon icon-heart exhibition-heart" href="" style="background-color: #fff;"></a>
                         </div>
                         <div class="exhibititon-date">2022.11.25(금) ~ 2023.04.02(일)</div>
@@ -231,7 +233,7 @@
                     <form action="">
                         <h1>이노니머스 프로젝트</h1>
                         <div class="exhibition-img-box">
-                            <a href=""><img class="exhibition-img" src="/image/anonymousProject.png" alt=""></a>
+                            <a href="exhibition/detail.html"><img class="exhibition-img" src="/image/anonymousProject.png" alt=""></a>
                             <a class="icon icon-heart exhibition-heart" href="" style="background-color: #fff;"></a>
                         </div>
                         <div class="exhibititon-date">2022.11.25(금) ~ 2023.04.02(일)</div>
@@ -242,7 +244,7 @@
                     <form action="">
                         <h1>이노니머스 프로젝트</h1>
                         <div class="exhibition-img-box">
-                            <a href=""><img class="exhibition-img" src="/image/anonymousProject.png" alt=""></a>
+                            <a href="exhibition/detail.html"><img class="exhibition-img" src="/image/anonymousProject.png" alt=""></a>
                             <a class="icon icon-heart exhibition-heart" href="" style="background-color: #fff;"></a>
                         </div>
                         <div class="exhibititon-date">2022.11.25(금) ~ 2023.04.02(일)</div>
@@ -257,7 +259,7 @@
         <h1 class="d-none">footer</h1>
         <div class="footer-inf">
             <div class="footer-btn-list">
-                <a class="btn btn-rec btn-default-line footer-btn" href="">로그인</a>
+                <a class="btn btn-rec btn-default-line footer-btn" href="login.html">로그인</a>
                 <a class="btn btn-rec btn-default-line footer-btn" href="">PC버전</a>
             </div>
             <h1>ARTAGIT</h1>

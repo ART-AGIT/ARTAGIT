@@ -1,14 +1,11 @@
 .text {
     color: #545454;
+    /* font-size: 13px; */
 }
 
 .pay-state {
     color: #FF5171;
-    font-weight: bold;
-}
-
-.text-box {
-    font-size: 13px;
+    font-weight: 600;
 }
 
 form {
@@ -19,6 +16,8 @@ form {
 .pay-list form {
     margin: 15px 0;
     display: grid;
+    justify-content: start;
+    align-items: end;
     grid-template: "img state" 50px
                     "img title" 23px
                     "img place" 18px
@@ -32,33 +31,23 @@ form {
 
 .pay-state {
     grid-area: state;
-    justify-self: start;
-    align-self: end;
+    font-size: 14px;
 }
 
 .exh-title {
     grid-area: title;
-    justify-self: start;
-    align-self: end;
 }
 
 .exh-place {
     grid-area: place;
-    justify-self: start;
-    align-self: center;
 }
 
 .exh-date {
     grid-area: date;
-    justify-self: start;
-    align-self: center;
 }
 
 .button-list {
     grid-area: btn;
-    /* display: inline-flex; */
-    align-self: end;
-    justify-self: start;
 }
 
 .exh-img {
@@ -66,5 +55,6 @@ form {
 }
 
 .btn-default-fill {
+    font-weight: 200;
     margin-right: 5px;
 }
