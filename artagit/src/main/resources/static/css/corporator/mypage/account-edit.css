@@ -1,3 +1,4 @@
+
 body{
     padding-top: 50px;
 }
@@ -10,8 +11,16 @@ body{
     padding-bottom: 18px;
 
 }
+.reg-list-input-box{
+    padding-bottom: 18px;
+    gap:4px;
+}
 .reg-list-input-box>div{
     gap: 34px;
+}
+
+.reg-list-input-box>label{
+    padding:0;
 }
 
 .reg-button-box{
@@ -21,20 +30,32 @@ body{
     gap : 20px;
 }
 
+.unregister{
+    display: flex;
+    justify-content: end;
+    padding-top : 100px;
+    
+}
+
+
+
 /*  */
 .toggle{
     display: flex;
     margin-top: 10px;
+    margin-bottom: 9px;
     /* text-align: center; */
     border: 1px solid #414141;
     border-radius: 70px;
     line-height : 37px;
     align-items: center;
+    
 }
 .toggle > h1{
     font-size: 16px;
     padding-left: 10px;
     padding-right: 170px;
+    
     /* line-height : 37px; */
     
 }
@@ -59,6 +80,11 @@ body{
 .img{
    display: flex;
    justify-content: center;
+
+   margin-top: 9px;
+
+   width: 100%;
+   height: 100%;
 }
 
 .img-edit{
@@ -68,6 +94,17 @@ body{
     position: absolute;
     bottom: 0;
     right: 0;
+    
+}
+
+.exh-name{
+    font-size: 18px;
+    font-weight: 600;
+    /* justify-content: center; */
+
+    padding : 7px 0;
+    margin: auto;
+    text-align: center;
     
 }
 
@@ -81,9 +118,8 @@ body{
     height: 18px;
 
     text-align: center;
+    margin: auto;
+
 }
 
-.exh-name{
-    font-size: 18px;
-    font-weight: 600;
-}
+

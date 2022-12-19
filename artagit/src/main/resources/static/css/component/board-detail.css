@@ -87,7 +87,7 @@
 .comment{
     display:flex;
     flex-direction: column;
-    padding: 5px;
+   
    
 }
 
@@ -101,6 +101,7 @@
 .comment-writer-wrapper{
     display:flex;
     justify-content: space-between;
+    align-items: center;
 }
 .comment-writer{
     display:flex;
@@ -124,14 +125,30 @@
 
 .comment-writing{
     display:flex;
-    
+    height: 60px;
+    padding-top: 10px;
+    justify-content: space-around;
 }
 
 .btn{
-   
+    width: 45px;
+    height: 26px;
 }
 
 textarea{
-    width: 100px;
-    height: 100px;
+    resize:none;
+    width: 75%;
+    height: 53px;
+    border-radius: 10px;
+    border: 1px solid #BCBCBC;
+}
+
+.profile-photo{
+    display:flex;
+    align-self:center;
+}
+
+.comment-writing >img{
+    height: 24px;
+    width: 24px;
 }

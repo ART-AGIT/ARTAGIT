@@ -83,7 +83,7 @@ body.bg-white{
 }
 
 
-.main-banner-box .main-banner li.card-1th{
+.main-banner-box .main-banner li.img-1{
     left: 0;
 
     width: 100px;
@@ -93,22 +93,20 @@ body.bg-white{
     z-index: 1;
 }
 
-.main-banner-box .main-banner li.card-2th{
-    left: calc(50% - 60px);
+.main-banner-box .main-banner li.img-2{
+    left: calc(50% - 200px);
 
-    width: 120px;
-    height: 180px;
-    background-color: blue;
+    width: 400px;
+    height: 550px;
 
     z-index: 2;
 }
 
-.main-banner-box .main-banner li.card-3th{
+.main-banner-box .main-banner li.img-3{
     left: calc(100% - 100px);
 
     width: 100px;
     height: 150px;
-    background-color: #00000077;
 
     z-index: 0;
 }
@@ -120,6 +118,15 @@ body.bg-white{
 .main-banner-box .btn-list>a{
     color: white;
 }
+.main-banner ul a{
+    width: 100%;
+    height: 100%;
+}
+.main-banner ul img{
+    width: 100%;
+    height: 100%;
+}
+
 
 .main-community-section{
     border-bottom: 1px solid #fff;

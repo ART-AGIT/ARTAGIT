@@ -10,7 +10,14 @@
     background-color: var(--color-background);
 
     z-index: 999;
-}
+
+    /* effect */
+    transition: 1s;
+}   
+    /* 서브메뉴 눌렸을 때, 헤더 높이 늘리기 */
+    .header.show{
+        height: 140.4px;
+    }
 .header-wrapper{
     display: flex;
     flex-direction: column;
@@ -39,12 +46,16 @@
 
 /* -----------햄버거버튼 눌렀을 때------------- */
 .sub-menu-box{
-    display: none;
+    height: 0;
+    overflow: hidden;
     padding: 5px 15px;
     background-color: var(--color-background);
-}
+
+    transition: 1s;
+}   
+    /* 서브메뉴 보여주기 */
     .sub-menu-box.show{
-        display: block;
+        height: 90.4px;
         z-index: 999;
     }
 .sub-menu{
@@ -73,7 +84,13 @@
 /* ----- fixed 때문에 윗부분이 가려져, main 부분에 padding 줌 ----------- */
 main{
     padding-top: 50px;
-}
+    /* effect */
+    transition: 1s;
+}   
+    /* 서브메뉴 눌렸을 때, 메인 밀기 */
+    main.show{
+        padding-top: 140.4px; 
+    }
 
 
 
@@ -161,9 +178,6 @@ main{
         
                     position: relative;
                     z-index: 10;
-                }
-                .sub-menu>li{
-        
                 }
                 .sub-menu a{
                     display: block;
@@ -272,6 +286,11 @@ main{
                     font-size: 24px;
                     
                 } */
+
+/* ----- fixed 때문에 윗부분이 가려져, main 부분에 padding 줌 ----------- */
+main{
+    padding-top: 100px;
+}
                 
     
     

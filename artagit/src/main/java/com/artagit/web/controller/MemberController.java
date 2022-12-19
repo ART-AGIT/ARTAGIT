@@ -91,11 +91,14 @@ public class MemberController {
 	
 =======
 	public String create(Member form) {
-		Member member = form;
 		
-		service.insertMember(member);
+		service.insertMember(form);
 		return "redirect:signup";
 		
 	}
+<<<<<<< HEAD
+}
+=======
 >>>>>>> dev
 }
+>>>>>>> dev
