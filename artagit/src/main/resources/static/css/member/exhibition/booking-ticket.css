@@ -7,13 +7,13 @@ table {
     border-bottom: 1px solid rgb(218, 218, 218);
 }
 
-h1 {
-    font-size: 19px;
+main h1 {
+    font-size: 18px;
     color: #F7A7BB;
     margin: 0 0 10px 38px;
 }
 
-section {
+main section {
     margin-top: 25px;
 }
 

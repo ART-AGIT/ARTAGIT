@@ -18,7 +18,7 @@
 
 .btn-default-fill{
     background-color: #FF6C9E;
-    border: 0.3px solid #FC93AD;
+    border: 0.3px solid #FF6C9E;
 }
 
 .btn-default-fill-off{
@@ -27,7 +27,7 @@
 }
 
 .btn-default-line{
-    border: 1px solid #8686869c;
+    border: 0.3px solid #8686869c;
     background-color: #fff;
     color: #3a3a3a;
     
@@ -146,4 +146,10 @@ height: 36px;
     border-top: 0.15rem solid #333;
     border-right: 0.15rem solid #333;
     transform: rotate(222deg);
+}
+.btn-register{
+    
+width: 200px;
+height: 36px;
+color: #000000;
 }
