@@ -153,3 +153,9 @@ width: 200px;
 height: 36px;
 color: #000000;
 }
+
+.btn-xl{
+    width: 295px;
+    height: 40px;
+    font-size: 18px;
+}

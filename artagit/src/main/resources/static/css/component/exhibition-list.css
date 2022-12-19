@@ -14,7 +14,7 @@
     position: relative;
     display: grid;
     grid-template: 
-    "img " 210px
+    "img " 230px
     "title" 20px
     "date" 18px
     "place" 18px
