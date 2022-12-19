@@ -12,14 +12,38 @@
     text-align: center;
 }
 
-    .signup-type-wrap li{
+    /* .signup-type-wrap li{
         display: inline-flex;
         width: 160px;
         height: 160px;
         border: 2px solid #bcbcbc;
         border-radius: 10px;
         text-align: center;
-    }
+    } */
+
+.wrap{
+    display: inline-flex;
+    width: 160px;
+    height: 160px;
+    border: 2px solid #bcbcbc;
+    border-radius: 10px;
+    text-align: center;
+    justify-content: center;
+}
+
+.wrap:hover{
+    background-color: #FFBFCF;
+    color:white;
+}
+.icon-wrap{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:20px;
+
+
+}
 
 
 /* ------일반회원-------- */
@@ -39,14 +63,14 @@
     justify-content: center;
 }
 
-
+/* 
 .circle{
     width:60px;
     height: 60px;
     border-radius: 50%;
     background-color: #FFBFCF;
     margin-bottom:20px;
-}
+} */
 
 /* ---------유의사항---------- */
 .signup-precaution{
