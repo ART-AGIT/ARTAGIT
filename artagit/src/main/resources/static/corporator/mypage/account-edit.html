@@ -13,7 +13,7 @@
     <link href="../../css/form.css" type="text/css" rel="stylesheet">
     <link href="../../css/input.css" type="text/css" rel="stylesheet">
     
-    <link href="../../css/reg-component.css" type="text/css" rel="stylesheet">
+    <link href="../../css/component/reg.css" type="text/css" rel="stylesheet">
     <link href="../../css/corporator/mypage/account-edit.css" type="text/css" rel="stylesheet">
     <link href="../../css/header.css" type="text/css" rel="stylesheet">
     <link href="../../css/footer.css" type="text/css" rel="stylesheet">
@@ -40,14 +40,14 @@
                 <div class="sub-menu">
                     <div class="sub-menu-1">
                         <ul>
-                            <li><a href="">전시</a></li>
-                            <li><a href="">커뮤니티</a></li>
+                            <li><a href="../../exhibition/list.html">전시</a></li>
+                            <li><a href="../board/list.html">커뮤니티</a></li>
                             <li><a href="">-</a></li>
                         </ul>
                     </div>
                     <div class="sub-menu-2">
                         <ul>
-                            <li><a href="">로그인</a></li>
+                            <li><a href="../../login.html">로그인</a></li>
                             <li><a href="">검색</a></li>
                             <li><a href="">고객센터</a></li>
                         </ul>
@@ -83,32 +83,32 @@
                 <section class="">
                     <div class="reg-list-input-box">
                         <label for="login-id">아이디</label>
-                        <input id="login-id" type="text" required class="input input-lg">
+                        <input id="login-id" type="text" required class="input input-lg" value="hihi123">
                     </div>
                     <div class="reg-list-input-box">
                         <label for="name">이름</label>
-                        <input id="name" type="text" class="input input-lg">
+                        <input id="name" type="text" class="input input-lg" value="홍길동">
                     </div>
                     <div class="reg-list-input-box">
                         <label for="nickname">닉네임</label>
-                        <input id="nickname" type="text" class="input input-lg">
+                        <input id="nickname" type="text" class="input input-lg" value="전시조아">
                     </div>
                     <div class="reg-list-input-box">
                         <label for="password">비밀번호</label>
-                        <input id="password" type="password" required class="input input-lg" placeholder="영문자, 숫자, 특수문자 포함 8자 이상">
+                        <input id="password" type="password" required class="input input-lg" placeholder="영문자, 숫자, 특수문자 포함 8자 이상" value="1234qwer">
                     </div>
 
                     <div class="reg-list-input-box">
                         <label for="password-check">비밀번호 확인</label>
-                        <input id="password-check" type="password" required class="input input-lg" placeholder="영문자, 숫자, 특수문자 포함 8자 이상">
+                        <input id="password-check" type="password" required class="input input-lg" placeholder="영문자, 숫자, 특수문자 포함 8자 이상" value="1234qwer">
                     </div>                
                     <div class="reg-list-input-box">
                         <label for="email">이메일</label>
-                        <input id="email" type="email" class="input input-lg">
+                        <input id="email" type="email" class="input input-lg" value="hihi123@naver.com">
                     </div>
                     <div class="reg-list-input-box">
                         <label for="phone">휴대폰</label>
-                        <input id="phone" type="text" class="input input-lg">
+                        <input id="phone" type="text" class="input input-lg" value="010-1234-5678">
                     </div>
                 </section>
 
@@ -122,37 +122,37 @@
                 <section class="">
                     <div class="reg-list-input-box">
                         <label for="exh-name">전시관 이름</label>
-                        <input id="exh-name" type="text" class="input input-lg">
+                        <input id="exh-name" type="text" class="input input-lg" value="국립현대미술관">
                     </div>
 
                     <div class="reg-list-input-box">
                         <label for="ceo-name">대표자명</label>
-                        <input id="ceo-name" type="text" required class="input input-lg">
+                        <input id="ceo-name" type="text" required class="input input-lg" value="뉴렉처">
                     </div>
                     
                     <div class="reg-list-input-box">
                         <label for="corp-name">법인명</label>
-                        <input id="corp-name" type="text" class="input input-lg">
+                        <input id="corp-name" type="text" class="input input-lg" value="전시">
                     </div>
                     <div class="reg-list-input-box">
                         <label for="corp-phone">대표 전화번호</label>
-                        <input id="corp-phone" type="text" required class="input input-lg">
+                        <input id="corp-phone" type="text" required class="input input-lg" value="02-4561-5412">
                     </div>
 
                     <div class="reg-list-input-box">
                         <label for="business-num">사업자 번호</label>
-                        <input id="business-num" type="text" required class="input input-lg">
+                        <input id="business-num" type="text" required class="input input-lg" value="12345-78965">
                     </div>                
                     <div class="reg-list-input-box">
                         <label for="address">전시관 주소</label>
-                        <input id="address" type="text" class="input input-lg">
+                        <input id="address" type="text" class="input input-lg" value="경기도 과천">
                         <input id="address-detail" type="text" class="input input-lg">
                     </div>
             
                     <!-- 저장 / 취소 버튼 / 회원탈퇴-->
                     <div class="reg-button-box">
-                        <button type="submit" class="btn btn-default-fill btn-size-1">저장</button>
-                        <button type="submit" class="btn btn-default-fill btn-size-1">취소</button>
+                        <a href="../../corporator/mypage/exh-list.html"><button type="submit" class="btn btn-default-fill btn-size-1">저장</button></a>
+                        <a href="../../corporator/mypage/exh-list.html"><button onclick="" type="submit" class="btn btn-default-fill btn-size-1">취소</button></a>
                     </div>
 
                     <div class="unregister">
