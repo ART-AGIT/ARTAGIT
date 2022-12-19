@@ -83,6 +83,15 @@ input:focus::placeholder {
     color:transparent;
 }
 
+p {
+    font-size: 12px;
+    font-weight: 300;
+    color: #a8a8a8;
+    width: 100%;
+    height: 20px;
+    margin: 0;
+}
+
 /******* 버튼 영역 ****************************************/
 .btn-box {
     margin-top: 50px;
