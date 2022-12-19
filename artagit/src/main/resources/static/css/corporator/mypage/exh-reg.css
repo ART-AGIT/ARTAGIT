@@ -1,3 +1,7 @@
+.menu-list-exh-reg{
+    padding-top: 0;
+    margin-right: 10px;
+}
 .my {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -34,9 +38,9 @@
 
 .step {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     padding-top: 10px;
-    margin: 0 65px;
+    margin: 0 37px;
 }
 
 .circle {
@@ -64,7 +68,10 @@
 .circle-off {
     background-color: #FFBFCF;
 }
-
+.exh-reg-button-box{
+    display: flex;
+    justify-content: space-around;
+}
 .price-count {
     display: flex;
     flex-direction: column;

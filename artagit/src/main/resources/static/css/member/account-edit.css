@@ -1,3 +1,56 @@
+.main-container-edit{
+    padding-top: 20;
+}
+.member{
+    
+    
+    
+}
+.member-face{
+    display: flex;
+    justify-content: center;
+}
+.face{
+    /* 일단회원이미지입니다 */
+    border-radius: 70px;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    margin-left: -18px;
+}
+.icon-write-circle{
+margin-top: 50px;
+}
+.icon-write-edit{
+    position: absolute;
+   margin-left: 3px;
+   width: 20px;
+   height: 20px;
+}
+.circle-edit{
+    position: absolute;
+    background-color: #FFBFCF;
+    border-radius: 20px;
+    width: 28px;
+    height: 28px;
+}
+.member-grade{
+    background-color: #FFBFCF;
+    border-radius: 20px;
+    width: 60px;
+    height: 18px;
+    text-align: center;
+}
+.member-name-grade{
+    
+    display: flex;
+    flex-direction:column;
+    /* justify-content: center; */
+    /* margin-left: 37%;
+    margin-top: 5px; */
+    margin: 10px 1px 10px 110px;
+}
+
 .edit-button-box{
     display: flex;
     flex-direction: row;
@@ -5,8 +58,8 @@
     /* width: 62px;
     height: 29px; */
 }
-.edit-button-box button{
-    
+.edit-button-box{
+    padding: 20px;
 }
 .leave-button-box{
     border: 1px solid #BCBCBC;
@@ -19,35 +72,4 @@
     display: flex;
     justify-content: flex-end;
     padding: 30px;
-}
-.face{
-    /* 일단회원이미지입니다 */
-    border-radius: 70px;
-    width: 50px;
-    height: 50px;
-    display: flex;
-    justify-self: center;
-}
-.member-face{
-    display: flex;
-    justify-content: center;
-}
-.member{
-    
-    
-    
-}
-.mem-grade{
-    background-color: #FFBFCF;
-    border-radius: 20px;
-    width: 60px;
-    height: 18px;
-    text-align: center;
-}
-.member-name-grade{
-    
-    display: flex;
-    flex-direction:column;
-    /* justify-content: center; */
-    margin-left: 37%;
 }
