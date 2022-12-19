@@ -147,3 +147,9 @@ height: 36px;
     border-right: 0.15rem solid #333;
     transform: rotate(222deg);
 }
+.btn-register{
+    
+width: 200px;
+height: 36px;
+color: #000000;
+}
