@@ -16,10 +16,14 @@
     font-size: 12px;
 }
 
-
 .btn-default-fill{
     background-color: #FF6C9E;
     border: 0.3px solid #FC93AD;
+}
+
+.btn-default-fill-off{
+    background-color: #FFBFCF;
+    border: 0.3px solid #FFBFCF;
 }
 
 .btn-default-line{

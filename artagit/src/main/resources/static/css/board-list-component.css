@@ -1,4 +1,4 @@
-
+/* ====게시글 카테고리===== */
 .board-category-l{
     
     display: flex;
@@ -6,11 +6,15 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-
+    
     border-bottom: 1px solid #BCBCBC;
     
 }
 
+nav {
+    padding-top: 50px;
+}
+/* =======공지========== */
 .notice{
     display: grid;
     grid-template-columns: 1fr 5fr;
@@ -33,6 +37,7 @@
 
 }
 
+/* =======게시글 레이아웃========== */
 
 .board-list{
     display: grid;
@@ -112,8 +117,4 @@
 .writing-img-box img{
     width: 50px;
     height: 50px;
-}
-
-nav {
-    padding-top: 50px;
 }

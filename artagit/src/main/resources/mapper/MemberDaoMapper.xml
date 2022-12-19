@@ -23,8 +23,10 @@
 	</select>
 	
 	<insert id="insert" parameterType="com.artagit.web.entity.Member">
+
 		insert into Member(loginId, password, name, phone, nickname, email, image)
 			values(#{loginId}, #{password}, #{name}, #{phone}, #{nickname}, #{email}, #{image})
+
 	</insert>
 	
 	<update id="update" parameterType="com.artagit.web.entity.Member">
@@ -36,6 +38,17 @@
 		</set>
 			where id = #{id}
 	</update>
+
+
+	<update id="withdrawal " parameterType="com.artagit.web.entity.Member">
+		update Member
+		<set>useYN = 'N'</set>
+		where id=38;
+		
+
+	</update>
+
+
 
 	<delete id="delete">
 		delete from Member

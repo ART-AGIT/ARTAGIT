@@ -19,7 +19,7 @@
     <link href="css/header.css" type="text/css" rel="stylesheet">
     <link href="css/footer.css" type="text/css" rel="stylesheet">
     <link href="css/utils.css" type="text/css" rel="stylesheet">
-    <title>Document</title>
+    <title>로그인</title>
 </head>
 <script src="../js/header-menu.js"></script>
 <body>
@@ -56,15 +56,18 @@
             </div>
         </section>
     </header>
+<!-- ------------------------------------------------------ -->
+
 
     <main>
-        <div class="form">
+        <div>
+                
             <h1 class="welcome">
                 안녕하세요.<br>
                 아트아지트 입니다.
             </h1>
 
-            <div class="login-role-option">
+            <div class="login-type-option">
                 <div>
                     <input type="radio" name="회원유형">
                     <label>사업자 회원 로그인</label>
@@ -76,32 +79,28 @@
                 </div>    
             </div>
 
-            <div class="log-input-list">
+            <div class="login-input-wrap">
                 <div>
-                    <input type="text" class="input input-lg input-border input-white" value="아이디">
+                    <input type="text" name="id" class="input input-lg input-border input-white" placeholder="아이디" title="아이디">
                 </div>
-
                 <div>
-                    <input type="text" class="input input-lg input-border input-white" value="비밀번호">
+                    <input type="password" name="pw" class="input input-lg input-border input-white" placeholder="비밀번호" title="비밀번호">
                 </div>
-                <button class="btn btn-login">로그인</button> 
             </div>
 
-           
-
-            <div class="login-option-menu">
-                <a href="" class="id">아이디 찾기</a>
-                <div class="v-line"></div>
-                <a href="" class="pw">비밀번호 찾기</a>
-                <div class="v-line"></div>
-                <a href="" class="join">회원가입</a>
+            <div>
+                <button type="submit" class="btn btn-login">로그인</button> 
             </div>
+        
+            <ul class="find-wrap" id=" ">
+                <li><a href="" class="find-text">아이디 찾기</a></li>
+                <li><a href="" class="find-text">비밀번호 찾기</a></li>
+                <li><a href="" class="find-text">회원가입</a></li>
+            </ul>
 
-            <div class="line">
-                간편 로그인
-            </div>
+            <div class="line">간편 로그인</div>
 
-            <div class="simple-login-option">
+            <div class="login-social">
                 <a href="" class="simpleIcon"><img src="image/kakao.svg" class="icon-img"></a>
                 <a href="" class="simpleIcon"><img src="image/naver.svg" class="icon-img"></a>
                 <a href="" class="simpleIcon"><img src="image/facebook.svg" class="icon-img"></a>

@@ -1,21 +1,65 @@
-.main-container{
-    padding: 40px 0;
-}
+
 /* ============================================================ */
 
-.menu-box{
-    
+.exh-menu-box{
     margin: 20px 0;
-
     border-bottom: 1px solid #707070;
-
 }
-.menu-list {
-    width: 200px;
+.exh-menu-list {
+    width: 260px;
 
     padding: 0px 5px 10px 5px;
     display: flex;
     justify-content: space-around;
-    /* flex-direction: row; */
-    /* align-items: center; */
+
+}
+.exh-menu-list>li{
+    width: 80px;
+    position: relative;
+    text-align: center;
+}
+
+.exh-menu-select{
+    font-weight: bold;
+
+}
+/* 서브메뉴 펼칠 때, 각 높이만큼 펼치기 */
+.exh-menu-select.active+.sub-menu-1{
+    display: block;
+    height: 314px;
+}
+.exh-menu-select.active+.sub-menu-2{
+    display: block;
+    height: 90px;
+}
+.exh-menu-select.active+.sub-menu-3{
+    display: block;
+    height: 90px;
+}
+
+/* 서브메뉴 */
+.exh-sub-menu{
+    height: 0;
+    width: 100%;
+    background-color: #fff;
+    padding: 0;
+    overflow: hidden;
+
+    position: absolute;
+    z-index: 10;
+
+    /* effect */
+    transition: height 1s;
+}
+
+.exh-sub-menu>li{
+    padding: 10px 0;
+}
+.exh-sub-menu a{
+    display: block;
+    padding: 4px 0;
+}
+
+.exh-sub-menu a:hover{
+    text-decoration: underline;
 }
