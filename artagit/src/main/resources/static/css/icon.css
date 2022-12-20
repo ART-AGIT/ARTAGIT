@@ -122,6 +122,13 @@
     -webkit-mask-image: url(../../image/icons/member.svg);
 }
 
+.icon-arrow-toggle-up{
+    -webkit-mask-image: url(../../image/icons/arrow-toggle-up.svg);
+}
+
+.icon-arrow-toggle-down{
+    -webkit-mask-image: url(../../image/icons/arrow-toggle-down.svg);
+}
 
 /* ----- icon util ---------------------------- */
 .icon-white{

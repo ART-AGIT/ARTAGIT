@@ -8,7 +8,7 @@
 
 }
 .reg-list-input-box{
-    padding-bottom: 18px;
+    padding-bottom: 10px;
     gap:4px;
 }
 .reg-list-input-box>div{
@@ -41,15 +41,15 @@
     margin-top: 10px;
     margin-bottom: 9px;
     /* text-align: center; */
-    border: 1px solid #414141;
-    border-radius: 70px;
+    border: 1px solid #969696;
+    border-radius: 15px;
     line-height : 37px;
     align-items: center;
     
 }
 .toggle > h1{
     font-size: 16px;
-    padding-left: 10px;
+    padding-left: 20px;
     padding-right: 170px;
     
     /* line-height : 37px; */
@@ -93,17 +93,19 @@
     
 }
 
+/* 전시관 이름 */
 .exh-name{
     font-size: 18px;
     font-weight: 600;
     /* justify-content: center; */
 
-    padding : 7px 0;
+    padding : 5px 0;
     margin: auto;
     text-align: center;
     
 }
 
+/* roleId */
 .corpMem{
     background-color: #414141;
     border-radius: 20px;
@@ -111,11 +113,16 @@
     font-size: 14px;
     font-weight: normal;
     width: 63px;
-    height: 18px;
+    height: 24px;
+    line-height: 24px;
 
     text-align: center;
     margin: auto;
 
+}
+
+input:focus::placeholder {
+    color:transparent;
 }
 
 

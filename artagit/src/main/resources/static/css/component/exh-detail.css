@@ -54,6 +54,11 @@
 }
 
 /* 결제 상세내역 */
+.toggle{
+    display: flex;
+    align-items: center;
+
+}
 .payDetail{
     font-size: 16px;
     padding : 20px;
