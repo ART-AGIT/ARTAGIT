@@ -1,0 +1,21 @@
+.menu-list {
+    padding : 20px 0 10px 0;
+    display: flex;
+}
+
+.list{
+    border-bottom: 2px solid #A8A8A8;
+    /* width: 25%; */
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-around;
+}
+
+.line-on{
+    border-bottom: 2px solid #FF6B90;
+}
+
+
+li .deco-ticket-on {
+    /* color: #FF6B90; */
+}

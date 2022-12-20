@@ -3,10 +3,10 @@
 
 .exh-menu-box{
     margin: 20px 0;
-    border-bottom: 1px solid #707070;
+    border-bottom: 1.5px solid #878787;
 }
 .exh-menu-list {
-    width: 260px;
+    width: 240px;
 
     padding: 0px 5px 10px 5px;
     display: flex;
@@ -21,6 +21,7 @@
 
 .exh-menu-select{
     font-weight: bold;
+    color: #FF6C9E;
 
 }
 /* 서브메뉴 펼칠 때, 각 높이만큼 펼치기 */
@@ -48,6 +49,8 @@
     position: absolute;
     z-index: 10;
 
+    border-radius: 10px;
+
     /* effect */
     transition: height 1s;
 }
@@ -55,11 +58,13 @@
 .exh-sub-menu>li{
     padding: 10px 0;
 }
+.exh-sub-menu>li:hover{
+    background-color: #FFBFCF;
+    border-radius: 10px;
+    transition: .5s;
+}
+
 .exh-sub-menu a{
     display: block;
     padding: 4px 0;
-}
-
-.exh-sub-menu a:hover{
-    text-decoration: underline;
 }
