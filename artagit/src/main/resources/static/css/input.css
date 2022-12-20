@@ -20,6 +20,9 @@
     color: #BCBCBC;
     font-weight: 500;
 }
+.input:focus{
+    outline: 3px solid #F7A7BB;
+}
 
 .input:focus::placeholder {
     color:transparent;
