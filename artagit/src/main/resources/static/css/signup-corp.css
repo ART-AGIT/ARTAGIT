@@ -1,7 +1,18 @@
 /* .main-container{
     padding-top: 10px;
 } */
+.reg-list-box > div{
+    margin: 0 auto;
+}
 
+.reg-list-box > div{
+    margin: 0 auto;
+}
+
+.reg-list-box > input{
+    margin: 0 0;
+    justify-content: center;
+}
 .reg-list form>h1{
     text-align: center;
     padding-bottom: 18px;
@@ -15,16 +26,12 @@
     gap: 10px;
 }
 
-.reg-list-input-box>label{
-    padding:0;
-}
-
 .reg-button-box{
     display: flex;
     padding: 20px 0;
     justify-content: center;
     gap : 20px;
-}
+} 
 
 .unregister{
     display: flex;
@@ -36,26 +43,27 @@
 /*  */
 .toggle{
     display: flex;
-    margin-top: 10px;
+    width: 320px;
+    height: 37px;
+    margin-top: 20px;
     margin-bottom: 9px;
     /* text-align: center; */
     border: 1px solid #969696;
     border-radius: 15px;
     line-height : 37px;
     align-items: center;
-    
 
 }
 
 .toggle > h1{
     font-size: 16px;
-    padding-left: 20px;
-    padding-right: 170px;
+    padding-left: 15px;
+    padding-right: 200px;
     
     /* line-height : 37px; */
-    
 }
 
+/*회원가입 글씨*/
 .signup-corp{
     display: flex;
     flex-direction: column;
@@ -77,11 +85,11 @@
     
 }
 
-
 .confirm-nickname{
     font-size: 12px;
     color: #F7A7BB;
 }
+
 
 input:focus::placeholder {
     color:transparent;

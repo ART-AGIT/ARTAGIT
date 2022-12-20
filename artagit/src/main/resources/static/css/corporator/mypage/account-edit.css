@@ -2,6 +2,14 @@
     padding-top: 10px;
 } */
 
+.reg-list-box > div{
+    margin: 0 auto;
+}
+
+.reg-list-box > input{
+    margin: 0 0;
+    justify-content: center;
+}
 .reg-list form>h1{
     text-align: center;
     padding-bottom: 18px;
@@ -12,12 +20,12 @@
     gap:4px;
 }
 .reg-list-input-box>div{
-    gap: 34px;
+    gap: 10px;
 }
-
+/* 
 .reg-list-input-box>label{
     padding:0;
-}
+} */
 
 .reg-button-box{
     display: flex;
@@ -38,23 +46,26 @@
 /*  */
 .toggle{
     display: flex;
-    margin-top: 10px;
+    width: 320px;
+    height: 37px;
+    margin-top: 20px;
     margin-bottom: 9px;
     /* text-align: center; */
     border: 1px solid #969696;
     border-radius: 15px;
     line-height : 37px;
     align-items: center;
-    
+
 }
+
 .toggle > h1{
     font-size: 16px;
-    padding-left: 20px;
-    padding-right: 170px;
+    padding-left: 15px;
+    padding-right: 200px;
     
     /* line-height : 37px; */
-    
 }
+
 .account{
     display: flex;
     flex-direction: column;
@@ -65,25 +76,23 @@
     border-bottom: 2px solid #B9B9B9;
 }
 
-.account-img{
+.corp-edit-box{
     width:100px;
     height: 100px;
     border-radius: 70px;
+    padding-top: 30px;
     position: relative;
     
 }
 
-.img{
+.edit-img{
    display: flex;
    justify-content: center;
-
-   margin-top: 9px;
-
    width: 100%;
    height: 100%;
 }
 
-.img-edit{
+.edit-icon{
     width: 30px;
     height: 30px;
     background : url("../../../image/write-on.png") no-repeat;
@@ -99,8 +108,8 @@
     font-weight: 600;
     /* justify-content: center; */
 
-    padding : 5px 0;
-    margin: auto;
+    margin : 5px 0;
+    /* margin: auto; */
     text-align: center;
     
 }
@@ -121,8 +130,5 @@
 
 }
 
-input:focus::placeholder {
-    color:transparent;
-}
 
 

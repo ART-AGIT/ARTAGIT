@@ -12,7 +12,9 @@
     <link href="../../css/button.css" type="text/css" rel="stylesheet">
     <link href="../../css/form.css" type="text/css" rel="stylesheet">
     <link href="../../css/input.css" type="text/css" rel="stylesheet">
-    
+    <link href="../../css/deco.css" type="text/css" rel="stylesheet">
+
+    <link href="../../css/component/sub-menu.css" type="text/css" rel="stylesheet">
     <link href="../../css/component/reg.css" type="text/css" rel="stylesheet">
     <link href="../../css/corporator/mypage/account-edit.css" type="text/css" rel="stylesheet">
     <link href="../../css/header.css" type="text/css" rel="stylesheet">
@@ -58,58 +60,64 @@
     </header>
     
 
-    <!-- 회원 사진 -->
+    
     <main>
-        <div class="account">
-            <h1> 계정 정보 수정</h1>
-            <div class="">
-                <div class="account-img">
-                    <img class="img" src="../../image/accountImage.png">
-                    <img src="../../image/write-on.png" class="img-edit">
-                    <!-- <a href=""  type="file" ><img class="img-edit" src="../../image/write-on.png"></a> -->
-                </div>
-                <div class="exh-name">ICT 미술관</div>
-                <div class="corpMem">업체회원</div>
-            </div>
+        <div class="menu-box">
+            <ul class="menu-list">
+                <li class="list"><a class="deco deco-ticket" href="">나의 등록전시</a></li>
+                <li class="list line-on"><a class="deco deco-smile" href="./account-edit.html">회원 정보 수정</a></li>
+            </ul>
         </div>
+
+        <!-- 회원 img수정 -->
+        <div class="account">
+            <div class="corp-edit-box">
+                <img class="edit-img" src="../../image/accountImage.png">
+                <img src="../../image/write-on.png" class="edit-icon">
+                <!-- <a href=""  type="file" ><img class="img-edit" src="../../image/write-on.png"></a> -->
+            </div>
+            <div class="exh-name">ICT 미술관</div>
+            <div class="corpMem">업체회원</div>
+        </div>
+        
 
         <!-- 담당장 정보 -->
    
         <section class="reg-list">
+            <div class="toggle">
+                <h1>담당자 정보</h1>
+                <div class="icon icon-arrow-toggle-down"></div>
+            </div>
             <form action="">
-                <div class="toggle">
-                    <h1>담당자 정보</h1>
-                    <div class="icon icon-arrow-toggle-down"></div>
-                </div>
-                <section class="">
+                <section class="reg-list-box">
                     <div class="reg-list-input-box">
                         <label for="login-id">아이디</label>
-                        <input id="login-id" type="text" required class="input input-lg" value="hihi123">
+                        <input id="login-id" type="text" required class="input input-lg input-grey" value="hihi123" disabled>
                     </div>
                     <div class="reg-list-input-box">
                         <label for="name">이름</label>
-                        <input id="name" type="text" class="input input-lg" value="홍길동">
+                        <input  name="name" id="name" type="text" class="input input-lg" value="홍길동">
                     </div>
                     <div class="reg-list-input-box">
                         <label for="nickname">닉네임</label>
-                        <input id="nickname" type="text" class="input input-lg" value="전시조아">
+                        <input name="nickname" id="nickname" type="text" class="input input-lg" value="전시조아">
                     </div>
                     <div class="reg-list-input-box">
                         <label for="password">비밀번호</label>
-                        <input id="password" type="password" required class="input input-lg" placeholder="영문자, 숫자, 특수문자 포함 8자 이상" value="1234qwer">
+                        <input name="password" id="password" type="password" required class="input input-lg" placeholder="영문자, 숫자, 특수문자 포함 8자 이상" value="1234qwer">
                     </div>
 
                     <div class="reg-list-input-box">
                         <label for="password-check">비밀번호 확인</label>
-                        <input id="password-check" type="password" required class="input input-lg" placeholder="영문자, 숫자, 특수문자 포함 8자 이상" value="1234qwer">
+                        <input name="password" id="password-check" type="password" required class="input input-lg" placeholder="영문자, 숫자, 특수문자 포함 8자 이상" value="1234qwer">
                     </div>                
                     <div class="reg-list-input-box">
                         <label for="email">이메일</label>
-                        <input id="email" type="email" class="input input-lg" value="hihi123@naver.com">
+                        <input name="email" id="email" type="email" class="input input-lg" value="hihi123@naver.com">
                     </div>
                     <div class="reg-list-input-box">
                         <label for="phone">휴대폰</label>
-                        <input id="phone" type="text" class="input input-lg" value="010-1234-5678">
+                        <input name="phone" id="phone" type="text" class="input input-lg" value="010-1234-5678">
                     </div>
                 </section>
 
@@ -120,15 +128,15 @@
                     <div class="icon icon-arrow-toggle-down"></div> 
                 </div>
 
-                <section class="">
+                <section class="reg-list-box">
                     <div class="reg-list-input-box">
                         <label for="exh-name">전시관 이름</label>
-                        <input id="exh-name" type="text" class="input input-lg" value="국립현대미술관">
+                        <input name="name" id="exh-name" type="text" class="input input-lg" value="국립현대미술관">
                     </div>
 
                     <div class="reg-list-input-box">
                         <label for="ceo-name">대표자명</label>
-                        <input id="ceo-name" type="text" required class="input input-lg" value="뉴렉처">
+                        <input name="ceoName" id="ceo-name" type="text" required class="input input-lg" value="뉴렉처">
                     </div>
                     
                     <div class="reg-list-input-box">
@@ -137,18 +145,21 @@
                     </div>
                     <div class="reg-list-input-box">
                         <label for="corp-phone">대표 전화번호</label>
-                        <input id="corp-phone" type="text" required class="input input-lg" value="02-4561-5412">
+                        <input name="phone" id="corp-phone" type="text" required class="input input-lg" value="02-4561-5412">
                     </div>
 
                     <div class="reg-list-input-box">
                         <label for="business-num">사업자 번호</label>
-                        <input id="business-num" type="text" required class="input input-lg" value="12345-78965">
+                        <input  name="business-num" id="business-num" type="text" required class="input input-lg" value="12345-78965">
                     </div>      
-
+                    
                     <div class="reg-list-input-box">
                         <label for="address">전시관 주소</label>
-                        <input id="address" type="text" required class="input input-lg" value="경기도 과천시 광명로 313">
-                        <input id="address-detail" type="text" class="input input-lg" value="">
+                        <div>
+                            <input name="address" id="login-id" type="text" required class="input input-md-2" placeholder="경기도 과천시 광명로 313">
+                            <button class="btn btn-default btn-default-fill-off">주소검색</button>
+                        </div>
+                        <input name="address" id="address-detail" type="text" class="input input-lg" placeholder="">
                     </div>
             
                     <!-- 저장 / 취소 버튼 / 회원탈퇴-->
