@@ -167,6 +167,10 @@ input:focus{
     height: 150px;
 }
 
+.highlight {
+    color: rgb(228, 29, 29);
+}
+
 .booking-btn {
     display: flex;
     justify-content: space-between;

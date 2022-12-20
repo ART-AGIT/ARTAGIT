@@ -9,12 +9,12 @@
 }
 
 form {
-    border-top: 1.5px solid rgba(157, 157, 157, 0.353);
-    padding-top: 15px;
+    border-bottom: 1.5px solid rgba(157, 157, 157, 0.353);
+    padding: 15px 0;
 }
 
 .pay-list form {
-    margin: 15px 0;
+    /* margin: 15px 0; */
     display: grid;
     justify-content: start;
     align-items: end;
