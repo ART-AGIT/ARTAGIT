@@ -1,9 +1,15 @@
 .reg-list{
-    padding: 20px 0;
+    /* padding: 20px 0; */
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+.reg-list>form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
 .reg-list-input-box{
     width: 300px;
     display: flex;

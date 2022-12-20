@@ -83,7 +83,7 @@
 }
 /* ----- fixed 때문에 윗부분이 가려져, main 부분에 padding 줌 ----------- */
 main{
-    padding-top: 70px;
+    padding-top: 60px;
     /* effect */
     transition: 1s;
 }   
@@ -289,7 +289,7 @@ main{
 
 /* ----- fixed 때문에 윗부분이 가려져, main 부분에 padding 줌 ----------- */
     main{
-        padding-top: 120px;
+        padding-top: 110px;
     }
                 
     

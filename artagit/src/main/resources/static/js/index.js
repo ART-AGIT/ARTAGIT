@@ -1,10 +1,14 @@
 window.addEventListener("load", function(){
     var body = document.getElementById("body");
     var header = body.querySelector("header");
-    var icon = header.querySelector("icon");
+    var icon = header.querySelector(".icon");
     var subMenu = header.querySelector(".sub-menu-box");
-    var link = subMenu.querySelectorAll("a");
-    console.log(link);
+    var links = subMenu.querySelectorAll("a");
+
+    var headerPc = body.querySelector(".header-pc");
+    var mainMenuPc = headerPc.querySelector(".main-menu");
+    var linksPc = mainMenuPc.querySelectorAll("a")
+
     window.addEventListener("scroll", function(){
         var scrollValue = document.documentElement.scrollTop;
         var windowHeight = window.innerHeight;
@@ -12,19 +16,25 @@ window.addEventListener("load", function(){
         if(scrollValue >= 200){
             body.classList.add("bg-white");
             header.classList.add("bg-white");
+            headerPc.classList.add("bg-white")
             subMenu.classList.add("bg-white");
-            link.classList.add("bg-white");
+            for(let link of links)
+                link.classList.add("bg-white");
+            for(let linkPc of linksPc)
+                linkPc.classList.add("bg-white");
             icon.classList.add("bg-white");
         }
         else{
             body.classList.remove("bg-white");
             header.classList.remove("bg-white");
+            headerPc.classList.remove("bg-white")
             subMenu.classList.remove("bg-white");
-            link.classList.remove("bg-white");
+            for(let link of links)
+                link.classList.remove("bg-white")
+            for(let linkPc of linksPc)
+                linkPc.classList.remove("bg-white"); 
             icon.classList.remove("bg-white");
         }
-        console.log("scrollValue"+scrollValue);
-        console.log("window"+window.screenY);
     })
 })
 
