@@ -15,7 +15,7 @@
 .reg-list-input-box>label{
     display: flex;
     flex-direction: column;
-    padding: 2px 0;
+    padding: 4px 0;
 
 }
 .reg-list-input-box>div{

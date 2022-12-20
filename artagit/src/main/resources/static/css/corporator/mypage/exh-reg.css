@@ -1,9 +1,3 @@
-.menu-list-exh-reg{
-    padding-top: 0;
-    margin-right: 10px;
-}
-
-
 .step {
     display: flex;
     justify-content: space-between;
@@ -44,4 +38,9 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+}
+div .exh-reg-button-box{
+    display: flex;
+    justify-content: end;
+    width: 320px;
 }
