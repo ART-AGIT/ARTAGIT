@@ -12,6 +12,17 @@
     line-height: 24px;
     text-indent: 10px;
 
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.input::placeholder {
+    color: #BCBCBC;
+    font-weight: 500;
+}
+
+.input:focus::placeholder {
+    color:transparent;
 }
 
 .input-sm{
@@ -35,7 +46,6 @@
     height: 44px;
 }
 
-
 .input-border{
     border: 0.3px solid #BCBCBC;
 }
@@ -48,3 +58,14 @@
 .input-grey{
     background-color: #F3F3F3;
 }
+
+.input-ph {
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.input-unable {
+    background-color: rgba(243, 243, 243, 0.831);
+    color: #545454c9
+}
+
