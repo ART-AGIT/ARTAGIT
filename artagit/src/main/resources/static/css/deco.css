@@ -1,32 +1,30 @@
-/* .menu-list {
-    padding: 30px 5px 0px 5px;
-    display: flex;
-    justify-content: space-around;
-    /* flex-direction: row; */
-    /* align-items: center; */
-/* } */ 
-
 .deco {
     /* 박스 맞추기, 정렬을 할 때는 무족권 flex~ */
     /* 슈도엘리먼트로 만든 자식(아이콘)과 그 아래 자식인 문자('전체')를 정렬하려면 부모로 정렬을 해야한다. */
     /* 수직정렬 할 때는 align-items */
-    color: #262626;
+    color: #575757;
+    font-weight: 400;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    margin: 5px 0;
+
 }
 
 .deco::before {
-    /* 컨텐트 값을 넣어줘야 슈도엘리먼트를 자식으로서 사용할 수 있다. */
     content: '';
     width: 27px;
     height: 30px;
-
+    margin-bottom: 3px;
     /* padding: .4em 0.8em; */
-    display: flex; /* 가상 요소 가운데 정렬 */
-    margin: auto;
+    /* display: flex; */
+    /* margin: auto; */
 
-    background-color: #494949bd;
+    background-color: #575757;
     
     mask-size: 27px 30px;
-    -webkit-mask-repeat: no-repeat;
+    /* -webkit-mask-repeat: no-repeat; */
     -webkit-mask-size: 27px 30px;
 }
 
@@ -39,7 +37,7 @@
     box-sizing: border-box;
 }
 
-.deco-ticket-on{
+.deco-ticket-on, .deco-heart-on, .deco-smile-on, .deco-write-on{
     color: #FF6B90;
 }
 
@@ -83,11 +81,11 @@
 .my{
     display: grid;
     grid-template-columns: 1fr 1fr;
-   width: 160px;
-   height: 50px;
-   position: relative;
-   left: 20px;
-   padding-top: 10px;
+    width: 160px;
+    height: 50px;
+    position: relative;
+    left: 20px;
+    padding-top: 10px;
 }
 .img1{
     position: relative;
@@ -100,7 +98,7 @@
     width: 110px;
 }
 .myexh{
-   
+
 }
 .myinfo{
     
@@ -116,7 +114,7 @@
 .step{
     display: flex;
     justify-content: space-around;
-   
+
 }
 .circle{
 
