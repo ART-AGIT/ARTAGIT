@@ -1,12 +1,12 @@
 
 .welcome{
+    padding-top:60px;
     padding-bottom: 40px;
     font-size: 26px;
     font-weight: bold;
     display: flex;
     padding-right: 100px;
     justify-content: center;
-    
 }
 
 
@@ -59,25 +59,25 @@ input[type=radio]{
     display: flex;
     flex-basis: 100%;
     align-items: center;
-    padding: 24px 0;
-    
+    justify-content: center;
+    padding: 10px 40px;
 }
     .line::before{
         content:"";
-        flex-grow:1;
+        /* flex-grow:1; */
         margin:0px 10px;
-
         background:#9E9E9E;
         height:1px;
+        width: 110px;
     }
 
     .line::after{
         content:"";
-        flex-grow:1;
+        /* flex-grow:1; */
         margin:0px 10px;
         background:#9E9E9E;
         height:1px;
-        color: gray;
+        width: 110px;
     }
 
 
