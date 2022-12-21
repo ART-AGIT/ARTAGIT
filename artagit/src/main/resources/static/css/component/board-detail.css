@@ -18,7 +18,7 @@
     display: grid;
     grid-template: 
     "title time" 1fr
-    "info report" 25px /3fr 1fr;
+    "info report" 25px /2fr 1fr;
     padding: 5px;
     border-bottom: 1px solid #BCBCBC;
 }
@@ -136,9 +136,11 @@
     display:flex;
     height: 60px;
     padding-top: 10px;
-    justify-content: space-around;
+    justify-content: space-between;
 }
-
+.user-name{
+    padding-top:10px;
+}
 .btn-default-fill{
     width: 45px;
     height: 26px;
@@ -146,7 +148,7 @@
 
 textarea{
     resize:none;
-    width: 75%;
+    width: 85%;
     height: 53px;
     border-radius: 5px;
     border: 1px solid #BCBCBC;
