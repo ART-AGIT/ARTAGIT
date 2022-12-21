@@ -1,3 +1,5 @@
+@import url("../css/icon.css");
+
 .signup-main{
     display: flex;
     flex-direction: column;
@@ -35,15 +37,8 @@
     background-color: #FFBFCF;
     color:white;
 }
-.icon-wrap{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap:20px;
 
 
-}
 
 
 /* ------일반회원-------- */
@@ -72,6 +67,19 @@
     margin-bottom:20px;
 } */
 
+.icon-wrap{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:20px;
+
+}
+
+.wrap-text{
+    font-size: 16px;
+}
+
 /* ---------유의사항---------- */
 .signup-precaution{
     display: flex;
@@ -82,3 +90,6 @@
         color:gray;
     }
 
+    .pre-sec{
+        padding-left: 12px; 
+    }
