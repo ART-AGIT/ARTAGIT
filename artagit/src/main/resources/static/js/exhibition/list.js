@@ -16,15 +16,16 @@ window.addEventListener("load", function(){
         e.stopPropagation();
         console.log(e.target.classList.contains("active"));
 
+        // if(current.classList.contains("active"))
+        //     e.target.classList.remove("active")
+
         if(!e.target.classList.contains("exh-menu-select"))
             return;
-
+        
         if(current != null)
             current.classList.remove("active");
-
-        // if(e.target.classList.contains("active"))
-
         
+
         e.target.classList.add("active");
         current = e.target;
 
