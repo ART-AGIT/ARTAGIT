@@ -1,6 +1,6 @@
 
 .welcome{
-    padding-bottom: 40px;
+    padding: 40px 0;
     font-size: 26px;
     font-weight: bold;
     display: flex;
@@ -60,24 +60,25 @@ input[type=radio]{
     flex-basis: 100%;
     align-items: center;
     padding: 24px 0;
+    justify-content: center;
+    
     
 }
     .line::before{
         content:"";
-        flex-grow:1;
         margin:0px 10px;
-
         background:#9E9E9E;
         height:1px;
+        width: 100px;
     }
 
     .line::after{
         content:"";
-        flex-grow:1;
         margin:0px 10px;
         background:#9E9E9E;
         height:1px;
         color: gray;
+        width: 100px;
     }
 
 
@@ -123,4 +124,13 @@ input[type=radio]{
     display: flex;
     flex-direction: column;
     
+}
+
+input::placeholder {
+    color: #BCBCBC;
+    font-weight: 500;
+}
+
+input:focus::placeholder {
+    color:transparent;
 }
