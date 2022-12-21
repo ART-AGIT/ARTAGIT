@@ -1,14 +1,8 @@
 
-h1{
-    
-    font-size: 22px;
-
-}
-
 .review{
-    padding-top: 60px;
     padding-bottom: 12px;
-    border-bottom: 2px solid #BCBCBC;
+    border-bottom: 2px solid #929292;
+    padding-left: 10px;
 }
 
 .form-box{
@@ -27,16 +21,28 @@ h1{
     height: 312px;
     background-color: #fff;
     border: 1px solid #ddd;
+    width: 50px;
+    height:50px
+}
+
+.content{
+    display: block;
+    margin: 10px 0 0 10px;
+    width: 50px;
+    height:50px
 }
 
 .detail-info{
     display:inline-block;
+    /* flex-direction: column; */
+    /* gap:10px; */
     padding-left:24px ;
     color:#5A5A5A;
 }
 
 .exh-name{
     font-size: 16px;
+    margin-bottom: 10px;
 }
 
 .exh-loc{
@@ -64,6 +70,15 @@ h1{
     padding-top: 31px;
 }
 
+.icon-trash{
+    /* display: inline-block;
+    margin-left: 100px;
+    margin-top: 30px;
+    cursor:pointer; */
+
+}
+
+/* 
 @media (max-width: 393px){ 
 
     .form-box{
@@ -72,7 +87,6 @@ h1{
             height: 406px;
             border-radius: 10px;
             border: 1px solid #ddd;
-            /* padding: 10px; */
             background-color: #EDEDED;
     }
 
@@ -84,4 +98,23 @@ h1{
         border: 1px solid #ddd;
     }
     .form2{}
+} */
+
+.wrap{
+    display: inline-flex;
+    flex-direction: column;
+    margin-left: 100px;
+    margin-top: 30px;
+    cursor:pointer;
+    /* display: flex; */
+    /* flex-direction: column; */
+}
+.circle{
+    width:50px;
+    width:50px;
+    /* border-radius: ; */
+    background-color: pink;
+    width:20px;
+    height: 20px;
+    border-radius: 50%;
 }
