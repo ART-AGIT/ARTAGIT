@@ -1,12 +1,4 @@
-<<<<<<< HEAD
-.btn{
-=======
-/* :root{
-    margin: 10px;
-} */
-
 .btn {
->>>>>>> HB
     padding: .4em .8em;
     color: #fff;
 
@@ -25,15 +17,10 @@
     border: 0.3px solid #FC93AD;
 }
 
-<<<<<<< HEAD
+
 .btn-default-fill-off{
     background-color: #ffc7d5;
     border: 0.3px solid #ffc7d5;
-=======
-.btn-default-fill-off {
-    background-color: #FFBFCF;
-    border: 0.3px solid #FFBFCF;
->>>>>>> HB
 }
 
 .btn-default-line {
@@ -126,61 +113,14 @@
 
 .btn-unregister {
     background-color: #FFFFFF;
-<<<<<<< HEAD
-    color: rgb(222, 38, 38);
-    border: 1px solid #939393;
-    font-weight: 500;
-=======
     color: #CD2323;
     border: 1px solid #2E2E2E;
->>>>>>> HB
     border-radius: 10px;
     width: 54px;
     height: 18px;
     font-size: 10px;
     font-weight: bold;
 }
-<<<<<<< HEAD
-.btn-next{
-border:#ffc7d5;
-background-color: #FFBFCF;
-width: 36px;
-height: 36px;
-}
-.btn-before{
-    border:#FFBFCF;
-    background-color: #FFBFCF;
-    width: 36px;
-    height: 36px;
-    }
-.btn-next:after {
-    content: '';
-    display:inline-block;
-    width: 0.8rem;
-    height: 0.8rem;
-    margin-left: -0.5rem;
-    border-top: 0.15rem solid #333;
-    border-right: 0.15rem solid #333;
-    transform: rotate(45deg);
-}
-.btn-before::before {
-    content: '';
-    display:inline-block;
-    width: 0.8rem;
-    height: 0.8rem;
-    
-    border-top: 0.15rem solid #333;
-    border-right: 0.15rem solid #333;
-    transform: rotate(222deg);
-}
-.btn-register{
-    
-width: 295px;
-height: 28px;
-color: #FFFFFF;
-font-size: 14px;
-font-weight: 500;
-=======
 
 .btn-next {
     border: #FFBFCF;
@@ -190,7 +130,6 @@ font-weight: 500;
     display: inline-flex;
     align-items: center;
     border-radius: 5px;
->>>>>>> HB
 }
 
 .btn-before {
