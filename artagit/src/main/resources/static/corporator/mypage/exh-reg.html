@@ -99,15 +99,15 @@
 
             <div class="reg-list-input-box">
                 <label for="">전시명</label>
-                <input name="" type="text" class="input input-lg">
+                <input name="name" type="text" class="input input-lg">
             </div>
             <div class="reg-list-input-box">
                 <label for="">작가</label>
-                <input type="text" class="input input-lg">
+                <input  name="artist" type="text" class="input input-lg">
             </div>
             <div class="reg-list-input-box">
                 <label for="">전시장소</label>
-                <input type="text" class="input input-lg">
+                <input name="" type="text" class="input input-lg">
             </div>
             <div class="reg-list-input-box">
                 <label for="">지역상세</label>
@@ -117,12 +117,12 @@
                 <label for="">전시기간</label>
                 <div>
                     <div class="exhibition-input-date">
-                        <input type="date" class="input input-sm">
+                        <input name="startDate" type="date" class="input input-sm">
                         <!-- <a class="icon icon-calendar" href="">달력</a> -->
                     </div>
                     <span>~</span>
                     <div class="exhibition-input-date">
-                        <input type="date" class="input input-sm">
+                        <input name="endDate" type="date" class="input input-sm">
                         <!-- <a class="icon icon-calendar" href="">달력</a> -->
                     </div>
                 </div>
@@ -130,23 +130,23 @@
             <div class="reg-list-input-box">
                 <label for="">관람시간</label>
                 <div>
-                    <input type="time" class="input input-sm">
+                    <input name="startTime" type="time" class="input input-sm">
                     <span>~</span>
-                    <input type="time" class="input input-sm">
+                    <input name="endTime" type="time" class="input input-sm">
                 </div>
             </div>
             <div class="price-count">
                 <div class="reg-list-input-box">
                     <label for="">관람료</label>
                     <div>
-                        <input type="number" class="input input-md-3">
+                        <input name="ticketPrice" type="number" class="input input-md-3">
                         <span>(단위: 원)</span>
                     </div>
                 </div>
                 <div class="reg-list-input-box">
                     <label for="">재고</label>
                     <div>
-                        <input type="number" class="input input-md-3" placeholder="(무제한: 9999장)">
+                        <input name="ticketStock" type="number" class="input input-md-3" placeholder="(무제한: 9999장)">
                         <span>(단위: 장)</span>
                     </div>
                 </div>
@@ -165,15 +165,15 @@
 
             <div class="reg-list-input-box">
                 <label for="">주최</label>
-                <input type="text" class="input input-lg">
+                <input name="museumId" type="text" class="input input-lg">
             </div>
             <div class="reg-list-input-box">
                 <label for="">담당자</label>
-                <input type="text" class="input input-lg">
+                <input name="manager" type="text" class="input input-lg">
             </div>
             <div class="reg-list-input-box">
                 <label for="">전화번호</label>
-                <input type="tel" class="input input-lg">
+                <input name="phone" type="tel" class="input input-lg">
             </div>
 
         </section>
@@ -194,11 +194,11 @@
             </div>
             <div class="reg-list-input-box">
                 <label for="">포스터 이미지</label>
-                <input type="file" class="input input-lg">
+                <input name="poster" type="file" class="input input-lg">
             </div>
             <div class="reg-list-input-box">
                 <label for="">상세 이미지</label>
-                <input type="file" class="input input-lg">
+                <input name="detailImage" type="file" class="input input-lg">
             </div>
 
         </section>
