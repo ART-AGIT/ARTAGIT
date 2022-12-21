@@ -30,11 +30,7 @@ build/
 !**/src/test/**/build/
 
 ### VS Code ###
-<<<<<<< HEAD
-.vscode/
-=======
 .vscode/
 
 ### ENV ###
 .env*
->>>>>>> dev
