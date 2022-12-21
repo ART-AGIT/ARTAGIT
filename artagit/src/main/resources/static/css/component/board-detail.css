@@ -32,6 +32,8 @@
     grid-area: title;
     word-break: break-all;
     padding-bottom: 5px;
+    font-weight: bold;
+    font-size: 16px;
 }
 .post-reg-time{
     display:flex;
@@ -47,6 +49,7 @@
     align-items: center;
     display: flex;
     grid-area: info
+    padding-right: 5px;
 }
 .post-info > div{
     display:flex;
@@ -97,6 +100,7 @@
 
       padding: 10px 0 10px 0;
     border-bottom: 1px solid #BCBCBC;
+    gap: 7px;
 }
 .comment-writer-wrapper{
     display:flex;
@@ -105,6 +109,8 @@
 }
 .comment-writer{
     display:flex;
+    align-items: center;
+    padding-bottom: 3px;
 }
 
 
@@ -115,12 +121,15 @@
     border-bottom: 1px solid #BCBCBC;
 }
 
-.re-comment{
+.comment-info{
     display:flex;
 }
 
-.re-comment>div:nth-child(2){
+.comment-info>div:nth-child(2){
     padding-left: 10px;
+}
+.re-comment>a{
+    color:#FF6B90;
 }
 
 .comment-writing{
@@ -130,7 +139,7 @@
     justify-content: space-around;
 }
 
-.btn{
+.btn-default-fill{
     width: 45px;
     height: 26px;
 }
@@ -139,13 +148,21 @@ textarea{
     resize:none;
     width: 75%;
     height: 53px;
-    border-radius: 10px;
+    border-radius: 5px;
     border: 1px solid #BCBCBC;
 }
 
 .profile-photo{
     display:flex;
     align-self:center;
+    height: 20px;
+    width: 20px;
+    padding-right: 3px;
+}
+.comment-writing>div{
+    max-width: 40px;
+    word-break:break-all;
+    padding-right: 3px;
 }
 
 .comment-writing >img{
