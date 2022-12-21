@@ -1,19 +1,37 @@
 
 .welcome{
-    padding-top: 90px;
-    padding-bottom: 19px;
+    padding-bottom: 40px;
     font-size: 26px;
     font-weight: bold;
     display: flex;
+    padding-right: 100px;
     justify-content: center;
+    
 }
 
 
 /* ------------로그인 유형 -------- */
 .login-type-option{
     display: flex;
-    gap :9px;
+    gap :10px;
     justify-content: center;
+    padding-right: 40px;
+}
+
+input[type=radio]{
+    cursor: pointer;
+    width: 15px;
+    height: 15px;
+    margin :0;
+    margin-right: 5px;
+}
+
+.radio-wrap{
+    display: flex;
+    align-items: center;
+    
+   
+
 }
 
 /* ---------- 아이디 비번 입력------ */
@@ -41,8 +59,7 @@
     display: flex;
     flex-basis: 100%;
     align-items: center;
-    padding-top: 24px;
-    padding-bottom: 24px;
+    padding: 24px 0;
     
 }
     .line::before{
@@ -50,24 +67,26 @@
         flex-grow:1;
         margin:0px 10px;
 
-        background:#545454;
+        background:#9E9E9E;
         height:1px;
-        width: 10px;
     }
 
     .line::after{
         content:"";
         flex-grow:1;
         margin:0px 10px;
-        background:#545454;
+        background:#9E9E9E;
         height:1px;
+        color: gray;
     }
+
 
 /* -------아이디 비번찾기 ---------*/
 
 .find-wrap{
     display: flex;
     justify-content: center;
+    padding-bottom: 10px;
 }
 
     .find-wrap li{
@@ -96,3 +115,12 @@
     gap: 27px;
 }
 
+.login-input-wrap>div>input{
+    font-size: 14px;
+}
+
+.hihi{
+    display: flex;
+    flex-direction: column;
+    
+}
