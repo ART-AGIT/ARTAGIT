@@ -23,7 +23,7 @@
     <header class="header">
         <section class="header-wrapper">
             <div class="header-box">
-                <h1 class="logo"><a href="">Art Agit</a></h1>
+                <h1 class="logo"><a href="../index.html">Art Agit</a></h1>
                 <ul class="d-none">
                     <!-- <li><a href="">전시</a></li>
                     <li><a href="">커뮤니티</a></li>
@@ -37,14 +37,14 @@
                 <div class="sub-menu">
                     <div class="sub-menu-1">
                         <ul>
-                            <li><a href="">전시</a></li>
-                            <li><a href="">커뮤니티</a></li>
+                            <li><a href="list.html">전시</a></li>
+                            <li><a href="../board/list.html">커뮤니티</a></li>
                             <li><a href="">-</a></li>
                         </ul>
                     </div>
                     <div class="sub-menu-2">
                         <ul>
-                            <li><a href="">로그인</a></li>
+                            <li><a href="../login.html">로그인</a></li>
                             <li><a href="">검색</a></li>
                             <li><a href="">고객센터</a></li>
                         </ul>
@@ -53,24 +53,65 @@
             </div>
         </section>
     </header>
-    <main>
+
+    <!-- =====pc버젼 용 html============ -->
+    <header class="header-pc">
+        <div class="content-box">
+            <h1 class="logo">
+                <a href="">Art Agit</a>
+            </h1>
+            <section>
+                <h1 class="d-none">메인메뉴</h1>
+                <nav class="main-menu">
+                    <h1 class="d-none">목록선택</h1>
+                    <ul>
+                        <li>
+                            <a href="exhibition.html">전시</a>
+                            <ul class="sub-menu">
+                                <li><a href="">진행 전시</a></li>
+                                <li><a href="">전시 예정</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="">커뮤니티</a>
+                            <ul class="sub-menu">
+                                <li><a href="">-</a></li>
+                                <li><a href="">-</a></li>
+                            </ul>
+                        </li>
+                        <li class="search-btn">
+                            <a href="">검색</a>
+                            <div>
+                                <input type="text" class="search">
+                                <!-- <img src="../image/icons/search.svg" alt=""> -->
+                            </div>
+                        </li>
+                        <li><a href="">로그인</a></li>
+                    </ul>
+
+                </nav>
+            </section>
+        </div>
+    </header>
+    <main class="main-container">
         <form>
         <section class="post-option">
             <h1 class="d-none">글작성 옵션</h1>
-            <div class="category">
-                <ul>
-                    <li>카테고리 선택</li>
-                    <li>자유</li>
-                    <li>전시후기</li>
-                    <li>맛집후기</li>
-                    <li>같이가요</li>
-                </ul>
-            </div>
-            <div class="save-temp">
-                <button class="save-temp-btn">임시저장</button>
-            </div>
-            <div class="submit-btn">
-                <button class="btn btn-default-fill" type="button" value="submit">등록</button>
+            
+                <select name = "category">
+                    <option value="">자유</option>
+                    <option value="">전시후기</option>
+                    <option value="">맛집후기</option>
+                    <option value="">같이가요</option>
+                </select>
+            
+            <div>
+                <div class="save-temp">
+                    <button class="save-temp-btn">임시저장</button>
+                </div>
+                <div class="submit-btn">
+                    <button class="btn btn-default-fill" type="button" value="submit">등록</button>
+                </div>
             </div>
         </section>
         <section>

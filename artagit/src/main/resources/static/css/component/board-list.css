@@ -1,41 +1,57 @@
 /* ====게시글 카테고리===== */
 .board-category-l{
-    
+   
     display: flex;
-    height: 30px;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    
-    border-bottom: 1px solid #BCBCBC;
-    
+}
+.board-category-l>li{
+    border-bottom: 2px solid  #9E9E9E;
+    /* width: 25%; */
+    padding-bottom: 10px;
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-around;
 }
 
-nav {
-    padding-top: 50px;
+li.line-on{
+ border-bottom: 2px solid #FF6B90;
 }
 /* =======공지========== */
 .notice{
     display: grid;
     grid-template-columns: 1fr 5fr;
-    padding: 10px;
-    border-bottom: 1px solid #BCBCBC;
-    height: 60px;
+    padding: 5px;
+    border-bottom: 1px solid  #9E9E9E;
+    height: 55px;
     align-items: center;
+}
+.notice div{
+    display: flex;
+    align-items: center;
+}
+
+.notice-info>div{
+    padding-right: 10px;
+   
+}
+
+.profile{
+    width: 20px;
+    height: 20px;
+    padding-right: 3px;
 }
 
 .notice-icon{
     justify-self: center;
 }
 .notice-title{
+ 
+    
     font-size: 16px;
     font-weight: bold;
-    
+   
 }
-.notice-info{
-    display: flex;
 
-}
+
 
 /* =======게시글 레이아웃========== */
 
@@ -47,7 +63,7 @@ nav {
     "writer post-info img " 30px
     / 1.5fr 2fr 1.5fr;
     padding: 10px;
-    border-bottom: 1px solid #BCBCBC;
+    border-bottom: 1px solid  #9E9E9E;
 
 }
 
@@ -59,12 +75,14 @@ nav {
     grid-area: regdate;
     display: flex;
     justify-content: flex-end;
-    padding-right: 10px;
+   
 }
 .board-title{
     grid-area:title;
     font-size: 16px;
+    
 }
+
 .board-list img{
     
     height: 112px;
@@ -75,6 +93,7 @@ nav {
     display: flex;
     grid-area:img;
     justify-content: flex-end;
+    
 }
 
 .board-writer-info{
@@ -89,7 +108,7 @@ nav {
     display:flex;
     grid-area:post-info;
     
-    padding-right: 10px;
+    justify-content: flex-end;
     align-items: center;
 }
 .view{

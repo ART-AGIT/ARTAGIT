@@ -2,7 +2,9 @@
 /* ============================================================ */
 
 .exh-menu-box{
-    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    height: 50px;
     border-bottom: 1.5px solid #878787;
 }
 .exh-menu-list {

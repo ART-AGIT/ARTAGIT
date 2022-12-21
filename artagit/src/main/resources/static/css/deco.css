@@ -24,7 +24,7 @@
     background-color: #575757;
     
     mask-size: 27px 30px;
-    /* -webkit-mask-repeat: no-repeat; */
+    -webkit-mask-repeat: no-repeat;
     -webkit-mask-size: 27px 30px;
 }
 
