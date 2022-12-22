@@ -42,9 +42,6 @@
 .deco-board::before{
     -webkit-mask-image: url(../../image/icons/board.svg);
 }
-.deco-report::before{
-    -webkit-mask-image: url(../../image/icons/report.svg);
-}
 .deco-chart::before{
     -webkit-mask-image: url(../../image/icons/chart.svg);
 }

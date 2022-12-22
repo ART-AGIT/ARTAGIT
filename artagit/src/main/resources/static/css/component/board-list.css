@@ -15,6 +15,13 @@
 li.line-on{
  border-bottom: 2px solid #FF6B90;
 }
+.active{
+    color:#FF6B90;
+}
+
+.board-category-box{
+    padding: 20px 0 10px 0;
+}
 /* =======공지========== */
 .notice{
     display: grid;
@@ -45,7 +52,7 @@ li.line-on{
 }
 .notice-title{
  
-    
+    overflow:hidden;
     font-size: 16px;
     font-weight: bold;
    
@@ -80,7 +87,7 @@ li.line-on{
 .board-title{
     grid-area:title;
     font-size: 16px;
-    
+    overflow:hidden;
 }
 
 .board-list img{

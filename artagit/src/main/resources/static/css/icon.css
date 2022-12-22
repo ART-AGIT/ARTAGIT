@@ -150,4 +150,7 @@
     background-color: #000;
 }
 
-
+.icon-report{
+    -webkit-mask-image: url(../../image/icons/report.svg);
+   
+}
