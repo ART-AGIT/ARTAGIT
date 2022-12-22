@@ -4,7 +4,7 @@
 	
 	<select id="getListByID" resultType="com.artagit.web.entity.Exhibition">
 		select * from Exhibition
-		where id = #{id}
+		where memId = #{memId}
 	</select>
 	<select id="getList" resultType="com.artagit.web.entity.Exhibition">
 		select * from Exhibition

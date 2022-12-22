@@ -57,7 +57,7 @@ public class DefaultExhibitionService implements ExhibitionService {
 	//내가 등록한 전시 리스트 호출하는 함수
 	public List<Exhibition> getListById(int id) {
 		
-		exhDao.getListByID(id);
-		return null;
+		List<Exhibition> list =exhDao.getListByID(id);
+		return list;
 	}
 }
