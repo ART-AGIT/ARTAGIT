@@ -9,35 +9,6 @@ body {
     font-size: 16px;
 }
 
-/******* 상단 메뉴 ****************************************/
-.find-box {
-    margin-top: 15px;
-    height: 40px;
-    display: flex;
-    text-align: center;
-}
-
-.find {
-    width: 50%;
-    height: 100%;
-
-    align-items: center;
-    border-bottom: 2px solid #A8A8A8;
-
-    display: flex;
-    text-align: center;
-    justify-content: center;
-}
-
-.find-id::before {
-    content: '아이디 찾기';
-}
-
-.find-pw::before {
-    content: '비밀번호 초기화';
-}
-
-
 /* 아이디 찾기 or 비밀번호 초기화 버튼 클릭 시 속성 변경 */
 .find-id-on {
     color: #FF6C9E;
@@ -68,11 +39,11 @@ body {
 }
 
 .find-content-box.find-pw-box {
-    display: flex;
+    /* display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    height: 370px;
+    justify-content: center; */
+    height: 490px;
 }
 
 .text-box {
@@ -150,7 +121,7 @@ p {
     font-weight: 300;
 }
 
-.find-content-box.find-result>a:last-child {
+.find-content-box .find-result>a:last-child {
     width: 140px;
     height: 21px;
 
