@@ -1,102 +1,69 @@
-.menu-list {
-    padding: 30px 5px 0px 5px;
+.text {
+    color: #545454;
+}
+
+.total-box {
     display: flex;
-    justify-content: space-around;
-    /* flex-direction: row; */
-    /* align-items: center; */
+    margin-left: 4%;
+    height: 25px;
+    align-items: flex-end;
 }
 
-
-
-
-.deco::before {
-    /* 컨텐트 값을 넣어줘야 슈도엘리먼트를 자식으로서 사용할 수 있다. */
-    content: '';
-    /* margin-right:10px; */
-    width: 27px;
-    height: 30px;
-
-    padding: .4em 0.8em;
-    display: flex; /* 가상 요소 가운데 정렬 */
-    /* justify-content: center; */
-    /* text-align: center; */
-    margin-left: auto;
-    /* align-items: center; */
-
-    background-color: #373737;
-    
-    mask-size: 27px 30px;
-    -webkit-mask-repeat: no-repeat;
-    -webkit-mask-size: 27px 30px;
+.total, .total-num {
+    font-weight: 500;
 }
 
-.deco-ticket-on{
-    color: #FF6B90;
+form {
+    border-bottom: 1.5px solid rgba(157, 157, 157, 0.353);
+    padding: 15px 0;
 }
 
-.deco-ticket::before {
-    mask-image: url(../image/ticket.svg); /* mask 속성 사용할 때 앞에 접두사(ex.webkit)을 안붙이면 현재 mask 기능이 지원되는 브라우저에서는 모두 적용이 된다. */
-    -webkit-mask-image: url(../image/ticket.svg);
-}
-
-
-.deco-heart-red::before {
-    mask-image: url(../image/heart-red.svg); /* mask 속성 사용할 때 앞에 접두사(ex.webkit)을 안붙이면 현재 mask 기능이 지원되는 브라우저에서는 모두 적용이 된다. */
-    -webkit-mask-image: url(../image/heart-red.svg);
-    background-color: rgb(255, 73, 73);
-}
-
-.deco-smile::before {
-    mask-image: url(../image/smile.svg); /* mask 속성 사용할 때 앞에 접두사(ex.webkit)을 안붙이면 현재 mask 기능이 지원되는 브라우저에서는 모두 적용이 된다. */
-    -webkit-mask-image: url(../image/smile.svg);
-}
-
-.deco-write::before {
-    mask-image: url(../image/write.svg); /* mask 속성 사용할 때 앞에 접두사(ex.webkit)을 안붙이면 현재 mask 기능이 지원되는 브라우저에서는 모두 적용이 된다. */
-    -webkit-mask-image: url(../image/write.svg);
-}
-
-.mypage-list{
+.exh-list form {
+    /* margin: 15px 0; */
     display: grid;
-    grid-template: 
-        "img  m1 " 130px 
-        "img  m2 " 80px
-        "img  m3  " 32px
-        / 200px  1fr    ;
-        padding: 15px 0 15px 0 ;
-        border-bottom: 1px solid black;
-        grid-column-gap: 20px;
-}
-.mypage-list:last-child{
-    border: none;
-}
-.m1{
-    grid-area: m1;
-    justify-self: flex-start;
-    align-self: flex-end;
-    color: #FF6B90;
-    font-size: 16px;
-
-}
-.m2{
-    grid-area: m2;
-    justify-self: start;
-    align-self: center;
-}
-.m3{
-   
-    grid-area: m3;
-    justify-self: start;
-   
+    justify-content: start;
+    align-items: end;
+    grid-template: "img state" 50px
+                    "img title" 26px
+                    "img author" 18px
+                    "img blank" 15px
+                    "img date" 55px / 170px;
 }
 
-.mypage-img-box{
+.exh-img-box {
     grid-area: img;
-    
 }
 
-.mypage-img {
-    width: 100%;
-    height: 100%;
-    
+.exh-state {
+    grid-area: state;
+    font-size: 15px;
+}
+
+.exh-state.exh-ing, .total-num {
+    color: #FF5171;
+    font-weight: 700;
+}
+
+.exh-state.exh-end {
+    color: #6f6666;
+    font-weight: 700;
+}
+
+.exh-title {
+    grid-area: title;
+}
+
+.exh-author {
+    grid-area: author;
+}
+
+.exh-date {
+    grid-area: date;
+    padding-bottom: 8px;
+}
+
+.exh-img {
+    margin-left: 10px;
+    width: 146px;
+    height: 164px;
 }
