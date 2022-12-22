@@ -52,4 +52,15 @@ public class DefaultExhibitionService implements ExhibitionService {
 		
 		return exh;
 	}
+
+	@Override
+//	public void update(Exhibition exhibition) {
+	public void update(int id, String name) {
+		exhDao.update(id, name);
+	}
+
+	@Override
+	public void delete(int id) {
+		exhDao.delete(id);
+	}
 }
