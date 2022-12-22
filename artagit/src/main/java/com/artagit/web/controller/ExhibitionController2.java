@@ -6,11 +6,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.artagit.web.entity.Exhibition;
+import com.artagit.web.entity.Museum;
 import com.artagit.web.service.ExhibitionService;
+import com.artagit.web.service.MuseumService;
 
 @Controller
 @RequestMapping("/exhibition/")
@@ -18,6 +22,9 @@ public class ExhibitionController2 {
 	
 	@Autowired
 	private ExhibitionService service;
+	
+	@Autowired
+	private MuseumService museumService;
 	
 	
 	/********************** 전시조회 시작 **********************/
@@ -34,16 +41,44 @@ public class ExhibitionController2 {
 	
 	@GetMapping("detail") // 전시상세 불러오기
 	public String detail(
-			@RequestParam(defaultValue="21", name = "id") int id,
+			@RequestParam("id") int exhId,
 			Model model) {
 		
-		int exhId = 21;
 		
 		Exhibition exh = service.getExhById(exhId);
 		model.addAttribute("exh", exh);
+		Museum museum = museumService.getMuseumById(exh.getMuseumId());
+		model.addAttribute("museum", museum);
+		
+		System.out.println("전시관 id========>"+exh.getMuseumId());
+		System.out.println("전시관 name========>"+museum.getName());
+		
 		return "exhibition/detail";
 	}
 	
    /********************** 전시조회 끝 **********************/
-
+	
+	@ResponseBody
+	@GetMapping("update")
+	public void update(@RequestParam("id") int id,
+			@RequestParam("name") String name) {
+//		System.out.println("수정한 전시 ===> "+ id);
+//		id = 19;
+		service.update(id, name);
+		System.out.println("수정완료");
+	}
+	
+	@ResponseBody 
+	@GetMapping("delete")
+	public void delete(
+			@RequestParam(name = "id") int id) {
+		service.delete(id);
+		
+		System.out.println("삭제완료");
+		// return "redirect:list";
+		
+	}
 }
+
+// pathvariable
+// requestParam 

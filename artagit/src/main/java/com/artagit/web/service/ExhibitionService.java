@@ -15,4 +15,8 @@ public interface ExhibitionService {
 	List<Exhibition> getList(int page);
 	
 	Exhibition getExhById(int exhId);
+	
+//	void update(Exhibition exhibition);
+	void update(int id, String name);
+	void delete(int id);
 }

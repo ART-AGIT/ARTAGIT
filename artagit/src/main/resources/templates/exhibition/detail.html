@@ -65,7 +65,7 @@
                 <a class="icon icon-arrow-right icon-arrow-right-sm" href="">다음</a>
             </div>
             <div class="flow-item">
-                <a class="text" href="">전시목록</a>
+                <a class="text" href="exhibition/list">전시목록</a>
             </div>
             <div class="arrow-box">
                 <a class="icon icon-arrow-right icon-arrow-right-sm" href="">다음</a>
@@ -94,11 +94,11 @@
             <form action="">
                 <h1 class="exh-title" th:text="${exh.name}">FFALO in SEOUL</h1>
                 <label class="text exh-author">작가</label><div class="text author" th:text="${exh.artist}">김정현</div>
-                <label class="text exh-place">전시장소</label><div class="text place">국립현대미술관</div>
-                <label class="text exh-date">전시기간</label><div class="text date" th:text="${exh.startDate}">2022-10-30 ~ 2022-10-39</div>
-                <label class="text exh-time">관람시간</label><div class="text time" th:text="${exh.startTime}">10:00 ~ 17:00 (휴관일 매주 월요일)</div>
-                <label class="text exh-phone">연락처</label><div class="text phone">02-1234-5678</div>
-                <label class="text exh-address">주소</label><div class="text address">서울시 종로구 지하문구 49번길</div>
+                <label class="text exh-place">전시장소</label><div class="text place" th:text="${museum.name}">국립현대미술관</div>
+                <label class="text exh-date">전시기간</label><div class="text date" th:text="${exh.startDate}+' ~ '+${exh.endDate}">2022-10-30 ~ 2022-10-39</div>
+                <label class="text exh-time">관람시간</label><div class="text time" th:text="${#strings.substring(exh.startTime, 0,5)}+' ~ '+${#strings.substring(exh.endTime, 0,5)}">10:00 ~ 17:00 (휴관일 매주 월요일)</div>
+                <label class="text exh-phone">연락처</label><div class="text phone" th:text="${museum.phone}">02-1234-5678</div>
+                <label class="text exh-address">주소</label><div class="text address" th:text="${museum.address}">서울시 종로구 지하문구 49번길</div>
             </form>
         </section>
         

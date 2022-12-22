@@ -25,8 +25,13 @@ public interface ExhibitionDao {
 	// 집계 하는 메서드
 	int count(String query);
 	
-	int insert(Exhibition exhibiiton);
-	int update(Exhibition exhibiiton);
+	int insert(Exhibition exhibition);
+	
+	// 전시 수정
+//	int update(Exhibition exhibition);
+	int update(int id, String name);
+	
+	// 전시 삭제
 	int delete(int id);
 
 	
