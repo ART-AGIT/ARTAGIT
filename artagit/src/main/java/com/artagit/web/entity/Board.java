@@ -2,7 +2,7 @@ package com.artagit.web.entity;
 
 import java.util.Date;
 
-public class Post {
+public class Board {
 	private int id;
 	private int roleId;
 	private int memId;
@@ -13,11 +13,11 @@ public class Post {
 	private Date regDate;
 	private Date modiDate;
 	
-	public Post() {
+	public Board() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Post(int id, int roleId, int memId, String title, String content, String image, int hit, Date regDate,
+	public Board(int id, int roleId, int memId, String title, String content, String image, int hit, Date regDate,
 			Date modiDate) {
 		super();
 		this.id = id;
