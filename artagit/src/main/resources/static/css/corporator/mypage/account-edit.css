@@ -32,14 +32,16 @@
     padding: 20px 0;
     justify-content: center;
     gap : 20px;
+    height:35px;
 }
 
 .unregister{
     display: flex;
     justify-content: end;
     padding-top : 100px;
-    
+   
 }
+
 
 
 
@@ -131,4 +133,8 @@
 }
 
 
+.icon-arrow-toggle-down{
+    -webkit-mask-size: 15px 15px;
+    height:0;
+}
 

@@ -8,4 +8,6 @@ public interface MemberService {
 
 //	void insertMember(Member member);
 
+	void deleteUseYN(int id,String useYN);
+//	void deleteUseYN(Member member);
 }
