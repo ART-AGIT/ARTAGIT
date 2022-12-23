@@ -54,6 +54,7 @@ public class DefaultExhibitionService implements ExhibitionService {
 	}
 
 	@Override
+
 //	public void update(Exhibition exhibition) {
 	public void update(int id, String name) {
 		exhDao.update(id, name);
@@ -62,5 +63,12 @@ public class DefaultExhibitionService implements ExhibitionService {
 	@Override
 	public void delete(int id) {
 		exhDao.delete(id);
+	}
+	//내가 등록한 전시 리스트 호출하는 함수
+	public List<Exhibition> getListById(int id) {
+		
+		List<Exhibition> list =exhDao.getListByID(id);
+		return list;
+
 	}
 }

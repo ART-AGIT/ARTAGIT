@@ -16,7 +16,13 @@ public interface ExhibitionService {
 	
 	Exhibition getExhById(int exhId);
 	
+
 //	void update(Exhibition exhibition);
 	void update(int id, String name);
 	void delete(int id);
+
+	
+	//내가 등록한 전시 리스트 
+	List<Exhibition> getListById(int id);
+
 }
