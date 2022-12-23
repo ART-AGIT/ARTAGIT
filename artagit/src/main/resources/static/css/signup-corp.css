@@ -1,6 +1,3 @@
-/* .main-container{
-    padding-top: 10px;
-} */
 .reg-list-box > div{
     margin: 0 auto;
 }
@@ -40,6 +37,10 @@
     
 }
 
+.btn-certify{
+    width: 68px;
+}
+
 /*  */
 .toggle{
     display: flex;
@@ -68,6 +69,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-top:50px;
 }
 
 .signup-corp>h1{
@@ -85,12 +87,11 @@
     
 }
 
-.confirm-nickname{
-    font-size: 12px;
-    color: #F7A7BB;
-}
-
-
 input:focus::placeholder {
     color:transparent;
+}
+
+.icon-arrow-toggle-down{
+    -webkit-mask-size: 15px 15px;
+    height:0;
 }

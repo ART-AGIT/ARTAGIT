@@ -4,8 +4,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.artagit.web.entity.Member;
 import com.artagit.web.service.MemberService;
@@ -45,6 +48,53 @@ public class MemberController {
 		return "redirect:/";
 		
 	}
+	
+	//===== 회원 탈퇴 (useYN 변경) ==================================
+	@GetMapping("corp")
+	public String deleteUseYN() {
+		return "corporator/mypage/account-edit";
+	}
+	
+	
+	@PostMapping("corp")
+	public String deleteUseYN(Integer id, String useYN) {
+//			@PathVariable("id") int id) {
+		int memid=51;
+		String useYN2 = "Y";
+		service.deleteUseYN(memid,useYN2);
+//		
+		return "corporator/mypage/account-edit";
+//		return "redirect:/";
+	}
+//	
+//	@GetMapping("corp")
+//	public String deleteUseYN(int id) {
+//		id =51;
+//		service.deleteUseYN(id);
+//		return "corporator/mypage/account-edit";
+//	}
+	
+//	@PostMapping("corp")
+////	public String deleteUseYN(int id, String useYN){
+//	public String deleteUseYN(Member member) {
+////		service.deleteUseYN(21, useYN);
+//		service.deleteUseYN(member);
+//		
+//		return "redirect:/signup";
+//		
+//	}
+//	
+	//===== 업체 회원 정보 수정 ==================================
+	// 수정화면 요청
+//	@GetMapping("corp")
+//	public String updateCorp(Member member) {
+//		
+//		
+//	}
+	
+	
+	
+	
 	
 	
 }
