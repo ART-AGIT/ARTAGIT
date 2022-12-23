@@ -33,7 +33,8 @@ public class ExhibitionController2 {
 			@RequestParam(defaultValue = "1", name = "p") int page,
 			Model model) {
 		
-		List<Exhibition> lists = service.getList(page);
+		List<Exhibition> lists = service.getList(page,0,0,0);
+		
 		model.addAttribute("lists", lists);
 		
 		return "exhibition/list";
