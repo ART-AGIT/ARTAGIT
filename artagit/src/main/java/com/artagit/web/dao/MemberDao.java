@@ -16,5 +16,8 @@ public interface MemberDao {
 	
 	int insert(Member member);
 	int update(Member member);
-	int delete(int id);
+	
+	void deleteUseYN(int id, String useYN); // 회원 탈퇴
+//	void deleteUseYN(Member member);
+	
 }

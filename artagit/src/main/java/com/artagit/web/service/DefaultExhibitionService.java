@@ -32,17 +32,17 @@ public class DefaultExhibitionService implements ExhibitionService {
 		return exhDao.insert(exhibition);
 	}
 
-	@Override
-	// 페이지 지정해서 목록 조회하는 메서드
-	public List<Exhibition> getList(int page) {
-		
-		int size = 6;
-		int offset = (page-1)*size;
-		
-		List<Exhibition> list = exhDao.getList(offset, size);
-		
-		return list;
-	}
+//	@Override
+//	// 페이지 지정해서 목록 조회하는 메서드
+//	public List<Exhibition> getList(int page, int categoryId) {
+//		
+//		int size = 6;
+//		int offset = (page-1)*size;
+//		
+//		List<Exhibition> list = exhDao.getList(offset, size, categoryId);
+//		
+//		return list;
+//	}
 
 	@Override
 	// 전시 상세 정보 가져오는 메서드
@@ -54,6 +54,7 @@ public class DefaultExhibitionService implements ExhibitionService {
 	}
 
 	@Override
+
 //	public void update(Exhibition exhibition) {
 	public void update(int id, String name) {
 		exhDao.update(id, name);
@@ -63,4 +64,34 @@ public class DefaultExhibitionService implements ExhibitionService {
 	public void delete(int id) {
 		exhDao.delete(id);
 	}
+	//내가 등록한 전시 리스트 호출하는 함수
+	public List<Exhibition> getListById(int id) {
+		
+		List<Exhibition> list =exhDao.getListByID(id);
+		return list;
+
+	}
+	@Override
+	public List<Exhibition> getList(int page, int museum, int state, int category) {
+		int size = 6;
+		int offset = (page-1)*size;
+		
+		List<Exhibition> list = exhDao.getList(offset, size, museum, state, category);
+		
+		return list;
+	}
+
+
+	@Override
+	public List<Exhibition> getListByCategory(int museum, int state, int category) {
+		int page = 1;
+		int size = 6;
+		int offset = (page-1)*size;
+		
+		List<Exhibition> list = exhDao.getList(offset, size, museum, state, category);
+		
+		return list;
+	}
+
+
 }
