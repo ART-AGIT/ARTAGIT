@@ -22,4 +22,15 @@ public class DefaultMemberService implements MemberService{
 
 	}
 
+//========회원 탈퇴 ==================
+	
+	@Override
+	public void deleteUseYN(int id,String useYN) {
+//	public void deleteUseYN(Member member) {
+		 memberDao.deleteUseYN(id,useYN);
+//		memberDao.deleteUseYN(member);
+		
+//		return result;
+	}
+
 }
