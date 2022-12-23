@@ -64,150 +64,155 @@
         </section>
     </header>
 
-    <main>
-        <!-- <div class="menu-list"> -->
+    <main id="exh-reg-main">
         <div class="menu-box">
-            <ul class="menu-list">
-                <li class="list line-on"><a class="deco deco-ticket deco-ticket-on" href="">나의 예매내역</a></li>
-
-                <li class="list"><a class="deco deco-smile" href="./account-edit.html">내 정보 수정</a></li>
-
-            </ul>
-        </div>
-
-
-        <div class="step">
-
-            <div class="circle">
-                <div class="circle1">1</div>
-                <div>기본정보</div>
+                <ul class="menu-list">
+                    <li class="list line-on"><a class="deco deco-ticket deco-ticket-on" href="">나의 예매내역</a></li>
+                    
+                    <li class="list"><a class="deco deco-smile" href="./account-edit.html">내 정보 수정</a></li>
+                    
+                </ul>
             </div>
+            
+            
+            <div class="exh-reg-list">
+		<div class="">
+            <div class="step">
 
-            <div class="circle">
-                <div class="circle1 circle-off">2</div>
-                <div>상세정보</div>
-            </div>
-
-            <div class="circle">
-                <div class="circle1 circle-off">3</div>
-                <div>전시설명</div>
-            </div>
-
-        </div>
-
-        <section class="reg-list">
-
-            <div class="reg-list-input-box">
-                <label for="">전시명</label>
-                <input name="name" type="text" class="input input-lg">
-            </div>
-            <div class="reg-list-input-box">
-                <label for="">작가</label>
-                <input  name="artist" type="text" class="input input-lg">
-            </div>
-            <div class="reg-list-input-box">
-                <label for="">전시장소</label>
-                <input name="address" type="text" class="input input-lg">
-            </div>
-            <div class="reg-list-input-box">
-                <label for="">지역상세</label>
-                <input name="address" type="search" class="input input-lg">
-            </div>
-            <div class="reg-list-input-box">
-                <label for="">전시기간</label>
-                <div>
-                    <div class="exhibition-input-date">
-                        <input name="startDate" type="date" class="input input-sm">
-                        <!-- <a class="icon icon-calendar" href="">달력</a> -->
-                    </div>
-                    <span>~</span>
-                    <div class="exhibition-input-date">
-                        <input name="endDate" type="date" class="input input-sm">
-                        <!-- <a class="icon icon-calendar" href="">달력</a> -->
-                    </div>
+                <div class="circle">
+                    <div class="circle1">1</div>
+                    <div>기본정보</div>
                 </div>
-            </div>
-            <div class="reg-list-input-box">
-                <label for="">관람시간</label>
-                <div>
-                    <input name="startTime" type="time" class="input input-sm">
-                    <span>~</span>
-                    <input name="endTime" type="time" class="input input-sm">
+
+                <div class="circle">
+                    <div class="circle1 circle-off">2</div>
+                    <div>상세정보</div>
                 </div>
+
+                <div class="circle">
+                    <div class="circle1 circle-off">3</div>
+                    <div>전시설명</div>
+                </div>
+
             </div>
-            <div class="price-count">
+
+            <section class="reg-list">
+
                 <div class="reg-list-input-box">
-                    <label for="">관람료</label>
+                    <label for="">전시명</label>
+                    <input name="name" type="text" class="input input-lg">
+                </div>
+                <div class="reg-list-input-box">
+                    <label for="">작가</label>
+                    <input name="artist" type="text" class="input input-lg">
+                </div>
+                <div class="reg-list-input-box">
+                    <label for="">전시장소</label>
+                    <input name="" type="text" class="input input-lg">
+                </div>
+                <div class="reg-list-input-box">
+                    <label for="">지역상세</label>
+                    <input name="address" type="search" class="input input-lg">
+                </div>
+                <div class="reg-list-input-box">
+                    <label for="">전시기간</label>
                     <div>
-                        <input name="ticketPrice" type="number" class="input input-md-3">
-                        <span>(단위: 원)</span>
+                        <div class="exhibition-input-date">
+                            <input name="startDate" type="date" class="input input-sm">
+                            <!-- <a class="icon icon-calendar" href="">달력</a> -->
+                        </div>
+                        <span>~</span>
+                        <div class="exhibition-input-date">
+                            <input name="endDate" type="date" class="input input-sm">
+                            <!-- <a class="icon icon-calendar" href="">달력</a> -->
+                        </div>
                     </div>
                 </div>
                 <div class="reg-list-input-box">
-                    <label for="">재고</label>
+                    <label for="">관람시간</label>
                     <div>
-                        <input name="ticketStock" type="number" class="input input-md-3" placeholder="(무제한: 9999장)">
-                        <span>(단위: 장)</span>
+                        <input name="startTime" type="time" class="input input-sm">
+                        <span>~</span>
+                        <input name="endTime" type="time" class="input input-sm">
                     </div>
                 </div>
-            </div>
-        </section>
+                <div class="price-count">
+                    <div class="reg-list-input-box">
+                        <label for="">관람료</label>
+                        <div>
+                            <input name="ticketPrice" type="number" class="input input-md-3">
+                            <span>(단위: 원)</span>
+                        </div>
+                    </div>
+                    <div class="reg-list-input-box">
+                        <label for="">재고</label>
+                        <div>
+                            <input name="ticketStock" type="number" class="input input-md-3" placeholder="(무제한: 9999장)">
+                            <span>(단위: 장)</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-        <div>
-            <span class="exh-reg-button-box">
-                <a type="submit" class="btn-next" href="../../corporator/mypage/exh-reg.html"></a>
+            <span id="first-page-next">
+                <div class="exh-reg-button-box">
+                    <a type="submit" class="btn-next" href="../../corporator/mypage/exh-reg.html"></a>
+                </div>
             </span>
+
+	</div>
+
+		<div class="d-none">
+            <section class="reg-list">
+
+                <div class="reg-list-input-box">
+                    <label for="">주최</label>
+                    <input name="museumId" type="text" class="input input-lg">
+                </div>
+                <div class="reg-list-input-box">
+                    <label for="">담당자</label>
+                    <input name="manager" type="text" class="input input-lg">
+                </div>
+                <div class="reg-list-input-box">
+                    <label for="">전화번호</label>
+                    <input name="phone" type="tel" class="input input-lg">
+                </div>
+
+            </section>
+
+            <div class="exh-reg-button-box">
+                <a type="submit" class="btn-before x" href="../../corporator/mypage/exh-reg.html"></a>
+                <a type="submit" class="btn-next y" href="../../corporator/mypage/exh-reg.html"></a>
+            </div>
+		</div>
+
+
+            <div class="d-none">
+            <section class="reg-list">
+                
+                <div class="reg-list-input-box">
+                    <label for="">전시설명</label>
+                    <textarea class="input" id="" name="" rows="15" cols="10" placeholder="내용을 입력해주세요."></textarea>
+                </div>
+                <div class="reg-list-input-box">
+                    <label for="">포스터 이미지</label>
+                    <input name="poster" type="file" class="input input-lg">
+                </div>
+                <div class="reg-list-input-box">
+                    <label for="">상세 이미지</label>
+                    <input name="detailImage" type="file" class="input input-lg">
+                </div>
+                
+            </section>
+            
+            <div class="exh-reg-button-box">
+                <a type="submit" class="btn-before z" href="../../corporator/mypage/exh-reg.html"></a>
+                <button type="submit" class="btn-default-fill-off btn-register">등록</button>
+            </div>
+            </div>
+            
         </div>
-
-
-
-        <section class="reg-list">
-
-            <div class="reg-list-input-box">
-                <label for="">주최</label>
-                <input name="museumId" type="text" class="input input-lg">
-            </div>
-            <div class="reg-list-input-box">
-                <label for="">담당자</label>
-                <input name="manager" type="text" class="input input-lg">
-            </div>
-            <div class="reg-list-input-box">
-                <label for="">전화번호</label>
-                <input name="phone" type="tel" class="input input-lg">
-            </div>
-
-        </section>
-
-        <div class="exh-reg-button-box">
-            <a type="submit" class="btn-before" href="../../corporator/mypage/exh-reg.html"></a>
-            <a type="submit" class="btn-next" href="../../corporator/mypage/exh-reg.html"></a>
-        </div>
-
-
-        </div>
-
-        <section class="reg-list">
-
-            <div class="reg-list-input-box">
-                <label for="">전시설명</label>
-                <textarea class="input" id="" name="" rows="15" cols="10" placeholder="내용을 입력해주세요."></textarea>
-            </div>
-            <div class="reg-list-input-box">
-                <label for="">포스터 이미지</label>
-                <input name="poster" type="file" class="input input-lg">
-            </div>
-            <div class="reg-list-input-box">
-                <label for="">상세 이미지</label>
-                <input name="detailImage" type="file" class="input input-lg">
-            </div>
-
-        </section>
-
-        <div class="exh-reg-button-box">
-            <a type="submit" class="btn-before" href="../../corporator/mypage/exh-reg.html"></a>
-            <button type="submit" class="btn-default-fill-off btn-register">등록</button>
-        </div>
-
+        
     </main>
 </body>
 

@@ -1,3 +1,11 @@
+#exh-reg-main .exh-reg-list{
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .step {
     display: flex;
     justify-content: space-between;
@@ -39,8 +47,12 @@
     flex-direction: column;
     align-items: flex-start;
 }
-div .exh-reg-button-box{
+div.exh-reg-button-box{
     display: flex;
+    justify-content: space-between;
+    width: 296px;
+    padding: 10px 0 10px 0;
+}
+#first-page-next .exh-reg-button-box{
     justify-content: end;
-    width: 320px;
 }
