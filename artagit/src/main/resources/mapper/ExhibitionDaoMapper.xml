@@ -8,12 +8,19 @@
 	</select>
 	<select id="getList" resultType="com.artagit.web.entity.Exhibition">
 		select * from Exhibition
-			<trim prefix="WHERE" prefixOverrides="AND | OR">
-				<if test="field != null">
-					${field} like '%${input}%'
-				</if>
-			</trim>
-			limit #{(page-1)*10}, 10
+		<trim prefix="WHERE" prefixOverrides="AND | OR">
+			<if test="museumId != null and museumId != 0">
+				museumId = #{museumId}
+			</if>
+			<if test="stateId != null and stateId != 0">
+				AND stateId = #{stateId}
+			</if>
+			<if test="cateId != null and cateId != 0">
+				AND cateId = #{cateId}
+			</if>
+			and useYN = "Y"
+		</trim>
+		limit #{offset}, #{size}
 	</select>
 	
 	<select id="get" resultType="com.artagit.web.entity.Exhibition">

@@ -21,23 +21,23 @@
     text-align: center;
 }
 
-.exh-menu-select{
+.exh-menu-selected > a{
     font-weight: bold;
     color: #FF6C9E;
 
 }
 /* 서브메뉴 펼칠 때, 각 높이만큼 펼치기 */
-.exh-menu-select.active+.sub-menu-1{
+.exh-menu-selected.active+.sub-menu-1{
     display: block;
-    height: 314px;
+    height: 260px;
 }
-.exh-menu-select.active+.sub-menu-2{
+.exh-menu-selected.active+.sub-menu-2{
     display: block;
-    height: 90px;
+    height: 75px;
 }
-.exh-menu-select.active+.sub-menu-3{
+.exh-menu-selected.active+.sub-menu-3{
     display: block;
-    height: 90px;
+    height: 75px;
 }
 
 /* 서브메뉴 */
