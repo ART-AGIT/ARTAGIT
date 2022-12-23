@@ -12,11 +12,18 @@ public interface ExhibitionService {
 	int reg(Exhibition exhibition);
 
 	// 모든 전시 목록 불러오는 메서드
-	List<Exhibition> getList(int page);
+	List<Exhibition> getList(int page, int museum, int state, int category);
 	
 	Exhibition getExhById(int exhId);
 	
+
 //	void update(Exhibition exhibition);
 	void update(int id, String name);
 	void delete(int id);
+
+	
+	//내가 등록한 전시 리스트 
+	List<Exhibition> getListById(int id);
+
+	List<Exhibition> getListByCategory(int museum, int state, int category);
 }
