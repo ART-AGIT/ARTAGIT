@@ -21,13 +21,14 @@ public class ExhibitionApi {
 	
 	@GetMapping("lists")
 	public List<Exhibition> list(
+			@RequestParam(defaultValue = "1", name = "p") int page,
 			@RequestParam("m") int museum, 
 			@RequestParam("s") int state,
 			@RequestParam("c") int category){
 		
 		System.out.print(category);
 		
-		List<Exhibition> list = service.getListByCategory(museum, state, category);
+		List<Exhibition> list = service.getListByCategory(page, museum, state, category);
 		
 		return list;
 	}

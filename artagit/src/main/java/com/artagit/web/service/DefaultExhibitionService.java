@@ -83,8 +83,7 @@ public class DefaultExhibitionService implements ExhibitionService {
 
 
 	@Override
-	public List<Exhibition> getListByCategory(int museum, int state, int category) {
-		int page = 1;
+	public List<Exhibition> getListByCategory(int page, int museum, int state, int category) {
 		int size = 6;
 		int offset = (page-1)*size;
 		
