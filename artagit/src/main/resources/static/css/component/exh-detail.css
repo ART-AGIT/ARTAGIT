@@ -14,16 +14,17 @@
 }
 
 .exh-detail{
-    border : 1px solid #9E9E9E;
+    /* border : 1px solid #9E9E9E; */
     border-radius:10px; 
     padding-bottom: 20px; 
 }
 
 .title{
-    text-align: center;
-    border-bottom: 1px solid #9E9E9E;
-    padding: 10px 0;
-    font-size: 18px;
+    text-align: start;
+    /* border-bottom: 1px solid #9E9E9E; */
+    padding-top: 10px;
+    padding-left : 30px;
+    font-size: 22px;
 }
 
 .exh-detail-img-box{
@@ -31,23 +32,32 @@
     /* grid-area: img; */
     justify-content: center;
     align-self: center;
-    padding: 10px 0;
+    padding-top: 10px;
+    
+    /* padding-top : 35px; */
 }
 
 .exh-detail-img{
     /* align-items: center; */
-    width: 300px;
+    width: 320px;
 }
 
 .item:nth-child(odd){
     font-weight: bold;
 }
 
-.hpg-box{
+.user-box{
     display: flex;
-    justify-content:center;
-    padding-top : 20px;
+    justify-content: center;
+    margin-right: 5%;
+    margin-left: 5%;
+    margin-top : 50px;
 }
+/* .btn-hpg{
+    width : 80%;
+    margin: 0;
+} */
+
 .button-box-wrap{
     display: flex;
     justify-content: end;
@@ -56,11 +66,13 @@
 }
 
 /* 결제 상세내역 */
+
 .toggle{
     display: flex;
     align-items: center;
 
 }
+
 .payDetail{
     font-size: 16px;
     padding-top:50px;
@@ -69,57 +81,33 @@
 
 .exh-detail-pay{
     /* width: 300px; */
+    margin-bottom: 100px;
 }
 
 .exh-detailPay-table{
-    /* display:flex; */
-    /* flex-direction: column; */
-    /* grid-template-columns: 0.5fr 1.5fr 0.5fr 1fr 1fr 1fr;  */
-    /* grid-template-rows: repeat(4, 50px); */
-    /* border: 1px solid #9E9E9E; */
-    /* border-radius: 10px; */
-    /* height: 197px; */
-    /* align-items: center; */
-    /* justify-items: center; */
-    /* vertical-align: middle; */
-
     /* grid version */
     display: grid;
     grid-template-columns: 0.5fr 1.5fr 0.5fr 1fr 1fr 1fr;
     border-top: 1px solid #9E9E9E;
-    /* align-items: center; */
-    
-    /* border-radius: 10px;     */
+
 }
 .pay{
-    height: 45px;
+    height: 40px;
     display: flex;
     border-bottom: 1px solid #9E9E9E;
     justify-content: center;
     align-items: center;
     text-align: center;
+    font-size: 12px;
+}
+.pay-colums{
     font-size: 14px;
 }
-.pay:nth-child(n+25):nth-child(-n+30){
-    border-bottom: none; 
-}
-
-
-
-
-
-
 
 .pay-wrapper{
     width: 100%;
     display: flex;
     border-bottom: 1px solid #9E9E9E;
 
-    /* justify-content: center; */
-    /* align-self: center; */
 }
-.pay-wrapper:last-child{
-    border:none;
-}
-
 
