@@ -25,5 +25,5 @@ public interface ExhibitionService {
 	//내가 등록한 전시 리스트 
 	List<Exhibition> getListById(int id);
 
-	List<Exhibition> getListByCategory(int museum, int state, int category);
+	List<Exhibition> getListByCategory(int page, int museum, int state, int category);
 }
