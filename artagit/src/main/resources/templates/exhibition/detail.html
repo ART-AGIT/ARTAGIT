@@ -5,7 +5,9 @@
    <!-- ---------------------------------------------------------------------- -->   
 
 	<th:block layout:fragment="css">
-	    <link href="../css/exhibition/detail.css" type="text/css" rel="stylesheet">	
+	    <link href="../css/exhibition/detail.css" type="text/css" rel="stylesheet">
+	    <script src="../js/exhibition/detail.js"></script>
+	    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f83ef3606f2a72bf9f1425fe76734149"></script>
 	</th:block>
 
 
@@ -19,7 +21,7 @@
                 <a class="icon icon-arrow-right icon-arrow-right-sm" href="">다음</a>
             </div>
             <div class="flow-item">
-                <a class="text" href="exhibition/list">전시목록</a>
+                <a class="text" href="">전시목록</a>
             </div>
             <div class="arrow-box">
                 <a class="icon icon-arrow-right icon-arrow-right-sm" href="">다음</a>
@@ -38,10 +40,9 @@
             <li><a class="deco deco-mini deco-heart" href="">좋아요</a><span class="like-num">3</span></li>
             <li><a class="deco deco-mini deco-map" href="">위치보기</a></li>
         </ul>
-        <hr>
 
         <div class="booking-btn">
-            <a class="btn btn-booking" href="">예매하기</a>
+            <a class="btn btn-booking" href="../member/exhibition/booking-ticket">예매하기</a>
         </div>
         
         <section class="exh-info">
@@ -65,10 +66,10 @@
         </div>
 
         <div class="content-box">
-            <p class="text exh-detail-content" th:text="${exh.content}">전시 어쩌구저쩌구.. 많이많이 보러와주십셔~</p>
+            <p class="text exh-detail-content">전시 어쩌구저쩌구.. 많이많이 보러와주십셔~</p>
         </div>
 
-        <div>
+        <div class="content-box">
             <p class="text warning"> ※아트아지트에 등록된 이미지와 글의 저작권은 각 작가와 필자에게 있습니다.</p>
         </div>
 
