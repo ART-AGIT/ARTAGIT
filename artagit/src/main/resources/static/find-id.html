@@ -8,8 +8,7 @@
     <link href="../../css/header.css" type="text/css" rel="stylesheet">
     <link href="../../css/reset.css" type="text/css" rel="stylesheet">
     <link href="../../css/deco.css" type="text/css" rel="stylesheet">
-    <link href="../../css/style.css" type="text/css" rel="stylesheet">
-
+    
     <link href="../../css/icon.css" type="text/css" rel="stylesheet">
     <link href="../../css/button.css" type="text/css" rel="stylesheet">
     <link href="../css/form.css" type="text/css" rel="stylesheet">
@@ -17,10 +16,13 @@
     
     <link href="../css/footer.css" type="text/css" rel="stylesheet">
     <link href="./css/find-id.css" type="text/css" rel="stylesheet">
+    <link href="./css/component/sub-menu.css" type="text/css" rel="stylesheet">
+    <link href="css/style.css" type="text/css" rel="stylesheet">
     <!-- <link href="./css/find-id-result.css" type="text/css" rel="stylesheet"> -->
     <!-- <link href="./css/find-pw.css" type="text/css" rel="stylesheet"> -->
 </head>
 <script src="./js/header-menu.js"></script>
+<script src="./js/find-id.js"></script>
 <body>
     <header class="header">
         <section class="header-wrapper">
@@ -58,8 +60,8 @@
 
     <main>
         <div class="find-box">
-            <a class="text find find-id find-id-on" href=""></a>
-            <a class="text find find-pw find-pw-off" href="./find-pw.html"></a>
+            <a class="text find find-id select-on" href=""></a>
+            <a class="text find find-pw" href="./find-pw.html"></a>
         </div>
 
         <!---------------- ID 찾기 ---------------->
@@ -80,7 +82,7 @@
         </div>
 
         <!---------------- ID 찾기 결과 ---------------->
-        <div class="find-content-box find-result">
+        <div class="find-content-box find-result d-none">
             <div class="text-box">
                 <span class="text">입력하신 정보와</span>
                 <span class="text">일치하는 아이디입니다.</span>
@@ -94,9 +96,8 @@
             <a class="btn btn-default btn-default-fill" href="./login.html">로그인</a>
         </div>
 
-
         <!---------------- PW 찾기 ---------------->
-        <div class="find-content-box find-pw-box">
+        <div class="find-content-box find-pw-box d-none">
             <form action="" class="input-box">
                 <label class="text find-email">이메일로 찾기</label>
                 <input class="input input-lg input-border input-white" name="loginId" type="text" placeholder="아이디">

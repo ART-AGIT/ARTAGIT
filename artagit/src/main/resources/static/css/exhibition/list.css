@@ -8,9 +8,8 @@
     border-bottom: 1.5px solid #878787;
 }
 .exh-menu-list {
-    width: 240px;
+    width: 220px;
 
-    padding: 0px 5px 10px 5px;
     display: flex;
     justify-content: space-around;
 
@@ -21,28 +20,32 @@
     text-align: center;
 }
 
-.exh-menu-select{
+.exh-menu-selected > span{
     font-weight: bold;
     color: #FF6C9E;
 
 }
+
+
 /* 서브메뉴 펼칠 때, 각 높이만큼 펼치기 */
-.exh-menu-select.active+.sub-menu-1{
+.exh-menu-selected.active+.sub-menu-1{
     display: block;
-    height: 314px;
+    height: 260px;
 }
-.exh-menu-select.active+.sub-menu-2{
+.exh-menu-selected.active+.sub-menu-2{
     display: block;
-    height: 90px;
+    height: 75px;
 }
-.exh-menu-select.active+.sub-menu-3{
+
+.exh-menu-selected.active+.sub-menu-3{
     display: block;
-    height: 90px;
+    height: 75px;
 }
+
 
 /* 서브메뉴 */
 .exh-sub-menu{
-    height: 0;
+    height: 0; 
     width: 100%;
     background-color: #fff;
     padding: 0;

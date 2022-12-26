@@ -54,11 +54,11 @@ body.bg-white{
 
 .main-seciton{
     border-top: 2px solid var(--color-black);
-    padding: 10px 0;
+    padding-bottom: 50px;
 
 }
     .main-seciton > h1{
-        padding: 10px 0;
+        padding: 20px 0;
     }
 
 .slider-box{
@@ -121,9 +121,11 @@ body.bg-white{
 
 .board-list{
     grid-template:
-        "category regdate img" 30px
-        "title title img" 40px / 2fr 1fr;
+        "category regdate img" 20px
+        "title title img" 30px / 2fr 1fr;
     align-items: center;
+    border-top: 1px solid #9E9E9E;
+    border-bottom: 0;
 }
 
 /* ========================================================= */

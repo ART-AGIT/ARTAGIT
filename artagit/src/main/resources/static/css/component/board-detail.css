@@ -1,3 +1,15 @@
+.icon{
+    background-color: #353535;
+    -webkit-mask-size: 16px 16px;
+    padding:0;
+    
+}
+.icon-report{
+    -webkit-mask-size: 20px 20px;
+}
+
+
+
 .post-detail-header{
     display:flex;
     justify-content: space-between;
@@ -18,7 +30,7 @@
     display: grid;
     grid-template: 
     "title time" 1fr
-    "info report" 25px /3fr 1fr;
+    "writer info" 25px /2fr 1fr;
     padding: 5px;
     border-bottom: 1px solid #BCBCBC;
 }
@@ -43,17 +55,20 @@
     grid-area: time;
     padding-bottom: 5px;
 }
-
-.post-info{
+.post-writer-info{
+    grid-area:writer;
     display:flex;
     align-items: center;
-    display: flex;
-    grid-area: info
-    padding-right: 5px;
+}
+.post-info{
+  grid-area:info;
+  display:flex;
+  justify-content: flex-end;
+  gap: 5px;
 }
 .post-info > div{
     display:flex;
-    padding-right: 5px;
+    
     align-items: center;
 }
 
@@ -76,6 +91,8 @@
 .like{
     display:flex;
     justify-content: flex-end;
+    align-items: center;
+    gap: 5px;
 }
 .comment-title{
     
@@ -98,9 +115,10 @@
     display: flex;
     flex-direction: column;
 
-      padding: 10px 0 10px 0;
+    padding: 10px 0 10px 0;
     border-bottom: 1px solid #BCBCBC;
     gap: 7px;
+    word-break:break-all;
 }
 .comment-writer-wrapper{
     display:flex;
@@ -136,9 +154,12 @@
     display:flex;
     height: 60px;
     padding-top: 10px;
-    justify-content: space-around;
+    justify-content: space-between;
+    gap: 5px;
 }
-
+form .user-name{
+    padding-top:10px;
+}
 .btn-default-fill{
     width: 45px;
     height: 26px;
@@ -146,10 +167,15 @@
 
 textarea{
     resize:none;
-    width: 75%;
+    width: 80%;
     height: 53px;
     border-radius: 5px;
     border: 1px solid #BCBCBC;
+}
+textarea:focus{
+    border:none;
+    outline-color: #FF6B90;
+    caret-color:  #FF6B90;
 }
 
 .profile-photo{
@@ -168,4 +194,12 @@ textarea{
 .comment-writing >img{
     height: 24px;
     width: 24px;
+}
+
+.user-name{
+    font-weight: bold;
+}
+
+.heart-fix{
+    padding-top:10px;
 }

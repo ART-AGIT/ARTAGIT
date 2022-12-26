@@ -99,12 +99,12 @@
     </header>
 
     <main class="main-container">
-    <nav class = "">
+    <nav class = "board-category-box">
         <ul class="board-category-l">
             <!-- <li>전체 글</li> -->
             <li class="deco-ticket-on "><a href="">전체 글</a></li>
-            <li class="line-on"><a href="">자유</a></li>
-            <li><a href="">전시후기</a></li>
+            <li class="line-on"><a href="" class="active">자유</a></li>
+            <li ><a href="" >전시후기</a></li>
             <li><a href="">맛집후기</a></li>
             <li><a href="">같이가요</a></li>
         </ul> 
@@ -112,11 +112,13 @@
     
     <section class="post-list">
         <h1 class="d-none">게시글 목록</h1>
-        <section class="notice">
+        <form>
+                <section class="notice">
             <h1 class="d-none">공지목록</h1> 
             <img class="notice-icon" src="../image/notice.png">
-            <div class="notice-title">
-                <a href = "../member/board/detail.html">회원님들 그만 좀 싸우세요들.aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</a></div>
+            <h1 class="notice-title">
+                <span>
+                <a href = "../member/board/detail.html">회원님들 assda 그만dasddasdafffffasdfasdfasdfffffffffffffffff싸우세요들.aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</a></span></h1>
         
             <div> </div>
             <div class="notice-info">
@@ -126,21 +128,30 @@
                 <div>운영자 </div>
                 </div>
                 <div> 22-11-30 </div>
-                <div>
-                <div>조회 </div>
-                <div>11 </div>
+                
+                <div class="view">
+                    <div class="icon icon-view">조회수 아이콘</div>
+                    <div>11</div>
+                </div>
             
-            </div>
-            
-        </section>
-
+           
+                
+            </section>
+        </form>
         
-   
-    <section class="board-list">
-        <h1 class="board-title"><a href = "../member/board/detail.html">회원님들 그만 좀 싸우세요들.</a></h1>
-        <div class="board-category-s"><a href="">[같이가요]</a></div>
+        <form>
+        <section class="board-list">
+        <h1 class="board-title">
+            <a href = "../member/board/detail.html">회원님들 그만 좀 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa싸우세요들.</a></h1>
+        <div><a class="board-category-s"href="">[같이가요]</a></div>
         <div class="board-regdate">1분전</div>
+        <div class="board-writer-info">
+                <img class="profile" src = "../image/accountImage.png">
+            <div>운영자 </div>
+        </div>
+        
         <div class="board-post-info">
+            
             <div class="view">
                 <div class="icon icon-view">조회수 아이콘</div>
                 <div>11</div>
@@ -155,12 +166,12 @@
             </div>
         </div>
         <div class="board-post-img-box">
-            <img src="../image/anonymousProject.png"></img>
+            <img class="post-img"src="../image/anonymousProject.png"></img>
         </div>
     </section>
+    </form>
 </section>
     <div class="writing-img-box">
-
         <a href = "../member/board/reg.html"><img src = "../image/writing-img.png"></img></a>
     </div>
 </main>

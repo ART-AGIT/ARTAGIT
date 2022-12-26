@@ -14,11 +14,13 @@
     <link href="../../css/button.css" type="text/css" rel="stylesheet">
     <link href="../../css/form.css" type="text/css" rel="stylesheet">
     <link href="../../css/header.css" type="text/css" rel="stylesheet">
-    
+    <link href="../../css/input.css" type="text/css" rel="stylesheet">
+
 
     <link href="../../css/utils.css" type="text/css" rel="stylesheet">
 </head>
 <script src="../../js/header-menu.js"></script>
+<script src="../../js/board/reg.js"></script>
 <body>
     <header class="header">
         <section class="header-wrapper">
@@ -95,34 +97,40 @@
     </header>
     <main class="main-container">
         <form>
-        <section class="post-option">
-            <h1 class="d-none">글작성 옵션</h1>
-            
-                <select name = "category">
-                    <option value="">자유</option>
-                    <option value="">전시후기</option>
-                    <option value="">맛집후기</option>
-                    <option value="">같이가요</option>
-                </select>
-            
-            <div>
+            <section class="post-option">
+                <div class="first-line">
+                <h1 class="d-none">글작성 옵션</h1>
+                
+                <div class="select-box">
+                    <button class="label">전체</button>
+                    <ul class="category" name="cateId">
+                      <li class="option" value="1">자유</li>
+                      <li class="option" value="2">전시후기</li>
+                      <li class="option" value="3">맛집후기</li>
+                      <li class="option" value="4">같이가요</li>
+                    </ul>
+                </div>
+                
+                
                 <div class="save-temp">
                     <button class="save-temp-btn">임시저장</button>
                 </div>
                 <div class="submit-btn">
-                    <button class="btn btn-default-fill" type="button" value="submit">등록</button>
+                    <button class="btn btn-default-fill" type="subtmit" value="cmd">등록</button>
                 </div>
             </div>
         </section>
+    </div>
         <section>
                 <h1 class="">
                     <label  for="" class="d-none" >제목</label>
-                    <input placeholder="제목" type="text" class="board-title">
+                    <input class="input" name = "title" placeholder="제목" type="text" class="board-title" id="title">
                 </h1>
                 <div class="">
                     <label class="d-none" for="" >내용</label>
-                    <textarea class="board-content" id="" name="" placeholder="내용을 입력해주세요."></textarea>
+                    <textarea class="input" id="content" name="content" placeholder="내용을 입력해주세요."></textarea>
                 </div>
+               
                 <div>
                     사진첨부 등 아이콘
                 </div>

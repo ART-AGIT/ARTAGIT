@@ -21,7 +21,7 @@
     font-weight: 500;
 }
 .input:focus{
-    outline: 3px solid #F7A7BB;
+    border: 2px solid #FF6C9E;
 }
 
 .input:focus::placeholder {

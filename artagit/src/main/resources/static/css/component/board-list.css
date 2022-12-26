@@ -15,20 +15,29 @@
 li.line-on{
  border-bottom: 2px solid #FF6B90;
 }
+.active{
+    color:#FF6B90;
+}
+
+.board-category-box{
+    padding: 20px 0 10px 0;
+}
 /* =======공지========== */
 .notice{
     display: grid;
-    grid-template-columns: 1fr 5fr;
-    padding: 5px;
+    grid-template-columns: 1fr 9fr;
+    padding: 0 5px 5px 5px;
     border-bottom: 1px solid  #9E9E9E;
-    height: 55px;
+    height: 80px;
     align-items: center;
 }
 .notice div{
     display: flex;
     align-items: center;
 }
-
+.notice-info{
+    padding: 10px;
+}
 .notice-info>div{
     padding-right: 10px;
    
@@ -44,8 +53,11 @@ li.line-on{
     justify-self: center;
 }
 .notice-title{
- 
-    
+    padding: 5px;
+    text-overflow:ellipsis;
+    overflow:hidden;
+
+    height: 30px;
     font-size: 16px;
     font-weight: bold;
    
@@ -80,10 +92,12 @@ li.line-on{
 .board-title{
     grid-area:title;
     font-size: 16px;
-    
+    height: 40px;
+    text-overflow: ellipsis;
+    overflow:hidden;
 }
 
-.board-list img{
+.post-img{
     
     height: 112px;
     width: 84px;
