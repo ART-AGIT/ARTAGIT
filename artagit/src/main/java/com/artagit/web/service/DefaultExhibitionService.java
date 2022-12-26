@@ -64,11 +64,19 @@ public class DefaultExhibitionService implements ExhibitionService {
 	public void delete(int id) {
 		exhDao.delete(id);
 	}
-	//내가 등록한 전시 리스트 호출하는 함수
+	
+	//나의 등록전시 리스트
 	public List<Exhibition> getListById(int id) {
 		
 		List<Exhibition> list =exhDao.getListByID(id);
 		return list;
 
+	}
+	
+	//나의 등록전시 개수 
+	@Override
+	public int countOfExh(int memId) {
+		int count = exhDao.getCount(memId);
+		return count;
 	}
 }

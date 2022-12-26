@@ -34,9 +34,11 @@ public interface ExhibitionDao {
 	// 전시 삭제
 	int delete(int id);
 
-	//내가 등록한 전시 리스트
+	//나의 등록전시 리스트
 	List<Exhibition> getListByID(int id);
-
+	
+	//나의 등록전시개수
+	int getCount(int memId);
 	
 }
  

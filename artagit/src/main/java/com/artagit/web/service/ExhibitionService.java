@@ -24,5 +24,6 @@ public interface ExhibitionService {
 	
 	//내가 등록한 전시 리스트 
 	List<Exhibition> getListById(int id);
+	int countOfExh(int memId);
 
 }

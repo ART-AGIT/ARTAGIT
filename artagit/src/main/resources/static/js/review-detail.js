@@ -1,28 +1,11 @@
 
-var colorBtn = document.querySelector(".wrap");
 
 window.addEventListener("load",function(){
+    var formBox = document.querySelector(".form-box");
+    var colorInput = document.querySelector(".color-input");
 
-    colorBtn.onclick= function(e){
-        e.preventDefault();
+    colorInput.oninput= function(e){
+        formBox.style.background = colorInput.value;
         console.log("hihi");
-
     }
 });
-
-/*
-<div id="area1" class="area"></div>
-
-<input id="color" type="color">
-
-<button onclick="colorChange();">변경</button>
-
-<script>
-    function colorChange(){
-
-        document.getElementById("area1").style.backgroundColor = document.getElementById("color").value;
-
-
-    };
-
-*/
