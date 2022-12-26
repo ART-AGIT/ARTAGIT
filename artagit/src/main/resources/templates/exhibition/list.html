@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -143,70 +143,16 @@
                 </ul>
             </div>
             <section class="exhibition-list">
-                <section class="exhibition">
+                <section th:each="list:${lists}" class="exhibition">
                     <form action="">
-                        <h1>이노니머스 프로젝트</h1>
+                        <h1 th:utext="${list.name}">이노니머스 프로젝트</h1>
                         <div class="exhibition-img-box">
-                            <a href="detail.html"><img class="exhibition-img" src="/image/anonymousProject.png" alt=""></a>
+                            <a href="detail.html" th:href="@{{id}(id=${list.id})}"><img class="exhibition-img" src="/image/anonymousProject.png" alt=""></a>
                             <a class="icon icon-heart exhibition-heart" href=""></a>
                         </div>
-                        <div class="exhibititon-date">22.11.25 ~ 23.04.02</div>
-                        <div class="exhibition-place">그라운드시소 서촌</div>
-                    </form>
-                </section>
-                <section class="exhibition">
-                    <form action="">
-                        <h1>이노니머스 프로젝트</h1>
-                        <div class="exhibition-img-box">
-                            <a href="detail.html"><img class="exhibition-img" src="/image/anonymousProject.png" alt=""></a>
-                            <a class="icon icon-heart exhibition-heart" href=""></a>
-                        </div>
-                        <div class="exhibititon-date">22.11.25 ~ 23.04.02</div>
-                        <div class="exhibition-place">그라운드시소 서촌</div>
-                    </form>
-                </section>
-                <section class="exhibition">
-                    <form action="">
-                        <h1>이노니머스 프로젝트</h1>
-                        <div class="exhibition-img-box">
-                            <a href="detail.html"><img class="exhibition-img" src="/image/anonymousProject.png" alt=""></a>
-                            <a class="icon icon-heart exhibition-heart" href=""></a>
-                        </div>
-                        <div class="exhibititon-date">22.11.25 ~ 23.04.02</div>
-                        <div class="exhibition-place">그라운드시소 서촌</div>
-                    </form>
-                </section>
-                <section class="exhibition">
-                    <form action="">
-                        <h1>이노니머스 프로젝트</h1>
-                        <div class="exhibition-img-box">
-                            <a href="detail.html"><img class="exhibition-img" src="/image/anonymousProject.png" alt=""></a>
-                            <a class="icon icon-heart exhibition-heart" href=""></a>
-                        </div>
-                        <div class="exhibititon-date">22.11.25 ~ 23.04.02</div>
-                        <div class="exhibition-place">그라운드시소 서촌</div>
-                    </form>
-                </section>
-                <section class="exhibition">
-                    <form action="">
-                        <h1>이노니머스 프로젝트</h1>
-                        <div class="exhibition-img-box">
-                            <a href="detail.html"><img class="exhibition-img" src="/image/anonymousProject.png" alt=""></a>
-                            <a class="icon icon-heart exhibition-heart" href=""></a>
-                        </div>
-                        <div class="exhibititon-date">22.11.25 ~ 23.04.02</div>
-                        <div class="exhibition-place">그라운드시소 서촌</div>
-                    </form>
-                </section>
-                <section class="exhibition">
-                    <form action="">
-                        <h1>이노니머스 프로젝트</h1>
-                        <div class="exhibition-img-box">
-                            <a href="detail.html"><img class="exhibition-img" src="/image/anonymousProject.png" alt=""></a>
-                            <a class="icon icon-heart exhibition-heart" href=""></a>
-                        </div>
-                        <div class="exhibititon-date">22.11.25 ~ 23.04.02</div>
-                        <div class="exhibition-place">그라운드시소 서촌</div>
+                        <div class="exhibititon-date" th:text="${list.startDate +list.endDate}">22.11.25 ~ 23.04.02</div>
+                        <div class="exhibition-place" th:text="${list.artist}">그라운드시소 서촌</div>
+                        
                     </form>
                 </section>
             </section>
