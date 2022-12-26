@@ -49,26 +49,64 @@ textarea.input{
     background-color: transparent;
 }
 
-/* ----셀렉트박스---- */
+/* -------------셀렉트박스 커스텀-------------- */
 
-select::-ms-expand { 
-	display: none;
+.select-box{
+   
+    position: relative;
+    width: 80px;
+    height: 27px;
+    border: 1px solid pink;
+    border-radius: 5px;
+    background: url('../../../image/icons/arrow-toggle-down.svg') calc(100% - 7px) center no-repeat;
+    background-size: 10px;
+    cursor: pointer;
 }
-select{
-    width: 90px;
-    height: 30px;
-    background: url('https://freepikpsd.com/media/2019/10/down-arrow-icon-png-7-Transparent-Images.png') calc(100% - 5px) center no-repeat;
-    background-size: 20px;
-    padding: 5px 30px 5px 10px;
-    border-radius: 4px;
+.select-box .label {
+    display: flex;
+    padding-left: 15px;
+    align-items: center;
+    justify-content: flex-start;
+    width: inherit;
+    height: inherit;
+    border: 0 none;
     outline: 0 none;
-    border:none;
-}
+    background: transparent;
+    cursor: pointer;
+    
+  }
 
-option{
-    background:  #FF6C9E;
+.select-box .category{
+    margin-top: 5px;
+    position: absolute; 
+    top: 28px;
+    left: 0;
+    width: 100%;
+    background: #FF6C9E;
     color: #fff;
-    padding: 3px 0;
-    border-radius: 3px;
-}
+    list-style-type: none;
+    padding: 0;
+    border-radius: 5px;
+    overflow: hidden;
+    max-height: 0;
+    transition: .3s ease-in;
+    
+  }
 
+  .select-box.active .category{
+    max-height: 500px;
+  }
+  .select-box .option{
+    border-bottom: 1px solid pink;
+    padding: 5px 15px 5px;
+    transition: .1s;
+  }
+  
+  .select-box .option:hover{
+    background: rgba(255, 192, 203, 0.677);
+    color: #fff;
+  }
+  
+  .select-box .option:last-child{
+    border-bottom: 0 none;
+  }
