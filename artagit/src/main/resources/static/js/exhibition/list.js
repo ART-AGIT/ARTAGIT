@@ -16,6 +16,63 @@ window.addEventListener("load", function(e){
 
     let current = document.querySelector(".active");
     let queryString;
+    let page = 1;
+
+	window.addEventListener("scroll", function(){
+        //scrollHeight : 전체 스크롤
+        //scrollTop : 스크롤 윗부분
+        //clientHeight : 컨텐츠가 보이는 높이
+
+      	let paddingOfBottom = 100;
+        let scrollHeight = document.documentElement.scrollHeight
+        let scrollTop = document.documentElement.scrollTop;
+        let scrollClientHeight = document.documentElement.clientHeight;
+
+        let isEndPage = true;
+
+        
+        if (scrollHeight - scrollTop - paddingOfBottom <= scrollClientHeight && isEndPage){
+            queryString = `?p=${page}&m=${selectBtnOne.dataset.id}&s=${selectBtnTwo.dataset.id}&c=${selectBtnThree.dataset.id}`;
+            if(queryString == 0)
+                queryString="";
+            console.log(queryString);
+            fetch(`/api/lists${queryString}`)
+            .then((response)=>response.json())
+            .then((list)=>{
+                
+                if(list.length == 0)
+                	isEndPage = false;
+                	
+
+                for(let e of list){
+                    let template = `
+                        <section class="exhibition">
+                            <form action="">
+                                <h1>${e.name}</h1>
+                                <div class="exhibition-img-box">
+                                    <a href="${e.id}"><img class="exhibition-img" src="/image/anonymousProject.png" alt=""></a>
+                                    <a class="icon icon-heart exhibition-heart" href="" style="background-color: #fff;"></a>
+                                </div>
+                                <div class="exhibititon-date">${e.startDate} ~ ${e.endDate}</div>
+                                <div class="exhibition-place">${e.artist}</div>
+                            </form>
+                        </section>
+                    `
+                    
+                    let el = new DOMParser()
+                                .parseFromString(template, "text/html")
+                                .body
+                                .firstElementChild;
+                                
+                    exhBox.append(el);		
+                }
+            });    
+            page++;
+        }
+        
+    })
+
+
     
     optionMenuList.onclick = function(e){
         e.preventDefault();
@@ -46,7 +103,7 @@ window.addEventListener("load", function(e){
                 selectBtnTextOne.innerText = selectedOption;
                 div.classList.remove("active");
 
-                query();
+                query(1);
             })
         })
 
@@ -58,7 +115,7 @@ window.addEventListener("load", function(e){
                 selectBtnTextTwo.innerText = selectedOption;
                 div.classList.remove("active");
 
-                query();
+                query(1);
             })
         })
 
@@ -70,7 +127,7 @@ window.addEventListener("load", function(e){
                 selectBtnTextThree.innerText = selectedOption;
                 div.classList.remove("active");
 
-                query();
+                query(1);
 
 
             })
@@ -79,8 +136,8 @@ window.addEventListener("load", function(e){
 
     }
 
-    function query(){
-       	queryString = `?p=1&m=${selectBtnOne.dataset.id}&s=${selectBtnTwo.dataset.id}&c=${selectBtnThree.dataset.id}`;
+    function query(page){
+       	queryString = `?p=${page}&m=${selectBtnOne.dataset.id}&s=${selectBtnTwo.dataset.id}&c=${selectBtnThree.dataset.id}`;
         if(queryString == 0)
             queryString="";
         console.log(queryString);
