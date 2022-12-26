@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http//www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -116,18 +116,16 @@
         <h1 class="d-none">게시글 내용</h1>
         <section class="post-detail-title">
             <h1 class="d-none">제목</h1>
-            <div class="post-title">
+            <div th:utext="${board.title}" class="post-title">
                 <span>회원님들 그만 asdffffffffffffffffffffffffffffffffff좀 싸우ads22</span>
             </div>
-            <div class="post-reg-time">
-                <div>
+            <div th:text="${#dates.format(board.regDate, 'yy/MM/dd HH:mm')}" class="post-reg-time">
                     22-11-30 11:30
-                </div>
             </div>
            
                 <div class="post-writer-info">
                     <img class = "profile-photo" src = "../../image/accountImage.png">
-                    <div><a href = "../mypage/like-list.html">운영자</a></div>
+                    <div><a th:text="${board.memId}" href = "../mypage/like-list.html">운영자</a></div>
                 </div>
             
             <div class="post-info">
@@ -148,7 +146,7 @@
            
         </section>
         <div class="post-content">
-            <div class="post-content-message">
+            <div th:utext="${board.content}"class="post-content-message">
                 <span>회원님들 그만 좀 싸우세asdffsdsdㅁ아품아ㅜ 마이ㅏ무아뮝 ㅏㅜ미ㅏㅍ우ㅏ미 아미아뮈아ㅟasdfdasdfasdfasdasdfasdfsda요들</span>
                 <img src = "">
             </div>
@@ -193,7 +191,7 @@
                     <div class="user-name">spicychocolate</div>
                     <div class="comment-writing">
                     <textarea name = "content"></textarea>
-                    <button class="btn btn-default-fill type="button" value="작성">작성</button>
+                    <button class="btn btn-default-fill" type="button" value="작성">작성</button>
                     </div>
                 </form>
             </div>

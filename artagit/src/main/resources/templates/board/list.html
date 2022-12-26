@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http//www.thymeleaf.org">
+  
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -110,13 +111,14 @@
         </ul> 
     </nav>
     
-    <section class="post-list" th:each="board:${list}">
+    <section class="post-list">
         <h1 class="d-none">게시글 목록</h1>
+            <form>
         <section class="notice">
             <h1 class="d-none">공지목록</h1> 
             <img class="notice-icon" src="../image/notice.png">
-            <div class="notice-title">
-                <a href = "../member/board/detail.html">회원님들 그만 좀 adsffffffffffffffffffffff싸우세요들.aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</a></div>
+            <h1 class="notice-title">
+                <a href = "../member/board/detail.html">회원님들 assda 그만dasddasdafffffasdfasdfasdfffffffffffffffff싸우세요들.aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</a></h1>
         
             <div> </div>
             <div class="notice-info">
@@ -126,21 +128,31 @@
                 <div>운영자 </div>
                 </div>
                 <div> 22-11-30 </div>
-                <div>
-                <div>조회 </div>
-                <div>11 </div>
+                
+                <div class="view">
+                    <div class="icon icon-view">조회수 아이콘</div>
+                    <div>11</div>
+                </div>
             
-            </div>
+           
             
         </section>
-
+            </form>
         
-   
-    <section class="board-list">
-        <h1 class="board-title"><a href = "../member/board/detail.html">회원님들 그만 좀 싸우세요들.</a></h1>
-        <div class="board-category-s"><a href="">[같이가요]</a></div>
-        <div class="board-regdate">1분전</div>
+        <form class="" actoin="list" method="post">
+        <section class="board-list"  th:each="board:${list}">
+        <h1 class="board-title">
+         	<a th:utext="${board.title}" th:href="@{{id}(id=${board.id})}" href = "../member/board/detail.html">회원님들 그만 좀 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa싸우세요들.</a>
+        </h1>
+        <div><a class="board-category-s" href="">[같이가요]</a></div>
+        <div class="board-regdate" th:text="${#dates.format(board.regDate, 'HH:mm')}">1분전</div>
+        <div class="board-writer-info">
+                <img class="profile" src = "../image/accountImage.png">
+            <div th:text="${board.memId}">운영자 </div>
+        </div>
+        
         <div class="board-post-info">
+            
             <div class="view">
                 <div class="icon icon-view">조회수 아이콘</div>
                 <div>11</div>
@@ -155,13 +167,13 @@
             </div>
         </div>
         <div class="board-post-img-box">
-            <img src="../image/anonymousProject.png"></img>
+            <img class="post-img"src="../image/anonymousProject.png"></img>
         </div>
     </section>
+    </form>
 </section>
     <div class="writing-img-box">
-
-        <a href = "../member/board/reg.html"><img src = "../image/writing-img.png"></img></a>
+        <a href = "./reg"><img src = "../image/writing-img.png"></img></a>
     </div>
 </main>
 </body>

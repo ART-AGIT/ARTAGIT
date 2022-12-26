@@ -16,8 +16,20 @@
 		where id =#{id}
 	
 	</select>
+	<insert id="insert" parameterType="com.artagit.web.entity.Board">
+		INSERT INTO Board
+		(title,
+		content,
+		memId,
+		roleId)
+		VALUES
+		(#{title},
+		#{content},
+		3,
+		1);
+	</insert>
 	
-	<insert 
+	
 	
 	
 </mapper>

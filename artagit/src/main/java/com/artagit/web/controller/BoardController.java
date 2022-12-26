@@ -29,7 +29,7 @@ public class BoardController {
 
 	@Autowired
 	private BoardService service;
-	
+	/*************게시글 리스트 불러오기*********/
 	@GetMapping("list")
 	public String list(
 		
@@ -42,35 +42,37 @@ public class BoardController {
 		return "board/list";
 			
 		}
-	
+	/************게시글 디테일*************/
 	@GetMapping("{id}")
 	public String detail(
 		
 		@PathVariable("id")int id,
 		Model model){
 		Board board = service.get(id);
+		model.addAttribute("board",board);
 		
 		
 		System.out.println("id:"+ id);
-		model.addAttribute("board",board);
+		
 		
 		return "board/detail";
 			
 		}
 	
 	/***********게시글 등록 시작****************/
-	@GetMapping("board-reg")
+	@GetMapping("reg")
 	public String boardReg(Board board) {
 	
-		return "member/board/reg";
+		return "board/reg";
 	}
 	
-	@PostMapping("board-reg")
+	@PostMapping("reg")
 	public String reg(Board board) {
 		
 	
 		System.out.println("등록한 글 ===> "+board);
 		service.reg(board);
+		return "redirect:list";
 	}
 	/*******게시글 등록 끝*****************/
 		
