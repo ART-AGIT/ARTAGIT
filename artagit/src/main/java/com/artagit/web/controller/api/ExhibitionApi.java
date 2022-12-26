@@ -12,7 +12,7 @@ import com.artagit.web.entity.Exhibition;
 import com.artagit.web.service.ExhibitionService;
 
 @RestController
-@RequestMapping("api/")
+@RequestMapping("/api/")
 public class ExhibitionApi {
 	
 	@Autowired

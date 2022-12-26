@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -102,44 +102,111 @@
             <h1 class="d-none">전시 목록</h1>
             <div class="exh-menu-box">
                 <ul class="exh-menu-list">
-                    <li>
- 	                	<div><a data-id="0" class="exh-menu-select" href="">지역</a></div>
+                    <li class="exh-menu-1">
+                        <div data-id="0" class="exh-menu-selected select-btn-1">
+                            <span class="select-btn-1-text">지역</span>
+                        </div>
+                        <!-- <div data-id="0" class="exh-menu-selected">
+                            <a class="sBtn-text" href="">지역</a>
+                        </div> -->
                         <ul class="exh-sub-menu sub-menu-1">
-                            <li data-id="0">전체</li>
-                            <li data-id="1">서울-종로구</li>
-                            <li data-id="2">서울-강남구</li>
-                            <li data-id="3">서울-성동구</li>
-                            <li data-id="4">서울-기타</li>
-                            <li data-id="5">인천</li>
-                            <li data-id="6">경기</li>
+                            <li class="option-1" data-id="0">전체</li>
+                            <li class="option-1" data-id="1">서울-종로구</li>
+                            <li class="option-1" data-id="2">서울-강남구</li>
+                            <li class="option-1" data-id="3">서울-성동구</li>
+                            <li class="option-1" data-id="4">서울-기타</li>
+                            <li class="option-1" data-id="5">인천</li>
+                            <li class="option-1" data-id="6">경기</li>
                         </ul>
                     </li>
-                    <li>
-                        <div><a data-id="1" class="exh-menu-select" href="">진행중</a></div>
+                    <li class="exh-menu-2">
+                        <div data-id="1" class="exh-menu-selected select-btn-2">
+                            <span class="select-btn-2-text">진행중</span>
+                        </div>
+                        <!-- <div data-id="1" class="exh-menu-selected">
+                            <a href="">진행중</a>
+                        </div> -->
                         <ul class="exh-sub-menu sub-menu-2">
-                            <li data-id="1">진행중</li>
-                            <li data-id="2">진행예정</li>
+                            <li class="option-2" data-id="1">진행중</li>
+                            <li class="option-2" data-id="2">진행예정</li>
                         </ul>
                     </li>
-                    <li>
-                        <div><a data-id="1" class="exh-menu-select" href="">최신</a></div>
+                    <li class="exh-menu-3">
+                        <div data-id="1" class="exh-menu-selected select-btn-3">
+                            <span class="select-btn-3-text">최신</span>
+                        </div>
                         <ul class="exh-sub-menu sub-menu-3">
-                            <li data-id="1"><a href="#">최신</a></li>
-                            <li data-id="2"><a href="#">인기</a></li>
+                            <li class="option-3" data-id="1">최신</li>
+                            <li class="option-3" data-id="2">인기</li>
                         </ul>
                     </li>
                 </ul>
             </div>
             <section class="exhibition-list">
-                <section th:each="list:${lists}" class="exhibition">
+                <section class="exhibition">
                     <form action="">
-                        <h1 th:text="${list.name}">이노니머스 프로젝트</h1>
+                        <h1>이노니머스 프로젝트</h1>
                         <div class="exhibition-img-box">
-                            <a href="detail.html" th:href="@{{id}(id=${list.id})}"><img class="exhibition-img" src="/image/anonymousProject.png" alt=""></a>
-                            <a class="icon icon-heart exhibition-heart" href="" style="background-color: #fff;"></a>
+                            <a href="detail.html"><img class="exhibition-img" src="/image/anonymousProject.png" alt=""></a>
+                            <a class="icon icon-heart exhibition-heart" href=""></a>
                         </div>
-                        <div class="exhibititon-date" th:text="${list.startDate}+'~'+${list.endDate}">22.11.25 ~ 23.04.02</div>
-                        <div class="exhibition-place" th:text="${list.artist}">그라운드시소 서촌</div>
+                        <div class="exhibititon-date">22.11.25 ~ 23.04.02</div>
+                        <div class="exhibition-place">그라운드시소 서촌</div>
+                    </form>
+                </section>
+                <section class="exhibition">
+                    <form action="">
+                        <h1>이노니머스 프로젝트</h1>
+                        <div class="exhibition-img-box">
+                            <a href="detail.html"><img class="exhibition-img" src="/image/anonymousProject.png" alt=""></a>
+                            <a class="icon icon-heart exhibition-heart" href=""></a>
+                        </div>
+                        <div class="exhibititon-date">22.11.25 ~ 23.04.02</div>
+                        <div class="exhibition-place">그라운드시소 서촌</div>
+                    </form>
+                </section>
+                <section class="exhibition">
+                    <form action="">
+                        <h1>이노니머스 프로젝트</h1>
+                        <div class="exhibition-img-box">
+                            <a href="detail.html"><img class="exhibition-img" src="/image/anonymousProject.png" alt=""></a>
+                            <a class="icon icon-heart exhibition-heart" href=""></a>
+                        </div>
+                        <div class="exhibititon-date">22.11.25 ~ 23.04.02</div>
+                        <div class="exhibition-place">그라운드시소 서촌</div>
+                    </form>
+                </section>
+                <section class="exhibition">
+                    <form action="">
+                        <h1>이노니머스 프로젝트</h1>
+                        <div class="exhibition-img-box">
+                            <a href="detail.html"><img class="exhibition-img" src="/image/anonymousProject.png" alt=""></a>
+                            <a class="icon icon-heart exhibition-heart" href=""></a>
+                        </div>
+                        <div class="exhibititon-date">22.11.25 ~ 23.04.02</div>
+                        <div class="exhibition-place">그라운드시소 서촌</div>
+                    </form>
+                </section>
+                <section class="exhibition">
+                    <form action="">
+                        <h1>이노니머스 프로젝트</h1>
+                        <div class="exhibition-img-box">
+                            <a href="detail.html"><img class="exhibition-img" src="/image/anonymousProject.png" alt=""></a>
+                            <a class="icon icon-heart exhibition-heart" href=""></a>
+                        </div>
+                        <div class="exhibititon-date">22.11.25 ~ 23.04.02</div>
+                        <div class="exhibition-place">그라운드시소 서촌</div>
+                    </form>
+                </section>
+                <section class="exhibition">
+                    <form action="">
+                        <h1>이노니머스 프로젝트</h1>
+                        <div class="exhibition-img-box">
+                            <a href="detail.html"><img class="exhibition-img" src="/image/anonymousProject.png" alt=""></a>
+                            <a class="icon icon-heart exhibition-heart" href=""></a>
+                        </div>
+                        <div class="exhibititon-date">22.11.25 ~ 23.04.02</div>
+                        <div class="exhibition-place">그라운드시소 서촌</div>
                     </form>
                 </section>
             </section>

@@ -1,164 +1,119 @@
-window.addEventListener("load", function(){
+window.addEventListener("load", function(e){
+	const exhBox = document.querySelector(".exhibition-list");
+    const optionMenuList = document.querySelector(".exh-menu-list");
 
-    const body = document.querySelector("body");
-    const main = document.querySelector("main");
-    let exhMenu = main.querySelector(".exh-menu-list");
-    const menuSelected = main.querySelector(".exh-menu-selected");
-    const exhBox = main.querySelector(".exhibition-list");
-    var current = main.querySelector(".active");
-    var exhHearts = main.querySelectorAll(".exhibition-heart");
-    let subMenuLi = main.querySelectorAll(".exh-sub-menu>li")
+    const selectBtnOne = document.querySelector(".select-btn-1");
+    const selectBtnTwo = document.querySelector(".select-btn-2");
+    const selectBtnThree = document.querySelector(".select-btn-3");
 
-    for(heart of exhHearts)
-        heart.onclick = function(e){
-            e.preventDefault();
+    const selectBtnTextOne = document.querySelector(".select-btn-1-text");
+    const selectBtnTextTwo = document.querySelector(".select-btn-2-text");
+    const selectBtnTextThree = document.querySelector(".select-btn-3-text");
 
-            for(heart of exhHearts)
-                heart.classList.add("icon-heart-red")
-            // exhHeart.style.backgroundColor("red");
-        }
-    window.addEventListener("scroll", function(){
+    const optionsOne = document.querySelectorAll(".option-1");
+    const optionsTwo = document.querySelectorAll(".option-2");
+    const optionsThree = document.querySelectorAll(".option-3");
 
-        let page = 1;
-
-        console.log(document.body.offsetHeight);
-
-        if((window.innerHeight+window.scrollY) >= (document.body.offsetHeight * 0.8)){
-            // var toAdd = document.createElement("div");
-            // toAdd.classList.add("box");
-            // toAdd.textContent = `${++count}번째 블록`;
-            // document.querySelector('section').appendChild(toAdd);
-            
-
-            let queryString = `?p=${page}&m=0&s=1&c=1`;
-            if(queryString == 0)
-                queryString="";
-
-            console.log(page);
-            // fetch(`/api/lists${queryString}`)
-            // .then((response)=>response.json())
-            // .then((list)=>{
-            //     exhBox.innerHTML="";
-            //     for(let e of list){
-            //         let template = `
-            //             <section class="exhibition">
-            //                 <form action="">
-            //                     <h1>${e.name}</h1>
-            //                     <div class="exhibition-img-box">
-            //                         <a href="detail.html"><img class="exhibition-img" src="/image/anonymousProject.png" alt=""></a>
-            //                         <a class="icon icon-heart exhibition-heart" href="" style="background-color: #fff;"></a>
-            //                     </div>
-            //                     <div class="exhibititon-date">${e.startDate} ~ ${e.endDate}</div>
-            //                     <div class="exhibition-place">${e.artist}</div>
-            //                 </form>
-            //             </section>
-            //         `
-                    
-            //         let el = new DOMParser()
-            //                     .parseFromString(template, "text/html")
-            //                     .body
-            //                     .firstElementChild;
-                                
-            //         exhBox.append(el);		
-            //     }
-            // });
-            page++;      
-
-
-
-        }
-    })
+    let current = document.querySelector(".active");
+    let queryString;
     
-    // body.onclick = function(e){
-    //     e.preventDefault();
-    //     current.classList.remove('active'); 
-    // }
-
-    exhMenu.onclick = function(e){
+    optionMenuList.onclick = function(e){
         e.preventDefault();
         e.stopPropagation();
-        current = main.querySelector(".active");
-        // console.log(`e.target: ${e.target.classList}`);
-        // console.log(`current: ${current.classList}`);
+        current = document.querySelector(".active");
         const el = e.target;
 
-        console.log(`el${el.dataset.id}`);
-        console.log(el == subMenuLi);
-        
-        if(el.tagName != 'DIV' && el.tagName !='A')
+        if(el.tagName !='DIV' && el.tagName !='SPAN')
             return;
         
         let div = el;
-        if(el.tagName == 'A')
+        if(el.tagName =='SPAN')
             div = el.parentElement;
         
-
         div.classList.add('active');
-        console.log(div.classList.contains('active'));
+        
         if(current != null)
             current.classList.remove('active');
-        console.log(`el${el.dataset.id}`);
-
+            
 
         current = div;
 
+        optionsOne.forEach(option => {
+            option.addEventListener("click", function(e){
+                e.preventDefault();
+                let selectedOption = option.innerText;
+                selectBtnOne.dataset.id = option.dataset.id;
+                selectBtnTextOne.innerText = selectedOption;
+                div.classList.remove("active");
+
+                query();
+            })
+        })
+
+        optionsTwo.forEach(option => {
+            option.addEventListener("click", function(e){
+                e.preventDefault();
+                let selectedOption = option.innerText;
+                selectBtnTwo.dataset.id = option.dataset.id;
+                selectBtnTextTwo.innerText = selectedOption;
+                div.classList.remove("active");
+
+                query();
+            })
+        })
+
+        optionsThree.forEach(option => {
+            option.addEventListener("click", function(e){
+                e.preventDefault();
+                let selectedOption = option.innerText;
+                selectBtnThree.dataset.id = option.dataset.id;
+                selectBtnTextThree.innerText = selectedOption;
+                div.classList.remove("active");
+
+                query();
 
 
+            })
+        })
 
-        console.log(`div${div.dataset.id}`)
 
-        
-
-        
     }
-    //body거나 e.target 거나
+
+    function query(){
+       	queryString = `?p=1&m=${selectBtnOne.dataset.id}&s=${selectBtnTwo.dataset.id}&c=${selectBtnThree.dataset.id}`;
+        if(queryString == 0)
+            queryString="";
+        console.log(queryString);
+	    fetch(`/api/lists${queryString}`)
+	    .then((response)=>response.json())
+	    .then((list)=>{
+	        exhBox.innerHTML="";
+	        for(let e of list){
+	            let template = `
+	                <section class="exhibition">
+	                    <form action="">
+	                        <h1>${e.name}</h1>
+	                        <div class="exhibition-img-box">
+	                            <a href="detail.html"><img class="exhibition-img" src="/image/anonymousProject.png" alt=""></a>
+	                            <a class="icon icon-heart exhibition-heart" href="" style="background-color: #fff;"></a>
+	                        </div>
+	                        <div class="exhibititon-date">${e.startDate} ~ ${e.endDate}</div>
+	                        <div class="exhibition-place">${e.artist}</div>
+	                    </form>
+	                </section>
+	            `
+	            
+	            let el = new DOMParser()
+	                        .parseFromString(template, "text/html")
+	                        .body
+	                        .firstElementChild;
+	                        
+	            exhBox.append(el);		
+	        }
+	    });    
+    }
 
 
-    
-
-
-    // exhMenu.onclick = function(e){
-    //     e.preventDefault();
-    //     e.stopPropagation();
-
-    //     if(!e.target.classList.contains(".exh-menu-select"))
-    //         return;
-
-    //     console.log("test");
-		
-    //     let queryString = `?m=${menuSelected[0].dataset.id}&s=${menuSelected[1].dataset.id}&c=${menuSelected[2].dataset.id}`;
-    //     if(queryString == 0)
-    //     	queryString="";
-
-		
-    //     fetch(`/api/lists${queryString}`)
-    //     .then((response)=>response.json())
-    //     .then((list)=>{
-    //         exhBox.innerHTML="";
-    //         for(let e of list){
-    //             let template = `
-    //             	<section class="exhibition">
-	//                     <form action="">
-	//                         <h1>${e.name}</h1>
-	//                         <div class="exhibition-img-box">
-	//                             <a href="detail.html"><img class="exhibition-img" src="/image/anonymousProject.png" alt=""></a>
-	//                             <a class="icon icon-heart exhibition-heart" href="" style="background-color: #fff;"></a>
-	//                         </div>
-	//                         <div class="exhibititon-date">${e.startDate} ~ ${e.endDate}</div>
-	//                         <div class="exhibition-place">${e.artist}</div>
-	//                     </form>
-    //             	</section>
-    //             `
-                
-    //             let el = new DOMParser()
-    //             			.parseFromString(template, "text/html")
-	// 						.body
-	// 						.firstElementChild;
-							
-	// 			exhBox.append(el);		
-	// 		}
-    //     });      
-    // }
 
 
 })

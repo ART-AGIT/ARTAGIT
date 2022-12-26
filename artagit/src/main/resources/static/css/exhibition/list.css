@@ -20,11 +20,13 @@
     text-align: center;
 }
 
-.exh-menu-selected > a{
+.exh-menu-selected > span{
     font-weight: bold;
     color: #FF6C9E;
 
 }
+
+
 /* 서브메뉴 펼칠 때, 각 높이만큼 펼치기 */
 .exh-menu-selected.active+.sub-menu-1{
     display: block;
@@ -34,10 +36,12 @@
     display: block;
     height: 75px;
 }
+
 .exh-menu-selected.active+.sub-menu-3{
     display: block;
     height: 75px;
 }
+
 
 /* 서브메뉴 */
 .exh-sub-menu{
