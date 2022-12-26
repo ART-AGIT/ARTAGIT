@@ -67,3 +67,17 @@ form {
     width: 146px;
     height: 164px;
 }
+
+.go-reg{
+    display: flex;
+    /* display: flex; */
+    flex-direction: column;
+    padding-left: 10px;
+    padding-top: 60px;
+    /* justify-content: center; */
+    align-items: center;
+}
+
+.btn-go-reg{
+    margin-top: 30px;
+}

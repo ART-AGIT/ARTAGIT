@@ -19,13 +19,19 @@ public class ExhibitionController {
 	@Autowired
 	private ExhibitionService service;
 	
+	//나의 등록전시
 	@GetMapping("list")
-	public String list(@RequestParam(name="memId")int memId,Model model) {
-//		int memId=1;
+	public String list(Model model) {
+			//@RequestParam(name="memId")int memId,Model model) {
+		int memId=1;
 		List<Exhibition> list = service.getListById(memId);
+		
+		int countOfExh = service.countOfExh(memId);
 		model.addAttribute("list",list);
+		System.out.println(countOfExh);
+		model.addAttribute("countOfExh",countOfExh);
 		System.out.println(list);
-		return "corporator/mypage/exh-list-2";
+		return "corporator/mypage/exh-list";
 	}
 	
 	

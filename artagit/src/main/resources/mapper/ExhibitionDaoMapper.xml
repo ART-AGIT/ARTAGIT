@@ -2,10 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.artagit.web.dao.ExhibitionDao">
 	
-	<select id="getListByID" resultType="com.artagit.web.entity.Exhibition">
-		select * from Exhibition
-		where memId = #{memId}
-	</select>
+	
 	<select id="getList" resultType="com.artagit.web.entity.Exhibition">
 		select * from Exhibition
 		<trim prefix="WHERE" prefixOverrides="AND | OR">
@@ -28,17 +25,22 @@
 		</trim>
 		limit #{offset}, #{size}
 	</select>
-	
 	<select id="get" resultType="com.artagit.web.entity.Exhibition">
 		select * from Exhibition
 			where id = #{id}
 	</select>
-	
+	<select id="getListByID" resultType="com.artagit.web.entity.Exhibition">
+		select * from Exhibition
+		where memId = #{memId}
+	</select>
 	<select id="count" resultType="int">
 		select count(id) from Exhibition
 			where name like '%${input}%'	
 	</select>
-	
+	<select id="getCount" resultType="int">
+		select count(id) from Exhibition
+			where memId=#{memId};
+	</select>
 	<insert id="insert" parameterType="com.artagit.web.entity.Exhibition">
 		INSERT INTO Exhibition
 		(name,
