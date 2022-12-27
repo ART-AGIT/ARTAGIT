@@ -39,6 +39,8 @@ public interface ExhibitionDao {
 	
 	//나의 등록전시개수
 	int getCount(int memId);
+
+	int insert(int id, int memberId);
 	
 }
  

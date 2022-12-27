@@ -34,4 +34,7 @@ public interface ExhibitionService {
 
 
 
+	int likeUp(int exhId, int memId);
+
+	int likeDelete(int exhId, int memberId);
 }

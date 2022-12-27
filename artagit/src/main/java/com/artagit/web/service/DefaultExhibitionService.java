@@ -5,8 +5,12 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.artagit.web.dao.ExhLikeDao;
 import com.artagit.web.dao.ExhibitionDao;
+
 import com.artagit.web.entity.Corporate;
+import com.artagit.web.entity.ExhLike;
+
 import com.artagit.web.entity.Exhibition;
 
 @Service
@@ -14,6 +18,9 @@ public class DefaultExhibitionService implements ExhibitionService {
 	
 	@Autowired // Field DI (DI 외에 별도로 실행해야 하는 로직이 없는 경우, Field에 Autowired 를 한다.)
 	private ExhibitionDao exhDao; // DB를 가져오는 용도
+	
+	@Autowired
+	private ExhLikeDao exhLikeDao;
 	
 	// 기본생성자
 	public DefaultExhibitionService() {
@@ -101,6 +108,21 @@ public class DefaultExhibitionService implements ExhibitionService {
 	public int countOfExh(int memId) {
 		int count = exhDao.getCount(memId);
 		return count;
+	}
+
+	@Override
+	public int likeUp(int exhId, int memId) {
+		
+		ExhLike exhLike = new ExhLike(memId, exhId);
+
+		return exhLikeDao.add(exhLike);
+	}
+
+	@Override
+	public int likeDelete(int exhId, int memId) {
+		ExhLike exhLike = new ExhLike(memId, exhId);
+		
+		return exhLikeDao.delete(exhLike);
 	}
 
 }
