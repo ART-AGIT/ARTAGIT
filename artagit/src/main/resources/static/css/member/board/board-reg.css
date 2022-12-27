@@ -54,7 +54,7 @@ textarea.input{
 .select-box{
    
     position: relative;
-    width: 80px;
+    width: 100px;
     height: 27px;
     border: 1px solid pink;
     border-radius: 5px;

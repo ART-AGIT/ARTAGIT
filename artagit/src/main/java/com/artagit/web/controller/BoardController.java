@@ -18,8 +18,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.artagit.web.entity.Board;
+import com.artagit.web.entity.Notice;
 import com.artagit.web.service.BoardService;
 import com.artagit.web.service.DefaultBoardService;
+import com.artagit.web.service.NoticeService;
 
 import jakarta.servlet.http.HttpServletRequest;
 
@@ -29,6 +31,8 @@ public class BoardController {
 
 	@Autowired
 	private BoardService service;
+	@Autowired
+	private NoticeService noticeService;
 	/*************게시글 리스트 불러오기*********/
 	@GetMapping("list")
 	public String list(
@@ -37,6 +41,8 @@ public class BoardController {
 		Model model){
 			
 		List<Board> list = service.getList(page);
+		List<Notice> noticeList = noticeService.getList(page);
+		model.addAttribute("noticeList",noticeList);
 		model.addAttribute("list",list);
 		
 		return "board/list";

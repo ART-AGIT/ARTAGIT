@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.artagit.web.dao.BoardDao;
 import com.artagit.web.entity.Board;
 
+
 @Service
 public class DefaultBoardService implements BoardService{
 	
@@ -32,6 +33,16 @@ public class DefaultBoardService implements BoardService{
 	public int reg(Board board) {
 		// TODO Auto-generated method stub
 		return boardDao.insert(board);
+	}
+
+	@Override
+	public List<Board> getListByCategory(int roleId) {
+		int page =1;
+		int size =6;
+		int offset = (page-1)*size;
+		List<Board> list = boardDao.getList(offset,size,roleId);
+		// TODO Auto-generated method stub
+		return list;
 	}
 
 	

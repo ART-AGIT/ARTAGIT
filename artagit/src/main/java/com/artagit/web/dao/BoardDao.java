@@ -12,7 +12,7 @@ public interface BoardDao {
 	List<Board> getList(
 			int offset,
 			int size,
-			Integer categoryId);
+			Integer roleId);
 	
 	Board get(int id);
 	
