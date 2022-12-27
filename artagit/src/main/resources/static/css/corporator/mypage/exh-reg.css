@@ -10,7 +10,7 @@
     display: flex;
     justify-content: space-between;
     padding: 15px 0 15px 0;
-    
+    width: 300px;
 }
 
 .circle {
@@ -22,7 +22,7 @@
 
 }
 
-.circle1 {
+.circle-on {
     /* position: relative; */
     width: 43px;
     height: 42px;
@@ -58,8 +58,7 @@ div.exh-reg-button-box{
     justify-content: end;
 }
 .reg-list-input-box-image{
-    display: flex;
-    justify-content: space-between;
+    
 }
 
 .input-image-button{
@@ -68,7 +67,7 @@ div.exh-reg-button-box{
     background-color: #EBEBEB;
    position: relative;
   padding: 0 !important;
-  margin-right: 50px;
+  margin-right: 20px;
 }
 
 .input-image-camera{
