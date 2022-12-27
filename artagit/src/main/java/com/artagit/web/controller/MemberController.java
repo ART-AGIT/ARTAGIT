@@ -13,6 +13,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.artagit.web.entity.Member;
 import com.artagit.web.service.MemberService;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+
 
 @Controller
 @RequestMapping("/") //템플릿 기준
@@ -22,11 +26,11 @@ public class MemberController {
 	private MemberService service;
 	
 	
-	@GetMapping("login")
-	public String list(Model model) {
-		
-		return "login";
-	}
+//	@GetMapping("login")
+//	public String list(Model model) {
+//		
+//		return "login";
+//	}
 	
 //	@PostMapping("login")
 //	public String list()
@@ -56,9 +60,9 @@ public class MemberController {
 	}
 	
 	
-	@PostMapping("corp")
-	public String deleteUseYN(Integer id, String useYN) {
-//			@PathVariable("id") int id) {
+	@PostMapping("{id}")
+	public String deleteUseYN(@RequestParam("id") int id){
+		// 되는지 확인용
 		int memid=51;
 		String useYN2 = "Y";
 		service.deleteUseYN(memid,useYN2);
@@ -66,24 +70,42 @@ public class MemberController {
 		return "corporator/mypage/account-edit";
 //		return "redirect:/";
 	}
-//	
-//	@GetMapping("corp")
-//	public String deleteUseYN(int id) {
-//		id =51;
-//		service.deleteUseYN(id);
-//		return "corporator/mypage/account-edit";
-//	}
 	
-//	@PostMapping("corp")
-////	public String deleteUseYN(int id, String useYN){
-//	public String deleteUseYN(Member member) {
-////		service.deleteUseYN(21, useYN);
-//		service.deleteUseYN(member);
-//		
-//		return "redirect:/signup";
-//		
-//	}
-//	
+	//===== 일반 회원 로그인 =======================================
+	@GetMapping("login")
+	public String login() {
+		
+		return "login";
+	}
+	
+	
+	@PostMapping("login")
+	public String login(String loginId,
+						String password,
+						String returnURL,
+						HttpSession session) {
+		
+		System.out.println("1"+returnURL);
+		
+		Member member = service.getMemberByName(loginId);
+		System.out.println("member"+member);
+//		if(member == null)
+//			return "redirect:login?error1";
+//		else 
+			if(member.getPassword().equals("password"))
+			return "redirect:login?error2";
+		
+		session.setAttribute("loginId", member.getName());
+		if(returnURL!=null && !returnURL.equals("")){
+			System.out.println("2"+returnURL);
+			return "redirect:"+returnURL;
+		}
+		
+		return "redirect:/signup";
+	}
+	
+	
+	
 	//===== 업체 회원 정보 수정 ==================================
 	// 수정화면 요청
 //	@GetMapping("corp")

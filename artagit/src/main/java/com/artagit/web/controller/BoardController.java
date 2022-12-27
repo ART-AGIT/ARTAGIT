@@ -22,6 +22,7 @@ import com.artagit.web.service.BoardService;
 import com.artagit.web.service.DefaultBoardService;
 
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/board/")
@@ -34,10 +35,16 @@ public class BoardController {
 	public String list(
 		
 		@RequestParam(defaultValue = "1", name ="p")int page,
-		Model model){
+		Model model,
+		HttpSession session){
 			
 		List<Board> list = service.getList(page);
 		model.addAttribute("list",list);
+		
+		// 로그인 인증필요
+		String loginId = (String)session.getAttribute("loginId");
+		if(loginId == null)
+			return "redirect:/login?returnURL=/board/list";
 		
 		return "board/list";
 			

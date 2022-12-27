@@ -8,11 +8,15 @@
 
     <link href="../../css/reset.css" type="text/css" rel="stylesheet">
     <link href="../../css/style.css" type="text/css" rel="stylesheet">
-    <link href="../../css/header.css" type="text/css" rel="stylesheet">
-    <link href="../../css/exh-detail-component.css" type="text/css" rel="stylesheet">
+
     <link href="../../css/icon.css" type="text/css" rel="stylesheet"> 
     <link href="../../css/button.css" type="text/css" rel="stylesheet">
     <link href="../../css/deco.css" type="text/css" rel="stylesheet">
+    <link href="../../css/component/sub-menu.css" type="text/css" rel="stylesheet">
+    <link href="../../css/component/exh-detail.css" type="text/css" rel="stylesheet">
+    
+    
+    <link href="../../css/header.css" type="text/css" rel="stylesheet">
     <link href="../css/utils.css" type="text/css" rel="stylesheet">
 
 
@@ -54,12 +58,20 @@
         </section>
     </header>
 
+<main>
+    <div class="menu-box">
+        <ul class="menu-list">
+            <li class="list line-on"><a class="deco deco-ticket deco-ticket-on" href="">나의 등록전시</a></li>
+            <li class="list "><a class="deco deco-smile" href="./account-edit.html">회원 정보 수정</a></li>
+        </ul>
+    </div>
+
     <section class="exh-detail-section">
         <section class="exh-detail">
-            <h1 class="title">어노나미스 프로젝트</h1>
             <div class="exh-detail-img-box">
                 <img class="exh-detail-img" src="../../image/anonymousProject.png">
             </div>
+            <h1 class="title">어노나미스 프로젝트</h1>
             <div class="exh-detail-table">
                 <div class="item">작가</div>
                 <div class="item">김작가</div>
@@ -89,26 +101,37 @@
                 <div class="viewmore">더보기</div>
             </div>
 
-            <div class="exhDetail-button-list">
-                <input class="btn  btn-default btn-default-line btn-size-1" type="submit" value="사용자페이지">
-                <input class="btn btn-default btn-size-1" type="submit" value="수정">
-                <input class="btn btn-default btn-size-1" type="submit" value="삭제">
+            <!-- <div class="exhDetail-button-list">
+                <button class="btn  btn-default btn-default-line btn-size-1" type="">사용자페이지</button>
+            </div> -->
+
+            <div class="user-box">
+                <a class="btn btn-default-line btn-hpg" href="">사용자 페이지 바로가기</a>
             </div>
+
         </section>
+        <div class="button-box-wrap">
+            <button class="btn btn-default btn-size-1" type="" >수정</button>
+            <button class="btn btn-default-line btn-size-1" type="" >삭제</button>
+        </div>   
     </section>
 
 
     <section class="exh-detail-pay">
-    <h1 class="payDetail">결제 상세 내역</h1>
+        <div class="toggle">
+            <h1 class="payDetail">결제 상세 내역</h1>
+            <!-- <div class="icon icon-arrow-toggle-down"></div> -->
+        </div>
         <div class="exh-detailPay-table">
             <!-- <div class="pay-wrapper"> -->
-                <div class="pay">번호</div>
-                <div class="pay">결제번호</div>
-                <div class="pay">인원</div>
-                <div class="pay">결제금액</div> 
-                <div class="pay">결제방식</div>
-                <div class="pay">결제일</div>
-                
+            <!-- <div class="pay-colums"> -->
+                <div class="pay pay-colums"></div>
+                <div class="pay pay-colums">결제번호</div>
+                <div class="pay pay-colums">인원</div>
+                <div class="pay pay-colums">결제금액</div> 
+                <div class="pay pay-colums">결제방식</div>
+                <div class="pay pay-colums">결제일</div>
+            <!-- </div>     -->
             <!-- </div> -->
             <!-- <div class="pay-wrapper"> -->
                 <div class="pay">1</div>
@@ -135,16 +158,16 @@
                 <div class="pay">카카오페이</div>
                 <div class="pay">22.11.22 14:01:30</div>
 
-                <div class="pay">1</div>
+                <div class="pay">10</div>
                 <div class="pay">20221122-0000001</div>
-                <div class="pay">1</div>
+                <div class="pay">100</div>
                 <div class="pay">12,000</div>
                 <div class="pay">카카오페이</div>
                 <div class="pay">22.11.22 14:01:30</div>
         </div>
         
     </section>
-
+</main>
 
 </body>
 </html>

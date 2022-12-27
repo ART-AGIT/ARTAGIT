@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.artagit.web.dao.ExhibitionDao;
+import com.artagit.web.entity.Corporate;
 import com.artagit.web.entity.Exhibition;
 
 @Service

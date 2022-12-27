@@ -12,12 +12,19 @@
 			</trim>
 			limit #{(page-1)*10}, 10
 	</select>
-	<!--================== 회원 탈퇴 ===================-->
+	<!--================== 회원 탈퇴 ===================
 	<update id="deleteUseYN" parameterType="com.artagit.web.entity.Member">
 		update Member 
 	<set> useYN = 'N' </set>	 
 			where id = #{id}
-	</update>
+	</update>	-->
+	<!--================== 일반 회원 로그인 ===================-->
+	<select id="getByName" resultType="com.artagit.web.entity.Member">
+       select *
+       from Member
+       where loginId = #{loginId}
+   </select>
+	
 	
 	<!--================== 업체 정보 수정 ===================-->
 	
