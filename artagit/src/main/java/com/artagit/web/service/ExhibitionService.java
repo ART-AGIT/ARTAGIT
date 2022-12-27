@@ -27,4 +27,8 @@ public interface ExhibitionService {
 	int countOfExh(int memId);
 
 	List<Exhibition> getListByCategory(int page, int museum, int state, int category);
+
+	int likeUp(int exhId, int memId);
+
+	int likeDelete(int exhId, int memberId);
 }

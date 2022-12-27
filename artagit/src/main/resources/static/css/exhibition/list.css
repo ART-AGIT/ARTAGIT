@@ -73,3 +73,12 @@
     display: block;
     padding: 4px 0;
 }
+
+.icon-heart{
+    background-color: #fff;
+}
+
+.icon-heart.icon-heart-red{
+    background-color: red;
+
+}
