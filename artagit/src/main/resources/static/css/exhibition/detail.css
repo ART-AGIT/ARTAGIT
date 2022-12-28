@@ -31,8 +31,11 @@ body {
     border-bottom: 1px solid rgba(157, 157, 157, 0.353);
 }
 
-li {
+.mini-menu-list li {
     margin-right: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .like-num {
