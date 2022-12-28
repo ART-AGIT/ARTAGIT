@@ -1,23 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>메인</title>
     <link href="css/reset.css" type="text/css" rel="stylesheet">
-    <link href="../css/style.css" type="text/css" rel="stylesheet">
+    <link href="css/style.css" type="text/css" rel="stylesheet">
 
-    <link href="../css/icon.css" type="text/css" rel="stylesheet">
-    <link href="../css/button.css" type="text/css" rel="stylesheet">
-    <link href="../css/form.css" type="text/css" rel="stylesheet">
-    <link href="../css/input.css" type="text/css" rel="stylesheet">
+    <link href="css/icon.css" type="text/css" rel="stylesheet">
+    <link href="css/button.css" type="text/css" rel="stylesheet">
+    <link href="css/form.css" type="text/css" rel="stylesheet">
+    <link href="css/input.css" type="text/css" rel="stylesheet">
     
-    <link href="../css/header.css" type="text/css" rel="stylesheet">
-    <link href="../css/footer.css" type="text/css" rel="stylesheet">
-    <link href="../css/index.css" type="text/css" rel="stylesheet">
+    <link href="css/header.css" type="text/css" rel="stylesheet">
+    <link href="css/footer.css" type="text/css" rel="stylesheet">
+    <link href="css/component/exhibition-list.css" type="text/css" rel="stylesheet">
+    <link href="css/component/board-list.css" type="text/css" rel="stylesheet">
+    <link href="css/index.css" type="text/css" rel="stylesheet">
 
-    <link href="../css/utils.css" type="text/css" rel="stylesheet">
+    <link href="css/utils.css" type="text/css" rel="stylesheet">
 </head>
 
 <script src="js/index.js"></script>
@@ -27,28 +29,28 @@
     <header class="header">
         <section class="header-wrapper">
             <div class="header-box">
-                <h1 class="logo"><a href="">Art Agit</a></h1>
+                <h1 class="logo"><a href="index.html">Art Agit</a></h1>
                 <ul class="d-none">
                     <!-- <li><a href="">전시</a></li>
                     <li><a href="">커뮤니티</a></li>
                     <li><a href="">로그인</a></li> -->
                 </ul>
                 <div>
-                    <a class="icon icon-menu burger-nav icon-white" href="">확장메뉴</a>
+                    <a class="icon icon-menu burger-nav" href="">확장메뉴</a>
                 </div>
             </div>
             <div class="sub-menu-box">
                 <div class="sub-menu">
                     <div class="sub-menu-1">
                         <ul>
-                            <li><a href="">전시</a></li>
-                            <li><a href="">커뮤니티</a></li>
-                            <li><a href="">-</a></li>
+                            <li><a th:href="exhibition/list" href="exhibition/list.html">전시</a></li>
+                            <li><a href="board/list.html" th:href="board/list">커뮤니티</a></li>
+                            <li><a href="corporator/mypage/exh-reg.html" th:href="corporator/mypage/exh-reg">전시등록</a></li>
                         </ul>
                     </div>
                     <div class="sub-menu-2">
                         <ul>
-                            <li><a href="">로그인</a></li>
+                            <li><a href="login.html" th:href="login">로그인</a></li>
                             <li><a href="">검색</a></li>
                             <li><a href="">고객센터</a></li>
                         </ul>
@@ -57,28 +59,153 @@
             </div>
         </section>
     </header>
+
+    <!-- =====pc버젼 용 html============ -->
+    <header class="header-pc">
+        <div class="content-box">
+            <h1 class="logo">
+                <a href="index.html">Art Agit</a>
+            </h1>
+            <section>
+                <h1 class="d-none">메인메뉴</h1>
+                <nav class="main-menu">
+                    <h1 class="d-none">목록선택</h1>
+                    <ul>
+                        <li>
+                            <a href="exhibition/list.html">전시</a>
+                            <ul class="sub-menu">
+                                <li><a href="exhibition/list.html">진행 전시</a></li>
+                                <li><a href="exhibition/list.html">전시 예정</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="board/list.html">커뮤니티</a>
+                            <ul class="sub-menu">
+                                <li><a href="board/list.html">-</a></li>
+                                <li><a href="board/list.html">-</a></li>
+                            </ul>
+                        </li>
+                        <li class="search-btn">
+                            <a href="">검색</a>
+                            <div>
+                                <input type="text" class="search">
+                                <!-- <img src="../image/icons/search.svg" alt=""> -->
+                            </div>
+                        </li>
+                        <li><a href="login.html">로그인</a></li>
+                    </ul>
+
+                </nav>
+            </section>
+        </div>
+    </header>
+
+    
+
     <main class="main-container">
-        <div class="main-banner">
-            <ul>
-                <li class="img-1"><a href=""><img src="image/anonymousProject.png" alt=""></a></li>
-                <li class="img-2"><a href=""><img src="image/anonymousProject.png" alt=""></a></li>
-                <li class="img-3"><a href=""><img src="image/anonymousProject.png" alt=""></a></li>
-            </ul>
+        <div class="slider-box">
+            <div class="slider">
+                <div class="slide"><a href="exhibition/detail.html">"<img src="image/anonymousProject.png" alt=""></a></div>
+                <div class="slide"><a href="exhibition/detail.html"><img src="image/exhimage.png" alt=""></a></div>
+                <div class="slide"><a href="exhibition/detail.html"><img src="image/전시포스터2.jpg" alt=""> </a></div>
+                <a class="prev">&#10094</a>
+                <a class="next">&#10095</a>
+            </div>
+        </div>
 
-        </div>
-        <div class="main-community">
-            커뮤니티 글
-        </div>
-        <div class="main-popular-exh">
-            인기있는 전시
-        </div>
-        <div class="main-now-exh">
-            현재 진행중인 전시
-
-        </div>
+        <section class="main-seciton main-community-section">
+            <h1>커뮤니티 글</h1>
+            <section class="board-list">
+                <h1 class="board-title"><a href = "../member/board/detail.html">회원님들 그만 좀 싸우세요들.</a></h1>
+                <div class="board-category-s">[같이가요]</div>
+                <div class="board-regdate">1분전</div>
+            </section>
+            <section class="board-list">
+                <h1 class="board-title"><a href = "../member/board/detail.html">Entity</a></h1>
+                <div class="board-category-s">[자유]</div>
+                <div class="board-regdate">10분전</div>
+            </section>
+            <section class="board-list">
+                <h1 class="board-title"><a href = "../member/board/detail.html">칸쵸</a></h1>
+                <div class="board-category-s">[전시후기]</div>
+                <div class="board-regdate">12분전</div>
+            </section>
+            <section class="board-list">
+                <h1 class="board-title"><a href = "../member/board/detail.html">여기 맛있어요!</a></h1>
+                <div class="board-category-s">[맛집후기]</div>
+                <div class="board-regdate">23분전</div>
+            </section>
+            <div>
+                <a href="board/list.html">더보기</a>
+            </div>
+            
+        </section>
+        <section class="main-seciton main-popular-exh-seciton">
+            <h1>인기있는 전시</h1>
+            <section class="exhibition-list">
+                <section class="exhibition">
+                    <form action="">
+                        <h1>이노니머스 프로젝트</h1>
+                        <div class="exhibition-img-box">
+                            <a href="exhibition/detail.html"><img class="exhibition-img" src="/image/anonymousProject.png" alt=""></a>
+                            <a class="icon icon-heart exhibition-heart" href="" style="background-color: #fff;"></a>
+                        </div>
+                        <div class="exhibititon-date">22.11.25 ~ 23.04.02</div>
+                        <div class="exhibition-place">그라운드시소 서촌</div>
+                    </form>
+                </section>
+                <section class="exhibition">
+                    <form action="">
+                        <h1>이노니머스 프로젝트</h1>
+                        <div class="exhibition-img-box">
+                            <a href="exhibition/detail.html"><img class="exhibition-img" src="/image/anonymousProject.png" alt=""></a>
+                            <a class="icon icon-heart exhibition-heart" href="" style="background-color: #fff;"></a>
+                        </div>
+                        <div class="exhibititon-date">22.11.25 ~ 23.04.02</div>
+                        <div class="exhibition-place">그라운드시소 서촌</div>
+                    </form>
+                </section>
+                <section class="exhibition">
+                    <form action="">
+                        <h1>이노니머스 프로젝트</h1>
+                        <div class="exhibition-img-box">
+                            <a href="exhibition/detail.html"><img class="exhibition-img" src="/image/anonymousProject.png" alt=""></a>
+                            <a class="icon icon-heart exhibition-heart" href="" style="background-color: #fff;"></a>
+                        </div>
+                        <div class="exhibititon-date">22.11.25 ~ 23.04.02</div>
+                        <div class="exhibition-place">그라운드시소 서촌</div>
+                    </form>
+                </section>
+                <section class="exhibition">
+                    <form action="">
+                        <h1>이노니머스 프로젝트</h1>
+                        <div class="exhibition-img-box">
+                            <a href="exhibition/detail.html"><img class="exhibition-img" src="/image/anonymousProject.png" alt=""></a>
+                            <a class="icon icon-heart exhibition-heart" href="" style="background-color: #fff;"></a>
+                        </div>
+                        <div class="exhibititon-date">22.11.25 ~ 23.04.02</div>
+                        <div class="exhibition-place">그라운드시소 서촌</div>
+                    </form>
+                </section>
+            </section>
+        </section>
     </main>
-    <footer>
-        1
+
+    <footer class="footer">
+        <h1 class="d-none">footer</h1>
+        <div class="footer-inf">
+            <div class="footer-btn-list">
+                <a class="btn btn-rec btn-default-line footer-btn" href="login.html">로그인</a>
+                <a class="btn btn-rec btn-default-line footer-btn" href="">PC버전</a>
+            </div>
+            <h1>ARTAGIT</h1>
+            <div>대표자: 주성균</div>
+            <div>사업자등록번호: 123-45-67890</div>
+            <div>주소: 3F, 23, Baekbeom-ro, Mapo-gu, Seoul, Republic of Korea</div>
+            <div>대표번호: 1588-1588</div>
+            <div>이메일 문의:admin@artagit.com</div>
+            <small>Copyright 2022. ARTAGIT All rights reserved.</small>
+        </div>
     </footer>
 
 </body>
