@@ -52,6 +52,9 @@ public class ExhibitionController2 {
 		Museum museum = museumService.getMuseumById(exh.getMuseumId());
 		model.addAttribute("museum", museum);
 		
+		int count = service.countOfLike(exhId);
+		model.addAttribute("count",count);
+		System.out.println(count);
 		System.out.println("전시관 id========>"+exh.getMuseumId());
 		System.out.println("전시관 name========>"+museum.getName());
 		

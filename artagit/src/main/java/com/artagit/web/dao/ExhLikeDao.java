@@ -15,4 +15,6 @@ public interface ExhLikeDao {
 
 	int getLikeByMemId(int memId);
 
+	int count(int exhId);
+
 }

@@ -37,7 +37,7 @@
 
         <ul class="mini-menu-list">
             <li><a class="deco deco-mini deco-url" href="">URL 복사</a></li>
-            <li><a class="deco deco-mini deco-heart" href="">좋아요</a><span class="like-num">3</span></li>
+            <li><a th:data-id="${exh.id}" class="deco deco-mini deco-heart" href="">좋아요</a><span class="like-num" th:text="${count}">3</span></li>
             <li><a class="deco deco-mini deco-map" href="">위치보기</a></li>
         </ul>
 
