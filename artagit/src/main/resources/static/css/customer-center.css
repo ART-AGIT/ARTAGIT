@@ -1,0 +1,113 @@
+/******* 기본 설정 ****************************************/
+p {
+    margin: 5px 0 0 0;
+}
+
+section {
+    margin-bottom: 30px;
+}
+
+.text {
+    color: #606060;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.sm-text {
+    font-size: 12px;
+}
+
+.q-numbering {
+    color: #FF6C9E;
+    margin-right: 3px;
+}
+
+.customer-center {
+    font-size: 22px;
+    font-weight: 700;
+    text-align: center;
+    /* margin-top: 10px; */
+    padding: 20px 0;
+}
+
+.icon-title {
+    display: flex;
+    width: 120px;
+    height: 23px;
+    justify-content: center;
+    align-items: center;
+    
+    margin: 0 0 15px 0;
+    
+    border-radius: 15px;
+    border: 2px solid #FF6C9E;
+    /* background-color: #fee7ed; */
+}
+
+.img {
+    width: 20px;
+    height: 20px;
+}
+
+.question-img {
+    margin-right: 3px;
+}
+
+.notice {
+    width: 80px;
+}
+
+.question {
+    /* font-size: 14px; */
+    margin: 0;
+}
+
+.title-line {
+    width: 100%;
+    display: flex;
+    
+    align-items: center;
+    padding: 15px 0;
+}
+
+.content-box {
+    background-color: #fff1f5;
+    padding: 15px;
+    margin: 7px 0 18px 0;
+    line-height: 18px;
+    display: flex;
+    flex-direction: column;
+}
+
+.date {
+    display: flex;
+    justify-content: flex-end;
+    /* margin-bottom: 5px; */
+    padding-bottom: 7px;
+}
+
+.notice-category {
+    border: 1px solid #303030;
+    border-radius: 10px;
+    width: 45px;
+    height: 19px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    color: #1205AF;
+}
+
+.event {
+    color: #E73939;
+}
+
+.notice-content-box {
+    margin-left: 5px;
+}
+
+.title-box {
+    display: flex;
+    /* justify-content: ; */
+    align-items: center;
+}

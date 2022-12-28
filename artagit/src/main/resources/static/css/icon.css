@@ -17,6 +17,13 @@
     box-sizing: border-box;
 }
 
+.mini-icon {
+    -webkit-mask-size: 10px 10px;
+    width: 10px;
+    height: 10px;
+    padding: 0;
+}
+
 /* .icon:hover{
     background-color: #FC93AD;
 } */
@@ -140,6 +147,10 @@
 
 .icon-arrow-toggle-down{
     -webkit-mask-image: url(../../image/icons/arrow-toggle-down.svg);
+}
+
+.icon-question {
+    -webkit-mask-image: url(../image/icons/question.png);
 }
 
 /* ----- icon util ---------------------------- */
