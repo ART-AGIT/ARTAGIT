@@ -18,19 +18,11 @@ window.addEventListener("load", function(e){
     let queryString;
     let page = 1;
 
-
     const exhSection = document.querySelector(".exhibition-section");
-    
-    let exhHearts = document.querySelectorAll(".exhibition-heart");
-	
-	
-	
-	
-	
+
+// ------------ 좋아요 누르기 --------------------------------------------
     exhSection.onclick = function(e){
-       
-	
-		console.log("test")
+
         if(e.target.classList.contains("exhibition-heart") && !e.target.classList.contains("icon-heart-red")){
             e.preventDefault();
 
@@ -76,18 +68,11 @@ window.addEventListener("load", function(e){
 				.then(data => {
 					console.log(data.result);
 				})
-				
-				
-			}
-		else{
 			
-		}
-
+			}
     }
 
-
-
-
+// ------------ 무한 스크롤 누르기 --------------------------------------------
 	window.addEventListener("scroll", function(){
         //scrollHeight : 전체 스크롤
         //scrollTop : 스크롤 윗부분
@@ -143,7 +128,7 @@ window.addEventListener("load", function(e){
     })
 
 
-    
+  // ------------ 카테고리메뉴 선택하기 --------------------------------------------  
     optionMenuList.onclick = function(e){
         e.preventDefault();
         e.stopPropagation();
@@ -205,7 +190,7 @@ window.addEventListener("load", function(e){
 
 
     }
-
+// ------ 쿼리용 함수-----------------------
     function query(page){
        	queryString = `?p=${page}&m=${selectBtnOne.dataset.id}&s=${selectBtnTwo.dataset.id}&c=${selectBtnThree.dataset.id}`;
         if(queryString == 0)
