@@ -122,4 +122,10 @@ public class DefaultExhibitionService implements ExhibitionService {
 		return exhLikeDao.delete(exhLike);
 	}
 
+	@Override
+	public int countOfLike(int exhId) {
+		
+		return exhLikeDao.count(exhId);
+	}
+
 }

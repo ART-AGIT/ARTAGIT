@@ -43,11 +43,12 @@ public class ExhibitionApi {
 		int memId = 1;
 		
 		int result = service.likeUp(exhId, memId);
-		
+		int count = service.countOfLike(exhId);
 		Map<String, Object> dto = new HashMap<>();
 		//HTTP 가 가지고있는 기본 상태값
 		dto.put("status", 200);
 		dto.put("resultObject", result);
+		dto.put("countNum", count);
 		
 		return dto;
 	}
@@ -61,11 +62,12 @@ public class ExhibitionApi {
 		int memId = 1;
 		
 		int result = service.likeDelete(exhId, memId);
-
+		int count = service.countOfLike(exhId);
 		Map<String, Object> dto = new HashMap<>();
 		//HTTP 가 가지고있는 기본 상태값
 		dto.put("status", 200);
 		dto.put("resultObject", result);
+		dto.put("countNum", count);
 		
 		return dto;
 	}

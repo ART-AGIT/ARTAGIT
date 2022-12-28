@@ -22,4 +22,9 @@
 		where memId = #{memId}
 	</select>
 	
+	<select id="count" resultType="int">
+		select count(id) from ExhLike 
+		where exhId=#{exhId}
+	</select>
+	
 </mapper>
