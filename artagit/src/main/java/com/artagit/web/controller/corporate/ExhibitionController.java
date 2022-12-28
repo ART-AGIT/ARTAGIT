@@ -31,6 +31,11 @@ public class ExhibitionController {
 	@Autowired
 	private LocalService localService;
 	
+//	@Autowired
+//	private BookingService bookingService;
+	
+//	@Autowired
+//	private PaymentService paymentService;
 	
 	//나의 등록전시
 	@GetMapping("list")
@@ -41,9 +46,9 @@ public class ExhibitionController {
 		
 		int countOfExh = service.countOfExh(memId);
 		model.addAttribute("list",list);
-//		System.out.println(countOfExh);
+		System.out.println(countOfExh);
 		model.addAttribute("countOfExh",countOfExh);
-//		System.out.println(list);
+		System.out.println(list);
 		return "corporator/mypage/exh-list";
 	}
 	
@@ -63,8 +68,9 @@ public class ExhibitionController {
 		Local local = localService.getLocalById(corporate.getLocalId());
 		model.addAttribute("local",local);
 		
-		System.out.println("전시관 id==="+exh.getCorpId());
-		System.out.println("사업자 id==="+corporate.getLocalId());
+		// ** 결제 내역
+		
+		
 		
 		return "corporator/mypage/exh-detail";
 	}

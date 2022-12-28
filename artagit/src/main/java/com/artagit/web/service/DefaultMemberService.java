@@ -32,11 +32,6 @@ public class DefaultMemberService implements MemberService{
 		
 //		return result;
 	}
-// ======== 일반회원 로그인 ======================
-	@Override
-	public Member getMemberByName(String loginId) {
-		
-		return memberDao.getByName(loginId);
-	}
+
 
 }

@@ -71,38 +71,6 @@ public class MemberController {
 //		return "redirect:/";
 	}
 	
-	//===== 일반 회원 로그인 =======================================
-	@GetMapping("login")
-	public String login() {
-		
-		return "login";
-	}
-	
-	
-	@PostMapping("login")
-	public String login(String loginId,
-						String password,
-						String returnURL,
-						HttpSession session) {
-		
-		System.out.println("1"+returnURL);
-		
-		Member member = service.getMemberByName(loginId);
-		System.out.println("member"+member);
-//		if(member == null)
-//			return "redirect:login?error1";
-//		else 
-			if(member.getPassword().equals("password"))
-			return "redirect:login?error2";
-		
-		session.setAttribute("loginId", member.getName());
-		if(returnURL!=null && !returnURL.equals("")){
-			System.out.println("2"+returnURL);
-			return "redirect:"+returnURL;
-		}
-		
-		return "redirect:/signup";
-	}
 	
 	
 	

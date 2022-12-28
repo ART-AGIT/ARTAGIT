@@ -17,14 +17,12 @@
 		update Member 
 	<set> useYN = 'N' </set>	 
 			where id = #{id}
-	</update>	-->
-	<!--================== 일반 회원 로그인 ===================-->
+	</update>	--><!--================== 일반 회원 로그인 ===================-->
 	<select id="getByName" resultType="com.artagit.web.entity.Member">
        select *
        from Member
        where loginId = #{loginId}
-   </select>
-	
+   </select>	
 	
 	<!--================== 업체 정보 수정 ===================-->
 	

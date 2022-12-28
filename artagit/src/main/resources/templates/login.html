@@ -79,14 +79,13 @@
 		<form action="login" method="post">
             <div class="log-input-list">
                 <div>
-                    <input name="loginId" type="text" class="input input-lg input-border input-white" value="아이디">
+                    <input name="username" type="text" class="input input-lg input-border input-white" value="아이디">
                 </div>
 
                 <div>
                     <input name="password" type="text" class="input input-lg input-border input-white" value="비밀번호">
                 </div>
-                <input type="hidden" name="returnURL" th:value="${param.returnURL}">
-                <button class="btn btn-login" type="submit">로그인</button> 
+                  <button class="btn btn-login" type="submit">로그인</button> 
             </div>
 		</form>
            
