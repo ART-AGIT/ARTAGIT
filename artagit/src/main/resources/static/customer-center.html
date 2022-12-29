@@ -21,7 +21,8 @@
     <title>고객센터</title>
 </head>
 <body>
-    <script src="../../js/header-menu.js"></script>
+    <script src="js/header-menu.js"></script>
+    <script src="js/customer-center.js"></script>
     <header class="header">
         <section class="header-wrapper">
             <div class="header-box">
@@ -95,65 +96,71 @@
 
     <main>
         <div class="customer-center">고객센터</div>
-        <section>
-            <div class="icon-title">
-                <img class="img question-img" src="image/icons/question.png">
-                <h1 class="text question-h1">자주 묻는 질문</h1>
+
+        <!--------------------- 자주 묻는 질문 --------------------->
+        <div class="icon-title">
+            <img class="question-icon" src="image/icons/question.png">
+            <h1 class="text question-h1">자주 묻는 질문</h1>
+        </div>
+        
+        <section class="section">
+            <div class="box">
+                <h4 class="text accordion-header active"><span class="text q-numbering">01</span>[전시] 전시 예매는 어떻게 하나요?</h4>
+                <div class="accordion-content">
+                    <p class="">전시예매노노노노노ㅗ노노노노노노노노노노노ㅗ노노노노노노노노ㅗ노노노논노노노노노노노ㅗ노노노노노노노노ㅗ노노노논노노노노노노노ㅗ노노노노노노노노ㅗ노노노논노노노노노노노ㅗ노노노노노노노노ㅗ노노노논노노노노노노노ㅗ노노노노노노노노ㅗ노노노논노노노노노노노ㅗ노노노노노노노노ㅗ노노노논노노노노노노노ㅗ노노노노노노노노ㅗ노노노논노노노노노노노ㅗ노노노노노노노노ㅗ노노노논노노노노노노노ㅗ노노노노노노노노ㅗ노노노논노</p>
+                </div>
+
+                <hr>
+
+                <h4 class="text accordion-header"><span class="text q-numbering">02</span>[전시] 결제취소를 하고 싶어요.</h4>
+                <div class="accordion-content">
+                    <p class="">결제 취소는 마이페이지 - 나의 결제내역 에서 하실 수 있습니다. 결제 취소 하지마잉~ 우리 돈 벌어야돼~~~ 전시 많이 봐주라~~~ <br>
+                        결제 취소는 마이페이지 - 나의 결제내역 에서 하실 수 있습니다. 결제 취소 하지마잉~</p>
+                </div>
+
+                <hr>
+
+                <h4 class="text accordion-header"><span class="text q-numbering">03</span>[전시] 전시회/전시관 정보가 올바르지 않아요.</h4>
+                <div class="accordion-content">
+                    <p class="">아트아지트의 작가, 작품정보는 문화관광부, 예술정보원 등의 공공데이터를 기반으로 구축되었습니다. <br>
+                        이에, 실시간으로 정확하지 않은 정보가 있을 수 있음을 양해 부탁드리며,<br>
+                        전시회 및 작가 프로필 등이 사실과 다를 경우, contact@art-agit.co.kr 로 메일을 보내주시거나, 주성균님께 연락을 주시면 최대한 빨리 수정 반영해드리겠습니다.</p>
+                </div>
+
+                <hr>
+
+                <h4 class="text accordion-header"><span class="text q-numbering">04</span> [커뮤니티] 게시글 작성은 어떻게 하나요?</h4>
+                <div class="accordion-content">
+                    <p class="">아트아지트의 커뮤니티 게시글 작성은 회원만 가능합니다. <br> 글 작성 및 댓글 작성을 원하실 경우에는 회원가입 후 이용 부탁드립니다.</p>
+                </div>
+
+                <hr>
             </div>
 
-            <div class="title-line">
-                <p class="text question"><span class="text q-numbering">01</span> [전시] 전시 예매는 어떻게 하나요?</p>
-            </div>
-            <p class="content-box">전시예매노노노노노ㅗ노노노노노노노노노노노ㅗ노노노노노노노노ㅗ노노노논노</p>
+        <!--------------------- 공지사항 --------------------->
+        <div class="icon-title notice">
+            <img class="notice-icon" src="image/icons/notify.png">
+            <h1 class="text question-h1">공지사항</h1>
+        </div>
+        
 
-            <div class="title-line">
-                <p class="text question"><span class="text q-numbering">02</span> [전시] 결제취소를 하고 싶어요.</p>
-            </div>
-            <p class="content-box d-none">결제 취소는 마이페이지 - 나의 결제내역 에서 하실 수 있습니다. 결제 취소 하지마잉~ 우리 돈 벌어야돼~~~ 전시 많이 봐주라~~~ <br>
-                            결제 취소는 마이페이지 - 나의 결제내역 에서 하실 수 있습니다. 결제 취소 하지마잉~</p>
-            <hr>
-            <div class="title-line">
-                <p class="text question"><span class="text q-numbering">03</span> [전시] 전시회/전시관 정보가 올바르지 않아요.</p>
-            </div>
-            <p class="content-box d-none">아트아지트의 작가, 작품정보는 문화관광부, 예술정보원 등의 공공데이터를 기반으로 구축되었습니다. <br>
-                            이에, 실시간으로 정확하지 않은 정보가 있을 수 있음을 양해 부탁드리며,<br>
-                            전시회 및 작가 프로필 등이 사실과 다를 경우, contact@art-agit.co.kr 로 메일을 보내주시거나, 주성균님께 연락을 주시면 최대한 빨리 수정 반영해드리겠습니다.</p>
-            <hr>
+            <div class="box">
+                <h4 class="text accordion-header active"><span class="text sm-text notice-category">일반</span>회원님들 그만 좀 싸우세요 진짜.</h4>
+                <div class="accordion-content">
+                    <span class="text sm-text date">2022.10.14</span>
+                    <img class="img-content" src="image/전시포스터2.jpg" alt="공지사항 이미지">
+                    <p class="">계속되는 경고에도 다툼을 멈추지 않으시는 회원님들께는 엄중한 처벌을 내리겠습니다. 적당히 하세요.</p>
+                </div>
+                <hr>
 
-            <div class="title-line">
-                <p class="text question"><span class="text q-numbering">04</span> [커뮤니티] 게시글 작성은 어떻게 하나요?</p>
-            </div>
-            <p class="content-box d-none">아트아지트의 커뮤니티 게시글 작성은 회원만 가능합니다. <br> 글 작성 및 댓글 작성을 원하실 경우에는 회원가입 후 이용 부탁드립니다.</p>
-            <hr>
-        </section>
+                <h4 class="text accordion-header active"><span class="text sm-text notice-category event">이벤트</span>아트아지트 회원님들께 크리스마스 선물을 드립니다.</h4>
+                <div class="accordion-content">
+                    <span class="text sm-text date">2022.10.14</span>
+                    <p class="">계속되는 경고에도 다툼을 멈추지 않으시는 회원님들께는 엄중한 처벌을 내리겠습니다. 적당히 하세요.</p>
+                </div>
+                <hr>
 
-        <section>
-            <div class="icon-title notice">
-                <img class="img" src="image/icons/notify.png">
-                <h1 class="text question-h1">공지사항</h1>
             </div>
-
-            <div class="title-box">
-                <span class="text sm-text notice-category">일반</span>
-                <div class="notice-content-box">회원님들 그만 좀 싸우세요 진짜.</div>
-            </div>
-            <div class="content-box">
-                <span class="text sm-text date">2022.10.14</span>
-                <img class="img-content" src="image/exhimage.png" alt="공지사항 이미지">
-                <p class="text-content">계속되는 경고에도 다툼을 멈추지 않으시는 회원님들께는 엄중한 처벌을 내리겠습니다. 적당히 하세요.</p>
-            </div>
-            <hr class="d-none">
-
-            <div class="title-box">
-                <span class="text sm-text notice-category event">이벤트</span>
-                <div class="notice-content-box">아트아지트 회원님들께 크리스마스 선물을 드립니다.</div>
-            </div>
-            <div class="content-box d-none">
-                <span class="text sm-text date">2022.10.14</span>
-                <img class="" src="" alt="">
-                <p class="text-content">계속되는 경고에도 다툼을 멈추지 않으시는 회원님들께는 엄중한 처벌을 내리겠습니다. 적당히 하세요.</p>
-            </div>
-            <hr>
         </section>
     </main>
 </body>

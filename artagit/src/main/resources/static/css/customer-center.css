@@ -1,20 +1,23 @@
 /******* 기본 설정 ****************************************/
 p {
-    margin: 5px 0 0 0;
+    /* margin: 5px 0 0 0; */
+    /* margin: 7px 0 18px 0; */
+    padding: 8px 15px 0 15px;
 }
 
-section {
+.section {
     margin-bottom: 30px;
 }
 
 .text {
     color: #606060;
     font-weight: 500;
-    font-size: 14px;
+    font-size: 16px;
+    /* font-size: 100%; */
 }
 
 .sm-text {
-    font-size: 12px;
+    font-size: 14px;
 }
 
 .q-numbering {
@@ -22,14 +25,27 @@ section {
     margin-right: 3px;
 }
 
-.customer-center {
-    font-size: 22px;
-    font-weight: 700;
-    text-align: center;
-    /* margin-top: 10px; */
-    padding: 20px 0;
+body::-webkit-scrollbar, div::-webkit-scrollbar {
+    display: none;
 }
 
+.section>.box {
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+.accordion-header.active + .accordion-content {
+    /* section1 */
+    /* flex-grow: 1; */
+    height: auto;
+}
+
+.box span {
+    margin: 0 5px 0 7px;
+}
+
+/******* 자주 묻는 질문, 공지사항 아이콘 ****************************************/
 .icon-title {
     display: flex;
     width: 120px;
@@ -37,53 +53,94 @@ section {
     justify-content: center;
     align-items: center;
     
-    margin: 0 0 15px 0;
+    margin: 15px 0 15px 0;
     
     border-radius: 15px;
     border: 2px solid #FF6C9E;
-    /* background-color: #fee7ed; */
 }
 
-.img {
+.question-icon {
+    width: 20px;
+    height: 20px;
+    /* margin-right: 3px; */
+}
+
+.notice-icon {
+    
     width: 20px;
     height: 20px;
 }
 
-.question-img {
-    margin-right: 3px;
-}
-
 .notice {
-    width: 80px;
+    /* width: 80px; */
 }
 
-.question {
-    /* font-size: 14px; */
-    margin: 0;
+
+/******* 자주 묻는 질문 ****************************************/
+.customer-center {
+    font-size: 22px;
+    font-weight: 700;
+    text-align: center;
+    padding: 20px 0;
 }
 
-.title-line {
-    width: 100%;
+.section>.box>h4,
+.accordion-header {
+    /* reset */
+    margin: 12px 0 0 0;
+
+    /* layout */
     display: flex;
-    
     align-items: center;
-    padding: 15px 0;
+    cursor: pointer;
+    /* height: 20px; */
+    position: relative;
+    /* padding: 0.5em 0.5em 0.5em 0.7em; */
+
+    transition: background-color 1s;
 }
 
-.content-box {
-    background-color: #fff1f5;
-    padding: 15px;
-    margin: 7px 0 18px 0;
-    line-height: 18px;
+.section>.box>div,
+.accordion-content {
+    /* reset */
+    margin: 10px 0 10px 0;
+    /* padding: 15px; */
+    outline: 0;
+    line-height: 1.4;
+    text-decoration: none;
+    font-size: 100%;
+    list-style: none;
+
+    /* text */
+    color: #544d4d;
+
+    /* layout */
     display: flex;
+    /* display:inline-block; */
     flex-direction: column;
+    /* justify-content: flex-start; */
+    align-items: center;
+
+    box-sizing: content-box;
+    background-color: #fff1f5;
+
+    /* padding: 1em 2.2em; */
+    
+    /* border-top: 0; */
+    overflow: auto;
+    height: 0px;
+
+    /* effect */
+    transition: height 1.5s, padding 1s;
 }
 
+/******* 공지사항 ****************************************/
 .date {
-    display: flex;
-    justify-content: flex-end;
+    /* display: flex;
+    justify-content: flex-end; */
     /* margin-bottom: 5px; */
-    padding-bottom: 7px;
+    padding: 7px 0 7px 0;
+    text-align: end;
 }
 
 .notice-category {
@@ -102,12 +159,22 @@ section {
     color: #E73939;
 }
 
-.notice-content-box {
-    margin-left: 5px;
+.img-content {
+    width: 90%;
+    justify-content: center;
 }
 
-.title-box {
+
+
+
+
+
+
+/* .notice-content-box {
+    margin-left: 5px;
+} */
+
+/* .title-box {
     display: flex;
-    /* justify-content: ; */
     align-items: center;
-}
+} */
