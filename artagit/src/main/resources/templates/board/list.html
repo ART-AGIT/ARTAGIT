@@ -139,7 +139,7 @@
         </section>
             </form>
         
-        <form class="" actoin="list" method="post">
+        <form class="" action="list" method="post">
         <section class="board-list"  th:each="board:${list}">
         <h1 class="board-title">
          	<a th:utext="${board.title}" th:href="@{{id}(id=${board.id})}" href = "../member/board/detail.html">회원님들 그만 좀 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa싸우세요들.</a>
@@ -159,7 +159,7 @@
             </div>
             <div class="like-up">
                 <div class="icon icon-like-up">좋아요 아이콘</div>
-                <div>11</div>
+                <div th:text="${board.like}">11</div>
             </div>
             <div class="comment">
                 <div class="icon icon-comment">댓글 아이콘</div>

@@ -130,12 +130,12 @@
             
             <div class="post-info">
                 <div>
-                    <div class="icon icon-view">조회수 </div>
-                    <div>11</div>
+                    <div class="icon icon-view" >조회수 </div>
+                    <div th:text="${board.hit}">11</div>
                 </div>
                 <div>
                     <div class="icon icon-like-up">추천 </div>
-                    <div>11</div>
+                    <div th:text="${board.like}">11</div>
                 </div>
                 <div>
                     <div class="icon icon-comment">댓글</div>
@@ -174,13 +174,15 @@
                         <div class="icon icon-miniMenu"><a href=""></a></div>
                     </div>
                     </div>
-                    <div class="comment-main">
-                        저도 거기 다녀왔는데 정말 좋더라고요~ 굿즈asfdddddddddddddddddddddsdaaaaaaaaaaaaaaaaaas도 다 너무 예뻣더라는..
-                    </div>
-                    <div class="comment-info">
-                        <div> 2022.11.26 18:38</div>
-                        <div class="re-comment"><a href="">답글쓰기</a></div>
-                    </div>
+                    <div th:each="comList:${comList}">
+	                    <div class="comment-main" th:text="${comList.content}">
+	                        저도 거기 다녀왔는데 정말 좋더라고요~ 굿즈asfdddddddddddddddddddddsdaaaaaaaaaaaaaaaaaas도 다 너무 예뻣더라는..
+	                    </div>
+	                    <div class="comment-info">
+	                        <div> 2022.11.26 18:38</div>
+	                        <div class="re-comment"><a href="">답글쓰기</a></div>
+	                    </div>
+	                </div>
                 </section>
                 <div class="comment-page">
                     <a href=""  >1</a>

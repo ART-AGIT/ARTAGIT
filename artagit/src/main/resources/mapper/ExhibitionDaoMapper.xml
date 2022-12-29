@@ -33,6 +33,12 @@
 		select * from Exhibition
 		where memId = #{memId}
 	</select>
+	<select id="getListtt" resultType="com.artagit.web.entity.Exhibition">
+		select * from Exhibition
+			join Booking 
+			on Exhibition.id = Booking.exhId
+			where Booking.memId = #{memId};
+	</select>
 	<select id="count" resultType="int">
 		select count(id) from Exhibition
 			where name like '%${input}%'	

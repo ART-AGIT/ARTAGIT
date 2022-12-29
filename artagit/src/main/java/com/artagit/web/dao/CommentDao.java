@@ -17,6 +17,8 @@ public interface CommentDao {
 			Date regDate
 			);
 	
+	List<Comment> getListByBoardId(int id);
+	
 	Comment get(int id);
 	
 	int count(String input);

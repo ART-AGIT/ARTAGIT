@@ -18,7 +18,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.artagit.web.entity.Board;
+import com.artagit.web.entity.Comment;
 import com.artagit.web.service.BoardService;
+import com.artagit.web.service.CommentService;
 import com.artagit.web.service.DefaultBoardService;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -29,6 +31,10 @@ public class BoardController {
 
 	@Autowired
 	private BoardService service;
+	
+	@Autowired
+	private CommentService comService;
+	
 	/*************게시글 리스트 불러오기*********/
 	@GetMapping("list")
 	public String list(
@@ -49,12 +55,14 @@ public class BoardController {
 		@PathVariable("id")int id,
 		Model model){
 		Board board = service.get(id);
+		//댓글
+		List<Comment> comList = comService.getListByBoardId(board.getId());
+		//Comment comment = 
 		model.addAttribute("board",board);
-		
-		
-		System.out.println("id:"+ id);
-		
-		
+		model.addAttribute("comList",comList);
+		//조회수 증가
+		service.hitCountUp(board);
+
 		return "board/detail";
 			
 		}

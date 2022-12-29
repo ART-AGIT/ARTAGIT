@@ -102,4 +102,10 @@ public class DefaultExhibitionService implements ExhibitionService {
 		return count;
 	}
 
+	@Override
+	public List<Exhibition> getListtt(int memId) {
+		
+		return exhDao.getListtt(memId);
+	}
+
 }

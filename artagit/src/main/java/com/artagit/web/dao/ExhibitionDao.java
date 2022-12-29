@@ -39,6 +39,8 @@ public interface ExhibitionDao {
 	
 	//나의 등록전시개수
 	int getCount(int memId);
+
+	List<Exhibition> getListtt(int memId);
 	
 }
  

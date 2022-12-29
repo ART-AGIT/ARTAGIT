@@ -29,6 +29,14 @@
 		1);
 	</insert>
 	
+	<select id="hitCountUp" parameterType="com.artagit.web.entity.Board">
+		UPDATE Board
+		SET
+		HIT = HIT + 1
+		WHERE
+		id = #{id}
+	</select>
+	
 	
 	
 	

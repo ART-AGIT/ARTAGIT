@@ -12,6 +12,8 @@ public interface BoardService {
 
 	int reg(Board board);
 
+	void hitCountUp(Board board);
+
 	
 
 }

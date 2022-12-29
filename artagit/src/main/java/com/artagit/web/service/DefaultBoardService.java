@@ -34,6 +34,12 @@ public class DefaultBoardService implements BoardService{
 		return boardDao.insert(board);
 	}
 
+	@Override
+	public void hitCountUp(Board board) {
+		boardDao.hitCountUp(board);
+		
+	}
+
 	
 	
 	
