@@ -31,14 +31,16 @@ body {
     border-bottom: 1px solid rgba(157, 157, 157, 0.353);
 }
 
-li {
+.mini-menu-list li {
     margin-right: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .like-num {
     color: #E14705;
     font-weight: 500;
-    margin: 0 5px 0 3px;
 }
 
 .exh-info form { 

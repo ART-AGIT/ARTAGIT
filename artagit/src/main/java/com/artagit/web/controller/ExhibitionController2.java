@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -40,9 +41,9 @@ public class ExhibitionController2 {
 		return "exhibition/list";
 	}
 	
-	@GetMapping("detail") // 전시상세 불러오기
+	@GetMapping("{id}") // 전시상세 불러오기
 	public String detail(
-			@RequestParam("id") int exhId,
+			@PathVariable("id") int exhId,
 			Model model) {
 		
 		
@@ -51,6 +52,9 @@ public class ExhibitionController2 {
 		Museum museum = museumService.getMuseumById(exh.getMuseumId());
 		model.addAttribute("museum", museum);
 		
+		int count = service.countOfLike(exhId);
+		model.addAttribute("count",count);
+		System.out.println(count);
 		System.out.println("전시관 id========>"+exh.getMuseumId());
 		System.out.println("전시관 name========>"+museum.getName());
 		
