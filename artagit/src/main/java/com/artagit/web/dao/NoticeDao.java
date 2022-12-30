@@ -9,11 +9,12 @@ import com.artagit.web.entity.Notice;
 @Mapper
 public interface NoticeDao {
 	
-	List<Notice> getList(
-			int page,
-			String input
-			);
-	Notice get();
+	List<Notice> getList(int offset,
+						int size);
+	
+//	List<Notice> getListById(int page);
+//	List<Notice> getListById(int id);
+//	String getListById(int id);
 	
 	int count(String title);
 	
