@@ -21,6 +21,7 @@
 
 
 </head>
+<script src="../../js/review-detail.js"></script>
 <script src="../../js/header-menu.js"></script>
 <body>
     
@@ -63,26 +64,28 @@
         <h2 class="review">리뷰 보기</h2>
 
         <div class="form-box">
-            <form>
+        
                 <div class="form">
-                    <span class="content">dddddsssssssssssssssssssssssssssddddddddddddd</span>
+                    <div class="content" th:text="${review.content}">dsssssddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd</div>
+                    <!-- <textarea class="input" placeholder="리뷰를 작성해주세요"></textarea> -->
                 </div>
-            </form>
-           
-            <div class="detail-info">
-                <div>
-                    <label class="exh-name">함스부르크 600년,매혹의 걸작들</label>
+            
+                <div class="detail-info">
+                    <div>
+                        <label class="exh-name">함스부르크 600년,매혹의 걸작들</label>
+                    </div>
+                    <div>
+                        <span class="exh-loc">국립현대미술관</span>
+                        <span class="exh-date">2022.08.08</span>
+                    </div>
                 </div>
-                <div>
-                    <span class="exh-loc">국립현대미술관</span>
-                    <span class="exh-date">2022.08.08</span>
+                <!-- <a class="icon icon-trash"></a> -->
+                <div class="wrap">
+                    <input type="color" class="color-input">
+                    <!-- <a class="circle"></a> -->
+                    <button class="icon icon-trash"></button>
                 </div>
-            </div>
-            <!-- <a class="icon icon-trash"></a> -->
-            <div class="wrap">
-                <a class="circle"></a>
-                <button class="icon icon-trash"></button>
-            </div>
+
         </div>
         
         <div class="review-option-list">
@@ -98,8 +101,9 @@
         </div>
 
         <div class="review-button-list">
-            <input class="btn btn-default btn-default-fill" type="submit" value="수정">
-            <input class="btn btn-default btn-default-line"type="submit" value="닫기">
+            <input class="btn btn-default btn-default-fill btn-mod" type="submit" value="수정" th:classappend="${#strings.isEmpty(review.content)}? ' d-none'" >
+            <input class="btn btn-default btn-default-fill btn-del" type="submit" value="등록" th:classappend="${!#strings.isEmpty(review.content)}? ' d-none'">
+            <input class="btn btn-default btn-default-line btn-exit"type="submit" value="닫기">
         </div>
         
     </main>

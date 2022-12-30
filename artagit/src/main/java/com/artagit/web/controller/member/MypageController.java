@@ -50,7 +50,7 @@ public class MypageController {
 		int count = bookList.size();
 		System.out.println(count);
 		exhList = exhService.getListtt(memId);
-		System.out.println(exhList);
+//		System.out.println(exhList);
 		//for(int i=0;i<count;i++) { 
 			
 //			select * from Exhibition
@@ -67,14 +67,12 @@ public class MypageController {
 	}
 	
 	/*-----------예매내역상세------*/ 
-	@GetMapping("{id}")
-	public String detail(
-			
-			@PathVariable("id")int id,Model model){
-//			Board board = service.get(id);
-			Review review = reviewService.get(id);
-
-
+	@GetMapping("/review/{id}")
+	public String detail(@PathVariable("id")int id, Model model){
+		
+		Review review = reviewService.get(id);
+		System.out.println(review);
+		model.addAttribute("review",review);
 		return "member/mypage/review-detail";
 	}
 }

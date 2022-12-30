@@ -13,13 +13,7 @@
 				AND stateId = #{stateId}
 			</if>
 			<if test="cateId != null and cateId != 0">
-				<if test="cateId == 1">
-					AND order by startDate desc
-				</if>
-				<if test="cateId == 2">
-					AND order by startDate
-				</if>
-<!-- 				AND cateId = #{cateId} -->
+				AND cateId = #{cateId}
 			</if>
 			and useYN = "Y"
 		</trim>
