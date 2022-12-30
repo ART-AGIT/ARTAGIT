@@ -13,10 +13,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.artagit.web.entity.Member;
 import com.artagit.web.service.MemberService;
 
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
-
 
 @Controller
 @RequestMapping("/user") //템플릿 기준
