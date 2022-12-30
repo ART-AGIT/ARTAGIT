@@ -138,3 +138,25 @@
     height:0;
 }
 
+/* toggle 만들기 */
+/* 
+.reg-list>.reg-list-box{
+    height : 500px;
+    display: flex;
+    flex-direction: column;
+}
+
+.reg-list-box>h1,
+.accordion-header{
+    transition : 1s;
+}
+
+.reg-list-box>h1.active+div,
+.accordion-header.active+.accordion-content{
+    flex-grow:1;
+}
+
+.reg-list-box>div,
+.accordion-content{
+    height:0;
+} */

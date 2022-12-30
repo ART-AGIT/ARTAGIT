@@ -76,17 +76,18 @@
                 </div>    
             </div>
 
+		<form action="login" method="post">
             <div class="log-input-list">
                 <div>
-                    <input type="text" class="input input-lg input-border input-white" value="아이디">
+                    <input name="username" type="text" class="input input-lg input-border input-white" value="아이디">
                 </div>
 
                 <div>
-                    <input type="text" class="input input-lg input-border input-white" value="비밀번호">
+                    <input name="password" type="text" class="input input-lg input-border input-white" value="비밀번호">
                 </div>
-                <button class="btn btn-login">로그인</button> 
+                  <button class="btn btn-login" type="submit">로그인</button> 
             </div>
-
+		</form>
            
 
             <div class="login-option-menu">

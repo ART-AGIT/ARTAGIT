@@ -17,10 +17,10 @@ public class Exhibition {
 	private String artist;
 	private int stateId;
 	private int museumId;
+	private int corpId;
+	private int corpLocalId;
 	
-	public Exhibition() {
-		// TODO Auto-generated constructor stub
-	}
+	
 	
 	// NN 제거한 생성자. 전시 등록 시 사용되는 생성자
 	public Exhibition(int memId, int cateId, String name, String poster,
@@ -44,7 +44,7 @@ public class Exhibition {
 	// 전시 정보를 모두 불러올 때 사용되는 생성자
 	public Exhibition(int id, int memId, int cateId, String name, String content, String poster, String detailImage,
 			String startDate, String endDate, String startTime, String endTime, int ticketPrice, int ticketStock,
-			String regDate, String artist, int stateId, int museumId) {
+			String regDate, String artist, int stateId, int museumId,int corpId,int corpLocalId) {
 		this.id = id;
 		this.memId = memId;
 		this.cateId = cateId;
@@ -61,6 +61,8 @@ public class Exhibition {
 		this.artist = artist;
 		this.stateId = stateId;
 		this.museumId = museumId;
+		this.corpId =corpId;
+		this.corpLocalId = corpLocalId;
 	}
 	
 
@@ -70,7 +72,8 @@ public class Exhibition {
 				+ content + ", poster=" + poster + ", detailImage=" + detailImage + ", startDate=" + startDate
 				+ ", endDate=" + endDate + ", startTime=" + startTime + ", endTime=" + endTime + ", ticketPrice="
 				+ ticketPrice + ", ticketStock=" + ticketStock + ", artist=" + artist
-				+ ", stateId=" + stateId + ", museumId=" + museumId + "]";
+				+ ", stateId=" + stateId + ", museumId=" + museumId + ", corpId=" + corpId + ", corpLocalId=" + corpLocalId + "]";
+		
 	}
 
 	public int getId() {
@@ -202,13 +205,25 @@ public class Exhibition {
 		this.museumId = museumId;
 	}
 
-	
-	
-	
-	
-	
-	
-	
+	public int getCorpId() {
+		return corpId;
+	}
+
+	public void setCorpId(int corpId) {
+		this.corpId = corpId;
+	}
+
+	public int getCorpLocalId() {
+		return corpLocalId;
+	}
+
+	public void setCorpLocalId(int corpLocalId) {
+		this.corpLocalId = corpLocalId;
+	}
+
+	public Exhibition() {
+		// TODO Auto-generated constructor stub
+	}
 	
 
 
