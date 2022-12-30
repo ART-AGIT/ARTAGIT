@@ -19,7 +19,7 @@ public class ArtagitSecurityConfig {
 				.requestMatchers("/corp/**").hasAnyRole("CORP", "ADMIN") // ADMIN, CORP 권한이 있는 계정만 접근할 수 있는 경로
 				.requestMatchers("/member/**").hasAnyRole("MEMBER","ADMIN") // MEMBER, ADMIN 권한이 있는 계정만 접근 가능한 경로
 				.anyRequest().permitAll()) // 그 외의 나머지 (비회원) 권한을 가진 계정이 접근할 수 있는 경로
-				.formLogin(form->form.loginPage("/login") // 로그인 폼으로는, /login.html 를 로그인 페이지로 등록한다.
+				.formLogin(form->form.loginPage("/user/login") // 로그인 폼으로는, /login.html 를 로그인 페이지로 등록한다.
 									 .defaultSuccessUrl("/index")) // loginPage("/login") 
 				.exceptionHandling(exp->exp.accessDeniedPage("/denied")) // 권한이 없는 페이지를 접근했을 때 보여줄 화면?
 				.logout()

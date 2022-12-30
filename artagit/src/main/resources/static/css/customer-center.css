@@ -41,7 +41,7 @@ body::-webkit-scrollbar, div::-webkit-scrollbar {
     height: auto;
 }
 
-.box span {
+.section span {
     margin: 0 5px 0 7px;
 }
 
@@ -53,7 +53,7 @@ body::-webkit-scrollbar, div::-webkit-scrollbar {
     justify-content: center;
     align-items: center;
     
-    margin: 15px 0 15px 0;
+    margin: 40px 0 20px 0;
     
     border-radius: 15px;
     border: 2px solid #FF6C9E;
@@ -81,7 +81,7 @@ body::-webkit-scrollbar, div::-webkit-scrollbar {
     font-size: 22px;
     font-weight: 700;
     text-align: center;
-    padding: 20px 0;
+    padding-top: 20px;
 }
 
 .section>.box>h4,

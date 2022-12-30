@@ -19,7 +19,7 @@ import jakarta.servlet.http.HttpSession;
 
 
 @Controller
-@RequestMapping("/") //템플릿 기준
+@RequestMapping("/user") //템플릿 기준
 public class MemberController {
 	
 	@Autowired
@@ -27,18 +27,12 @@ public class MemberController {
 	
 	
 	@GetMapping("login")
-	public String list(Model model) {
-		
-		return "login";
+	public String login() {
+		return "user/login";
 	}
-	
-//	@PostMapping("login")
-//	public String list()
-//	
 	
 	@GetMapping("signup")
 	public String signup() {
-		
 		return "signup";
 	}
 	

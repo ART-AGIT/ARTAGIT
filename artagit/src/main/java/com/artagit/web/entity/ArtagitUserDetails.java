@@ -15,7 +15,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 public class ArtagitUserDetails implements UserDetails {
 	
 	private int id; 
-	private String loginId;
+//	private String loginId;
+	private String username;
 	private String password;
 	private String name;
 	private String phone;
@@ -24,46 +25,119 @@ public class ArtagitUserDetails implements UserDetails {
 	private String img;
 	private List<GrantedAuthority> authorities; // 권한(ROLE_XXX) 
 
-	@Override
-	public Collection<? extends GrantedAuthority> getAuthorities() {
-		// TODO Auto-generated method stub
-		return authorities; 
+	
+	public int getId() {
+		return id;
 	}
 
-	@Override
-	public String getPassword() {
-		// TODO Auto-generated method stub
-		return null;
+	public void setId(int id) {
+		this.id = id;
 	}
+
+//	public String getLoginId() {
+//		return loginId;
+//	}
+//
+//	public void setLoginId(String loginId) {
+//		this.loginId = loginId;
+//	}
 
 	@Override
 	public String getUsername() {
-		// TODO Auto-generated method stub
-		return null;
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	
+	@Override
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}	
+	
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public String getNickname() {
+		return nickname;
+	}
+
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getImg() {
+		return img;
+	}
+
+	public void setImg(String img) {
+		this.img = img;
 	}
 
 	@Override
 	public boolean isAccountNonExpired() {
-		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean isAccountNonLocked() {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean isCredentialsNonExpired() {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean isEnabled() {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
+	@Override
+	// 스프링의 UserDetails가 제공해주는 데이터
+	// 회원에게 권한을 줄 때, 스프링이 사용하게 될 메서드
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		return authorities; 
+	}
+	
+	public void setAuthorities(List<GrantedAuthority> authorities) {
+		this.authorities = authorities;
+	}
+	
+	@Override
+	public String toString() {
+		return "ArtagitUserDetails [id=" + id + ", username=" + username + ", password=" + password + ", name=" + name
+				+ ", phone=" + phone + ", nickname=" + nickname + ", email=" + email + ", img=" + img + ", authorities="
+				+ authorities + "]";
+	}
 }
