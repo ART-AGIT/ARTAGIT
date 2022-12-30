@@ -19,5 +19,6 @@ public interface MemberDao {
 	
 	void deleteUseYN(int id, String useYN); // 회원 탈퇴
 //	void deleteUseYN(Member member);
+	Member getByUserName(String username);
 	
 }
