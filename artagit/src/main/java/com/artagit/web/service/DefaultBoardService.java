@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.artagit.web.dao.BoardDao;
+import com.artagit.web.dao.BoardListDao;
 import com.artagit.web.entity.Board;
+import com.artagit.web.entity.BoardListView;
 
 
 @Service
@@ -14,15 +16,9 @@ public class DefaultBoardService implements BoardService{
 	
 	@Autowired
 	private BoardDao boardDao;
-
-	@Override
-	public List<Board> getList(int page) {
-		int size = 1;
-		int offset = (page-1)*size;
-		
-		return boardDao.getList(offset,size,1);
-	}
-
+	
+	@Autowired
+	private BoardListDao boardListDao;
 	@Override
 	public Board get(int id) {
 		// TODO Auto-generated method stub
@@ -36,13 +32,23 @@ public class DefaultBoardService implements BoardService{
 	}
 
 	@Override
-	public List<Board> getListByCategory(int roleId) {
+	public List<BoardListView> getListByCategory(int roleId) {
 		int page =1;
 		int size =6;
 		int offset = (page-1)*size;
-		List<Board> list = boardDao.getList(offset,size,roleId);
+		List<BoardListView> list = boardListDao.getList(offset,size,roleId);
+		for(BoardListView blv : list)
+			System.out.println(blv.getRegDate());
 		// TODO Auto-generated method stub
 		return list;
+	}
+
+	@Override
+	public List<BoardListView> getListInit(int page) {
+		// TODO Auto-generated method stub
+		 int size = 6;
+		 int offset = (page-1)*size;
+		return boardListDao.getListInit(offset,size,page);
 	}
 
 	

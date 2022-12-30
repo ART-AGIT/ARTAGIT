@@ -1,10 +1,5 @@
 package com.artagit.web.controller;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,15 +10,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.artagit.web.entity.Board;
+import com.artagit.web.entity.BoardListView;
 import com.artagit.web.entity.Notice;
 import com.artagit.web.service.BoardService;
-import com.artagit.web.service.DefaultBoardService;
 import com.artagit.web.service.NoticeService;
-
-import jakarta.servlet.http.HttpServletRequest;
 
 @Controller
 @RequestMapping("/board/")
@@ -31,6 +24,9 @@ public class BoardController {
 
 	@Autowired
 	private BoardService service;
+	
+	
+	
 	@Autowired
 	private NoticeService noticeService;
 	/*************게시글 리스트 불러오기*********/
@@ -39,11 +35,12 @@ public class BoardController {
 		
 		@RequestParam(defaultValue = "1", name ="p")int page,
 		Model model){
-			
-		List<Board> list = service.getList(page);
+		List<BoardListView> list = service.getListInit(page);
 		List<Notice> noticeList = noticeService.getList(page);
+	
 		model.addAttribute("noticeList",noticeList);
 		model.addAttribute("list",list);
+		
 		
 		return "board/list";
 			
@@ -67,7 +64,7 @@ public class BoardController {
 	
 	/***********게시글 등록 시작****************/
 	@GetMapping("reg")
-	public String boardReg(Board board) {
+	public String boardReg() {
 	
 		return "board/reg";
 	}
@@ -78,6 +75,7 @@ public class BoardController {
 	
 		System.out.println("등록한 글 ===> "+board);
 		service.reg(board);
+		
 		return "redirect:list";
 	}
 	/*******게시글 등록 끝*****************/

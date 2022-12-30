@@ -3,15 +3,20 @@ package com.artagit.web.service;
 import java.util.List;
 
 import com.artagit.web.entity.Board;
+import com.artagit.web.entity.BoardListView;
 
 public interface BoardService {
 
-	List<Board> getList(int page);
-	List<Board> getListByCategory(int roleId);
+	
+	List<BoardListView> getListByCategory(int page);
 
 	Board get(int id);
 
 	int reg(Board board);
+
+	List<BoardListView> getListInit(int page);
+
+	
 
 
 	
