@@ -26,11 +26,11 @@ public class MemberController {
 	private MemberService service;
 	
 	
-//	@GetMapping("login")
-//	public String list(Model model) {
-//		
-//		return "login";
-//	}
+	@GetMapping("login")
+	public String list(Model model) {
+		
+		return "login";
+	}
 	
 //	@PostMapping("login")
 //	public String list()
