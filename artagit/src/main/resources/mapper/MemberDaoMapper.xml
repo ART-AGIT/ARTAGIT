@@ -2,6 +2,12 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.artagit.web.dao.MemberDao">
 	
+	<!-- 사용자가 입력한 id를 가지고 권한 확인하기 위한 쿼리문 -->
+	<select id="getByUserName" resultType="Member">
+		select * from Member where loginId=#{username}
+	</select>
+	
+	
 	<select id="getList" resultType="com.artagit.web.entity.Member">
 		select * from Member
 			<trim prefix="WHERE" prefixOverrides="AND | OR">
@@ -59,8 +65,6 @@
 		update Member
 		<set>useYN = 'N'</set>
 		where id=38;
-		
-
 	</update>
 
 
