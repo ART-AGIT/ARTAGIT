@@ -2,6 +2,12 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.artagit.web.dao.MemberDao">
 	
+	<!-- 사용자가 입력한 id를 가지고 권한 확인하기 위한 쿼리문 -->
+	<select id="getByUserName" resultType="Member">
+		select * from Member where loginId=#{username}
+	</select>
+	
+	
 	<select id="getList" resultType="com.artagit.web.entity.Member">
 		select * from Member
 			<trim prefix="WHERE" prefixOverrides="AND | OR">
@@ -12,12 +18,17 @@
 			</trim>
 			limit #{(page-1)*10}, 10
 	</select>
-	<!--================== 회원 탈퇴 ===================-->
+	<!--================== 회원 탈퇴 ===================
 	<update id="deleteUseYN" parameterType="com.artagit.web.entity.Member">
 		update Member 
 	<set> useYN = 'N' </set>	 
 			where id = #{id}
-	</update>
+	</update>	--><!--================== 일반 회원 로그인 ===================-->
+	<select id="getByName" resultType="com.artagit.web.entity.Member">
+       select *
+       from Member
+       where loginId = #{loginId}
+   </select>	
 	
 	<!--================== 업체 정보 수정 ===================-->
 	
@@ -54,8 +65,6 @@
 		update Member
 		<set>useYN = 'N'</set>
 		where id=38;
-		
-
 	</update>
 
 

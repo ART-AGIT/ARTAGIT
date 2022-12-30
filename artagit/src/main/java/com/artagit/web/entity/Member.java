@@ -13,8 +13,10 @@ public class Member {
    private Date regDate;
    private int roleId;
    private String image;
+   private String useYN;
    
-   public Member() {
+
+public Member() {
       // TODO Auto-generated constructor stub
    }
 
@@ -32,6 +34,8 @@ public class Member {
       this.image = image;
       
    }
+   
+   
 
    public int getId() {
       return id;
@@ -112,6 +116,15 @@ public class Member {
    public void setImage(String image) {
       this.image = image;
    }
+   
+   public String getUseYN() {
+	return useYN;
+}
+
+   public void setUseYN(String useYN) {
+	 this.useYN = useYN;
+}
+
 
    @Override
    public String toString() {
