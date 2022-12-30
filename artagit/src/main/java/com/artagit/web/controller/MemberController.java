@@ -60,17 +60,17 @@ public class MemberController {
 	}
 	
 	
-	@PostMapping("{id}")
-	public String deleteUseYN(@RequestParam("id") int id){
-		// 되는지 확인용
-		int memid=51;
-		String useYN2 = "Y";
-		service.deleteUseYN(memid,useYN2);
-//		
-		return "corporator/mypage/account-edit";
-//		return "redirect:/";
-	}
-	
+//	@PostMapping("{id}")
+//	public String deleteUseYN(@RequestParam("id") int id){
+//		// 되는지 확인용
+//		int memid=51;
+//		String useYN2 = "Y";
+//		service.deleteUseYN(memid,useYN2);
+////		
+//		return "corporator/mypage/account-edit";
+////		return "redirect:/";
+//	}
+
 	
 	
 	
