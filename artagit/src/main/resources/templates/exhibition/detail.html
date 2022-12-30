@@ -15,13 +15,13 @@
     <main>
         <div class="flow-btn-box">
             <div class="flow-item">
-                <a class="text" href="">HOME</a>
+                <a class="text" href="../">HOME</a>
             </div>
             <div class="arrow-box">
                 <a class="icon icon-arrow-right icon-arrow-right-sm" href="">다음</a>
             </div>
             <div class="flow-item">
-                <a class="text" href="">전시목록</a>
+                <a class="text" href="list">전시목록</a>
             </div>
             <div class="arrow-box">
                 <a class="icon icon-arrow-right icon-arrow-right-sm" href="">다음</a>
@@ -37,7 +37,7 @@
 
         <ul class="mini-menu-list">
             <li><a class="deco deco-mini deco-url" href="">URL 복사</a></li>
-            <li><a th:data-id="${exh.id}" class="deco deco-mini deco-heart" href="">좋아요</a><span class="like-num" th:text="${count}">3</span></li>
+            <li><a th:data-id="${exh.id}" class="deco deco-mini deco-heart like-num" href="" th:text="${count}">0</a></li>
             <li><a class="deco deco-mini deco-map" href="">위치보기</a></li>
         </ul>
 
