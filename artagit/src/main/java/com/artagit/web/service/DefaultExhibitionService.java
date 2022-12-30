@@ -7,7 +7,10 @@ import org.springframework.stereotype.Service;
 
 import com.artagit.web.dao.ExhLikeDao;
 import com.artagit.web.dao.ExhibitionDao;
+
+import com.artagit.web.entity.Corporate;
 import com.artagit.web.entity.ExhLike;
+
 import com.artagit.web.entity.Exhibition;
 
 @Service
