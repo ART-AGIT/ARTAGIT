@@ -19,6 +19,21 @@
 		</trim>
 		limit #{offset}, #{size}
 	</select>
+	
+	<select id="getListBySearch" resultType="com.artagit.web.entity.Exhibition">
+		select * from Exhibition
+		<trim prefix="WHERE" prefixOverrides="AND | OR">
+			<if test="query != null">
+				name like '%${query}%'
+			</if>
+			and useYN = "Y"
+		</trim>
+		limit #{offset}, #{size}
+	</select>
+	
+	
+	
+	
 	<select id="get" resultType="com.artagit.web.entity.Exhibition">
 		select * from Exhibition
 			where id = #{id}

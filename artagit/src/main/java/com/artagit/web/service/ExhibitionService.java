@@ -1,8 +1,8 @@
 package com.artagit.web.service;
 
+import java.sql.SQLSyntaxErrorException;
 import java.util.List;
 
-import com.artagit.web.entity.Corporate;
 import com.artagit.web.entity.Exhibition;
 
 // 직접적인 서비스 모음
@@ -39,4 +39,6 @@ public interface ExhibitionService {
 	int likeDelete(int exhId, int memberId);
 
 	int countOfLike(int exhId);
+
+	List<Exhibition> getListBySearch(String query) throws SQLSyntaxErrorException;
 }

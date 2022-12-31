@@ -39,6 +39,9 @@
                 </ul>
                 <div class="header-menu-box">
                     <div>
+                        <a class="icon icon-search btn-open-modal" href="">검색</a>
+                    </div>  
+                    <div>
                         <a class="icon icon-member header-member" href="../login.html">로그인</a>
                     </div>                    
                     <div>
@@ -57,11 +60,8 @@
                     </div>
                     <div class="sub-menu-2">
                         <ul>
+                            <li><a href="signup.html">회원가입</a></li>
                             <li><a href="login.html">로그인</a></li>
-                            <li>
-                                <a class="btn-open-modal" href="">검색</a>
-                                
-                            </li>
                             <li><a href="">고객센터</a></li>
                         </ul>
                     </div>
@@ -112,12 +112,14 @@
     
     <!-- 모달 전체 -->
     <div class="modal">
+        <div class="icon icon-close btn-close">닫기</div>
         <!-- 모달 창 -->
-        <div class="modal-body">
+        <div class="modal-body modal-search">
             <!-- 모달 내용 -->
-            <div class="">
-                <input class="input input-search" type="text">
-            </div>
+            <form action="/search" method="GET">
+                <input class="input input-search header-search" type="text" placeholder="전시 검색">
+                <button type="submit" name="q" class="icon icon-search btn-search" value="바보">검색</button>
+            </form>
         </div>
     </div>
     
@@ -125,7 +127,7 @@
     <main class="main-container">
         <div class="slider-box">
             <div class="slider">
-                <div class="slide"><a href="exhibition/detail.html">"<img src="image/anonymousProject.png" alt=""></a></div>
+                <div class="slide"><a href="exhibition/detail.html"><img src="image/anonymousProject.png" alt=""></a></div>
                 <div class="slide"><a href="exhibition/detail.html"><img src="image/exhimage.png" alt=""></a></div>
                 <div class="slide"><a href="exhibition/detail.html"><img src="image/전시포스터2.jpg" alt=""> </a></div>
                 <a class="prev">&#10094</a>
