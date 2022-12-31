@@ -52,6 +52,8 @@ public class artagitUserDetailsService implements UserDetailsService {
 		user.setImg(member.getImage());
 		user.setAuthorities(authorities);
 		
+		System.out.println("담겨진 user ====> "+user);
+		
 		return user;
 	}
 }
