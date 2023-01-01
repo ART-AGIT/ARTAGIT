@@ -63,26 +63,7 @@ public class ExhibitionController2 {
 	
    /********************** 전시조회 끝 **********************/
 	
-	@ResponseBody
-	@GetMapping("update")
-	public void update(@RequestParam("id") int id,
-			@RequestParam("name") String name) {
-//		System.out.println("수정한 전시 ===> "+ id);
-//		id = 19;
-		service.update(id, name);
-		System.out.println("수정완료");
-	}
-	
-	@ResponseBody 
-	@GetMapping("delete")
-	public void delete(
-			@RequestParam(name = "id") int id) {
-		service.delete(id);
-		
-		System.out.println("삭제완료");
-		// return "redirect:list";
-		
-	}
+
 }
 
 // pathvariable

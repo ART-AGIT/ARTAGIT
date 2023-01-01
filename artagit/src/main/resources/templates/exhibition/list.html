@@ -12,6 +12,8 @@
     <link href="../css/icon.css" type="text/css" rel="stylesheet">
     <link href="../css/button.css" type="text/css" rel="stylesheet">
     <link href="../css/form.css" type="text/css" rel="stylesheet">
+    <link href="../css/input.css" type="text/css" rel="stylesheet">
+    <link href="../css/modal.css" type="text/css" rel="stylesheet">
     
     <link href="../css/header.css" type="text/css" rel="stylesheet">
     <link href="../css/footer.css" type="text/css" rel="stylesheet">
@@ -19,19 +21,24 @@
 
     <link href="../css/utils.css" type="text/css" rel="stylesheet">
 </head>
+<script src="../js/modal.js"></script>
 <script src="../js/header-menu.js"></script>
-<script src="../js/exhibition/list.js"></script>
+<script src="../js/index.js"></script>
+
 <body id="body">
     <header class="header">
         <section class="header-wrapper">
             <div class="header-box">
-                <h1 class="logo"><a href="../index.html">Art Agit</a></h1>
+                <h1 class="logo"><a href="index.html">Art Agit</a></h1>
                 <ul class="d-none">
                     <!-- <li><a href="">전시</a></li>
                     <li><a href="">커뮤니티</a></li>
                     <li><a href="">로그인</a></li> -->
                 </ul>
                 <div class="header-menu-box">
+                    <div>
+                        <a class="icon icon-search btn-open-modal" href="">검색</a>
+                    </div>  
                     <div>
                         <a class="icon icon-member header-member" href="../login.html">로그인</a>
                     </div>                    
@@ -44,15 +51,15 @@
                 <div class="sub-menu">
                     <div class="sub-menu-1">
                         <ul>
-                            <li><a href="list.html">전시</a></li>
+                            <li><a href="exhibition/list">전시</a></li>
                             <li><a href="../board/list.html">커뮤니티</a></li>
-                            <li><a href="../corporator/mypage/exh-reg">전시등록</a></li>
+                            <li><a href="corporator/mypage/exh-reg.html">전시등록</a></li>
                         </ul>
                     </div>
                     <div class="sub-menu-2">
                         <ul>
-                            <li><a href="../login.html">로그인</a></li>
-                            <li><a href="">검색</a></li>
+                            <li><a href="../signup">회원가입</a></li>
+                            <li><a href="../user/login">로그인</a></li>
                             <li><a href="">고객센터</a></li>
                         </ul>
                     </div>
@@ -65,7 +72,7 @@
     <header class="header-pc">
         <div class="content-box">
             <h1 class="logo">
-                <a href="../index.html">Art Agit</a>
+                <a href="index.html">Art Agit</a>
             </h1>
             <section>
                 <h1 class="d-none">메인메뉴</h1>
@@ -73,17 +80,17 @@
                     <h1 class="d-none">목록선택</h1>
                     <ul>
                         <li>
-                            <a href="../exhibition/list.html">전시</a>
+                            <a href="exhibition/list.html">전시</a>
                             <ul class="sub-menu">
-                                <li><a href="">진행 전시</a></li>
-                                <li><a href="">전시 예정</a></li>
+                                <li><a href="exhibition/list.html">진행 전시</a></li>
+                                <li><a href="exhibition/list.html">전시 예정</a></li>
                             </ul>
                         </li>
                         <li>
-                            <a href="../board/list.html">커뮤니티</a>
+                            <a href="board/list.html">커뮤니티</a>
                             <ul class="sub-menu">
-                                <li><a href="">-</a></li>
-                                <li><a href="">-</a></li>
+                                <li><a href="board/list.html">-</a></li>
+                                <li><a href="board/list.html">-</a></li>
                             </ul>
                         </li>
                         <li class="search-btn">
@@ -93,13 +100,26 @@
                                 <!-- <img src="../image/icons/search.svg" alt=""> -->
                             </div>
                         </li>
-                        <li><a href="../login.html">로그인</a></li>
+                        <li><a href="login.html">로그인</a></li>
                     </ul>
 
                 </nav>
             </section>
         </div>
     </header>
+    
+    <!-- 모달 전체 -->
+    <div class="modal">
+        <div class="icon icon-close btn-close">닫기</div>
+        <!-- 모달 창 -->
+        <div class="modal-body modal-search">
+            <!-- 모달 내용 -->
+            <form action="/search" method="GET">
+                <input class="input input-search header-search" type="text" placeholder="전시 검색">
+                <button type="submit" name="q" class="icon icon-search btn-search" value="바보">검색</button>
+            </form>
+        </div>
+    </div>
 
     <main class="main-container">
         <h1 class="d-none">전시 목록</h1>
@@ -148,6 +168,9 @@
                 </ul>
             </div>
             <section class="exhibition-list">
+            	<section th:if="${lists.size()==0}">
+            		<div>검색결과가 없습니다.</div>
+            	</section>
                 <section th:each="list:${lists}" th:attr="data-id=${list.id}" class="exhibition">
                     <form action="">
                         <h1 th:utext="${list.name}">이노니머스 프로젝트</h1>

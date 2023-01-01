@@ -12,6 +12,7 @@
     <link href="css/button.css" type="text/css" rel="stylesheet">
     <link href="css/form.css" type="text/css" rel="stylesheet">
     <link href="css/input.css" type="text/css" rel="stylesheet">
+    <link href="css/modal.css" type="text/css" rel="stylesheet">
     
     <link href="css/header.css" type="text/css" rel="stylesheet">
     <link href="css/footer.css" type="text/css" rel="stylesheet">
@@ -22,8 +23,9 @@
     <link href="css/utils.css" type="text/css" rel="stylesheet">
 </head>
 
-<script src="js/index.js"></script>
+<script src="js/modal.js"></script>
 <script src="js/header-menu.js"></script>
+<script src="js/index.js"></script>
 
 <body id="body">
     <header class="header">
@@ -36,6 +38,9 @@
                     <li><a href="">로그인</a></li> -->
                 </ul>
                 <div class="header-menu-box">
+                    <div>
+                        <a class="icon icon-search btn-open-modal" href="">검색</a>
+                    </div>  
                     <div>
                         <a class="icon icon-member header-member" href="../login.html">로그인</a>
                     </div>                    
@@ -55,8 +60,8 @@
                     </div>
                     <div class="sub-menu-2">
                         <ul>
+                            <li><a href="signup.html">회원가입</a></li>
                             <li><a href="login.html">로그인</a></li>
-                            <li><a href="">검색</a></li>
                             <li><a href="">고객센터</a></li>
                         </ul>
                     </div>
@@ -104,20 +109,32 @@
             </section>
         </div>
     </header>
-
+    
+    <!-- 모달 전체 -->
+    <div class="modal">
+        <div class="icon icon-close btn-close">닫기</div>
+        <!-- 모달 창 -->
+        <div class="modal-body modal-search">
+            <!-- 모달 내용 -->
+            <form action="/search" method="GET">
+                <input class="input input-search header-search" type="text" placeholder="전시 검색">
+                <button type="submit" name="q" class="icon icon-search btn-search" value="바보">검색</button>
+            </form>
+        </div>
+    </div>
     
 
     <main class="main-container">
         <div class="slider-box">
             <div class="slider">
-                <div class="slide"><a href="exhibition/detail.html">"<img src="image/anonymousProject.png" alt=""></a></div>
+                <div class="slide"><a href="exhibition/detail.html"><img src="image/anonymousProject.png" alt=""></a></div>
                 <div class="slide"><a href="exhibition/detail.html"><img src="image/exhimage.png" alt=""></a></div>
                 <div class="slide"><a href="exhibition/detail.html"><img src="image/전시포스터2.jpg" alt=""> </a></div>
                 <a class="prev">&#10094</a>
                 <a class="next">&#10095</a>
             </div>
         </div>
-
+        
         <section class="main-seciton main-community-section">
             <h1>커뮤니티 글</h1>
             <section class="board-list">
