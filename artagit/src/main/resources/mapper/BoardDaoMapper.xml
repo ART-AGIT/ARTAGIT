@@ -26,6 +26,13 @@
    </insert>
    
    
+	<update id="delete" parameterType="com.newlecture.web.entity.Board">
+		update Board 
+		<set>
+			<if test="useYN != null">useYN='N'</if>
+		</set>
+		where id =#{id}
+	</update>
    
    
 </mapper>

@@ -6,38 +6,63 @@ public class BoardListView {
 	private int id;
 	private int postId;
 	private int memId;
-	private int roleId;
+	private String name;
 	private String title;
-	private String content;
 	private String image;
 	private int hit;
 	private Date regDate;
 	private String nickname;
+	private int roleId;
+	private String useYN;
 	
+	public int getRoleId() {
+		return roleId;
+	}
+
+
+	public void setRoleId(int roleId) {
+		this.roleId = roleId;
+	}
+
+
+	public String getUseYN() {
+		return useYN;
+	}
+
+
+	public void setUseYN(String useYN) {
+		this.useYN = useYN;
+	}
+
+
 	public BoardListView() {
 		// TODO Auto-generated constructor stub
 	}
 	
 	
-	public BoardListView(int id, int postId, int memId, String title, String content, String image, int hit,
-			Date regDate, String nickname,int roleId) {
-		
+
+	public BoardListView(int id, int postId, int memId, String name, String title, String image, int hit, Date regDate,
+			String nickname, int roleId, String useYN) {
+		super();
 		this.id = id;
-		this.roleId = roleId;
 		this.postId = postId;
 		this.memId = memId;
+		this.name = name;
 		this.title = title;
-		this.content = content;
 		this.image = image;
 		this.hit = hit;
 		this.regDate = regDate;
 		this.nickname = nickname;
-	}
-	public int getRoleid() {
-		return roleId;
-	}
-	public void setRoleid(int roleId) {
 		this.roleId = roleId;
+		this.useYN = useYN;
+	}
+
+
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
 	}
 	public int getId() {
 		return id;
@@ -62,12 +87,6 @@ public class BoardListView {
 	}
 	public void setTitle(String title) {
 		this.title = title;
-	}
-	public String getContent() {
-		return content;
-	}
-	public void setContent(String content) {
-		this.content = content;
 	}
 	public String getImage() {
 		return image;
@@ -95,8 +114,8 @@ public class BoardListView {
 	}
 	@Override
 	public String toString() {
-		return "BoardListView [id=" + id + ", postId=" + postId + ", memId=" + memId + ", title=" + title + ", content="
-				+ content + ", image=" + image + ", hit=" + hit + ", regDate=" + regDate + ", nickname=" + nickname
+		return "BoardListView [id=" + id + ", postId=" + postId + ", memId=" + memId + ", title=" + title  
+				+ ", image=" + image + ", hit=" + hit + ", regDate=" + regDate + ", nickname=" + nickname
 				+ "]";
 	}
 

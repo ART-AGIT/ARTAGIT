@@ -29,8 +29,7 @@ window.addEventListener("load", function() {
 
 
 	let queryString = `?c=${currentLi.dataset.id}`
-		if (currentLi.dataset.id == 0)
-		queryString = "";
+		
 	console.log(queryString);
 	fetch(
 		`/api/boards${queryString}`)
@@ -45,7 +44,7 @@ window.addEventListener("load", function() {
         <h1 class="board-title">
          	<a href ="${board.id}">${board.title}</a>
         </h1>
-        <div>${board.roleId}</div>
+        <div>[${board.name}]</div>
         <div class="board-regdate">1분전</div>
         <div class="board-writer-info">
                 <img class="profile" src = "../image/accountImage.png">

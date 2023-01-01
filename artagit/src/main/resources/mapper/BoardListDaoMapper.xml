@@ -6,8 +6,14 @@
 	<select id="getList" resultType="com.artagit.web.entity.BoardListView">
 	  select * 
       from BoardListView
-      order by postId desc
-      limit #{offset},#{size}
+      	<trim prefix="WHERE" prefixOverrides="AND | OR">
+			<if test="roleId != null and roleId != 0">
+				roleId = #{roleId}
+			</if>
+			and useYN = "Y"
+		</trim>
+		order by regDate desc
+		limit #{offset}, #{size}
 	</select>
 	<select id="getListInit" resultType="com.artagit.web.entity.BoardListView">
 	  select * 

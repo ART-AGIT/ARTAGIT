@@ -142,7 +142,7 @@
         <form action="list" method="post">
         <section class="board-list"  th:each="boardListView:${list}">
         <h1 class="board-title">
-         	<a th:utext="${boardListView.title}" th:href="${boardListView.id}" href = "../member/board/details">회원님들 그만 좀 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa싸우세요들.</a>
+         	<a th:utext="${boardListView.title}" th:href="@{~/member/board/(${boardListView.id})}" href = "../member/board/details">회원님들 그만 좀 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa싸우세요들.</a>
         </h1>
         <div>[같이가요]</div>
         <div class="board-regdate" th:text="${#dates.format(boardListView.regDate, 'HH:mm')}">1분전</div>
@@ -175,7 +175,7 @@
     
 </section>
     <div class="writing-img-box">
-        <a href = "./reg"><img src = "../image/writing-img.png"></img></a>
+        <a href = "../member/board/reg"><img src = "../image/writing-img.png"></img></a>
     </div>
 </main>
 </body>

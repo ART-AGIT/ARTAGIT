@@ -51,6 +51,12 @@ public class DefaultBoardService implements BoardService{
 		return boardListDao.getListInit(offset,size,page);
 	}
 
+	@Override
+	public int delete(int id) {
+		// TODO Auto-generated method stub
+		return boardDao.delete(id);
+	}
+
 	
 	
 	
