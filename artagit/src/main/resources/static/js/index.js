@@ -1,7 +1,7 @@
 window.addEventListener("load", function(){
     var body = document.getElementById("body");
     var header = body.querySelector("header");
-    var icon = header.querySelector(".icon");
+    var icons = header.querySelectorAll(".icon");
     var subMenu = header.querySelector(".sub-menu-box");
     var links = subMenu.querySelectorAll("a");
 
@@ -22,7 +22,8 @@ window.addEventListener("load", function(){
                 link.classList.add("bg-white");
             for(let linkPc of linksPc)
                 linkPc.classList.add("bg-white");
-            icon.classList.add("bg-white");
+            for(let icon of icons)
+                icon.classList.add("bg-white");
         }
         else{
             body.classList.remove("bg-white");
@@ -32,8 +33,9 @@ window.addEventListener("load", function(){
             for(let link of links)
                 link.classList.remove("bg-white")
             for(let linkPc of linksPc)
-                linkPc.classList.remove("bg-white"); 
-            icon.classList.remove("bg-white");
+                linkPc.classList.remove("bg-white");
+            for(let icon of icons)
+                icon.classList.remove("bg-white");
         }
     })
 })
@@ -74,65 +76,3 @@ window.addEventListener("load", function(){
         showSlide(currSlide);
     }, 5000);
 })
-
-
-// window.addEventListener("load", function(){
-//     var section = this.document.querySelector(".main-banner-box");
-
-//     var box = section.querySelector(".main-banner");
-
-//     var btnPrev = section.querySelector(".btn-prev-img");
-//     var btnNext = section.querySelector(".btn-next-img");
-
-//     var lis = section.querySelectorAll("li");
-
-//     var offIndex = 0;
-
-//     // box.onclick = function(e){
-//     //     e.preventDefault();
-//     //     e.stopPropagation();
-
-//     //     offIndex++;
-
-//     //     var size = lis.length;
-
-//     //     lis[(0+offIndex)%size].className="img-1";
-//     //     lis[(1+offIndex)%size].className="img-2";
-//     //     lis[(2+offIndex)%size].className="img-3";
-        
-//     //     if(e.target.nodeName != "LI")
-//     //         return;
-//     // }
-
-//     btnPrev.onclick = function(e){
-//         e.preventDefault();
-
-//         offIndex--;
-//         if(offIndex<0)
-//             offIndex=3;
-
-//         var size = lis.length;
-//         lis[(0+offIndex)%size].className="img-1";
-//         lis[(1+offIndex)%size].className="img-2";
-//         lis[(2+offIndex)%size].className="img-3";
-
-        
-
-//         console.log(offIndex);
-//     }
-
-//     btnNext.onclick = function(e){
-//         e.preventDefault();
-
-//         offIndex++;
-
-//         var size = lis.length;
-//         lis[(0+offIndex)%size].className="img-1";
-//         lis[(1+offIndex)%size].className="img-2";
-//         lis[(2+offIndex)%size].className="img-3";
-
-//         console.log("다음");
-//     }
-
-// });
-

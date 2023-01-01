@@ -19,13 +19,28 @@
 		</trim>
 		limit #{offset}, #{size}
 	</select>
+	
+	<select id="getListBySearch" resultType="com.artagit.web.entity.Exhibition">
+		select * from Exhibition
+		<trim prefix="WHERE" prefixOverrides="AND | OR">
+			<if test="query != null">
+				name like '%${query}%'
+			</if>
+			and useYN = "Y"
+		</trim>
+		limit #{offset}, #{size}
+	</select>
+	
+	
+	
+	
 	<select id="get" resultType="com.artagit.web.entity.Exhibition">
 		select * from Exhibition
 			where id = #{id}
 	</select>
 	<select id="getListByID" resultType="com.artagit.web.entity.Exhibition">
 		select * from Exhibition
-		where memId = #{memId}
+		where memId = #{memId} and useYN = 'Y'
 	</select>
 	<select id="count" resultType="int">
 		select count(id) from Exhibition
@@ -81,7 +96,11 @@
  			where id = #{id}
  	</update>
 
-	<delete id="delete">
+	<update id="delete" parameterType="com.artagit.web.entity.Exhibition">
+		update Exhibition set useYn = 'N' where id = #{id}
+	</update>
+	
+	<delete id="">
 		delete from Exhibition
 			where id = #{id}
 	</delete>
