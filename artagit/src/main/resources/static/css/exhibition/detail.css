@@ -43,6 +43,10 @@ body {
     font-weight: 500;
 }
 
+.deco-map {
+    cursor: pointer;
+}
+
 .exh-info form { 
     /* 2 x 7 */
     margin-left: 15px;
@@ -136,16 +140,114 @@ form>h1 {
     width: 100%;
 }
 
-/* hr {
-    background:rgba(157, 157, 157, 0.353);
-    height:1px;
-    border:0; 
-} */
-
 .content-box {
     margin: 0 10px;
 }
 
 .warning {
     height: 150px;
+}
+
+/************** 모달 **************/
+.popup-title {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.pop-place-addr p {
+    margin: 5px 0 10px 0;
+    font-weight: 400;
+}
+
+.pop-text {
+    color: #414141;
+}
+
+input[id="popup"] {
+    /* 처음에는 팝업이 보이지 않아야 하므로 */
+    display: none;
+}
+
+/* 팝업을 띄우기 위한 버튼의 스타일링 */
+input[id="popup"] + label {
+
+}
+
+
+input[id="popup"] + label + div {
+    position: fixed; /* 브라우저에 고정하는 위치값 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100 /* 위치값(position)의 우선순위 값 */
+}
+
+input[id="popup"] + label + div>div {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* width: 350px; */
+    width: 23rem;
+    height: 370px;
+    /* padding: .5rem 1rem; */
+    background: #fff;
+    z-index: 2;
+    border: 0.1px solid rgb(166, 166, 166);
+    border-radius: .5rem;
+    box-shadow: 0 0.5rem 1rem rgba(49, 49, 49, 0.172);
+    box-sizing: border-box;
+}
+
+.popup-head {
+    padding: 5px 10px;
+    border-bottom: 0.1px solid rgb(166, 166, 166);
+    text-align: center;
+}
+
+.pop-place-title {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.popup-body {
+    font-size: 13px;
+    padding: .6rem .8rem .8rem .8rem;
+}
+
+.popup-footer {
+    font-size: 12px;
+    text-align: center;
+}
+
+/* 닫기 버튼의 스타일링 */
+.popup-close-btn {
+    font-size: 14px;
+    font-weight: 600;
+    z-index: 1;
+    cursor: pointer;
+}
+
+input[id="popup"] + label + div>label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+input[id*="popup"] + label + div {
+    /* display: none; */
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s;
+}
+
+input[id*="popup"]:checked + label + div {
+    /* display: block; */
+    opacity: 1;
+    visibility: visible;
 }
