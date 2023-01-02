@@ -10,18 +10,23 @@
     display: flex;
     flex-grow: 1;
     justify-content: space-around;
+    
 }
 
-li.line-on{
- border-bottom: 2px solid #FF6B90;
-}
-.active{
+li.board-selected>span{
     color:#FF6B90;
+}
+
+li.board-selected{
+    color:#FF6B90;
+    border-bottom: 2px solid #FF6B90;
 }
 
 .board-category-box{
     padding: 20px 0 10px 0;
 }
+
+
 /* =======공지========== */
 .notice{
     display: grid;

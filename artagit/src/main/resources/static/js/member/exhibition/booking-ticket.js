@@ -14,4 +14,6 @@ window.addEventListener("load", function(e){
 		e.preventDefault();
 		cInfoBox.classList.remove("d-none");
 	}
+
+	
 });

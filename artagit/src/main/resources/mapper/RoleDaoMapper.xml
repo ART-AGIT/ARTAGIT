@@ -7,7 +7,7 @@
 <!-- 			join Role r -->
 <!-- 			on m.roleId = r.id where loginId = #{username} -->
 
-			select loginId, r.name
+			select r.id, r.name
 				from Member m
 				join Role r
 				on m.roleId = r.id where loginId = #{username};

@@ -52,6 +52,37 @@
     width: 20px;
     height: 20px;
 }
+.icon-close{
+    -webkit-mask-image: url(../image/icons/close.svg);
+    background-color: #fff !important;
+}
+.btn-close{
+    position: absolute;
+    top: 55px;
+    right: 20px;
+
+    cursor: pointer;
+}
+.modal-search{
+    top: 14%;
+    left: 50%;
+
+    width: 300px;
+    height: 50px;
+}
+.input-search{
+    width: 300px;
+    height: 50px;
+}
+.btn-search{
+    position: absolute;
+    right: 8px;
+    top: 14px;
+    z-index: 2;
+    background-color: black !important;
+
+    cursor: pointer;
+}
 
 /* -----------햄버거버튼 눌렀을 때------------- */
 .sub-menu-box{

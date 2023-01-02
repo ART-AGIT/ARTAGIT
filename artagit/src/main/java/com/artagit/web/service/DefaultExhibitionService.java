@@ -1,5 +1,6 @@
 package com.artagit.web.service;
 
+import java.sql.SQLSyntaxErrorException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,10 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.artagit.web.dao.ExhLikeDao;
 import com.artagit.web.dao.ExhibitionDao;
-
-import com.artagit.web.entity.Corporate;
 import com.artagit.web.entity.ExhLike;
-
 import com.artagit.web.entity.Exhibition;
 
 @Service
@@ -130,5 +128,17 @@ public class DefaultExhibitionService implements ExhibitionService {
 		
 		return exhLikeDao.count(exhId);
 	}
+
+	@Override
+	public List<Exhibition> getListBySearch(String query) throws SQLSyntaxErrorException {
+		int page = 1;
+		int size = 6;
+		int offset = (page-1)*size;
+		
+		List<Exhibition> list = exhDao.getListBySearch(offset, size, query);
+		
+		return list;
+	}
+
 
 }

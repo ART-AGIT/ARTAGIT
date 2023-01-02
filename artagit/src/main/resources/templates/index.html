@@ -12,6 +12,7 @@
     <link href="css/button.css" type="text/css" rel="stylesheet">
     <link href="css/form.css" type="text/css" rel="stylesheet">
     <link href="css/input.css" type="text/css" rel="stylesheet">
+    <link href="css/modal.css" type="text/css" rel="stylesheet">
     
     <link href="css/header.css" type="text/css" rel="stylesheet">
     <link href="css/footer.css" type="text/css" rel="stylesheet">
@@ -22,8 +23,9 @@
     <link href="css/utils.css" type="text/css" rel="stylesheet">
 </head>
 
-<script src="js/index.js"></script>
+<script src="js/modal.js"></script>
 <script src="js/header-menu.js"></script>
+<script src="js/index.js"></script>
 
 <body id="body">
     <header class="header">
@@ -35,23 +37,31 @@
                     <li><a href="">커뮤니티</a></li>
                     <li><a href="">로그인</a></li> -->
                 </ul>
-                <div>
-                    <a class="icon icon-menu burger-nav" href="">확장메뉴</a>
+                <div class="header-menu-box">
+                    <div>
+                        <a class="icon icon-search btn-open-modal" href="">검색</a>
+                    </div>  
+                    <div>
+                        <a class="icon icon-member header-member" href="../login.html">로그인</a>
+                    </div>                    
+                    <div>
+                        <a class="icon icon-menu burger-nav" href="">확장메뉴</a>
+                    </div>
                 </div>
             </div>
             <div class="sub-menu-box">
                 <div class="sub-menu">
                     <div class="sub-menu-1">
                         <ul>
-                            <li><a th:href="exhibition/list" href="exhibition/list.html">전시</a></li>
-                            <li><a href="board/list.html" th:href="board/list">커뮤니티</a></li>
-                            <li><a href="corporator/mypage/exh-reg.html" th:href="corporator/mypage/exh-reg">전시등록</a></li>
+                            <li><a href="exhibition/list.html">전시</a></li>
+                            <li><a href="board/list.html">커뮤니티</a></li>
+                            <li><a href="corporator/mypage/exh-reg.html">전시등록</a></li>
                         </ul>
                     </div>
                     <div class="sub-menu-2">
                         <ul>
-                            <li><a href="login.html" th:href="login">로그인</a></li>
-                            <li><a href="">검색</a></li>
+                            <li><a href="signup.html">회원가입</a></li>
+                            <li><a href="login.html">로그인</a></li>
                             <li><a href="">고객센터</a></li>
                         </ul>
                     </div>
@@ -99,6 +109,19 @@
             </section>
         </div>
     </header>
+    
+    <!-- 모달 전체 -->
+    <div class="modal">
+        <div class="icon icon-close btn-close">닫기</div>
+        <!-- 모달 창 -->
+        <div class="modal-body modal-search">
+            <!-- 모달 내용 -->
+            <form action="/search" method="GET">
+                <input class="input input-search header-search" type="text" placeholder="전시 검색">
+                <button type="submit" name="q" class="icon icon-search btn-search" value="바보">검색</button>
+            </form>
+        </div>
+    </div>
 
     
 
