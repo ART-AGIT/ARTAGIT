@@ -3,6 +3,7 @@ package com.artagit.web.entity;
 import java.util.Date;
 
 public class Booking {
+
 	private int id;
 	private Date date;
 	private int amount;

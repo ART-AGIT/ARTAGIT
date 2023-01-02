@@ -66,8 +66,15 @@
                 <li class="list"><a class="deco deco-write" href="./post-list.html">작성글 관리</a></li>
             </ul>
         </div>
+        <div class="total-box">
+            <span class="text total">Total:&nbsp;</span><span class="text total-num" th:text="${countOfBooking}">2</span>
+        </div>
+        <div class="nonexistence-mess" th:if="${countOfBooking}==0" >
+            <p>예매내역이 없습니다.</p>
+            
+        </div>
 		
-         <div class="pay-list" th:each="bookList:${bookList}"> <!--  th:each="exhList:${exhList}" >--> <!--th:each="bookList:${bookList}" -->
+         <div class="pay-list" th:each="bookingList:${bookingList}"> <!--  th:each="exhList:${exhList}" >--> <!--th:each="bookList:${bookList}" -->
 <!--             <th:each="bookList:${bookList}"> -->
             <form action="">
 
@@ -75,17 +82,17 @@
                     <img class="exh-img" src="../../image/exhimage.png" alt="">
                 </div>
                 <!-- <div class="text-list"> -->
-                    <div class="text pay-state">결제완료</div>
-                    <div class="text exh-title"> 모네 인사이드</div> <!-- th:text="${exhList.name}"> -->
-                    <div class="text exh-place"> 국립현대미술관</div> <!-- th:text="${exhList.museumId}"> -->
-                    <div class="text exh-date">관람일 2022.09.22</div>
-<!--                     th:text="'관람일 '+${#dates.format(bookList.Date, 'yyyy.MM.dd')}" -->
-                    <!-- <div class="date"></div> -->
+                    <div class="text pay-state" th:text="${bookingList.payMethod}">결제완료</div>
+                    <div class="text exh-title" th:text="${bookingList.exhName}"> 모네 인사이드</div> <!-- th:text="${exhList.name}"> -->
+                    <div class="text exh-place" th:text="${bookingList.museumName}"> 국립현대미술관</div> <!-- th:text="${exhList.museumId}"> -->
+                    <div class="text exh-date" th:text="'관람일 '+${bookingList.bookingDate}">관람일 2022.09.22</div>
+<!--                     th:text="'관람일 '+${#dates.format(bookList.Date, 'yyyy.MM.dd')}" th:text="${bookingList.bookingDate}"-->
+
                 <!-- </div> -->
 
-                <div class="button-list">
-                    <a class="btn btn-default-fill" th:href="@{{id}(id=${bookList.id})}" href="../mypage/review-detail.html" >리뷰보기</a>
-<!--                     <a class="btn btn-default-fill" th:href="@{{id}(id=${bookList.id})}" href="../mypage/review-detail.html" >리뷰작성</a> -->
+                <div class="button-list" th:if="${bookingList.payMethod}=='결제완료'">
+                    <a class="btn btn-default-fill"  th:href="@{{id}(id=${bookingList.bookingId})}" th:if="${bookingList.reviewCon}" href="../mypage/review-detail.html" >리뷰보기</a>
+                    <a class="btn btn-default-fill-off" th:href="@{{id}(id=${bookingList.bookingId})}" th:if="!${bookingList.reviewCon}"  href="../mypage/review-detail.html" >리뷰작성</a>
                     <a class="text btn btn-default-line" href="../exhibition">결제상세</a>
                 </div>
             </form>

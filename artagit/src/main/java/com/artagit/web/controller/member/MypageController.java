@@ -9,9 +9,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.artagit.web.entity.Board;
 import com.artagit.web.entity.Booking;
+import com.artagit.web.entity.BookingList;
 import com.artagit.web.entity.Comment;
 import com.artagit.web.entity.Exhibition;
 import com.artagit.web.entity.Review;
@@ -41,61 +43,51 @@ public class MypageController {
 	/*-----------예매내역리스트------*/ 
 	@GetMapping("/review/list")
 	public String list(Model model) {
-		int memId =58;
-		//필요한정보테이블 : payment, booking, Exhibition,  
-		//List<Exhibition> exhList = exhService.getListById(memId);
 		
-		List<Exhibition> exhList;
-		List<Booking> bookList = bookingService.getListById(memId);
-		int count = bookList.size();
-		System.out.println(count);
-		exhList = exhService.getListtt(memId);
-//		System.out.println(exhList);
-		//for(int i=0;i<count;i++) { 
-			
-//			select * from Exhibition
-//			join Booking 
-//			on Exhibition.id = Booking.exhId
-//			where Booking.memId = 58;
-		//}
-			
-		//System.out.println(bookList.get(0).getDate());
-		model.addAttribute("exhList",exhList);
-		model.addAttribute("bookList",bookList);
+		int memId =58;
+		List<BookingList> bookingList = bookingService.getListById(memId);
+		int countOfBooking = bookingList.size();
+		
+		for(int i=0;i<countOfBooking;i++) {
+			if(bookingList.get(i).getPayMethod()==null)
+				bookingList.get(i).setPayMethod("미결제");
+			else
+				bookingList.get(i).setPayMethod("결제완료");		
+		}
+
+		model.addAttribute("bookingList",bookingList);
+		model.addAttribute("countOfBooking",countOfBooking);
 		return "member/mypage/booking-list";
 		
 	}
 	
-	/*-----------예매내역상세------*/ 
+	
+	/*-----------리뷰보기------*/ 
 	@GetMapping("/review/{id}")
 	public String detail(@PathVariable("id")int id, Model model){
 		
+		BookingList booking = bookingService.getReviewByBookingId(id);
 		Review review = reviewService.get(id);
-		System.out.println(review);
+//		System.out.println(review);
+		model.addAttribute("booking",booking);
 		model.addAttribute("review",review);
 		return "member/mypage/review-detail";
 	}
-}
-	/*th:href="@{{id}(id=${board.id})}"
-	 */
 	
-	/*
+	/*-----------리뷰작성------*/ 
 	@PostMapping("/review/reg")
-	public String reg() {
-		int memId = 58;
-		myPageService.reg(memId);
-		return null;
+	public String reg(@RequestParam ("review-id") int reviewId , String content){
+		Review review = reviewService.get(reviewId);
+		System.out.println(review);
+		System.out.println(content);
+//		reviewService.reg()
+		return "";
 	}
-	*/
 	
-	
-	
-	
-//	//리뷰등록
-//	@PostMapping("/review/reg")
-//	public String list() {
+	/*-----------리뷰삭제------*/
+//	@PostMapping("/review/{id}/delete")
+//	public String delete(@PathVariable("id")int id, Model model){
 //		
-//		
-//		return null;
-//		
+//		return "";
 //	}
+}

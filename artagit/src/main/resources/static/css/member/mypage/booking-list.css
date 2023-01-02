@@ -55,3 +55,16 @@ form {
     font-weight: 200;
     margin-right: 5px;
 }
+
+.nonexistence-mess{
+    padding-top: 60px;
+    display: flex;
+    justify-content: center;
+}
+
+.total-box {
+    display: flex;
+    margin-left: 4%;
+    height: 25px;
+    align-items: flex-end;
+}

@@ -2,6 +2,7 @@ package com.artagit.web.service;
 
 import java.util.List;
 
+import com.artagit.web.entity.Corporate;
 import com.artagit.web.entity.Exhibition;
 
 // 직접적인 서비스 모음
@@ -30,6 +31,10 @@ public interface ExhibitionService {
 
 
 	List<Exhibition> getListtt(int memId);
+
+	// 업체가 등록한 전시 상세페이지
+//	Corporate getById(int corpId);
+
 
 	int likeUp(int exhId, int memId);
 

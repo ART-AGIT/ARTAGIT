@@ -33,4 +33,5 @@ public class DefaultMemberService implements MemberService{
 //		return result;
 	}
 
+
 }

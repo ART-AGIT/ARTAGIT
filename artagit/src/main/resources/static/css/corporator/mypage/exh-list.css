@@ -81,3 +81,13 @@ form {
 .btn-go-reg{
     margin-top: 30px;
 }
+.icon-arrow-right left{
+
+}
+.page{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:10px;
+}

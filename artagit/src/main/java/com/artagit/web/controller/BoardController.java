@@ -24,6 +24,7 @@ import com.artagit.web.service.CommentService;
 import com.artagit.web.service.DefaultBoardService;
 
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/board/")
@@ -40,10 +41,12 @@ public class BoardController {
 	public String list(
 		
 		@RequestParam(defaultValue = "1", name ="p")int page,
-		Model model){
+		Model model,
+		HttpSession session){
 			
 		List<Board> list = service.getList(page);
 		model.addAttribute("list",list);
+		
 		
 		return "board/list";
 			

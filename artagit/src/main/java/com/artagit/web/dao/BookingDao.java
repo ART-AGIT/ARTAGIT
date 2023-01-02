@@ -12,3 +12,10 @@ public interface BookingDao {
 	public List<Booking> getListById(int memId) ;
 
 }
+
+
+//   public List<Booking> getListById(int memId) ;
+
+//	주최자가 등록한 전시 상세 내역 - 결제 내역
+//	List<Booking> getListByExhId(int exhId);
+
