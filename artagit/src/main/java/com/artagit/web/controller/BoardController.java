@@ -21,6 +21,8 @@ import com.artagit.web.entity.Notice;
 import com.artagit.web.service.BoardService;
 import com.artagit.web.service.NoticeService;
 
+import jakarta.servlet.http.HttpSession;
+
 @Controller
 @RequestMapping("/board/")
 public class BoardController {
@@ -40,7 +42,7 @@ public class BoardController {
 		Model model,
 		HttpSession session){
 			
-		List<Board> list = service.getList(page);
+		List<BoardListView> list = service.getList(page);
 		model.addAttribute("list",list);
 //		
 		

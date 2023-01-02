@@ -8,7 +8,7 @@ import com.artagit.web.entity.BoardListView;
 public interface BoardService {
 
 
-	List<BoardListView> getList(int page);
+	List<BoardListView> getList(int roleId);
 
 
 	Board get(int id);

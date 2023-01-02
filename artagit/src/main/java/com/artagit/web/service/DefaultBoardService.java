@@ -20,8 +20,7 @@ public class DefaultBoardService implements BoardService{
 		@Autowired
 	private BoardListDao boardListDao;
 
-	@Autowired
-	private BoardListViewListDao boardListListInitDao;
+	
 	@Override
 	public Board get(int id) {
 		// TODO Auto-generated method stub
@@ -35,7 +34,7 @@ public class DefaultBoardService implements BoardService{
 	}
 
 	@Override
-	public List<BoardListView> getListByCategory(int roleId) {
+	public List<BoardListView> getList(int roleId) {
 		int page =1;
 		int size =6;
 		int offset = (page-1)*size;

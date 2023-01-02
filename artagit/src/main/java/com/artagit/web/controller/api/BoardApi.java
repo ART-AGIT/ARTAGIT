@@ -25,13 +25,14 @@ public class BoardApi {
 
 	@Autowired
 	private BoardService service;
+	
 	@Autowired
 	private NoticeService noticeService;
 	/*************게시글 리스트 불러오기*********/
 	@GetMapping("boards")
 	public List<BoardListView> getListByCategory(
 			@RequestParam("c") int roleId){
-		List<BoardListView> list = service.getListByCategory(roleId);
+		List<BoardListView> list = service.getList(roleId);
 		System.out.println(roleId);
 		return list;
 	}
