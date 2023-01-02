@@ -67,7 +67,15 @@ public class MemberBoardController {
 	}
 	/*******게시글 등록 끝*****************/
 		
-
+	/************게시글 삭제***************/
+	@GetMapping("delete")
+	public String delete(int id){
+	
+	service.delete(id);
+     
+	return "redirect:list";
+	
+}
 	
 	
 }

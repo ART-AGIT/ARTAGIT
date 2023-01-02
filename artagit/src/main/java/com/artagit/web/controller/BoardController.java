@@ -86,17 +86,22 @@ public class BoardController {
 			
 		}
 	/************게시글 삭제***************/
-	@PutMapping("{id}")
-	public Map<String, Object> delete(
-			@PathVariable("id") int id){
+	@GetMapping("delete")
+	public String delete(int id){
 	
-	int result = service.delete(id);
-	
-	Map<String, Object> dto = new HashMap<>();
-      dto.put("status", 200);//http가 갖고있는 기본 상태값
-      dto.put("resultObject", result);
+	service.delete(id);
      
-	return dto;
+	return "redirect:list";
+	
+}
+	/*********게시글 수정*************/
+	
+	@GetMapping("update")
+	public String upate(Board board){
+	
+	service.update(board);
+     
+	return "redirect:";
 	
 }
 	

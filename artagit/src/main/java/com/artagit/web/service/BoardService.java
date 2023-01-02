@@ -18,6 +18,8 @@ public interface BoardService {
 
 	int delete(int id);
 
+	int update(Board board);
+
 	
 
 

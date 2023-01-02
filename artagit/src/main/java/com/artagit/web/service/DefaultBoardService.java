@@ -57,6 +57,12 @@ public class DefaultBoardService implements BoardService{
 		return boardDao.delete(id);
 	}
 
+	@Override
+	public int update(Board board) {
+		// TODO Auto-generated method stub
+		return boardDao.update(board);
+	}
+
 	
 	
 	
