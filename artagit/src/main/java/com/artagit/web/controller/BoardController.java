@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.artagit.web.entity.Board;
+import com.artagit.web.entity.BoardListView;
 import com.artagit.web.service.BoardService;
 import com.artagit.web.service.DefaultBoardService;
 
@@ -38,7 +39,7 @@ public class BoardController {
 		Model model,
 		HttpSession session){
 			
-		List<Board> list = service.getList(page);
+		List<BoardListView> list = service.getList(page);
 		model.addAttribute("list",list);
 		
 		
