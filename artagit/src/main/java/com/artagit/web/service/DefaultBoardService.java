@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.artagit.web.dao.BoardDao;
 import com.artagit.web.dao.BoardListDao;
+import com.artagit.web.dao.BoardListDao;
 import com.artagit.web.entity.Board;
 import com.artagit.web.entity.BoardListView;
 
@@ -16,9 +17,11 @@ public class DefaultBoardService implements BoardService{
 	
 	@Autowired
 	private BoardDao boardDao;
-	
-	@Autowired
+		@Autowired
 	private BoardListDao boardListDao;
+
+	@Autowired
+	private BoardListViewListDao boardListListInitDao;
 	@Override
 	public Board get(int id) {
 		// TODO Auto-generated method stub

@@ -37,11 +37,10 @@ public class BoardController {
 	public String list(
 		
 		@RequestParam(defaultValue = "1", name ="p")int page,
-		Model model){
-		List<BoardListView> list = service.getListInit(page);
-		List<Notice> noticeList = noticeService.getList(page);
-	
-		model.addAttribute("noticeList",noticeList);
+		Model model,
+		HttpSession session){
+			
+		List<Board> list = service.getList(page);
 		model.addAttribute("list",list);
 //		
 		
