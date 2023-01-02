@@ -1,9 +1,9 @@
 window.addEventListener("load", function() {
-let firstNext = document.querySelector(".btn-next");
+	let firstNext = document.querySelector(".btn-next");
 	let secondNext = document.querySelector("#btn-y");
 	let btnReg = document.querySelector(".exh-reg-button-box-page3");
 	let page1 = document.querySelector(".page1");
-	
+
 	firstNext.onclick = function(e) {
 		e.preventDefault();
 		document.querySelector(".reg-list-page").classList.add("d-none");
@@ -26,12 +26,12 @@ let firstNext = document.querySelector(".btn-next");
 
 	btnReg.onclick = function(e) {
 		e.preventDefault();
-		document.querySelector(".reg-list-page3").classList.add("d-none");
+		
+		location.href = 'http://localhost:8080/corporator/mypage/exh-list';
 
-		document.querySelector(".reg-list-page").classList.remove("d-none");
-		document.querySelector(".exh-reg-button-box-page3").classList.add("d-none");
 
 	};
+
 	//===================뒤로가기버튼=========================================
 	const firstBefore = document.querySelector("#btn-x");
 	const secondBefore = document.querySelector("#btn-z");
