@@ -9,7 +9,6 @@
 	<delete id="delete" parameterType="ExhLike">
 		delete from ExhLike
 		where exhId=#{exhId} and memId=#{memId}
-	
 	</delete>
 	
 	<select id="getLikeByExhId" resultType="ExhLike">
@@ -26,5 +25,7 @@
 		select count(id) from ExhLike 
 		where exhId=#{exhId}
 	</select>
+
+	
 	
 </mapper>
