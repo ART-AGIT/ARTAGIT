@@ -1,19 +1,24 @@
 package com.artagit.web.controller;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.artagit.web.entity.ArtagitUserDetails;
+import com.artagit.web.entity.ExhLike;
 import com.artagit.web.entity.Exhibition;
+import com.artagit.web.entity.ExhibitionView;
 import com.artagit.web.entity.Museum;
+import com.artagit.web.service.ExhLikeService;
 import com.artagit.web.service.ExhibitionService;
 import com.artagit.web.service.MuseumService;
 
@@ -25,6 +30,9 @@ public class ExhibitionController2 {
 	private ExhibitionService service;
 	
 	@Autowired
+	private ExhLikeService likeService;
+	
+	@Autowired
 	private MuseumService museumService;
 	
 	
@@ -32,11 +40,24 @@ public class ExhibitionController2 {
 	@GetMapping("list")
 	public String list( // 전시목록 불러오기
 			@RequestParam(defaultValue = "1", name = "p") int page,
-			Model model) {
+			Model model,
+			@AuthenticationPrincipal ArtagitUserDetails user
+			) {
 		
-		List<Exhibition> lists = service.getList(page,0,0,0);
+		int memberId;
+		if(user == null)
+			memberId = 0;
+		else
+			memberId = user.getId();
+		
+		//List<ExhibitionView> lists = service.getList(page,0,0,0);
+		List<ExhibitionView> lists = service.getListByMemberId(page,0,0,0,memberId);
+
+//		List<ExhLike> likeLists = likeService.getListByMemberId(user.getId());
+//		System.out.println(lists);
 		
 		model.addAttribute("lists", lists);
+//		model.addAttribute("likeLists", likeLists);
 		
 		return "exhibition/list";
 	}

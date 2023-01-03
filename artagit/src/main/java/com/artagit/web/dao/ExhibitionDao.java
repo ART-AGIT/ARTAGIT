@@ -6,6 +6,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 
 import com.artagit.web.entity.Exhibition;
+import com.artagit.web.entity.ExhibitionView;
 
 @Mapper
 public interface ExhibitionDao {
@@ -44,6 +45,8 @@ public interface ExhibitionDao {
 	int insert(int id, int memberId);
 
 	List<Exhibition> getListBySearch(int offset, int size, String query) throws SQLSyntaxErrorException;
+
+	List<ExhibitionView> getListByMemberId(int offset, int size, int museum, int state, int category, int memberId);
 	
 }
  

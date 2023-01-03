@@ -26,7 +26,7 @@ public class SearchController {
 	
 	
 	/********************** 검색 **********************/
-	@GetMapping("search")
+	@GetMapping("exhibition/search")
 	public String list( // 전시목록 불러오기
 			@RequestParam(defaultValue = "", name = "q") String query,
 			Model model) throws SQLSyntaxErrorException {

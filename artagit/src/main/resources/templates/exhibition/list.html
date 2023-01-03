@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -24,6 +25,7 @@
 <script src="../js/modal.js"></script>
 <script src="../js/header-menu.js"></script>
 <script src="../js/index.js"></script>
+<script src="../js/exhibition/list.js"></script>
 
 <body id="body">
     <header class="header">
@@ -52,15 +54,15 @@
                     <div class="sub-menu-1">
                         <ul>
                             <li><a href="exhibition/list">전시</a></li>
-                            <li><a href="../board/list.html">커뮤니티</a></li>
-                            <li><a href="corporator/mypage/exh-reg.html">전시등록</a></li>
+                            <li><a href="../board/list">커뮤니티</a></li>
+                            <li><a href="../../corporator/mypage/exh-reg">전시등록</a></li>
                         </ul>
                     </div>
                     <div class="sub-menu-2">
                         <ul>
                             <li><a href="../signup">회원가입</a></li>
                             <li><a href="../user/login">로그인</a></li>
-                            <li><a href="">고객센터</a></li>
+                            <li><a href="/list">고객센터</a></li>
                         </ul>
                     </div>
                 </div>
@@ -172,13 +174,14 @@
             		<div>검색결과가 없습니다.</div>
             	</section>
                 <section th:each="list:${lists}" th:attr="data-id=${list.id}" class="exhibition">
-                    <form action="">
-                        <h1 th:utext="${list.name}">이노니머스 프로젝트</h1>
+                    <form  action="">
+                       <h1 th:utext="${list.name}">이노니머스 프로젝트</h1>
                         <div class="exhibition-img-box">
                             <a href="detail.html" th:href="@{{id}(id=${list.id})}"><img class="exhibition-img" src="/image/anonymousProject.png" alt=""></a>
-                            <a class="icon icon-heart exhibition-heart" href=""></a>
+                            <!-- <a class="icon icon-heart exhibition-heart" href=""></a> -->
+                            <a th:classappend="${list.memberId != 0}  ? 'icon-heart-red' : ''" class="icon icon-heart exhibition-heart" href=""></a>
                         </div>
-                        <div class="exhibititon-date" th:text="${list.startDate +list.endDate}">22.11.25 ~ 23.04.02</div>
+                        <div class="exhibititon-date" th:text="${list.startDate +' ~ '+list.endDate}">22.11.25 ~ 23.04.02</div>
                         <div class="exhibition-place" th:text="${list.artist}">그라운드시소 서촌</div>
                         
                     </form>

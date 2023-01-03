@@ -38,9 +38,7 @@ window.addEventListener("load", function(){
                 icon.classList.remove("bg-white");
         }
     })
-})
-
-window.addEventListener("load", function(){
+    
     var slider = document.querySelector(".slider");
     var prevBtn = slider.querySelector(".prev");
     var nextBtn = slider.querySelector(".next");

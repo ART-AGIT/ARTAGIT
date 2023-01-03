@@ -10,6 +10,7 @@ import com.artagit.web.dao.ExhLikeDao;
 import com.artagit.web.dao.ExhibitionDao;
 import com.artagit.web.entity.ExhLike;
 import com.artagit.web.entity.Exhibition;
+import com.artagit.web.entity.ExhibitionView;
 
 @Service
 public class DefaultExhibitionService implements ExhibitionService {
@@ -137,6 +138,15 @@ public class DefaultExhibitionService implements ExhibitionService {
 		
 		List<Exhibition> list = exhDao.getListBySearch(offset, size, query);
 		
+		return list;
+	}
+
+	@Override
+	public List<ExhibitionView> getListByMemberId(int page, int museum, int state, int category, int memberId) {
+		int size = 6;
+		int offset = (page-1)*size;
+		
+		List<ExhibitionView> list = exhDao.getListByMemberId(offset, size, museum, state, category, memberId);
 		return list;
 	}
 

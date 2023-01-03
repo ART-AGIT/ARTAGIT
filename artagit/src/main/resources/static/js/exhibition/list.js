@@ -22,7 +22,8 @@ window.addEventListener("load", function(e){
 
 // ------------ 좋아요 누르기 --------------------------------------------
     exhSection.onclick = function(e){
-
+		
+		console.log("click")
         if(e.target.classList.contains("exhibition-heart") && !e.target.classList.contains("icon-heart-red")){
             e.preventDefault();
 
@@ -98,9 +99,10 @@ window.addEventListener("load", function(e){
                 if(list.length == 0)
                 	isEndPage = false;
                 	
-
                 for(let e of list){
-                    let template = `
+
+					if(e.memberId == 0){
+                    var template = `
                         <section data-id="${e.id}" class="exhibition">
                             <form action="">
                                 <h1>${e.name}</h1>
@@ -113,6 +115,25 @@ window.addEventListener("load", function(e){
                             </form>
                         </section>
                     `
+						
+					}
+					else {
+	                    var template = `
+	                        <section data-id="${e.id}" class="exhibition">
+	                            <form action="">
+	                                <h1>${e.name}</h1>
+	                                <div class="exhibition-img-box">
+	                                    <a href="${e.id}"><img class="exhibition-img" src="/image/anonymousProject.png" alt=""></a>
+	                                    <a class="icon icon-heart exhibition-heart icon-heart-red" href=""></a>
+	                                </div>
+	                                <div class="exhibititon-date">${e.startDate} ~ ${e.endDate}</div>
+	                                <div class="exhibition-place">${e.artist}</div>
+	                            </form>
+	                        </section>
+	                    `
+						
+					}
+					
                     
                     let el = new DOMParser()
                                 .parseFromString(template, "text/html")

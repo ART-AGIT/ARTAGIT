@@ -31,6 +31,15 @@
 		limit #{offset}, #{size}
 	</select>
 	
+	<select id="getListByMemberId" resultType="com.artagit.web.entity.ExhibitionView">
+		select 
+			E.*,
+			(select memId from ExhLike where exhId = E.id and memId = #{memberId}) memberId
+		from Exhibition E
+		where useYN = "N"
+		limit #{offset}, #{size}
+	</select>
+	
 	
 	
 	
