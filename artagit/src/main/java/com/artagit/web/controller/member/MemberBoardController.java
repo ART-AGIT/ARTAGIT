@@ -1,4 +1,4 @@
-package com.artagit.web.controller.member;
+	package com.artagit.web.controller.member;
 
 import java.util.List;
 
@@ -70,12 +70,24 @@ public class MemberBoardController {
 	/************게시글 삭제***************/
 	@GetMapping("delete")
 	public String delete(int id){
-	
+	System.out.println("삭제");
 	service.delete(id);
      
-	return "redirect:list";
+	return "redirect:../../board/list";
 	
 }
+	/********게시글 수정**************/
+	@GetMapping("update")
+	public String update() {
+		
+		return "member/board/update";
+	}
+	@PostMapping("update")
+	public String update(Board board) {
+		
+		service.update(board);
+		return "redirect:list";
+	}
 	
 	
 }

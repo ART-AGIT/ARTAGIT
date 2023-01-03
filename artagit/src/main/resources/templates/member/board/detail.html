@@ -107,7 +107,7 @@
                 <div><a href="../../board/list.html">전시후기</a></div>
             </div>
             <div class="list-btn">
-                <a class="btn btn-default-line" href="../../board/list.html">목록</a>
+                <a class="btn btn-default-line" href="../../board/list">목록</a>
             </div>
         </div>
     </nav>
@@ -151,8 +151,8 @@
                 <img src = "">
             </div>
             <div class="like">
-               <a class="btn btn-default-line">수정</a>
-               <a class="btn btn-default-line">삭제</a>
+               <a class="btn btn-default-line">수정</div>
+               <a th:href="@{/member/board/delete(id=${id})}" class="btn btn-default-line">삭제</a>
                 <span class="heart-fix">
                 <div class="icon icon-heart"></div>
                 </span>
