@@ -222,19 +222,38 @@ window.addEventListener("load", function(e){
 	    .then((list)=>{
 	        exhBox.innerHTML="";
 	        for(let e of list){
-	            let template = `
-	                <section data-id="${e.id}" class="exhibition">
-	                    <form action="">
-	                        <h1>${e.name}</h1>
-	                        <div class="exhibition-img-box">
-	                            <a href="detail.html"><img class="exhibition-img" src="/image/anonymousProject.png" alt=""></a>
-	                            <a class="icon icon-heart exhibition-heart" href=""></a>
-	                        </div>
-	                        <div class="exhibititon-date">${e.startDate} ~ ${e.endDate}</div>
-	                        <div class="exhibition-place">${e.artist}</div>
-	                    </form>
-	                </section>
-	            `
+				if(e.memberId == 0){
+                    var template = `
+                        <section data-id="${e.id}" class="exhibition">
+                            <form action="">
+                                <h1>${e.name}</h1>
+                                <div class="exhibition-img-box">
+                                    <a href="${e.id}"><img class="exhibition-img" src="/image/anonymousProject.png" alt=""></a>
+                                    <a class="icon icon-heart exhibition-heart" href=""></a>
+                                </div>
+                                <div class="exhibititon-date">${e.startDate} ~ ${e.endDate}</div>
+                                <div class="exhibition-place">${e.artist}</div>
+                            </form>
+                        </section>
+                    `
+						
+					}
+					else {
+	                    var template = `
+	                        <section data-id="${e.id}" class="exhibition">
+	                            <form action="">
+	                                <h1>${e.name}</h1>
+	                                <div class="exhibition-img-box">
+	                                    <a href="${e.id}"><img class="exhibition-img" src="/image/anonymousProject.png" alt=""></a>
+	                                    <a class="icon icon-heart exhibition-heart icon-heart-red" href=""></a>
+	                                </div>
+	                                <div class="exhibititon-date">${e.startDate} ~ ${e.endDate}</div>
+	                                <div class="exhibition-place">${e.artist}</div>
+	                            </form>
+	                        </section>
+	                    `
+						
+					}
 	            
 	            let el = new DOMParser()
 	                        .parseFromString(template, "text/html")

@@ -36,16 +36,30 @@
 			E.*,
 			(select memId from ExhLike where exhId = E.id and memId = #{memberId}) memberId
 		from Exhibition E
-		where useYN = "N"
+		<trim prefix="WHERE" prefixOverrides="AND | OR">
+			<if test="museumId != null and museumId != 0">
+				museumId = #{museumId}
+			</if>
+			<if test="stateId != null and stateId != 0">
+				AND stateId = #{stateId}
+			</if>
+			<if test="cateId != null and cateId != 0">
+				AND cateId = #{cateId}
+			</if>
+			and useYN = "Y"
+		</trim>
 		limit #{offset}, #{size}
 	</select>
 	
 	
 	
 	
-	<select id="get" resultType="com.artagit.web.entity.Exhibition">
-		select * from Exhibition
-			where id = #{id}
+	<select id="get" resultType="com.artagit.web.entity.ExhibitionView">
+		select 
+			E.*,
+			(select memId from ExhLike where exhId = E.id and memId = #{memberId}) memberId
+		from Exhibition E
+		where id = #{id}
 	</select>
 	<select id="getListByID" resultType="com.artagit.web.entity.Exhibition">
 		select * from Exhibition

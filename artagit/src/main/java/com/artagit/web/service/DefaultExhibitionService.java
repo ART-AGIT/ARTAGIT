@@ -53,9 +53,9 @@ public class DefaultExhibitionService implements ExhibitionService {
 
 	@Override
 	// 전시 상세 정보 가져오는 메서드
-	public Exhibition getExhById(int id) {
+	public ExhibitionView getExhById(int id, int memberId) {
 		
-		Exhibition exh = exhDao.get(id);
+		ExhibitionView exh = exhDao.get(id, memberId);
 		
 		return exh;
 	}

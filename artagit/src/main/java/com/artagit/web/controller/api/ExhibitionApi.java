@@ -40,7 +40,7 @@ public class ExhibitionApi {
 		else
 			memberId = user.getId();
 		
-		List<ExhibitionView> lists = service.getListByMemberId(page,0,0,0,memberId);
+		List<ExhibitionView> lists = service.getListByMemberId(page,museum,state,category,memberId);
 		
 		return lists;
 	}

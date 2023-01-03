@@ -1,6 +1,5 @@
 package com.artagit.web.controller;
 
-import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,11 +10,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.artagit.web.entity.ArtagitUserDetails;
-import com.artagit.web.entity.ExhLike;
-import com.artagit.web.entity.Exhibition;
 import com.artagit.web.entity.ExhibitionView;
 import com.artagit.web.entity.Museum;
 import com.artagit.web.service.ExhLikeService;
@@ -65,10 +61,17 @@ public class ExhibitionController2 {
 	@GetMapping("{id}") // 전시상세 불러오기
 	public String detail(
 			@PathVariable("id") int exhId,
+			@AuthenticationPrincipal ArtagitUserDetails user,
 			Model model) {
 		
+		int memberId;
+		if(user == null)
+			memberId = 0;
+		else
+			memberId = user.getId();
 		
-		Exhibition exh = service.getExhById(exhId);
+		ExhibitionView exh = service.getExhById(exhId, memberId);
+		System.out.println(exh);
 		model.addAttribute("exh", exh);
 		Museum museum = museumService.getMuseumById(exh.getMuseumId());
 		model.addAttribute("museum", museum);

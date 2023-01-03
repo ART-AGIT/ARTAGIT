@@ -16,7 +16,7 @@ public interface ExhibitionService {
 	// 모든 전시 목록 불러오는 메서드
 	List<Exhibition> getList(int page, int museum, int state, int category);
 	
-	Exhibition getExhById(int exhId);
+	ExhibitionView getExhById(int exhId, int memberId);
 	
 //	void update(Exhibition exhibition);
 	void update(int id, String name);

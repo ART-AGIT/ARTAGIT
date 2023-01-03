@@ -22,7 +22,7 @@ public interface ExhibitionDao {
 	List<Exhibition> getList(int offset, int size, Integer museumId, Integer stateId, Integer cateId);
 	
 	// 1건의 전시를 불러올 때 사용되는 메서드
-	Exhibition get(int id);
+	ExhibitionView get(int id, int memberId);
 	
 	// 집계 하는 메서드
 	int count(String query);
@@ -46,7 +46,7 @@ public interface ExhibitionDao {
 
 	List<Exhibition> getListBySearch(int offset, int size, String query) throws SQLSyntaxErrorException;
 
-	List<ExhibitionView> getListByMemberId(int offset, int size, int museum, int state, int category, int memberId);
+	List<ExhibitionView> getListByMemberId(int offset, int size, Integer museumId, Integer stateId, Integer cateId, int memberId);
 	
 }
  
