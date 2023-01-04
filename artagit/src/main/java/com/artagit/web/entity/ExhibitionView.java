@@ -19,6 +19,7 @@ public class ExhibitionView {
 	private int museumId;
 	private int corpId;
 	private int corpLocalId;
+	private int hearts; //전체 좋아요 수
 	private int	memberId; //좋아요 목록위해
 	
 	
@@ -26,7 +27,7 @@ public class ExhibitionView {
 	// NN 제거한 생성자. 전시 등록 시 사용되는 생성자
 	public ExhibitionView(int memId, int cateId, String name, String poster,
 			String startDate, String endDate, String startTime, String endTime, int ticketPrice, int ticketStock,
-			String artist, int stateId, int museumId, int memberId) {
+			String artist, int stateId, int museumId, int hearts, int memberId) {
 		this.memId = memId;
 		this.cateId = cateId;
 		this.name = name;
@@ -40,13 +41,14 @@ public class ExhibitionView {
 		this.artist = artist;
 		this.stateId = stateId;
 		this.museumId = museumId;
+		this.hearts = hearts;
 		this.memberId = memberId;
 	}
 	
 	// 전시 정보를 모두 불러올 때 사용되는 생성자
 	public ExhibitionView(int id, int memId, int cateId, String name, String content, String poster, String detailImage,
 			String startDate, String endDate, String startTime, String endTime, int ticketPrice, int ticketStock,
-			String regDate, String artist, int stateId, int museumId,int corpId,int corpLocalId, int memberId) {
+			String regDate, String artist, int stateId, int museumId,int corpId,int corpLocalId, int hearts, int memberId) {
 		this.id = id;
 		this.memId = memId;
 		this.cateId = cateId;
@@ -65,6 +67,7 @@ public class ExhibitionView {
 		this.museumId = museumId;
 		this.corpId =corpId;
 		this.corpLocalId = corpLocalId;
+		this.hearts = hearts;
 		this.memberId = memberId;
 	}
 	
@@ -77,8 +80,16 @@ public class ExhibitionView {
 				+ content + ", poster=" + poster + ", detailImage=" + detailImage + ", startDate=" + startDate
 				+ ", endDate=" + endDate + ", startTime=" + startTime + ", endTime=" + endTime + ", ticketPrice="
 				+ ticketPrice + ", ticketStock=" + ticketStock + ", artist=" + artist + ", stateId=" + stateId
-				+ ", museumId=" + museumId + ", corpId=" + corpId + ", corpLocalId=" + corpLocalId + ", memberId="
-				+ memberId + "]";
+				+ ", museumId=" + museumId + ", corpId=" + corpId + ", corpLocalId=" + corpLocalId + ", hearts="
+				+ hearts + ", memberId=" + memberId + "]";
+	}
+
+	public int getHearts() {
+		return hearts;
+	}
+
+	public void setHearts(int hearts) {
+		this.hearts = hearts;
 	}
 
 	public int getMemberId() {
