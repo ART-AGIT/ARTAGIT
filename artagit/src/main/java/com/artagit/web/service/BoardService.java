@@ -13,13 +13,19 @@ public interface BoardService {
 
 	Board get(int id);
 
-	int reg(Board board);
-
 	List<BoardListView> getListInit(int page);
 
 	int delete(int id);
 
 	int update(Board board);
+
+
+	void reg(int memId, int roleId, String title, String content, String originalFilename);
+
+
+
+
+
 
 	
 
