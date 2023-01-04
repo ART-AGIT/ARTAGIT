@@ -98,8 +98,8 @@
 
             </div>
 
+			<form action="insert" method="post">
             <div class="page1">
-
                 <div class="reg-list-page">
                     <section class="reg-list">
                         <div class="reg-list-input-box">
@@ -112,7 +112,7 @@
                         </div>
                         <div class="reg-list-input-box">
                             <label for="">전시장소</label>
-                            <input name="museumId" type="text" class="input input-lg">
+                            <input name="museumName" type="text" class="input input-lg">
                         </div>
                         <div class="reg-list-input-box">
                             <label for="">지역상세</label>
@@ -173,7 +173,7 @@
 
                 <div class="reg-list-page2 d-none">
                     <section class="reg-list">
-
+					
                         <div class="reg-list-input-box">
                             <label for="">주최</label>
                             <input name="museumId" type="text" class="input input-lg">
@@ -184,7 +184,7 @@
                         </div>
                         <div class="reg-list-input-box">
                             <label for="">전화번호</label>
-                            <input name="phone" type="tel" class="input input-lg">
+                            <input name="managerPhone" type="tel" class="input input-lg">
                         </div>
 
                     </section>
@@ -204,7 +204,7 @@
 
             <div class="reg-list-page3 d-none">
                 <section class="reg-list">
-
+				
                     <div class="reg-list-input-box">
                         <label for="">전시설명</label>
                         <textarea class="input" id="" name="content" rows="15" cols="10" placeholder="내용을 입력해주세요."></textarea>
@@ -234,7 +234,6 @@
                         </div>
 
                     </div>
-
                 </section>
             </div>
             
@@ -248,6 +247,7 @@
                 </div>
             </div>
             
+		</form>
         </div>
         
 

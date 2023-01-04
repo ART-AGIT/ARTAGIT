@@ -1,24 +1,23 @@
 package com.artagit.web.controller.corporate;
 
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.artagit.web.entity.Booking;
+import com.artagit.web.entity.ArtagitUserDetails;
 import com.artagit.web.entity.Corporate;
 import com.artagit.web.entity.Exhibition;
 import com.artagit.web.entity.Local;
 import com.artagit.web.entity.PayList;
-import com.artagit.web.entity.Payment;
-import com.artagit.web.service.BookingService;
 import com.artagit.web.service.CorporateService;
 import com.artagit.web.service.ExhibitionService;
 import com.artagit.web.service.LocalService;
@@ -103,4 +102,43 @@ public class ExhibitionController {
 		System.out.println("주최자 등록한 전시(id==>"+ id +") 삭제(useYn = N)완료");
 		 return "redirect:list";
 	}
+	
+	//전시등록하기
+	@GetMapping("reg")
+	public String reg(Model model, @AuthenticationPrincipal ArtagitUserDetails user) {
+
+		System.out.println(user);
+		model.addAttribute("user",user);
+		
+		return "corporator/mypage/exh-reg";
+	}
+	// 주최자가 전시 등록하기 insert==========================
+	@PostMapping("insert") 
+	public String insert(Exhibition exhibition){
+		
+		System.out.print("전시 :" +exhibition.toString());
+
+		
+		int result = 0;
+		
+	    result = service.insert(exhibition);
+//		try {
+//		}
+//		catch(Exception e) {
+//			result = -1;
+//		}
+//		
+//		if(result >0 ) {
+//			//log
+//		}else if(result == 0) {
+//		
+//		}else if( result == -1) {
+//		 
+//		}else {
+//			
+//		}
+		return "redirect:list";
+	}
+		
+		
 }

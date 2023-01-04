@@ -9,5 +9,7 @@ import com.artagit.web.entity.Museum;
 public interface CorporateDao {
 	
 	Corporate get(int id);
-	
+
+	int update(Corporate corporate);
+	//성공하면 1 실패하면 0
 }

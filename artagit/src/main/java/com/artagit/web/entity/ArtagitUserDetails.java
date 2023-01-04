@@ -24,7 +24,8 @@ public class ArtagitUserDetails implements UserDetails {
 	private String email;
 	private String img;
 	private List<GrantedAuthority> authorities; // 권한(ROLE_XXX) 
-
+	private String museumName;
+	private String address;
 	
 	public int getId() {
 		return id;
@@ -139,5 +140,21 @@ public class ArtagitUserDetails implements UserDetails {
 		return "ArtagitUserDetails [id=" + id + ", username=" + username + ", password=" + password + ", name=" + name
 				+ ", phone=" + phone + ", nickname=" + nickname + ", email=" + email + ", img=" + img + ", authorities="
 				+ authorities + "]";
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public String getMuseumName() {
+		return museumName;
+	}
+
+	public void setMuseumName(String museumName) {
+		this.museumName = museumName;
 	}
 }

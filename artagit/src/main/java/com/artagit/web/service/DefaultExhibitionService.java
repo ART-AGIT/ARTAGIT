@@ -5,9 +5,13 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Transactional;
 
+import com.artagit.web.dao.CorporateDao;
 import com.artagit.web.dao.ExhLikeDao;
 import com.artagit.web.dao.ExhibitionDao;
+import com.artagit.web.entity.Corporate;
 import com.artagit.web.entity.ExhLike;
 import com.artagit.web.entity.Exhibition;
 
@@ -20,6 +24,9 @@ public class DefaultExhibitionService implements ExhibitionService {
 	@Autowired
 	private ExhLikeDao exhLikeDao;
 	
+	@Autowired
+	private CorporateDao corporateDao;
+	
 	// 기본생성자
 	public DefaultExhibitionService() {
 
@@ -30,13 +37,18 @@ public class DefaultExhibitionService implements ExhibitionService {
 	public DefaultExhibitionService(ExhibitionDao exhDao) {
 		this.exhDao = exhDao;
 	}
-
+	
+	
+	
 	@Override
-	// 전시 등록 메서드
-	public int reg(Exhibition exhibition) {
-
-		return exhDao.insert(exhibition);
+	public int insert (Exhibition exhibition) {
+		
+		exhDao.insert(exhibition);
+		
+		return 0;
+		
 	}
+	
 
 //	@Override
 //	// 페이지 지정해서 목록 조회하는 메서드
@@ -140,5 +152,11 @@ public class DefaultExhibitionService implements ExhibitionService {
 		return list;
 	}
 
+	@Override
+	public int reg(Exhibition exhibition) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 
+	
 }
