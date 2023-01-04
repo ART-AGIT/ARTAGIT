@@ -22,7 +22,6 @@ public interface ExhibitionService {
 	
 
 //	void update(Exhibition exhibition);
-	void update(int id, String name);
 
 	// [주최자] 나의 등록전시 수정
 	int update(int id);

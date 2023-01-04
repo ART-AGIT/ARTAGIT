@@ -37,7 +37,7 @@ public class BoardApi {
 	private BoardService service;
 	
 	@Autowired
-	private NoticeService noticeService;
+//	private NoticeService noticeService;
 	/*************게시글 리스트 불러오기*********/
 	@GetMapping("boards")
 	public List<BoardListView> getListByCategory(
