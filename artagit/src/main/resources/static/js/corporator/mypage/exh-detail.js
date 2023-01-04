@@ -20,7 +20,7 @@ window.addEventListener("load", function(){
 };
 
     modiBtn.onclick = function(e){
-        e.preventDefault();
+        // e.preventDefault();
 
         console.log("수정버튼 클릭");
     }
