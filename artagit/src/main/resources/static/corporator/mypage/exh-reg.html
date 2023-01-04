@@ -180,11 +180,11 @@
                         </div>
                         <div class="reg-list-input-box">
                             <label for="">담당자</label>
-                            <input name="manager" type="text" class="input input-lg">
+                            <input th:value="${user.name}" name="manager" type="text" class="input input-lg">
                         </div>
                         <div class="reg-list-input-box">
                             <label for="">전화번호</label>
-                            <input name="managerPhone" type="tel" class="input input-lg">
+                            <input th:value="${user.phone}" name="managerPhone" type="tel" class="input input-lg">
                         </div>
 
                     </section>
