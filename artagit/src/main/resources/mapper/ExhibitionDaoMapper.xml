@@ -46,7 +46,6 @@
 			</if>
 			
 			and useYN = "Y"
-			
 			<if test="cateId == null or cateId == 0 or cateId == 1">
 				order by startDate desc
 			</if>

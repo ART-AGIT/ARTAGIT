@@ -26,7 +26,7 @@ public class MemberController {
 	public String login() {
 		return "user/login";
 	}
-	
+
 	@GetMapping("signup")
 	public String signup() {
 		return "signup";
