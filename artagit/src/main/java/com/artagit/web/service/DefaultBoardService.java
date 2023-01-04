@@ -4,12 +4,15 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.artagit.web.dao.BoardDao;
 import com.artagit.web.dao.BoardListDao;
 import com.artagit.web.dao.BoardListDao;
 import com.artagit.web.entity.Board;
 import com.artagit.web.entity.BoardListView;
+
 
 
 @Service
@@ -27,11 +30,6 @@ public class DefaultBoardService implements BoardService{
 		return boardDao.get(id);
 	}
 
-	@Override
-	public int reg(Board board) {
-		// TODO Auto-generated method stub
-		return boardDao.insert(board);
-	}
 
 	@Override
 	public List<BoardListView> getList(int roleId) {
@@ -66,6 +64,14 @@ public class DefaultBoardService implements BoardService{
 	}
 
 	
+
+
+	@Override
+	public void reg(int memId, int roleId, String title, String content, String originalFilename) {
+		boardDao.insert(memId,roleId,title,content,originalFilename);
+		// TODO Auto-generated method stub
+		return;
+	}
 	
 	
 	

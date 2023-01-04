@@ -32,7 +32,7 @@ window.addEventListener("load", function() {
 		
 	console.log(queryString);
 	fetch(
-		`/api/boards${queryString}`)
+		`/boardApi/boards${queryString}`)
 		.then((response) => 
 			response.json())
 		.then((list) => {
@@ -42,7 +42,7 @@ window.addEventListener("load", function() {
 		<form action="list" method="post">
         <section class="board-list">
         <h1 class="board-title">
-         	<a href ="${board.id}">${board.title}</a>
+         	<a href = "/member/board/${board.id}">${board.title}</a>
         </h1>
         <div>[${board.name}]</div>
         <div class="board-regdate">1분전</div>
