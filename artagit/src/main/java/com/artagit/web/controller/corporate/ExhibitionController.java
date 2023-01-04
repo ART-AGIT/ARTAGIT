@@ -117,11 +117,12 @@ public class ExhibitionController {
 	public String insert(Exhibition exhibition){
 		
 		System.out.print("전시 :" +exhibition.toString());
+		//service.insert(exhibition);
 
+		//int result = 0;
+		// result =
 		
-		int result = 0;
 		
-	    result = service.insert(exhibition);
 //		try {
 //		}
 //		catch(Exception e) {
