@@ -34,6 +34,7 @@
 	<select id="getListByMemberId" resultType="com.artagit.web.entity.ExhibitionView">
 		select 
 			E.*,
+			(select count(exhId) from ExhLike where exhId = E.id group by exhId) hearts,
 			(select memId from ExhLike where exhId = E.id and memId = #{memberId}) memberId
 		from Exhibition E
 		<trim prefix="WHERE" prefixOverrides="AND | OR">
@@ -43,10 +44,15 @@
 			<if test="stateId != null and stateId != 0">
 				AND stateId = #{stateId}
 			</if>
-			<if test="cateId != null and cateId != 0">
-				AND cateId = #{cateId}
-			</if>
+			
 			and useYN = "Y"
+			
+			<if test="cateId == null or cateId == 0 or cateId == 1">
+				order by startDate desc
+			</if>
+			<if test="cateId == 2">
+				order by hearts desc
+			</if>
 		</trim>
 		limit #{offset}, #{size}
 	</select>
