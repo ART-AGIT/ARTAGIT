@@ -61,6 +61,10 @@
 		from Exhibition E
 		where id = #{id}
 	</select>
+	<select id="getexh" resultType="com.artagit.web.entity.Exhibition">
+		select * from Exhibition
+		where id=#{id}
+	</select>
 	<select id="getListByID" resultType="com.artagit.web.entity.Exhibition">
 		select * from Exhibition
 		where memId = #{memId} and useYN = 'Y'

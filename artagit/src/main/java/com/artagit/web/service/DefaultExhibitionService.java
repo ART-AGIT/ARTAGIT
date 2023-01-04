@@ -150,5 +150,14 @@ public class DefaultExhibitionService implements ExhibitionService {
 		return list;
 	}
 
+	@Override
+	public Exhibition getExhById(int exhId) {
+		// TODO Auto-generated method stub
+		
+		Exhibition exh = exhDao.getexh(exhId);
+		
+		return exh;
+	}
+
 
 }

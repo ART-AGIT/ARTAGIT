@@ -17,7 +17,7 @@ public interface ExhibitionService {
 	List<Exhibition> getList(int page, int museum, int state, int category);
 	
 	ExhibitionView getExhById(int exhId, int memberId);
-	
+	Exhibition getExhById(int exhId);
 //	void update(Exhibition exhibition);
 	void update(int id, String name);
 

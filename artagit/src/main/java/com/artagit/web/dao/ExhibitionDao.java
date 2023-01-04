@@ -47,6 +47,8 @@ public interface ExhibitionDao {
 	List<Exhibition> getListBySearch(int offset, int size, String query) throws SQLSyntaxErrorException;
 
 	List<ExhibitionView> getListByMemberId(int offset, int size, Integer museumId, Integer stateId, Integer cateId, int memberId);
+
+	Exhibition getexh(int exhId);
 	
 }
  
