@@ -91,9 +91,12 @@
 		ticketStock,
 		artist,
 		memId,
-<!-- 		cateId, -->
-<!-- 		stateId, -->
-		museumId)
+		cateId,
+		stateId,
+		museumId,
+		useYN,
+		corpId,
+		corpLocalId)
 		VALUES
 		(#{name},
 		#{content},
@@ -107,9 +110,12 @@
 		#{ticketStock},
 		#{artist},
 		#{memId},
-<!-- 		#{cateId}, -->
-<!-- 		#{stateId}, -->
-		#{museumId});
+		#{cateId},
+		#{stateId},
+		#{museumId},
+		#{useYN},
+		#{corpId},
+		#{corpLocalId});
 	</insert>
 	
  	<update id="update" parameterType="com.artagit.web.entity.Exhibition">

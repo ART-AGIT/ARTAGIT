@@ -27,7 +27,7 @@ window.addEventListener("load", function() {
 	btnReg.onclick = function(e) {
 		e.preventDefault();
 		
-		location.href = 'http://localhost:8080/corporator/mypage/exh-list';
+		//location.href = 'http://localhost:8080/corporator/mypage/exh-list.html';
 
 
 	};

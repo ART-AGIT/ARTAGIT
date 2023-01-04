@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import com.artagit.web.entity.Corporate;
 import com.artagit.web.entity.Exhibition;
 import com.artagit.web.entity.ExhibitionView;
 
@@ -27,7 +28,8 @@ public interface ExhibitionDao {
 	// 집계 하는 메서드
 	int count(String query);
 	
-	int insert(Exhibition exhibition);
+	// 전시 등록
+	//int insert(Exhibition exhibition, Corporate corporate);
 	
 	// 전시 수정
 //	int update(Exhibition exhibition);
@@ -42,13 +44,17 @@ public interface ExhibitionDao {
 	//나의 등록전시개수
 	int getCount(int memId);
 
-	int insert(int id, int memberId);
+	//int insert(int id, int memberId);
 
 	List<Exhibition> getListBySearch(int offset, int size, String query) throws SQLSyntaxErrorException;
+
 
 	List<ExhibitionView> getListByMemberId(int offset, int size, Integer museumId, Integer stateId, Integer cateId, int memberId);
 
 	Exhibition getexh(int exhId);
+
+	int insert(Exhibition exhibition);
+
 	
 }
  

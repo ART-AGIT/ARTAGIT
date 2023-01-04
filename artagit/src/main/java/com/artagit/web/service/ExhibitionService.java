@@ -3,6 +3,7 @@ package com.artagit.web.service;
 import java.sql.SQLSyntaxErrorException;
 import java.util.List;
 
+import com.artagit.web.entity.Corporate;
 import com.artagit.web.entity.Exhibition;
 import com.artagit.web.entity.ExhibitionView;
 
@@ -45,5 +46,13 @@ public interface ExhibitionService {
 
 	List<Exhibition> getListBySearch(String query) throws SQLSyntaxErrorException;
 
+
 	List<ExhibitionView> getListByMemberId(int page, int museum, int state, int category, int memberId);
+
+	
+	//전시 등록 
+	int insert(Exhibition exhibition);
+
+	
+
 }
