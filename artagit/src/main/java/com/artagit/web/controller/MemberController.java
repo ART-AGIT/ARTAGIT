@@ -32,13 +32,13 @@ public class MemberController {
 		return "signup";
 	}
 	
+	// 회원가입
 	@PostMapping("signup")
 	public String reg(Member member){
-		
-//		Member member = form;
-		int result = service.reg(member);
-		System.out.println(result);
-		System.out.println(member);
+
+		int result = service.signUp(member);
+		System.out.println("insert 결과 => " + result);
+		System.out.println("가입된 member => " + member);
 		return "redirect:/";
 		
 	}
