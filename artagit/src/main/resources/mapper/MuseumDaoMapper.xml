@@ -5,4 +5,14 @@
 		select * from Museum
 			where id = #{id}
 	</select>
+	
+	<update id="update" parameterType="com.artagit.web.entity.MuseumDao">
+ 		update Museum 
+ 		<set>
+ 			<if test="name != null">name = #{name},</if>
+ 			<if test="phone != null">phone = #{phone},</if>
+ 			<if test="address != null">address = #{address},</if>
+ 		</set>
+ 			where id = #{id}
+ 	</update>
 </mapper>

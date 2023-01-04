@@ -21,4 +21,8 @@ public interface MemberDao {
 //	void deleteUseYN(Member member);
 	Member getByUserName(String username);
 	
+	//비밀번호 변경 메서드
+	public void updatePassword(String tmpPassword, String memberEmail);
+
+	
 }

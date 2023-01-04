@@ -18,19 +18,22 @@ public interface ExhibitionService {
 	
 	ExhibitionView getExhById(int exhId, int memberId);
 	
+
 //	void update(Exhibition exhibition);
 	void update(int id, String name);
 
-
+	// [주최자] 나의 등록전시 수정
+	int update(int id);
 	
-	//내가 등록한 전시 리스트 
+	// [주최자] 나의 등록전시 리스트
 	List<Exhibition> getListById(int id);
+	
 	int countOfExh(int memId);
 
 	List<Exhibition> getListByCategory(int page, int museum, int state, int category);
 
-	//내가 등록한 전시 삭제하기
-	void delete(int id);
+	// [주최자] 나의 등록전시 삭제
+	int delete(int id);
 	
 	// 업체가 등록한 전시 상세페이지
 //	Corporate getById(int corpId);
