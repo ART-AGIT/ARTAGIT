@@ -7,7 +7,8 @@
 	<th:block layout:fragment="css">
 	    <link href="../css/exhibition/detail.css" type="text/css" rel="stylesheet">
 	    <script src="../js/exhibition/detail.js"></script>
-	    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f83ef3606f2a72bf9f1425fe76734149"></script>
+	    <script src="../js/exhibition/kakao-map.js" defer></script>
+    	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f83ef3606f2a72bf9f1425fe76734149&libraries=services"></script>
 	</th:block>
 
 
@@ -35,10 +36,44 @@
             <img class="exh-img" src="../../image/전시포스터2.jpg" alt="">
         </div>
 
-        <ul class="mini-menu-list">
+<!--         <ul class="mini-menu-list"> -->
+<!--             <li><a class="deco deco-mini deco-url" href="">URL 복사</a></li> -->
+<!--             <li><a th:data-id="${exh.id}" class="deco deco-mini deco-heart like-num" href="" th:text="${count}">0</a></li> -->
+<!--             <li><a class="deco deco-mini deco-map" href="">위치보기</a></li> -->
+<!--         </ul> -->
+
+		<ul class="mini-menu-list">
             <li><a class="deco deco-mini deco-url" href="">URL 복사</a></li>
-            <li><a th:data-id="${exh.id}" class="deco deco-mini deco-heart like-num" href="" th:text="${count}">0</a></li>
-            <li><a class="deco deco-mini deco-map" href="">위치보기</a></li>
+            <li><a class="deco deco-mini deco-heart like-num" href="">0</a></li>
+            <li>
+                <input type="checkbox" id="popup">
+                <label for="popup" class="deco deco-mini deco-map">위치보기</label>
+                <!----------------- 지도 모달 시작 ----------------->                
+                <div>
+                    <div>
+                        <!-- 팝업 닫기(X) 버튼 -->
+                        <div class="popup-head">
+                            <h1 class="pop-text popup-title">전시장 정보</h1>
+                        </div>
+                        <div class="popup-body">
+                            <div class="pop-text pop-place-title" th:text="${museum.name}">
+                                국립중앙박물관
+                            </div>
+                            <div class="pop-text pop-place-addr">
+                                <p>주소: <span th:text="${museum.address}">서울특별시 용산구 서빙고로 137 (용산동5가)</span></p>
+                            </div>
+                            <div class="pop-place-map">
+                                <div id="map" style="width:100%; height:240px;"></div>
+                            </div>
+                        </div>
+                        <div class="popup-footer">
+                            <label for="popup" class="pop-text popup-close-btn">닫기</label>
+                        </div>
+                    </div>
+                    <label for="popup"></label> <!-- 팝업 외부를 클릭했을 때도 팝업이 닫히기 위한 버튼 -->
+                </div>
+                <!----------------- 지도 모달 끝 ----------------->
+            </li>
         </ul>
 
         <div class="booking-btn">

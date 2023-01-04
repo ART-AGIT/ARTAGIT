@@ -24,6 +24,7 @@
 
 </head>
     <script src="../../js/header-menu.js"></script>
+    <script src="../../js/corporator/mypage/exh-detail.js"></script>
 <body>
     <header class="header">
         <section class="header-wrapper">
@@ -112,10 +113,11 @@
 
         </section>
         <div class="button-box-wrap">
-<!--             <input type="hidden" name="exh-id" th:value="${exh.id}"> -->
+<!--             <input type="hidden" name="exh-id"> -->
             <button class="btn btn-default btn-size-1" type="" >수정</button>
-            <a class="btn btn-default-line btn-size-1" th:href="@{/corp/exh/delete(id=${id})}">삭제</a>
-        </div>   
+            <input class="btn btn-default-line btn-size-1 delete-btn" type="submit" value="삭제">
+<!--             <a class="btn btn-default-line btn-size-1" th:href="@{/corp/exh/delete(id=${id})}">삭제</a> -->
+        </div>
     </section>
 
 
@@ -146,6 +148,18 @@
         </div>
         
     </section>
+    
+		<!------------ 모달 ------------>
+         <div class="modal d-none">
+            <div class="modal-header">
+                <h1 class="header-title">정말 삭제하시겠습니까?</h1>
+            </div>
+            <div class="modal-actions">
+                <a class="modal-action yes-btn" href="" type="" th:attr="data-id=${exh.id}">예</a>
+                <a class="modal-action no-btn">아니오</a>
+            </div>
+        </div>
+    
 </main>
 
 </body>

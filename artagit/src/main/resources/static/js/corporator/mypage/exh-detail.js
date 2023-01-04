@@ -55,8 +55,7 @@ window.addEventListener("load", function(){
                         // document.body.classList.add("stop-scroll");
                     }
                 })
-                .then(location.href="/corp/exh/list");
-
+                .then();
             // } 
             // else if (e.target.classList.contains("no-btn")){
             //     // modal.remove();

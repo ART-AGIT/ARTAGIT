@@ -72,5 +72,17 @@ public class ExhibitionApi {
 		return dto;
 	}
 	
+	// 주최자가 등록한 전시 삭제 ========================
+	@DeleteMapping("delete/{id}")
+	public Map<String, Object> delete(@PathVariable("id") int id) {
+		int result = service.delete(id);
+		
+		Map<String, Object> dto = new HashMap<>(); // result 객체
+		dto.put("status", 200); // http가 갖고 있는 기본 상태값
+		dto.put("resultObject", result);
+		
+		System.out.println("주최자 등록한 전시(id==>"+ id +") 삭제(useYn = N)완료");
+		 return dto;
+	}
 
 }
