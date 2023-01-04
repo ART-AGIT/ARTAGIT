@@ -63,4 +63,20 @@ window.addEventListener("load", function(){
 			// }
 
         };
+
+        // const btnMore = document.getElementsByClassName("btn-more")[0];
+
+        // btnMore.addEventListener("click", feedContentMore);
+
+        // function feedContentMore() {
+        // feedMore.classList.add("more");
+}
+
+
+
+
+
+
+
+
 });

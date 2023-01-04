@@ -10,7 +10,7 @@
 
     font-size: 14px;
     grid-template-rows: repeat(11,24px);
-    align-items: center;
+
 }
 
 .exh-detail{
@@ -41,6 +41,10 @@
     /* align-items: center; */
     width: 320px;
 }
+
+/* .item{
+    min-width: 70px;
+} */
 
 .item:nth-child(odd){
     font-weight: bold;
@@ -117,78 +121,19 @@
     border-bottom: 1px solid #9E9E9E;
 }
 
-/* 모달 스타일링 */
+/* 더보기 */
+.feed-information .feed-content {
+    display: inline-block;
+    text-overflow: ellipsis;
+    vertical-align: top;
+  }
 
-    body::-webkit-scrollbar {
-        display: none; /* Chrome, Safari, Opera*/
-    }
+  .feed-information .feed-content.hidden{
+    width: 150px;
+    overflow: hidden;
+    white-space: nowrap;
+  }
 
-
-.stop-scroll {
-    /* width:100%; */
-    height:100%;
-    overflow:hidden;
-}
-.modal {
-    position: fixed;
-    /* overflow:auto; */
-    z-index: 100;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    z-index: 200;
-    top: 50%;
-    left: 50%;
-    width: 70%;
-    height: 7rem;
-    transform: translate(-50%, -50%);
-    background: rgb(255, 255, 255);
-    /* padding: 1rem; */
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-    border-radius: .5rem;
-}
-
-.header-title {
-    margin: 0;
-    text-align: center;
-    padding: 1rem 0;
-    color: #606060;
-    font-size: 16px;
-    font-weight: 400;
-}
-
-.modal-actions {
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 10px;
-}
-
-  /* 버튼 */
-.modal-action {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /* border: 1px solid #ccc; */
-    border-radius: .5rem;
-    text-decoration: none;
-    background-color: #fefefec0;
-    color: #606060;
-    font: 500;
-    font-size: 14px;
-    font-weight: 400;
-    width: 4.5rem;
-    height: 1.5rem;
-    cursor: pointer;
-    margin: 0 8px;
-}
-
-.modal-action:hover,
-.modal-action:active {
-    background: #FF6B90;
-    color: #ffffff;
-    border: none;
-    /* border: 1px solid #FF6B90; */
-}
+  .btn-more{
+    font-weight: bold;
+  }

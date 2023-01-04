@@ -138,6 +138,11 @@
     height:0;
 }
 
+.icon-arrow-toggle-up{
+    -webkit-mask-size: 15px 15px;
+    height:0;
+}
+
 /* toggle 만들기 */
 /* 
 .reg-list>.reg-list-box{
