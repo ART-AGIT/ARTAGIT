@@ -17,8 +17,8 @@ public interface MemberDao {
 	int insert(Member member);
 	int update(Member member);
 	
-	void deleteUseYN(int id, String useYN); // 회원 탈퇴
-//	void deleteUseYN(Member member);
+	void deleteUseYN(int id); // 회원 탈퇴
+
 	Member getByUserName(String username);
 	
 	//비밀번호 변경 메서드

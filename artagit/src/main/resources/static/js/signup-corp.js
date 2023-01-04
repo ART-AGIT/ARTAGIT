@@ -1,6 +1,5 @@
 window.addEventListener("load",function(){
 
-
 	//  아코디언 =======================================
 	const btnHeader = this.document.querySelectorAll(".accordion-header");
     const regListBox = this.document.querySelectorAll(".reg-list-box");
@@ -9,18 +8,15 @@ window.addEventListener("load",function(){
     const form = this.document.querySelector("form");
 	const icon = this.document.querySelectorAll(".arrow-icon");
 
-	const editImg = document.querySelector(".edit-img")
-	const imgInput = this.document.querySelector(".img-input");
-	const fileInput = this.document.querySelector(".file-input");
-	// const fileInput = this.document.querySelector("#file-input");
-        form.onclick = function(e){
-            // e.preventDefault()
 
-            // var isHeader = e.target.classList.contains("accordion-header")
-            //                 ||e.target.classList.contains("accordion");
+        form.onclick = function(e){
+            e.preventDefault()
+
+            var isHeader = e.target.classList.contains("accordion-header")
+                            ||e.target.classList.contains("accordion");
            
-            // if(!isHeader)
-            //     return;
+            if(!isHeader)
+                return;
 
             if(regListBox[1].classList.contains("d-none") && e.target == btnHeader[1]){
                 contents[1].classList.remove("d-none");
@@ -47,33 +43,6 @@ window.addEventListener("load",function(){
 				icon[0].classList.add("icon-arrow-toggle-up");
               
             }
-
-			if(e.target.classList.contains("icon-write")){
-				//  img 수정
-				imgInput.onclick = function(e){
-					//  e.preventDefault();
-					console.log("test")
-					let event = new MouseEvent("click",{
-						'view':window,
-						'bubbles':true,
-						'cancelable':true
-						
-					})
-					fileInput.dispatchEvent(event);
-					
-				}
-				
-				// 미리보기
-				fileInput.oninput = function(e){
-					
-					let url = fileInput.files[0];
-					let reader = new FileReader();
-					reader.onload = (evt) =>{
-						imgInput.src = evt.target.result;
-					};
-					reader.readAsDataURL(url)
-				}
-			}
 
         }
 	 

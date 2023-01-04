@@ -70,23 +70,36 @@
             </ul>
         </div>
 
-        <!-- 회원 img수정 -->
-        <div class="account">
-            <div class="corp-edit-box">
-                <img class="edit-img " src="../../image/accountImage.png">
-                <img src="../../image/write-on.png" class="edit-icon img-input">
-                <input type="file" class="d-none file-input" name="image">
-            </div>
-            <div class="exh-name">ICT 미술관</div>
-            <div class="corpMem">업체회원</div>
-        </div>
         
-
         <!-- 담당장 정보 -->
-   
+        
         <section class="reg-list"> 
             
-            <form action="">
+            <form action="reg" method="post" enctype="multipart/form-data">
+                <!-- 회원 img수정 -->
+                <!-- <div class="account">
+                    <div class="corp-edit-box">
+                        <img class="edit-img " src="../../image/accountImage.png">
+                        <img src="../../image/write-on.png" class="edit-icon " id="file-input">
+                        <input type="file" class="d-none img-input"  name="image">
+                    </div>
+                    <div class="exh-name">ICT 미술관</div>
+                    <div class="corpMem">업체회원</div>
+                </div> -->
+            <div class="member">   
+                <div class="member-profile">
+                    <img src="../../image/회원.svg" class="member-profile-img img-input">
+                    <div class="icon-img-choice">
+                        <div class="circle-edit"></div>
+                       <input type="file" src="../../image/icons/icon-edit.svg" class="icon icon-write icon-write-edit file-input">
+                    </div>
+                </div>
+                <div class="member-name-grade">
+                    <div class="member-name">뽀대성균</div>
+                    <div class="member-grade">일반회원</div>
+                </div>
+            </div>
+                
                 <div class="toggle">
                     <h1 class="accordion-header">사업자 정보</h1>
                     <div class="icon arrow-icon icon-arrow-toggle-down"></div> 
@@ -135,7 +148,7 @@
                     <div class="icon arrow-icon icon-arrow-toggle-down"></div>
                 </div>
                 
-                <section class="reg-list-box accordion-content">
+                <section class="reg-list-box accordion-content d-none">
                     <div class="reg-list-input-box">
                         <label for="login-id">아이디</label>
                         <input name="loginId" id="login-id" type="text" required class="input input-lg input-unable" value="hihi123" disabled>

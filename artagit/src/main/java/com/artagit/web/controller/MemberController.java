@@ -44,22 +44,23 @@ public class MemberController {
 	}
 	
 	//===== 회원 탈퇴 (useYN 변경) ==================================
-	@GetMapping("corp")
+	@GetMapping("account-edit")
 	public String deleteUseYN() {
-		return "corporator/mypage/account-edit";
+		return "member/mypage/account-edit";
 	}
 	
 	
-//	@PostMapping("{id}")
-//	public String deleteUseYN(@RequestParam("id") int id){
-//		// 되는지 확인용
-//		int memid=51;
+	@PostMapping("{id}")
+	public String deleteUseYN(@RequestParam("id") int id){
+		// 되는지 확인용
+//		int memid=53;
+		System.out.println("탈퇴 성공했다------------------");
 //		String useYN2 = "Y";
-//		service.deleteUseYN(memid,useYN2);
-////		
+		service.deleteUseYN(id);
+		
 //		return "corporator/mypage/account-edit";
-////		return "redirect:/";
-//	}
+		return "redirect:/";
+	}
 
 	
 	
