@@ -118,14 +118,21 @@
 		#{corpLocalId});
 	</insert>
 	
+	<!-- 주최자가 등록한 전시 수정 -->
  	<update id="update" parameterType="com.artagit.web.entity.Exhibition">
  		update Exhibition 
-<!--  		<set>
+ 		<set>
  			<if test="name != null">name = #{name},</if>
+ 			<if test="content != null">content = #{content},</if>
  			<if test="price != null">price = #{price},</if>
- 			<if test="img != null">img = #{img},</if>
- 		</set> -->
- 		set name = #{name}
+ 			<if test="startDate != null">startDate = #{startDate},</if>
+ 			<if test="endDate != null">endDate = #{endDate},</if>
+ 			<if test="startTime != null">startTime = #{startTime},</if>
+ 			<if test="endTime != null">endTime = #{endTime},</if>
+ 			<if test="ticketPrice != null">ticketPrice = #{ticketPrice},</if>
+ 			<if test="ticketStock != null">ticketStock = #{ticketStock},</if>
+ 			<if test="artist != null">artist = #{artist},</if>
+ 		</set>
  			where id = #{id}
  	</update>
 

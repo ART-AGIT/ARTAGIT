@@ -6,14 +6,14 @@
 		from Corporate
 		where id = #{id}
 	</select>
+	
 	<update id="update" parameterType="com.artagit.web.entity.Corporate">
-	update Corporate
-	<set>
-         <if test="museumName != null">museumName = #{museumName},</if>
-         <if test="address != null">address = #{address},</if>
-         <if test="manager != null">manager = #{manager},</if>
-         <if test="manmanagerPhoneager != null">managerPhone = #{managerPhone}</if>
-      </set>
-      where id = #{id}
+		update Corporate
+ 		<set>
+ 			<if test="museumName != null">museumName = #{museumName},</if>
+ 			<if test="manager != null">manager = #{manager},</if>
+ 			<if test="phone != null">phone = #{phone},</if>
+ 		</set>	
+ 			where id = #{id}
 	</update>
 </mapper>

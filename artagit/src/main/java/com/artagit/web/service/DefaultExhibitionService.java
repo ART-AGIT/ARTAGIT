@@ -63,7 +63,6 @@ public class DefaultExhibitionService implements ExhibitionService {
 //		return list;
 //	}
 
-	@Override
 	// 전시 상세 정보 가져오는 메서드
 	public ExhibitionView getExhById(int id, int memberId) {
 		
@@ -72,19 +71,21 @@ public class DefaultExhibitionService implements ExhibitionService {
 		return exh;
 	}
 
+	// [주최자] 나의 등록전시 수정
 	@Override
-
-//	public void update(Exhibition exhibition) {
-	public void update(int id, String name) {
-		exhDao.update(id, name);
+	public int update(int id) {
+		 int result = exhDao.update(id);
+		 return result;
 	}
 
+	// [주최자] 나의 등록전시 삭제
 	@Override
-	public void delete(int id) {
-		exhDao.delete(id);
+	public int delete(int id) {
+		int result = exhDao.delete(id);
+		return result;
 	}
 	
-	//나의 등록전시 리스트
+	// [주최자] 나의 등록전시 리스트
 	public List<Exhibition> getListById(int id) {
 		
 		List<Exhibition> list =exhDao.getListByID(id);

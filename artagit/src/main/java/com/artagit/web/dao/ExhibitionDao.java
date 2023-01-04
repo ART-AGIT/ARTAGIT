@@ -31,15 +31,17 @@ public interface ExhibitionDao {
 	// 전시 등록
 	//int insert(Exhibition exhibition, Corporate corporate);
 	
-	// 전시 수정
-//	int update(Exhibition exhibition);
-	int update(int id, String name);
 	
-	// 전시 삭제
-	int delete(int id);
-
+	/*********** 주최자 ************/
 	//나의 등록전시 리스트
 	List<Exhibition> getListByID(int id);
+	
+	// 내가 등록한 전시 수정
+	int update(int id);
+	
+	// 나의 전시 삭제
+	int delete(int id);
+
 	
 	//나의 등록전시개수
 	int getCount(int memId);

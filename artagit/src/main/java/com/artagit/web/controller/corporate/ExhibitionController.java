@@ -21,6 +21,7 @@ import com.artagit.web.entity.PayList;
 import com.artagit.web.service.CorporateService;
 import com.artagit.web.service.ExhibitionService;
 import com.artagit.web.service.LocalService;
+import com.artagit.web.service.MuseumService;
 import com.artagit.web.service.PaymentService;
 
 @Controller("corporaterController")
@@ -32,6 +33,9 @@ public class ExhibitionController {
 	
 	@Autowired
 	private CorporateService corporateService;
+	
+	@Autowired
+	private MuseumService museumService;
 	
 	@Autowired
 	private LocalService localService;
@@ -83,14 +87,15 @@ public class ExhibitionController {
 	}
 
 	// 주최자가 등록한 전시 수정 ========================
-	@ResponseBody
 	@GetMapping("update")
-	public void update(@RequestParam("id") int id,
-			@RequestParam("name") String name) {
+	public String update(Exhibition exhibition, Corporate corporate) {
 //		System.out.println("수정한 전시 ===> "+ id);
-//		id = 19;
-		service.update(id, name);
-		System.out.println("수정완료");
+		service.update(exhibition.getId());
+		corporateService.update(id);
+		museumService.update(id);
+		System.out.println(id+"번 전시 수정완료");
+		
+		return "redirect:corp/exh/{id}";
 	}
 	
 	// 주최자가 등록한 전시 삭제 ========================
@@ -142,4 +147,13 @@ public class ExhibitionController {
 	}
 		
 		
+//	// 주최자가 등록한 전시 삭제 ========================
+//	@GetMapping("delete")
+//	public String delete(int id) {
+////		@PathVariable("exhId")
+//		service.delete(id);
+//		
+//		System.out.println("주최자 등록한 전시(id==>"+ id +") 삭제(useYn = N)완료");
+//		 return "redirect:list";
+//	}
 }

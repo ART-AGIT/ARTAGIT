@@ -60,6 +60,12 @@
 			where id = #{id}
 	</update>
 
+	
+
+	<update id="updatePassword" parameterType="com.artagit.web.entity.Member">
+		update Member set password = #{tmpPassword}
+			where logignId = #{loginId} and email = #{email}
+	</update>
 
 	<update id="withdrawal " parameterType="com.artagit.web.entity.Member">
 		update Member
