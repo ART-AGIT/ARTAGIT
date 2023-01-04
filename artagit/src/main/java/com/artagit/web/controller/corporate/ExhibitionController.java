@@ -91,6 +91,7 @@ public class ExhibitionController {
 	public String update(Exhibition exhibition, Corporate corporate) {
 //		System.out.println("수정한 전시 ===> "+ id);
 		service.update(exhibition.getId());
+//		service.update(exhibition.getId());
 //		corporateService.update(id);
 //		museumService.update(id);
 //		System.out.println(id+"번 전시 수정완료");
