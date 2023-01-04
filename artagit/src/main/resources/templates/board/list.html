@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http//www.thymeleaf.org">
+  
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -100,32 +101,35 @@
     </header>
 
     <main class="main-container">
+    
+    
     <nav class = "board-category-box">
         <ul class="board-category-l">
             <!-- <li>전체 글</li> -->
-            <li data-id="0" th:class="${param.c}==null?'board-selected'" class="deco-ticket-on"><span>전체 글</span></li>
-            <li data-id="1" th:class="${#strings.equals(param.c, '1')}?'board-selected'" class="line-on"><span class="">자유</span></li>
-            <li data-id="2" th:class="${#strings.equals(param.c, '2')}?'board-selected'" class=""><span >전시후기</span></li>
-            <li data-id="3" th:class="${#strings.equals(param.c, '3')}?'board-selected'" class=""><span>맛집후기</span></li>
-            <li data-id="4" th:class="${#strings.equals(param.c, '4')}?'board-selected'" class=""><span>같이가요</span></li>
+            <li data-id="0" th:class="${param.c}==null?'menu-selected'" class="deco-ticket-on menu-selected ">전체 글</a></li>
+            <li data-id="1" th:class="${#strings.equals(param.c, '1')}?'menu-selected'"class="line-on">자유</a></li>
+            <li data-id="2" th:class="${#strings.equals(param.c, '2')}?'menu-selected'">전시후기</a></li>
+            <li data-id="3" th:class="${#strings.equals(param.c, '3')}?'menu-selected'">맛집후기</a></li>
+            <li data-id="4" th:class="${#strings.equals(param.c, '4')}?'menu-selected'">같이가요</a></li>
         </ul> 
     </nav>
-    
-    <section class="post-list">
+   
+    <div class="board-box">
+    <div class="post-list">
         <h1 class="d-none">게시글 목록</h1>
-       
-        	<section class="notice" th:each="notice:${noticeList}">
+            <form>
+        <section class="notice">
             <h1 class="d-none">공지목록</h1> 
             <img class="notice-icon" src="../image/notice.png">
             <h1 class="notice-title">
-                <a th:utext="${notice.title}" th:href="@{{id}(id=${notice.id})}" href = "../member/board/detail.html">회원님들 assda 그만dasddasdafffffasdfasdfasdfffffffffffffffff싸우세요들.aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</a></h1>
+                <a href = "../member/board/detail.html">회원님들 assda 그만dasddasdafffffasdfasdfasdfffffffffffffffff싸우세요들.aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</a></h1>
         
             <div> </div>
             <div class="notice-info">
                 
                 <div>
                     <img class="profile" src = "../image/accountImage.png">
-                <div th:text="${notice.memId}">운영자 </div>
+                <div>운영자 </div>
                 </div>
                 <div> 22-11-30 </div>
                 
@@ -137,18 +141,18 @@
            
             
         </section>
-            
-        <div class="board-box">
-        <form action="list" method="post">
-        <section class="board-list"  th:each="boardListView:${list}">
+            </form>
+        
+        <form class="" actoin="list" method="post">
+        <section class="board-list"  th:each="board:${list}">
         <h1 class="board-title">
-         	<a th:utext="${boardListView.title}" th:href="@{~/member/board/(${boardListView.id})}" href = "../member/board/details">회원님들 그만 좀 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa싸우세요들.</a>
+            <a th:utext="${board.title}" th:href="@{|/member/board/${board.id}|}" href = "../member/board/detail.html">회원님들 그만 좀 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa싸우세요들.</a>
         </h1>
-        <div>[같이가요]</div>
-        <div class="board-regdate" th:text="${#dates.format(boardListView.regDate, 'HH:mm')}">1분전</div>
+        <div><a class="board-category-s" href="">[같이가요]</a></div>
+        <div class="board-regdate" th:text="${#dates.format(board.regDate, 'HH:mm')}">1분전</div>
         <div class="board-writer-info">
                 <img class="profile" src = "../image/accountImage.png">
-            <div th:text="${boardListView.nickname}">운영자 </div>
+            <div th:text="${board.memId}">운영자 </div>
         </div>
         
         <div class="board-post-info">
@@ -172,11 +176,11 @@
     </section>
     </form>
     </div>
-    
-</section>
+</div>
     <div class="writing-img-box">
         <a href = "../member/board/reg"><img src = "../image/writing-img.png"></img></a>
     </div>
 </main>
+
 </body>
 </html>
