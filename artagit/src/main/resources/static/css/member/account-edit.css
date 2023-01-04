@@ -13,9 +13,9 @@
 }
 .member-profile-img{
     /* 일단회원이미지입니다 */
-    border-radius: 70px;
-    width: 100px;
-    height: 100px;
+    /* border-radius: 70px; */
+    width: 120px;
+    height: 120px;
     display: flex;
    
 }
