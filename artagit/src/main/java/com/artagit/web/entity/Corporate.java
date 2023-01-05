@@ -6,6 +6,7 @@ public class Corporate {
 	private String loginId;
 	private String password;
 	private String ceoName;
+	private String email;
 	private int businessNum;
 	private String manager;
 	private String phone;
@@ -15,6 +16,7 @@ public class Corporate {
 	private String refuseReason;
 	private String managerPhone;
 	private String museumName; 
+	private int roleId;
 	private int localId;
 	
 	public Corporate() {
@@ -79,6 +81,14 @@ public class Corporate {
 
 	public void setCeoName(String ceoName) {
 		this.ceoName = ceoName;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public int getBusinessNum() {
@@ -161,6 +171,14 @@ public class Corporate {
 		this.localId = localId;
 	}
 
+	public int getRoleId() {
+		return roleId;
+	}
+	
+	public void setRoleId(int roleId) {
+		this.roleId = roleId;
+	}
+
 	@Override
 	public String toString() {
 		return "Coporate [id=" + id + ", name=" + name + ", loginId=" + loginId + ", password=" + password
@@ -170,6 +188,5 @@ public class Corporate {
 				+ localId + "]";
 	}
 
-	
 	
 }

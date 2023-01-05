@@ -18,4 +18,11 @@ public class DefaultMuseumService implements MuseumService {
 		Museum museum = museumDao.get(id);
 		return museum;
 	}
+
+	// [주최자] 나의 등록전시 수정 -> 전시관 정보 수정
+	@Override
+	public int update(int id) {
+		int result = museumDao.update(id);
+		return result;
+	}
 }

@@ -123,8 +123,8 @@
 }
 
 .btn-next {
-    border: #FFBFCF;
-    background-color: #FFBFCF;
+    border: #FF6C9E;
+    background-color: #FF6C9E;
     width: 36px;
     height: 36px;
     display: inline-flex;
@@ -133,8 +133,8 @@
 }
 
 .btn-before {
-    border: #FFBFCF;
-    background-color: #FFBFCF;
+    border: #FF6C9E;
+    background-color: #FF6C9E;
     width: 36px;
     height: 36px;
     display: inline-flex;
@@ -148,8 +148,8 @@
     width: 0.8rem;
     height: 0.8rem;
     margin-left: 0.5rem;
-    border-top: 0.12rem solid #4e4e4e;
-    border-right: 0.12rem solid #4e4e4e;
+    border-top: 0.12rem solid #ffffff;
+    border-right: 0.12rem solid #ffffff;
     transform: rotate(45deg);
 }
 
@@ -159,8 +159,8 @@
     width: 0.8rem;
     height: 0.8rem;
     margin-left: 0.8rem;
-    border-top: 0.12rem solid #4e4e4e;
-    border-right: 0.12rem solid #4e4e4e;
+    border-top: 0.12rem solid #ffffff;
+    border-right: 0.12rem solid #ffffff;
     transform: rotate(222deg);
 }
 
@@ -169,6 +169,7 @@
     height: 36px;
     color: #ffffff;
     border-radius: 10px;
+    background-color: #FF6C9E;
 }
 
 .btn-xl {

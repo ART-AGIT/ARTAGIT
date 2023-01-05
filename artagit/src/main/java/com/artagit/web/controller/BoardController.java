@@ -42,31 +42,15 @@ public class BoardController {
 		Model model,
 		HttpSession session){
 			
-		List<BoardListView> list = service.getList(page);
+		List<BoardListView> list = service.getListInit(page);
 		model.addAttribute("list",list);
-//		
+	
 		
 		return "board/list";
 			
 		}
 	
-	/***********게시글 등록 시작****************/
-	@GetMapping("reg")
-	public String boardReg() {
 	
-		return "board/reg";
-	}
-	
-	@PostMapping("reg")
-	public String reg(Board board) {
-		
-	
-		System.out.println("등록한 글 ===> "+board);
-		service.reg(board);
-		
-		return "redirect:list";
-	}
-	/*******게시글 등록 끝*****************/
 		
 	
 	/************게시글 디테일*************/
@@ -83,7 +67,7 @@ public class BoardController {
 		System.out.println("id:"+ id);
 		
 		
-		return "board/detail";
+		return "member/board/detail";
 			
 		}
 	/************게시글 삭제***************/
@@ -93,8 +77,7 @@ public class BoardController {
 	service.delete(id);
      
 	return "redirect:list";
-	
-}
+	}
 	/*********게시글 수정*************/
 	
 	@GetMapping("update")

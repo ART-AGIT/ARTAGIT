@@ -13,17 +13,19 @@
       and useYN='Y'
    
    </select>
-   <insert id="insert" parameterType="com.artagit.web.entity.Board">
+   <insert id="insert" parameterType="board">
       INSERT INTO Board
       (title,
       content,
       memId,
-      roleId)
+      roleId,
+      image)
       VALUES
       (#{title},
       #{content},
-      3,
-      1);
+      #{memId},
+      #{roleId},
+      #{originalFilename});
    </insert>
    
    
@@ -34,7 +36,13 @@
 		</set>
 		where id =#{id}
 	</update>
-   
+   	<update id="update" parameterType="com.artagit.web.entity.Board">
+		update Board 
+		<set>
+			title = #{title}
+		</set>
+		where id =#{id}
+	</update>
    
 </mapper>
  

@@ -69,13 +69,12 @@
             <div class="hihi">
                 <div class="login-type-option">
                     <div class="radio-wrap">
-
-                        <input type="radio" name="회원유형" id="memPers">
+                        <input type="radio" name="role" id="memPers" value="ROLE_MEMBER" checked="checked">
                         <label for="memPers">일반 회원 로그인</label>
                     </div>    
                     
                     <div class="radio-wrap">
-                        <input type="radio" name="회원유형" id="memCorp">
+                        <input type="radio" name="role" id="memCorp" value="ROLE_CORP">
                         <label for="memCorp">사업자 회원 로그인</label>
                     </div>
                 </div>
@@ -88,6 +87,10 @@
                         <input type="password" name="password" class="input input-lg input-border input-white" placeholder="비밀번호(숫자,영문, 특수문자 8-12자리)" title="비밀번호">
                     </div>
                 </div>
+            </div>
+            
+            <div th:if="${param.error}" style="display:flex; justify-content:center; padding-bottom: 20px; color: red">
+             	아이디 또는 비밀번호가 일치하지 않습니다.
             </div>
          
 

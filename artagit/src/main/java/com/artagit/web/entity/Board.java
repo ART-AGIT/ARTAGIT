@@ -13,10 +13,9 @@ public class Board {
 	private Date regDate;
 	private Date modiDate;
 	
-	public Board() {
-		// TODO Auto-generated constructor stub
-	}
-
+public Board() {
+	// TODO Auto-generated constructor stub
+}
 	public Board(int id, int roleId, int memId, String title, String content, String image, int hit, Date regDate,
 			Date modiDate) {
 		super();
@@ -29,8 +28,10 @@ public class Board {
 		this.hit = hit;
 		this.regDate = regDate;
 		this.modiDate = modiDate;
+		
 	}
 	
+
 	public int getId() {
 		return id;
 	}

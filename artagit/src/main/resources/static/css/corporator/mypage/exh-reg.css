@@ -9,8 +9,8 @@
 .step {
     display: flex;
     justify-content: space-between;
-    padding-top: 10px;
-    margin: 0 37px;
+    padding: 15px 0 15px 0;
+    width: 300px;
 }
 
 .circle {
@@ -22,7 +22,7 @@
 
 }
 
-.circle1 {
+.circle-on {
     /* position: relative; */
     width: 43px;
     height: 42px;
@@ -33,6 +33,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 5px;
 }
 
 .circle-off {
@@ -51,8 +52,43 @@ div.exh-reg-button-box{
     display: flex;
     justify-content: space-between;
     width: 296px;
-    padding: 10px 0 10px 0;
+    padding: 20px 0;
 }
 #first-page-next .exh-reg-button-box{
     justify-content: end;
+}
+
+
+.input-image-button{
+    width: 100px;
+    height: 100px;
+    background-color: #EBEBEB;
+   position: relative;
+  padding: 0 !important;
+  margin-right: 20px;
+}
+
+.input-image-camera{
+    background: url(../../../image/icons/camera.svg) no-repeat;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 40px;
+    right: 31px;
+    
+}
+.input-image-addplus{
+    background: url(../../../image/icons/add-plus.svg) no-repeat;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 34px;
+    right: 35px;
+
+}
+.reg-list-input-box.poster{
+    padding-top: 10px;
+}
+.reg-list-input-box.detail{
+    padding-top: 5px;
 }
