@@ -18,6 +18,7 @@
 	<select id="getListInit" resultType="com.artagit.web.entity.BoardListView">
 	  select * 
       from BoardListView
+      order by regDate desc
 	</select>
 	
 </mapper>

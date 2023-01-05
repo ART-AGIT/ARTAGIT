@@ -19,7 +19,6 @@ window.addEventListener("load", function(){
 
         if(el.tagName != 'A' || currentEl == el)
             return;
-
 		
         el.classList.add('active');
 

@@ -24,7 +24,8 @@ public class ArtagitUserDetails implements UserDetails {
 	private String email;
 	private String img;
 	private List<GrantedAuthority> authorities; // 권한(ROLE_XXX) 
-
+	private String museumName;
+	private String address;
 	
 	public int getId() {
 		return id;
@@ -139,5 +140,66 @@ public class ArtagitUserDetails implements UserDetails {
 		return "ArtagitUserDetails [id=" + id + ", username=" + username + ", password=" + password + ", name=" + name
 				+ ", phone=" + phone + ", nickname=" + nickname + ", email=" + email + ", img=" + img + ", authorities="
 				+ authorities + "]";
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public String getMuseumName() {
+		return museumName;
+	}
+
+	public void setMuseumName(String museumName) {
+		this.museumName = museumName;
+	}
+
+	public void setCeoName(String ceoName) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setBusinessNum(int businessNum) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setManager(String manager) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setRegState(String regState) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setProcessDate(String processDate) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setRefuseReason(String refuseReason) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setManagerPhone(String managerPhone) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setLocalId(int localId) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setRoleId(int roleId) {
+		// TODO Auto-generated method stub
+		
 	}
 }

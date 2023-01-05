@@ -19,6 +19,9 @@ public interface MuseumDao {
 	int count(String query);  // select 시 검색결과 집계(카운트)
 	
 	int insert(Member member);
-	int update(Member member);
+	
+	// (주최자가 전시정보 수정 시) 전시관에 대한 정보 수정 
+	int update(int id);
+	
 	int delete(int id);
 }

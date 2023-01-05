@@ -5,11 +5,16 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Transactional;
 
+import com.artagit.web.dao.CorporateDao;
 import com.artagit.web.dao.ExhLikeDao;
 import com.artagit.web.dao.ExhibitionDao;
+import com.artagit.web.entity.Corporate;
 import com.artagit.web.entity.ExhLike;
 import com.artagit.web.entity.Exhibition;
+import com.artagit.web.entity.ExhibitionView;
 
 @Service
 public class DefaultExhibitionService implements ExhibitionService {
@@ -19,6 +24,9 @@ public class DefaultExhibitionService implements ExhibitionService {
 	
 	@Autowired
 	private ExhLikeDao exhLikeDao;
+	
+	@Autowired
+	private CorporateDao corporateDao;
 	
 	// 기본생성자
 	public DefaultExhibitionService() {
@@ -30,13 +38,18 @@ public class DefaultExhibitionService implements ExhibitionService {
 	public DefaultExhibitionService(ExhibitionDao exhDao) {
 		this.exhDao = exhDao;
 	}
-
+	
+	
+	
 	@Override
-	// 전시 등록 메서드
-	public int reg(Exhibition exhibition) {
-
-		return exhDao.insert(exhibition);
+	public int insert (Exhibition exhibition) {
+		
+		exhDao.insert(exhibition);
+		
+		return 0;
+		
 	}
+	
 
 //	@Override
 //	// 페이지 지정해서 목록 조회하는 메서드
@@ -50,28 +63,29 @@ public class DefaultExhibitionService implements ExhibitionService {
 //		return list;
 //	}
 
-	@Override
 	// 전시 상세 정보 가져오는 메서드
-	public Exhibition getExhById(int id) {
+	public ExhibitionView getExhById(int id, int memberId) {
 		
-		Exhibition exh = exhDao.get(id);
+		ExhibitionView exh = exhDao.get(id, memberId);
 		
 		return exh;
 	}
 
+	// [주최자] 나의 등록전시 수정
 	@Override
-
-//	public void update(Exhibition exhibition) {
-	public void update(int id, String name) {
-		exhDao.update(id, name);
+	public int update(int id) {
+		 int result = exhDao.update(id);
+		 return result;
 	}
 
+	// [주최자] 나의 등록전시 삭제
 	@Override
-	public void delete(int id) {
-		exhDao.delete(id);
+	public int delete(int id) {
+		int result = exhDao.delete(id);
+		return result;
 	}
 	
-	//나의 등록전시 리스트
+	// [주최자] 나의 등록전시 리스트
 	public List<Exhibition> getListById(int id) {
 		
 		List<Exhibition> list =exhDao.getListByID(id);
@@ -145,5 +159,37 @@ public class DefaultExhibitionService implements ExhibitionService {
 		return list;
 	}
 
+	@Override
 
+	public List<ExhibitionView> getListByMemberId(int page, int museum, int state, int category, int memberId) {
+		int size = 6;
+		int offset = (page-1)*size;
+		
+		List<ExhibitionView> list = exhDao.getListByMemberId(offset, size, museum, state, category, memberId);
+		return list;
+	}
+
+	@Override
+	public Exhibition getExhById(int exhId) {
+		// TODO Auto-generated method stub
+		
+		Exhibition exh = exhDao.getexh(exhId);
+		
+		return exh;
+	}
+
+
+	public int reg(Exhibition exhibition) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+//
+//	@Override
+//	public void update(int id, String name) {
+//		// TODO Auto-generated method stub
+//		
+//	}
+
+
+	
 }

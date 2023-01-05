@@ -16,9 +16,9 @@ window.addEventListener("load",function(e){
 	
 	//	리뷰 테마 컬러 변경
     colorInput.oninput= function(e){
-//		console.log(trash);
         box.style.background = colorInput.value;
     }
+    
     
 	//	버튼리스트 (수정 등록 닫기)
 	btnList.onclick=function(e){
@@ -26,9 +26,20 @@ window.addEventListener("load",function(e){
 		//수정
 		if(e.target.classList.contains("btn-mod")){
 			let content = writeForm.getElementsByTagName("textarea").value;
-			console.log(content);
+//			console.log(content);
 			console.log("수")
 		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		//등록
 		else if(e.target.classList.contains("btn-reg")){
@@ -40,25 +51,17 @@ window.addEventListener("load",function(e){
 			form.append("content",writeForm.querySelector(".input").value);
 			form.append("color",box.querySelector(".color-input").value);
 			console.log("form객체----"+form);
-//			console.log(form.color.value);
-//			console.log("테마색상------"+form.color.value);
-//			console.log("입력내용------"+form.content);
-//			console.log("입력내용------"+form.review-id);
 			var id = document.querySelector(".bookingId").value;
 			console.log(id);
 			
-//			var id = document.querySelector(".bookingId").value;
 			fetch(
-				`/mypage/review/reg/${id}`,{
+				`/member/mypage/review/reg/${id}`,{
 					method:"POST",
 					body:form})
 			.then((response)=>response.json())
 			.then((data)=>{
 				
 				console.log("js 테스트-----------------");
-//				let review = JSON.stringify(data)
-//				console.log("review : "+review);
-//				console.log("review : "+review.content);
 				console.log("data------ "+data.resultObject);
 				let review = data.resultObject;
 				let booking2 = data.booking2;
@@ -89,7 +92,7 @@ window.addEventListener("load",function(e){
 		                    </div>
 		                    
 		                    <div class="trash">
-                        		<a href="/mypage/review/del/${review.id}"><img class="trash-img" src="../../image/trash.png" ></a>
+                        		<a href="/member/mypage/review/del/${review.id}"><img class="trash-img" src="../../../image/trash.png" ></a>
                     	
                     		</div>
 		                    
@@ -114,7 +117,7 @@ window.addEventListener("load",function(e){
 			        	<input type="hidden" class= "bookingId" name="bookingId" >
 
 			            <input class="btn btn-default btn-default-fill btn-mod" type="submit" value="수정">
-			            <a class="btn btn-default btn-default-line btn-exit" type="button" href="/mypage/review/list" value="닫기">닫기</a>
+			            <a class="btn btn-default btn-default-line btn-exit" type="button" href="/member/mypage/review/list" value="닫기">닫기</a>
 			        </div>
 			          	
 	        	`;

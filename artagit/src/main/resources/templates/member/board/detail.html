@@ -102,12 +102,12 @@
     <nav class = "">
         <div class="post-detail-header">
             <div class="current-location">
-                <div><a href="../../index.html">HOME ></a></div>
-                <div><a href="../../board/list.html">커뮤니티 ></a></div>
-                <div><a href="../../board/list.html">전시후기</a></div>
+                <div><a href="../../index">HOME ></a></div>
+                <div><a href="../../board/list">커뮤니티 ></a></div>
+                <div><a href="../../board/list">전시후기</a></div>
             </div>
             <div class="list-btn">
-                <a class="btn btn-default-line" href="../../board/list.html">목록</a>
+                <a class="btn btn-default-line" href="../../board/list">목록</a>
             </div>
         </div>
     </nav>
@@ -130,12 +130,12 @@
             
             <div class="post-info">
                 <div>
-                    <div class="icon icon-view" >조회수 </div>
-                    <div th:text="${board.hit}">11</div>
+                    <div class="icon icon-view">조회수 </div>
+                    <div th:text=${board.hit} >11</div>
                 </div>
                 <div>
                     <div class="icon icon-like-up">추천 </div>
-                    <div th:text="${board.like}">11</div>
+                    <div>11</div>
                 </div>
                 <div>
                     <div class="icon icon-comment">댓글</div>
@@ -148,11 +148,11 @@
         <div class="post-content">
             <div th:utext="${board.content}"class="post-content-message">
                 <span>회원님들 그만 좀 싸우세asdffsdsdㅁ아품아ㅜ 마이ㅏ무아뮝 ㅏㅜ미ㅏㅍ우ㅏ미 아미아뮈아ㅟasdfdasdfasdfasdasdfasdfsda요들</span>
-                <img src = "">
             </div>
+                <img class="board-img" th:classappend="${board.image.isEmpty()}?d-none" th:src="@{/image/{img}(img=${board.image})}">
             <div class="like">
                <a class="btn btn-default-line">수정</a>
-               <a class="btn btn-default-line">삭제</a>
+               <a th:href="@{/member/board/delete(id=${id})}" class="btn btn-default-line">삭제</a>
                 <span class="heart-fix">
                 <div class="icon icon-heart"></div>
                 </span>
@@ -176,15 +176,13 @@
                         <div class="icon icon-miniMenu"><a href=""></a></div>
                     </div>
                     </div>
-                    <div th:each="comList:${comList}">
-	                    <div class="comment-main" th:text="${comList.content}">
-	                        저도 거기 다녀왔는데 정말 좋더라고요~ 굿즈asfdddddddddddddddddddddsdaaaaaaaaaaaaaaaaaas도 다 너무 예뻣더라는..
-	                    </div>
-	                    <div class="comment-info">
-	                        <div> 2022.11.26 18:38</div>
-	                        <div class="re-comment"><a href="">답글쓰기</a></div>
-	                    </div>
-	                </div>
+                    <div class="comment-main">
+                        저도 거기 다녀왔는데 정말 좋더라고요~ 굿즈asfdddddddddddddddddddddsdaaaaaaaaaaaaaaaaaas도 다 너무 예뻣더라는..
+                    </div>
+                    <div class="comment-info">
+                        <div> 2022.11.26 18:38</div>
+                        <div class="re-comment"><a href="">답글쓰기</a></div>
+                    </div>
                 </section>
                 <div class="comment-page">
                     <a href=""  >1</a>

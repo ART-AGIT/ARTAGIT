@@ -5,8 +5,9 @@ window.addEventListener("load", function() {
 	
 	ul.onclick = function(e) {
 		e.preventDefault();
-
+console.log(e.target);
 		const el = e.target;
+		
 		if (el.tagName != "LI" && el.tagName != "SPAN")
 			return;
 
@@ -32,17 +33,18 @@ window.addEventListener("load", function() {
 		
 	console.log(queryString);
 	fetch(
-		`/api/boards${queryString}`)
+		`/boardApi/boards${queryString}`)
 		.then((response) => 
 			response.json())
 		.then((list) => {
 			boardbox.innerHTML="";
 		for (let board of list) {
+			if(board.image!=null){
 			let template = ` 
 		<form action="list" method="post">
         <section class="board-list">
         <h1 class="board-title">
-         	<a href ="${board.id}">${board.title}</a>
+         	<a href = "/member/board/${board.id}">${board.title}</a>
         </h1>
         <div>[${board.name}]</div>
         <div class="board-regdate">1분전</div>
@@ -67,7 +69,7 @@ window.addEventListener("load", function() {
             </div>
         </div>
         <div class="board-post-img-box">
-            <img class="post-img"src="../image/anonymousProject.png"></img>
+           <img src="/image/${board.image}" class="post-img">
         </div>
           </section>
     </form>
@@ -75,7 +77,47 @@ window.addEventListener("load", function() {
     <div class="writing-img-box">
         <a href = "./reg"><img src = "../image/writing-img.png"></img></a>
     </div>`;
-				
+				}
+					else{
+			let template = ` 
+		<form action="list" method="post">
+        <section class="board-list">
+        <h1 class="board-title">
+         	<a href = "/member/board/${board.id}">${board.title}</a>
+        </h1>
+        <div>[${board.name}]</div>
+        <div class="board-regdate">1분전</div>
+        <div class="board-writer-info">
+                <img class="profile" src = "../image/accountImage.png">
+            <div>${board.memId}</div>
+        </div>
+        
+        <div class="board-post-info">
+            
+            <div class="view">
+                <div class="icon icon-view">조회수 아이콘</div>
+                <div>11</div>
+            </div>
+            <div class="like-up">
+                <div class="icon icon-like-up">좋아요 아이콘</div>
+                <div>11</div>
+            </div>
+            <div class="comment">
+                <div class="icon icon-comment">댓글 아이콘</div>
+                <div>11</div>
+            </div>
+        </div>
+        <div class="board-post-img-box">
+           <img src="/image/${board.image}" class="post-img">
+        </div>
+          </section>
+    </form>
+
+    <div class="writing-img-box">
+        <a href = "./reg"><img src = "../image/writing-img.png"></img></a>
+    </div>`;
+				}
+			
 			
 				let el = new DOMParser().parseFromString(template, "text/html").body.firstElementChild;
 				//body를 지우면 body안쪽만 나온다. firstelement를 만들겠다.

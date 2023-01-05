@@ -31,12 +31,44 @@
 		limit #{offset}, #{size}
 	</select>
 	
+	<select id="getListByMemberId" resultType="com.artagit.web.entity.ExhibitionView">
+		select 
+			E.*,
+			(select count(exhId) from ExhLike where exhId = E.id group by exhId) hearts,
+			(select memId from ExhLike where exhId = E.id and memId = #{memberId}) memberId
+		from Exhibition E
+		<trim prefix="WHERE" prefixOverrides="AND | OR">
+			<if test="museumId != null and museumId != 0">
+				museumId = #{museumId}
+			</if>
+			<if test="stateId != null and stateId != 0">
+				AND stateId = #{stateId}
+			</if>
+			
+			and useYN = "Y"
+			<if test="cateId == null or cateId == 0 or cateId == 1">
+				order by startDate desc
+			</if>
+			<if test="cateId == 2">
+				order by hearts desc
+			</if>
+		</trim>
+		limit #{offset}, #{size}
+	</select>
 	
 	
 	
-	<select id="get" resultType="com.artagit.web.entity.Exhibition">
+	
+	<select id="get" resultType="com.artagit.web.entity.ExhibitionView">
+		select 
+			E.*,
+			(select memId from ExhLike where exhId = E.id and memId = #{memberId}) memberId
+		from Exhibition E
+		where id = #{id}
+	</select>
+	<select id="getexh" resultType="com.artagit.web.entity.Exhibition">
 		select * from Exhibition
-			where id = #{id}
+		where id=#{id}
 	</select>
 	<select id="getListByID" resultType="com.artagit.web.entity.Exhibition">
 		select * from Exhibition
@@ -70,9 +102,12 @@
 		ticketStock,
 		artist,
 		memId,
-<!-- 		cateId, -->
-<!-- 		stateId, -->
-		museumId)
+		cateId,
+		stateId,
+		museumId,
+		useYN,
+		corpId,
+		corpLocalId)
 		VALUES
 		(#{name},
 		#{content},
@@ -86,19 +121,29 @@
 		#{ticketStock},
 		#{artist},
 		#{memId},
-<!-- 		#{cateId}, -->
-<!-- 		#{stateId}, -->
-		#{museumId});
+		#{cateId},
+		#{stateId},
+		#{museumId},
+		#{useYN},
+		#{corpId},
+		#{corpLocalId});
 	</insert>
 	
+	<!-- 주최자가 등록한 전시 수정 -->
  	<update id="update" parameterType="com.artagit.web.entity.Exhibition">
  		update Exhibition 
-<!--  		<set>
+ 		<set>
  			<if test="name != null">name = #{name},</if>
+ 			<if test="content != null">content = #{content},</if>
  			<if test="price != null">price = #{price},</if>
- 			<if test="img != null">img = #{img},</if>
- 		</set> -->
- 		set name = #{name}
+ 			<if test="startDate != null">startDate = #{startDate},</if>
+ 			<if test="endDate != null">endDate = #{endDate},</if>
+ 			<if test="startTime != null">startTime = #{startTime},</if>
+ 			<if test="endTime != null">endTime = #{endTime},</if>
+ 			<if test="ticketPrice != null">ticketPrice = #{ticketPrice},</if>
+ 			<if test="ticketStock != null">ticketStock = #{ticketStock},</if>
+ 			<if test="artist != null">artist = #{artist},</if>
+ 		</set>
  			where id = #{id}
  	</update>
 

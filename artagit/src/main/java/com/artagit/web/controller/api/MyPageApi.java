@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.artagit.web.entity.ArtagitUserDetails;
 import com.artagit.web.entity.Booking;
 import com.artagit.web.entity.BookingList;
 import com.artagit.web.entity.Review;
@@ -18,7 +20,7 @@ import com.artagit.web.service.BookingService;
 import com.artagit.web.service.ReviewService;
 
 @RestController
-@RequestMapping("/mypage")
+@RequestMapping("/member/mypage")
 public class MyPageApi {
 
 	@Autowired
@@ -30,9 +32,10 @@ public class MyPageApi {
 	/*-----------리뷰등록------*/ 
 	@PostMapping("/review/reg/{id}")
 	@Transactional
-	public Map<String,Object> reg(Review review,Booking booking,@PathVariable("id") int payId){//(@RequestParam ("review-id") int reviewId , String content){
+	public Map<String,Object> reg(Review review,Booking booking,@PathVariable("id") int payId
+			,@AuthenticationPrincipal ArtagitUserDetails user){
 
-		System.out.println("-------"+review.getColor());
+		System.out.println("3.user -------"+review.getColor());
 //		System.out.println("2 리뷰 등록창 들어옴!!");
 		System.out.println("2 . review-------- : "+review);
 		BookingList booking2 = bookingService.getReviewByBookingId(payId);

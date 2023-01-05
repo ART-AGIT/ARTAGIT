@@ -1,5 +1,7 @@
 package com.artagit.web.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Mapper;
 
 import com.artagit.web.entity.ExhLike;
@@ -13,7 +15,7 @@ public interface ExhLikeDao {
 
 	int getLikeByExhId(int exhId);
 
-	int getLikeByMemId(int memId);
+	List<ExhLike> getLikeByMemId(int memId);
 
 	int count(int exhId);
 

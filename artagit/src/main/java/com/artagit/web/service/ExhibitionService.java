@@ -3,7 +3,9 @@ package com.artagit.web.service;
 import java.sql.SQLSyntaxErrorException;
 import java.util.List;
 
+import com.artagit.web.entity.Corporate;
 import com.artagit.web.entity.Exhibition;
+import com.artagit.web.entity.ExhibitionView;
 
 // 직접적인 서비스 모음
 public interface ExhibitionService {
@@ -15,27 +17,31 @@ public interface ExhibitionService {
 	// 모든 전시 목록 불러오는 메서드
 	List<Exhibition> getList(int page, int museum, int state, int category);
 	
+	ExhibitionView getExhById(int exhId, int memberId);
 	Exhibition getExhById(int exhId);
 	
 
 //	void update(Exhibition exhibition);
-	void update(int id, String name);
 
-
+	// [주최자] 나의 등록전시 수정
+	int update(int id);
 	
-	//내가 등록한 전시 리스트 
+	// [주최자] 나의 등록전시 리스트
 	List<Exhibition> getListById(int id);
+	
 	int countOfExh(int memId);
 
 	List<Exhibition> getListByCategory(int page, int museum, int state, int category);
-
 
 
 	List<Exhibition> getListtt(int memId);
 
 
 	//내가 등록한 전시 삭제하기
-	void delete(int id);
+	//void delete(int id);
+	// [주최자] 나의 등록전시 삭제
+	int delete(int id);
+
 	
 
 	// 업체가 등록한 전시 상세페이지
@@ -50,5 +56,12 @@ public interface ExhibitionService {
 
 
 	List<Exhibition> getListBySearch(String query) throws SQLSyntaxErrorException;
+
+	List<ExhibitionView> getListByMemberId(int page, int museum, int state, int category, int memberId);
+
+	
+	//전시 등록 
+	int insert(Exhibition exhibition);
+
 
 }

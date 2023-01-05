@@ -1,29 +1,26 @@
 window.addEventListener("load", function(){
+    const imgInput = document.querySelector(".input-image-button1")
+	const fileInput = document.querySelector(".input-image1");
 
-    let section = this.document.querySelector(".post-option");
-    let box = section.querySelector(".select-box");
-    var options = box.querySelectorAll(".option");
-    const label = box.querySelector(".label");
+	imgInput.onclick = function(e) {
 
-	box.onclick = function(e){
-		e.preventDefault();
-		current=document.querySelector(".active");
-		const el = e.target;
-		console.log(el);
-		if(el==label)
-			box.classList.add('active');
+		let event = new MouseEvent("click", {
+			'view': window,
+			'bubble': true,
+			'cancelable': true
+		});
 
-		
-	};
+		fileInput.dispatchEvent(event);
+	}
+
+	fileInput.oninput = function(e) {
+		let url = fileInput.files[0];
+		let reader = new FileReader();
+		reader.onload = (evt) => {
+			imgInput.src = evt.target.result;
+		};
+		reader.readAsDataURL(url);
+	}
+
 	
-	
-
-
-		options.forEach(function(option){
-	  	option.addEventListener('click', function(e){
-			  e.preventDefault();
-			   label.innerHTML = option.textContent;
-	  		   box.classList.remove("active");
-		})
-	})
 	})

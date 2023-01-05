@@ -4,24 +4,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="../../css/reset.css" text="text/css" rel="stylesheet" >
-    <link href="../../css/deco.css" text="text/css" rel="stylesheet" >
-    <link href="../../css/style.css" type="text/css" rel="stylesheet">
+    <link href="../../../css/reset.css" text="text/css" rel="stylesheet" >
+    <link href="../../../css/deco.css" text="text/css" rel="stylesheet" >
+    <link href="../../../css/style.css" type="text/css" rel="stylesheet">
 
-    <link href="../../css/icon.css" type="text/css" rel="stylesheet">
-    <link href="../../css/button.css" type="text/css" rel="stylesheet">
-    <link href="../../css/member/mypage/review-detail.css" type="text/css" rel="stylesheet">
-    <link href="../../css/form.css" type="text/css" rel="stylesheet">
+    <link href="../../../css/icon.css" type="text/css" rel="stylesheet">
+    <link href="../../../css/button.css" type="text/css" rel="stylesheet">
+    <link href="../../../css/member/mypage/review-detail.css" type="text/css" rel="stylesheet">
+    <link href="../../../css/form.css" type="text/css" rel="stylesheet">
     
 
-    <link href="../../css/header.css" type="text/css" rel="stylesheet">
-    <link href="../../css/footer.css" type="text/css" rel="stylesheet">
-    <link href="../../css/utils.css" type="text/css" rel="stylesheet">
+    <link href="../../../css/header.css" type="text/css" rel="stylesheet">
+    <link href="../../../css/footer.css" type="text/css" rel="stylesheet">
+    <link href="../../../css/utils.css" type="text/css" rel="stylesheet">
     <title>Document</title>
 
 
 </head>
-<script src="../../js/review-detail.js"></script>
+<script src="../../../js/review-detail.js"></script>
 <!-- <script src="../../js/header-menu.js"></script> -->
 <body>
     
@@ -65,18 +65,20 @@
         <h2 class="review">리뷰 보기</h2>
 
         <form action ="/review/reg" method="POST" id="form">
-	        <div class="review-form" >
 	        
-<!-- 	            <div class="box" th:if="${review}" th:style="|background-color:${review.color}|" > -->
-<!-- 				<div class="box"  th:if="${review}"  th:style="|background-color:${review.color}|" > -->
-<!-- 				<div class="box"  th:if="!${review}"  > -->
-	            
+	        <div class="review-form" >
+				
+<!-- 				<div class="box"  th:style="|background-color:${review.color}|"> -->
+<!-- 					<div class="box" th:unless="${review}" th:style="|background-color:#cbd5f7|">  -->
+					<!-- <div class="box" th:style="${review ? background-color:${review.color}"> -->	
+<!-- 				<div class="box"  th:if="${review}" th:style="|background-color:${review.color}|" > -->
 	            <div class="box">
 	                <div class="write-form" >
 	                    <div class="content" th:text="${review.content}" th:if="${review}">리뷰 작성중</div>
 	                    <textarea name ="content" class="input" placeholder="리뷰를 작성해주세요" th:if="!${review}"></textarea>
 	                   
 	                </div>
+	                
 	                <div class="detail-info">
 	                    <div>
 	                        <label class="exh-name" th:text="${booking.exhName}" id="exhName">함스부르크 600년,매혹의 걸작들</label>
@@ -91,34 +93,31 @@
 	                    </div>
 	                    
 	                    <div >
-<!-- 	                        <a  th:href="@{/mypage/review/del/{id}(id = ${review.id})}" ><img class="trash-img d-none" src="../../image/trash.png"></a> -->
-	<!--                         th:attr="data-id=${review.id}" th:href="@{review/(id=${review.id})/delete}" -->
-							<a  th:href="@{/mypage/review/del/{id}(id = ${review.id})}" th:if="${review}" class="trash"><img class="trash-img" src="../../image/trash.png"></a>
+							<a  th:href="@{/member/mypage/review/del/{id}(id = ${review.id})}" th:if="${review}" class="trash"><img class="trash-img" src="../../../image/trash.png"></a>
 	                    </div>
-	                
 	                </div>
+	                  
 	            </div>
-	            </div>
-	        </div>
+			</div>
    		 
         
-		        <div class="review-option-list">
-		            <span class="review-option">
-		                <input type="radio" name="공개여부">
-		                <label>공개</label>
-		            </span>
-		
-		            <span class="review-option">
-		                <input type="radio" name="공개여부">
-		                <label>비공개</label>
-		            </span>    
-		        </div>
+	        <div class="review-option-list">
+	            <span class="review-option">
+	                <input type="radio" name="공개여부">
+	                <label>공개</label>
+	            </span>
+	
+	            <span class="review-option">
+	                <input type="radio" name="공개여부">
+	                <label>비공개</label>
+	            </span>    
+	        </div>
 
         <div class="review-button-list">
         	<input type="hidden" class= "bookingId" name="bookingId" th:value="${bookingId}"></input>
         	<input class="btn btn-default btn-default-fill btn-reg" type="submit"  th:if="!${review}" value="등록"></input>
-            <input class="btn btn-default btn-default-fill btn-mod" type="submit"  th:if="${review}" value="수정"></input>
-            <a class="btn btn-default btn-default-line btn-exit" type="button" href="../review/list" value="닫기">닫기</a>
+            <a class="btn btn-default btn-default-fill btn-mod" type="button"  th:if="${review}"  value="수정" th:href="@{/member/mypage/review/update/{id}(id = ${review.id})}">수정</a>
+            <a class="btn btn-default btn-default-line btn-exit" type="button" href="/member/mypage/review/list" value="닫기">닫기</a>
         </div>
         </form>
     </main>
@@ -138,8 +137,5 @@
             <small>Copyright 2022. ARTAGIT All rights reserved.</small>
         </div>
     </footer>
-
-
-
 </body>
 </html>

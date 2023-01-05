@@ -10,15 +10,13 @@ public class Board {
 	private String content;
 	private String image;
 	private int hit;
-	private int like;
 	private Date regDate;
 	private Date modiDate;
 	
-	public Board() {
-		// TODO Auto-generated constructor stub
-	}
-
-	public Board(int id, int roleId, int memId, String title, String content, String image, int hit,int like, Date regDate,
+public Board() {
+	// TODO Auto-generated constructor stub
+}
+	public Board(int id, int roleId, int memId, String title, String content, String image, int hit, Date regDate,
 			Date modiDate) {
 		super();
 		this.id = id;
@@ -28,11 +26,12 @@ public class Board {
 		this.content = content;
 		this.image = image;
 		this.hit = hit;
-		this.like = like;
 		this.regDate = regDate;
 		this.modiDate = modiDate;
+		
 	}
 	
+
 	public int getId() {
 		return id;
 	}
@@ -75,15 +74,6 @@ public class Board {
 	public void setHit(int hit) {
 		this.hit = hit;
 	}
-	
-	public int getLike() {
-		return like;
-	}
-
-	public void setLike(int like) {
-		this.like = like;
-	}
-
 	public Date getRegDate() {
 		return regDate;
 	}

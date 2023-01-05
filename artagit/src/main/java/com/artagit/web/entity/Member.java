@@ -14,14 +14,15 @@ public class Member {
    private int roleId;
    private String image;
    private String useYN;
+   private String tmpPassword;
    
 
 public Member() {
-      // TODO Auto-generated constructor stub
+	
    }
 
    public Member(int id, String loginId, String password, String name, String phone, String nickname, String email,
-         Date regDate, int roleId, String image) {
+         Date regDate, int roleId, String image, String tmpPassword) {
       this.id = id;
       this.loginId = loginId;
       this.password = password;
@@ -32,9 +33,8 @@ public Member() {
       this.regDate = regDate;
       this.roleId = roleId;
       this.image = image;
-      
+      this.tmpPassword = tmpPassword;
    }
-   
    
 
    public int getId() {
@@ -118,17 +118,24 @@ public Member() {
    }
    
    public String getUseYN() {
-	return useYN;
-}
+	   return useYN;
+   }
 
    public void setUseYN(String useYN) {
-	 this.useYN = useYN;
-}
+	   this.useYN = useYN;
+   }
 
+   public String getTmpPassword() {
+	   return tmpPassword;
+   }
 
-   @Override
+	public void setTmpPassword(String tmpPassword) {
+		this.tmpPassword = tmpPassword;
+	}
+
+@Override
    public String toString() {
-      return "Member [id=" + id + ", loginId=" + loginId + ", password=" + password + ", name=" + name + ", phone="
+      	return "Member [id=" + id + ", loginId=" + loginId + ", password=" + password + ", name=" + name + ", phone="
             + phone + ", nickname=" + nickname + ", email=" + email + ", regDate=" + regDate + ", roleId=" + roleId
             + ", image=" + image + "]";
    }

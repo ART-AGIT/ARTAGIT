@@ -1,9 +1,7 @@
 package com.artagit.web.entity;
-	
+
 public class Exhibition {
 	private int id;
-	private int memId;
-	private int cateId;
 	private String name;
 	private String content;
 	private String poster;
@@ -15,65 +13,16 @@ public class Exhibition {
 	private int ticketPrice;
 	private int ticketStock;
 	private String artist;
+	private int memId;
+	private int cateId;
 	private int stateId;
 	private int museumId;
 	private int corpId;
 	private int corpLocalId;
-	
-	
-	
-	// NN 제거한 생성자. 전시 등록 시 사용되는 생성자
-	public Exhibition(int memId, int cateId, String name, String poster,
-			String startDate, String endDate, String startTime, String endTime, int ticketPrice, int ticketStock,
-			String artist, int stateId, int museumId) {
-		this.memId = memId;
-		this.cateId = cateId;
-		this.name = name;
-		this.poster = poster;
-		this.startDate = startDate;
-		this.endDate = endDate;
-		this.startTime = startTime;
-		this.endTime = endTime;
-		this.ticketPrice = ticketPrice;
-		this.ticketStock = ticketStock;
-		this.artist = artist;
-		this.stateId = stateId;
-		this.museumId = museumId;
-	}
-	
-	// 전시 정보를 모두 불러올 때 사용되는 생성자
-	public Exhibition(int id, int memId, int cateId, String name, String content, String poster, String detailImage,
-			String startDate, String endDate, String startTime, String endTime, int ticketPrice, int ticketStock,
-			String regDate, String artist, int stateId, int museumId,int corpId,int corpLocalId) {
-		this.id = id;
-		this.memId = memId;
-		this.cateId = cateId;
-		this.name = name;
-		this.content = content;
-		this.poster = poster;
-		this.detailImage = detailImage;
-		this.startDate = startDate;
-		this.endDate = endDate;
-		this.startTime = startTime;
-		this.endTime = endTime;
-		this.ticketPrice = ticketPrice;
-		this.ticketStock = ticketStock;
-		this.artist = artist;
-		this.stateId = stateId;
-		this.museumId = museumId;
-		this.corpId =corpId;
-		this.corpLocalId = corpLocalId;
-	}
-	
+	private String useYN;
 
-	@Override
-	public String toString() {
-		return "Exhibition [id=" + id + ", memId=" + memId + ", cateId=" + cateId + ", name=" + name + ", content="
-				+ content + ", poster=" + poster + ", detailImage=" + detailImage + ", startDate=" + startDate
-				+ ", endDate=" + endDate + ", startTime=" + startTime + ", endTime=" + endTime + ", ticketPrice="
-				+ ticketPrice + ", ticketStock=" + ticketStock + ", artist=" + artist
-				+ ", stateId=" + stateId + ", museumId=" + museumId + ", corpId=" + corpId + ", corpLocalId=" + corpLocalId + "]";
-		
+	public Exhibition() {
+		// TODO Auto-generated constructor stub
 	}
 
 	public int getId() {
@@ -82,22 +31,6 @@ public class Exhibition {
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public int getMemId() {
-		return memId;
-	}
-
-	public void setMemId(int memId) {
-		this.memId = memId;
-	}
-
-	public int getCateId() {
-		return cateId;
-	}
-
-	public void setCateId(int cateId) {
-		this.cateId = cateId;
 	}
 
 	public String getName() {
@@ -180,13 +113,28 @@ public class Exhibition {
 		this.ticketStock = ticketStock;
 	}
 
-
 	public String getArtist() {
 		return artist;
 	}
 
 	public void setArtist(String artist) {
 		this.artist = artist;
+	}
+
+	public int getMemId() {
+		return memId;
+	}
+
+	public void setMemId(int memId) {
+		this.memId = memId;
+	}
+
+	public int getCateId() {
+		return cateId;
+	}
+
+	public void setCateId(int cateId) {
+		this.cateId = cateId;
 	}
 
 	public int getStateId() {
@@ -221,11 +169,22 @@ public class Exhibition {
 		this.corpLocalId = corpLocalId;
 	}
 
-	public Exhibition() {
-		// TODO Auto-generated constructor stub
+	public String getUseYN() {
+		return useYN;
 	}
-	
 
+	public void setUseYN(String useYN) {
+		this.useYN = useYN;
+	}
 
-	
+	@Override
+	public String toString() {
+		return "Exhibition [id=" + id + ", name=" + name + ", content=" + content + ", poster=" + poster
+				+ ", detailImage=" + detailImage + ", startDate=" + startDate + ", endDate=" + endDate + ", startTime="
+				+ startTime + ", endTime=" + endTime + ", ticketPrice=" + ticketPrice + ", ticketStock=" + ticketStock
+				+ ", artist=" + artist + ", memId=" + memId + ", cateId=" + cateId + ", stateId=" + stateId
+				+ ", museumId=" + museumId + ", corpId=" + corpId + ", corpLocalId=" + corpLocalId + ", useYN=" + useYN
+				+ "]";
+	}
+
 }

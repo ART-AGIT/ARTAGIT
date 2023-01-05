@@ -1,10 +1,12 @@
 package com.artagit.web.controller.member;
 
+import java.security.Principal;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.artagit.web.entity.ArtagitUserDetails;
 import com.artagit.web.entity.Board;
 import com.artagit.web.entity.Booking;
 import com.artagit.web.entity.BookingList;
@@ -29,7 +32,7 @@ import com.artagit.web.service.ReviewService;
 
 
 @Controller
-@RequestMapping("/mypage")
+@RequestMapping("/member/mypage")
 public class MypageController {
 	
 	@Autowired 
@@ -49,10 +52,10 @@ public class MypageController {
 	
 	/*-----------예매내역리스트------*/ 
 	@GetMapping("/review/list")
-	public String list(Model model) {
+	public String list(Model model,@AuthenticationPrincipal ArtagitUserDetails user) {
 		
-		int memId =58;
-		List<BookingList> bookingList = bookingService.getListById(memId);
+		System.out.println("1. user==========="+user);
+		List<BookingList> bookingList = bookingService.getListById(user.getId());
 		int countOfBooking = bookingList.size();
 		
 		for(int i=0;i<countOfBooking;i++) {
@@ -72,38 +75,34 @@ public class MypageController {
 	/*-----------리뷰보기------*/ 
 	//url에 들어갈 id는 booking
 	@GetMapping("/review/{id}")
-	public String detail(@PathVariable("id")int id, Model model){
-		//id= book
-//		System.out.println("1 리뷰리스트창 들어옴!!");
+	public String detail(@PathVariable("id")int id, Model model,@AuthenticationPrincipal ArtagitUserDetails user){
+
 		BookingList booking = bookingService.getReviewByBookingId(id);
-//		System.out.println(booking);
 		Payment payment = payService.findByBookingId(booking.getBookingId());
 		int payId = payment.getId();
-		
-		//지금이렇게!!!!!!!
+
 		Review review = reviewService.get(payId);
-		System.out.println("상세페이지");
 		model.addAttribute("booking",booking);
 		model.addAttribute("review",review);
 		model.addAttribute("bookingId",booking.getBookingId());
-		//System.out.println(booking.getBookingId());
-//		System.out.println("1. booking아이디 : "+booking);
-//		System.out.println("1 . review-------- : "+review);
-
+		System.out.println("2. user==========="+user);
 		return "member/mypage/review-detail";
+	}
+	/*-----------리뷰수정------*/
+	@GetMapping("/review/update/{id}")
+	public String update(@PathVariable("id") int id,@AuthenticationPrincipal ArtagitUserDetails user,Review review) {
+		System.out.println("~~~~~~~~~~~~~~~");
+//		int result = reviewService.update()
+		//int result = reviewService.del(id);
+		return "member/mypage/revie-update";
 	}
 	
 	
 	/*-----------리뷰삭제------*/ 
-	
 	@GetMapping("/review/del/{id}")
-	public String delete(@PathVariable("id") int id) {
-		System.out.println("삭제 들옴!!");
-		System.out.println(id);
+	public String delete(@PathVariable("id") int id,@AuthenticationPrincipal ArtagitUserDetails user) {
 		int result = reviewService.del(id);
-		System.out.println(result);
-		return "member/mypage/booking-list";
-		
+		return "redirect:/member/mypage/review/list";
 	}
 
 }
