@@ -1,3 +1,17 @@
+input[type="time"], input[type="date"] {
+	cursor: pointer;
+}
+
+input[type="date" i], input[type="time" i] {
+    /* display: f; */
+    color: #545454;
+    font-family: Pretendard;
+    padding-inline-start: 1px;
+    padding: 0 10px 0 0;
+    overflow: hidden;
+    font-weight: 400;
+}
+
 #exh-reg-main .exh-reg-list{
     
     display: flex;
