@@ -100,20 +100,13 @@
             <section class="post-option">
                 <div class="first-line">
                 <h1 class="d-none">글작성 옵션</h1>
-                
-                <div class="select-box">
-                    <div class="label">전체</div>
-                    <ul class="category" name="roleId">
-                      <li class="option" value="1">
-                      자유</li>
-                      <li class="option" value="2">
-                      전시후기</li>
-                      <li class="option" value="3">
-                      맛집후기</li>
-                      <li class="option" value="4">
-                      같이가요</li>
-                    </ul>
-                </div>
+              
+                    <select class="category" name="roleId">
+                      <option class="option" value=1>자유</option>
+                      <option class="option" value=2>전시후기</option>
+                      <option class="option" value=3>맛집후기</option>
+                      <option class="option" value=4>같이가요</option>
+                    </select>
                 
                 
                 <div class="save-temp">
@@ -134,14 +127,14 @@
                     <label class="d-none" for="" >내용</label>
                     <textarea class="input" id="content" name="content" placeholder="내용을 입력해주세요."></textarea>
                 </div>
-                  <div class="reg-list-input-box detail">
+               
+                <div class="reg-list-input-box detail">
                     <div class="reg-list-input-box-image">
                         <!-- <label for="input-image2" class="input-image-button"> -->
                             <img src="../../image/camera.svg" class="input-image-button input-image-button1">
                             <input name="img" type="file" class="input-image1 d-none">
                             <!-- <div class="input-image-camera"></div> -->
                     </div>
-
                 </div>
             </section>
         </form>

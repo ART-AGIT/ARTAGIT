@@ -40,7 +40,6 @@
 		update Board 
 		<set>
 			title = #{title}
-			
 		</set>
 		where id =#{id}
 	</update>

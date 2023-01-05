@@ -42,9 +42,9 @@ public class BoardController {
 		Model model,
 		HttpSession session){
 			
-		List<BoardListView> list = service.getList(page);
+		List<BoardListView> list = service.getListInit(page);
 		model.addAttribute("list",list);
-//		
+	
 		
 		return "board/list";
 			
