@@ -24,10 +24,7 @@ public class ExhibitionController2 {
 	
 	@Autowired
 	private ExhibitionService service;
-	
-	@Autowired
-	private ExhLikeService likeService;
-	
+
 	@Autowired
 	private MuseumService museumService;
 	
@@ -40,20 +37,16 @@ public class ExhibitionController2 {
 			@AuthenticationPrincipal ArtagitUserDetails user
 			) {
 		
+		//멤버 아이디 설정
 		int memberId;
 		if(user == null)
 			memberId = 0;
 		else
 			memberId = user.getId();
 		
-		//List<ExhibitionView> lists = service.getList(page,0,0,0);
 		List<ExhibitionView> lists = service.getListByMemberId(page,0,0,0,memberId);
 
-//		List<ExhLike> likeLists = likeService.getListByMemberId(user.getId());
-//		System.out.println(lists);
-		
 		model.addAttribute("lists", lists);
-//		model.addAttribute("likeLists", likeLists);
 		
 		return "exhibition/list";
 	}

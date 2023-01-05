@@ -12,20 +12,21 @@
     <link href="../css/button.css" type="text/css" rel="stylesheet">
     <link href="../css/form.css" type="text/css" rel="stylesheet">
     <link href="../css/input.css" type="text/css" rel="stylesheet">
-    
-    <link href="../css/reg-component.css" type="text/css" rel="stylesheet">
+
+    <link href="css/component/reg.css" type="text/css" rel="stylesheet">
     <link href="../css/header.css" type="text/css" rel="stylesheet">
     <link href="../css/footer.css" type="text/css" rel="stylesheet">
     <link href="../css/signup.css" type="text/css" rel="stylesheet">
 
     <link href="../css/utils.css" type="text/css" rel="stylesheet">
 </head>
-<script src="../js/header-menu.js"></script>
+<script src="js/header-menu.js"></script>
+<script src="js/signup.js"></script>
 <body>
     <header class="header">
         <section class="header-wrapper">
             <div class="header-box">
-                <h1 class="logo"><a href="">Art Agit</a></h1>
+                <h1 class="logo"><a href="index.html">Art Agit</a></h1>
                 <ul class="d-none">
                     <!-- <li><a href="">전시</a></li>
                     <li><a href="">커뮤니티</a></li>
@@ -39,14 +40,14 @@
                 <div class="sub-menu">
                     <div class="sub-menu-1">
                         <ul>
-                            <li><a href="">전시</a></li>
-                            <li><a href="">커뮤니티</a></li>
+                            <li><a href="exhibition/list.html">전시</a></li>
+                            <li><a href="board/list.html">커뮤니티</a></li>
                             <li><a href="">-</a></li>
                         </ul>
                     </div>
                     <div class="sub-menu-2">
                         <ul>
-                            <li><a href="">로그인</a></li>
+                            <li><a href="login.html">로그인</a></li>
                             <li><a href="">검색</a></li>
                             <li><a href="">고객센터</a></li>
                         </ul>
@@ -56,45 +57,81 @@
         </section>
     </header>
 
+    <!-- =====pc버젼 용 html============ -->
+    <header class="header-pc">
+        <div class="content-box">
+            <h1 class="logo">
+                <a href="index.html">Art Agit</a>
+            </h1>
+            <section>
+                <h1 class="d-none">메인메뉴</h1>
+                <nav class="main-menu">
+                    <h1 class="d-none">목록선택</h1>
+                    <ul>
+                        <li>
+                            <a href="exhibition/list.html">전시</a>
+                            <ul class="sub-menu">
+                                <li><a href="exhibition/list.html">진행 전시</a></li>
+                                <li><a href="exhibition/list.html">전시 예정</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="board/list.html">커뮤니티</a>
+                            <ul class="sub-menu">
+                                <li><a href="board/list.html">-</a></li>
+                                <li><a href="board/list.html">-</a></li>
+                            </ul>
+                        </li>
+                        <li class="search-btn">
+                            <a href="">검색</a>
+                            <div>
+                                <input type="text" class="search">
+                                <!-- <img src="../image/icons/search.svg" alt=""> -->
+                            </div>
+                        </li>
+                        <li><a href="login.html">로그인</a></li>
+                    </ul>
+
+                </nav>
+            </section>
+        </div>
+    </header>
+
     <main class="main-container">
         <section class="reg-list">
-            <form action="signup" method="post">
+            <form action="" method="post">
                 <h1>회원정보 입력</h1>
-                <div class="reg-list-input-box">
+                <div class="reg-list-input-box value-check-box">
                     <label for="login-id">아이디</label>
-                    <div>
-                        <input name= "loginId" id="login-id" type="text" required class="input input-md">
-                        <input name="loginId" id="login-id" type="text" required class="input input-md">
-                        <button class="btn btn-default btn-default-fill">중복확인</button>
-                    </div>
+                    <input id="login-id" name="loginId" type="text" required class="input input-lg input-check">
+                    <span class="confirm-name d-none">사용 가능한 아이디입니다</span>
                 </div>
                 <div class="reg-list-input-box">
                     <label for="password">비밀번호</label>
-                    <input name="password" id="password" type="password" required class="input input-lg" placeholder="영문자, 숫자, 특수문자 포함 8자 이상">
+                    <input id="password" name="password" type="password" required class="input input-lg" placeholder="영문자, 숫자, 특수문자 포함 8자 이상">
                 </div>
                 <div class="reg-list-input-box">
                     <label for="password-check">비밀번호 확인</label>
-                    <input name="password" id="password-check" type="password" required class="input input-lg" placeholder="영문자, 숫자, 특수문자 포함 8자 이상">
-                    <input id="password-check" type="password" required class="input input-lg" placeholder="영문자, 숫자, 특수문자 포함 8자 이상">
+                    <input id="password-check" name="password-check" type="password" required class="input input-lg" placeholder="영문자, 숫자, 특수문자 포함 8자 이상">
                 </div>
                 <div class="reg-list-input-box">
                     <label for="name">이름</label>
-                    <input name="name" id="name" type="text" class="input input-lg">
+                    <input id="name" name="name" type="text" class="input input-lg">
                 </div>
                 <div class="reg-list-input-box">
                     <label for="nickname">닉네임</label>
-                    <input name="nickname" id="nickname" type="text" class="input input-lg">
+                    <input id="nickname" name="nickname" type="text" class="input input-lg">
                 </div>
                 <div class="reg-list-input-box">
                     <label for="email">이메일</label>
-                    <input name="email" id="email" type="email" class="input input-lg">
+                    <input id="email" name="email" type="email" class="input input-lg">
                 </div>
                 <div class="reg-list-input-box">
                     <label for="phone">휴대폰</label>
-                    <input name="phone" id="phone" type="text" class="input input-lg">
+                    <input id="phone" name="phone" type="text" class="input input-lg">
                 </div>
                 <div class="reg-button-box">
-                    <button type="submit" class="btn btn-default btn-default-fill btn-login-xl">가입하기</button>
+                    <button type="submit" class="btn btn-default btn-default-fill btn-xl btn-default-fill-off">가입하기</button>
                 </div>
             </form>
         </section>

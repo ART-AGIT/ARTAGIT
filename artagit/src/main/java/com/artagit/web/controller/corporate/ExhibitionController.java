@@ -10,8 +10,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.artagit.web.entity.ArtagitUserDetails;
 import com.artagit.web.entity.Corporate;
@@ -87,16 +85,20 @@ public class ExhibitionController {
 	}
 
 	// 주최자가 등록한 전시 수정 ========================
-	@GetMapping("update")
-	public String update(Exhibition exhibition, Corporate corporate) {
-//		System.out.println("수정한 전시 ===> "+ id);
-		service.update(exhibition.getId());
-//		service.update(exhibition.getId());
-//		corporateService.update(id);
-//		museumService.update(id);
+	@PostMapping("update")
+	public String update(int id) {
+//	(Exhibition exhibition, Corporate corporate, Local local) {
+		System.out.println("어디까지 왔니");
+//		Exhibition exh = service.getExhById(id);
+		service.update(id);
+//		Corporate corporate = corporateService.getCorpById(exh.getCorpId());
+//		corporateService.update(exh.getCorpId());
+//		localService.update(corporate.getLocalId());
+//		
 //		System.out.println(id+"번 전시 수정완료");
+		System.out.println("수정한 전시==>" + id);
 		
-		return "redirect:corp/exh/{id}";
+		return "redirect:detail";
 	}
 	
 	// 주최자가 등록한 전시 삭제 ========================
@@ -146,8 +148,23 @@ public class ExhibitionController {
 //		}
 		return "redirect:list";
 	}
+
+	// 주최자가 등록한 전시 데이터 수정페이지에 불러오기
+	@GetMapping("modify/{id}")
+	public String getBeforeUpdate(@PathVariable("id") int exhId, Model model) {
 		
+		System.out.println("가져온 전시 정보 id ===> "+ exhId);
 		
+		Exhibition exh = service.getExhById(exhId);
+		model.addAttribute("exh", exh);
+		Corporate corporate = corporateService.getCorpById(exh.getCorpId());
+		model.addAttribute("corporate",corporate);
+		Local local = localService.getLocalById(corporate.getLocalId());
+		model.addAttribute("local",local);
+		
+		return "corporator/mypage/exh-modify"; // 전시를 등록하는 페이지 (재활용)
+	}
+//		
 //	// 주최자가 등록한 전시 삭제 ========================
 //	@GetMapping("delete")
 //	public String delete(int id) {

@@ -16,4 +16,15 @@
  		</set>	
  			where id = #{id}
 	</update>
+	
+	<!-- 주최자 회원가입 -->
+	<insert id="insert" parameterType="com.artagit.web.entity.Corporate">
+		insert into Corporate(loginId, password, name, phone, ceoName, email, businessNum, manager, managerPhone, roleId, address, museumName, localId)
+			values(#{loginId}, #{password}, #{name}, #{phone}, #{ceoName}, #{email}, #{manager}, #{managerPhone}, #{businessNum}, #{roleId}, #{address}, #{museumName}, 3)
+	</insert>
+	
+		<!-- 사용자가 입력한 id를 가지고 권한 확인하기 위한 쿼리문 -->
+	<select id="getByUserName" resultType="com.artagit.web.entity.Corporate">
+		select * from Corporate where loginId=#{username}
+	</select>
 </mapper>

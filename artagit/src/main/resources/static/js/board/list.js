@@ -5,8 +5,9 @@ window.addEventListener("load", function() {
 	
 	ul.onclick = function(e) {
 		e.preventDefault();
-
+console.log(e.target);
 		const el = e.target;
+		
 		if (el.tagName != "LI" && el.tagName != "SPAN")
 			return;
 
@@ -38,6 +39,7 @@ window.addEventListener("load", function() {
 		.then((list) => {
 			boardbox.innerHTML="";
 		for (let board of list) {
+			
 			let template = ` 
 		<form action="list" method="post">
         <section class="board-list">
@@ -48,7 +50,7 @@ window.addEventListener("load", function() {
         <div class="board-regdate">1분전</div>
         <div class="board-writer-info">
                 <img class="profile" src = "../image/accountImage.png">
-            <div>${board.memId}</div>
+            <div>${board.nickname}</div>
         </div>
         
         <div class="board-post-info">
@@ -67,7 +69,7 @@ window.addEventListener("load", function() {
             </div>
         </div>
         <div class="board-post-img-box">
-            <img class="post-img"src="../image/anonymousProject.png"></img>
+           <img src="/image/${board.image}" class="post-img">
         </div>
           </section>
     </form>
@@ -76,6 +78,8 @@ window.addEventListener("load", function() {
         <a href = "./reg"><img src = "../image/writing-img.png"></img></a>
     </div>`;
 				
+			
+			
 			
 				let el = new DOMParser().parseFromString(template, "text/html").body.firstElementChild;
 				//body를 지우면 body안쪽만 나온다. firstelement를 만들겠다.

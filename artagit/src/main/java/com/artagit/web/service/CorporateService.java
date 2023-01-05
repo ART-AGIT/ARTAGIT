@@ -8,5 +8,9 @@ public interface CorporateService {
 
 	
 	// [주최자] 나의 등록전시 수정 -> 주최측 정보 수정
+//	int update(int id);
 	int update(int id);
+
+	// [주최자] 회원가입
+	int signUp(Corporate corp);
 }
