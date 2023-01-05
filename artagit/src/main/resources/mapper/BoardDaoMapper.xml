@@ -11,9 +11,9 @@
       from Board
       where id =#{id}
       and useYN='Y'
-   
    </select>
-   <insert id="insert" parameterType="board">
+   <insert id="insert" parameterType="board" useGeneratedKeys="true"
+    keyProperty="id">
       INSERT INTO Board
       (title,
       content,
@@ -25,7 +25,7 @@
       #{content},
       #{memId},
       #{roleId},
-      #{originalFilename});
+      #{image});
    </insert>
    
    
@@ -43,6 +43,18 @@
 		</set>
 		where id =#{id}
 	</update>
+	 <select id="getDetail" resultType="com.artagit.web.entity.Board">
+     select
+   b.*, 
+    (select count(id) from Comment where Comment.postid = b.id group by postId) commentTotal,
+    (select nickname from Member where  id = b.memId ) nickname,
+    (select name from BoardCategory where id = b.roleId) name
+from Board b
+where
+			 b.id = #{id}
+		
+order by regDate desc;
+   </select>
    
 </mapper>
  

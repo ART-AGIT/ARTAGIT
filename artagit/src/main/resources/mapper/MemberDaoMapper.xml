@@ -74,7 +74,6 @@
 	</update>
 
 
-
 	<delete id="delete">
 		delete from Member
 			where id = #{id}

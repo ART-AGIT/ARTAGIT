@@ -62,11 +62,24 @@ public class DefaultBoardService implements BoardService{
 	}
 
 
+//
+//	@Override
+//	public int reg(int roleId, String originalFilename, String title, String content,int memId) {
+//		// TODO Auto-generated method stub
+//		return boardDao.insert(roleId,originalFilename,title,content,memId);
+//	}
+	
+	@Override
+	public int reg(Board board) {
+		// TODO Auto-generated method stub
+		return boardDao.insert(board);
+	}
+
 
 	@Override
-	public int reg(int roleId, String originalFilename, String title, String content,int memId) {
+	public Board getDetail(int id) {
 		// TODO Auto-generated method stub
-		return boardDao.insert(roleId,originalFilename,title,content,memId);
+		return boardDao.getDetail(id);
 	}
 	
 }

@@ -23,7 +23,8 @@
 
     <link href="../../css/utils.css" type="text/css" rel="stylesheet">
 </head>
-<script src="../../js/header-menu.js"></script>
+<!---<script src="../../js/header-menu.js"></script>-->
+<script src="../../js/board/comment/comment.js"></script>
 <body>
     <header class="header">
         <section class="header-wrapper">
@@ -125,7 +126,7 @@
            
                 <div class="post-writer-info">
                     <img class = "profile-photo" src = "../../image/accountImage.png">
-                    <div><a th:text="${board.memId}" href = "../mypage/like-list.html">운영자</a></div>
+                    <div><a th:text="${board.nickname}" href = "../mypage/like-list.html">운영자</a></div>
                 </div>
             
             <div class="post-info">
@@ -151,8 +152,10 @@
             </div>
                 <img class="board-img" th:classappend="${board.image.isEmpty()}?d-none" th:src="@{/image/{img}(img=${board.image})}">
             <div class="like">
+             <div th:if="${user.id == board.memId}">
                <a class="btn btn-default-line">수정</a>
                <a th:href="@{/member/board/delete(id=${id})}" class="btn btn-default-line">삭제</a>
+               </div>
                 <span class="heart-fix">
                 <div class="icon icon-heart"></div>
                 </span>
@@ -166,41 +169,52 @@
             </section>
             
             
-                <section class="comment-detail">
-                    <h1 class="d-none">댓글1개</h1>
-                    <div class="comment-writer-wrapper">
-                    <div class="comment-writer">
-                        <img class="profile-photo" src = "../../image/accountImage.png">
-                        <div class="user-name">오라클</div>
-                    </div>
-                        <div class="icon icon-miniMenu"><a href=""></a></div>
-                    </div>
-                    </div>
-                    <div class="comment-main">
-                        저도 거기 다녀왔는데 정말 좋더라고요~ 굿즈asfdddddddddddddddddddddsdaaaaaaaaaaaaaaaaaas도 다 너무 예뻣더라는..
-                    </div>
-                    <div class="comment-info">
-                        <div> 2022.11.26 18:38</div>
-                        <div class="re-comment"><a href="">답글쓰기</a></div>
-                    </div>
-                </section>
-                <div class="comment-page">
-                    <a href=""  >1</a>
-                 </div>
-            
-            <div>
-                <form>
-                    <div class="user-name">spicychocolate</div>
-                    <div class="comment-writing">
-                    <textarea name = "content"></textarea>
-                    <button class="btn btn-default-fill" type="button" value="작성">작성</button>
-                    </div>
-                </form>
+                   <section  class="comment-detail"  th:each="comment : ${comments}" >
+            <form action="">
+               <h1 class="d-none">댓글1개</h1>
+               <div class="comment-writer-wrapper">
+                  <div class="comment-writer">
+                     <img class="profile-photo" src="../../image/accountImage.png">
+                     <div class="user-name" th:text="${comment.nickname}">오라클</div>
+                  </div>
+                  <div class="icon icon-miniMenu">
+                     <a href=""></a>
+                  </div>
+               </div>
+
+               <div class="comment-main" th:text=${comment.content}>저도 거기
+                  다녀왔는데 정말 좋더라고요~ 굿즈asfdddddddddddddddddddddsdaaaaaaaaaaaaaaaaaas도 다
+                  너무 예뻣더라는..</div>
+               <div class="comment-info">
+                  <div th:text="${#dates.format(board.regDate, 'yy/MM/dd HH:mm')}">
+                     2022.11.26 18:38</div>
+                  <div class="re-comment">
+                     <a href="">답글쓰기</a>
+                     <div th:if="${user.id == comment.memId}">
+                     <button id="1" class="comment-modify" type="submit" value="수정">수정</button>
+                     <button id="2" class="comment-delete" type="submit" value="삭제">삭제</button>
+                     </div>
+                        
+                     
+                  </div>
+               </div>
+               </form>
+            </section>
+            <div class="comment-page">
+               <a href="">1</a>
             </div>
 
-
-
-
+               <div class="comment-section" >
+               <form id="comment-form" >
+               <input type="hidden"  name="memId" th:value="${user.id}">
+               <input type="hidden"  name="postId" th:value="${board.id}">
+                  <div class="user-name"  >spicychocolate</div>
+                  <div class="comment-writing">
+                     <textarea class="content-null" name="content"></textarea>
+                     <button class="btn btn-default-fill btn-write" type="submit" value="작성">작성</button>
+                  </div>
+               </form>
+            </div>
         </section>
     </section>
 </main>

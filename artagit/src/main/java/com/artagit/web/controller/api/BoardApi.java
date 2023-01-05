@@ -11,6 +11,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -43,10 +44,21 @@ public class BoardApi {
    public List<BoardListView> getListByCategory(
          @RequestParam("c") int roleId){
       List<BoardListView> list = service.getList(roleId);
-      System.out.println(roleId);
+      System.out.println("++++++++++="+list);
       return list;
    }
-   
+   /*********게시글 삭제*************/
+	@DeleteMapping("delete/{id}")
+	public Map<String, Object> delete(@PathVariable("id") int id) {
+		int result = service.delete(id);
+		
+		Map<String, Object> dto = new HashMap<>(); // result 객체
+		dto.put("status", 200); // http가 갖고 있는 기본 상태값
+		dto.put("resultObject", result);
+		
+		System.out.println("게시글(id==>"+ id +") 삭제(useYn = N)완료");
+		 return dto;
+	}
 }
       
       
