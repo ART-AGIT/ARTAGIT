@@ -37,7 +37,7 @@ geocoder.addressSearch('서울 용산구 서빙고로 137', function(result, sta
 })
 window.addEventListener("scroll", function() {
     const modal = this.document.querySelector("#popup + label + div");
-    const close = this.document.querySelector(".modal");
+//    const close = this.document.querySelector(".modal");
     const checkBox = this.document.querySelector("#popup");
     var scrollValue = document.documentElement.scrollTop;
     // console.log(scrollValue);

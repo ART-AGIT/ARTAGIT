@@ -48,7 +48,7 @@ public interface ExhibitionDao {
 
 	//int insert(int id, int memberId);
 
-	List<Exhibition> getListBySearch(int offset, int size, String query) throws SQLSyntaxErrorException;
+	List<ExhibitionView> getListBySearch(int offset, int size, int memberId, String query) throws SQLSyntaxErrorException;
 
 
 	List<ExhibitionView> getListByMemberId(int offset, int size, Integer museumId, Integer stateId, Integer cateId, int memberId);

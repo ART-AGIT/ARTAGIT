@@ -1,4 +1,5 @@
 window.addEventListener("load", function(){
+    const modiBtn = this.document.querySelector(".modify-btn");
     const deleteBtn = this.document.querySelector(".delete-btn");
     const modal = this.document.querySelector(".modal");
     const yesBtn = document.querySelector(".yes-btn");
@@ -18,6 +19,13 @@ window.addEventListener("load", function(){
     }
 };
 
+    modiBtn.onclick = function(e){
+        e.preventDefault();
+
+        console.log("수정버튼 클릭");
+    }
+
+    if(e.target.classList.contains())
 
 	yesBtn.onclick = function(e){
 	    let id = e.target.dataset.id;
@@ -55,7 +63,8 @@ window.addEventListener("load", function(){
                         // document.body.classList.add("stop-scroll");
                     }
                 })
-                .then();
+                .then(location.href="/corp/exh/list");
+
             // } 
             // else if (e.target.classList.contains("no-btn")){
             //     // modal.remove();

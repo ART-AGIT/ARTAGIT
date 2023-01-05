@@ -146,7 +146,16 @@ public class ExhibitionController {
 //		}
 		return "redirect:list";
 	}
-		
+
+	// 주최자가 등록한 전시 정보 불러오기
+//	@GetMapping("{id}")
+//	public String getBeforeUpdate(@PathVariable("id") int id) {
+//		service.getListById(id);
+//		
+//		System.out.println("가져온 전시 정보 id ===> "+id);
+//		
+//		return "corporator/mypage/exh-reg"; // 전시를 등록하는 페이지 (재활용)
+//	}
 		
 //	// 주최자가 등록한 전시 삭제 ========================
 //	@GetMapping("delete")
