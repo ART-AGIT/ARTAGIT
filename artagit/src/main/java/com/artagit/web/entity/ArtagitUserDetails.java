@@ -15,7 +15,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 public class ArtagitUserDetails implements UserDetails {
 	
 	private int id; 
-//	private String loginId;
+	private String loginId;
 	private String username;
 	private String password;
 	private String name;
@@ -26,7 +26,16 @@ public class ArtagitUserDetails implements UserDetails {
 	private List<GrantedAuthority> authorities; // 권한(ROLE_XXX) 
 	private String museumName;
 	private String address;
+	private int roleId;
 	
+	public int getRoleId() {
+		return roleId;
+	}
+
+	public void setRoleId(int roleId) {
+		this.roleId = roleId;
+	}
+
 	public int getId() {
 		return id;
 	}
@@ -35,13 +44,13 @@ public class ArtagitUserDetails implements UserDetails {
 		this.id = id;
 	}
 
-//	public String getLoginId() {
-//		return loginId;
-//	}
-//
-//	public void setLoginId(String loginId) {
-//		this.loginId = loginId;
-//	}
+	public String getLoginId() {
+		return loginId;
+	}
+
+	public void setLoginId(String loginId) {
+		this.loginId = loginId;
+	}
 
 	@Override
 	public String getUsername() {
@@ -135,11 +144,14 @@ public class ArtagitUserDetails implements UserDetails {
 		this.authorities = authorities;
 	}
 	
+	
+
 	@Override
 	public String toString() {
-		return "ArtagitUserDetails [id=" + id + ", username=" + username + ", password=" + password + ", name=" + name
-				+ ", phone=" + phone + ", nickname=" + nickname + ", email=" + email + ", img=" + img + ", authorities="
-				+ authorities + "]";
+		return "ArtagitUserDetails [id=" + id + ", loginId=" + loginId + ", username=" + username + ", password="
+				+ password + ", name=" + name + ", phone=" + phone + ", nickname=" + nickname + ", email=" + email
+				+ ", img=" + img + ", authorities=" + authorities + ", museumName=" + museumName + ", address="
+				+ address + ", roleId=" + roleId + "]";
 	}
 
 	public String getAddress() {

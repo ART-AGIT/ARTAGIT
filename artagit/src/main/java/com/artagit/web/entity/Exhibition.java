@@ -24,6 +24,49 @@ public class Exhibition {
 	public Exhibition() {
 		// TODO Auto-generated constructor stub
 	}
+	public Exhibition(String name, String content, String poster, String detailImage, String startDate,
+			String endDate, String startTime, String endTime, int ticketPrice, int ticketStock, String artist
+			) {
+
+		this.name = name;
+		this.content = content;
+		this.poster = poster;
+		this.detailImage = detailImage;
+		this.startDate = startDate;
+		this.endDate = endDate;
+		this.startTime = startTime;
+		this.endTime = endTime;
+		this.ticketPrice = ticketPrice;
+		this.ticketStock = ticketStock;
+		this.artist = artist;
+
+	}
+
+	public Exhibition(int id, String name, String content, String poster, String detailImage, String startDate,
+			String endDate, String startTime, String endTime, int ticketPrice, int ticketStock, String artist,
+			int memId, int cateId, int stateId, int museumId, int corpId, int corpLocalId, String useYN) {
+
+		this.id = id;
+		this.name = name;
+		this.content = content;
+		this.poster = poster;
+		this.detailImage = detailImage;
+		this.startDate = startDate;
+		this.endDate = endDate;
+		this.startTime = startTime;
+		this.endTime = endTime;
+		this.ticketPrice = ticketPrice;
+		this.ticketStock = ticketStock;
+		this.artist = artist;
+		this.memId = memId;
+		this.cateId = cateId;
+		this.stateId = stateId;
+		this.museumId = museumId;
+		this.corpId = corpId;
+		this.corpLocalId = corpLocalId;
+		this.useYN = useYN;
+	}
+
 
 	public int getId() {
 		return id;

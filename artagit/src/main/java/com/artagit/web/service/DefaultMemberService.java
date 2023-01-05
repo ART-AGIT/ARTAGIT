@@ -3,8 +3,10 @@ package com.artagit.web.service;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
 import com.artagit.web.dao.MemberDao;
+import com.artagit.web.entity.ArtagitUserDetails;
 import com.artagit.web.entity.Member;
 
 
@@ -32,6 +34,26 @@ public class DefaultMemberService implements MemberService{
 		
 //		return result;
 	}
+
+
+	//===========회원수정=================
+	@Override
+	public int update(Member member) {
+		
+		return memberDao.update(member);
+		
+		
+	}
+
+	@Override
+	public Member get(int id) {
+		
+		return memberDao.get(id);
+		
+		
+	}
+	
+
 
 
 }

@@ -24,13 +24,13 @@ window.addEventListener("load", function() {
 		document.querySelector("#third-circle").classList.remove("circle-off");
 	};
 
-	btnReg.onclick = function(e) {
-		e.preventDefault();
-		
-		//location.href = 'http://localhost:8080/corporator/mypage/exh-list.html';
-
-
-	};
+//	btnReg.onclick = function(e) {
+//		e.preventDefault();
+//		
+//		location.href = 'http://localhost:8080/corporator/mypage/exh-list.html';
+//
+//
+//	};
 
 	//===================뒤로가기버튼=========================================
 	const firstBefore = document.querySelector("#btn-x");

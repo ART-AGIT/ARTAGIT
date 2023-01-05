@@ -44,9 +44,9 @@ public class DefaultExhibitionService implements ExhibitionService {
 	@Override
 	public int insert (Exhibition exhibition) {
 		
-		exhDao.insert(exhibition);
+		int result = exhDao.insert(exhibition);
 		
-		return 0;
+		return result;
 		
 	}
 	

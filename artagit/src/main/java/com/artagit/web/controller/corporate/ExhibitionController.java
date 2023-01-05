@@ -1,5 +1,9 @@
 package com.artagit.web.controller.corporate;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.artagit.web.entity.ArtagitUserDetails;
 import com.artagit.web.entity.Corporate;
@@ -24,8 +29,10 @@ import com.artagit.web.service.LocalService;
 import com.artagit.web.service.MuseumService;
 import com.artagit.web.service.PaymentService;
 
+import jakarta.servlet.http.HttpServletRequest;
+
 @Controller("corporaterController")
-@RequestMapping("corp/exh/")
+@RequestMapping("/corp/exh/")
 public class ExhibitionController {
 	
 	@Autowired
@@ -120,10 +127,12 @@ public class ExhibitionController {
 	}
 	// 주최자가 전시 등록하기 insert==========================
 	@PostMapping("insert") 
-	public String insert(Exhibition exhibition){
+	public String insert(Exhibition exhibition) throws IOException{
 		
 		System.out.print("전시 :" +exhibition.toString());
-		//service.insert(exhibition);
+		
+		
+		service.insert(exhibition);
 
 		//int result = 0;
 		// result =
