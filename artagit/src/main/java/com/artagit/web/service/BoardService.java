@@ -19,7 +19,13 @@ public interface BoardService {
 
 	int update(Board board);
 
-	int reg(int roleId, String originalFilename, String title, String content, int memId);
+//	int reg(int roleId, String originalFilename, String title, String content, int memId);
+
+
+	Board getDetail(int id);
+
+
+	int reg(Board board);
 
 	
 
