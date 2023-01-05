@@ -6,6 +6,24 @@ window.addEventListener("load", function(){
     // const modiPart = this.document.querySelector(".exh-detail-table");
     const detailSection = this.document.querySelector(".exh-detail-section");
     const modiLine = detailSection.querySelectorAll(".content");
+    const btnMore = this.document.querySelector(".btn-more");
+    const feedContent = this.document.querySelector(".feed-content");
+
+    btnMore.onclick = function(e){
+        e.preventDefault();
+
+        if(feedContent.classList.contains("hidden")){
+            feedContent.classList.remove("hidden");
+            this.innerHTML ="접기";
+        }
+
+        else if(!feedContent.classList.contains("hidden")){
+            feedContent.classList.add("hidden");
+            this.innerHTML ="더보기";
+        }
+
+    };
+
 
     deleteBtn.onclick = function(e){
 
@@ -151,7 +169,4 @@ window.addEventListener("load", function(){
 			// }
 
         };
-
-
-    
 });

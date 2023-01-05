@@ -36,12 +36,20 @@ public class DefaultMemberService implements MemberService{
 //========회원 탈퇴 ==================
 	
 	@Override
-	public void deleteUseYN(int id,String useYN) {
+	public void deleteUseYN(int id) {
 //	public void deleteUseYN(Member member) {
-		 memberDao.deleteUseYN(id,useYN);
+		 memberDao.deleteUseYN(id);
 //		memberDao.deleteUseYN(member);
 		
 //		return result;
+	}
+
+	
+	// 아이디 중복 여부
+	@Override
+	public int chkId(String loginId) {
+		int cnt = memberDao.chkId(loginId);
+		return cnt;
 	}
 
 

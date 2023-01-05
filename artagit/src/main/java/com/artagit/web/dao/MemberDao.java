@@ -23,12 +23,13 @@ public interface MemberDao {
 	// 회원정보 수정
 	int update(Member member);
 	
-	void deleteUseYN(int id, String useYN); // 회원 탈퇴
-//	void deleteUseYN(Member member);
+	void deleteUseYN(int id); // 회원 탈퇴
+
 	Member getByUserName(String username);
 	
 	//비밀번호 변경 메서드
 	public void updatePassword(String tmpPassword, String memberEmail);
+	int chkId(String loginId);
 
 	
 }
