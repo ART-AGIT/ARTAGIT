@@ -165,11 +165,11 @@
             </div>
             <div class="comment">
                 <div class="icon icon-comment">댓글 아이콘</div>
-                <div>11</div>
+                <div th:text=${board.commentTotal}>11</div>
             </div>
         </div>
         <div class="board-post-img-box">
-            <img class="post-img" src="" th:src="@{|/image/${board.image}|}">
+            <img class="post-img" th:src="@{|/image/${board.image}|}">
         </div>
     </section>
     </form>

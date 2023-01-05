@@ -65,7 +65,7 @@ console.log(e.target);
             </div>
             <div class="comment">
                 <div class="icon icon-comment">댓글 아이콘</div>
-                <div>11</div>
+                <div>${board.commentTotal}</div>
             </div>
         </div>
         <div class="board-post-img-box">
