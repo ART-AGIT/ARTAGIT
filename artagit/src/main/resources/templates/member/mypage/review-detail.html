@@ -22,7 +22,7 @@
 
 </head>
 <script src="../../js/review-detail.js"></script>
-<script src="../../js/header-menu.js"></script>
+<!-- <script src="../../js/header-menu.js"></script> -->
 <body>
     
     <header class="header">
@@ -64,71 +64,66 @@
 	<main>
         <h2 class="review">리뷰 보기</h2>
 
-        <form action ="/review/reg" method="POST">
-	        <div class="review-form">
+        <form action ="/review/reg" method="POST" id="form">
+	        <div class="review-form" >
+	        
+<!-- 	            <div class="box" th:if="${review}" th:style="|background-color:${review.color}|" > -->
+<!-- 				<div class="box"  th:if="${review}"  th:style="|background-color:${review.color}|" > -->
+<!-- 				<div class="box"  th:if="!${review}"  > -->
+	            
 	            <div class="box">
 	                <div class="write-form" >
-	                    <div class="content" th:text="${review.content}" th:classappend="${#strings.isEmpty(review.content)}? ' d-none'">리뷰 작성중</div>
-	                    <textarea name ="content" class="input" placeholder="리뷰를 작성해주세요" th:if="${#strings.equals(review.content,null)}"></textarea>
+	                    <div class="content" th:text="${review.content}" th:if="${review}">리뷰 작성중</div>
+	                    <textarea name ="content" class="input" placeholder="리뷰를 작성해주세요" th:if="!${review}"></textarea>
+	                   
 	                </div>
 	                <div class="detail-info">
 	                    <div>
-	                        <label class="exh-name" th:text="${booking.exhName}">함스부르크 600년,매혹의 걸작들</label>
+	                        <label class="exh-name" th:text="${booking.exhName}" id="exhName">함스부르크 600년,매혹의 걸작들</label>
 	                    </div>
 	                    <div>
-	                        <span class="exh-loc" th:text="${booking.museumName}">국립현대미술관</span>
+	                        <span class="exh-loc" th:text="${booking.museumName}" >국립현대미술관</span>
 	                        <span class="exh-date" th:text="${booking.bookingDate}">2022.08.08</span>
 	                    </div>
 	    
 	                    <div class="color-option">
-	                        <input type="color" class="color-input">
+	                        <input type="color" class="color-input" name="color" >
 	                    </div>
-	                    <div class="trash">
-	                        <button type="button"  class="icon icon-trash btn-del"th:attr="data-id=${review.id}" th:href="@{review/(id=${review.id})/delete}" ></button>
+	                    
+	                    <div >
+<!-- 	                        <a  th:href="@{/mypage/review/del/{id}(id = ${review.id})}" ><img class="trash-img d-none" src="../../image/trash.png"></a> -->
 	<!--                         th:attr="data-id=${review.id}" th:href="@{review/(id=${review.id})/delete}" -->
+							<a  th:href="@{/mypage/review/del/{id}(id = ${review.id})}" th:if="${review}" class="trash"><img class="trash-img" src="../../image/trash.png"></a>
 	                    </div>
+	                
 	                </div>
+	            </div>
 	            </div>
 	        </div>
    		 
         
-        <div class="review-option-list">
-            <span class="review-option">
-                <input type="radio" name="공개여부">
-                <label>공개</label>
-            </span>
-
-            <span class="review-option">
-                <input type="radio" name="공개여부">
-                <label>비공개</label>
-            </span>    
-        </div>
+		        <div class="review-option-list">
+		            <span class="review-option">
+		                <input type="radio" name="공개여부">
+		                <label>공개</label>
+		            </span>
+		
+		            <span class="review-option">
+		                <input type="radio" name="공개여부">
+		                <label>비공개</label>
+		            </span>    
+		        </div>
 
         <div class="review-button-list">
-        	<input type="hidden" name="review-id" th:value="${review.id}">
-        	<input class="btn btn-default btn-default-fill btn-reg" type="submit" th:if="${#strings.isEmpty(review.content)}"  value="등록"></input>
-            <input class="btn btn-default btn-default-fill btn-mod" type="submit" th:classappend="${#strings.isEmpty(review.content)}? ' d-none'"  value="수정">
-            <input class="btn btn-default btn-default-line btn-exit"type="submit"  value="닫기">
+        	<input type="hidden" class= "bookingId" name="bookingId" th:value="${bookingId}"></input>
+        	<input class="btn btn-default btn-default-fill btn-reg" type="submit"  th:if="!${review}" value="등록"></input>
+            <input class="btn btn-default btn-default-fill btn-mod" type="submit"  th:if="${review}" value="수정"></input>
+            <a class="btn btn-default btn-default-line btn-exit" type="button" href="../review/list" value="닫기">닫기</a>
         </div>
         </form>
     </main>
 
-
-
-
-
-
-
-
-
-
-
-
-	
-    
-
-
-
+<!-- ------------------------------ -->
     <footer class="footer">
         <h1 class="d-none" style="display: none;">footer</h1>
         <div class="footer-inf">

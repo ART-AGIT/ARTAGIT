@@ -1,6 +1,8 @@
 package com.artagit.web.controller.member;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,12 +12,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.artagit.web.entity.Board;
 import com.artagit.web.entity.Booking;
 import com.artagit.web.entity.BookingList;
 import com.artagit.web.entity.Comment;
 import com.artagit.web.entity.Exhibition;
+import com.artagit.web.entity.Payment;
 import com.artagit.web.entity.Review;
 import com.artagit.web.service.BookingService;
 import com.artagit.web.service.ExhibitionService;
@@ -33,6 +37,9 @@ public class MypageController {
 	
 	@Autowired
 	private BookingService bookingService;
+	
+	@Autowired
+	private PaymentService payService;
 	
 	@Autowired
 	private ReviewService reviewService;
@@ -63,31 +70,40 @@ public class MypageController {
 	
 	
 	/*-----------리뷰보기------*/ 
+	//url에 들어갈 id는 booking
 	@GetMapping("/review/{id}")
 	public String detail(@PathVariable("id")int id, Model model){
-		
+		//id= book
+//		System.out.println("1 리뷰리스트창 들어옴!!");
 		BookingList booking = bookingService.getReviewByBookingId(id);
-		Review review = reviewService.get(id);
-//		System.out.println(review);
+//		System.out.println(booking);
+		Payment payment = payService.findByBookingId(booking.getBookingId());
+		int payId = payment.getId();
+		
+		//지금이렇게!!!!!!!
+		Review review = reviewService.get(payId);
+		System.out.println("상세페이지");
 		model.addAttribute("booking",booking);
 		model.addAttribute("review",review);
+		model.addAttribute("bookingId",booking.getBookingId());
+		//System.out.println(booking.getBookingId());
+//		System.out.println("1. booking아이디 : "+booking);
+//		System.out.println("1 . review-------- : "+review);
+
 		return "member/mypage/review-detail";
 	}
 	
-	/*-----------리뷰작성------*/ 
-	@PostMapping("/review/reg")
-	public String reg(@RequestParam ("review-id") int reviewId , String content){
-		Review review = reviewService.get(reviewId);
-		System.out.println(review);
-		System.out.println(content);
-//		reviewService.reg()
-		return "";
-	}
 	
-	/*-----------리뷰삭제------*/
-//	@PostMapping("/review/{id}/delete")
-//	public String delete(@PathVariable("id")int id, Model model){
-//		
-//		return "";
-//	}
+	/*-----------리뷰삭제------*/ 
+	
+	@GetMapping("/review/del/{id}")
+	public String delete(@PathVariable("id") int id) {
+		System.out.println("삭제 들옴!!");
+		System.out.println(id);
+		int result = reviewService.del(id);
+		System.out.println(result);
+		return "member/mypage/booking-list";
+		
+	}
+
 }

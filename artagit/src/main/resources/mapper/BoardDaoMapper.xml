@@ -4,30 +4,37 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.artagit.web.dao.BoardDao">
-	<select id="getList" resultType="com.artagit.web.entity.Board">
-		 select * 
+  
+   
+   <select id="get" resultType="com.artagit.web.entity.Board">
+      select *
       from Board
-      
-	</select>
-	
-	<select id="get" resultType="com.artagit.web.entity.Board">
-		select *
-		from Board
+      where id =#{id}
+      and useYN='Y'
+   
+   </select>
+   <insert id="insert" parameterType="com.artagit.web.entity.Board">
+      INSERT INTO Board
+      (title,
+      content,
+      memId,
+      roleId)
+      VALUES
+      (#{title},
+      #{content},
+      3,
+      1);
+   </insert>
+   
+   
+	<update id="delete" parameterType="com.artagit.web.entity.Board">
+		update Board 
+		<set>
+			<if test="useYN != null">useYN='N'</if>
+		</set>
 		where id =#{id}
+	</update>
 	
-	</select>
-	<insert id="insert" parameterType="com.artagit.web.entity.Board">
-		INSERT INTO Board
-		(title,
-		content,
-		memId,
-		roleId)
-		VALUES
-		(#{title},
-		#{content},
-		3,
-		1);
-	</insert>
 	
 	<select id="hitCountUp" parameterType="com.artagit.web.entity.Board">
 		UPDATE Board
@@ -36,8 +43,6 @@
 		WHERE
 		id = #{id}
 	</select>
-	
-	
 	
 	
 </mapper>

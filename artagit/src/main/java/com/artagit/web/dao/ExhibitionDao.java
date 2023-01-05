@@ -1,5 +1,6 @@
 package com.artagit.web.dao;
 
+import java.sql.SQLSyntaxErrorException;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
@@ -44,6 +45,9 @@ public interface ExhibitionDao {
 	List<Exhibition> getListtt(int memId);
 
 	int insert(int id, int memberId);
+
+
+	List<Exhibition> getListBySearch(int offset, int size, String query) throws SQLSyntaxErrorException;
 
 	
 }

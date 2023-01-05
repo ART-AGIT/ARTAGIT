@@ -16,4 +16,7 @@ public interface ReviewDao {
 	int insert(Review review);
 	int update(Review review);
 	int delete(int id);
+
+//	int create(Review review,int payId);
+	int create(Review review);
 }

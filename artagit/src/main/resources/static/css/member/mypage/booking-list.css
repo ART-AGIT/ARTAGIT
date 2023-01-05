@@ -68,3 +68,51 @@ form {
     height: 25px;
     align-items: flex-end;
 }
+
+
+/* -------------------유민추가중 */
+/* .payment-list{
+    padding-left: 20px;
+    border-radius: 20px;
+    display: center;
+    position: fixed;
+    top: 1%;
+    left: 1%;
+    width:300px;
+    height:40px;
+    align-items: center;
+} */
+
+.payment-list{
+    position: fixed;
+    /* margin-top: 0; */
+    top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 300px;  
+  height: 650px;
+  background-color: #FFF1F3;
+  border-radius: 20px;
+}
+h1{
+    padding-left: 10px;
+}
+.modal{
+    position: absolute;
+  top: 0;
+  left: 0;
+    display: flex;
+    width: 300px;
+    height: 650px;
+    border-radius: 20px;
+    /* background-color: pink; */
+}
+.dd{
+    width:300px;
+    height:300px;
+    /* justify-content: center; */
+    /* align-items: center; */
+    
+}

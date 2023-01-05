@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.artagit.web.entity.Booking;
 import com.artagit.web.entity.Corporate;
@@ -80,5 +81,24 @@ public class ExhibitionController {
 		return "corporator/mypage/exh-detail";
 	}
 
+	// 주최자가 등록한 전시 수정 ========================
+	@ResponseBody
+	@GetMapping("update")
+	public void update(@RequestParam("id") int id,
+			@RequestParam("name") String name) {
+//		System.out.println("수정한 전시 ===> "+ id);
+//		id = 19;
+		service.update(id, name);
+		System.out.println("수정완료");
+	}
 	
+	// 주최자가 등록한 전시 삭제 ========================
+	@GetMapping("delete")
+	public String delete(int id) {
+//		@PathVariable("exhId")
+		service.delete(id);
+		
+		System.out.println("주최자 등록한 전시(id==>"+ id +") 삭제(useYn = N)완료");
+		 return "redirect:list";
+	}
 }

@@ -8,7 +8,20 @@
 	<select id="get" resultType="com.artagit.web.entity.Review">
 		select *
 		from Review
-		where id =#{id}
+		where payId =#{id}
 	</select>
+	
+	<insert id="create" parameterType="com.artagit.web.entity.Review" >
+		INSERT INTO Review
+      (content,payId,color)
+      VALUES
+      (#{content},#{payId},#{color})
+	</insert>
+	
+	<delete id="delete" parameterType="int" >
+		delete from Review
+		where id = #{id}
+	</delete>
+	
 </mapper>
  

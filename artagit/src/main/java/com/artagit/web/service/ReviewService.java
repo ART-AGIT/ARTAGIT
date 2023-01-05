@@ -6,4 +6,7 @@ public interface ReviewService {
 
 	Review get(int id);
 
+	Review reg(Review review);
+
+	int del(int id);
 }

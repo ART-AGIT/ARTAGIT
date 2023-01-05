@@ -112,8 +112,9 @@
 
         </section>
         <div class="button-box-wrap">
+<!--             <input type="hidden" name="exh-id" th:value="${exh.id}"> -->
             <button class="btn btn-default btn-size-1" type="" >수정</button>
-            <button class="btn btn-default-line btn-size-1" type="" >삭제</button>
+            <a class="btn btn-default-line btn-size-1" th:href="@{/corp/exh/delete(id=${id})}">삭제</a>
         </div>   
     </section>
 

@@ -1,9 +1,8 @@
 window.addEventListener("load", function(){
-
-    let header = document.querySelector(".header");
-    let burgerNav = header.querySelector(".burger-nav");
-    let subMenuBox = header.querySelector(".sub-menu-box");
-    let main = document.querySelector("main");
+    const header = document.querySelector(".header");
+    const burgerNav = header.querySelector(".burger-nav");
+    const subMenuBox = header.querySelector(".sub-menu-box");
+    const main = document.querySelector("main");
 
     burgerNav.onclick = function(e){
         e.preventDefault();
@@ -12,6 +11,19 @@ window.addEventListener("load", function(){
         header.classList.toggle("show");
         main.classList.toggle("show");
     }
+
+    const headerSearch = document.querySelector(".header-search");
+    const btnSearch = document.querySelector(".btn-search");
+
+    btnSearch.onclick = function(e){
+        btnSearch.value = headerSearch.value;
+    }
+
+
+    headerSearch.addEventListener("keyup", function(e){
+        if(e.keyCode === 13)
+            btnSearch.onclick();
+    })
 
 
 
