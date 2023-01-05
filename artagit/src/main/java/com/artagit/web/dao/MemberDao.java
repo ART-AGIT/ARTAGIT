@@ -16,7 +16,11 @@ public interface MemberDao {
 	Member get(int id); 		// 1건 조회
 	int count(String query);	// select 시 검색결과 집계(카운트)
 	int updateMember(Member member);
+	
+	// 회원가입 메서드
 	int insert(Member member);
+	
+	// 회원정보 수정
 	int update(Member member);
 	
 	void deleteUseYN(int id, String useYN); // 회원 탈퇴

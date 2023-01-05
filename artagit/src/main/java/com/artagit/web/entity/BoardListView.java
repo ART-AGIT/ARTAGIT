@@ -4,7 +4,6 @@ import java.util.Date;
 
 public class BoardListView {
 	private int id;
-	private int postId;
 	private int memId;
 	private String name;
 	private String title;
@@ -14,7 +13,54 @@ public class BoardListView {
 	private String nickname;
 	private int roleId;
 	private String useYN;
+	private int commentTotal;
+	private String content;	
+	private int like;
+	private Date modiDate;
 	
+	
+	
+	
+	public String getContent() {
+		return content;
+	}
+
+
+	public void setContent(String content) {
+		this.content = content;
+	}
+
+
+	public int getLike() {
+		return like;
+	}
+
+
+	public void setLike(int like) {
+		this.like = like;
+	}
+
+
+	public Date getModiDate() {
+		return modiDate;
+	}
+
+
+	public void setModiDate(Date modiDate) {
+		this.modiDate = modiDate;
+	}
+
+
+	public int getCommentTotal() {
+		return commentTotal;
+	}
+
+
+	public void setCommentTotal(int commentTotal) {
+		this.commentTotal = commentTotal;
+	}
+
+
 	public int getRoleId() {
 		return roleId;
 	}
@@ -42,10 +88,9 @@ public class BoardListView {
 	
 
 	public BoardListView(int id, int postId, int memId, String name, String title, String image, int hit, Date regDate,
-			String nickname, int roleId, String useYN) {
+			String nickname, int roleId, String useYN,int commentTotal) {
 		super();
 		this.id = id;
-		this.postId = postId;
 		this.memId = memId;
 		this.name = name;
 		this.title = title;
@@ -55,6 +100,7 @@ public class BoardListView {
 		this.nickname = nickname;
 		this.roleId = roleId;
 		this.useYN = useYN;
+		this.commentTotal = commentTotal;
 	}
 
 
@@ -70,12 +116,8 @@ public class BoardListView {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public int getPostId() {
-		return postId;
-	}
-	public void setPostId(int postId) {
-		this.postId = postId;
-	}
+
+	
 	public int getMemId() {
 		return memId;
 	}
@@ -112,12 +154,16 @@ public class BoardListView {
 	public void setNickname(String nickname) {
 		this.nickname = nickname;
 	}
+
+
 	@Override
 	public String toString() {
-		return "BoardListView [id=" + id + ", postId=" + postId + ", memId=" + memId + ", title=" + title  
-				+ ", image=" + image + ", hit=" + hit + ", regDate=" + regDate + ", nickname=" + nickname
-				+ "]";
+		return "BoardListView [id=" + id +" memId=" + memId + ", name=" + name + ", title="
+				+ title + ", image=" + image + ", hit=" + hit + ", regDate=" + regDate + ", nickname=" + nickname
+				+ ", roleId=" + roleId + ", useYN=" + useYN + ", commentTotal=" + commentTotal + ", content=" + content
+				+ ", like=" + like + ", modiDate=" + modiDate + "]";
 	}
+
 
 	
 }

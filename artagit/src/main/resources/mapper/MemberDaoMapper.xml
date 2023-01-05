@@ -43,11 +43,11 @@
 			where name like '%${input}%'	
 	</select>
 	
+	
+	<!-- 멤버 회원가입 -->
 	<insert id="insert" parameterType="com.artagit.web.entity.Member">
-
-		insert into Member(loginId, password, name, phone, nickname, email, image)
-			values(#{loginId}, #{password}, #{name}, #{phone}, #{nickname}, #{email}, #{image})
-
+		insert into Member(loginId, password, name, phone, nickname, email, image, roleId)
+			values(#{loginId}, #{password}, #{name}, #{phone}, #{nickname}, #{email}, #{image}, #{roleId})
 	</insert>
 	
 <!-- 	<update id="update" parameterType="com.artagit.web.entity.Member"> -->
@@ -90,6 +90,7 @@
         where id = #{id}
     </update>
 	
+
 	<delete id="delete">
 		delete from Member
 			where id = #{id}

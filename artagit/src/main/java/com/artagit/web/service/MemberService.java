@@ -7,7 +7,7 @@ import com.artagit.web.entity.Member;
 
 public interface MemberService {
 	
-	int reg(Member member);
+	int signUp(Member member);
 
 //	void insertMember(Member member);
 

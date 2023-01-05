@@ -95,7 +95,6 @@ window.addEventListener("load", function(e){
             fetch(`/api/lists${queryString}`)
             .then((response)=>response.json())
             .then((list)=>{
-                
                 if(list.length == 0)
                 	isEndPage = false;
                 	
@@ -220,6 +219,7 @@ window.addEventListener("load", function(e){
 	    fetch(`/api/lists${queryString}`)
 	    .then((response)=>response.json())
 	    .then((list)=>{
+
 	        exhBox.innerHTML="";
 	        for(let e of list){
 				if(e.memberId == 0){

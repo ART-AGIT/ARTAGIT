@@ -37,7 +37,9 @@ public interface ExhibitionDao {
 	List<Exhibition> getListByID(int id);
 	
 	// 내가 등록한 전시 수정
-	int update(int id);
+//	int update(int id);
+	int update(Integer id);
+//	int update(Exhibition exh);
 	
 	// 나의 전시 삭제
 	int delete(int id);
@@ -48,7 +50,7 @@ public interface ExhibitionDao {
 
 	//int insert(int id, int memberId);
 
-	List<Exhibition> getListBySearch(int offset, int size, String query) throws SQLSyntaxErrorException;
+	List<ExhibitionView> getListBySearch(int offset, int size, int memberId, String query) throws SQLSyntaxErrorException;
 
 
 	List<ExhibitionView> getListByMemberId(int offset, int size, Integer museumId, Integer stateId, Integer cateId, int memberId);

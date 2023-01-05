@@ -7,6 +7,8 @@ import com.artagit.web.entity.Role;
 @Mapper
 public interface RoleDao {
 
-	Role getListByUserName(String username);
+	Role getMemberByUserName(String username);
+
+	Role getCorpByUserName(String username);
 
 }

@@ -1,8 +1,11 @@
 package com.artagit.web.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Mapper;
 
 import com.artagit.web.entity.Board;
+import com.artagit.web.entity.BoardListView;
 
 @Mapper
 public interface BoardDao {
@@ -13,9 +16,13 @@ public interface BoardDao {
 	int count(String input);
 	int update(Board board);
 	int delete(int id);
+	int insert(Board board);
 
+//	int insert(int roleId, String originalFilename, String title, String content, int memId);
 
-	void insert(int memId, int roleId, String title, String content, String originalFilename);
+	Board getDetail(int id);
+
+	
 	
 
 }

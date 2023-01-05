@@ -31,6 +31,13 @@ window.addEventListener("load", function() {
 //
 //
 //	};
+	btnReg.onclick = function(e) {
+//		e.preventDefault();
+		
+		//location.href = 'http://localhost:8080/corporator/mypage/exh-list.html';
+
+
+	};
 
 	//===================뒤로가기버튼=========================================
 	const firstBefore = document.querySelector("#btn-x");
