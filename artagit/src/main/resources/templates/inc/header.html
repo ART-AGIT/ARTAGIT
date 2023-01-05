@@ -2,27 +2,21 @@
 <html 
 	xmlns:th="http://www.thymeleaf.org"
 	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
-<script src="js/modal.js"></script>
-<script src="js/header-menu.js"></script>
-<script src="js/index.js"></script>
+
+<th:block layout:fragment="css">
+	<script src="/js/header-menu.js" defer></script>
+<!-- 	<script src="/js/modal.js"></script> -->
+</th:block>
 
 <body id="body">
     <header class="header">
         <section class="header-wrapper">
             <div class="header-box">
-                <h1 class="logo"><a href="index.html">Art Agit</a></h1>
-                <ul class="d-none">
-                    <!-- <li><a href="">전시</a></li>
-                    <li><a href="">커뮤니티</a></li>
-                    <li><a href="">로그인</a></li> -->
-                </ul>
+                <h1 class="logo"><a href="/index">Art Agit</a></h1>
                 <div class="header-menu-box">
                     <div>
                         <a class="icon icon-search btn-open-modal" href="">검색</a>
-                    </div>  
-                    <div>
-                        <a class="icon icon-member header-member" href="/user/login">로그인</a>
-                    </div>                    
+                    </div>                      
                     <div>
                         <a class="icon icon-menu burger-nav" href="">확장메뉴</a>
                     </div>
@@ -32,34 +26,46 @@
                 <div class="sub-menu">
                     <div class="sub-menu-1">
                         <ul>
-                            <li><a href="exhibition/list.html">전시</a></li>
-                            <li><a href="board/list.html">커뮤니티</a></li>
-                            <li><a href="corporator/mypage/exh-reg.html" sec:authorize="hasAnyRole('ADMIN','CORP')">전시등록</a></li>
+                            <li><a href="/exhibition/list">전시</a></li>
+                            <li><a href="/board/list">커뮤니티</a></li>
+                            <li><a href="/corp/exh/reg" sec:authorize="hasAnyRole('ADMIN','CORP')">전시등록</a></li>
                         </ul>
                     </div>
                     <div class="sub-menu-2">
                         <ul>
                             <li>
-                            	<a href="signup.html" sec:authorize="isAnonymous()">회원가입</a>
-                            	<a href="mypage" sec:authorize="hasAnyRole('ADMIN','CORP','MEMBER')" sec:authentication="principal.nickname">마이페이지</a>
-                            </li>
+                            	<a href="/user/signup" sec:authorize="isAnonymous()">회원가입</a>
+                            	<a href="/member/mypage/review/list" sec:authorize="isAuthenticated()"><span sec:authentication="principal.username"></span></a>
+                           	</li>
                             <li>
-                            	<a href="/user/login" sec:authorize="isAnonymous()">로그인</a>
-                            	<a class="" href="/user/logout" sec:authorize="hasAnyRole('ADMIN','CORP','MEMBER')">로그아웃</a>
+	                            <a href="/user/login" sec:authorize="isAnonymous()">로그인</a>
+	                            <a href="/user/logout" sec:authorize="isAuthenticated()">로그아웃</a>
                             </li>
-                            <li><a href="">고객센터</a></li>
+                            <li><a href="/list">고객센터</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
         </section>
+        <!-- 모달 전체 -->
+	    <div class="modal">
+	        <div class="icon icon-close btn-close">닫기</div>
+	        <!-- 모달 창 -->
+	        <div class="modal-body modal-search">
+	            <!-- 모달 내용 -->
+	            <form action="/exhibition/search" method="GET">
+	                <input class="input input-search header-search" type="text" placeholder="전시 검색">
+	                <button type="submit" name="q" class="icon icon-search btn-search" value="바보">검색</button>
+	            </form>
+	        </div>
+	    </div>
     </header>
 
     <!-- =====pc버젼 용 html============ -->
     <header class="header-pc">
         <div class="content-box">
             <h1 class="logo">
-                <a href="index.html">Art Agit</a>
+                <a href="/index">Art Agit</a>
             </h1>
             <section>
                 <h1 class="d-none">메인메뉴</h1>
@@ -67,44 +73,42 @@
                     <h1 class="d-none">목록선택</h1>
                     <ul>
                         <li>
-                            <a href="exhibition/list.html">전시</a>
+                            <a href="/exhibition/list">전시</a>
                             <ul class="sub-menu">
-                                <li><a href="exhibition/list.html">진행 전시</a></li>
-                                <li><a href="exhibition/list.html">전시 예정</a></li>
+                                <li><a href="/exhibition/list">진행 전시</a></li>
+                                <li><a href="/exhibition/list">전시 예정</a></li>
                             </ul>
                         </li>
                         <li>
-                            <a href="board/list.html">커뮤니티</a>
+                            <a href="/board/list">커뮤니티</a>
                             <ul class="sub-menu">
-                                <li><a href="board/list.html">-</a></li>
-                                <li><a href="board/list.html">-</a></li>
+                                <li><a href="/board/list">자유게시판</a></li>
+                                <li><a href="/board/list">전시후기</a></li>
+                                <li><a href="/board/list">맛집후기</a></li>
+                                <li><a href="/board/list">같이가요</a></li>
                             </ul>
                         </li>
                         <li class="search-btn">
-                            <a href="">검색</a>
+                            <a class="btn-open-modal" href="">검색</a>
                             <div>
                                 <input type="text" class="search">
                                 <!-- <img src="../image/icons/search.svg" alt=""> -->
                             </div>
                         </li>
-                        <li><a href="login.html">로그인</a></li>
+                        <li>
+                        	<a href="/user/login" sec:authorize="isAnonymous()">로그인</a>
+                        	<a href="/user/logout" sec:authorize="isAuthenticated()">로그아웃</a>
+                        </li>
                     </ul>
 
                 </nav>
             </section>
         </div>
     </header>
-    
-    <!-- 모달 전체 -->
-    <div class="modal">
-        <div class="icon icon-close btn-close">닫기</div>
-        <!-- 모달 창 -->
-        <div class="modal-body modal-search">
-            <!-- 모달 내용 -->
-            <form action="/search" method="GET">
-                <input class="input input-search header-search" type="text" placeholder="전시 검색">
-                <button type="submit" name="q" class="icon icon-search btn-search" value="바보">검색</button>
-            </form>
-        </div>
+    <div>
+    	안녕
     </div>
+
+    
+</body>
 </html>

@@ -19,6 +19,12 @@ public class DefaultLocalService implements LocalService{
 		
 		return local;
 	}
+
+	@Override
+	public int update(int id) {
+		int result = localDao.update(id);
+		return result;
+	}
 	
 	
 }

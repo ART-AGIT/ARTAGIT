@@ -154,8 +154,7 @@ main{
     
     .content-box{
         height: 100px;
-    
-        border-bottom: 1px solid black;
+
         padding: 0 20px;
         margin: 0 auto;
     
@@ -196,6 +195,8 @@ main{
                 height: 100%;
                 width: 100%;
                 display: inline-block;
+
+                font-size: 16px;
             }
             .main-menu>ul>li:hover>a{
                 cursor: pointer;
@@ -227,44 +228,7 @@ main{
                     text-decoration: underline;
         
                 }
-    
-                
-                /* .nav-search{
-                    display: flex;
-                    display: block;
-                }
-                .nav-search:hover>div{
-                    top: 0px;
-                    transition: 1s;
-    
-                    top:-200px;
-                    display: hidden;
-    
-                }
-                    .main-menu>ul>li>div{
-                    position: relative;
-                    border: 1px solid black;
-                    width: 140px;
-                    height: 40px;
-                    }
-                    .search{
-                        width: 100%;
-                        height: 100%;
-                        border-radius: 24px;
-                        
-    
-                        padding: 10px;
-    
-                        background-image: url(../image/icons/search.svg);
-                        background-repeat: no-repeat;
-                        background-position: right 8px center;
-    
-                        position: absolute;
-                        top:-200px;
-    
-                        display: hidden;
-                    } */
-    
+
                     /*기본 팝업*/
                     .nav-search:hover .search{
                         display: block;
@@ -292,44 +256,10 @@ main{
     
                         display: hidden;
                     }
-    
-                /* .search-container.show{
-                    display: block;
-                    top: 0px;
-                    transition: 1s;
-    
-                    z-index: 2;
-                }
-                .search-container{
-                    position: absolute;
-                    width: 1300px;
-                    height: 100px;
-                    
-                    display: none;
-    
-                    top: 0px;
-                }
-    
-                .search-container .box{       
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                }
-    
-                .search{
-                    width: 100%;
-                    height: 48px;
-                    position: relative;
-    
-                    padding: 13px 15px;
-    
-                    font-size: 24px;
-                    
-                } */
 
 /* ----- fixed 때문에 윗부분이 가려져, main 부분에 padding 줌 ----------- */
     main{
-        padding-top: 110px;
+        padding-top: 100px;
     }
                 
     

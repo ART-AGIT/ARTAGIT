@@ -97,7 +97,7 @@
                 </div>
 
             </div>
-	<form action="insert" method="post">
+	<form action="/corp/exh/insert" method="post">
             <div class="page1">
 
                 <div class="reg-list-page">
@@ -176,7 +176,7 @@
 
                         <div class="reg-list-input-box">
                             <label for="">주최</label>
-                            <input name="museum.name" type="text" class="input input-lg">
+                            <input th:value="${user.museumName}" name="museum.name" type="text" class="input input-lg">
                         </div>
                         <div class="reg-list-input-box">
                             <label for="">담당자</label>
@@ -207,7 +207,7 @@
 
                     <div class="reg-list-input-box">
                         <label for="">전시설명</label>
-                        <textarea class="input" id="" name="" rows="15" cols="10" placeholder="내용을 입력해주세요."></textarea>
+                        <textarea class="input" id="" name="content" rows="15" cols="10" placeholder="내용을 입력해주세요."></textarea>
                     </div>
                     <div class="reg-list-input-box poster">
                         포스터 이미지

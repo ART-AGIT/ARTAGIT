@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.artagit.web.dao.CommentDao">
+<!-- 댓글 조회 -->
+<select id="getList" parameterType="int" resultType="com.artagit.web.entity.Comment">
+    select
+        id, postId, memId, content, regDate
+    from Comment
+        where postId =#{postId}   
+</select>
+
+<select id="getNickname" parameterType="int" resultType="com.artagit.web.entity.Comment">
+SELECT * FROM Comment INNER JOIN Member ON Comment.memId = Member.id   where postId =#{postId}   order by Comment.id desc
+                                                                                             
+</select>
+
+<!-- 댓글 작성 -->
+<insert id="write" parameterType="com.artagit.web.entity.Comment" >
+    insert into Comment (postId, memId, content )
+        values(#{postId}, #{memId}, #{content})
+</insert>
+
+<select id="getLast" resultType="Comment">
+		select * from Comment
+		order by id
+		desc
+		limit 0 ,1
+
+	</select>
+
+	<insert id="add" parameterType="com.artagit.web.entity.Comment">
+		  insert into Comment (postId, memId, content )
+        values(#{postId}, #{memId}, #{content})
+	</insert>
+    
+<!-- 댓글 수정 -->
+<update id="modify" parameterType="com.artagit.web.entity.Comment">
+    update tbl_reply set
+        memId = #{memId},
+        content = #{content}
+    where id = #{id}
+        and postId = #{postId}    
+</update>
+
+<!-- 댓글 삭제 -->
+<delete id="delete" parameterType="com.artagit.web.entity.Comment">
+    delete from tbl_reply
+    where id = #{id}
+        and postId = ${postId}    
+</delete>
+	
+	
+	
+</mapper>
+ 

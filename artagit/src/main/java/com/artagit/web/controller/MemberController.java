@@ -1,6 +1,7 @@
 package com.artagit.web.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,18 +11,19 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.artagit.web.entity.ArtagitUserDetails;
 import com.artagit.web.entity.Member;
 import com.artagit.web.service.MemberService;
 
 
+
 @Controller
-@RequestMapping("/user") //템플릿 기준
+@RequestMapping("/user") // 템플릿 기준
 public class MemberController {
-	
+
 	@Autowired
 	private MemberService service;
-	
-	
+
 	@GetMapping("login")
 	public String login() {
 		return "user/login";
@@ -31,50 +33,50 @@ public class MemberController {
 	public String signup() {
 		return "signup";
 	}
-	
+
 	// 회원가입
 	@PostMapping("signup")
-	public String reg(Member member){
+	public String reg(Member member) {
 
 		int result = service.signUp(member);
 		System.out.println("insert 결과 => " + result);
 		System.out.println("가입된 member => " + member);
 		return "redirect:/";
-		
-	}
-	
-	//===== 회원 탈퇴 (useYN 변경) ==================================
-	@GetMapping("corp")
-	public String deleteUseYN() {
-		return "corporator/mypage/account-edit";
-	}
-	
-	
-//	@PostMapping("{id}")
-//	public String deleteUseYN(@RequestParam("id") int id){
-//		// 되는지 확인용
-//		int memid=51;
-//		String useYN2 = "Y";
-//		service.deleteUseYN(memid,useYN2);
-////		
-//		return "corporator/mypage/account-edit";
-////		return "redirect:/";
-//	}
 
+	}
 	
+	// 회원 탈퇴
+	@GetMapping("account-edit")
+	public String deleteUseYN() {
+		System.out.println("account-edit");
+		return "member/mypage/account-edit";
+	}
 	
+	@GetMapping("account-edit/delete")
+	public String deleteUseYN(
+			@AuthenticationPrincipal ArtagitUserDetails user){
+		System.out.println("탈퇴 성공했다------------------");
+		service.deleteUseYN(user.getId());
+		System.out.println("return하자!");
+		return "redirect:/user/logout";
+	}
 	
-	//===== 업체 회원 정보 수정 ==================================
-	// 수정화면 요청
-//	@GetMapping("corp")
-//	public String updateCorp(Member member) {
-//		
-//		
+	// 회원 아이디 중복 체크
+//	@GetMapping("signup/id-check/{value}")
+//	public int chkId(@PathVariable ("value") String loginId) {
+//		int chkId = service.chkId(loginId);
+//		System.out.println(loginId);
+//		System.out.println(chkId);
+//		return chkId;
 //	}
+//	
 	
 	
 	
 	
 	
+	
+	
+
 	
 }
