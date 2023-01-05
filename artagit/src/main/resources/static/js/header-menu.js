@@ -16,6 +16,7 @@ window.addEventListener("load", function(){
     const btnSearch = document.querySelector(".btn-search");
 
     btnSearch.onclick = function(e){
+		console.log("searchbtn")
         btnSearch.value = headerSearch.value;
     }
 
@@ -24,6 +25,7 @@ window.addEventListener("load", function(){
         if(e.keyCode === 13)
             btnSearch.onclick();
     })
+    
 
 
 
