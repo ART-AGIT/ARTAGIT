@@ -32,10 +32,6 @@ public class ArtagitUserDetails implements UserDetails {
 		return roleId;
 	}
 
-	public void setRoleId(int roleId) {
-		this.roleId = roleId;
-	}
-
 	public int getId() {
 		return id;
 	}
