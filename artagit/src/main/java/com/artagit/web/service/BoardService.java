@@ -19,8 +19,9 @@ public interface BoardService {
 
 	int update(Board board);
 
+	int reg(int roleId, String originalFilename, String title, String content, int memId);
 
-	void reg(int memId, int roleId, String title, String content, String originalFilename);
+	
 
 
 

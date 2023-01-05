@@ -24,7 +24,7 @@ import com.artagit.web.entity.Notice;
 import com.artagit.web.service.BoardService;
 import com.artagit.web.service.NoticeService;
 
-
+import ch.qos.logback.classic.Logger;
 import ch.qos.logback.core.recovery.ResilientSyslogOutputStream;
 import jakarta.servlet.http.HttpServletRequest;
 
@@ -77,11 +77,10 @@ public class MemberBoardController {
 	}
 	
 	@PostMapping("reg")
-	public String reg(String title,String content ,MultipartFile img, HttpServletRequest request) throws IOException {
+	public String reg(int roleId, MultipartFile img,String title,String content, HttpServletRequest request) throws IOException {
 		int memId=3;
-		int roleId=4;
-		service.reg(memId,roleId,title,content, img.getOriginalFilename());
-		System.out.println(img);
+		System.out.println("이미지이름"+img.getOriginalFilename());
+		
 			if(!img.isEmpty()) {
 				String path = "/image"; //어디에서 돌아갈지 모르니 운영되고 있는 home directory에서 생각 앞쪽은 어케될지 모름
 				String realPath = request.getServletContext().getRealPath(path);
@@ -95,7 +94,6 @@ public class MemberBoardController {
 				String fullPath = realPath+File.separator+img.getOriginalFilename();
 				InputStream fis = img.getInputStream();
 				OutputStream fos = new FileOutputStream(fullPath);
-				
 				byte[] buf = new byte[1024];
 				int size = 0;
 				while((size=fis.read(buf))>=0)
@@ -104,8 +102,7 @@ public class MemberBoardController {
 				fos.close();
 				fis.close();
 			}
-			
-		
+		service.reg(roleId, img.getOriginalFilename(),title,content,memId);
 		System.out.println("등록한 글 ===> "+img);
 		
 		

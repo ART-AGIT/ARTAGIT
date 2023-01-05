@@ -13,9 +13,11 @@ public interface BoardDao {
 	int count(String input);
 	int update(Board board);
 	int delete(int id);
+	int insert(Board board);
 
+	int insert(int roleId, String originalFilename, String title, String content, int memId);
 
-	void insert(int memId, int roleId, String title, String content, String originalFilename);
+	
 	
 
 }

@@ -34,11 +34,9 @@ public class DefaultBoardService implements BoardService{
 	@Override
 	public List<BoardListView> getList(int roleId) {
 		int page =1;
-		int size =6;
+		int size =10;
 		int offset = (page-1)*size;
 		List<BoardListView> list = boardListDao.getList(offset,size,roleId);
-		for(BoardListView blv : list)
-			System.out.println(blv.getRegDate());
 		// TODO Auto-generated method stub
 		return list;
 	}
@@ -46,7 +44,7 @@ public class DefaultBoardService implements BoardService{
 	@Override
 	public List<BoardListView> getListInit(int page) {
 		// TODO Auto-generated method stub
-		 int size = 6;
+		 int size = 10;
 		 int offset = (page-1)*size;
 		return boardListDao.getListInit(offset,size,page);
 	}
@@ -63,19 +61,32 @@ public class DefaultBoardService implements BoardService{
 		return boardDao.update(board);
 	}
 
-	
 
 
 	@Override
-	public void reg(int memId, int roleId, String title, String content, String originalFilename) {
-		boardDao.insert(memId,roleId,title,content,originalFilename);
+	public int reg(int roleId, String originalFilename, String title, String content,int memId) {
 		// TODO Auto-generated method stub
-		return;
+		return boardDao.insert(roleId,originalFilename,title,content,memId);
 	}
+	
+}
+
+
+
+
+
+	
+
+	
+
+
+
+
+
 	
 	
 	
 
 	
 	
-}
+
