@@ -64,7 +64,7 @@ public class MypageController {
 		//회원수정페이지불러올때 회원가입할때정보불러오기 user쓰기
 
 		model.addAttribute("user",user);
-		//System.out.println(user.getId());
+		System.out.println(user.getPhone());
 		//memberService.update(user);
 		
 		
@@ -80,12 +80,14 @@ public class MypageController {
 		
 		
 		member.setPassword(member.getPassword()); 
+		model.addAttribute("user",user);
+		
+		
 		
 //		memberService.update(member);
 //		Member memb = memberService.get(member.getId());
 
 //		System.out.println("member"+memb);
-		model.addAttribute("user",user);
 		
 		
 		
