@@ -8,4 +8,7 @@ import com.artagit.web.entity.Local;
 public interface LocalDao{
 	
 	Local get(int id);
+
+//	int update(int id);
+	int update(Integer id);
 }

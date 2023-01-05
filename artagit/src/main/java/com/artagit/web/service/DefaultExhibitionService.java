@@ -178,13 +178,5 @@ public class DefaultExhibitionService implements ExhibitionService {
 		// TODO Auto-generated method stub
 		return 0;
 	}
-//
-//	@Override
-//	public void update(int id, String name) {
-//		// TODO Auto-generated method stub
-//		
-//	}
 
-
-	
 }
