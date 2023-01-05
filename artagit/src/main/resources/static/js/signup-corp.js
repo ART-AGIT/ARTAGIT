@@ -8,6 +8,7 @@ window.addEventListener("load",function(){
     const form = this.document.querySelector("form");
 	const icon = this.document.querySelectorAll(".arrow-icon");
 
+    const chkId = this.document.querySelector(".loginId");
 
         form.onclick = function(e){
             e.preventDefault()

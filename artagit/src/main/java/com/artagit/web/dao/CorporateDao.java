@@ -35,4 +35,7 @@ public interface CorporateDao {
 	
 	// 주최자회원 로그인 시 권한 확인을 위해 호출되는 메서드 
 	Corporate getByUserName(String username);
+
+	
+	int deleteYN(int id);
 }

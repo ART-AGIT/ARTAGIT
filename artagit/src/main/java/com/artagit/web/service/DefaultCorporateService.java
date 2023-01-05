@@ -45,4 +45,13 @@ public class DefaultCorporateService implements CorporateService{
 		int result = corporateDao.insert(corp);
 		return result;
 	}
+
+
+	@Override
+	public int deleteUseYN(int id) {
+		
+		int result = corporateDao.deleteYN(id);
+		
+		return result;
+	}
 }

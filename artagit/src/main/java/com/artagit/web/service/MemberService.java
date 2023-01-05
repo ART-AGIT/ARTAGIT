@@ -10,6 +10,8 @@ public interface MemberService {
 
 	void deleteUseYN(int id);
 //	void deleteUseYN(Member member);
+
+	int chkId(String loginId);
 	
 	
 }

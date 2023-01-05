@@ -12,4 +12,7 @@ public interface CorporateService {
 
 	// [주최자] 회원가입
 	int signUp(Corporate corp);
+
+
+	int deleteUseYN(int id);
 }

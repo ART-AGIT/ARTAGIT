@@ -42,5 +42,13 @@ public class DefaultMemberService implements MemberService{
 //		return result;
 	}
 
+	
+	// 아이디 중복 여부
+	@Override
+	public int chkId(String loginId) {
+		int cnt = memberDao.chkId(loginId);
+		return cnt;
+	}
+
 
 }

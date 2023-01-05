@@ -26,6 +26,7 @@ public interface MemberDao {
 	
 	//비밀번호 변경 메서드
 	public void updatePassword(String tmpPassword, String memberEmail);
+	int chkId(String loginId);
 
 	
 }
