@@ -31,12 +31,14 @@ public class ArtagitUserDetails implements UserDetails {
 	public int getRoleId() {
 		return roleId;
 	}
+
 	public void setRoleId(int roleId) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	
+
 	public int getId() {
 		return id;
 	}
