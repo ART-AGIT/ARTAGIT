@@ -47,7 +47,7 @@ public interface ExhibitionService {
 
 	int countOfLike(int exhId);
 
-	List<Exhibition> getListBySearch(String query) throws SQLSyntaxErrorException;
+	List<ExhibitionView> getListBySearch(String query, int memberId) throws SQLSyntaxErrorException;
 
 
 	List<ExhibitionView> getListByMemberId(int page, int museum, int state, int category, int memberId);

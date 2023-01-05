@@ -2,9 +2,11 @@
 <html 
 	xmlns:th="http://www.thymeleaf.org"
 	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
-<script src="js/modal.js"></script>
-<script src="js/header-menu.js"></script>
-<script src="js/index.js"></script>
+
+<th:block layout:fragment="css">
+	<script src="/js/header-menu.js" defer></script>
+<!-- 	<script src="/js/modal.js"></script> -->
+</th:block>
 
 <body id="body">
     <header class="header">
@@ -34,25 +36,31 @@
                         <ul>
                             <li><a href="exhibition/list.html">전시</a></li>
                             <li><a href="board/list.html">커뮤니티</a></li>
-                            <li><a href="corporator/mypage/exh-reg.html" sec:authorize="hasAnyRole('ADMIN','CORP')">전시등록</a></li>
+                            <li><a href="corporator/mypage/exh-reg.html">전시등록</a></li>
                         </ul>
                     </div>
                     <div class="sub-menu-2">
                         <ul>
-                            <li>
-                            	<a href="signup.html" sec:authorize="isAnonymous()">회원가입</a>
-                            	<a href="mypage" sec:authorize="hasAnyRole('ADMIN','CORP','MEMBER')" sec:authentication="principal.nickname">마이페이지</a>
-                            </li>
-                            <li>
-                            	<a href="/user/login" sec:authorize="isAnonymous()">로그인</a>
-                            	<a class="" href="/user/logout" sec:authorize="hasAnyRole('ADMIN','CORP','MEMBER')">로그아웃</a>
-                            </li>
+                            <li><a href="/signup">회원가입</a></li>
+                            <li><a href="/user/login">로그인</a></li>
                             <li><a href="">고객센터</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
         </section>
+        <!-- 모달 전체 -->
+	    <div class="modal">
+	        <div class="icon icon-close btn-close">닫기</div>
+	        <!-- 모달 창 -->
+	        <div class="modal-body modal-search">
+	            <!-- 모달 내용 -->
+	            <form action="/exhibition/search" method="GET">
+	                <input class="input input-search header-search" type="text" placeholder="전시 검색">
+	                <button type="submit" name="q" class="icon icon-search btn-search" value="바보">검색</button>
+	            </form>
+	        </div>
+	    </div>
     </header>
 
     <!-- =====pc버젼 용 html============ -->
@@ -81,7 +89,7 @@
                             </ul>
                         </li>
                         <li class="search-btn">
-                            <a href="">검색</a>
+                            <a class="icon icon-search btn-open-modal" href="">검색</a>
                             <div>
                                 <input type="text" class="search">
                                 <!-- <img src="../image/icons/search.svg" alt=""> -->
@@ -94,17 +102,10 @@
             </section>
         </div>
     </header>
-    
-    <!-- 모달 전체 -->
-    <div class="modal">
-        <div class="icon icon-close btn-close">닫기</div>
-        <!-- 모달 창 -->
-        <div class="modal-body modal-search">
-            <!-- 모달 내용 -->
-            <form action="/search" method="GET">
-                <input class="input input-search header-search" type="text" placeholder="전시 검색">
-                <button type="submit" name="q" class="icon icon-search btn-search" value="바보">검색</button>
-            </form>
-        </div>
+    <div>
+    	안녕
     </div>
+
+    
+</body>
 </html>

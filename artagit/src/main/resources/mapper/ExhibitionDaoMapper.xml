@@ -20,14 +20,19 @@
 		limit #{offset}, #{size}
 	</select>
 	
-	<select id="getListBySearch" resultType="com.artagit.web.entity.Exhibition">
-		select * from Exhibition
+	<select id="getListBySearch" resultType="com.artagit.web.entity.ExhibitionView">
+		select 
+			E.*,
+			(select count(exhId) from ExhLike where exhId = E.id group by exhId) hearts,
+			(select memId from ExhLike where exhId = E.id and memId = #{memberId}) memberId
+		from Exhibition E
 		<trim prefix="WHERE" prefixOverrides="AND | OR">
 			<if test="query != null">
 				name like '%${query}%'
 			</if>
 			and useYN = "Y"
 		</trim>
+		order by startDate desc
 		limit #{offset}, #{size}
 	</select>
 	
@@ -44,7 +49,6 @@
 			<if test="stateId != null and stateId != 0">
 				AND stateId = #{stateId}
 			</if>
-			
 			and useYN = "Y"
 			<if test="cateId == null or cateId == 0 or cateId == 1">
 				order by startDate desc
