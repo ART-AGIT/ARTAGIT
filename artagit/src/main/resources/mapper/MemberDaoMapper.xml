@@ -51,14 +51,7 @@
 			values(#{loginId}, #{password}, #{name}, #{phone}, #{nickname}, #{email}, #{image}, #{roleId})
 	</insert>
 	
-	<!--================== 아이디 중복 확인 ===================-->
-	<select id="chkId" resultType="int">
-		select count(id) from Member
-			where loginId = #{loginId}
-	</select>
-	
-	
-	
+
 	<!--================== 아이디 중복 확인 ===================-->
 	<select id="chkId" resultType="int">
 		select count(id) from Member
