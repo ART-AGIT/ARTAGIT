@@ -123,6 +123,10 @@ public class DefaultExhibitionService implements ExhibitionService {
 	}
 
 	@Override
+	public List<Exhibition> getListtt(int memId) {
+		
+		return exhDao.getListtt(memId);
+	}
 	public int likeUp(int exhId, int memId) {
 		
 		ExhLike exhLike = new ExhLike(memId, exhId);
@@ -141,6 +145,7 @@ public class DefaultExhibitionService implements ExhibitionService {
 	public int countOfLike(int exhId) {
 		
 		return exhLikeDao.count(exhId);
+
 	}
 
 	@Override

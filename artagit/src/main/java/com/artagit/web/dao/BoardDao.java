@@ -16,6 +16,9 @@ public interface BoardDao {
 	int count(String input);
 	int update(Board board);
 	int delete(int id);
+
+	void hitCountUp(Board board);
+
 	int insert(Board board);
 
 //	int insert(int roleId, String originalFilename, String title, String content, int memId);

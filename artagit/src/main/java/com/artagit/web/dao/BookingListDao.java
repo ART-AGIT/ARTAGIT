@@ -5,11 +5,14 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 
 import com.artagit.web.entity.Booking;
+import com.artagit.web.entity.BookingList;
 
 @Mapper
-public interface BookingDao {
+public interface BookingListDao {
 
-	public List<Booking> getListById(int memId) ;
+	public List<BookingList> getListById(int memId) ;
+
+	public BookingList getByBookingId(int id);
 
 }
 

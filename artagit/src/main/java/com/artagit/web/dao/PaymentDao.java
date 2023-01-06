@@ -25,5 +25,8 @@ public interface PaymentDao {
 //	int update(Payment payment);//o
 	int delete(int id);
 	int deleteAll(List<Payment> list);
+
+	//int findByBookingId(int bookId);
+	Payment findByBookingId(int bookId);
 	
 }

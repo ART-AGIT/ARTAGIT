@@ -48,9 +48,20 @@ public interface ExhibitionDao {
 	//나의 등록전시개수
 	int getCount(int memId);
 
+	List<Exhibition> getListtt(int memId);
+
+	int insert(int id, int memberId);
+
 	//int insert(int id, int memberId);
 
+
+
+
+	List<Exhibition> getListBySearch(int offset, int size, String query) throws SQLSyntaxErrorException;
+
 	List<ExhibitionView> getListBySearch(int offset, int size, int memberId, String query) throws SQLSyntaxErrorException;
+
+
 
 
 	List<ExhibitionView> getListByMemberId(int offset, int size, Integer museumId, Integer stateId, Integer cateId, int memberId);
@@ -58,6 +69,7 @@ public interface ExhibitionDao {
 	Exhibition getexh(int exhId);
 
 	int insert(Exhibition exhibition);
+
 
 	
 }

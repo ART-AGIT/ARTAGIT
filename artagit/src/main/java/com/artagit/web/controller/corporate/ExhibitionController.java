@@ -60,18 +60,16 @@ public class ExhibitionController {
 	@Autowired
 	private PaymentService payListService;
 	
-	//나의 등록전시
+	//내가 등록한 전시리스트 -----------------
 	@GetMapping("list")
 	public String list(Model model) {
 			//@RequestParam(name="memId")int memId,Model model) {
 		int memId=1;
 		List<Exhibition> list = service.getListById(memId);
-		
 		int countOfExh = service.countOfExh(memId);
 		model.addAttribute("list",list);
-//		System.out.println(countOfExh);
 		model.addAttribute("countOfExh",countOfExh);
-//		System.out.println(list);
+		
 		return "corporator/mypage/exh-list";
 	}
 	

@@ -3,64 +3,65 @@ package com.artagit.web.entity;
 import java.util.Date;
 
 public class Booking {
-   private int id;
-   private Date date;
-   private int amount;
-   private int memId;
-   private int exhId;
-   
-   public Booking() {
-      // TODO Auto-generated constructor stub
-   }
 
-   public Booking(int id, Date date, int amount, int memId, int exhId) {
-     
-      this.id = id;
-      this.date = date;
-      this.amount = amount;
-      this.memId = memId;
-      this.exhId = exhId;
-   }
+	private int id;
+	private Date date;
+	private int amount;
+	private int memId;
+	private int exhId;
+	
+	public Booking() {
+		// TODO Auto-generated constructor stub
+	}
 
-   public int getId() {
-      return id;
-   }
+	public Booking(int id, Date date, int amount, int memId, int exhId) {
+		super();
+		this.id = id;
+		this.date = date;
+		this.amount = amount;
+		this.memId = memId;
+		this.exhId = exhId;
+	}
 
-   public void setId(int id) {
-      this.id = id;
-   }
+	public int getId() {
+		return id;
+	}
 
-   public Date getDate() {
-      return date;
-   }
+	public void setId(int id) {
+		this.id = id;
+	}
 
-   public void setDate(Date date) {
-      this.date = date;
-   }
+	public Date getDate() {
+		return date;
+	}
 
-   public int getAmount() {
-      return amount;
-   }
+	public void setDate(Date date) {
+		this.date = date;
+	}
 
-   public void setAmount(int amount) {
-      this.amount = amount;
-   }
+	public int getAmount() {
+		return amount;
+	}
 
-   public int getMemId() {
-      return memId;
-   }
+	public void setAmount(int amount) {
+		this.amount = amount;
+	}
 
-   public void setMemId(int memId) {
-      this.memId = memId;
-   }
+	public int getMemId() {
+		return memId;
+	}
 
-   public int getExhId() {
-      return exhId;
-   }
+	public void setMemId(int memId) {
+		this.memId = memId;
+	}
 
-   public void setExhId(int exhId) {
-      this.exhId = exhId;
-   }
-   
-   
+	public int getExhId() {
+		return exhId;
+	}
+
+	public void setExhId(int exhId) {
+		this.exhId = exhId;
+	}
+	
+	
 }

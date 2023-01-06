@@ -69,7 +69,7 @@
                     <form  action="">
                        <h1 th:utext="${list.name}">이노니머스 프로젝트</h1>
                         <div class="exhibition-img-box">
-                            <a href="detail.html" th:href="@{{id}(id=${list.id})}"><img class="exhibition-img" src="/image/anonymousProject.png" alt=""></a>
+                            <a href="detail.html" th:href="@{{id}(id=${list.id})}"><img class="exhibition-img" th:src="@{|/image/poster/${list.poster}|}" src="/image/anonymousProject.png" alt=""></a>
                             <!-- <a class="icon icon-heart exhibition-heart" href=""></a> -->
                             <a th:classappend="${list.memberId != 0}  ? 'icon-heart-red' : ''" class="icon icon-heart exhibition-heart" href=""></a>
                         </div>
