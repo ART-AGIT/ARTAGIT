@@ -12,8 +12,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.artagit.web.entity.ArtagitUserDetails;
+import com.artagit.web.entity.Corporate;
 import com.artagit.web.entity.ExhibitionView;
 import com.artagit.web.entity.Museum;
+import com.artagit.web.service.CorporateService;
 import com.artagit.web.service.ExhLikeService;
 import com.artagit.web.service.ExhibitionService;
 import com.artagit.web.service.MuseumService;
@@ -26,7 +28,7 @@ public class ExhibitionController2 {
 	private ExhibitionService service;
 
 	@Autowired
-	private MuseumService museumService;
+	private CorporateService corporateService;
 	
 	
 	/********************** 전시조회 시작 **********************/
@@ -66,14 +68,14 @@ public class ExhibitionController2 {
 		ExhibitionView exh = service.getExhById(exhId, memberId);
 		System.out.println(exh);
 		model.addAttribute("exh", exh);
-		Museum museum = museumService.getMuseumById(exh.getMuseumId());
-		model.addAttribute("museum", museum);
+		Corporate corp = corporateService.getCorpById(exh.getCorpId());
+		model.addAttribute("corp", corp);
 		
 		int count = service.countOfLike(exhId);
 		model.addAttribute("count",count);
 		System.out.println(count);
 		System.out.println("전시관 id========>"+exh.getMuseumId());
-		System.out.println("전시관 name========>"+museum.getName());
+		System.out.println("전시관 name========>"+corp.getName());
 		
 		return "exhibition/detail";
 	}

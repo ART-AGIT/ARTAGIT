@@ -106,7 +106,7 @@ window.addEventListener("load", function(e){
                             <form action="">
                                 <h1>${e.name}</h1>
                                 <div class="exhibition-img-box">
-                                    <a href="${e.id}"><img class="exhibition-img" src="/image/anonymousProject.png" alt=""></a>
+                                    <a href="${e.id}"><img class="exhibition-img" src="/image/poster/${e.poster}" alt=""></a>
                                     <a class="icon icon-heart exhibition-heart" href=""></a>
                                 </div>
                                 <div class="exhibititon-date">${e.startDate} ~ ${e.endDate}</div>
@@ -228,7 +228,7 @@ window.addEventListener("load", function(e){
                             <form action="">
                                 <h1>${e.name}</h1>
                                 <div class="exhibition-img-box">
-                                    <a href="${e.id}"><img class="exhibition-img" src="/image/anonymousProject.png" alt=""></a>
+                                    <a href="${e.id}"><img class="exhibition-img" src="/image/poster/${e.poster}" alt=""></a>
                                     <a class="icon icon-heart exhibition-heart" href=""></a>
                                 </div>
                                 <div class="exhibititon-date">${e.startDate} ~ ${e.endDate}</div>
@@ -244,7 +244,7 @@ window.addEventListener("load", function(e){
 	                            <form action="">
 	                                <h1>${e.name}</h1>
 	                                <div class="exhibition-img-box">
-	                                    <a href="${e.id}"><img class="exhibition-img" src="/image/anonymousProject.png" alt=""></a>
+	                                    <a href="${e.id}"><img class="exhibition-img" src="/image/poster/${e.poster}" alt=""></a>
 	                                    <a class="icon icon-heart exhibition-heart icon-heart-red" href=""></a>
 	                                </div>
 	                                <div class="exhibititon-date">${e.startDate} ~ ${e.endDate}</div>
