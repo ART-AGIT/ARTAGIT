@@ -26,3 +26,7 @@ body {
     padding: 0 15px;
     
 }
+
+body::-webkit-scrollbar, div::-webkit-scrollbar {
+    display: none;
+}
