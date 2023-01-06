@@ -25,6 +25,12 @@ public class DefaultLocalService implements LocalService{
 		int result = localDao.update(id);
 		return result;
 	}
+
+	@Override
+	public int update(Local local) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 	
 	
 }

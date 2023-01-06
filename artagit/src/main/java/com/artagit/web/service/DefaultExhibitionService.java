@@ -179,4 +179,10 @@ public class DefaultExhibitionService implements ExhibitionService {
 		return 0;
 	}
 
+	@Override
+	public int update(Exhibition exh) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }
