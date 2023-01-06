@@ -20,6 +20,7 @@ import com.artagit.web.entity.Payment;
 import com.artagit.web.entity.Review;
 import com.artagit.web.service.BookingService;
 import com.artagit.web.service.ExhibitionService;
+import com.artagit.web.service.MemberService;
 //import com.artagit.web.service.MyPageService;
 import com.artagit.web.service.PaymentService;
 import com.artagit.web.service.ReviewService;
