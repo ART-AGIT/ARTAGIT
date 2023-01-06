@@ -24,7 +24,7 @@ window.addEventListener("load", function(){
 
     };
 
-    const moreBtn = detailSection.querySelector(".viewmore");
+    // const moreBtn = detailSection.querySelector(".viewmore");
 
     deleteBtn.onclick = function(e){
 
@@ -40,11 +40,13 @@ window.addEventListener("load", function(){
     }
 };
     console.log(modiBtn);
+
+
     modiBtn.onclick = function(e){
         
         e.preventDefault();
 
-    //     console.log("수정버튼 클릭");
+        console.log("수정버튼 클릭");
     if(modiLine[0].getAttribute('contenteditable') == null){
         console.log("hihi");
         for(let i = 0; i<modiLine.length; i++){
@@ -52,24 +54,49 @@ window.addEventListener("load", function(){
             modiLine[i].classList.add('mody-on');
         }
 
-        let template = `<input type="date" class="item content exh-date" data-placeholder="시작일자" required></input>
-                                <span>~</span>
-                                <input type="date" class="item content exh-date" data-placeholder="종료일자" required></input>`
-        let template2 = `<input type="time" class="item content exh-time" data-placeholder="시작시간" required></input>
-                        <span>~</span>
-                        <input type="time" class="item content exh-time" data-placeholder="종료시간" required></input>`
-        // document.querySelector('.change-box-time').innerHTML=template;
-        document.querySelector('.start-date').classList.add('d-none');
-        document.querySelector('.during-date').classList.add('d-none');
-        document.querySelector('.end-date').classList.add('d-none');
-        document.querySelector('.start-time').classList.add('d-none');
-        document.querySelector('.during-time').classList.add('d-none');
-        document.querySelector('.end-time').classList.add('d-none');
+        let startDateTem = `<input type="date" class="item content start-date" data-placeholder="시작일자" required></input>`
+        let endDateTem = `<input type="date" class="item content end-date" data-placeholder="종료일자" required></input>`
+        let startTimeTem = `<input type="time" class="item content exh-time" data-placeholder="시작시간" required></input>`
+        let endTimeTem = `<input type="time" class="item content exh-time" data-placeholder="종료시간" required></input>`
 
-        document.querySelector('.exh-date').insertAdjacentHTML("beforeend", template);
-        document.querySelector('.exh-price').insertAdjacentHTML("beforebegin", template2);
+        // let template = `<input type="date" class="item content exh-date" data-placeholder="시작일자" required></input>
+        //                         <span>~</span>
+        //                         <input type="date" class="item content exh-date" data-placeholder="종료일자" required></input>`
+        // let template2 = `<input type="time" class="item content exh-time" data-placeholder="시작시간" required></input>
+        //                 <span>~</span>
+        //                 <input type="time" class="item content exh-time" data-placeholder="종료시간" required></input>`
+        
+        let el = new DOMParser() // string으로 된 HTML 태그들을 DOM 객체로 변환해준다.
+        .parseFromString(startDateTem, "text/html") // 어떤 문자열(1st param)을 어떠한 형식(2nd param)으로 변환할건지.
+        .body
+        .firstElementChild;
+
+        let el2 = new DOMParser() 
+        .parseFromString(endDateTem, "text/html")
+        .body
+        .firstElementChild;
+
+        let el3 = new DOMParser() 
+        .parseFromString(startTimeTem, "text/html")
+        .body
+        .firstElementChild;
+
+        let el4 = new DOMParser() 
+        .parseFromString(endTimeTem, "text/html")
+        .body
+        .firstElementChild;
+
+        document.querySelector('.start-date').innerHTML='';
+        document.querySelector('.end-date').innerHTML='';
+        document.querySelector('.start-time').innerHTML='';
+        document.querySelector('.end-time').innerHTML='';
+        document.querySelector('.start-date').append(el);
+        document.querySelector('.end-date').append(el2);
+        document.querySelector('.start-time').append(el3);
+        document.querySelector('.end-time').append(el4);
+
         modiBtn.innerText = '저장';
-        moreBtn.classList.add("d-none");
+        btnMore.classList.add("hidden");
 
         let exhName = detailSection.querySelector(".exh-name").innerText;
         let exhArtist = detailSection.querySelector(".exh-artist").innerText;
@@ -83,7 +110,7 @@ window.addEventListener("load", function(){
         let corpPhone = detailSection.querySelector(".corp-phone").innerText;
         let exhStock = detailSection.querySelector(".exh-stock").innerText;
         let corpManager = detailSection.querySelector(".corp-manager").innerText;
-        let exhContent = detailSection.querySelector(".exh-content").innerText;
+        let exhContent = detailSection.querySelector(".feed-content").innerText;
 
 
           fetch("/corp/exh/update", {
@@ -141,49 +168,42 @@ window.addEventListener("load", function(){
 
     // if(e.target.classList.contains())
 
-	yesBtn.onclick = function(e){
-	    let id = e.target.dataset.id;
-	    console.log("id========>" + id);
-	    console.log(e.target);
+	// yesBtn.onclick = function(e){
+	//     let id = e.target.dataset.id;
+	//     console.log("id========>" + id);
+	//     console.log(e.target);
 
-            // if(e.target.classList.contains(".yes-btn")){
-                e.preventDefault();
-                // console.log(e.target);
+    //         // if(e.target.classList.contains(".yes-btn")){
+    //             e.preventDefault();
+    //             // console.log(e.target);
 
-                fetch(`/api/delete/${id}`, {
-                    method: "DELETE" // delete 라는 메서드를 보낸다.
-                })
-                .then(resp => resp.json())
-                .then(data => {
-                    console.log(data.resultObject);
-                    let result = data.resultObject;
+    //             fetch(`/api/delete/${id}`, {
+    //                 method: "DELETE" // delete 라는 메서드를 보낸다.
+    //             })
+    //             .then(resp => resp.json())
+    //             .then(data => {
+    //                 console.log(data.resultObject);
+    //                 let result = data.resultObject;
 
-					console.log(result);
-                    if(result == 1){
+	// 				console.log(result);
+    //                 if(result == 1){
 							
-							modal.classList.add("d-none");
+	// 						modal.classList.add("d-none");
 							
-                            let modal2 = `
-                                        <div class="modal">
-                                            <div class="modal-header">
-                                                <h1 class="header-title">정상적으로 삭제되었습니다.</h1>
-                                            </div>
-                                            <div class="modal-actions">
-                                                <a class="modal-action" href="">확인</a>
-                                            </div>
-                                        </div>
-                                        `
-                        detailSection.insertAdjacentHTML("beforeend", modal2);
-                        // document.body.classList.add("stop-scroll");
-                    }
-                })
-                .then(location.href="/corp/exh/list");
-
-            // } 
-            // else if (e.target.classList.contains("no-btn")){
-            //     // modal.remove();
-            //     modal.classList.add("d-none");				
-			// }
-
-        };
+    //                         let modal2 = `
+    //                                     <div class="modal">
+    //                                         <div class="modal-header">
+    //                                             <h1 class="header-title">정상적으로 삭제되었습니다.</h1>
+    //                                         </div>
+    //                                         <div class="modal-actions">
+    //                                             <a class="modal-action" href="">확인</a>
+    //                                         </div>
+    //                                     </div>
+    //                                     `
+    //                     detailSection.insertAdjacentHTML("beforeend", modal2);
+    //                     // document.body.classList.add("stop-scroll");
+    //                 }
+    //             })
+    //             .then(location.href="/corp/exh/list");
+    //     };
 });
