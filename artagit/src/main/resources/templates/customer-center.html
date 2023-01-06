@@ -4,10 +4,10 @@
 	layout:decorate="~{inc/layout}">
    <!-- ---------------------------------------------------------------------- -->  
    	<th:block layout:fragment="css">
-	    <link href="css/customer-center.css" type="text/css" rel="stylesheet">
-	    <script src="js/header-menu.js"></script>
-	    <script src="js/customer-center.js"></script>
-	    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f83ef3606f2a72bf9f1425fe76734149"></script>
+	    <link href="../../css/customer-center.css" type="text/css" rel="stylesheet">
+	    <script src="../../js/header-menu.js"></script>
+	    <script src="../../js/customer-center.js"></script>
+	    <script type="../../text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f83ef3606f2a72bf9f1425fe76734149"></script>
 	</th:block>
 
 <body layout:fragment="content">
@@ -16,7 +16,7 @@
 
         <!--------------------- 자주 묻는 질문 --------------------->
         <div class="icon-title">
-            <img class="question-icon" src="image/icons/question.png">
+            <img class="question-icon" src="../../image/icons/question.png">
             <h1 class="text question-h1">자주 묻는 질문</h1>
         </div>
         
@@ -55,7 +55,7 @@
 
         <!--------------------- 공지사항 --------------------->
         <div class="icon-title notice">
-            <img class="notice-icon" src="image/icons/notify.png">
+            <img class="notice-icon" src="../../image/icons/notify.png">
             <h1 class="text question-h1">공지사항</h1>
         </div>
         
@@ -65,7 +65,7 @@
                 <h4 th:text="${list.title}" class="text accordion-header active">회원님들 그만 좀 싸우세요 진짜.</h4>
                 <div class="accordion-content">
                     <span th:text="${#dates.format(list.regDate, 'yyyy-MM-dd')}" class="text sm-text date">2022.10.14</span>
-                    <img class="img-content"  src="image/전시포스터2.jpg" alt="공지사항 이미지">
+                    <img class="img-content"  src="../../image/전시포스터2.jpg" alt="공지사항 이미지">
                     <p th:text="${list.content}" class="">계속되는 경고에도 다툼을 멈추지 않으시는 회원님들께는 엄중한 처벌을 내리겠습니다. 적당히 하세요.</p>
                 </div>
                 <hr>
