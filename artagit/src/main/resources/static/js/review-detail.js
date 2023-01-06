@@ -8,7 +8,7 @@ window.addEventListener("load",function(e){
 	const writeForm = document.querySelector(".write-form");
 	const reviewForm = document.querySelector(".review-form");
 	const optionList = document.querySelector(".review-option-list");
-	const input = document.querySelector(".input");
+	const input = document.querySelector(".input-review");
 	const detailInfo = document.querySelector(".detail-info");
 //	const trash = document.querySelector(".trash");
 	
@@ -50,7 +50,7 @@ window.addEventListener("load",function(e){
 			console.log("등록버튼 reg test");
 
 			let form = new FormData();
-			form.append("content",writeForm.querySelector(".input").value);
+			form.append("content",writeForm.querySelector(".input-review").value);
 			form.append("color",box.querySelector(".color-input").value);
 			console.log("form객체----"+form);
 			var id = document.querySelector(".bookingId").value;
