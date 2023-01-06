@@ -1,3 +1,5 @@
+
+
 window.addEventListener("load",function(e){
     var box = document.querySelector(".box");
     var colorInput = document.querySelector(".color-input");
