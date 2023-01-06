@@ -59,7 +59,7 @@ public class MypageController {
 		System.out.println("1. user==========="+user);
 		List<BookingList> bookingList = bookingService.getListById(user.getId());
 		int countOfBooking = bookingList.size();
-		
+//		System.out.println("----"+bookingList.get(0).getImage());
 		for(int i=0;i<countOfBooking;i++) {
 			if(bookingList.get(i).getPayMethod()==null)
 				bookingList.get(i).setPayMethod("미결제");
@@ -88,6 +88,11 @@ public class MypageController {
 		model.addAttribute("review",review);
 		model.addAttribute("bookingId",booking.getBookingId());
 		System.out.println("2. user==========="+user);
+		
+		String color = "black";
+		if(review == null)
+			System.out.println("dd");
+		
 		return "member/mypage/review-detail";
 	}
 	/*-----------리뷰수정------*/

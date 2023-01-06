@@ -27,7 +27,7 @@ window.addEventListener("load", function(){
     elInputLoginId.onkeyup = function(){
 
         // console.log(input)s
-        var regExpId = /^[a-z0-9_]{1,16}$/
+        var regExpId = /^[a-z0-9_]{6,16}$/
        
 
         if(elInputLoginId.value==false){ 
@@ -48,15 +48,22 @@ window.addEventListener("load", function(){
         }
         console.log(elInputLoginId.value);
 
-           // 아이디 중복확인
-        // fetch(`/user/signup/id-check/${elInputLoginId.value}`)
-        // .then(resp=>resp.json())
-        // .then(data=>{
-        //         console.log("testestes")
-        //         if(data >= 1)
-        //             chkLoginId.classList.remove('d-none');
+         // 아이디 중복확인
+         fetch(`/userApi/signup/id-check/${elInputLoginId.value}`)
+         .then(resp=>resp.json())
+         .then(data=>{
+                 console.log(data)
+                 //결과가 1이면 중복
+                 if(data.resultObject == 1){
+                     chkLoginId.classList.remove('d-none');
+					 elIdsuccessmassage.classList.add('d-none');
+				 }
+				 //나머진 사용가능
+				 else{
+					 chkLoginId.classList.add('d-none');
+				 }
 
-        //     })
+             })
 
     };
 
