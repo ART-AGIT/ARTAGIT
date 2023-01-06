@@ -75,7 +75,7 @@ window.addEventListener("load",function(e){
 	        	let template =`
 				<div class="review-form" >
 	        
-		            <div class="box">
+		            <div class="box" style="background-color:${review.color}"}>
 		                <div class="write-form" >
 		                    <div class="content" >${review.content}</div>			                    
 		                    
