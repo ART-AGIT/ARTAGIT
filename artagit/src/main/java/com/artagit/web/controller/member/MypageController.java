@@ -88,6 +88,11 @@ public class MypageController {
 		model.addAttribute("review",review);
 		model.addAttribute("bookingId",booking.getBookingId());
 		System.out.println("2. user==========="+user);
+		
+		String color = "black";
+		if(review == null)
+			System.out.println("dd");
+		
 		return "member/mypage/review-detail";
 	}
 	/*-----------리뷰수정------*/
