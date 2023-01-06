@@ -1,6 +1,7 @@
 package com.artagit.web.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -87,7 +88,9 @@ public class DefaultBoardService implements BoardService{
 		// TODO Auto-generated method stub
 		return boardDao.getDetail(id);
 	}
-	
+
+
+
 }
 
 
