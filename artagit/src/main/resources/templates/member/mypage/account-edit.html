@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org" lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -22,7 +23,7 @@
     <link href="../../css/utils.css" type="text/css" rel="stylesheet">
 </head>
 <script src="../../js/header-menu.js"></script>
-
+<script src="../../js/member/mypage/account-edit.js"></script>
 <body>
     <header class="header">
         <section class="header-wrapper">
@@ -73,38 +74,41 @@
 
         
             <section class="reg-list">
-                <form action="">
-
+                <form action="/member/mypage/account-edit" method="post">
+					
                     <div class="member">
-
+						<input type="hidden" th:value="${user.id}" name="id">
                         <div class="member-profile">
-                            <img src="../../image/회원.svg" class="member-profile-img">
+                            <img src="../../image/회원기본이미지.svg" class="member-profile-img img-input">
                             <div class="icon-img-choice">
                                 <div class="circle-edit"></div>
-                               <input type="file" src="../../image/icons/icon-edit.svg" class="icon icon-write icon-write-edit">
+                               <input name="img" type="file" src="../../image/icons/icon-edit.svg" class="icon icon-write icon-write-edit file-input">
                                <!--  <a href=""><img class="img-edit" src="../../image/write-on.png"></a> -->
                             </div>
                         </div>
                         <div class="member-name-grade">
-                            <div class="member-name">뽀대성균</div>
-                            <div class="member-grade">일반회원</div>
+                            <div th:text="${user.nickname}" class="member-name">뽀대성균</div>
+<!--                              <input th:value="#{user.nickname}" name="nickname" class="member-name">뽀대성균</input> -->
+<!--                             <div th:if="${user.roleId==2}" th:text="${roleId}" class="member-grade">일반회원</div> -->
+                            <div  class="member-grade">일반회원</div>
+<!--                             <div th:if="${user.roleId==2}" class="member-grade">일반회원</div> -->
                         </div>
                     </div>
 
                     <div class="reg-list-input-box">
                         <label for="login-id">아이디</label>
                         <div>
-                            <input name="loginId" id="login-id" type="text" required class="input input-lg">
+                            <input th:value="${user.username}" name="loginId" id="login-id" type="text" required  disabled class="input input-lg">
                         </div>
                     </div>
 
                     <div class="reg-list-input-box">
                         <label for="name">이름</label>
-                        <input name="name" id="name" type="text" class="input input-lg">
+                        <input th:value="${user.name}" name="name" id="name" type="text" class="input input-lg">
                     </div>
                     <div class="reg-list-input-box">
                         <label for="nickname">닉네임</label>
-                        <input name="nickname" id="nickname" type="text" class="input input-lg">
+                        <input th:value="${user.nickname}" name="nickname" id="nickname" type="text" class="input input-lg">
                     </div>
                     <div class="reg-list-input-box">
                         <label for="password">비밀번호</label>
@@ -113,16 +117,16 @@
                     </div>
                     <div class="reg-list-input-box">
                         <label for="password-check">비밀번호 확인</label>
-                        <input name="password" id="password-check" type="password" required class="input input-lg"
+                        <input id="password-check" type="password" required class="input input-lg"
                             placeholder="영문자, 숫자, 특수문자 포함 8자 이상">
                     </div>
                     <div class="reg-list-input-box">
                         <label for="email">이메일</label>
-                        <input name="email" id="email" type="email" class="input input-lg">
+                        <input th:value="${user.email}" name="email" id="email" type="email" class="input input-lg">
                     </div>
                     <div class="reg-list-input-box">
                         <label for="phone">휴대폰</label>
-                        <input name="phone" id="phone" type="text" class="input input-lg">
+                        <input th:value="${user.phone}" name="phone" id="phone" type="text" class="input input-lg">
                     </div>
 
                     <div class="edit-button-box">

@@ -1,28 +1,23 @@
 package com.artagit.web.controller;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.artagit.web.entity.ArtagitUserDetails;
 import com.artagit.web.entity.Board;
-
 import com.artagit.web.entity.BoardListView;
-import com.artagit.web.entity.Notice;
+import com.artagit.web.entity.Comment;
 import com.artagit.web.service.BoardService;
 import com.artagit.web.service.CommentService;
 import com.artagit.web.service.NoticeService;
-
 
 import jakarta.servlet.http.HttpSession;
 
@@ -34,7 +29,7 @@ public class BoardController {
 	private BoardService service;
 	
 	@Autowired
-	private CommentService comService;
+	private CommentService commentService;
 	
 	@Autowired
 	private NoticeService noticeService;
@@ -48,54 +43,40 @@ public class BoardController {
 			
 		List<BoardListView> list = service.getListInit(page);
 		model.addAttribute("list",list);
-	
+		
 		
 		return "board/list";
 			
 		}
-
-	
-
 	
 	
 		
 	
-	/************게시글 디테일*************/
 	@GetMapping("{id}")
-	public String detail(
-		
-		@PathVariable("id")int id,
-		Model model){
-		Board board = service.get(id);
-		model.addAttribute("board",board);
-	
+	   public String detail(
+	      
+	      @PathVariable("id")int id,
+	      Model model, @AuthenticationPrincipal ArtagitUserDetails user){
 		
 		
-		System.out.println("id:"+ id);
-		
-		
-		return "member/board/detail";
-			
-		}
-	/************게시글 삭제***************/
-	@GetMapping("delete")
-	public String delete(int id){
-	
-	service.delete(id);
-     
-	return "redirect:list";
-	}
-	/*********게시글 수정*************/
-	
-	@GetMapping("update")
-	public String upate(Board board){
-	
-	service.update(board);
-     
-	return "redirect:";
-	
-}
-	
+	      Board board = service.get(id);
+	      model.addAttribute("board",board);
+	   
+	      
+	      //Comment 조회
+	      model.addAttribute("user",user);
+	      
+	      System.out.println(user);
+	      System.out.println(board);
+
+	      
+	      List<Comment> comments = commentService.getNickname(id);
+	      model.addAttribute("comments",comments);
+
+	      return "member/board/detail";
+
+	         
+	      }
 	
 	
 	

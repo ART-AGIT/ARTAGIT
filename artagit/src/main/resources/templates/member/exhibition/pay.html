@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="/css/reset.css" type="text/css" rel="stylesheet">
+    <link href="/css/deco.css" type="text/css" rel="stylesheet">
+    <link href="/css/style.css" type="text/css" rel="stylesheet">
+    
+    <link href="/css/icon.css" type="text/css" rel="stylesheet">
+    <link href="/css/button.css" type="text/css" rel="stylesheet">
+    <link href="/css/form.css" type="text/css" rel="stylesheet">
+    <link href="/css/input.css" type="text/css" rel="stylesheet">
+    
+    <link href="/css/header.css" type="text/css" rel="stylesheet">
+    <link href="/css/footer.css" type="text/css" rel="stylesheet">
+    <link href="/css/member/exhibition/booking-ticket.css" type="text/css" rel="stylesheet">
+    <link href="/css/member/exhibition/pay.css" type="text/css" rel="stylesheet">
+
+    <link href="/css/utils.css" type="text/css" rel="stylesheet">
+</head>
+<script src="/js/modal.js"></script>
+<script src="/js/header-menu.js"></script>
+<script type="text/javascript"
+	src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script type="text/javascript"
+    src="https://service.iamport.kr/js/iamport.payment-1.1.5.js"></script>
+<script src="../../js/member/exhibition/pay.js"></script>
+<body id="body">
+    <header class="header">
+        <section class="header-wrapper">
+            <div class="header-box">
+                <h1 class="logo"><a href="index.html">Art Agit</a></h1>
+                <ul class="d-none">
+                    <!-- <li><a href="">전시</a></li>
+                    <li><a href="">커뮤니티</a></li>
+                    <li><a href="">로그인</a></li> -->
+                </ul>
+                <div class="header-menu-box">
+                    <div>
+                        <a class="icon icon-search btn-open-modal" href="">검색</a>
+                    </div>  
+                    <div>
+                        <a class="icon icon-member header-member" href="../login.html">로그인</a>
+                    </div>                    
+                    <div>
+                        <a class="icon icon-menu burger-nav" href="">확장메뉴</a>
+                    </div>
+                </div>
+            </div>
+            <div class="sub-menu-box">
+                <div class="sub-menu">
+                    <div class="sub-menu-1">
+                        <ul>
+                            <li><a href="exhibition/list.html">전시</a></li>
+                            <li><a href="board/list.html">커뮤니티</a></li>
+                            <li><a href="corporator/mypage/exh-reg.html">전시등록</a></li>
+                        </ul>
+                    </div>
+                    <div class="sub-menu-2">
+                        <ul>
+                            <li><a href="../signup.html">회원가입</a></li>
+                            <li><a href="../login.html">로그인</a></li>
+                            <li><a href="">고객센터</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </header>
+
+    <!-- =====pc버젼 용 html============ -->
+    <header class="header-pc">
+        <div class="content-box">
+            <h1 class="logo">
+                <a href="index.html">Art Agit</a>
+            </h1>
+            <section>
+                <h1 class="d-none">메인메뉴</h1>
+                <nav class="main-menu">
+                    <h1 class="d-none">목록선택</h1>
+                    <ul>
+                        <li>
+                            <a href="exhibition/list.html">전시</a>
+                            <ul class="sub-menu">
+                                <li><a href="exhibition/list.html">진행 전시</a></li>
+                                <li><a href="exhibition/list.html">전시 예정</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="board/list.html">커뮤니티</a>
+                            <ul class="sub-menu">
+                                <li><a href="board/list.html">-</a></li>
+                                <li><a href="board/list.html">-</a></li>
+                            </ul>
+                        </li>
+                        <li class="search-btn">
+                            <a href="">검색</a>
+                            <div>
+                                <input type="text" class="search">
+                                <!-- <img src="../image/icons/search.svg" alt=""> -->
+                            </div>
+                        </li>
+                        <li><a href="login.html">로그인</a></li>
+                    </ul>
+
+                </nav>
+            </section>
+        </div>
+    </header>
+    
+    <!-- 모달 전체 -->
+    <div class="modal">
+        <div class="icon icon-close btn-close">닫기</div>
+        <!-- 모달 창 -->
+        <div class="modal-body modal-search">
+            <!-- 모달 내용 -->
+            <form action="/search" method="GET">
+                <input class="input input-search header-search" type="text" placeholder="전시 검색">
+                <button type="submit" name="q" class="icon icon-search btn-search" value="바보">검색</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- 메인 시작 -->
+    <main>
+        <div class="img-and-info">
+            <div class="exh-img-box">
+                <img class="exh-img" src="../../image/전시포스터2.jpg" alt="">
+            </div>
+    
+            <div class="text-box">
+                <div class="exh-title">합스부르크 600년, 매혹의 걸작들</div>
+                <div class="exh-place">국립현대미술관</div>
+            </div>
+        </div>
+
+        <div class="payment-container">
+            <div class="payment-box">
+                <section class="payment-select-box">
+                    <h1>결제수단</h1>
+    
+                    <div>
+                        <ul class="payment-select-menu">
+                            <li><a data-for-tab="1" class="btn btn-default btn-payment btn-left-radius btn-default-line" href="">무통장</a></li>
+                            <li><a data-for-tab="2" class="btn btn-default btn-payment btn-rec btn-default-line" href="">신용카드</a></li>
+                            <li><a data-for-tab="3" class="btn btn-default btn-payment btn-rec btn-default-line" href="">휴대폰</a></li>
+                            <li><a data-for-tab="4" class="btn btn-default btn-payment btn-right-radius btn-default-line" href="">간편결제</a></li>
+                        </ul>
+                    </div>
+                    <div class="choose-pay">
+                        결제수단을 선택해주세요.
+                    </div>
+                    <div data-tab="1" class="tab-content d-none">
+                        <div class="payment-select-passbook">
+                            <div class="select-bank">입금하실 은행을 선택해주세요</div>
+                            <ul class="banks">
+                                <li class="deco deco-home">
+                                    농협(중앙)  
+                                </li>
+                                <li class="deco deco-home">
+                                    국민은행  
+                                </li>
+                                <li class="deco deco-home">
+                                    우리은행  
+                                </li>
+                                <li class="deco deco-home">
+                                    기업은행  
+                                </li>
+                                <li class="deco deco-home">
+                                    신한은행  
+                                </li>
+                                <li class="deco deco-home">
+                                    우체국  
+                                </li>
+                                <li class="deco deco-home">
+                                    하나은행  
+                                </li>
+                            </ul>
+                            <div class="bank-text">
+                                <div class="bank-info">
+                                    <div>
+                                        <span>예금주</span>
+                                        <span>(주)성균</span>
+                                    </div>
+                                    <div>
+                                        <span>입금기한</span>
+                                        <span>2023-01-06 (금) 23시 59분</span>
+                                    </div>
+                                </div>
+                                <ul>
+                                    <li>은행에 따라 23시 30분 이후 온라인 입금이 제한될 수 있습니다.</li>
+                                    <li>ATM기기로는 가상계좌입금이 불가할 수 있습니다.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+
+                    <div data-tab="2" class="tab-content d-none">
+                        <div class="payment-select-card">
+                            <select name="" id="">
+                                <option value="">카드선택</option>
+                                <option value="">롯데카드</option>
+                                <option value="">신한카드</option>
+                                <option value="">현대카드</option>
+                                <option value="">국민카드</option>
+                                <option value="">우리카드</option>
+                            </select>
+                            <select name="" id="">
+                                <option value="">일시불</option>
+                                <option value="">1개월</option>
+                                <option value="">2개월</option>
+                                <option value="">3개월</option>
+                                <option value="">4개월</option>
+                                <option value="">5개월</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div data-tab="3" class="tab-content d-none">
+                        <div class="payment-select-phone">
+                            <div>
+                                준비 중 입니다.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div data-tab="4" class="tab-content d-none">
+                        <div class="payment-select-simple">
+                            <div class="kakao-img">
+                                <img src="../../image/kakaopay-default.PNG" width="150px" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+    
+                <section class="payment-info-box">
+                    <h1>결제예정금액</h1>
+                    <div  class="payment-info-list">
+                        <div class="payment-info">
+                            <span>티켓금액</span>
+                            <span>17,500원</span>
+                        </div>
+                        <div>+</div>
+                        <div class="payment-info">
+                            <span>예매수수료</span>
+                            <span>0</span>
+                        </div>
+                        <div>+</div>
+                        <div class="payment-info">
+                            <span>배송료</span>
+                            <span>0</span>
+                        </div>
+                    </div>
+                    <div class="payment-result">17,500원</div>
+                </section>
+            </div>
+        </div>
+
+        <div class="caution-container">
+            <section class="caution-box">
+                <h1 class="d-none">예매 시 유의사항</h1>
+                <div class="caution-check">
+                    <input type="checkbox" id="caution-check">
+                    <label for="caution-check">예매 시 유의사항 동의하기</label>
+                </div>
+                <div class="caution-ment">
+                    예매 시 유의사항<br>
+                    ※ 탄소 배출 제로 실천의 일환으로 종이 티켓은 발행되지 않습니다.<br>
+                    ※ 전시 티켓은 '나의 예매내역' 페이지의 예약 내역으로 대체됩니다.<br>
+                    ※ 전시는 사전예약자 우선 입장으로 진행되며, 예약 잔여분이 있을 경우에만 현장 예약&입장을 도와드리고 있습니다.<br>
+                    ※ 예약 매진 시 당일 관람이 불가 하므로 사전 예약을 권장합니다.<br>
+                    ※ 방문하신 모든 관람객의 안전하고 쾌적한 관람을 위하여 예약 인원 외 추가 입장은 불가합니다.<br>
+                    ※ 예약시간 10분전부터 15분 후까지만 입장 가능합니다. 이후 방문 시 현장 입장 대기 고객과 동일하게 대기해주셔야 합니다. 현장 상황에 따라 입장이 불가할 수 있으니 예약 시간을 반드시 지켜 주시기 바랍니다.<br>
+                    ※ 아트아지트는 코로나19 확산방지를 위하여 관람객간 2M 거리두기를 실천하며 운영하고 있습니다. 이에따라, 이전 회차 입장객의 관람 지연 등으로 입장 시 대기 시간이 발생할 수 있습니다.<br>
+                    ※ 티켓수령은 예매시 부여되는 <span class="highlight">"예약번호"로 관람일 당일 현장에서<br>
+                    수령하여 입장</span>할 수 있습니다.</span>
+                </div>
+            </section>
+        </div>
+
+        <div class="booking-btn">
+            <a class="btn btn-pay btn-price">결제금액 17,500원</a>
+            <a class="btn btn-pay btn-way" href="">결제하기</a>
+        </div>
+    </main>
+</body>
+</html>

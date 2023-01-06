@@ -18,12 +18,13 @@
 			</trim>
 			limit #{(page-1)*10}, 10
 	</select>
-	<!--================== 회원 탈퇴 ===================
+	<!--================== 회원 탈퇴 ===================	-->
 	<update id="deleteUseYN" parameterType="com.artagit.web.entity.Member">
-		update Member 
-	<set> useYN = 'N' </set>	 
-			where id = #{id}
-	</update>	--><!--================== 일반 회원 로그인 ===================-->
+			update Member 
+		<set> useYN = 'N' </set>	 
+				where id = #{id}
+	</update>
+	<!--================== 일반 회원 로그인 ===================-->
 	<select id="getByName" resultType="com.artagit.web.entity.Member">
        select *
        from Member
@@ -50,15 +51,24 @@
 			values(#{loginId}, #{password}, #{name}, #{phone}, #{nickname}, #{email}, #{image}, #{roleId})
 	</insert>
 	
-	<update id="update" parameterType="com.artagit.web.entity.Member">
-		update Member
-		<set>
-			<if test="name != null">name = #{name},</if>
-			<if test="price != null">price = #{price},</if>
-			<if test="img != null">img = #{img},</if>
-		</set>
-			where id = #{id}
-	</update>
+	<!--================== 아이디 중복 확인 ===================-->
+	<select id="chkId" resultType="int">
+		select count(id) from Member
+			where loginId = #{loginId}
+	</select>
+
+	
+	
+	
+<!-- 	<update id="update" parameterType="com.artagit.web.entity.Member"> -->
+<!-- 		update Member -->
+<!-- 		<set> -->
+<!-- 			<if test="name != null">name = #{name},</if> -->
+<!-- 			<if test="price != null">price = #{price},</if> -->
+<!-- 			<if test="img != null">img = #{img},</if> -->
+<!-- 		</set> -->
+<!-- 			where id = #{id} -->
+<!-- 	</update> -->
 
 	
 
@@ -73,7 +83,23 @@
 		where id=38;
 	</update>
 
-
+<!-- 	<update id = "update" parameterType="com.artagit.web.entity.Member"> -->
+<!--         update Member -->
+<!--         set name=#{name}, nickname =#{nickname}, password=#{password}, email=#{email}, phone=#{phone}  -->
+<!--         where id = #{id} -->
+<!--     </update> -->
+    <update id = "update" parameterType="com.artagit.web.entity.Member">
+        update Member
+        <set>
+ 			<if test="name != null">name = #{name},</if>
+ 			<if test="nickname != null">nickname = #{nickname},</if>
+			<if test="password != null">password = #{password},</if>
+			<if test="email != null">email = #{email},</if>
+			<if test="phone != null">phone = #{phone},</if>
+ 		</set>
+        where id = #{id}
+    </update>
+	
 
 	<delete id="delete">
 		delete from Member

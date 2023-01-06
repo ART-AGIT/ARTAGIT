@@ -24,8 +24,15 @@ window.addEventListener("load", function() {
 		document.querySelector("#third-circle").classList.remove("circle-off");
 	};
 
+//	btnReg.onclick = function(e) {
+//		e.preventDefault();
+//		
+//		location.href = 'http://localhost:8080/corporator/mypage/exh-list.html';
+//
+//
+//	};
 	btnReg.onclick = function(e) {
-		e.preventDefault();
+//		e.preventDefault();
 		
 		//location.href = 'http://localhost:8080/corporator/mypage/exh-list.html';
 

@@ -27,4 +27,14 @@
 	<select id="getByUserName" resultType="com.artagit.web.entity.Corporate">
 		select * from Corporate where loginId=#{username}
 	</select>
+	
+	
+	<update id="deleteYN" parameterType="com.artagit.web.entity.Corporate">
+		update Corporate
+ 		set useYN = 'N'
+ 		where id = #{id}
+	</update>
+	
+	
+	
 </mapper>

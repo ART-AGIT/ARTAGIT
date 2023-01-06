@@ -21,7 +21,7 @@ public interface ExhibitionService {
 	Exhibition getExhById(int exhId);
 	
 
-//	void update(Exhibition exhibition);
+//	int update(Exhibition exh);
 
 	// [주최자] 나의 등록전시 수정
 	int update(int id);
@@ -53,6 +53,10 @@ public interface ExhibitionService {
 	int likeDelete(int exhId, int memberId);
 
 	int countOfLike(int exhId);
+
+
+
+	List<ExhibitionView> getListBySearch(String query, int memberId) throws SQLSyntaxErrorException;
 
 
 	List<Exhibition> getListBySearch(String query) throws SQLSyntaxErrorException;

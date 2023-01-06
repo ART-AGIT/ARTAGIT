@@ -3,6 +3,7 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 20px;
+    padding-top: 20px;
     
 }
 .exhibition{
@@ -37,8 +38,8 @@
 
         text-align: center;
         align-self: center;
-        
- 
+
+        height: 100%;
     }
         .exhibition-img{
             width: 95%;
@@ -74,9 +75,26 @@
 /* ========================================================= */
 
 @media (min-width: 992px) {
+    .exhibition form{
+        grid-template: 
+        "img " 360px
+        "title" 40px
+        "date" 36px
+        "place" 36px
+        / 1fr;
+    }
+    .exhibition-heart{
+        right: 10px;
+        top: 5px;
+    }
     .exhibition-list{
         grid-template-columns: repeat(3, 1fr);
     }
-
+    .exhibition form>h1{
+        font-size: 18px;
+    }
+    .exhibititon-date, .exhibition-place{
+        font-size: 16px;
+    }
 
 }

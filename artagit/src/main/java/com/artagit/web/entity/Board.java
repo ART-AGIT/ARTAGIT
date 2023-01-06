@@ -4,45 +4,24 @@ import java.util.Date;
 
 public class Board {
 	private int id;
-	private int roleId;
 	private int memId;
+	private String name;
 	private String title;
-	private String content;
 	private String image;
 	private int hit;
 	private Date regDate;
+	private String nickname;
+	private int roleId;
+	private String useYN;
+	private int commentTotal;
+	private String content;	
+	private int like;
 	private Date modiDate;
-	
-public Board() {
-	// TODO Auto-generated constructor stub
-}
-	public Board(int id, int roleId, int memId, String title, String content, String image, int hit, Date regDate,
-			Date modiDate) {
-		super();
-		this.id = id;
-		this.roleId = roleId;
-		this.memId = memId;
-		this.title = title;
-		this.content = content;
-		this.image = image;
-		this.hit = hit;
-		this.regDate = regDate;
-		this.modiDate = modiDate;
-		
-	}
-	
-
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
-	}
-	public int getRoleId() {
-		return roleId;
-	}
-	public void setRoldId(int roleId) {
-		this.roleId = roleId;
 	}
 	public int getMemId() {
 		return memId;
@@ -50,17 +29,17 @@ public Board() {
 	public void setMemId(int memId) {
 		this.memId = memId;
 	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
 	public String getTitle() {
 		return title;
 	}
 	public void setTitle(String title) {
 		this.title = title;
-	}
-	public String getContent() {
-		return content;
-	}
-	public void setContent(String content) {
-		this.content = content;
 	}
 	public String getImage() {
 		return image;
@@ -80,17 +59,59 @@ public Board() {
 	public void setRegDate(Date regDate) {
 		this.regDate = regDate;
 	}
+	public String getNickname() {
+		return nickname;
+	}
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
+	public int getRoleId() {
+		return roleId;
+	}
+	public void setRoleId(int roleId) {
+		this.roleId = roleId;
+	}
+	public String getUseYN() {
+		return useYN;
+	}
+	public void setUseYN(String useYN) {
+		this.useYN = useYN;
+	}
+	public int getCommentTotal() {
+		return commentTotal;
+	}
+	public void setCommentTotal(int commentTotal) {
+		this.commentTotal = commentTotal;
+	}
+	public String getContent() {
+		return content;
+	}
+	public void setContent(String content) {
+		this.content = content;
+	}
+	public int getLike() {
+		return like;
+	}
+	public void setLike(int like) {
+		this.like = like;
+	}
 	public Date getModiDate() {
 		return modiDate;
 	}
 	public void setModiDate(Date modiDate) {
 		this.modiDate = modiDate;
 	}
+	
+	public Board() {
+		// TODO Auto-generated constructor stub
+	}
 	@Override
 	public String toString() {
-		return "Post [id=" + id + ", roleId=" + roleId + ", memId=" + memId + ", title=" + title + ", content="
-				+ content + ", image=" + image + ", hit=" + hit + ", regDate=" + regDate + ", modiDate=" + modiDate
-				+ "]";
+		return "Board [id=" + id + ", memId=" + memId + ", name=" + name + ", title=" + title + ", image=" + image
+				+ ", hit=" + hit + ", regDate=" + regDate + ", nickname=" + nickname + ", roleId=" + roleId + ", useYN="
+				+ useYN + ", commentTotal=" + commentTotal + ", content=" + content + ", like=" + like + ", modiDate="
+				+ modiDate + "]";
 	}
+
 
 }
