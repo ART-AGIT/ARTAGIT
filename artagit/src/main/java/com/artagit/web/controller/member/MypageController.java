@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,6 +35,12 @@ public class MypageController {
 	@Autowired
 
 	private BookingService bookingService;
+	private MemberService memberService;
+	
+	@Autowired
+	private PasswordEncoder passwordEncoder;
+//	@Autowired
+//	private MyPageService myPageService;
 	
 	@Autowired
 	private PaymentService payService;
@@ -106,7 +113,7 @@ public class MypageController {
 		//회원수정페이지불러올때 회원가입할때정보불러오기 user쓰기
 
 		model.addAttribute("user",user);
-		System.out.println(user.getPhone());
+		//System.out.println(user.getPhone());
 		//memberService.update(user);
 		
 		
@@ -120,14 +127,22 @@ public class MypageController {
 //		System.out.println("user"+user);
 //		System.out.println("member"+member);
 		
+		String password = member.getPassword();
+		String encPassword = passwordEncoder.encode(password);
 		
-		member.setPassword(member.getPassword()); 
+		member.setPassword(encPassword);
+		System.out.println(encPassword);
+		System.out.println(member);
+		//member.setPassword(member.getPassword()); 
+		memberService.update(member);
+		
+		user.setNickname(member.getNickname());
+		user.setUsername(member.getLoginId());
+		user.setName(member.getName());
+		user.setEmail(member.getEmail());
+		user.setPhone(member.getPhone());
+		
 		model.addAttribute("user",user);
-		
-		
-		
-//		memberService.update(member);
-//		Member memb = memberService.get(member.getId());
 
 //		System.out.println("member"+memb);
 		
