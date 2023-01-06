@@ -67,7 +67,7 @@
                 <img class="board-img" th:classappend="${board.image.isEmpty()}?d-none" th:src="@{/image/{img}(img=${board.image})}">
             <div class="like">
              <div th:if="${user.id == board.memId}">
-               <a class="btn btn-default-line">수정</a>
+               <a th:href="@{|/member/board/edit/${id}|}" class="btn btn-default-line">수정</a>
                <a th:href="@{/member/board/delete(id=${id})}" class="btn btn-default-line">삭제</a>
                </div>
                <div th:if="${user.id != board.memId}">
