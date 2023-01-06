@@ -41,9 +41,6 @@ window.addEventListener("load", function() {
                      2022.11.26 18:38</div>
                   <div class="re-comment">
                      <a href="">답글쓰기</a>
-                     <button class="" type="submit" value="수정">수정</button>
-                     <button class="" type="submit" value="삭제">삭제</button>
-                     
                   </div>
 
                </div>
@@ -59,30 +56,6 @@ window.addEventListener("load", function() {
       
    }
    
-   commentBox.onclick = function(e) {
-      e.preventDefault();
-      
-      
-         if(e.target.id == 1){
-         let template = `
-         <textarea class="content-null" name="content"></textarea>
-         <button id="3" class="btn btn-default-fill" type="submit" value="작성">작성</button>
-         `;
-         commentlist.insertAdjacentHTML("afterend", template);
-         }
-         
-         if(e.target.id == 3){
-            console.log("아멘")
-            
-         }
-   console.log()   
-      }
-   
-   
-   
-   
-
-
 
 
 
