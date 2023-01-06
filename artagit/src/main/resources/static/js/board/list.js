@@ -69,7 +69,7 @@ console.log(e.target);
             </div>
         </div>
         <div class="board-post-img-box">
-           <img src="/image/${board.image}" class="post-img">
+           <img onerror="this.style.display='none'"  src="/image/${board.image}" class="post-img">
         </div>
           </section>
     </form>
