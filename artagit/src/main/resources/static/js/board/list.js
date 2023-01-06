@@ -5,7 +5,7 @@ window.addEventListener("load", function() {
 	
 	ul.onclick = function(e) {
 		e.preventDefault();
-console.log(e.target);
+		console.log(e.target);
 		const el = e.target;
 		
 		if (el.tagName != "LI" && el.tagName != "SPAN")
@@ -23,7 +23,7 @@ console.log(e.target);
 		currentLi = li;
 		console.log(currentLi);
 
-
+	
 	
 
 
@@ -41,7 +41,7 @@ console.log(e.target);
 		for (let board of list) {
 			
 			let template = ` 
-		<form action="list" method="post">
+		
         <section class="board-list">
         <h1 class="board-title">
          	<a href = "/member/board/${board.id}">${board.title}</a>
@@ -74,9 +74,7 @@ console.log(e.target);
           </section>
     </form>
 
-    <div class="writing-img-box">
-        <a href = "./reg"><img src = "../image/writing-img.png"></img></a>
-    </div>`;
+    `;
 				
 			
 			
@@ -84,6 +82,14 @@ console.log(e.target);
 				let el = new DOMParser().parseFromString(template, "text/html").body.firstElementChild;
 				//body를 지우면 body안쪽만 나온다. firstelement를 만들겠다.
 				boardbox.append(el); //6개의 객체를 하나하나 넣어준다.
+				
+//				const li = document.querySelector(".");
+//				
+//				li.onclick = function(e) {let template=`
+//					<div class="writing-img-box">
+//       		 			<a href = "./reg"><img src = "../image/writing-img.png"></img></a>
+//					</div>`
+				
 			
 		};})
 		}})
