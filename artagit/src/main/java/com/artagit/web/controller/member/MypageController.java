@@ -59,7 +59,7 @@ public class MypageController {
 		System.out.println("1. user==========="+user);
 		List<BookingList> bookingList = bookingService.getListById(user.getId());
 		int countOfBooking = bookingList.size();
-		
+//		System.out.println("----"+bookingList.get(0).getImage());
 		for(int i=0;i<countOfBooking;i++) {
 			if(bookingList.get(i).getPayMethod()==null)
 				bookingList.get(i).setPayMethod("미결제");

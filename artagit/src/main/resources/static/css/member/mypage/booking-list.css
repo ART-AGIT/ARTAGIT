@@ -45,10 +45,13 @@ form {
 
 .button-list {
     grid-area: btn;
+    
 }
 
 .exh-img {
     margin-left: 10px;
+    width:150px;
+    height:170px;
 }
 
 .btn-default-fill {
