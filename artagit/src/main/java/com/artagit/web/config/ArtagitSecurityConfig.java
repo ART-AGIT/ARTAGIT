@@ -23,11 +23,11 @@ public class ArtagitSecurityConfig {
 				.requestMatchers("/member/**").hasAnyRole("MEMBER","ADMIN") // MEMBER, ADMIN 권한이 있는 계정만 접근 가능한 경로
 				.anyRequest().permitAll()) // 그 외의 나머지 (비회원) 권한을 가진 계정이 접근할 수 있는 경로
 				.formLogin(form->form.loginPage("/user/login") // 로그인 폼으로는, /login.html 를 로그인 페이지로 등록한다.
-									 .defaultSuccessUrl("/index")) // loginPage("/user/login") 경로를 통해 로그인을 했을 때 로그인 성공 시 보내줄 페이지. 
+									 .defaultSuccessUrl("/")) // loginPage("/user/login") 경로를 통해 로그인을 했을 때 로그인 성공 시 보내줄 페이지. 
 				.exceptionHandling(exp->exp.accessDeniedPage("/denied")) // 권한이 없는 페이지를 접근했을 때 보여줄 화면?
 				.logout()
 				.logoutUrl("/user/logout") // 로그아웃을 위한 url 설정
-				.logoutSuccessUrl("/index"); // 로그아웃이 되면 어디로 보낼건지.
+				.logoutSuccessUrl("/"); // 로그아웃이 되면 어디로 보낼건지.
 		
 			return http.build(); // 위에서 설정한 정보들을 하나의 데이터 포맷(객체)으로 만들어서 반환						
 	}
