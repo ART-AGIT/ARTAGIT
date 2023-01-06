@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +14,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -94,19 +97,44 @@ public class ExhibitionController {
 
 	// 주최자가 등록한 전시 수정 ========================
 	@PostMapping("update")
-	public String update(int id) {
-//	(Exhibition exhibition, Corporate corporate, Local local) {
-		System.out.println("어디까지 왔니");
-//		Exhibition exh = service.getExhById(id);
-		service.update(id);
-//		Corporate corporate = corporateService.getCorpById(exh.getCorpId());
-//		corporateService.update(exh.getCorpId());
-//		localService.update(corporate.getLocalId());
-//		
-//		System.out.println(id+"번 전시 수정완료");
-		System.out.println("수정한 전시==>" + id);
+	@ResponseBody
+	public String update(@RequestBody HashMap<String,Object> map) {
+	
+		HashMap<String, Object> exhList = (HashMap<String, Object>) map.get("exh");
+		Exhibition exh = new Exhibition();
+		exh.setName(String.valueOf(exhList.get("name")));
+		exh.setArtist(String.valueOf(exhList.get("artist")));
+		exh.setStartDate(String.valueOf(exhList.get("startDate")));
+		exh.setEndDate(String.valueOf(exhList.get("endDate")));
+		exh.setTicketPrice((int)exhList.get("ticketPrice"));
+		exh.setTicketStock((int)exhList.get("ticketStock"));
+		exh.setContent(String.valueOf(exhList.get("content")));
 		
-		return "redirect:detail";
+		
+		HashMap<String, Object> corpList = (HashMap<String, Object>) map.get("corp");
+		Corporate corp = new Corporate();
+		corp.setMuseumName((String)corpList.get("museumName"));
+		corp.setName((String)corpList.get("name"));
+		corp.setAddress((String)corpList.get("address"));
+		corp.setPhone((String)corpList.get("phone"));
+		corp.setManager((String)corpList.get("manager"));
+
+		HashMap<String, Object> localList = (HashMap<String, Object>) map.get("local");
+		Local local = new Local();
+		local.setName((String) localList.get("name"));
+		
+		
+		System.out.println("전시데이터 ===> " + exh);
+		System.out.println("주최자데이터 ===> " + corp);
+		System.out.println("지역데이터 ===> " + local);
+		
+		service.update(exh);
+		corporateService.update(corp);
+		localService.update(local);
+		
+		System.out.println(exh.getId()+"번 전시 수정완료");
+		
+		return "redirect:detail/{exh.id}";
 	}
 	
 	// 주최자가 등록한 전시 삭제 ========================
