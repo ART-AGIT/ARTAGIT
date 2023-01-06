@@ -1,30 +1,20 @@
 package com.artagit.web.controller.member;
 
 
-import java.security.Principal;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.artagit.web.entity.ArtagitUserDetails;
-import com.artagit.web.entity.Board;
-import com.artagit.web.entity.Booking;
 import com.artagit.web.entity.BookingList;
-import com.artagit.web.entity.Comment;
-import com.artagit.web.entity.Exhibition;
+import com.artagit.web.entity.Member;
 import com.artagit.web.entity.Payment;
 import com.artagit.web.entity.Review;
 import com.artagit.web.service.BookingService;
@@ -32,15 +22,6 @@ import com.artagit.web.service.ExhibitionService;
 //import com.artagit.web.service.MyPageService;
 import com.artagit.web.service.PaymentService;
 import com.artagit.web.service.ReviewService;
-
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-
-import com.artagit.web.entity.ArtagitUserDetails;
-import com.artagit.web.entity.Member;
-import com.artagit.web.service.ExhibitionService;
-//import com.artagit.web.service.MyPageService;
-import com.artagit.web.service.MemberService;
 
 
 @Controller

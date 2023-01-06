@@ -99,16 +99,17 @@ form {
 h1{
     padding-left: 10px;
 }
-.modal{
-    position: absolute;
-  top: 0;
-  left: 0;
-    display: flex;
-    width: 300px;
-    height: 650px;
-    border-radius: 20px;
-    /* background-color: pink; */
-}
+
+/* .modal{ */
+/*     position: absolute; */
+/*   top: 0; */
+/*   left: 0; */
+/*     display: flex; */
+/*     width: 300px; */
+/*     height: 650px; */
+/*     border-radius: 20px; */
+/*     background-color: pink; */
+/* } */
 .dd{
     width:300px;
     height:300px;
