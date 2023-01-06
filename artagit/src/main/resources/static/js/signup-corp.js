@@ -5,12 +5,13 @@ window.addEventListener("load",function(){
     const regListBox = this.document.querySelectorAll(".reg-list-box");
     // let currentEl = this.document.querySelector(".d-none");
     let contents = this.document.querySelectorAll(".accordion-content");
-    const form = this.document.querySelector("form");
+    // const form = this.document.querySelector("form");
+    const regList = this.document.querySelector(".reg-list");
 	const icon = this.document.querySelectorAll(".arrow-icon");
 
     const chkId = this.document.querySelector(".loginId");
 
-        form.onclick = function(e){
+    regList.onclick = function(e){
             e.preventDefault()
 
             var isHeader = e.target.classList.contains("accordion-header")
