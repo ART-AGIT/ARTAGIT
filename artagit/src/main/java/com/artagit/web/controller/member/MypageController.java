@@ -151,6 +151,10 @@ public class MypageController {
 		return "member/mypage/account-edit";
 	}
 
+	@GetMapping("like-list")
+	public String likeList() {
+		return "member/mypage/like-list";
+	}
 
 }
 
