@@ -6,22 +6,41 @@ public class Review {
 	private int id;
 	private int payId;
 	private String content;
+	private String color;
 	private Date regDate;
 	
 	public Review() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Review(int id, int payId, String content, Date regDate) {
+	public Review(int id, int payId, String content) {
 		super();
 		this.id = id;
 		this.payId = payId;
 		this.content = content;
+//		this.color = color;
+//		this.regDate = regDate;
+	}
+	
+	public Review(int id, int payId, String content, String color, Date regDate) {
+		super();
+		this.id = id;
+		this.payId = payId;
+		this.content = content;
+		this.color = color;
 		this.regDate = regDate;
 	}
 
 
 
+
+	public String getColor() {
+		return color;
+	}
+
+	public void setColor(String color) {
+		this.color = color;
+	}
 
 	public int getId() {
 		return id;
@@ -50,8 +69,10 @@ public class Review {
 
 	@Override
 	public String toString() {
-		return "Review [id=" + id + ", payId=" + payId + ", content=" + content + ", regDate=" + regDate + "]";
+		return "Review [id=" + id + ", payId=" + payId + ", content=" + content + ", color=" + color + ", regDate="
+				+ regDate + "]";
 	}
+
 	
 	
 	

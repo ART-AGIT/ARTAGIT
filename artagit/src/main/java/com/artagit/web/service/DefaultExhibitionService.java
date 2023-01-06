@@ -123,6 +123,10 @@ public class DefaultExhibitionService implements ExhibitionService {
 	}
 
 	@Override
+	public List<Exhibition> getListtt(int memId) {
+		
+		return exhDao.getListtt(memId);
+	}
 	public int likeUp(int exhId, int memId) {
 		
 		ExhLike exhLike = new ExhLike(memId, exhId);
@@ -141,6 +145,7 @@ public class DefaultExhibitionService implements ExhibitionService {
 	public int countOfLike(int exhId) {
 		
 		return exhLikeDao.count(exhId);
+
 	}
 
 	@Override
@@ -183,6 +188,12 @@ public class DefaultExhibitionService implements ExhibitionService {
 	public int update(Exhibition exh) {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	@Override
+	public List<Exhibition> getListBySearch(String query) throws SQLSyntaxErrorException {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

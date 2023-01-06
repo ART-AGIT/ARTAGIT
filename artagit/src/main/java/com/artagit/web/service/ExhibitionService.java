@@ -33,12 +33,19 @@ public interface ExhibitionService {
 
 	List<Exhibition> getListByCategory(int page, int museum, int state, int category);
 
+
+	List<Exhibition> getListtt(int memId);
+
+
+	//내가 등록한 전시 삭제하기
+	//void delete(int id);
 	// [주최자] 나의 등록전시 삭제
 	int delete(int id);
+
 	
+
 	// 업체가 등록한 전시 상세페이지
 //	Corporate getById(int corpId);
-
 
 
 	int likeUp(int exhId, int memId);
@@ -47,8 +54,12 @@ public interface ExhibitionService {
 
 	int countOfLike(int exhId);
 
+
+
 	List<ExhibitionView> getListBySearch(String query, int memberId) throws SQLSyntaxErrorException;
 
+
+	List<Exhibition> getListBySearch(String query) throws SQLSyntaxErrorException;
 
 	List<ExhibitionView> getListByMemberId(int page, int museum, int state, int category, int memberId);
 
@@ -56,6 +67,5 @@ public interface ExhibitionService {
 	//전시 등록 
 	int insert(Exhibition exhibition);
 
-	
 
 }

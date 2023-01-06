@@ -5,60 +5,84 @@
     padding-left: 10px;
 }
 
-.form-box{
-        margin-top: 13px;
-        /* width:379px; */
-        height: 406px;
-        border-radius: 10px;
-        border: 1px solid #ddd;
-        /* padding: 10px; */
-        background-color: #EDEDED;
+.review-form{
+    display: flex;
+    justify-content: center;
 }
 
-.form{
+.box{
+    margin-top: 13px;
+    width: 355px;
+    height: 406px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    background-color: #EDEDED;
+}
+
+.trash-img{
+    width: 25px;
+    height: 25px;
+}
+.write-form{
     margin: 17px;
-    width:90%;
+    width:320px;
     height: 310px;
     background-color: white;
     border: 1px solid #ddd;
-}
-
-.input{
-    width:100%;
-    height:310px;
-}
-
-.form{
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
     word-break: break-all;
-
 }
+
 .content{
     display: block;
-    margin: 10px 0 0 10px;
-    /* width: 150px; */
-    /* height:150px; */
+    margin: 10px;
     word-break: break all;
 }
 
+.input-review{
+    /* align-items: center; */
+    width:320px;
+    height: 310px;
+}
+
 .detail-info{
-    display:inline-flex;
-    flex-direction: column;
-    gap:10px;
-    padding-left:24px ;
-    color:#5A5A5A;
+    display:grid;
+    grid-template:
+    "exh-name  color" 30px
+    "exh-loc  trash" 30px / 6fr 1fr;
+    padding-left: 20px;
 }
 
-.exh-name{
-    font-size: 16px;
-    margin-bottom: 10px;
-}
+    .exh-name{
+        grid-area: exh-name;
+        font-size: 16px;
+    }
+    .exh-loc{
+        grid-area:exh-loc;
+        font-size: 14px;
+    }
+    .exh-date{
+        font-size: 10px;
+    }
+    .color-option{
+        grid-area: color;
+    }
+    .trash-img{
+        /* padding-left: -5px; */
+        grid-area:trash;
+    }
 
-.exh-loc{
-    font-size: 14px;
-}
 
-.exh-date{
-    font-size: 10px;
+
+.color-input{
+    width:20px;
+    height: 20px;
+    background-color: gray;
+    border-radius: 50%;
+    color:#D9D9D9;
+    border-color: #D9D9D9;
 }
 
 .review-option-list{
@@ -78,52 +102,39 @@
     padding-top: 31px;
 }
 
-.icon-trash{
-    /* display: inline-block;
-    margin-left: 100px;
-    margin-top: 30px;
-    cursor:pointer; */
 
-}
+@media (min-width: 993px){ 
 
-/* 
-@media (max-width: 393px){ 
-
-    .form-box{
+    .box{
             margin-top: 13px;
-            width:379px;
+            width:650px;
             height: 406px;
             border-radius: 10px;
             border: 1px solid #ddd;
             background-color: #EDEDED;
     }
 
-    .form{
+    .write-form{
         margin: 17px;
-        width:345px;
+        width:610px;
         height: 312px;
         background-color: #fff;
         border: 1px solid #ddd;
+        justify-content: center;
+        align-items: center;
+        word-break: break-all;
     }
-    .form2{}
-} */
 
-.wrap{
-    display: inline-flex;
-    flex-direction: column;
-    margin-left: 80px;
-    /* padding-right: 10px; */
-    /* margin-top: 30px;*/
-    cursor:pointer;
-    gap: 10px;
+    .detail-info{
 
-}
-
-.color-input{
-    width:20px;
-    height: 20px;
-    background-color: gray;
-    border-radius: 50%;
-    color:#D9D9D9;
-    border-color: #D9D9D9;
-}
+        grid-template:
+        "exh-name  color" 30px
+        "exh-loc  trash" 30px / 10fr 1fr;
+    }
+    
+    .input-review{
+    
+        width:610px;
+        height: 312px;
+    }
+} 

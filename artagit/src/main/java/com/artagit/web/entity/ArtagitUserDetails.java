@@ -32,6 +32,13 @@ public class ArtagitUserDetails implements UserDetails {
 		return roleId;
 	}
 
+	public void setRoleId(int roleId) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
+
 	public int getId() {
 		return id;
 	}
@@ -206,8 +213,4 @@ public class ArtagitUserDetails implements UserDetails {
 		
 	}
 
-	public void setRoleId(int roleId) {
-		// TODO Auto-generated method stub
-		
-	}
 }

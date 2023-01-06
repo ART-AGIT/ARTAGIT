@@ -103,13 +103,15 @@
         <div class="total-box">
             <span class="text total" >Total:</span><span class="text total-num" th:text="${countOfExh}"></span>
         </div>
-
-        <div class="go-reg">
-            <p class="">등록된 전시가 없습니다.</p>
+		<div class="total-box">
+            <span class="text total">Total:&nbsp;</span><span class="text total-num">2</span>
+        </div>
+        <div class="go-reg" th:if="${countOfExh}==0">
+            <p>등록된 전시가 없습니다.</p>
             <button class="btn btn-default-fill btn-go-reg">전시등록하러 가기</button>
         </div>
 
-        <div class="exh-list" th:each="list:${list}">
+        <div class="exh-list" th:each="list:${list}" >
             <form action="">
 
                 <div class="exh-img-box">
