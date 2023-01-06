@@ -4,6 +4,9 @@ window.addEventListener("load", function(){
     const subMenuBox = header.querySelector(".sub-menu-box");
     const main = document.querySelector("main");
 
+    const headerSearch = document.querySelector(".header-search");
+    const btnSearch = document.querySelector(".btn-search");
+    
     burgerNav.onclick = function(e){
         e.preventDefault();
         // searchContainer.classList.remove("")
@@ -12,8 +15,6 @@ window.addEventListener("load", function(){
         main.classList.toggle("show");
     }
 
-    const headerSearch = document.querySelector(".header-search");
-    const btnSearch = document.querySelector(".btn-search");
 
     btnSearch.onclick = function(e){
 		console.log("searchbtn")

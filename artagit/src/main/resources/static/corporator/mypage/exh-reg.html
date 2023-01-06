@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>exh-reg</title>
     <link href="../../css/reset.css" type="text/css" rel="stylesheet">
-    <link href="../../css/deco.css" type="text/css" rel="stylesheet">
+    <link href="../../css/deco.css" type="text/css"0 rel="stylesheet">
     <link href="../../css/style.css" type="text/css" rel="stylesheet">
 
 
@@ -180,11 +180,11 @@
                         </div>
                         <div class="reg-list-input-box">
                             <label for="">담당자</label>
-                            <input name="manager" type="text" class="input input-lg">
+                            <input th:value="${user.name}" name="manager" type="text" class="input input-lg">
                         </div>
                         <div class="reg-list-input-box">
                             <label for="">전화번호</label>
-                            <input name="managerPhone" type="tel" class="input input-lg">
+                            <input th:value="${user.phone}" name="managerPhone" type="tel" class="input input-lg">
                         </div>
 
                     </section>
