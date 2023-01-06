@@ -58,7 +58,7 @@ textarea.input{
     height: 27px;
     border: 1px solid pink;
     border-radius: 5px;
-    background: url('../../../image/icons/arrow-toggle-down.svg') calc(100% - 7px) center no-repeat;
+  
     background-size: 10px;
     cursor: pointer;
 }
@@ -109,4 +109,14 @@ textarea.input{
   
   .select-box .option:last-child{
     border-bottom: 0 none;
+  }
+
+  .category{
+    background: rgba(255, 192, 203, 0.677);
+    border-radius: 5px;
+  }
+
+  option{
+    background: rgba(255, 192, 203, 0.677);
+    border-radius: 5px;
   }
