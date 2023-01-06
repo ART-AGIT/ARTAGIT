@@ -1,11 +1,12 @@
 window.addEventListener("load", function(){
-    const modiBtn = this.document.querySelector(".update-btn");
+    const modiBtn = this.document.querySelector(".modify-btn");
     const deleteBtn = this.document.querySelector(".delete-btn");
     const modal = this.document.querySelector(".modal");
     const yesBtn = document.querySelector(".yes-btn");
     // const modiPart = this.document.querySelector(".exh-detail-table");
     const detailSection = this.document.querySelector(".exh-detail-section");
     const modiLine = detailSection.querySelectorAll(".content");
+    const moreBtn = detailSection.querySelector(".viewmore");
 
     deleteBtn.onclick = function(e){
 
@@ -22,16 +23,35 @@ window.addEventListener("load", function(){
 };
     console.log(modiBtn);
     modiBtn.onclick = function(e){
-        // e.preventDefault();
+        
+        e.preventDefault();
 
     //     console.log("수정버튼 클릭");
-    // if(modiLine[0].getAttribute('contenteditable') == null){
-    //     console.log("hihi");
+    if(modiLine[0].getAttribute('contenteditable') == null){
+        console.log("hihi");
         for(let i = 0; i<modiLine.length; i++){
             modiLine[i].setAttribute('contenteditable', 'true');
             modiLine[i].classList.add('mody-on');
         }
+
+        let template = `<input type="date" class="item content exh-date" data-placeholder="시작일자" required></input>
+                                <span>~</span>
+                                <input type="date" class="item content exh-date" data-placeholder="종료일자" required></input>`
+        let template2 = `<input type="time" class="item content exh-time" data-placeholder="시작시간" required></input>
+                        <span>~</span>
+                        <input type="time" class="item content exh-time" data-placeholder="종료시간" required></input>`
+        // document.querySelector('.change-box-time').innerHTML=template;
+        document.querySelector('.start-date').classList.add('d-none');
+        document.querySelector('.during-date').classList.add('d-none');
+        document.querySelector('.end-date').classList.add('d-none');
+        document.querySelector('.start-time').classList.add('d-none');
+        document.querySelector('.during-time').classList.add('d-none');
+        document.querySelector('.end-time').classList.add('d-none');
+
+        document.querySelector('.exh-date').insertAdjacentHTML("beforeend", template);
+        document.querySelector('.exh-price').insertAdjacentHTML("beforebegin", template2);
         modiBtn.innerText = '저장';
+        moreBtn.classList.add("d-none");
 
         let exhName = detailSection.querySelector(".exh-name").innerText;
         let exhArtist = detailSection.querySelector(".exh-artist").innerText;
@@ -46,40 +66,37 @@ window.addEventListener("load", function(){
         let exhStock = detailSection.querySelector(".exh-stock").innerText;
         let corpManager = detailSection.querySelector(".corp-manager").innerText;
         let exhContent = detailSection.querySelector(".exh-content").innerText;
-        console.log(exhName);
-        console.log(muName);
-        console.log(localName);
-        console.log(exhDate);
-        console.log(exhTime);
-        console.log(exhPrice);
-        console.log(corpName);
-        console.log(corpAddr);
-        console.log(corpPhone);
-        console.log(exhStock);
-        console.log(corpManager);
-        console.log(exhContent);
 
-        {
-            // // exhibition
-            // "name": exhName,
-            // "artist": exhArtist,
-            // "startDate": exhDate,
-            // "endDate": exhDate,
-            // "ticketPrice": exhPrice,
-            // "ticketStock" : exhStock,
-            // "content" : exhContent,
 
-            // // corporate
-            // "museumName" : muName,
-            // "name" : corpName,
-            // "address" : corpAddr,
-            // "phone" : corpPhone,
-            // "manager" : corpManager
-            
-            // // local
-            // "name" : localName,
-
-        }
+          fetch("/corp/exh/update", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify( 
+               { "exh": {
+                    "name": exhName,
+                    "artist": exhArtist,
+                    "startDate": exhDate,
+                    "endDate": exhTime,
+                    "ticketPrice": exhPrice,
+                    "ticketStock" : exhStock,
+                    "content" : exhContent
+                },
+                "corp":{
+                    "museumName" : muName,
+                    "name" : corpName,
+                    "address" : corpAddr,
+                    "phone" : corpPhone,
+                    "manager" : corpManager
+                },
+                "local":{
+                    "name" : localName
+                } 
+            }
+              ),
+            }).then((response) => console.log(response));
+    }
     }
 
     // else{
@@ -104,7 +121,7 @@ window.addEventListener("load", function(){
 
     // }
 
-    if(e.target.classList.contains())
+    // if(e.target.classList.contains())
 
 	yesBtn.onclick = function(e){
 	    let id = e.target.dataset.id;
