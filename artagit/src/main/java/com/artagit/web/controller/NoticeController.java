@@ -28,7 +28,7 @@ public class NoticeController {
 	}
 	
 	/********************** 공지사항 목록 조회 시작 **********************/
-	@GetMapping("list")
+	@GetMapping("notice/list")
 	public String list(
 			@RequestParam(defaultValue = "1", name="p") int page,
 			Model model) {
