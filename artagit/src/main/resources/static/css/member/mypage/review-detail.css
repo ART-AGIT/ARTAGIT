@@ -41,7 +41,7 @@
     word-break: break all;
 }
 
-.input{
+.input-review{
     /* align-items: center; */
     width:320px;
     height: 310px;
@@ -132,7 +132,7 @@
         "exh-loc  trash" 30px / 10fr 1fr;
     }
     
-    .input{
+    .input-review{
     
         width:610px;
         height: 312px;
