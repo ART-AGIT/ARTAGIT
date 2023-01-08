@@ -3,14 +3,17 @@ package com.artagit.web.controller.member;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
-import com.artagit.web.entity.Exhibition;
+import com.artagit.web.entity.ArtagitUserDetails;
+import com.artagit.web.entity.Corporate;
+import com.artagit.web.entity.ExhibitionView;
+import com.artagit.web.service.CorporateService;
 import com.artagit.web.service.ExhibitionService;
 
 @Controller
@@ -21,6 +24,9 @@ public class ExhibitionController {
 	
 	@Autowired // Field DI (DI 외에 별도로 실행해야 하는 로직이 없는 경우, Field에 Autowired 를 한다.)
 	private ExhibitionService service;
+	
+	@Autowired
+	private CorporateService corporateService;
 	
 //   /********************** 전시등록 시작 **********************/
 //	@GetMapping("exh-reg")
@@ -50,9 +56,26 @@ public class ExhibitionController {
 		return "member/exhibition/pay";
 	}
    /********************** 전시 예매 **********************/
-	@GetMapping("booking-ticket")
-	public String booking() {
-
+//	@GetMapping("booking-ticket")
+	@GetMapping("booking/{id}")
+	public String booking(
+			@PathVariable("id") int exhId,
+			@AuthenticationPrincipal ArtagitUserDetails user,
+			Model model) {
+		
+		int memberId;
+		if(user == null)
+			memberId = 0;
+		else
+			memberId = user.getId();
+		
+		System.out.println(user);
+		ExhibitionView exh = service.getExhById(exhId, user.getId());
+		System.out.println(exh);
+		model.addAttribute("exh", exh);
+		Corporate corp = corporateService.getCorpById(exh.getCorpId());
+		model.addAttribute("corp", corp);
+		
 		return "member/exhibition/booking-ticket";
 	}	
 }

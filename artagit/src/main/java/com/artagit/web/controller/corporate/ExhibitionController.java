@@ -99,29 +99,33 @@ public class ExhibitionController {
 	@PostMapping("update")
 	@ResponseBody
 	public String update(@RequestBody HashMap<String,Object> map) {
-	
+		System.out.println("update 메서드 진입");
 		HashMap<String, Object> exhList = (HashMap<String, Object>) map.get("exh");
 		Exhibition exh = new Exhibition();
+		// 아이디
+		exh.setId(Integer.parseInt(String.valueOf(exhList.get("id"))));		
 		exh.setName(String.valueOf(exhList.get("name")));
 		exh.setArtist(String.valueOf(exhList.get("artist")));
 		exh.setStartDate(String.valueOf(exhList.get("startDate")));
 		exh.setEndDate(String.valueOf(exhList.get("endDate")));
-		exh.setTicketPrice((int)exhList.get("ticketPrice"));
-		exh.setTicketStock((int)exhList.get("ticketStock"));
+		exh.setTicketPrice(Integer.parseInt(String.valueOf(exhList.get("ticketPrice"))));
+		exh.setTicketStock(Integer.parseInt(String.valueOf(exhList.get("ticketStock"))));
 		exh.setContent(String.valueOf(exhList.get("content")));
 		
 		
 		HashMap<String, Object> corpList = (HashMap<String, Object>) map.get("corp");
 		Corporate corp = new Corporate();
-		corp.setMuseumName((String)corpList.get("museumName"));
-		corp.setName((String)corpList.get("name"));
-		corp.setAddress((String)corpList.get("address"));
-		corp.setPhone((String)corpList.get("phone"));
-		corp.setManager((String)corpList.get("manager"));
+		corp.setId(Integer.parseInt(String.valueOf(corpList.get("id"))));
+		corp.setMuseumName(String.valueOf(corpList.get("museumName")));
+		corp.setName(String.valueOf(corpList.get("name")));
+		corp.setAddress(String.valueOf(corpList.get("address")));
+		corp.setPhone(String.valueOf(corpList.get("phone")));
+		corp.setManager(String.valueOf(corpList.get("manager")));
 
 		HashMap<String, Object> localList = (HashMap<String, Object>) map.get("local");
 		Local local = new Local();
-		local.setName((String) localList.get("name"));
+		local.setId(Integer.parseInt(String.valueOf(localList.get("id"))));
+		local.setName(String.valueOf(localList.get("name")));
 		
 		
 		System.out.println("전시데이터 ===> " + exh);
@@ -134,7 +138,7 @@ public class ExhibitionController {
 		
 		System.out.println(exh.getId()+"번 전시 수정완료");
 		
-		return "redirect:detail/{exh.id}";
+		return "redirect:detail";
 	}
 	
 	// 주최자가 등록한 전시 삭제 ========================
