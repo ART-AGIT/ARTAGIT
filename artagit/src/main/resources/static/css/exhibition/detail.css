@@ -48,7 +48,7 @@ body {
 }
 
 .exh-info form { 
-    /* 2 x 7 */
+    /* 2 x 8 */
     margin-left: 15px;
     display: grid;
     grid-template:
@@ -57,12 +57,13 @@ body {
         "exh-place place" 25px
         "exh-date date" 25px
         "exh-time time" 25px
+        "exh-price price" 25px 
         "exh-phone phone" 25px
         "exh-addr addr" 25px / 75px;
     align-items: center;
 }
 
-.exh-author, .exh-place, .exh-date, .exh-time, .exh-phone, .exh-address {
+.exh-author, .exh-place, .exh-date, .exh-time, .exh-phone, .exh-address, .exh-price {
     font-weight: 600;
 }
 
@@ -119,6 +120,10 @@ form>h1 {
 
 .addr {
     grid-area: addr;
+}
+
+.price {
+    grid-area: price;
 }
 
 .hpg-box {
