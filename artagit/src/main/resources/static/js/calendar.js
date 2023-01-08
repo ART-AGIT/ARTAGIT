@@ -1,8 +1,4 @@
-window.addEventListener("load", function(){
-    //console.log(new Date())
-    //console.log(new Date(2023, 01, 01));
-    //console.log(new Date('2021-12-06T03:24:00'))
-    
+window.addEventListener("load", function(){ 
     var date = new Date();
     var utc = date.getTime() + (date.getTimezoneOffset()*60*1000);
     var kstGap = 9 * 60 * 60 * 1000;
@@ -89,6 +85,7 @@ window.addEventListener("load", function(){
     const cNumBox = document.querySelector(".client-number");
     const cInfoBox = document.querySelector(".client-info");
     const incOrdec = document.querySelector(".plus");
+    const choiceDate = document.querySelector(".choice-date");
 
     // 선택한 날짜 색 바뀜, 날짜 바뀜
     calendar.onclick = function(e){
@@ -109,15 +106,15 @@ window.addEventListener("load", function(){
         currentEl = el;
 
         // 상단 날짜추가
-        let template = 
-        `
-            <span class="select-year">${thisMonth.getFullYear()} 년</span>
-            <span class="select-month">${currentMonth+1} 월</span>
-            <span class="select-day">${el.innerText} 일</span>
-        `
+//        let template = 
+//        `
+//            <span class="select-year">${thisMonth.getFullYear()} 년</span>
+//            <span class="select-month">${currentMonth+1} 월</span>
+//            <span class="select-day">${el.innerText} 일</span>
+//        `
         // 날짜 바뀌게
-        exhDate.innerHTML = template;
-
+//        exhDate.innerHTML = template;
+		choiceDate.classList.add("d-none");
         cNumBox.classList.remove("d-none");
     }
     incOrdec.onclick = function(e){

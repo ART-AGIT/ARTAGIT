@@ -14,11 +14,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.artagit.web.entity.ArtagitUserDetails;
 import com.artagit.web.entity.Corporate;
 import com.artagit.web.entity.ExhibitionView;
-import com.artagit.web.entity.Museum;
 import com.artagit.web.service.CorporateService;
-import com.artagit.web.service.ExhLikeService;
 import com.artagit.web.service.ExhibitionService;
-import com.artagit.web.service.MuseumService;
 
 @Controller
 @RequestMapping("/exhibition/")

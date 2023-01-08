@@ -46,7 +46,7 @@ main section {
     color: #ffffff;
     position: absolute;
 
-    left: 15px;
+    left: 20px;
     top: 85px;
 }
 
@@ -65,21 +65,10 @@ main section {
 }
 
 /******* 달력 영역 ****************************************/
-.date-wrap {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.yyyy-mm {
-    font-size: 20px;
-    font-weight: 700;
-    color: #444444;
-}
-
 .choice-date {
-    margin-left: 35px;
+    margin: 0 0 0 10%;
     font-size: 13px;
+    color: #888888;
 }
 
 
@@ -137,6 +126,10 @@ main section {
     border-radius: 5px;
     
     background-color: #fff;
+}
+
+.name, input:disabled {
+    background: #f2f2f2cf;
 }
 
 .input-box {
