@@ -3,22 +3,22 @@
 <mapper namespace="com.artagit.web.dao.ExhibitionDao">
 	
 	
-	<select id="getList" resultType="com.artagit.web.entity.Exhibition">
-		select * from Exhibition
-		<trim prefix="WHERE" prefixOverrides="AND | OR">
-			<if test="museumId != null and museumId != 0">
-				museumId = #{museumId}
-			</if>
-			<if test="stateId != null and stateId != 0">
-				AND stateId = #{stateId}
-			</if>
-			<if test="cateId != null and cateId != 0">
-				AND cateId = #{cateId}
-			</if>
-			and useYN = "Y"
-		</trim>
-		limit #{offset}, #{size}
-	</select>
+<!-- 	<select id="getList" resultType="com.artagit.web.entity.Exhibition"> -->
+<!-- 		select * from Exhibition -->
+<!-- 		<trim prefix="WHERE" prefixOverrides="AND | OR"> -->
+<!-- 			<if test="museumId != null and museumId != 0"> -->
+<!-- 				museumId = #{museumId} -->
+<!-- 			</if> -->
+<!-- 			<if test="stateId != null and stateId != 0"> -->
+<!-- 				AND stateId = #{stateId} -->
+<!-- 			</if> -->
+<!-- 			<if test="cateId != null and cateId != 0"> -->
+<!-- 				AND cateId = #{cateId} -->
+<!-- 			</if> -->
+<!-- 			and useYN = "Y" -->
+<!-- 		</trim> -->
+<!-- 		limit #{offset}, #{size} -->
+<!-- 	</select> -->
 	
 	<select id="getListBySearch" resultType="com.artagit.web.entity.ExhibitionView">
 		select 
@@ -43,17 +43,26 @@
 			(select memId from ExhLike where exhId = E.id and memId = #{memberId}) memberId
 		from Exhibition E
 		<trim prefix="WHERE" prefixOverrides="AND | OR">
-			<if test="museumId != null and museumId != 0">
-				museumId = #{museumId}
+			<if test="local != null and local != 0">
+				corpLocalId = #{local}
 			</if>
-			<if test="stateId != null and stateId != 0">
-				AND stateId = #{stateId}
+			<if test="state != null and state != 0">
+<!-- 				AND stateId = #{stateId} -->
+				<if test="state == 1">
+					AND startDate <![CDATA[< now() and endDate >= now()]]>
+				</if>
+				<if test="state == 2">
+					AND startDate <![CDATA[>= now()]]>
+				</if>
+				<if test="state == 3">
+					AND endDate <![CDATA[<= now()]]>
+				</if>
 			</if>
 			and useYN = "Y"
-			<if test="cateId == null or cateId == 0 or cateId == 1">
+			<if test="category == null or category == 0 or category == 1">
 				order by startDate desc
 			</if>
-			<if test="cateId == 2">
+			<if test="category == 2">
 				order by hearts desc
 			</if>
 		</trim>
@@ -146,5 +155,7 @@
 		delete from Exhibition
 			where id = #{id}
 	</delete>
+	
+	
 
 </mapper>
