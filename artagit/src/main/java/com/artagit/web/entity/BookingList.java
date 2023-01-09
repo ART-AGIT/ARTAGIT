@@ -8,6 +8,7 @@ public class BookingList {
 	private String payMethod;
 	private String reviewCon;
 	private int memId;
+	private String exhPoster;
 	
 	public BookingList() {
 		// TODO Auto-generated constructor stub
@@ -16,8 +17,10 @@ public class BookingList {
 	
 	
 
+	
+
 	public BookingList(int bookingId, String exhName, String museumName, String bookingDate, String payMethod,
-			int memId, String reviewCon) {
+			String reviewCon, int memId, String exhPoster) {
 		super();
 		this.bookingId = bookingId;
 		this.exhName = exhName;
@@ -26,7 +29,32 @@ public class BookingList {
 		this.payMethod = payMethod;
 		this.reviewCon = reviewCon;
 		this.memId = memId;
+		this.exhPoster = exhPoster;
 	}
+
+
+
+
+
+
+
+	public String getExhPoster() {
+		return exhPoster;
+	}
+
+
+
+
+
+
+	public void setExhPoster(String exhPoster) {
+		this.exhPoster = exhPoster;
+	}
+
+
+
+
+
 
 	public String getReviewCon() {
 		return reviewCon;
@@ -90,12 +118,18 @@ public class BookingList {
 
 
 
+
+
 	@Override
 	public String toString() {
 		return "BookingList [bookingId=" + bookingId + ", exhName=" + exhName + ", museumName=" + museumName
 				+ ", bookingDate=" + bookingDate + ", payMethod=" + payMethod + ", reviewCon=" + reviewCon + ", memId="
-				+ memId + "]";
+				+ memId + ", exhPoster=" + exhPoster + "]";
 	}
+
+
+
+
 
 	
 	

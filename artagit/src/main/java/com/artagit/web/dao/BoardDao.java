@@ -1,6 +1,7 @@
 package com.artagit.web.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
@@ -11,6 +12,8 @@ import com.artagit.web.entity.BoardListView;
 public interface BoardDao {
 	
 	
+
+
 	Board get(int id);
 	
 	int count(String input);
@@ -24,6 +27,8 @@ public interface BoardDao {
 //	int insert(int roleId, String originalFilename, String title, String content, int memId);
 
 	Board getDetail(int id);
+
+
 
 	
 	

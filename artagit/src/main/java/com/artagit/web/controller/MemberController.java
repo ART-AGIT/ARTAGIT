@@ -61,22 +61,4 @@ public class MemberController {
 		return "redirect:/user/logout";
 	}
 	
-	// 회원 아이디 중복 체크
-//	@GetMapping("signup/id-check/{value}")
-//	public int chkId(@PathVariable ("value") String loginId) {
-//		int chkId = service.chkId(loginId);
-//		System.out.println(loginId);
-//		System.out.println(chkId);
-//		return chkId;
-//	}
-//	
-	
-	
-	
-	
-	
-	
-	
-
-	
 }

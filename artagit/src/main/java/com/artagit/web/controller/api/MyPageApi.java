@@ -56,6 +56,7 @@ public class MyPageApi {
 		Review result = reviewService.reg(review);
 //		int result=reviewService.reg(review);
 		
+			
 //		Review result2 = reviewService.get(payId);
 //		System.out.println("Review--------"+review.getPayId());
 		System.out.println("결과----"+result);

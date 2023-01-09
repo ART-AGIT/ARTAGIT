@@ -1,22 +1,22 @@
 /* section calendar */
 
 .calendar-section {
-    width: 360px;
+    width: 330px;
     margin: 0 auto;
-    font-family: "NotoSansR";
+/*     font-family: "NotoSansR"; */
 }
 
 .calendar-section .calendar-nav {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-weight: 700;
-    font-size: 48px;
-    line-height: 78px;
+    font-weight: 600;
+    font-size: 28px;
+/*     line-height: 78px; */
 }
 
 .calendar-section .calendar-nav .year-month {
-    width: 300px;
+    width: 250px;
     text-align: center;
     line-height: 1;
 }
@@ -30,8 +30,8 @@
 .calendar-section .calendar-nav .go-prev,
 .calendar-section .calendar-nav .go-next {
     display: block;
-    width: 50px;
-    height: 78px;
+/*     width: 50px; */
+    height: 40px;
     font-size: 0;
     display: flex;
     justify-content: center;
@@ -42,9 +42,9 @@
 .calendar-section .calendar-nav .go-next::before {
     content: "";
     display: block;
-    width: 20px;
-    height: 20px;
-    border: 3px solid #000;
+    width: 10px;
+    height: 10px;
+    border: 4px solid rgb(65, 65, 65);
     border-width: 3px 3px 0 0;
     transition: border 0.1s;
 }
@@ -63,7 +63,7 @@
 }
 
 .calendar-section .calendar-wrap {
-    padding-top: 40px;
+    padding-top: 25px;
     position: relative;
     margin: 0 auto;
 }
@@ -86,9 +86,9 @@
     width: calc(100% / 7);
     text-align: left;
     color: #999;
-    font-size: 12px;
+    font-size: 13px;
     text-align: center;
-    border-radius:5px
+/*     border-radius:5px */
 }
 
 .current.today {
@@ -97,7 +97,7 @@
     background-position: bottom;
 
 }
-.current.active {background: rgb(242 242 242);}
+
 
 .calendar-section .calendar-wrap .dates {
     display: flex;
@@ -115,4 +115,25 @@
 
 .calendar-section .calendar-wrap .day.disable {
     color: #ddd;
+}
+
+.current.active {
+	background: #FF6C9E;
+    border-radius: 30px;
+}
+
+.calendar-section .calendar-wrap .day:nth-child(7n -1).active {
+    color: white;
+}
+
+.calendar-section .calendar-wrap .day:nth-child(7n).active {
+    color: white;
+}
+
+.calendar-wrap .day.active {
+	color: white;
+}
+
+span.day.current {
+    cursor: pointer;
 }

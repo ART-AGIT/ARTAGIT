@@ -25,7 +25,8 @@
 
 .idFialure-message,
 .passwordFialure-message,
-.chkFialure-message{
+.chkFialure-message,
+.id-check-massage{
     color : red;
 }
 

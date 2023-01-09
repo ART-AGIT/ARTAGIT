@@ -125,18 +125,18 @@ public class MemberBoardController {
 	}
 
 	/******* 게시글 등록 끝 *****************/
-	/******** 게시글 수정 **************/
-	@GetMapping("update")
-	public String update() {
 
-		return "member/board/update";
-	}
-
-	@PostMapping("update")
-	public String update(Board board) {
-
-		service.update(board);
-		return "redirect:list";
-	}
-
+   /*********게시글 수정*************/
+   @GetMapping("edit/{id}")
+   public String Boardedit(@PathVariable("id") int id,Model model) {
+       
+	   Board board = service.get(id);
+	   model.addAttribute("board",board);
+       System.out.println("post제목+내용"+ board);
+       
+       return "member/board/edit";
+   }
+ 
+   
+	
 }

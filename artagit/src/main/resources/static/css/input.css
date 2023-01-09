@@ -46,7 +46,7 @@
 }
 .input-lg{
     width: 295px;
-    height: 40px;
+    min-height: 40px;
 }
 .input-xl{
     width: 300px;

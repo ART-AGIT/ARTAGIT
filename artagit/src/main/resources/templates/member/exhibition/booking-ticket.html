@@ -13,18 +13,18 @@
     <main>
         <div class="img-and-info">
             <div class="exh-img-box">
-                <img class="exh-img" src="../../image/전시포스터2.jpg" alt="">
+                <img class="exh-img" src="/image/전시사진.jpg" alt="">
             </div>
     
             <div class="text-box">
-                <div class="exh-title">합스부르크 600년, 매혹의 걸작들</div>
-                <div class="exh-place">국립현대미술관</div>
+                <div class="exh-title" th:text="${exh.name}">합스부르크 600년, 매혹의 걸작들</div>
+                <div class="exh-place" th:text="${corp.museumName}">국립현대미술관</div>
                 <!-- 날짜출력 -->
-                <div class="exh-date">
-                    <span class="select-year"></span>
-                    <span class="select-month"></span>
-                    <span class="select-day"></span>
-                </div>
+<!--                 <div class="exh-date"> -->
+<!--                     <span class="select-year"></span> -->
+<!--                     <span class="select-month"></span> -->
+<!--                     <span class="select-day"></span> -->
+<!--                 </div> -->
             </div>
         </div>
             <!-- 달력 -->
@@ -47,6 +47,7 @@
                 <div class="dates"></div>
             </div>
         </div>
+        <p class="choice-date">날짜를 선택해 주세요.</p>
         <div class="info-box">
             <section class="client-number d-none">
                 <h1>관람인원</h1>
@@ -54,12 +55,12 @@
                     <div class="rect-box">
                         <div class="item">
                             <span class="age">성인</span>
-                            <span class="price">17,500원</span>
+                            <span class="price" data-th-text="${#numbers.formatInteger(exh.ticketPrice, 3, 'COMMA') + '원'}">17,500</span>
                         </div>
 
                         <div class="item">
                             <a class="minus" href="">-</a>
-                            <span>0</span>
+                            <span class="count">0</span>
                             <a class="plus" href="">+</a>
                         </div>
                     </div>
@@ -71,7 +72,7 @@
                 <div class="input-box">
                     <div class="name">
                         <label for="">예매자 이름</label>
-                        <input class="transparency" name="name" type="text">
+                        <input class="transparency" name="name" type="text" sec:authentication="principal.username" disabled>
                     </div>
                     <div class="phone">
                         <label for="">연락처</label>
@@ -89,7 +90,8 @@
         </div>
 
         <div class="booking-btn">
-            <a class="btn btn-pay btn-price">결제금액 17,500원</a>
+<!--             <a class="btn btn-pay btn-price" data-th-text="${'결제금액 ' + #numbers.formatInteger(exh.ticketPrice, 3, 'COMMA') + '원'}">결제금액 17,500원</a> -->
+            <a class="btn btn-pay btn-price">결제금액&nbsp;<span class="total-price">0</span>원</a>
             <a class="btn btn-pay btn-way" href="/member/exh/pay">결제방식 선택</a>
         </div>
     </main>

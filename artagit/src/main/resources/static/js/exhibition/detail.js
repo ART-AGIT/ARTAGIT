@@ -1,28 +1,31 @@
-
 window.addEventListener("load", function(){
 	const urlCopy = document.querySelector(".deco-url");
 	const heart=document.querySelector(".deco-heart");
 	const likeNum = document.querySelector(".like-num");
 	const mapBox = document.querySelector(".deco-map");
+	const modalBox = this.document.querySelector(".mini-menu-list>li");
 
+	/////// URL 복사 버튼 클릭 시
 	urlCopy.onclick = function(e){
 		e.preventDefault();
-//		 var url = window.document.location.href;
-//		 window.alert("url이 복사되었습니다!");
-//		 console.log(url);
 
-        let url = '';    // <a>태그에서 호출한 함수인 clip 생성
-        const textarea = document.createElement("textarea");  
-        //url 변수 생성 후, textarea라는 변수에 textarea의 요소를 생성
-        
-        document.body.appendChild(textarea); //</body> 바로 위에 textarea를 추가(임시 공간이라 위치는 상관 없음)
-        url = window.document.location.href;  //url에는 현재 주소값을 넣어줌
-        textarea.value = url;  // textarea 값에 url를 넣어줌
-        textarea.select();  //textarea를 설정
-        document.execCommand("copy");   // 복사
-        document.body.removeChild(textarea); //extarea 요소를 없애줌
-        
-        alert("URL이 복사되었습니다.")  // 알림창
+		navigator.clipboard.writeText(window.location.href)
+		.then(()=>{
+			let modal = `
+						<div class="modal-hj">
+							<div class="modal-header-hj">
+								<h1 class="header-title-hj">URL이 복사되었습니다.</h1>
+							</div>
+							<div class="modal-actions-hj">
+								<a class="modal-action-hj" href="">확인</a>
+							</div>
+						</div>
+						`
+
+						modalBox.insertAdjacentHTML("beforeend", modal);
+                        document.body.classList.add("stop-scroll");
+		})
+		.then(console.log("성공"));
 	};
 
 //------------- 좋아요 ---------------------------------

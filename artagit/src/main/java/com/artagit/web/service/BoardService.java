@@ -1,6 +1,7 @@
 package com.artagit.web.service;
 
 import java.util.List;
+import java.util.Map;
 
 import com.artagit.web.entity.Board;
 import com.artagit.web.entity.BoardListView;
@@ -26,6 +27,12 @@ public interface BoardService {
 
 
 	int reg(Board board);
+
+
+	void hitCountUp(Board board);
+
+
+
 
 	
 

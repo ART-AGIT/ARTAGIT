@@ -12,6 +12,7 @@
 
 .reg-list-input-box{
     width: 300px;
+    height: 80px;
     display: flex;
     flex-direction: column;
     padding: 2px 0;
