@@ -93,26 +93,26 @@ public class DefaultExhibitionService implements ExhibitionService {
 
 	}
 
-	@Override
-	public List<Exhibition> getList(int page, int museum, int state, int category) {
-		int size = 6;
-		int offset = (page-1)*size;
-		
-		List<Exhibition> list = exhDao.getList(offset, size, museum, state, category);
-		
-		return list;
-	}
+//	@Override
+//	public List<Exhibition> getList(int page, int museum, int state, int category) {
+//		int size = 6;
+//		int offset = (page-1)*size;
+//		
+//		List<Exhibition> list = exhDao.getList(offset, size, museum, state, category);
+//		
+//		return list;
+//	}
 
 
-	@Override
-	public List<Exhibition> getListByCategory(int page, int museum, int state, int category) {
-		int size = 6;
-		int offset = (page-1)*size;
-		
-		List<Exhibition> list = exhDao.getList(offset, size, museum, state, category);
-		
-		return list;
-	}
+//	@Override
+//	public List<Exhibition> getListByCategory(int page, int local, int state, int category) {
+//		int size = 6;
+//		int offset = (page-1)*size;
+//		
+//		List<Exhibition> list = exhDao.getList(offset, size, local, state, category);
+//		
+//		return list;
+//	}
 
 	
 	//나의 등록전시 개수 
@@ -160,12 +160,11 @@ public class DefaultExhibitionService implements ExhibitionService {
 	}
 
 	@Override
-
-	public List<ExhibitionView> getListByMemberId(int page, int museum, int state, int category, int memberId) {
+	public List<ExhibitionView> getListByMemberId(int page, int local, int state, int category, int memberId) {
 		int size = 6;
 		int offset = (page-1)*size;
 		
-		List<ExhibitionView> list = exhDao.getListByMemberId(offset, size, museum, state, category, memberId);
+		List<ExhibitionView> list = exhDao.getListByMemberId(offset, size, local, state, category, memberId);
 		return list;
 	}
 
@@ -188,12 +187,6 @@ public class DefaultExhibitionService implements ExhibitionService {
 	public int update(Exhibition exh) {
 		// TODO Auto-generated method stub
 		return 0;
-	}
-
-	@Override
-	public List<Exhibition> getListBySearch(String query) throws SQLSyntaxErrorException {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 }

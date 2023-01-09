@@ -16,8 +16,9 @@ window.addEventListener("load", function(e){
 
     let current = document.querySelector(".active");
     let queryString;
-    let page = 1;
-
+    let page = 2;
+ 	let isEndPage = true;
+ 	
     const exhSection = document.querySelector(".exhibition-section");
 
 // ------------ 좋아요 누르기 --------------------------------------------
@@ -84,20 +85,21 @@ window.addEventListener("load", function(e){
         let scrollTop = document.documentElement.scrollTop;
         let scrollClientHeight = document.documentElement.clientHeight;
 
-        let isEndPage = true;
-
+       
         
         if (scrollHeight - scrollTop - paddingOfBottom <= scrollClientHeight && isEndPage){
-            queryString = `?p=${page}&m=${selectBtnOne.dataset.id}&s=${selectBtnTwo.dataset.id}&c=${selectBtnThree.dataset.id}`;
+            queryString = `?p=${page}&l=${selectBtnOne.dataset.id}&s=${selectBtnTwo.dataset.id}&c=${selectBtnThree.dataset.id}`;
             if(queryString == 0)
                 queryString="";
             console.log(queryString);
             fetch(`/api/lists${queryString}`)
             .then((response)=>response.json())
             .then((list)=>{
-                if(list.length == 0)
+                if(list.length == 0){
                 	isEndPage = false;
-                	
+					return;					
+				}
+                isEndPage = true;
                 for(let e of list){
 
 					if(e.memberId == 0){
@@ -143,6 +145,7 @@ window.addEventListener("load", function(e){
                 }
             });    
             page++;
+            isEndPage = false;
         }
         
     })
@@ -177,7 +180,7 @@ window.addEventListener("load", function(e){
                 selectBtnOne.dataset.id = option.dataset.id;
                 selectBtnTextOne.innerText = selectedOption;
                 div.classList.remove("active");
-
+				page = 2;
                 query(1);
             })
         })
@@ -189,7 +192,7 @@ window.addEventListener("load", function(e){
                 selectBtnTwo.dataset.id = option.dataset.id;
                 selectBtnTextTwo.innerText = selectedOption;
                 div.classList.remove("active");
-
+				page = 2;
                 query(1);
             })
         })
@@ -201,7 +204,7 @@ window.addEventListener("load", function(e){
                 selectBtnThree.dataset.id = option.dataset.id;
                 selectBtnTextThree.innerText = selectedOption;
                 div.classList.remove("active");
-
+				page = 2;
                 query(1);
 
 
@@ -212,7 +215,7 @@ window.addEventListener("load", function(e){
     }
 // ------ 쿼리용 함수-----------------------
     function query(page){
-       	queryString = `?p=${page}&m=${selectBtnOne.dataset.id}&s=${selectBtnTwo.dataset.id}&c=${selectBtnThree.dataset.id}`;
+       	queryString = `?p=${page}&l=${selectBtnOne.dataset.id}&s=${selectBtnTwo.dataset.id}&c=${selectBtnThree.dataset.id}`;
         if(queryString == 0)
             queryString="";
         console.log(queryString);
