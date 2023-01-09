@@ -31,11 +31,10 @@ public class DefaultBoardService implements BoardService{
 	}
 
 
-	@Override
-
-	public void hitCountUp(Board board) {
-		boardDao.hitCountUp(board);
-	}
+//	@Override
+//	public void hitCountUp(Board board) {
+//		boardDao.hitCountUp(board);
+//	}
 
 	public List<BoardListView> getList(int roleId) {
 		int page =1;

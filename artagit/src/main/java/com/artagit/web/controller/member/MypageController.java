@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.artagit.web.entity.ArtagitUserDetails;
 import com.artagit.web.entity.BookingList;
+import com.artagit.web.entity.Exhibition;
 import com.artagit.web.entity.Member;
 import com.artagit.web.entity.Payment;
 import com.artagit.web.entity.Review;
@@ -63,6 +64,16 @@ public class MypageController {
 		model.addAttribute("countOfBooking",countOfBooking);
 		return "member/mypage/booking-list";
 		
+	}
+	// 내가 좋아요한 전시
+	@GetMapping("like-list")
+	public String likeList(@AuthenticationPrincipal ArtagitUserDetails user,Model model) {
+		
+		List<Exhibition> list = exhService.getLikeListById(user.getId());
+		System.out.println("좋아요한 전시이이이~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+		System.out.println(list);
+		model.addAttribute("list", list);
+		return "member/mypage/like-list";
 	}
 	
 	
@@ -134,10 +145,8 @@ public class MypageController {
 		return "member/mypage/account-edit";
 	}
 
-	@GetMapping("like-list")
-	public String likeList() {
-		return "member/mypage/like-list";
-	}
+
+	
 
 }
 

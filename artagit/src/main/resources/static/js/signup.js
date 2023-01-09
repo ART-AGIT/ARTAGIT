@@ -27,7 +27,7 @@ window.addEventListener("load", function(){
     elInputLoginId.onkeyup = function(){
 
         // console.log(input)s
-        var regExpId = /^[a-z0-9_]{1,16}$/
+        var regExpId = /^[a-z0-9_]{8,16}$/
        
 
         if(elInputLoginId.value==false){ 
