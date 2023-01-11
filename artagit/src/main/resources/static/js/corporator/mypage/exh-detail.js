@@ -39,6 +39,10 @@ window.addEventListener("load", function(){
     //////////// 수정 버튼 눌렀을 때
     modiBtn.onclick = function(e){
         e.preventDefault();
+        
+        if(e.target.innerText=='저장'){
+                console.log("저장버튼 클릭");
+        }
 
         console.log("수정버튼 클릭");
         btnMore.classList.add('d-none');
@@ -87,17 +91,13 @@ window.addEventListener("load", function(){
             modiBtn.classList.replace('modify-btn', 'save-btn');  
             modiBtn.setAttribute('type', 'submit');
 
+            console.log(modiBtn.innerText)
+
             
-            if(e.tartget==modiBtn){
-                console.log("저장버튼 클릭");
-            }
         }
         
     }
     
-    id[0].onclick = function(e){
-        console.log("저장버튼 클릭");
-    }
     // const saveBtn = this.document.querySelector(".save-btn");
     
     // saveBtn.onclick = function(e){
