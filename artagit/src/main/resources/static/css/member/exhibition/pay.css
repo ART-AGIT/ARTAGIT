@@ -47,23 +47,9 @@
     flex-direction: column;
 }
 
-.select-bank{
+.select-bank,
+.select-card{
     font-size: 14px;
-}
-
-.banks{
-    margin: 10px 0;
-    cursor: pointer;
-}
-
-.banks li {
-    float: left;
-    position: relative;
-    width: 25%;
-/*     height: 80px; */
-
-    border: 0;
-    box-sizing: border-box;
 }
 
 .bank-text ul {
@@ -71,8 +57,16 @@
 	color: #d23f3fe8;
 	margin-top: 3px;
 }
+.payment-select-bank select{
+    margin: 10px 0;
+
+    width: 316px;
+    height: 30px;
+}
 
 .payment-select-card select{
+    margin: 10px 0;
+    
     width: 158px;
     height: 30px;
 }
