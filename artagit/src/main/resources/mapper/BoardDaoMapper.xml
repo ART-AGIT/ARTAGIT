@@ -39,7 +39,10 @@
    	<update id="update" parameterType="com.artagit.web.entity.Board">
 		update Board 
 		<set>
-			title = #{title}
+			title = #{title},
+			content=#{content},
+			image=#{image},
+			roleId=#{roleId}
 		</set>
 		where id =#{id}
 	</update>

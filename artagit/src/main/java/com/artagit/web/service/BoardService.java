@@ -32,6 +32,9 @@ public interface BoardService {
 	void hitCountUp(Board board);
 
 
+	int edit(Board board);
+
+
 
 
 	

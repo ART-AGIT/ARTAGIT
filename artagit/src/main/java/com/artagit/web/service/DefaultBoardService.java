@@ -90,6 +90,13 @@ public class DefaultBoardService implements BoardService{
 	}
 
 
+	@Override
+	public int edit(Board board) {
+		// TODO Auto-generated method stub
+		return boardDao.update(board);
+	}
+
+
 
 }
 
