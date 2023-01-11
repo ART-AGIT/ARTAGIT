@@ -35,6 +35,9 @@ public interface BoardService {
 	int edit(Board board);
 
 
+	int hitUp(int id);
+
+
 
 
 	

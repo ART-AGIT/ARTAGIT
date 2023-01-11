@@ -97,6 +97,13 @@ public class DefaultBoardService implements BoardService{
 	}
 
 
+	@Override
+	public int hitUp(int id) {
+		// TODO Auto-generated method stub
+		return boardDao.hitUp(id);
+	}
+
+
 
 }
 

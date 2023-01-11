@@ -25,6 +25,7 @@ import com.artagit.web.service.BoardService;
 import com.artagit.web.service.CommentService;
 import com.artagit.web.service.NoticeService;
 
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
@@ -44,19 +45,48 @@ public class MemberBoardController {
 	public String detail(
 
 			@PathVariable("id") int id, Model model, @AuthenticationPrincipal ArtagitUserDetails user,
-			HttpServletRequest requqest,HttpServletResponse response) {
+			HttpServletRequest request,HttpServletResponse response) {
 
 		//게시글 디테일에 필요한 정보 넣고 보여주기
 		Board board = service.getDetail(id);
 		model.addAttribute("board",board);	
 		model.addAttribute("user", user);
-
-		//조회수(중복 제거)
-		
-
-
 		List<Comment> comments = commentService.getNickname(id);
 		model.addAttribute("comments", comments);
+		
+		
+		//조회수(중복 제거)
+		Cookie oldCookie = null; //쿠키 객체 만들고 초기화
+		Cookie[] cookies = request.getCookies();
+		if(cookies !=null ) { //받아온 쿠키가 postView갖고있는 쿠키면 oldCookie에 대입
+			for(Cookie cookie: cookies) {
+				if(cookie.getName().equals("postView")) {
+					oldCookie = cookie;
+				}
+			}
+		}
+		//만약 쿠키가 null이 아니고
+		if(oldCookie!=null) {
+			//value에 [id]를 포함하는 쿠키가 없다면 만들어준다.
+			if(!oldCookie.getValue().contains("["+String.valueOf(id).toString()+"]")) {
+			service.hitUp(id);
+			oldCookie.setValue(oldCookie.getValue()+"_["+id+"]");
+			oldCookie.setPath("/");
+			oldCookie.setMaxAge(60*60*24);
+			response.addCookie(oldCookie);
+			}//null이아니고 id를 포함한다면 아무일도 없음.
+			
+			//쿠키가 null이면 postView쿠키를 만들어준다.
+		}else {
+			service.hitUp(id);
+			Cookie newCookie = new Cookie("postView","["+id+"]");
+			newCookie.setPath("/");
+			newCookie.setMaxAge(60*60*24);
+			response.addCookie(newCookie);
+		}
+
+
+		
 		return "member/board/detail";
 
 	}

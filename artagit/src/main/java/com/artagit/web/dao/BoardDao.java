@@ -28,6 +28,8 @@ public interface BoardDao {
 
 	Board getDetail(int id);
 
+	int hitUp(int id);
+
 
 
 	
