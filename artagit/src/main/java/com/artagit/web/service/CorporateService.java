@@ -1,5 +1,6 @@
 package com.artagit.web.service;
 
+import com.artagit.web.entity.ArtagitUserDetails;
 import com.artagit.web.entity.Corporate;
 
 public interface CorporateService {
@@ -11,9 +12,14 @@ public interface CorporateService {
 	int update(Corporate corp);
 	int update(int id);
 
+
 	// [주최자] 회원가입
 	int signUp(Corporate corp);
 
 
 	int deleteUseYN(int id);
+	
+	
+	// mypage 주최자 정보 수정
+	int updateAccount(ArtagitUserDetails user);
 }

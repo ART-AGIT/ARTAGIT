@@ -2,6 +2,7 @@ package com.artagit.web.dao;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import com.artagit.web.entity.ArtagitUserDetails;
 import com.artagit.web.entity.Corporate;
 import com.artagit.web.entity.Member;
 import com.artagit.web.entity.Museum;
@@ -39,4 +40,7 @@ public interface CorporateDao {
 
 	
 	int deleteYN(int id);
+
+	// mypage 주최자 정보 수정
+	int updateAccount(ArtagitUserDetails user);
 }

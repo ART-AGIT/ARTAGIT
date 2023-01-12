@@ -35,8 +35,8 @@ public class MypageController {
 	private ExhibitionService exhService;
 	
 	@Autowired
-
 	private BookingService bookingService;
+	@Autowired
 	private MemberService memberService;
 	
 	@Autowired
@@ -52,6 +52,9 @@ public class MypageController {
 	
 	//@Autowired
 	//private PaymentService paymentService;
+	
+//	@Autowired
+//	private ExhLikeService exhLikeService;
 	
 	/*-----------예매내역리스트------*/ 
 	@GetMapping("/review/list")
@@ -72,16 +75,6 @@ public class MypageController {
 		model.addAttribute("countOfBooking",countOfBooking);
 		return "member/mypage/booking-list";
 		
-	}
-	// 내가 좋아요한 전시
-	@GetMapping("like-list")
-	public String likeList(@AuthenticationPrincipal ArtagitUserDetails user,Model model) {
-		
-		List<Exhibition> list = exhService.getLikeListById(user.getId());
-		System.out.println("좋아요한 전시이이이~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-		System.out.println(list);
-		model.addAttribute("list", list);
-		return "member/mypage/like-list";
 	}
 	
 	
@@ -169,7 +162,25 @@ public class MypageController {
 	}
 
 
+	// 내가 좋아요한 전시
+	@GetMapping("like-list")
+	public String likeList(@AuthenticationPrincipal ArtagitUserDetails user,Model model) {
+		
+		List<Exhibition> list = exhService.getLikeListById(user.getId());
+		System.out.println("좋아요한 전시이이이~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+		System.out.println(list);
+		model.addAttribute("list", list);
+		return "member/mypage/like-list";
+	}
 	
+	// 내가 좋아요한 전시 삭제
+//	@GetMapping("like-list/{id}")
+//	public String likeListDelete(@PathVariable ("id") int id) {
+//		
+//		
+//		
+//		return "member/mypage/like-list";
+//	}
 
 }
 

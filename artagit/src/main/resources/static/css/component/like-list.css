@@ -23,6 +23,7 @@ form {
                     "img title" 18px
                     "img place" 18px
                     "img date" 55px / 170px;
+    border-bottom : 1px solid #9E9E9E;
 }
 
 .exh-img-box {
@@ -32,6 +33,7 @@ form {
 .exh-like {
     grid-area: like;
     font-size: 14px;
+    cursor: pointer;
 }
 
 .exh-title {
@@ -51,7 +53,7 @@ form {
 }
 
 /* 모바일x */
-.account{
+/* .account{
     display: none;
 }
 
@@ -95,4 +97,4 @@ form {
         display: none;
     }
 
-}
+} */

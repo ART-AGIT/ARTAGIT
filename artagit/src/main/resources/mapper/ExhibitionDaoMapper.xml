@@ -148,8 +148,8 @@
 	</delete>
 	
 <!-- 	전시 좋아요 -->
-	<select id="getLikeList" resultType="com.artagit.web.entity.Exhibition">
-		select E.*
+	<select id="getLikeList" resultType="com.artagit.web.entity.ExhLikeList">
+		select E.name,E.startDate, E.endDate, E.id, C.museumName
 			from Member M
 			    inner join ExhLike L
 			    on M.id = L.memId
