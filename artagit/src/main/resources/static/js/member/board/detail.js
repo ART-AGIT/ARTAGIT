@@ -10,12 +10,13 @@ window.addEventListener("load", function() {
 		e.target.classList.add("icon-heart-red")
 		let id = el.dataset.id;
 		console.log(id);
-		fetch(`/boardpi/like/${id}`,{
+		fetch(`/boardApi/like/${id}`,{
 				method:"PUT"
 			})
 			.then(response => response.json())
 			.then(data => {
-				console.log(data.result);
+				 let result = data.resultObject;
+				console.log(result);
 			})
             
 		

@@ -69,7 +69,7 @@ public class BoardApi {
    @PutMapping("like/{id}")
    public Map<String, Object> likeUp(@PathVariable("id") int id,@AuthenticationPrincipal ArtagitUserDetails user){
 	   
-	   
+	   System.out.println("좋아요 id가 넘어오나요?"+id);
 	   int result = service.likeUp(id, user.getId());
 //	   int count = service.countOfLike(id);
 	   Map<String, Object> dto = new HashMap<>();
