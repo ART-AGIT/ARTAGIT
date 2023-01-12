@@ -61,7 +61,7 @@ window.addEventListener("load", function() {
             </div>
             <div class="like-up">
                 <div class="icon icon-like-up">좋아요 아이콘</div>
-                <div>11</div>
+                <div>${board.hearts}</div>
             </div>
             <div class="comment">
                 <div class="icon icon-comment">댓글 아이콘</div>

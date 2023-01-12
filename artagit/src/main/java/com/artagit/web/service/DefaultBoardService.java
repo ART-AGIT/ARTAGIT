@@ -28,7 +28,7 @@ public class DefaultBoardService implements BoardService{
 	@Autowired
 	private BoardLikeDao boardLikeDao;
 	
-	@Override
+	
 	public Board get(int id) {
 		// TODO Auto-generated method stub
 		return boardDao.get(id);
@@ -89,6 +89,7 @@ public class DefaultBoardService implements BoardService{
 	@Override
 	public Board getDetail(int id, int memId) {
 		// TODO Auto-generated method stub
+		
 		return boardDao.getDetail(id,memId);
 	}
 

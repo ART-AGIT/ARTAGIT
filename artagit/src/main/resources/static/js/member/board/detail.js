@@ -16,13 +16,20 @@ window.addEventListener("load", function() {
 			.then(response => response.json())
 			.then(data => {
 				 let result = data.resultObject;
-				console.log(result);
+				
 			})
             }
             else{
 				e.target.classList.remove("icon-heart-red");
 				let id = el.dataset.id;
-				console.log(id);
+				fetch(`/boardApi/like/${id}`,{
+				method:"DELETE"
+			})
+			.then(response => response.json())
+			.then(data => {
+				 let result = data.resultObject;
+				console.log(result);
+			})
 			}
 		
 	};
