@@ -1,39 +1,52 @@
-// window.addEventListener("load",function(){
-//     const exhHeart = this.document.querySelector(".exh-like");
-//     // const likeList = this.document.querySelector(".like-list");
+window.addEventListener("load",function(){
+// const exhHeart = this.document.querySelector(".exh-like");
+//    const likeList = this.document.querySelectorAll(".like-list");
+    const likeListSection = this.document.querySelector(".like-list-section");
     
+//    const Form = this.document.querySelector("form");
 
-//     exhHeart.onclick = function(e){
-//         e.preventDefault();
-//         console.log("test");
-//         if(e.target.classList.contains("exh-like") && e.target.classList.contains("icon-heart-red")){
-//             e.preventDefault();
-            
-//             e.target.classList.remove("icon-heart-red");
-            
-//             console.log("삭제")
-            
-//             let el = null;
 
-//             // i == el , i < 10 , I++ 2,3,4
-//             // section 
-//             for(el=e.target; el.tagName!="SECTION"; el=el.parentElement);
+    likeListSection.onclick = function(e){
+        e.preventDefault();
+        //console.log(e.target);
+       if(!e.target.classList.contains("exh-like"))
+           return;
 
-//             // console.log(el);
-//             let id = el.dataset.id;
+        if(e.target.classList.contains("exh-like") && e.target.classList.contains("icon-heart-red")){
+          	console.log(e.target);
+           
+           e.target.classList.remove("icon-heart-red");
+           
+           console.log("삭제")
+           
+           let el = null;
 
-//             console.log(id);
-            
-// //            fetch(`/api/like/${id}`,{
-// //                method:"DELETE"
-// //            })
-// //            .then(response => response.json())
-// //            .then(data => {
-// //                console.log(data.result);
-// //            })
-// //            fetch(`member/mypage/like-list`)
-        
-//         }
+           // i == el , i < 10 , I++ 2,3,4
+           // section 
+           for(el=e.target; el.tagName!="DIV"; el=el.parentElement);
 
-//     }
-// });
+           console.log(el);
+           let id = el.dataset.id;
+
+           console.log(id);
+           
+          fetch(`/api/like/${id}`,{
+              method:"DELETE"
+          })
+          .then(response => response.json())
+          .then(data => {
+			   let result = data.resultObject;
+			   console.log("result"+result);
+			   if(result==1){
+              console.log("삭제완료");
+              
+              el.remove();
+				   
+			   }
+          })
+
+       
+        }
+
+    }
+});

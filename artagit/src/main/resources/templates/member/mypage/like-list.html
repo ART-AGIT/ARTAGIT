@@ -23,24 +23,24 @@
                 <li class="list"><a class="deco deco-write" href="./post-list.html">작성글 관리</a></li>
             </ul>
         </div>
-        
-        <section class="like-list" th:each="list:${list}" th:attr="data-id=${list.id}">
-            <form action="">
-
-                <div class="exh-img-box">
-<!--                 <a href="" th:href="@{{id}(id=${list.id})}" ><img th:src="@{|/image/poster/${list.poster}|}" class="exh-img" src="../../image/exhimage.png" alt=""></a> -->
-                    <a href=""><img class="exh-img" src="../../image/exhimage.png" alt=""></a>
-                </div>
-                <!-- <div class="text-list"> -->
-                    <div class="icon icon-heart icon-heart-red exh-like"></div>
-                    <div class="text exh-title" th:text="${list.name}">모네 인사이드</div>
-                    <div class="text exh-place" th:text="${list.museumName}">국립현대미술관</div>
-                    <div class="text exh-date" th:text="${list.startDate} +' ~ '+ ${list.endDate}">2022.09.22 ~ 2022.09.22</div>
-                    <!-- <div class="date"></div> -->
-                <!-- </div> -->
-            </form>
-        </section>        
-
+        <section class="like-list-section">
+	        <section class="like-list" th:each="list:${list}" th:attr="data-id=${list.id}">
+	            <form action="">
+	
+	                <div class="exh-img-box">
+	<!--                 <a href="" th:href="@{{id}(id=${list.id})}" ><img th:src="@{|/image/poster/${list.poster}|}" class="exh-img" src="../../image/exhimage.png" alt=""></a> -->
+	                    <a href=""><img class="exh-img" src="../../image/exhimage.png" alt=""></a>
+	                </div>
+	                <!-- <div class="text-list"> -->
+	                    <div class="icon icon-heart icon-heart-red exh-like"></div>
+	                    <div class="text exh-title" th:text="${list.name}">모네 인사이드</div>
+	                    <div class="text exh-place" th:text="${list.museumName}">국립현대미술관</div>
+	                    <div class="text exh-date" th:text="${list.startDate} +' ~ '+ ${list.endDate}">2022.09.22 ~ 2022.09.22</div>
+	                    <!-- <div class="date"></div> -->
+	                <!-- </div> -->
+	            </form>
+	        </section>        
+		</section>
     </main>
 </body>
 </html>
