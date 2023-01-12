@@ -85,7 +85,7 @@
 	</select>
 	<select id="getListByID" resultType="com.artagit.web.entity.Exhibition">
 		select * from Exhibition
-		where memId = #{memId} and useYN = 'Y'
+		where useYN = 'Y'
 	</select>
 	<select id="getListtt" resultType="com.artagit.web.entity.Exhibition">
 		select * from Exhibition
@@ -99,7 +99,7 @@
 	</select>
 	<select id="getCount" resultType="int">
 		select count(id) from Exhibition
-			where memId=#{memId};
+			where corpId=#{corpId};
 	</select>
 	<insert id="insert" parameterType="com.artagit.web.entity.Exhibition">
 		INSERT INTO Exhibition

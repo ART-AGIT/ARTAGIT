@@ -128,10 +128,6 @@ main section {
     background-color: #fff;
 }
 
-.name, input:disabled {
-    background: #f2f2f2cf;
-}
-
 .input-box {
     display: flex;
     flex-direction: column;
@@ -146,14 +142,20 @@ main section {
 }
 
 /* 투명한 input 태그 속성 */
-.transparency{
+.transparency, .username {
     border: 0;
+    border-radius: 5px;
     height: 30px;
     box-sizing: border-box;
     font-size: 14px;
     color: #545454;
-    /* line-height: 24px; */
-    text-indent: 12px;
+    line-height: 24px;
+    text-indent: 14px;
+    background-color: #FFFFFF;
+}
+
+.name, .username {
+    background: #f2f2f2cf;
 }
 
 input:focus{
