@@ -12,7 +12,7 @@
 		<link href="/css/member/exhibition/pay.css" type="text/css" rel="stylesheet">
 		<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 		<script type="text/javascript" src="https://service.iamport.kr/js/iamport.payment-1.1.5.js"></script>
-		<script src="/js/member/exhibition/pay.js"></script>
+<!-- 		<script src="/js/member/exhibition/pay.js"></script> -->
 	</th:block>
 <body layout:fragment="content">
     <main>
@@ -93,12 +93,12 @@
 	                </div>
 	            </section>
 	          </div>
-	        </div>
-
 		        <div class="booking-btn">
 		            <a class="btn btn-pay btn-price">결제금액&nbsp;<span class="total-price">0</span>원</a>
 		            <a class="btn btn-pay btn-way" href="/member/exh/pay">결제방식 선택</a>
 		        </div>
+	        </div>
+
 	        
 	        <div class="pay-container d-none">
 		        <div class="payment-container">
@@ -193,10 +193,10 @@
 		                    </div>
 		
 		                    <div data-tab="4" class="tab-content d-none">
-		                        <div class="payment-select-simple">
-		                            <div>
-		                                <img class="kakao-img" src="/image/카카오페이.png" alt="">
-		                            </div>
+		                        <div class="payment-select-simple img-box">
+		                                <img class="kakao-img" tabindex=0 src="/image/카카오페이.png" alt="">
+		                                <span>카카오페이</span>
+
 		                        </div>
 		                    </div>
 		                </section>
@@ -246,11 +246,11 @@
 		            </section>
 		        </div>
 		
+		        <div class="booking-btn">
+		            <a class="btn btn-pay btn-price">결제금액&nbsp;<span class="total-price">0</span>원</a>
+		            <a class="btn btn-pay btn-way do-pay" href="">결제하기</a>
+		        </div>
 	        </div>
-<!-- 		        <div class="booking-btn"> -->
-<!-- 		            <a class="btn btn-pay btn-price">결제금액&nbsp;<span class="total-price">0</span>원</a> -->
-<!-- 		            <a class="btn btn-pay btn-way" href="">결제하기</a> -->
-<!-- 		        </div> -->
 	        
     </main>
     
