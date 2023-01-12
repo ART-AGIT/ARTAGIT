@@ -23,7 +23,7 @@ public interface BoardService {
 //	int reg(int roleId, String originalFilename, String title, String content, int memId);
 
 
-	Board getDetail(int id);
+	Board getDetail(int id, int memId);
 
 
 	int reg(Board board);
@@ -45,6 +45,9 @@ public interface BoardService {
 
 
 	int countOfLike(int id);
+
+
+	int deleteLikeUp(int boardId, int userId);
 
 
 

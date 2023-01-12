@@ -87,9 +87,9 @@ public class DefaultBoardService implements BoardService{
 
 
 	@Override
-	public Board getDetail(int id) {
+	public Board getDetail(int id, int memId) {
 		// TODO Auto-generated method stub
-		return boardDao.getDetail(id);
+		return boardDao.getDetail(id,memId);
 	}
 
 
@@ -126,6 +126,16 @@ public class DefaultBoardService implements BoardService{
 		// TODO Auto-generated method stub
 		return boardLikeDao.count(id);
 	}
+
+
+	@Override
+	public int deleteLikeUp(int boardId, int userId) {
+		// TODO Auto-generated method stub
+		return boardLikeDao.delete(boardId,userId);
+	}
+
+
+	
 
 
 

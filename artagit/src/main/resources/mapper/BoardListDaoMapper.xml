@@ -24,7 +24,8 @@ order by regDate desc;
    b.*, 
     (select count(id) from Comment where Comment.postid = b.id group by postId) commentTotal,
     (select nickname from Member where  id = b.memId ) nickname,
-    (select name from BoardCategory where id = b.roleId) name
+    (select name from BoardCategory where id = b.roleId) name,
+    (select count(memId) from BoardLike where postId = b.id group by postId) hearts
 from Board b
 where
 			
