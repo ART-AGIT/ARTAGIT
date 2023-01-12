@@ -30,6 +30,8 @@ public interface BoardDao {
 
 	int hitUp(int id);
 
+	
+
 
 
 	

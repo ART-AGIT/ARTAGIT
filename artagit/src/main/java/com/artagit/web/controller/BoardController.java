@@ -50,8 +50,11 @@ public class BoardController {
 		return "board/list";
 			
 		}
+
 	
 	
+	
+	/***게시글 내용 조회****/
 		
 	
 	@GetMapping("{id}")
@@ -60,7 +63,7 @@ public class BoardController {
 	      @PathVariable("id")int id,
 	      Model model, @AuthenticationPrincipal ArtagitUserDetails user){
 		
-		
+		System.out.println("와 이제 detail이 안들어가져"+id);
 	      Board board = service.get(id);
 	      model.addAttribute("board",board);
 	   

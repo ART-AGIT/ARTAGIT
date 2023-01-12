@@ -7,11 +7,11 @@
    <th:block layout:fragment="css">
     <link href="../../css/component/board-list.css" type="text/css" rel="stylesheet">
     <link href="../../css/component/board-detail.css" type="text/css" rel="stylesheet">
+	</th:block>
 
-</head>
 <script src="../../js/header-menu.js"></script>
 <script src="../../js/board/comment/comment.js"></script>
-<body>
+<body layout:fragment="content">
     
     <main class="main-container">
     <nav class = "">
@@ -80,7 +80,7 @@
         <section class="comment">
             <section class="comment-title-wrapper">
                 <h1 class="icon icon-comment">댓글</h1>
-                <div th:utext="${board.commentTotal}">11 </div>
+                <div>11 </div>
             </section>
             
             

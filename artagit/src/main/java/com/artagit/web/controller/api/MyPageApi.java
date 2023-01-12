@@ -69,4 +69,7 @@ public class MyPageApi {
 //		System.out.println("=======dto========"+dto);
 		return dto;
 	}
+	
+	/******좋아요한 게시글***********/
+	
 }

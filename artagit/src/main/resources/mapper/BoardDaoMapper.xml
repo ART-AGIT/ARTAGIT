@@ -65,6 +65,10 @@ order by regDate desc;
 		</set>
 		where id =#{id}
    </update>
+   
+     
+   
+   
   
    
    

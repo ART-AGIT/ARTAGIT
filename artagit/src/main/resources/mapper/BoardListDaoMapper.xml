@@ -32,6 +32,20 @@ where
 		
 order by regDate desc;
 		</select>
+		
+		<select id="getListById" resultType="com.artagit.web.entity.BoardListView">
+		select
+  	 b.*, 
+    (select count(id) from Comment where Comment.postid = b.id group by postId) commentTotal,
+    (select nickname from Member where  id = b.memId ) nickname,
+    (select name from BoardCategory where id = b.roleId) name
+	from Board b
+		where
+					
+					 useYN = "Y" and memId = #{id}
+		order by regDate desc;
+		</select>
+		
 	
 </mapper>
  

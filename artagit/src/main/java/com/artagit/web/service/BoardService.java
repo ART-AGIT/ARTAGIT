@@ -38,6 +38,15 @@ public interface BoardService {
 	int hitUp(int id);
 
 
+	List<BoardListView> getListById(int id);
+
+
+	int likeUp(int boardId, int userId);
+
+
+	int countOfLike(int id);
+
+
 
 
 	
