@@ -7,8 +7,11 @@
   
    
    <select id="get" resultType="com.artagit.web.entity.Board">
-      select *
-      from Board
+    select 
+			B.*,
+			(select count(memId) from BoardLike where memId = #{memId} and postId = B.id group by postId) heart,
+			(select memId from BoardLike where memId = B.memId and memId = #{memId}) memberId
+		from Board B
       where id =#{id}
       and useYN='Y'
    </select>

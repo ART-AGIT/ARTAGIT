@@ -101,10 +101,16 @@
     <main>
     <div class="menu-box">
             <ul class="menu-list">
-                <li class="list"><a class="deco deco-ticket" href="">나의 예매내역</a></li>
-                <li class="list"><a class="deco deco-heart " href="../../member/mypage/like-list.html">좋아요 전시</a></li>
-                <li class="list"><a class="deco deco-smile" href="./account-edit.html">내 정보 수정</a></li>
+                <li class="list"><a class="deco deco-ticket" href="./review-list">나의 예매내역</a></li>
+                <li class="list"><a class="deco deco-heart " href="../../member/mypage/like-list">좋아요 전시</a></li>
+                <li class="list"><a class="deco deco-smile" href="./account-edit">내 정보 수정</a></li>
                 <li class="list  line-on"><a class="deco deco-write deco-heart-on" href="./post-list">작성글 관리</a></li>
+            </ul>
+        </div>
+          <div class="menu-box">
+            <ul class="menu-list">
+                <li class="list line-on"><a class=" deco-heart-on" href="./review-list">작성글 관리</a></li>
+                <li class="list"><a class="" href="../../member/mypage/like-list">좋아요 한 게시글</a></li>
             </ul>
         </div>
        <div class="board-box">
@@ -131,7 +137,7 @@
 					            </div>
 					            <div class="like-up">
 					                <div class="icon icon-like-up">좋아요 아이콘</div>
-					                <div>11</div>
+					                <div th:text=${board.hearts}>11</div>
 					            </div>
 					            <div class="comment">
 					                <div class="icon icon-comment">댓글 아이콘</div>

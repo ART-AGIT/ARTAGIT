@@ -46,9 +46,10 @@ public class MemberBoardController {
 
 			@PathVariable("id") int id, Model model, @AuthenticationPrincipal ArtagitUserDetails user,
 			HttpServletRequest request,HttpServletResponse response) {
-
+		int memId = user.getId();
+		
 		//게시글 디테일에 필요한 정보 넣고 보여주기
-		Board board = service.getDetail(id);
+		Board board = service.getDetail(id,memId);
 		model.addAttribute("board",board);	
 		model.addAttribute("user", user);
 		List<Comment> comments = commentService.getNickname(id);

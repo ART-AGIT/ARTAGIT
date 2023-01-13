@@ -1,21 +1,26 @@
 package com.artagit.web.controller.api;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.artagit.web.entity.ArtagitUserDetails;
+import com.artagit.web.entity.BoardListView;
 import com.artagit.web.entity.Booking;
 import com.artagit.web.entity.BookingList;
 import com.artagit.web.entity.Review;
+import com.artagit.web.service.BoardService;
 import com.artagit.web.service.BookingService;
 import com.artagit.web.service.ReviewService;
 
@@ -28,6 +33,9 @@ public class MyPageApi {
 	
 	@Autowired
 	private BookingService bookingService;
+	
+	@Autowired
+	private BoardService boardService;
 	
 	/*-----------리뷰등록------*/ 
 	@PostMapping("/review/reg/{id}")
@@ -71,5 +79,13 @@ public class MyPageApi {
 	}
 	
 	/******좋아요한 게시글***********/
+	@GetMapping("/post-like")
+	public List<BoardListView> getListByCategory(
+			@AuthenticationPrincipal ArtagitUserDetails user) {
+		int memId = user.getId();
+		List<BoardListView> list = boardService.getLikeList(memId);
+		System.out.println("++++++++++=" + list);
+		return list;
+	}
 	
 }

@@ -87,14 +87,7 @@ window.addEventListener("load", function() {
 				let el = new DOMParser().parseFromString(template, "text/html").body.firstElementChild;
 				//body를 지우면 body안쪽만 나온다. firstelement를 만들겠다.
 				boardbox.append(el); //6개의 객체를 하나하나 넣어준다.
-				
-//				const li = document.querySelector(".");
-//				
-//				li.onclick = function(e) {let template=`
-//					<div class="writing-img-box">
-//       		 			<a href = "./reg"><img src = "../image/writing-img.png"></img></a>
-//					</div>`
-				
+
 			
 		};})
 		}})

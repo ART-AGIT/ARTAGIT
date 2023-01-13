@@ -26,7 +26,7 @@ public interface BoardDao {
 
 //	int insert(int roleId, String originalFilename, String title, String content, int memId);
 
-	Board getDetail(int id);
+	Board getDetail(int id,int memId);
 
 	int hitUp(int id);
 
