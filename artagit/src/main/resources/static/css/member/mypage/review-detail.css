@@ -105,6 +105,17 @@
 
 @media (min-width: 993px){ 
 
+    .review{
+        padding-bottom: 20px;
+        margin-bottom:60px;
+        border-bottom: 2px solid #929292;
+        /* padding-left: 10px; */
+        width:800px;
+        display: flex;
+        align-items: center;
+        /* justify-content: center; */
+    }
+
     .box{
             margin-top: 13px;
             width:650px;
@@ -133,8 +144,14 @@
     }
     
     .input-review{
-    
-        width:610px;
+        font-family:'Pretendard', Tahoma, Geneva, Verdana, sans-serif;
+        resize: none;
+        width:608px;
         height: 312px;
+    }
+    
+    .btn-mod, .btn-exit, .btn-reg{
+    	width:60px;
+    	height:30px
     }
 } 

@@ -26,25 +26,21 @@ window.addEventListener("load",function(e){
 	btnList.onclick=function(e){
 		
 		//수정
-		if(e.target.classList.contains("btn-mod")){
-			let content = writeForm.getElementsByTagName("textarea").value;
-//			console.log(content);
-			console.log("수")
-		}
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+//		if(e.target.classList.contains("btn-mod")){
+//			e.preventDefault();
+//			let content = writeForm.getElementsByTagName("textarea").value;
+//			console.log("수")
+			
+//			let form = new FormData();
+//			form.append("content",writeForm.querySelector(".input-review").value);
+//			form.append("color",box.querySelector(".color-input").value);
+//			console.log("form객체----"+form);
+//			var id = document.querySelector(".bookingId").value;
+//			console.log(id);
+//		}
 		
 		//등록
-		else if(e.target.classList.contains("btn-reg")){
+		if(e.target.classList.contains("btn-reg")){
 			e.preventDefault();
 			
 			console.log("등록버튼 reg test");
@@ -118,7 +114,7 @@ window.addEventListener("load",function(e){
 			        <div class="review-button-list">
 			        	<input type="hidden" class= "bookingId" name="bookingId" >
 
-			            <input class="btn btn-default btn-default-fill btn-mod" type="submit" value="수정">
+			            <a href="/member/mypage/review/update/${review.id}" class="btn btn-default btn-default-fill btn-mod" type="submit" value="수정">수정</a>
 			            <a class="btn btn-default btn-default-line btn-exit" type="button" href="/member/mypage/review/list" value="닫기">닫기</a>
 			        </div>
 			          	
@@ -132,15 +128,6 @@ window.addEventListener("load",function(e){
 						
 	        	reviewForm.insertAdjacentHTML("afterend",template);
 		        	
-	        	/*-----------------------3번째 시도
-	        	let template3 = `
-	                    <div class="content" >${review.content}</div>
-	        	`;
-	        	let trash = document.querySelector(".trash");
-	        	writeForm.innerHTML=template3;
-	        	console.log("trash---------"+trash);
-	        	trash.classList.add('d-none');
-				*/
 		        	
 			})
 		}
@@ -152,15 +139,5 @@ window.addEventListener("load",function(e){
 		
 	}
 	
-	//삭제
-	/*
-	btnDel.onclick=function(e){
-		e.preventDefault();
-		let reviewId = e.target.dataset.id;
-		console.log("reviewId "+reviewId);
-		console.log("삭제");
-	}
-	   */
-    
     
 });

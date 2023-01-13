@@ -34,39 +34,50 @@ public class MyPageApi {
 	@Transactional
 	public Map<String,Object> reg(Review review,Booking booking,@PathVariable("id") int payId
 			,@AuthenticationPrincipal ArtagitUserDetails user){
-
-		System.out.println("3.user -------"+review.getColor());
-//		System.out.println("2 리뷰 등록창 들어옴!!");
-		System.out.println("2 . review-------- : "+review);
+		
 		BookingList booking2 = bookingService.getReviewByBookingId(payId);
-//		System.out.println("2 . booking-------- : "+booking2);
-//		Payment payment = payService.findByBookingId(bookId);
-//		int payId = payment.getId();
-
-//		System.out.println(review.get);
-		
 		review.setPayId(payId);
-		System.out.println("2 . review-------- : "+review);
-		System.out.println(review.getColor().getClass());
-		System.out.println(review.getColor());
 		review.setColor(review.getColor());
-//		System.out.println("payId"+payId);
-//		System.out.println("보내야할 review"+review);
-		
 		Review result = reviewService.reg(review);
-//		int result=reviewService.reg(review);
-		
-			
-//		Review result2 = reviewService.get(payId);
-//		System.out.println("Review--------"+review.getPayId());
-		System.out.println("결과----"+result);
+
 		Map<String,Object> dto = new HashMap<>();
 		dto.put("status", 200);
 		dto.put("resultObject",result);
 		dto.put("booking2",booking2);
-		//dto.put("resultObject",result);
-//		System.out.println("==============="+result);
-//		System.out.println("=======dto========"+dto);
+
 		return dto;
 	}
+	
+	/*-----------리뷰수정------*/ 
+
+	@PostMapping("/review/update/{id}")
+	@Transactional
+	public Map<String,Object> update(Review review,Booking booking,@PathVariable("id") int reviewId
+			,@AuthenticationPrincipal ArtagitUserDetails user){
+
+
+
+		review.setColor(review.getColor());
+		System.out.println("review2---"+review);
+		Review result = reviewService.update(review);
+		System.out.println("result"+result);
+		
+		
+		int payId = result.getPayId();
+		System.out.println(payId);
+		BookingList bookingList = bookingService.getReviewByBookingId(payId);
+		System.out.println(bookingList);
+		
+		
+		
+		
+		Map<String,Object> dto = new HashMap<>();
+		dto.put("status", 200);
+		dto.put("resultObject",result);
+		dto.put("bookingList",bookingList);
+
+		return dto;
+	}
+	
+	
 }

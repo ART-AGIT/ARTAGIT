@@ -1,84 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="../../../css/reset.css" text="text/css" rel="stylesheet" >
-    <link href="../../../css/deco.css" text="text/css" rel="stylesheet" >
-    <link href="../../../css/style.css" type="text/css" rel="stylesheet">
+<html xmlns:th="http://www.thymeleaf.org"
+   xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+   layout:decorate="~{inc/layout.html}">
+	
+	
+	<th:block layout:fragment="css">
+	    <link href="../../../../css/member/mypage/review-detail.css" type="text/css" rel="stylesheet">
+		<script src="../../../../js/member/mypage/review-detail.js"></script>
+	</th:block>
 
-    <link href="../../../css/icon.css" type="text/css" rel="stylesheet">
-    <link href="../../../css/button.css" type="text/css" rel="stylesheet">
-    <link href="../../../css/member/mypage/review-detail.css" type="text/css" rel="stylesheet">
-    <link href="../../../css/form.css" type="text/css" rel="stylesheet">
-    
-
-    <link href="../../../css/header.css" type="text/css" rel="stylesheet">
-    <link href="../../../css/footer.css" type="text/css" rel="stylesheet">
-    <link href="../../../css/utils.css" type="text/css" rel="stylesheet">
-    <title>Document</title>
-
-
-</head>
-<script src="../../../js/review-detail.js"></script>
-<script src="../../../js/header-menu.js"></script>
-<body>
-    
-    <header class="header">
-        <section class="header-wrapper">
-            <div class="header-box">
-                <h1 class="logo"><a href="">Art Agit</a></h1>
-                <ul class="d-none">
-                    <!-- <li><a href="">전시</a></li>
-                    <li><a href="">커뮤니티</a></li>
-                    <li><a href="">로그인</a></li> -->
-                </ul>
-                <div>
-                    <a class="icon icon-menu burger-nav" href="">확장메뉴</a>
-                </div>
-            </div>
-            <div class="sub-menu-box">
-                <div class="sub-menu">
-                    <div class="sub-menu-1">
-                        <ul>
-                            <li><a href="">전시</a></li>
-                            <li><a href="">커뮤니티</a></li>
-                            <li><a href="">-</a></li>
-                        </ul>
-                    </div>
-                    <div class="sub-menu-2">
-                        <ul>
-                            <li><a href="">로그인</a></li>
-                            <li><a href="">검색</a></li>
-                            <li><a href="">고객센터</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </header>
+<!-- <script src="../../js/header-menu.js"></script> -->
+<body id="body" layout:fragment="content" >
 <!-- ------------------------------------------ -->
 
     <main>
-        <h2 class="review">리뷰 보기</h2>
+        <h2 class="review" >리뷰 보기</h2>
 
-        <form>
+        <form action ="/review/update" method="post" id="form">
         <div class="review-form">
-            <div class="box">
+            <div class="box" th:style="|background-color:${review.color}|">
                 <div class="write-form">
                     <!-- <div class="content">리뷰 작성중</div> -->
                     <div class="">
-                        <textarea class="input" placeholder="리뷰를 작성해주세요"></textarea>
+                        <textarea class="input-review" placeholder="리뷰를 작성해주세요" th:text="${review.content}"></textarea>
                     </div>
                 </div>
                 <div class="detail-info">
                     <div>
-                        <label class="exh-name">함스부르크 600년,매혹의 걸작들</label>
+                        <label class="exh-name" th:text="${booking.exhName}">함sssddd스부르크 600년,매혹의 걸작들</label>
                     </div>
                     <div>
-                        <span class="exh-loc">국립현대미술관</span>
-                        <span class="exh-date">2022.08.08</span>
+                        <span class="exh-loc" th:text="${booking.museumName}">국립현대미술관</span>
+                        <span class="exh-date" th:text="${booking.bookingDate}">2022.08.08</span>
                     </div>
     
                     <div class="color-option">
@@ -86,7 +39,7 @@
                     </div>
                     <div class="trash">
                         <!-- <button class="icon icon-trash"></button> -->
-                        <a><img src="../../image/trash.png" class="trash-img"></a>
+                        <a><img src="../../../../image/trash.png" class="trash-img"></a>
                     </div>
                 </div>
             </div>
@@ -96,7 +49,7 @@
         <div class="review-option-list">
             <span class="review-option">
                 <input type="radio" name="공개여부">
-                <label>공개</label>
+                <label >공개</label>
             </span>
 
             <span class="review-option">
@@ -106,8 +59,10 @@
         </div>
 
         <div class="review-button-list">
-            <input class="btn btn-default btn-default-fill" type="submit" value="저장">
-            <input class="btn btn-default btn-default-line"type="submit" value="닫기">
+        	<input type="hidden" class= "reviewId" name="bookingId" th:value="${review.id}"></input>
+        	<input type="hidden" class= "payId" name="bookingId" th:value="${payId}"></input>
+            <input class="btn btn-default btn-default-fill btn-reg" type="submit" value="등록"></input>
+            <a class="btn btn-default btn-default-line btn-exit" type="button" href="/member/mypage/review/list" value="닫기">닫기</a>
         </div>
         
     </main>

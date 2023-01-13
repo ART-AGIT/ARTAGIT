@@ -25,6 +25,8 @@ import com.artagit.web.service.MemberService;
 import com.artagit.web.service.PaymentService;
 import com.artagit.web.service.ReviewService;
 
+import ch.qos.logback.core.recovery.ResilientSyslogOutputStream;
+
 
 @Controller
 @RequestMapping("/member/mypage")
@@ -76,6 +78,7 @@ public class MypageController {
 	
 	/*-----------리뷰보기------*/ 
 	//url에 들어갈 id는 booking
+	//bookingId = payId 
 	@GetMapping("/review/{id}")
 	public String detail(@PathVariable("id")int id, Model model,@AuthenticationPrincipal ArtagitUserDetails user){
 
@@ -87,21 +90,27 @@ public class MypageController {
 		model.addAttribute("booking",booking);
 		model.addAttribute("review",review);
 		model.addAttribute("bookingId",booking.getBookingId());
-		System.out.println("2. user==========="+user);
-		
-		String color = "black";
-		if(review == null)
-			System.out.println("dd");
+//		System.out.println("2. user==========="+user);
 		
 		return "member/mypage/review-detail";
 	}
+	
 	/*-----------리뷰수정------*/
 	@GetMapping("/review/update/{id}")
-	public String update(@PathVariable("id") int id,@AuthenticationPrincipal ArtagitUserDetails user,Review review) {
+	public String update(@PathVariable("id") int id,@AuthenticationPrincipal ArtagitUserDetails user,Model model) {
+		System.out.println("여기들옴");
 
-//		int result = reviewService.update()
-		//int result = reviewService.del(id);
-		return "member/mypage/revie-update";
+		System.out.println(id);
+		Review review = reviewService.getbyId(id);
+		model.addAttribute("review",review);
+		System.out.println(review.getPayId());
+		int payId = review.getPayId();
+		model.addAttribute("payId",payId);
+		BookingList booking = bookingService.getReviewByBookingId(payId);
+		model.addAttribute("booking",booking);
+		System.out.println(booking);
+		
+		return "member/mypage/review-update";
 	}
 	
 	
