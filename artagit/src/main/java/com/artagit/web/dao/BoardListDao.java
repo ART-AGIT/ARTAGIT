@@ -18,4 +18,6 @@ public interface BoardListDao {
 			int page);
 
 	List<BoardListView> getListById(int memId);
+
+	List<BoardListView> getLikeList(int memId);
 }

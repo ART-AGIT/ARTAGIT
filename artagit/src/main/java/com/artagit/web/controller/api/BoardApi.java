@@ -36,7 +36,7 @@ public class BoardApi {
    public List<BoardListView> getListByCategory(
          @RequestParam("c") int roleId){
       List<BoardListView> list = service.getList(roleId);
-      System.out.println("++++++++++="+list);
+      
       return list;
    }
    /*********게시글 삭제*************/

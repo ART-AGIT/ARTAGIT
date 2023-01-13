@@ -136,6 +136,13 @@ public class DefaultBoardService implements BoardService{
 	}
 
 
+	@Override
+	public List<BoardListView> getLikeList(int memId) {
+		// TODO Auto-generated method stub
+		return boardListDao.getLikeList(memId);
+	}
+
+
 	
 
 

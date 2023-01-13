@@ -50,6 +50,9 @@ public interface BoardService {
 	int deleteLikeUp(int boardId, int userId);
 
 
+	List<BoardListView> getLikeList(int memId);
+
+
 
 
 	
