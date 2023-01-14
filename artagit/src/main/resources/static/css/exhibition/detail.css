@@ -261,3 +261,71 @@ input[id*="popup"]:checked + label + div {
 .close {
     display: none;
 }
+
+/************ pc버전 ************/
+@media (min-width: 992px){
+	
+	.flow-btn-box {
+	width: 1200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+	}
+
+	.container {
+		display: flex;
+		justify-content: center;
+	}
+	
+	.img-and-menu {
+		display: flex;
+		flex-direction: column;
+	}
+	
+	.mini-menu-list {
+    width: 400px;
+    display: flex;
+    justify-content: flex-start;
+    font-size: 11px;
+	}
+	
+	.exh-img {
+		width: 400px;
+		height: 500px;
+	}
+	
+	.exh-info {
+    display: flex;
+    align-items: end;
+    padding-bottom: 60px;
+	}
+	
+	.exh-info form {
+	margin-left: 40px;
+    display: grid;
+    grid-template:
+        "title title" 70px
+        "exh-author author" 40px
+        "exh-place place" 40px
+        "exh-date date" 40px
+        "exh-time time" 40px
+        "exh-price price" 40px
+        "exh-phone phone" 40px
+        "exh-addr addr" 40px / 100px;
+	}
+	
+/* 	.exh-info form > label,div { */
+/* 		border-bottom: 1px solid #dcdcdc; */
+/* 	} */
+	
+	.exh-detail-box {
+		display: flex;
+		justify-content: center;
+	}
+
+	.exh-detail-img {
+	    width: 800px;
+	    
+	}
+}
