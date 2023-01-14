@@ -41,7 +41,7 @@ window.addEventListener("load", function() {
 		for (let board of list) {
 			
 			let template = ` 
-		
+		<form class="board-box">
         <section class="board-list">
         <h1 class="board-title">
          	<a href = "/member/board/${board.id}">${board.title}</a>
@@ -57,7 +57,7 @@ window.addEventListener("load", function() {
             
             <div class="view">
                 <div class="icon icon-view">조회수 아이콘</div>
-                <div>11</div>
+                <div>${board.hit}</div>
             </div>
             <div class="like-up">
                 <div class="icon icon-like-up">좋아요 아이콘</div>
@@ -72,7 +72,12 @@ window.addEventListener("load", function() {
            <img onerror="this.style.display='none'"  src="/image/${board.image}" class="post-img">
         </div>
           </section>
+             <div class="writing-img-box">
+			        <a href = "../member/board/reg"><img src = "../image/writing-img.png"></img></a>
+	    </div>
     </form>
+    
+			 
 
     `;
 				

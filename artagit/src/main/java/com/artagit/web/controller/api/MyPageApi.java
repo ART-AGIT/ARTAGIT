@@ -48,6 +48,7 @@ public class MyPageApi {
 		return dto;
 	}
 	
+
 	/*-----------리뷰수정------*/ 
 
 	@PostMapping("/review/update/{id}")
@@ -79,5 +80,8 @@ public class MyPageApi {
 		return dto;
 	}
 	
+
+	/******좋아요한 게시글***********/
+
 	
 }

@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -97,68 +99,56 @@
     </header>
 
     <main>
-        <div class="menu-box">
+    <div class="menu-box">
             <ul class="menu-list">
                 <li class="list"><a class="deco deco-ticket" href="">나의 예매내역</a></li>
-                <li class="list"><a class="deco deco-heart-red" href="../../member/mypage/like-list.html">좋아요 전시</a></li>
+                <li class="list"><a class="deco deco-heart " href="../../member/mypage/like-list.html">좋아요 전시</a></li>
                 <li class="list"><a class="deco deco-smile" href="./account-edit.html">내 정보 수정</a></li>
-                <li class="list line-on"><a class="deco deco-write deco-write-on" href="./post-list.html">작성글 관리</a></li>
+                <li class="list  line-on"><a class="deco deco-write deco-heart-on" href="./post-list">작성글 관리</a></li>
             </ul>
         </div>
-        
-       
-        <section class="board-list">
-            <h1 class="board-title"><a href="../../member/board/detail.html">회원님들 그만 좀 싸우세요들.</a></h1>
-            <div class="board-category-s">[같이가요]</div>
-            <div class="board-regdate">1분전</div>
-            <div class="board-writer-info">
-                <div>프사</div>
-                <div>전시조아</div>
-            </div>
-            <div class="board-post-info">
-                <div class="view">
-                    <div class="icon icon-view">조회수 아이콘</div>
-                    <div>11</div>
-                </div>
-                <div class="like-up">
-                    <div class="icon icon-like-up">좋아요 아이콘</div>
-                    <div>11</div>
-                </div>
-                <div class="comment">
-                    <div class="icon icon-comment">댓글 아이콘</div>
-                    <div>11</div>
-                </div>
-            </div>
-            <div class="board-post-img-box">
-                <img src="../../image/anonymousProject.png"></img>
-            </div>
-        </section>
-        <section class="board-list">
-            <h1 class="board-title"><a href="../../member/board/detail.html">회원님들 그만 좀 싸우세요들.</a></h1>
-            <div class="board-category-s">[같이가요]</div>
-            <div class="board-regdate">1분전</div>
-            <div class="board-writer-info">
-                <div>프사</div>
-                <div>전시조아</div>
-            </div>
-            <div class="board-post-info">
-                <div class="view">
-                    <div class="icon icon-view">조회수 아이콘</div>
-                    <div>11</div>
-                </div>
-                <div class="like-up">
-                    <div class="icon icon-like-up">좋아요 아이콘</div>
-                    <div>11</div>
-                </div>
-                <div class="comment">
-                    <div class="icon icon-comment">댓글 아이콘</div>
-                    <div>11</div>
-                </div>
-            </div>
-            <div class="board-post-img-box">
-                <img src="../../image/anonymousProject.png"></img>
-            </div>
-        </section>
+       <div class="board-box">
+			    <div class="post-list">
+			        <h1 class="d-none">게시글 목록</h1>
+     
+					        <form class="" action="post-list" method="get">
+					        <section class="board-list" th:each="board:${list}">
+						        <h1 class="board-title">
+						            <a th:utext="${board.title}" th:href="@{|/member/board/${board.id}|}" href = "../member/board/detail.html">회원님들 그만 좀 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa싸우세요들.</a>
+						        </h1>
+						        <div><a th:text="[+${board.name}+]" class="board-category-s" href="">[같이가요]</a></div>
+						        <div class="board-regdate" th:text="${#dates.format(board.regDate, 'HH:mm')}">1분전</div>
+						        <div class="board-writer-info">
+					                <img class="profile" src = "../image/accountImage.png">
+					            	<div th:text="${board.nickname}">운영자 </div>
+						        </div>
+					        
+					        <div class="board-post-info">
+					            
+					            <div class="view">
+					                <div class="icon icon-view">조회수 아이콘</div>
+					                <div th:text=${board.hit}>11</div>
+					            </div>
+					            <div class="like-up">
+					                <div class="icon icon-like-up">좋아요 아이콘</div>
+					                <div>11</div>
+					            </div>
+					            <div class="comment">
+					                <div class="icon icon-comment">댓글 아이콘</div>
+					                <div th:text=${board.commentTotal}>11</div>
+					            </div>
+					        </div>
+					        
+					        
+					        <div class="board-post-img-box">
+					            <img class="post-img" onerror="this.style.display='none'" 	src = "../image/전시포스터.jpg" th:src="@{|/image/${board.image}|}">
+					        </div>
+					        </section>
+					  		</form>
+			   		 
+			 </div>
+			</div>
+   
         
     </main>
 </body>

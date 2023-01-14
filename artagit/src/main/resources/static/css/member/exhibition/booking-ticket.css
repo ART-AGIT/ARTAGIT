@@ -46,7 +46,7 @@ main section {
     color: #ffffff;
     position: absolute;
 
-    left: 15px;
+    left: 20px;
     top: 85px;
 }
 
@@ -65,21 +65,10 @@ main section {
 }
 
 /******* 달력 영역 ****************************************/
-.date-wrap {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.yyyy-mm {
-    font-size: 20px;
-    font-weight: 700;
-    color: #444444;
-}
-
 .choice-date {
-    margin-left: 35px;
+    margin: 0 0 0 10%;
     font-size: 13px;
+    color: #888888;
 }
 
 
@@ -153,14 +142,20 @@ main section {
 }
 
 /* 투명한 input 태그 속성 */
-.transparency{
+.transparency, .username {
     border: 0;
+    border-radius: 5px;
     height: 30px;
     box-sizing: border-box;
     font-size: 14px;
     color: #545454;
-    /* line-height: 24px; */
-    text-indent: 12px;
+    line-height: 24px;
+    text-indent: 14px;
+    background-color: #FFFFFF;
+}
+
+.name, .username {
+    background: #f2f2f2cf;
 }
 
 input:focus{

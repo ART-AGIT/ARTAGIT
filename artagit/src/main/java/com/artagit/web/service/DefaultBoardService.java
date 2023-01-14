@@ -1,6 +1,7 @@
 package com.artagit.web.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -8,6 +9,7 @@ import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.artagit.web.dao.BoardDao;
+import com.artagit.web.dao.BoardLikeDao;
 import com.artagit.web.dao.BoardListDao;
 import com.artagit.web.entity.Board;
 import com.artagit.web.entity.BoardListView;
@@ -23,6 +25,8 @@ public class DefaultBoardService implements BoardService{
 	@Autowired
 	private BoardListDao boardListDao;
 
+//	@Autowired
+//	private BoardLikeDao boardLikeDao;
 	
 	@Override
 	public Board get(int id) {
@@ -87,7 +91,44 @@ public class DefaultBoardService implements BoardService{
 		// TODO Auto-generated method stub
 		return boardDao.getDetail(id);
 	}
-	
+
+
+	@Override
+	public int edit(Board board) {
+		// TODO Auto-generated method stub
+		return boardDao.update(board);
+	}
+
+
+	@Override
+	public int hitUp(int id) {
+		// TODO Auto-generated method stub
+		return boardDao.hitUp(id);
+	}
+
+
+	@Override
+	public List<BoardListView> getListById(int id) {
+		// TODO Auto-generated method stub
+		return boardListDao.getListById(id);
+	}
+
+
+//	@Override
+//	public int likeUp(int boardId, int userId) {
+//		// TODO Auto-generated method stub
+//		return boardLikeDao.add(boardId,userId);
+//	}
+//
+//
+//	@Override
+//	public int countOfLike(int id) {
+//		// TODO Auto-generated method stub
+//		return boardLikeDao.count(id);
+//	}
+
+
+
 }
 
 

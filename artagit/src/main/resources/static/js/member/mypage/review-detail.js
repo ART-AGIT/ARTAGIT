@@ -7,7 +7,7 @@ window.addEventListener("load",function(e){
 	const btnDel = document.querySelector(".btn-del");
 	const writeForm = document.querySelector(".write-form");
 	const reviewForm = document.querySelector(".review-form");
-	const optionList = document.querySelector(".review-option-list");
+//	const optionList = document.querySelector(".review-option-list");
 	const input = document.querySelector(".input-review");
 	const detailInfo = document.querySelector(".detail-info");
 //	const trash = document.querySelector(".trash");
@@ -99,17 +99,17 @@ window.addEventListener("load",function(e){
 	        	</div>
 	 
     
-			        <div class="review-option-list">
-			            <span class="review-option">
-			                <input type="radio" name="공개여부">
-			                <label>공개</label>
-			            </span>
-			
-			            <span class="review-option">
-			                <input type="radio" name="공개여부">
-			                <label>비공개</label>
-			            </span>    
-			        </div>
+//			        <div class="review-option-list">
+//			            <span class="review-option">
+//			                <input type="radio" name="공개여부">
+//			                <label>공개</label>
+//			            </span>
+//			
+//			            <span class="review-option">
+//			                <input type="radio" name="공개여부">
+//			                <label>비공개</label>
+//			            </span>    
+//			        </div>
 			
 			        <div class="review-button-list">
 			        	<input type="hidden" class= "bookingId" name="bookingId" >
@@ -123,7 +123,7 @@ window.addEventListener("load",function(e){
 		        	
 	        	// 2번째시도 
 	        	reviewForm.innerHTML="";
-	        	optionList.innerHTML="";
+//	        	optionList.innerHTML="";
 	        	btnList.innerHTML="";
 						
 	        	reviewForm.insertAdjacentHTML("afterend",template);

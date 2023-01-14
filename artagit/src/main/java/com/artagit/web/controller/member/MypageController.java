@@ -14,10 +14,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.artagit.web.entity.ArtagitUserDetails;
+import com.artagit.web.entity.BoardListView;
 import com.artagit.web.entity.BookingList;
 import com.artagit.web.entity.Member;
 import com.artagit.web.entity.Payment;
 import com.artagit.web.entity.Review;
+import com.artagit.web.service.BoardService;
 import com.artagit.web.service.BookingService;
 import com.artagit.web.service.ExhibitionService;
 import com.artagit.web.service.MemberService;
@@ -53,6 +55,9 @@ public class MypageController {
 	
 	//@Autowired
 	//private PaymentService paymentService;
+	
+	@Autowired
+	private BoardService boardService;
 	
 	/*-----------예매내역리스트------*/ 
 	@GetMapping("/review/list")
@@ -123,7 +128,7 @@ public class MypageController {
 
 
 //===================회원수정===================
-	@GetMapping("/account-edit")
+	@GetMapping("/account-edit/{id}")
 	public String update(@AuthenticationPrincipal ArtagitUserDetails user, Model model, Member member) {
 		//회원수정페이지불러올때 회원가입할때정보불러오기 user쓰기
 
@@ -170,6 +175,17 @@ public class MypageController {
 	public String likeList() {
 		return "member/mypage/like-list";
 	}
+	
+	/********내가 쓴 게시글 리스트 불러오기*******/
+//	@GetMapping("/post-list")
+//	public String post(Model model,@AuthenticationPrincipal ArtagitUserDetails user) {
+//		List<BoardListView> list = boardService.getListById(user.getId());
+//		model.addAttribute("list",list);
+//		
+//		System.out.println("로그인한 아이디가 쓴 글====>"+model);
+//		return "member/mypage/post-list";
+//		
+//	}
 
 }
 

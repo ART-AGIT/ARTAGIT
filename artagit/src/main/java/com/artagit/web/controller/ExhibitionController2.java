@@ -14,11 +14,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.artagit.web.entity.ArtagitUserDetails;
 import com.artagit.web.entity.Corporate;
 import com.artagit.web.entity.ExhibitionView;
-import com.artagit.web.entity.Museum;
 import com.artagit.web.service.CorporateService;
-import com.artagit.web.service.ExhLikeService;
 import com.artagit.web.service.ExhibitionService;
-import com.artagit.web.service.MuseumService;
 
 @Controller
 @RequestMapping("/exhibition/")
@@ -41,12 +38,13 @@ public class ExhibitionController2 {
 		
 		//멤버 아이디 설정
 		int memberId;
+		//로그인하지 않으면, memberId = 0
 		if(user == null)
 			memberId = 0;
 		else
 			memberId = user.getId();
 		
-		List<ExhibitionView> lists = service.getListByMemberId(page,0,0,0,memberId);
+		List<ExhibitionView> lists = service.getListByMemberId(page,0,1,0,memberId);
 
 		model.addAttribute("lists", lists);
 		

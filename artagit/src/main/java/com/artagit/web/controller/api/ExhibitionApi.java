@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.artagit.web.entity.ArtagitUserDetails;
-import com.artagit.web.entity.Exhibition;
 import com.artagit.web.entity.ExhibitionView;
 import com.artagit.web.service.ExhibitionService;
 
@@ -29,18 +28,18 @@ public class ExhibitionApi {
 	@GetMapping("lists")
 	public List<ExhibitionView> list(
 			@RequestParam(defaultValue = "1", name = "p") int page,
-			@RequestParam("m") int museum, 
+			@RequestParam("l") int local, 
 			@RequestParam("s") int state,
 			@RequestParam("c") int category
-			, @AuthenticationPrincipal ArtagitUserDetails user){
-		
+			, @AuthenticationPrincipal ArtagitUserDetails user) throws InterruptedException{
+//		Thread.sleep(500);
 		int memberId;
 		if(user == null)
 			memberId = 0;
 		else
 			memberId = user.getId();
 		
-		List<ExhibitionView> lists = service.getListByMemberId(page,museum,state,category,memberId);
+		List<ExhibitionView> lists = service.getListByMemberId(page,local,state,category,memberId);
 		
 		return lists;
 	}
@@ -53,13 +52,14 @@ public class ExhibitionApi {
 		System.out.println((user));
 		
 		int result = service.likeUp(exhId, user.getId());
-		int count = service.countOfLike(exhId);
+		System.out.println("좋아요 성공");
+//		int count = service.countOfLike(exhId);
 		Map<String, Object> dto = new HashMap<>();
 		//HTTP 가 가지고있는 기본 상태값
 		dto.put("status", 200);
 		dto.put("resultObject", result);
-		dto.put("countNum", count);
-		
+//		dto.put("countNum", count);
+//		
 		return dto;
 	}
 	

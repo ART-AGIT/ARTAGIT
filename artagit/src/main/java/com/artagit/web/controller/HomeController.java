@@ -34,6 +34,13 @@ public class HomeController {
 		
 		return "denied";
 	}
+	
+//	회원가입 선택
+	@GetMapping("signup-choice")
+	public String signupChoice() {
+		
+		return "signup-choice";
+	}
 
 
 }

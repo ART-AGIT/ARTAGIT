@@ -6,7 +6,7 @@
 	
 	<th:block layout:fragment="css">
 	    <link href="../../../../css/member/mypage/review-detail.css" type="text/css" rel="stylesheet">
-		<script src="../../../../js/member/mypage/review-detail.js"></script>
+		<script src="../../../../js/member/mypage/review-update.js"></script>
 	</th:block>
 
 <!-- <script src="../../js/header-menu.js"></script> -->
@@ -15,7 +15,20 @@
 
     <main>
         <h2 class="review" >리뷰 보기</h2>
-
+        <div class="tong">
+			<div class="side-menu">
+	            <div class="logo2">
+	                <div class="profile">
+	                
+	            	</div>
+	            </div>
+	            <ul class="side-menu-list">
+	                <li><a href="">나의 예매내역</a></li>
+	                <li><a href="">좋아요 전시</a></li>
+	                <li><a href="">회원정보 수정</a></li>
+	                <li><a href="">작성글 관리</a></li>
+	            </ul>
+			 </div>
         <form action ="/review/update" method="post" id="form">
         <div class="review-form">
             <div class="box" th:style="|background-color:${review.color}|">
@@ -45,18 +58,19 @@
             </div>
         </div>
     </form>
+     </div>
         
-        <div class="review-option-list">
-            <span class="review-option">
-                <input type="radio" name="공개여부">
-                <label >공개</label>
-            </span>
+<!--         <div class="review-option-list"> -->
+<!--             <span class="review-option"> -->
+<!--                 <input type="radio" name="공개여부"> -->
+<!--                 <label >공개</label> -->
+<!--             </span> -->
 
-            <span class="review-option">
-                <input type="radio" name="공개여부">
-                <label>비공개</label>
-            </span>    
-        </div>
+<!--             <span class="review-option"> -->
+<!--                 <input type="radio" name="공개여부"> -->
+<!--                 <label>비공개</label> -->
+<!--             </span>     -->
+<!--         </div> -->
 
         <div class="review-button-list">
         	<input type="hidden" class= "reviewId" name="bookingId" th:value="${review.id}"></input>

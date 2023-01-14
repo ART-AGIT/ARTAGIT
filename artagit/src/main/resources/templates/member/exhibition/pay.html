@@ -18,12 +18,12 @@
     <main>
         <div class="img-and-info">
             <div class="exh-img-box">
-                <img class="exh-img" src="../../image/전시포스터2.jpg" alt="">
+                <img class="exh-img" src="/image/전시사진.jpg" alt="">
             </div>
     
             <div class="text-box">
-                <div class="exh-title">합스부르크 600년, 매혹의 걸작들</div>
-                <div class="exh-place">국립현대미술관</div>
+                <div class="exh-title" th:text="${exh.name}">합스부르크 600년, 매혹의 걸작들</div>
+                <div class="exh-place" th:text="${corp.museumName}">국립현대미술관</div>
             </div>
         </div>
 
@@ -47,25 +47,25 @@
                         <div class="payment-select-passbook">
                             <div class="select-bank">입금하실 은행을 선택해주세요</div>
                             <ul class="banks">
-                                <li class="deco deco-home">
+                                <li class="bank-img nh-bank">
                                     농협(중앙)  
                                 </li>
-                                <li class="deco deco-home">
+                                <li class="deco deco-kb">
                                     국민은행  
                                 </li>
                                 <li class="deco deco-home">
                                     우리은행  
                                 </li>
-                                <li class="deco deco-home">
+                                <li class="deco deco-ibk">
                                     기업은행  
                                 </li>
-                                <li class="deco deco-home">
+                                <li class="deco deco-shinhan">
                                     신한은행  
                                 </li>
-                                <li class="deco deco-home">
+                                <li class="deco deco-post">
                                     우체국  
                                 </li>
-                                <li class="deco deco-home">
+                                <li class="deco deco-hana">
                                     하나은행  
                                 </li>
                             </ul>
@@ -121,7 +121,7 @@
                     <div data-tab="4" class="tab-content d-none">
                         <div class="payment-select-simple">
                             <div class="kakao-img">
-                                <img src="../../image/kakaopay-default.PNG" width="150px" alt="">
+                                <img src="/image/kakaopay-default.PNG" width="150px" alt="">
                             </div>
                         </div>
                     </div>
@@ -132,7 +132,7 @@
                     <div  class="payment-info-list">
                         <div class="payment-info">
                             <span>티켓금액</span>
-                            <span>17,500원</span>
+                            <span class="ticket-price">17,500원</span>
                         </div>
                         <div>+</div>
                         <div class="payment-info">
