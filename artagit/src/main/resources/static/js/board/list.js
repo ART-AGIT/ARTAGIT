@@ -17,7 +17,7 @@ window.addEventListener("load", function() {
 
 		li.classList.add("board-selected");
 
-		if (currentLi != null)
+		if (currentLi != null && currentLi != e.target)
 			currentLi.classList.remove("board-selected");
 
 		currentLi = li;

@@ -163,7 +163,8 @@ public class MypageController {
 	}
 
 	@GetMapping("like-list")
-	public String likeList() {
+	public String likeList(@AuthenticationPrincipal ArtagitUserDetails user) {
+		List<BoardListView> list = boardService.getLikeList(user.getId());
 		return "member/mypage/like-list";
 	}
 	

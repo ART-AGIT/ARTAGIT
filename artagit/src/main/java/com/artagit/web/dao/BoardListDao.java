@@ -19,5 +19,6 @@ public interface BoardListDao {
 
 	List<BoardListView> getListById(int memId);
 
-	List<BoardListView> getLikeList(int memId);
+	List<BoardListView> getLikeList1(int memId);
+	BoardListView getLikeList2(int memId);
 }

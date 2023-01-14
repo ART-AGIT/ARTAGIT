@@ -49,6 +49,11 @@ textarea.input{
     background-color: transparent;
 }
 
+.input-image{
+  max-height: 40vh;
+  max-width: 40vw;
+}
+
 /* -------------셀렉트박스 커스텀-------------- */
 
 .select-box{
