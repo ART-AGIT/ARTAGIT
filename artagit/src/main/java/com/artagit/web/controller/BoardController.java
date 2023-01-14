@@ -50,8 +50,11 @@ public class BoardController {
 		return "board/list";
 			
 		}
+
 	
 	
+	
+	/***게시글 내용 조회****/
 		
 	
 	@GetMapping("{id}")
@@ -59,11 +62,11 @@ public class BoardController {
 	      
 	      @PathVariable("id")int id,
 	      Model model, @AuthenticationPrincipal ArtagitUserDetails user){
-		
+			
 		
 	      Board board = service.get(id);
 	      model.addAttribute("board",board);
-	   
+	     
 	      
 	      //Comment 조회
 	      model.addAttribute("user",user);

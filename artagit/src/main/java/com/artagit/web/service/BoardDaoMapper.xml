@@ -7,8 +7,11 @@
   
    
    <select id="get" resultType="com.artagit.web.entity.Board">
-      select *
-      from Board
+    select 
+			B.*,
+			(select count(memId) from BoardLike where memId = #{memId} and postId = B.id group by postId) heart,
+			(select memId from BoardLike where memId = B.memId and memId = #{memId}) memberId
+		from Board B
       where id =#{id}
       and useYN='Y'
    </select>
@@ -39,7 +42,10 @@
    	<update id="update" parameterType="com.artagit.web.entity.Board">
 		update Board 
 		<set>
-			title = #{title}
+			title = #{title},
+			content=#{content},
+			image=#{image},
+			roleId=#{roleId}
 		</set>
 		where id =#{id}
 	</update>
@@ -55,6 +61,17 @@ where
 		
 order by regDate desc;
    </select>
+   <update id="hitUp" parameterType="com.artagit.web.entity.Board">
+   update Board 
+		<set>
+			hit = hit+1
+		</set>
+		where id =#{id}
+   </update>
+   
+     
+   
+   
   
    
    

@@ -15,23 +15,21 @@ public interface ExhibitionService {
 	int reg(Exhibition exhibition);
 
 	// 모든 전시 목록 불러오는 메서드
-	List<Exhibition> getList(int page, int museum, int state, int category);
+	//List<Exhibition> getList(int page, int museum, int state, int category);
 	
 	ExhibitionView getExhById(int exhId, int memberId);
 	Exhibition getExhById(int exhId);
 	
 
-	int update(Exhibition exh);
-
 	// [주최자] 나의 등록전시 수정
-	int update(int id);
+	int update(Exhibition exh);
 	
 	// [주최자] 나의 등록전시 리스트 
 	List<Exhibition> getListById(int id);
 	
 	int countOfExh(int memId);
 
-	List<Exhibition> getListByCategory(int page, int museum, int state, int category);
+	//List<Exhibition> getListByCategory(int page, int local, int state, int category);
 
 
 	List<Exhibition> getListtt(int memId);
@@ -55,13 +53,10 @@ public interface ExhibitionService {
 	int countOfLike(int exhId);
 
 
-
+	//검색시 전시목록
 	List<ExhibitionView> getListBySearch(String query, int memberId) throws SQLSyntaxErrorException;
-
-
-	List<Exhibition> getListBySearch(String query) throws SQLSyntaxErrorException;
-
-	List<ExhibitionView> getListByMemberId(int page, int museum, int state, int category, int memberId);
+	//일반 전시목록
+	List<ExhibitionView> getListByMemberId(int page, int local, int state, int category, int memberId);
 
 	
 	//전시 등록 

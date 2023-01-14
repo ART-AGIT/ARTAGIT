@@ -38,12 +38,13 @@ public class ExhibitionController2 {
 		
 		//멤버 아이디 설정
 		int memberId;
+		//로그인하지 않으면, memberId = 0
 		if(user == null)
 			memberId = 0;
 		else
 			memberId = user.getId();
 		
-		List<ExhibitionView> lists = service.getListByMemberId(page,0,0,0,memberId);
+		List<ExhibitionView> lists = service.getListByMemberId(page,0,1,0,memberId);
 
 		model.addAttribute("lists", lists);
 		

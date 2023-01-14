@@ -17,6 +17,33 @@ public class Board {
 	private String content;	
 	private int like;
 	private Date modiDate;
+	private int heart;
+	
+	public int getHeart() {
+		return heart;
+	}
+	public void setHeart(int heart) {
+		this.heart = heart;
+	}
+	public Board(int id, int memId, String name, String title, String image, int hit, Date regDate, String nickname,
+			int roleId, String useYN, int commentTotal, String content, int like, Date modiDate, int heart) {
+		super();
+		this.id = id;
+		this.memId = memId;
+		this.name = name;
+		this.title = title;
+		this.image = image;
+		this.hit = hit;
+		this.regDate = regDate;
+		this.nickname = nickname;
+		this.roleId = roleId;
+		this.useYN = useYN;
+		this.commentTotal = commentTotal;
+		this.content = content;
+		this.like = like;
+		this.modiDate = modiDate;
+		this.heart = heart;
+	}
 	public int getId() {
 		return id;
 	}

@@ -11,26 +11,9 @@ import com.artagit.web.entity.Museum;
 public interface CorporateDao {
 	
 	Corporate get(int id);
-
-	//성공하면 1 실패하면 0
-//	int update(Corporate corporate);
-	int update(Integer id);
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	// (주최자가 전시정보 수정 시) 주최측에 대한 정보 수정 
-	int update(int id);
+	// (주최자가 전시정보 수정 시) 주최측에 대한 정보 수정 (성공하면 1 실패하면 0)
+	int update(Corporate corporate);
 	
 	// 회원가입 메서드
 	int insert(Corporate corporate);

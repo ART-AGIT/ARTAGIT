@@ -23,13 +23,34 @@ public interface BoardService {
 //	int reg(int roleId, String originalFilename, String title, String content, int memId);
 
 
-	Board getDetail(int id);
+	Board getDetail(int id, int memId);
 
 
 	int reg(Board board);
 
 
 	void hitCountUp(Board board);
+
+
+	int edit(Board board);
+
+
+	int hitUp(int id);
+
+
+	List<BoardListView> getListById(int id);
+
+
+	int likeUp(int boardId, int userId);
+
+
+	int countOfLike(int id);
+
+
+	int deleteLikeUp(int boardId, int userId);
+
+
+	List<BoardListView> getLikeList(int memId);
 
 
 

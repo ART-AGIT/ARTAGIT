@@ -20,7 +20,7 @@ public interface ExhibitionDao {
 //			String input);
 
 	// 기본 목록 불러오는 메서드
-	List<Exhibition> getList(int offset, int size, Integer museumId, Integer stateId, Integer cateId);
+	//List<Exhibition> getList(int offset, int size, Integer museumId, Integer stateId, Integer cateId);
 	
 	// 1건의 전시를 불러올 때 사용되는 메서드
 	ExhibitionView get(int id, int memberId);
@@ -38,8 +38,7 @@ public interface ExhibitionDao {
 	
 	// 내가 등록한 전시 수정
 //	int update(int id);
-	int update(Integer id);
-//	int update(Exhibition exh);
+	int update(Exhibition exh);
 	
 	// 나의 전시 삭제
 	int delete(int id);
@@ -56,15 +55,10 @@ public interface ExhibitionDao {
 
 
 
-
-	List<Exhibition> getListBySearch(int offset, int size, String query) throws SQLSyntaxErrorException;
-
 	List<ExhibitionView> getListBySearch(int offset, int size, int memberId, String query) throws SQLSyntaxErrorException;
 
 
-
-
-	List<ExhibitionView> getListByMemberId(int offset, int size, Integer museumId, Integer stateId, Integer cateId, int memberId);
+	List<ExhibitionView> getListByMemberId(int offset, int size, Integer local, Integer state, Integer category, int memberId);
 
 	Exhibition getexh(int exhId);
 

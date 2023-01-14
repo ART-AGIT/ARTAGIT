@@ -45,16 +45,13 @@ window.addEventListener("load", function(){
         //e.preventDefault();
         console.log("test");
 
-		kakaoImg.innerHTML = `<img src="../../image/kakaopay.PNG" width="150px" alt="">`
-
+		// kakaoImg.innerHTML = `<img src="../../image/kakaopay.PNG" width="150px" alt="">`
         kakaopay();
     }
 
 
-
     function kakaopay() {
-		
-		console.log('클릭')
+		console.log('카카오페이 클릭');
 		var IMP = window.IMP; // 생략가능
 		IMP.init('imp63753861'); 
 		// i'mport 관리자 페이지 -> 내정보 -> 가맹점식별코드

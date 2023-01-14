@@ -16,4 +16,8 @@ public interface BoardListDao {
 			int offset,
 			int size,
 			int page);
+
+	List<BoardListView> getListById(int memId);
+
+	List<BoardListView> getLikeList(int memId);
 }

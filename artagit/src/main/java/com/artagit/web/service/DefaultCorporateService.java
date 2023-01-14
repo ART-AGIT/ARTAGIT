@@ -29,8 +29,8 @@ public class DefaultCorporateService implements CorporateService{
 	
 	// [주최자] 나의 등록전시 수정 -> 주최측 정보 수정
 	@Override
-	public int update(int id) {
-		int result = corporateDao.update(id);
+	public int update(Corporate corp) {
+		int result = corporateDao.update(corp);
 		return result;
 	}
 

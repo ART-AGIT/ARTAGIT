@@ -11,9 +11,11 @@
 		update Corporate
  		<set>
  			<if test="museumName != null">museumName = #{museumName},</if>
- 			<if test="manager != null">manager = #{manager},</if>
+ 			<if test="name != null">name = #{name},</if>
+ 			<if test="address != null">address = #{address},</if>
  			<if test="phone != null">phone = #{phone},</if>
- 		</set>	
+ 			<if test="manager != null">manager = #{manager},</if>
+ 		</set>
  			where id = #{id}
 	</update>
 	
