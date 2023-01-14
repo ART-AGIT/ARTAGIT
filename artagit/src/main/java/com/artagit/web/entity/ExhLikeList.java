@@ -6,6 +6,7 @@ public class ExhLikeList {
 	private String name;
 	private int corpId;
 	private int corpLocalId;
+	private String poster;
 	private String useYN;
 	private String startDate;
 	private String endDate;
@@ -13,6 +14,14 @@ public class ExhLikeList {
 	private String endTime;
 	private String museumName;
 	
+	public String getPoster() {
+		return poster;
+	}
+
+	public void setPoster(String poster) {
+		this.poster = poster;
+	}
+
 	public String getMuseumName() {
 		return museumName;
 	}
@@ -100,17 +109,18 @@ public class ExhLikeList {
 	@Override
 	public String toString() {
 		return "ExhLikeList [id=" + id + ", name=" + name + ", corpId=" + corpId + ", corpLocalId=" + corpLocalId
-				+ ", useYN=" + useYN + ", startDate=" + startDate + ", endDate=" + endDate + ", startTime=" + startTime
-				+ ", endTime=" + endTime + ", museumName=" + museumName + "]";
+				+ ", poster=" + poster + ", useYN=" + useYN + ", startDate=" + startDate + ", endDate=" + endDate
+				+ ", startTime=" + startTime + ", endTime=" + endTime + ", museumName=" + museumName + "]";
 	}
 
-	public ExhLikeList(int id, String name, int corpId, int corpLocalId, String useYN, String startDate, String endDate,
-			String startTime, String endTime, String museumName) {
-		
+	public ExhLikeList(int id, String name, int corpId, int corpLocalId, String poster, String useYN, String startDate,
+			String endDate, String startTime, String endTime, String museumName) {
+		super();
 		this.id = id;
 		this.name = name;
 		this.corpId = corpId;
 		this.corpLocalId = corpLocalId;
+		this.poster = poster;
 		this.useYN = useYN;
 		this.startDate = startDate;
 		this.endDate = endDate;
@@ -118,6 +128,7 @@ public class ExhLikeList {
 		this.endTime = endTime;
 		this.museumName = museumName;
 	}
+
 
 
 	
