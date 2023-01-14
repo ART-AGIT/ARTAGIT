@@ -64,7 +64,7 @@ window.addEventListener("load", function(){
 		totalPrice[3].innerText = (i*price).toLocaleString();
 
 		let phone = userInfo[0].value;
-		let email = userInfo[1].value
+		let email = userInfo[1].value;
 		
 		if((phone=='')||(email=='')){
 			window.alert("필수 입력 사항을 모두 입력해주세요.");
@@ -115,18 +115,20 @@ window.addEventListener("load", function(){
 		// const checkbox = document.querySelector(input[id="caution-check"]);
 		e.preventDefault();
 		const checkbox = document.getElementById('caution-check');
+
 		
+
 		if(checkbox.checked == false){
 			window.alert("결제 시, 예매 시 유의사항의 동의가 필요합니다.");
 		}
-        //e.preventDefault();
         console.log("test");
-		// kakaoImg.innerHTML = `<img src="../../image/kakaopay.PNG" width="150px" alt="">`
+
 		kakaopay();
     }
-	
 
     function kakaopay() {
+		let memId = doPayBtn.dataset.id;
+		console.log("memid ==> "+memId);
 		const exhTitle = document.querySelector(".exh-title").innerText;
 		console.log('카카오페이 클릭');
 		var IMP = window.IMP; // 생략가능
@@ -142,7 +144,7 @@ window.addEventListener("load", function(){
 			 *  https://docs.iamport.kr/implementation/payment
 			 *  위에 url에 따라가시면 넣을 수 있는 방법이 있습니다.
 			 */
-			/**/ name: exhTitle,
+			name: exhTitle,
 			// 결제창에서 보여질 이름
 			// name: '주문명 : ${auction.a_title}',
 			// 위와같이 model에 담은 정보를 넣어 쓸수도 있습니다.
@@ -153,16 +155,42 @@ window.addEventListener("load", function(){
 			// 구매자 이름, 구매자 정보도 model값으로 바꿀 수 있습니다.
 			// 구매자 정보에 여러가지도 있으므로, 자세한 내용은 맨 위 링크를 참고해주세요.
 			buyer_postcode: '123-456',
-			}, function (rsp) {
+			}, function (rsp) { // callback
 				console.log(rsp);
-			if (rsp.success) {
+			if (rsp.success) { // 결제 성공 시
 				var msg = '결제가 완료되었습니다.';
 				msg += '결제 금액 : ' + rsp.paid_amount + '원';
 				// success.submit();
 				// 결제 성공 시 정보를 넘겨줘야한다면 body에 form을 만든 뒤 위의 코드를 사용하는 방법이 있습니다.
 				// 자세한 설명은 구글링으로 보시는게 좋습니다.
+				fetch("/member/exh/pay", {
+					method: "POST",
+					headers: {
+								"Content-Type": "application/json",
+					},
+					body: JSON.stringify({
+						"booking" : {
+							"date" : '2023-01-13',
+							"amount" : numBox.innerText,
+							"phone" : userInfo[0].value,
+							"email" : userInfo[1].value,
+							"memId" : memId,
+							"exhId" : '17'
+						},
+
+						"payment" : {
+							"payNum" : '12345678',
+							"price" : i*price,
+							"method" : '카카오페이'
+						}
+					})
+				})
+				.then(res => res.json())
+				.then( // db 전송 후, 페이지 이동
+					location.replace('/')
+				)
 			} else {
-				var msg = '결제에 실패하였습니다.';
+				var msg = '결제에 실패하였습니다. 다시 시도해주세요.';
 				msg += '에러내용 : ' + rsp.error_msg;
 			}
 			alert(msg);

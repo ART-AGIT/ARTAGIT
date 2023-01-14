@@ -73,8 +73,8 @@ public class DefaultExhibitionService implements ExhibitionService {
 
 	// [주최자] 나의 등록전시 수정
 	@Override
-	public int update(int id) {
-		 int result = exhDao.update(id);
+	public int update(Exhibition exh) {
+		 int result = exhDao.update(exh);
 		 return result;
 	}
 
@@ -179,12 +179,6 @@ public class DefaultExhibitionService implements ExhibitionService {
 
 
 	public int reg(Exhibition exhibition) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int update(Exhibition exh) {
 		// TODO Auto-generated method stub
 		return 0;
 	}

@@ -76,8 +76,4 @@ public class Payment {
 		return "Payment [id=" + id + ", bookId=" + bookId + ", payNum=" + payNum + ", price=" + price + ", method="
 				+ method + ", regDate=" + regDate + "]";
 	}
-	
-	
-	
-	
 }

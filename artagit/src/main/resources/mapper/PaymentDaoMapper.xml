@@ -6,4 +6,11 @@
 		from Payment
 		where bookId = #{bookId}
 	</select>
+	
+	<!-- 결제내역 insert -->
+	<insert id="add" parameterType="com.artagit.web.entity.Payment">
+		insert into Payment (payNum, price, method, bookId)
+			values (#{payNum}, #{price}, #{method}, #{bookId});
+	</insert>
+	
 </mapper>

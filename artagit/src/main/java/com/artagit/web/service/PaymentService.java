@@ -13,5 +13,7 @@ public interface PaymentService {
 	//int findByBookingId(Booking bookId);
 
 	Payment findByBookingId(int bookId);
-
+	
+	// 결제내역 insert 메서드
+	int add(Payment payment);
 }

@@ -10,7 +10,11 @@
 		where Booking.memId = #{memId};
 	</select>
 	
-	
+	<!-- 예매내역 insert -->
+	<insert id="add" parameterType="com.artagit.web.entity.Booking">
+		insert into Booking (date, amount, phone, email, memId, exhId)
+			values (#{date}, #{amount}, #{phone}, #{email}, #{memId}, #{exhId});
+	</insert>
 	
 	
 </mapper>

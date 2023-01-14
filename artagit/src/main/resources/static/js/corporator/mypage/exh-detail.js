@@ -36,13 +36,14 @@ window.addEventListener("load", function(){
         }
 };
 
+
+	let check = false; // 수정 버튼 상태값
+	
     //////////// 수정 버튼 눌렀을 때
     modiBtn.onclick = function(e){
         e.preventDefault();
-        
-        if(e.target.innerText=='저장'){
-                console.log("저장버튼 클릭");
-        }
+
+		if(!check){
 
         console.log("수정버튼 클릭");
         btnMore.classList.add('d-none');
@@ -52,11 +53,15 @@ window.addEventListener("load", function(){
                 modiLine[i].setAttribute('contenteditable', 'true');
                 modiLine[i].classList.add('mody-on');
             }
+            let start = detailSection.querySelector('.start-date').innerText;
+            let end = detailSection.querySelector('.end-date').innerText;
             
-            let startDateTem = `<input type="date" class="item content start-date" data-placeholder="시작일자" required></input>`
-            let endDateTem = `<input type="date" class="item content end-date" data-placeholder="종료일자" required></input>`
-            let startTimeTem = `<input type="time" class="item content exh-time" data-placeholder="시작시간" required></input>`
-            let endTimeTem = `<input type="time" class="item content exh-time" data-placeholder="종료시간" required></input>`
+            console.log(start);
+            
+            let startDateTem = `<input type="date" class="item content start-date-input" value="${start}" required pattern="\d{4}-\d{2}-\d{2}"></input>`
+            let endDateTem = `<input type="date" class="item content end-date-input" value="${end}" required pattern="\d{4}-\d{2}-\d{2}"></input>`
+            let startTimeTem = `<input type="time" class="item content start-time-input" data-placeholder="시작시간" required></input>`
+            let endTimeTem = `<input type="time" class="item content end-time-input" data-placeholder="종료시간" required></input>`
             
             let el = new DOMParser() // string으로 된 HTML 태그들을 DOM 객체로 변환해준다.
             .parseFromString(startDateTem, "text/html") // 어떤 문자열(1st param)을 어떠한 형식(2nd param)으로 변환할건지.
@@ -77,88 +82,88 @@ window.addEventListener("load", function(){
             .parseFromString(endTimeTem, "text/html")
             .body
             .firstElementChild;
-
-            document.querySelector('.start-date').innerHTML='';
-            document.querySelector('.end-date').innerHTML='';
-            document.querySelector('.start-time').innerHTML='';
-            document.querySelector('.end-time').innerHTML='';
-            document.querySelector('.start-date').append(el);
-            document.querySelector('.end-date').append(el2);
-            document.querySelector('.start-time').append(el3);
-            document.querySelector('.end-time').append(el4);
-
-            modiBtn.innerText = '저장';
-            modiBtn.classList.replace('modify-btn', 'save-btn');  
-            modiBtn.setAttribute('type', 'submit');
-
-            console.log(modiBtn.innerText)
-
+			
+			
             
-        }
-        
+            detailSection.querySelector('.start-date').innerHTML='';
+            detailSection.querySelector('.end-date').innerHTML='';
+            detailSection.querySelector('.start-time').innerHTML='';
+            detailSection.querySelector('.end-time').innerHTML='';
+            detailSection.querySelector('.start-date').append(el);
+            detailSection.querySelector('.end-date').append(el2);
+            detailSection.querySelector('.start-time').append(el3);
+            detailSection.querySelector('.end-time').append(el4);
+			
+//			detailSection.querySelector('.start-date-input').setAttribute('data-placeholder', detailSection.querySelector('.start-date').innerText);
+            modiBtn.innerText = '저장';
+            
+            check = true;
+		}
+        }else{
+			console.log("저장하기 버튼 클릭");            
+        let exhName = detailSection.querySelector(".exh-name").innerText;
+        let exhArtist = detailSection.querySelector(".exh-artist").innerText;
+        let muName = detailSection.querySelector(".museum-name").innerText;
+        let localName = detailSection.querySelector(".local-name").innerText;
+        let startDate = detailSection.querySelector(".start-date-input").value;
+        let endDate = detailSection.querySelector(".end-date-input").value;
+        let startTime = detailSection.querySelector(".start-time-input").value;
+        let endTime = detailSection.querySelector(".end-time-input").value;
+        let exhPrice = detailSection.querySelector(".exh-price").innerText;
+        let corpName = detailSection.querySelector(".corp-name").innerText;
+        let corpAddr = detailSection.querySelector(".corp-address").innerText;
+        let corpPhone = detailSection.querySelector(".corp-phone").innerText;
+        let exhStock = detailSection.querySelector(".exh-stock").innerText;
+        let corpManager = detailSection.querySelector(".corp-manager").innerText;
+        let exhContent = detailSection.querySelector(".feed-content").innerText;
+
+            console.log(startDate);
+        fetch("/corp/exh/update", {
+                method: "POST",
+                headers: {
+                            "Content-Type": "application/json",
+                        },
+                body: JSON.stringify( 
+                    { "exh": {
+                        "id" : id[0].value,
+                        "name": exhName,
+                        "artist": exhArtist,
+                        "startDate": startDate,
+                        "endDate": endDate,
+                        "startTime": startTime,
+                        "endTime": endTime,
+                        "ticketPrice": exhPrice,
+                        "ticketStock" : exhStock,
+                        "content" : exhContent
+                        },
+                        "corp":{
+                            "id" : id[1].value,
+                            "museumName" : muName,
+                            "name" : corpName,
+                            "address" : corpAddr,
+                            "phone" : corpPhone,
+                            "manager" : corpManager
+                            },
+                        "local":{
+                            "id" : id[2].value,
+                            "name" : localName
+                        } 
+                    }
+                ),
+            })
+            .then((response) => {
+				if(response.ok) {
+				console.log("성공");
+				return response;
+				} else {console.log("실패")}})
+//            .then(location.href='/corp/exh/'+id[0].value);
+            .then(location.reload());
+		}
     }
     
-    // const saveBtn = this.document.querySelector(".save-btn");
-    
-    // saveBtn.onclick = function(e){
-        //     console.log(e.target);
-        //     console.log("저장하기 버튼 클릭");            
-        //     let exhName = detailSection.querySelector(".exh-name").innerText;
-        //     let exhArtist = detailSection.querySelector(".exh-artist").innerText;
-        //     let muName = detailSection.querySelector(".museum-name").innerText;
-        //     let localName = detailSection.querySelector(".local-name").innerText;
-        //     let exhDate = detailSection.querySelector(".exh-date").innerText;
-        //     let exhTime = detailSection.querySelector(".exh-time").innerText;
-        //     let exhPrice = detailSection.querySelector(".exh-price").innerText;
-        //     let corpName = detailSection.querySelector(".corp-name").innerText;
-        //     let corpAddr = detailSection.querySelector(".corp-address").innerText;
-        //     let corpPhone = detailSection.querySelector(".corp-phone").innerText;
-        //     let exhStock = detailSection.querySelector(".exh-stock").innerText;
-        //     let corpManager = detailSection.querySelector(".corp-manager").innerText;
-        //     let exhContent = detailSection.querySelector(".feed-content").innerText;
-    
-        //         console.log(id[0].value);
-        //     fetch("/corp/exh/update", {
-        //             method: "POST",
-        //             headers: {
-        //                         "Content-Type": "application/json",
-        //                     },
-        //             body: JSON.stringify( 
-        //                 { "exh": {
-        //                     "id" : id[0].value,
-        //                     "name": exhName,
-        //                     "artist": exhArtist,
-        //                     "startDate": exhDate,
-        //                     "endDate": exhTime,
-        //                     "ticketPrice": exhPrice,
-        //                     "ticketStock" : exhStock,
-        //                     "content" : exhContent
-        //                     },
-        //                     "corp":{
-        //                         "id" : id[1].value,
-        //                         "museumName" : muName,
-        //                         "name" : corpName,
-        //                         "address" : corpAddr,
-        //                         "phone" : corpPhone,
-        //                         "manager" : corpManager
-        //                         },
-        //                     "local":{
-        //                         "id" : id[2].value,
-        //                         "name" : localName
-        //                     } 
-        //                 }
-        //             ),
-        //         }).then((response) => console.log(response));
-        // }
-
-    
-    
-
-
 
     // }
 
-    // if(e.target.classList.contains())
 
 	// yesBtn.onclick = function(e){
 	//     let id = e.target.dataset.id;

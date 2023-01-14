@@ -28,8 +28,8 @@ public class DefaultCorporateService implements CorporateService{
 	
 	// [주최자] 나의 등록전시 수정 -> 주최측 정보 수정
 	@Override
-	public int update(int id) {
-		int result = corporateDao.update(id);
+	public int update(Corporate corp) {
+		int result = corporateDao.update(corp);
 		return result;
 	}
 
@@ -53,12 +53,5 @@ public class DefaultCorporateService implements CorporateService{
 		int result = corporateDao.deleteYN(id);
 		
 		return result;
-	}
-
-
-	@Override
-	public int update(Corporate corp) {
-		// TODO Auto-generated method stub
-		return 0;
 	}
 }
