@@ -154,6 +154,7 @@ main{
     }
     
     .content-box{
+        width: 1300px;
         height: 100px;
 
         padding: 0 20px;
@@ -261,6 +262,8 @@ main{
 /* ----- fixed 때문에 윗부분이 가려져, main 부분에 padding 줌 ----------- */
     main{
         padding-top: 100px;
+        width: 1300px;
+        margin: 0 auto;
     }
                 
     
