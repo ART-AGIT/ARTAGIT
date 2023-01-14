@@ -155,13 +155,13 @@ body.bg-white{
         color: var(--color-black);
     }
     .slider {
-        width: 530px;
-        height: 700px;
-
+        width: 1250px;
+        height: 400px;
+		overflow: hidden;
     }
     .slide {
-        width: 550px;
-        height: 650px;
+        width: 100%;
+/*         height: 100%; */
     }
     .board-box{
         display: grid;

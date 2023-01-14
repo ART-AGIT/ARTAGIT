@@ -44,7 +44,8 @@ public class ExhibitionController2 {
 		else
 			memberId = user.getId();
 		
-		List<ExhibitionView> lists = service.getListByMemberId(page,0,1,0,memberId);
+		int size = 0;
+		List<ExhibitionView> lists = service.getListByMemberId(page,size,0,1,0,memberId);
 
 		model.addAttribute("lists", lists);
 		
