@@ -14,7 +14,7 @@ public interface BoardService {
 
 	Board get(int id);
 
-	List<BoardListView> getListInit(int page);
+	List<BoardListView> getListInit(int page, int size);
 
 	int delete(int id);
 

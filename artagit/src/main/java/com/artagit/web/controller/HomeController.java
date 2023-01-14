@@ -1,30 +1,56 @@
 package com.artagit.web.controller;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.multipart.MultipartFile;
 
-
-import jakarta.servlet.http.HttpServletRequest;
+import com.artagit.web.entity.ArtagitUserDetails;
+import com.artagit.web.entity.BoardListView;
+import com.artagit.web.entity.ExhibitionView;
+import com.artagit.web.service.BoardService;
+import com.artagit.web.service.ExhibitionService;
 
 @Controller
 @RequestMapping("/")
 public class HomeController {
 	
+	@Autowired
+	private BoardService boardService;
+	
+	@Autowired
+	private ExhibitionService exhService;
+	
 	@GetMapping()
-	public String index() {
+	public String index(
+			Model model,
+			@AuthenticationPrincipal ArtagitUserDetails user) {
+		
+//		게시판
+		int boardPage = 1;
+		int boardSize = 4;
+		
+		List<BoardListView> boardList = boardService.getListInit(boardPage, boardSize);
+		
+//		전시
+		int exhPage = 1;
+		int exhSize = 4;
+		//멤버 아이디 설정
+		int memberId;
+		//로그인하지 않으면, memberId = 0
+		if(user == null)
+			memberId = 0;
+		else
+			memberId = user.getId();
+		
+		List<ExhibitionView> exhList = exhService.getListByMemberId(exhPage,exhSize, 0,1,2,memberId);
+	
+		model.addAttribute("boardList",boardList);
+		model.addAttribute("exhList", exhList);
 		
 		return "index";
 	}
