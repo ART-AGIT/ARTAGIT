@@ -37,5 +37,12 @@ public class DefaultPaymentService implements PaymentService {
 		return payDao.findByBookingId(bookId);
 	}
 	
+	// 결제내역 insert 메서드
+	@Override
+	public int add(Payment payment) {
+		int result = payDao.add(payment);
+		return result;
+	}
+	
 	
 }

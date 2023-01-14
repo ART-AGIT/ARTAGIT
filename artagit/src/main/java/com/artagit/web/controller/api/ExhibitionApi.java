@@ -39,7 +39,8 @@ public class ExhibitionApi {
 		else
 			memberId = user.getId();
 		
-		List<ExhibitionView> lists = service.getListByMemberId(page,local,state,category,memberId);
+		int size = 0;
+		List<ExhibitionView> lists = service.getListByMemberId(page,size,local,state,category,memberId);
 		
 		return lists;
 	}

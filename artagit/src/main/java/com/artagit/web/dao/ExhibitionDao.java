@@ -38,8 +38,7 @@ public interface ExhibitionDao {
 	
 	// 내가 등록한 전시 수정
 //	int update(int id);
-	int update(Integer id);
-//	int update(Exhibition exh);
+	int update(Exhibition exh);
 	
 	// 나의 전시 삭제
 	int delete(int id);

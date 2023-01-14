@@ -51,10 +51,15 @@ public class DefaultBoardService implements BoardService{
 	}
 
 	@Override
-	public List<BoardListView> getListInit(int page) {
+	public List<BoardListView> getListInit(int page, int size) {
 		// TODO Auto-generated method stub
-		 int size = 10;
-		 int offset = (page-1)*size;
+//		메인페이지의 게시판 숫자때문에 설정해놓음
+		if(size == 0) {
+			size = 10;			
+		}
+		System.out.println(size);
+		
+		int offset = (page-1)*size;
 		return boardListDao.getListInit(offset,size,page);
 	}
 
