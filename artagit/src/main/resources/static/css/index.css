@@ -136,6 +136,10 @@ body.bg-white{
     gap:10px;
 }
 
+.icon-heart.icon-heart-red {
+    background-color: red;
+}
+
 /* ========================================================= */
 
 @media (min-width: 992px) {

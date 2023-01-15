@@ -7,7 +7,9 @@
 		<link href="/css/component/exhibition-list.css" type="text/css" rel="stylesheet">
 	    <link href="/css/component/board-list.css" type="text/css" rel="stylesheet">
 	    <link href="/css/index.css" type="text/css" rel="stylesheet">
+	    <link href="/css/exhibition/list.css" type="text/css" rel="stylesheet">
 		<script src="js/index.js"></script>
+		<script src="js/exhibition/list.js"></script>
     </th:block>
     
 <body id="body" layout:fragment="content">
@@ -38,7 +40,7 @@
             </div>
             
         </section>
-        <section class="main-seciton main-popular-exh-seciton">
+        <section class="main-seciton main-popular-exh-seciton exhibition-section">
             <h1>인기있는 전시</h1>
             <section class="exhibition-list">
                 <section th:each="exhList:${exhList}" th:attr="data-id=${exhList.id}" class="exhibition">

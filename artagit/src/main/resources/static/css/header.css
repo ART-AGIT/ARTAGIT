@@ -202,9 +202,12 @@ main{
             }
             .main-menu>ul>li:hover>a{
                 cursor: pointer;
+                
                 background-color:#F7A7BB;
-                color: #fff;
-                transition: 1s;
+                color: #fff;                
+                border-radius: 10px;
+                
+                transition: background-color 1s;
             }
                 .main-menu>ul>li:hover>.sub-menu{
                     display: block;
@@ -212,8 +215,9 @@ main{
                     cursor: pointer;
                     background-color:#F7A7BB;
                     color: #fff;
-
-                    transition: 1s;
+					border-radius: 10px;
+					
+                    transition: background-color 1s;
                 }
                 .sub-menu{
                     display: none;
@@ -258,11 +262,27 @@ main{
     
                         display: hidden;
                     }
+                    
+    /* PC버전 검색창 */
+    .modal-search{
+	    width: 1250px;
+	    height: 75px;
+	}
+	.input-search{
+	    width: 1250px;
+	    height: 75px;
+	}
+	/* 돋보기위치 */
+	.btn-search{
+	    right: 20px;
+	    top: 36%;
+	}
 
 /* ----- fixed 때문에 윗부분이 가려져, main 부분에 padding 줌 ----------- */
     main{
         padding-top: 100px;
         width: 1300px;
+        min-height: 1000px;
         margin: 0 auto;
     }
                 

@@ -99,4 +99,18 @@
 
         font-size: 16px;
     }
+    /* 서브메뉴 펼칠 때, 각 높이만큼 펼치기 */
+	.exh-menu-selected.active+.sub-menu-1{
+	    display: block;
+	    height: 274px;
+	}
+	.exh-menu-selected.active+.sub-menu-2{
+	    display: block;
+	    height: 117px;
+	}
+	
+	.exh-menu-selected.active+.sub-menu-3{
+	    display: block;
+	    height: 78px;
+	}
 }
