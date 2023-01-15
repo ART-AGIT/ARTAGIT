@@ -11,12 +11,13 @@ public class Booking {
 	private String email;
 	private int memId;
 	private int exhId;
+	private String payNum;
 	
 	public Booking() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Booking(int id, Date date, int amount, int memId, int exhId, String phone, String email) {
+	public Booking(int id, Date date, int amount, int memId, int exhId, String phone, String email, String payNum) {
 		super();
 		this.id = id;
 		this.date = date;
@@ -25,6 +26,7 @@ public class Booking {
 		this.exhId = exhId;
 		this.phone = phone;
 		this.email = email;
+		this.payNum = payNum;
 	}
 
 	public int getId() {
@@ -81,6 +83,14 @@ public class Booking {
 
 	public void setExhId(int exhId) {
 		this.exhId = exhId;
+	}
+
+	public String getPayNum() {
+		return payNum;
+	}
+
+	public void setPayNum(String payNum) {
+		this.payNum = payNum;
 	}
 
 	@Override
