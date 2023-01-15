@@ -35,6 +35,13 @@ public class DefaultBookingService implements BookingService {
 		return result;
 	}
 
+	// payment 데이터 insert 하기 전, bookId를 얻어올 용도 (payNum을 가지고 bookId를 select)
+	@Override
+	public int getBookIdBypayNum(String payNum) {
+		// TODO Auto-generated method stub
+		return bookingDao.getBookIdBypayNum(payNum);
+	}
+
 }
 
 
