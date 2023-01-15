@@ -79,7 +79,7 @@
 @media (min-width: 992px) {
     .exhibition form{
         grid-template: 
-        "img " 360px
+        "img " 395px
         "title" 40px
         "date" 36px
         "place" 36px

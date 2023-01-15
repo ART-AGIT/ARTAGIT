@@ -32,6 +32,7 @@ public class ExhibitionController2 {
 	@GetMapping("list")
 	public String list( // 전시목록 불러오기
 			@RequestParam(defaultValue = "1", name = "p") int page,
+			@RequestParam(defaultValue = "1", name = "s") int state,
 			Model model,
 			@AuthenticationPrincipal ArtagitUserDetails user
 			) {
