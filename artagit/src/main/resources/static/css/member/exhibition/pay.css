@@ -150,11 +150,27 @@
 .caution-ment{
     align-self: flex-start;
     font-size: 12px;
-    line-height: 16px;
+    line-height: 20px;
 }
 
 .btn-default-line.active{
     border: 1px solid #FF6C9E;
     background-color: #FF6C9E;
     color: #fff;
+}
+
+.total-price {
+	font-weight: bold;
+}
+
+
+/************ pc버전 ************/
+@media (min-width: 992px){
+	.caution-ment {
+	    font-size: 14px;
+	}
+	
+	.pay-container {
+		padding-top: 10px;
+	}
 }

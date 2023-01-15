@@ -13,101 +13,98 @@
 	</th:block>
 
 
-<body layout:fragment="content">
-    <main>
-        <div class="flow-btn-box">
-            <div class="flow-item">
-                <a class="text" href="../">HOME</a>
-            </div>
-            <div class="arrow-box">
-                <a class="icon icon-arrow-right icon-arrow-right-sm" href="">다음</a>
-            </div>
-            <div class="flow-item">
-                <a class="text" href="list">전시목록</a>
-            </div>
-            <div class="arrow-box">
-                <a class="icon icon-arrow-right icon-arrow-right-sm" href="">다음</a>
-            </div>
-            <div class="flow-item">
-                <a class="text go-exh-detail" href="">전시상세</a>
-            </div>
-        </div>
+	<body layout:fragment="content">
+	    <main>
+			<div class="container">
+				<div class="cate-and-img">
+					<div class="flow-btn-box">
+			            <div class="flow-item">
+			                <a class="text" href="../">HOME</a>
+			            </div>
+			            <div class="arrow-box">
+			                <a class="icon icon-arrow-right icon-arrow-right-sm" href="">다음</a>
+			            </div>
+			            <div class="flow-item">
+			                <a class="text" href="list">전시목록</a>
+			            </div>
+			            <div class="arrow-box">
+			                <a class="icon icon-arrow-right icon-arrow-right-sm" href="">다음</a>
+			            </div>
+			            <div class="flow-item">
+			                <a class="text go-exh-detail" href="">전시상세</a>
+			            </div>
+		        	</div>
+	        	
+			        <div class="exh-img-box">
+			            <img class="exh-img" th:src="@{|/image/poster/${exh.poster}|}" src="../../image/전시포스터2.jpg" alt="">
+			        </div>
+		        </div>
 		
-		<div class="container">
-		<div class="img-and-menu">
-        <div class="exh-img-box">
-            <img class="exh-img" th:src="@{|/image/poster/${exh.poster}|}" src="../../image/전시포스터2.jpg" alt="">
-        </div>
-
-		<ul class="mini-menu-list">
-            <li><a class="deco deco-mini deco-url" href="">URL 복사</a></li>
-            <li><a th:classappend="${exh.memberId != 0}  ? 'deco-heart-red' : ''" th:data-id="${exh.id}" class="deco deco-mini deco-heart like-num" href="" th:text="${count}">0</a></li>
-            <li>
-                <input type="checkbox" id="popup">
-                <label for="popup" class="deco deco-mini deco-map">위치보기</label>
-                <!----------------- 지도 모달 시작 ----------------->                
-                <div>
-                    <div>
-                        <!-- 팝업 닫기(X) 버튼 -->
-                        <div class="popup-head">
-                            <h1 class="pop-text popup-title">전시장 정보</h1>
-                        </div>
-                        <div class="popup-body">
-                            <div class="pop-text pop-place-title" th:text="${corp.museumName}">
-                                국립중앙박물관
-                            </div>
-                            <div class="pop-text pop-place-addr">
-                                <p>주소: <span th:text="${corp.address}">서울특별시 용산구 서빙고로 137 (용산동5가)</span></p>
-                            </div>
-                            <div class="pop-place-map">
-                                <div id="map" style="width:100%; height:240px;"></div>
-                            </div>
-                        </div>
-                        <div class="popup-footer">
-                            <label for="popup" class="pop-text popup-close-btn">닫기</label>
-                        </div>
-                    </div>
-                    <label for="popup"></label> <!-- 팝업 외부를 클릭했을 때도 팝업이 닫히기 위한 버튼 -->
-                </div>
-                <!----------------- 지도 모달 끝 ----------------->
-            </li>
-        </ul>
-		</div>
-        
-        <section class="exh-info">
-            <form action="">
-                <h1 class="exh-title" th:text="${exh.name}">FFALO in SEOUL</h1>
-                <label class="text exh-author">작가</label><div class="text author" th:text="${exh.artist}">김정현</div>
-                <label class="text exh-place">전시장소</label><div class="text place" th:text="${corp.museumName}">국립현대미술관</div>
-                <label class="text exh-date">전시기간</label><div class="text date" th:text="${exh.startDate}+' ~ '+${exh.endDate}">2022-10-30 ~ 2022-10-39</div>
-                <label class="text exh-time">관람시간</label><div class="text time" th:text="${#strings.substring(exh.startTime, 0,5)}+' ~ '+${#strings.substring(exh.endTime, 0,5)}">10:00 ~ 17:00 (휴관일 매주 월요일)</div>
-                <label class="text exh-price">관람료</label><div class="text price" data-th-text="${#numbers.formatInteger(exh.ticketPrice, 3, 'COMMA') + '원'}">30,000원</div>
-                <label class="text exh-phone">연락처</label><div class="text phone" th:text="${corp.phone}">02-1234-5678</div>
-                <label class="text exh-address">주소</label><div class="text address" th:text="${corp.address}">서울시 종로구 지하문구 49번길</div>
-            </form>
-
-        </section>
-        </div>
-        
-        <div class="hpg-box">
-            <a class="btn btn-default-line btn-hpg" href="">HOMEPAGE</a>
-        </div>
-
-        <div class="exh-detail-box">
-            <img class="exh-detail-img" src="../../image/전시설명2.jpg" alt="">
-        </div>
-
-        <div class="text-box">
-            <p class="text exh-detail-content" th:text="${exh.content}">전시 어쩌구저쩌구..저쩌구.. 많이많이 보러와주십셔~전시 어쩌구저쩌구.. 많이많이 보러와주십셔~전시 어쩌구저쩌구.. 많이많이 보러와주십셔~전시 어쩌구저쩌구.. 많이많이 보러와주십셔~전시 어쩌구저쩌구.. 많이많이 보러와주십셔~전시 어쩌구저쩌구.. 많이많이 보러와주십셔~전시 어쩌구저쩌구.. 많이많이 보러와주십셔~전. 많이많이 보러와주십셔~전시 어쩌구저쩌구.. 많이많이 보러와주십셔~</p>
-<!--         </div> -->
-
-<!--         <div class="content-box"> -->
-            <p class="text warning"> ※아트아지트에 등록된 이미지와 글의 저작권은 각 작가와 필자에게 있습니다.</p>
-        </div>
+				<div class="menu-and-info">
+					<ul class="mini-menu-list">
+			            <li><a class="deco deco-mini deco-url" href="">URL 복사</a></li>
+			            <li><a th:classappend="${exh.memberId != 0}  ? 'deco-heart-red' : ''" th:data-id="${exh.id}" class="deco deco-mini deco-heart like-num" href="" th:text="${count}">0</a></li>
+			            <li><input type="checkbox" id="popup">
+			                <label for="popup" class="deco deco-mini deco-map">위치보기</label>
+			                <!----------------- 지도 모달 시작 ----------------->                
+			                <div>
+			                    <div>
+			                        <!-- 팝업 닫기(X) 버튼 -->
+			                        <div class="popup-head">
+			                            <h1 class="pop-text popup-title">전시장 정보</h1>
+			                        </div>
+			                        <div class="popup-body">
+			                            <div class="pop-text pop-place-title" th:text="${corp.museumName}">
+			                                국립중앙박물관
+			                            </div>
+			                            <div class="pop-text pop-place-addr">
+			                                <p>주소: <span th:text="${corp.address}">서울특별시 용산구 서빙고로 137 (용산동5가)</span></p>
+			                            </div>
+			                            <div class="pop-place-map">
+			                                <div id="map" style="width:100%; height:240px;"></div>
+			                            </div>
+			                        </div>
+			                        <div class="popup-footer">
+			                            <label for="popup" class="pop-text popup-close-btn">닫기</label>
+			                        </div>
+			                    </div>
+			                    <label for="popup"></label> <!-- 팝업 외부를 클릭했을 때도 팝업이 닫히기 위한 버튼 -->
+			                </div>
+			                <!----------------- 지도 모달 끝 ----------------->
+			            </li>
+			        </ul>
+			
+			        <section class="exh-info">
+			            <form action="">
+			                <h1 class="exh-title" th:text="${exh.name}">FFALO in SEOUL</h1>
+			                <label class="text exh-author">작가</label><div class="text author" th:text="${exh.artist}">김정현</div>
+			                <label class="text exh-place">전시장소</label><div class="text place" th:text="${corp.museumName}">국립현대미술관</div>
+			                <label class="text exh-date">전시기간</label><div class="text date" th:text="${exh.startDate}+' ~ '+${exh.endDate}">2022-10-30 ~ 2022-10-39</div>
+			                <label class="text exh-time">관람시간</label><div class="text time" th:text="${#strings.substring(exh.startTime, 0,5)}+' ~ '+${#strings.substring(exh.endTime, 0,5)}">10:00 ~ 17:00 (휴관일 매주 월요일)</div>
+			                <label class="text exh-price">관람료</label><div class="text price" data-th-text="${#numbers.formatInteger(exh.ticketPrice, 3, 'COMMA') + '원'}">30,000원</div>
+			                <label class="text exh-phone">연락처</label><div class="text phone" th:text="${corp.phone}">02-1234-5678</div>
+			                <label class="text exh-address">주소</label><div class="text address" th:text="${corp.address}">서울시 종로구 지하문구 49번길</div>
+			            </form>
+			        </section>
+		        </div>
+	        </div>
+	        
+	        <div class="hpg-box">
+	            <a class="btn btn-default-line btn-hpg" href="">HOMEPAGE</a>
+	        </div>
+	
+	        <div class="exh-detail-box">
+	            <img class="exh-detail-img" th:src="@{|/image/poster/${exh.detailImage}|}" src="../../image/전시설명2.jpg" alt="">
+	        </div>
+	
+	        <div class="text-box">
+	            <p class="text exh-detail-content" th:text="${exh.content}">전시 어쩌구저쩌구..저쩌구.. 많이많이 보러와주십셔~전시 어쩌구저쩌구.. 많이많이 보러와주십셔~전시 어쩌구저쩌구.. 많이많이 보러와주십셔~전시 어쩌구저쩌구.. 많이많이 보러와주십셔~전시 어쩌구저쩌구.. 많이많이 보러와주십셔~전시 어쩌구저쩌구.. 많이많이 보러와주십셔~전시 어쩌구저쩌구.. 많이많이 보러와주십셔~전. 많이많이 보러와주십셔~전시 어쩌구저쩌구.. 많이많이 보러와주십셔~</p>
+	            <p class="text warning"> ※아트아지트에 등록된 이미지와 글의 저작권은 각 작가와 필자에게 있습니다.</p>
+	        </div>
+	        
 	        <div class="booking-btn">
 	            <a class="btn btn-booking" th:href="@{/member/exh/booking/{id}(id=${exh.id})}">예매하기</a>
 	        </div>
-    </main>
-
+    	</main>
 </body>
 </html>

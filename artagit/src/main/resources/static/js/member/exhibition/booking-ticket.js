@@ -13,6 +13,7 @@ window.addEventListener("load", function(){
 
 	const payWayBtn = this.document.querySelector(".btn-way");
 	const doPayBtn = this.document.querySelector(".do-pay");
+	const exhDate = this.document.querySelector(".exh-date");
 	let depositDate = this.document.querySelector(".deposit-date");
 
 	let userInfo = this.document.querySelectorAll(".transparency");
@@ -56,8 +57,13 @@ window.addEventListener("load", function(){
 	// 결제방식 선택 버튼 클릭시
 	payWayBtn.onclick = function(e){
 		e.preventDefault();
+		const bookingDate = exhDate.innerText;
 		console.log("결제방식 선택 클릭");
+		console.log("선택한 날짜" + bookingDate);
 		
+		const yyyy = bookingDate.substring(0,4);
+		const mm = bookingDate.substring(6,8);
+		const dd = bookingDate.substring(10,12);
 		// 결제금액 띄우기
 		totalPrice[1].innerText = (i*price).toLocaleString();
 		totalPrice[2].innerText = (i*price).toLocaleString();
@@ -112,14 +118,13 @@ window.addEventListener("load", function(){
 	let kakaoImg = this.document.querySelector(".kakao-img");
 
 	doPayBtn.onclick = function(e){
-		// const checkbox = document.querySelector(input[id="caution-check"]);
 		e.preventDefault();
 		const checkbox = document.getElementById('caution-check');
 
 		
 
 		if(checkbox.checked == false){
-			window.alert("결제 시, 예매 시 유의사항의 동의가 필요합니다.");
+			window.alert("결제 시, 유의사항 동의가 필요합니다.");
 		}
         console.log("test");
 
@@ -196,6 +201,8 @@ window.addEventListener("load", function(){
 			alert(msg);
 		}); 
 	};
+
+	
 
 	// 입금기한 출력 (오늘부터 다음날 23:59:59 까지)
 	var today = new Date();

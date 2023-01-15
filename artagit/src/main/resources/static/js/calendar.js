@@ -3,12 +3,22 @@ window.addEventListener("load", function(){
     var utc = date.getTime() + (date.getTimezoneOffset()*60*1000);
     var kstGap = 9 * 60 * 60 * 1000;
     var today = new Date(utc + kstGap);
+
+      // 날짜 앞에 0 붙이기
+    function addZero(date) {
+        if (date < 10) {
+            const zeroDate = ('00' + date).slice(-2);
+            return zeroDate;
+        }
+            return date;
+    }
+
     var thisMonth = new Date(today.getFullYear(), today.getMonth(), today.getDate());
     
 
     var currentYear = thisMonth.getFullYear(); // 달력에서 표기하는 연
-    var currentMonth = thisMonth.getMonth(); // 달력에서 표기하는 월
-    var currentDate = thisMonth.getDate(); // 달력에서 표기하는 일
+    var currentMonth = addZero(thisMonth.getMonth()+1); // 달력에서 표기하는 월
+    var currentDate = addZero(thisMonth.getDate()); // 달력에서 표기하는 일
 
     renderCalender(thisMonth);
     
@@ -30,7 +40,7 @@ window.addEventListener("load", function(){
     
         // 현재 월 표기
         var yearMonth = document.querySelector(".year-month")
-        yearMonth.innerHTML = currentYear + '.' + (currentMonth + 1);
+        yearMonth.innerHTML = currentYear + '.' + (addZero(thisMonth.getMonth()+1));
         
         // 렌더링 html 요소 생성
         calendar = document.querySelector(".dates");
@@ -98,7 +108,7 @@ window.addEventListener("load", function(){
         
         // 선택한 날짜에 회색배경 주기
         el.classList.add("active");
-       
+
 
         if(currentEl != null)
             currentEl.classList.remove("active");
@@ -106,14 +116,12 @@ window.addEventListener("load", function(){
         currentEl = el;
 
         // 상단 날짜추가
-//        let template = 
-//        `
-//            <span class="select-year">${thisMonth.getFullYear()} 년</span>
-//            <span class="select-month">${currentMonth+1} 월</span>
-//            <span class="select-day">${el.innerText} 일</span>
-//        `
-        // 날짜 바뀌게
-//        exhDate.innerHTML = template;
+        let template = 
+            `<span class="select-year">${thisMonth.getFullYear()}년</span>
+            <span class="select-month">${addZero(thisMonth.getMonth()+1)}월</span>
+            <span class="select-day">${addZero(el.innerText)}일</span>`
+        //날짜 바뀌게
+        exhDate.innerHTML = template;
 		choiceDate.classList.add("d-none");
         cNumBox.classList.remove("d-none");
     }
