@@ -1,35 +1,10 @@
 window.addEventListener("load", function() {
-	let postLikeBtn = document.querySelector(".post-like-btn")
-	const deleteBtn = document.querySelector(".delete-btn");
+	let postLikeBtn = document.querySelector(".post-like-btn")||{};
+	const deleteBtn = document.querySelector(".delete-btn")||{};
 	let el = document.querySelector(".board-id");
     const modal = document.getElementById("modal");
 
-    //////////// 삭제 버튼 눌렀을 때
-    deleteBtn.onclick = function(e){
-        e.preventDefault();
 	
-        if(e.target.classList.contains("delete-btn")){
-            modal.classList.remove("d-none");
-            
-        }
-            
-	modal.onclick = function(e){
-		
-		let id = el.dataset.id;
-		
-		if(e.target.classList.contains("no"))
-		modal.classList.add("d-none");
-	
-	}
-		
-        
-};
-
- 
-
-
-
-
 	postLikeBtn.onclick = function(e){
 		e.preventDefault();
 		console.log("클릭");
@@ -60,6 +35,23 @@ window.addEventListener("load", function() {
 			}
 		
 	};
+	
+	 //////////// 삭제 버튼 눌렀을 때
+    deleteBtn.onclick = function(e){
+        e.preventDefault();
+	
+        if(e.target.classList.contains("delete-btn")){
+            modal.classList.remove("d-none");
+        }
+            
+	modal.onclick = function(e){
+		
+		let id = el.dataset.id;
+		
+		if(e.target.classList.contains("no"))
+		modal.classList.add("d-none");
+	}}
+	
 	
 	});
 	

@@ -4,7 +4,7 @@
     display: flex;
 }
 .board-category-l>li{
-    border-bottom: 2px solid  #9E9E9E;
+    border-bottom: 1.5px solid #878787;
     /* width: 25%; */
     padding-bottom: 10px;
     display: flex;
@@ -155,4 +155,68 @@ li.board-selected{
 .writing-img-box img{
     width: 50px;
     height: 50px;
+}
+
+
+/* --------------pc버전------------------ */
+@media (min-width: 992px) {
+
+    .content-container{
+        display:grid;
+        grid-template-columns:1fr 4fr;
+    }
+    
+    .board-category-l{
+        display:flex;
+        flex-direction:column;
+        font-size: 20px;
+        position: fixed;
+    }
+
+    .board-category-l li{
+        border-bottom: none;
+        margin-right: 50px;
+        gap: 10px;
+    }
+    .board-category-box{
+        display: flex;
+        justify-content: flex-end;
+    }
+    .post-list{
+        max-width: 800px;
+        
+    }
+
+    
+    .board-list{
+        display: grid;
+        grid-template: 
+        "category regdate img" 30px
+        "title title img" 50px
+        "writer post-info img " 30px
+        / 1.5fr 10fr 1.5fr;
+        padding: 10px;
+        border-bottom: 1px solid  #9E9E9E;
+    
+    }
+
+    .board-box-container{
+        max-width: 800px;
+    }
+    
+    .board-post-img-box{
+       margin-left:10px;
+        
+    }
+    .writing-img-box{
+        right: 350px;
+    }
+        
+
+
+
+
+
+
+
 }
