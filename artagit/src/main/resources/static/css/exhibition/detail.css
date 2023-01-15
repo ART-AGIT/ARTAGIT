@@ -145,7 +145,7 @@ form>h1 {
     width: 100%;
 }
 
-.content-box {
+.text-box {
     margin: 0 10px;
 }
 
@@ -266,11 +266,10 @@ input[id*="popup"]:checked + label + div {
 @media (min-width: 992px){
 	
 	.flow-btn-box {
-	width: 1200px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0;
+		width: 1200px;
+	    display: flex;
+	    align-items: center;
+	    justify-content: center;
 	}
 
 	.container {
@@ -284,10 +283,10 @@ input[id*="popup"]:checked + label + div {
 	}
 	
 	.mini-menu-list {
-    width: 400px;
-    display: flex;
-    justify-content: flex-start;
-    font-size: 11px;
+	    width: 400px;
+	    display: flex;
+	    justify-content: flex-start;
+	    font-size: 11px;
 	}
 	
 	.exh-img {
@@ -296,9 +295,10 @@ input[id*="popup"]:checked + label + div {
 	}
 	
 	.exh-info {
-    display: flex;
-    align-items: end;
-    padding-bottom: 60px;
+	    display: flex;
+	    flex-direction: column;
+/* 	    align-items: end; */
+	    padding-bottom: 60px;
 	}
 	
 	.exh-info form {
@@ -315,10 +315,6 @@ input[id*="popup"]:checked + label + div {
         "exh-addr addr" 40px / 100px;
 	}
 	
-/* 	.exh-info form > label,div { */
-/* 		border-bottom: 1px solid #dcdcdc; */
-/* 	} */
-	
 	.exh-detail-box {
 		display: flex;
 		justify-content: center;
@@ -326,6 +322,10 @@ input[id*="popup"]:checked + label + div {
 
 	.exh-detail-img {
 	    width: 800px;
-	    
 	}
+	
+	.btn-hpg {
+	    width: 60%;
+	}
+
 }

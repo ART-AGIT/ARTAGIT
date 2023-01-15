@@ -155,10 +155,10 @@ main{
     
     .content-box{
         width: 1300px;
-        height: 100px;
+/*         height: 100px; */
 
         padding: 0 20px;
-        margin: 0 auto;
+        margin: 20px auto 0 auto;
     
         display: flex;
         align-items: center;
@@ -261,7 +261,7 @@ main{
 
 /* ----- fixed 때문에 윗부분이 가려져, main 부분에 padding 줌 ----------- */
     main{
-        padding-top: 100px;
+/*         padding-top: 100px; */
         width: 1300px;
         margin: 0 auto;
     }

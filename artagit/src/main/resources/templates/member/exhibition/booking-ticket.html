@@ -81,7 +81,11 @@
 	                    </div>
 	                    <div class="phone">
 	                        <label for="">연락처</label>
-	                        <input class="transparency" name="phone" type="text" placeholder="-를 제외하고 입력해주세요.">
+	                        <input class="transparency"
+	                        		name="phone"
+	                        		type="text"
+	                        		placeholder="-를 제외하고 입력해주세요."
+	                        oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"/>
 	                    </div>
 	                    <div class="e-mail">
 	                        <label for="">이메일주소</label>
@@ -89,7 +93,7 @@
 	                    </div>
 	                    <p class="caution">티켓수령 및 본인확인을 위해 정확한 정보를 입력해주세요.<br>
 	                    티켓수령은 예매시 부여되는 <span class="highlight">"예약번호"로 관람일 당일 현장에서<br>
-	                    수령하여 입장</span>할 수 있습니다.</span>
+	                    수령하여 입장</span>할 수 있습니다.</p>
 	                </div>
 	            </section>
 	          </div>

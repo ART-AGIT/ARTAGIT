@@ -14,7 +14,7 @@
     <main class="main-container">
         <div class="slider-box">
             <div class="slider">
-                <div class="slide"><a href="exhibition/detail.html">"<img src="image/합스부르크 포스터.jpg" alt=""></a></div>
+                <div class="slide"><a href="exhibition/detail.html"><img src="image/합스부르크 포스터.jpg" alt=""></a></div>
                 <div class="slide"><a href="exhibition/detail.html"><img src="image/송민호 개인전.jpg" alt=""></a></div>
                 <div class="slide"><a href="exhibition/detail.html"><img src="image/에바알머슨.png" alt=""> </a></div>
                 <div class="slide"><a href="exhibition/detail.html"><img src="image/다비드자맹.jpg" alt=""> </a></div>
@@ -24,7 +24,7 @@
         </div>
 
         <section class="main-seciton main-community-section">
-            <h1>커뮤니티 글</h1>
+            <h1>커뮤니티</h1>
             <div class="board-box">
 	            <section th:each="boardList:${boardList}"  class="board-list">
 	                <h1  class="board-title"><a th:utext="${boardList.title}" th:href="@{|/member/board/${boardList.id}|}" href = "../member/board/detail.html">회원님들 그만 좀 싸우세요들.</a></h1>
@@ -39,7 +39,7 @@
             
         </section>
         <section class="main-seciton main-popular-exh-seciton">
-            <h1>인기있는 전시</h1>
+            <h1>지금 인기있는 전시</h1>
             <section class="exhibition-list">
                 <section th:each="exhList:${exhList}" th:attr="data-id=${exhList.id}" class="exhibition">
                     <form  action="">

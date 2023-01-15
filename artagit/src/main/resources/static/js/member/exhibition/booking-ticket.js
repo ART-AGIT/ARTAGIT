@@ -206,4 +206,8 @@ window.addEventListener("load", function(){
 
 	var dateString = year + '년 ' + month  + '월 ' + day + '일 23시 59분 59초' ;
 	depositDate.innerText = dateString;
+	
+	// input 태그에 숫자만 입력받기
+
+	
 });
