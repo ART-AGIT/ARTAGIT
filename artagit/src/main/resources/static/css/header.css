@@ -138,6 +138,12 @@ main{
 /* -------------------------------------------------------------------------- */
 
 @media (min-width: 992px) {
+	.logo>a {
+	    color: #FF6C9E;
+	    font-size: 38px;
+	    font-weight: 900;
+	}
+
     .header{
         display: none;
         z-index: 999;

@@ -1,17 +1,20 @@
 /* ============================================================ */
+
+
 .exhibition-list{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-gap: 20px;
-    padding-top: 20px;
-    
+/*     grid-gap: 20px; */
+    grid-gap: 8px;
+/*     margin-top: 30px; */
 }
 .exhibition{
-    padding: 5px;
+/*     padding: 5px; */
 
     flex-shrink: 1;
 }
 .exhibition form{
+	color: #545454;
     position: relative;
     display: grid;
     grid-template: 
@@ -22,13 +25,12 @@
     / 1fr;
 
     justify-items: center;
-
-
-}
+	}
+	
     .exhibition form>h1{
         grid-area: title;
         font-size: 16px;
-
+		font-weight: 600;
         justify-self: center;
         align-self: center;
     }
@@ -45,7 +47,7 @@
     }
         .exhibition-img{
             width: 95%;
-            height: 95%;
+            height: 100%;
 
             transition: .5s;
             
@@ -79,11 +81,10 @@
 @media (min-width: 992px) {
     .exhibition form{
         grid-template: 
-        "img " 395px
-        "title" 40px
-        "date" 36px
-        "place" 36px
-        / 1fr;
+        "img " 350px
+        "title" 33px
+        "date" 11px
+        "place" 30px / 1fr;
     }
     .exhibition-heart{
         right: 10px;
