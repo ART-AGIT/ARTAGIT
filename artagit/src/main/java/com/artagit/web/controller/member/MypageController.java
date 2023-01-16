@@ -45,7 +45,8 @@ public class MypageController {
 	
 	@Autowired
 	private PasswordEncoder passwordEncoder;
-//	@Autowired
+
+	//	@Autowired
 //	private MyPageService myPageService;
 	
 	@Autowired
@@ -132,7 +133,7 @@ public class MypageController {
 
 
 //===================회원수정===================
-	@GetMapping("/account-edit/{id}")
+	@GetMapping("/account-edit")
 	public String update(@AuthenticationPrincipal ArtagitUserDetails user, Model model, Member member) {
 		//회원수정페이지불러올때 회원가입할때정보불러오기 user쓰기
 
