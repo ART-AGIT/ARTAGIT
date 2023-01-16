@@ -17,6 +17,7 @@
 <body layout:fragment="content">
     
     <main class="main-container">	
+    <div class="post-container">
     <nav class = "">
         <div class="post-detail-header">
             <div class="current-location">
@@ -53,12 +54,9 @@
                 </div>
                 <div>
                     <div class="icon icon-like-up">추천 </div>
-                    <div>11</div>
+                    <div th:text="${board.hearts}">11</div>
                 </div>
-                <div>
-                    <div class="icon icon-comment">댓글</div>
-                    <div>100</div>
-                </div>
+               
             </div>
             
            
@@ -86,7 +84,7 @@
         <section class="comment">
             <section class="comment-title-wrapper">
                 <h1 class="icon icon-comment">댓글</h1>
-                <div>11 </div>
+                <div th:text="${board.commentTotal}">11 </div>
             </section>
             
             
@@ -160,6 +158,7 @@
             </div>
         </section>
     </section>
+    </div>
 </main>
 
 </body>

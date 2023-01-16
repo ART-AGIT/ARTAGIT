@@ -178,6 +178,16 @@ public class MypageController {
 		return "member/mypage/post-list";
 		
 	}
+	/******좋아요한 게시글***********/
+	@GetMapping("/post-like")
+	public String getListByCategory(
+			@AuthenticationPrincipal ArtagitUserDetails user,Model model) {
+		int memId = user.getId();
+		List<BoardListView> list = boardService.getLikeList(memId);
+		model.addAttribute("list",list);
+		System.out.println("++++++++++=" + list);
+		return "member/mypage/post-like";
+	}
 
 }
 
