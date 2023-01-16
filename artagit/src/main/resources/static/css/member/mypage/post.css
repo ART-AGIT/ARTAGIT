@@ -1,0 +1,29 @@
+@media (min-width: 768px){
+    .box-container{
+        min-width: 1000px;
+        margin-left:100px;
+
+    }
+
+    main{
+        display: flex;
+
+    }
+
+    .menu-list-s{
+        min-width:300px;
+        display:flex;
+        
+    }
+
+    .menu-list-s>li{
+        display:flex;
+        justify-content: center;
+    }
+
+
+
+
+
+
+}
