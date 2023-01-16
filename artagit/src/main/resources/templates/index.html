@@ -41,7 +41,7 @@
             
         </section>
         <section class="main-seciton main-popular-exh-seciton exhibition-section">
-            <h1>인기있는 전시</h1>
+            <h1>지금 인기있는 전시</h1>
             <section class="exhibition-list">
                 <section th:each="exhList:${exhList}" th:attr="data-id=${exhList.id}" class="exhibition">
                     <form  action="">
@@ -51,7 +51,7 @@
                             <!-- <a class="icon icon-heart exhibition-heart" href=""></a> -->
                             <a th:classappend="${exhList.memberId != 0}  ? 'icon-heart-red' : ''" class="icon icon-heart exhibition-heart" href=""></a>
                         </div>
-                        <div class="exhibititon-date" th:text="${exhList.startDate +' ~ '+exhList.endDate}">22.11.25 ~ 23.04.02</div>
+                        <div class="exhibititon-date" th:text="${#strings.substring(exhList.startDate, 2)} +' ~ '+ ${#strings.substring(exhList.endDate, 2)}">22.11.25 ~ 23.04.02</div>
                         <div class="exhibition-place" th:text="${exhList.artist}">그라운드시소 서촌</div>
                         
                     </form>

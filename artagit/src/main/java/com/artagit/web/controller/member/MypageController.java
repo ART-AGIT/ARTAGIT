@@ -90,7 +90,7 @@ public class MypageController {
 		BookingList booking = bookingService.getReviewByBookingId(id);
 		Payment payment = payService.findByBookingId(booking.getBookingId());
 		int payId = payment.getId();
-
+	
 		Review review = reviewService.get(payId);
 		model.addAttribute("booking",booking);
 		model.addAttribute("review",review);

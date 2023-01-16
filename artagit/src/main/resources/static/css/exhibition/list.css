@@ -6,7 +6,7 @@
     align-items: center;
     height: 50px;
     border-bottom: 1.5px solid #878787;
-    margin-top: 40px;
+    margin: 40px 0 25px 0;
 }
 .exh-menu-list {
     width: 220px;
@@ -26,7 +26,7 @@
 .exh-menu-selected > span{
     font-weight: bold;
     color: #FF6C9E;
-
+	font-size: 16px;
 }
 
 
@@ -95,16 +95,27 @@
         width: 1300px;
         margin: 0 auto;
     }
+    
+    .exh-menu-box {
+	    margin: 40px 0 25px 0;
+	}
+
     .exh-menu-list{
         width: 300px;
 
-        font-size: 16px;
+        font-size: 18px;
     }
+    
+    .exh-sub-menu>li {
+	    font-size: 16px;
+	}
+
     /* 서브메뉴 펼칠 때, 각 높이만큼 펼치기 */
 	.exh-menu-selected.active+.sub-menu-1{
 	    display: block;
 	    height: 274px;
 	}
+	
 	.exh-menu-selected.active+.sub-menu-2{
 	    display: block;
 	    height: 117px;
@@ -113,5 +124,9 @@
 	.exh-menu-selected.active+.sub-menu-3{
 	    display: block;
 	    height: 78px;
+	}
+	
+	.exh-menu-selected > span {
+	    font-size: 18px;
 	}
 }

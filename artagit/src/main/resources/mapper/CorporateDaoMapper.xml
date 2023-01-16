@@ -10,6 +10,7 @@
 	<update id="update" parameterType="com.artagit.web.entity.Corporate">
 		update Corporate
  		<set>
+ 			
  			<if test="museumName != null">museumName = #{museumName},</if>
  			<if test="name != null">name = #{name},</if>
  			<if test="address != null">address = #{address},</if>
@@ -37,6 +38,23 @@
  		where id = #{id}
 	</update>
 	
+	<update id="updateAccount" parameterType="com.artagit.web.entity.Corporate">
+	update Corporate
+		<trim prefix="SET" suffixOverrides=",">
+			<if test="ceoName != null">ceoName = #{ceoName},</if>
+			<if test="name != null">name = #{name},</if>
+			<if test="phone != null">phone = #{phone},</if>
+			<if test="businessNum != null">businessNum = #{businessNum},</if>
+			<if test="address != null">address = #{address},</if>
+			
+			<if test="password != null"> password = #{password},</if>
+			<if test="manager != null">manager = #{manager},</if>
+			<if test="email != null">email = #{email},</if>
+			<if test="managerPhone!= null">managerPhone = #{managerPhone}</if>
+			
+		</trim>
+			where id = #{id}
+	</update>
 	
 	
 </mapper>

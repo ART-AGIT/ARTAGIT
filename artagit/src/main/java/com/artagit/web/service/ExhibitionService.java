@@ -24,8 +24,10 @@ public interface ExhibitionService {
 	// [주최자] 나의 등록전시 수정
 	int update(Exhibition exh);
 	
-	// [주최자] 나의 등록전시 리스트
-	List<Exhibition> getListById(int corpId);
+
+
+	// [주최자] 나의 등록전시 리스트 
+	List<Exhibition> getListById(int id);
 	
 	int getCountOfExh(int memId);
 
@@ -61,6 +63,9 @@ public interface ExhibitionService {
 	
 	//전시 등록 
 	int insert(Exhibition exhibition);
+
+	// [일반회원] 좋아요 전시
+	List<Exhibition> getLikeListById(int id);
 
 
 }

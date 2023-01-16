@@ -184,4 +184,12 @@ public class DefaultExhibitionService implements ExhibitionService {
 		return 0;
 	}
 
+
+	// LikeList
+	@Override
+	public List<Exhibition> getLikeListById(int id) {
+		List<Exhibition> list = exhDao.getLikeList(id);
+		return list;
+	}
+
 }
