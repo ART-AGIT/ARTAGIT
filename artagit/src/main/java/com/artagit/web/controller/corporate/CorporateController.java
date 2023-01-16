@@ -62,8 +62,11 @@ public class CorporateController {
 			
 			corporate.setPassword(encPassword);
 			
-
+			user.setPassword(corporate.getPassword());
+			System.out.println(user.getPassword());
+			
 			user.setRoleId(corporate.getRoleId());
+//			System.out.println("user"+user);
 			// 사업자 정보
 			user.setCeoName(corporate.getCeoName());
 			user.setName(corporate.getName());

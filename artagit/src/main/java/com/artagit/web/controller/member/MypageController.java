@@ -178,12 +178,6 @@ public class MypageController {
 		return "member/mypage/like-list";
 	}
 		
-	// 내가 좋아요한 전시 삭제
-//	@GetMapping("like-list/{id}")
-//	public String likeListDelete(@PathVariable ("id") int id) {
-//	
-//		return "member/mypage/like-list";
-//	}
 
 	/********내가 쓴 게시글 리스트 불러오기*******/
 	@GetMapping("/post-list")

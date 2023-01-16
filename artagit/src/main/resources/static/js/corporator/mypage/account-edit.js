@@ -19,7 +19,7 @@ window.addEventListener("load",function(){
 	const modal = document.querySelector("#modal");
 	const unregBtn = this.document.querySelector(".btn-unregister");
 	const cancelBtn = this.document.querySelector(".cancel-btn");
-	
+	const saveBtn = this.document.querySelector(".save-btn");
 
 	// 회원 탈퇴
 	unregBtn.onclick = function(e){
@@ -37,8 +37,7 @@ window.addEventListener("load",function(){
 		// 토글
 		formWrap.onclick = function(e){
             // e.preventDefault()
-            
-			
+
             if(regListBox[1].classList.contains("d-none") && e.target == btnHeader[1]){
                 contents[1].classList.remove("d-none");
 				icon[1].classList.remove("icon-arrow-toggle-up");
@@ -64,6 +63,7 @@ window.addEventListener("load",function(){
 				icon[0].classList.add("icon-arrow-toggle-up");
               
             }
+
 
 			if(e.target.classList.contains("icon-write")){
 				//  img 수정

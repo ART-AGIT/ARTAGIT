@@ -46,7 +46,8 @@ window.addEventListener("load",function(){
               
             }
 
-        }
+           
+    }
 	 
  });
 
