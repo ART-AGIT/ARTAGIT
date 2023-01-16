@@ -40,4 +40,16 @@ public class DefaultReviewService implements ReviewService{
 		
 		return reviewDao.delete(id);
 	}
+	@Override
+	public Review getbyId(int id) {
+		// TODO Auto-generated method stub
+		return reviewDao.getbyId(id);
+	}
+	@Override
+	public Review update(Review review) {
+		reviewDao.update(review);
+		int id = review.getId();
+		System.out.println("service"+id);
+		return reviewDao.getbyId(id);
+	}
 }
