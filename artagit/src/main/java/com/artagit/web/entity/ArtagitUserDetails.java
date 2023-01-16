@@ -18,6 +18,7 @@ public class ArtagitUserDetails implements UserDetails {
 	private String loginId;
 	private String username;
 	private String password;
+
 	private String name;
 	private String phone;
 	private String nickname;
@@ -27,6 +28,8 @@ public class ArtagitUserDetails implements UserDetails {
 	private String museumName;
 	private String address;
 	private int roleId;
+	private String manager;
+	
 	
 	public int getRoleId() {
 		return roleId;
@@ -154,9 +157,10 @@ public class ArtagitUserDetails implements UserDetails {
 		return "ArtagitUserDetails [id=" + id + ", loginId=" + loginId + ", username=" + username + ", password="
 				+ password + ", name=" + name + ", phone=" + phone + ", nickname=" + nickname + ", email=" + email
 				+ ", img=" + img + ", authorities=" + authorities + ", museumName=" + museumName + ", address="
-				+ address + ", roleId=" + roleId + "]";
+				+ address + ", roleId=" + roleId + ", manager=" + manager + "]";
 	}
 
+	
 	public String getAddress() {
 		return address;
 	}
@@ -182,10 +186,13 @@ public class ArtagitUserDetails implements UserDetails {
 		// TODO Auto-generated method stub
 		
 	}
+	public String getManager() {
+		return manager;
+	}
 
+	
 	public void setManager(String manager) {
-		// TODO Auto-generated method stub
-		
+		this.manager = manager;
 	}
 
 	public void setRegState(String regState) {

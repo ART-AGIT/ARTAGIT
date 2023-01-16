@@ -156,10 +156,10 @@ public class ExhibitionController {
 	//전시등록하기
 	@GetMapping("reg")
 	public String reg(Model model, @AuthenticationPrincipal ArtagitUserDetails user) {
-
+		//전시페이지 불러오면 주최자정보입력돼있기
 		System.out.println(user);
 		model.addAttribute("user",user);
-		
+		System.out.println(user.getAddress());
 		return "corporator/mypage/exh-reg";
 	}
 	// 주최자가 전시 등록하기 insert==========================
