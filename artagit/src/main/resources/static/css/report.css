@@ -38,6 +38,9 @@
     
 }
 
+.item-report{
+    border-top: 1px solid black;
+}
 
  
   
@@ -52,6 +55,8 @@
       text-align-last: left;
     line-height: 1;
     border-radius: 15px;
+    justify-self: center;
+    align-self: center;
     
   }
   
