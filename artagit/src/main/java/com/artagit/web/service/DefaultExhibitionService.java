@@ -183,17 +183,6 @@ public class DefaultExhibitionService implements ExhibitionService {
 		return 0;
 	}
 
-	@Override
-	public int update(Exhibition exh) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public List<Exhibition> getListBySearch(String query) throws SQLSyntaxErrorException {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	// LikeList
 	@Override

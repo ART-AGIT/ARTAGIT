@@ -129,8 +129,23 @@
                 </div>
             </form>
                 <div class="unregister">
-                    <a href="account-edit/delete"><button type="submit" class="btn-unregister">회원 탈퇴</button></a>
-                </div>  
+                    <button type="submit" class="btn-unregister">회원 탈퇴</button>
+                </div>
+                 
+                <!-- 회원탈퇴 modal -->
+                	<div id="modal" class="modal-overlay">
+		                 <div class="modal-window">
+			                 <div class="title">
+			                     <h2>회원탈퇴</h2>
+			                 </div>
+			                 <div class="content">정말 탈퇴하시겠습니까?</div>
+			                 <div class = "button-wrap">
+			                     <a href="account-edit/delete"><button class="btn btn-default del-btn" type="submit" >탈퇴</button></a>
+			                     <button class="btn btn-default-line cancel-btn" type="button">취소</button>
+			                 </div>
+		                 </div>
+		             </div>   
+                 
         </section>
     </main>
 

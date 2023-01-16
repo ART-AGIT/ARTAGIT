@@ -58,11 +58,11 @@ public class DefaultCorporateService implements CorporateService{
 
 
 
-	@Override
-	public int update(Corporate corp) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+//	@Override
+//	public int update(Corporate corp) {
+//		// TODO Auto-generated method stub
+//		return 0;
+//	}
 	
 	
 

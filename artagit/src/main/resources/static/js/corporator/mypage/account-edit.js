@@ -15,15 +15,26 @@ window.addEventListener("load",function(){
 	const imgInput = this.document.querySelector(".img-input");
 	const fileInput = this.document.querySelector(".file-input");
 	
-	// 회원 탈퇴
-//	const btnUnregister = document.querySelector(".btn-unregister");
+	// 회원탈퇴 modal
+	const modal = document.querySelector("#modal");
+	const unregBtn = this.document.querySelector(".btn-unregister");
+	const cancelBtn = this.document.querySelector(".cancel-btn");
 	
-//	btnUnregister.onclick = function(e){
-//			if(e.target.classList.contains("btn-unregister")){
-//		        console.log("test");
-//				fetch('/corp/account-edit/delete');
-//			}
-//		}
+
+	// 회원 탈퇴
+	unregBtn.onclick = function(e){
+		modal.style.display="flex";
+	}
+
+	cancelBtn.onclick = function(e){
+		e.preventDefault();
+		
+		if(e.target.classList.contains("cancel-btn"))
+			modal.style.display="none";
+	}
+	
+
+		// 토글
 		formWrap.onclick = function(e){
             // e.preventDefault()
             

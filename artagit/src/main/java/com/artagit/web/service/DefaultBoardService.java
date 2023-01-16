@@ -142,6 +142,13 @@ public class DefaultBoardService implements BoardService{
 	}
 
 
+	@Override
+	public void hitCountUp(Board board) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
 	
 
 

@@ -181,9 +181,7 @@ public class MypageController {
 	// 내가 좋아요한 전시 삭제
 //	@GetMapping("like-list/{id}")
 //	public String likeListDelete(@PathVariable ("id") int id) {
-//		
-//		
-//		
+//	
 //		return "member/mypage/like-list";
 //	}
 
