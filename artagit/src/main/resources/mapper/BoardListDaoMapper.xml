@@ -8,7 +8,8 @@
    b.*, 
     (select count(id) from Comment where Comment.postid = b.id group by postId) commentTotal,
     (select nickname from Member where  id = b.memId ) nickname,
-    (select name from BoardCategory where id = b.roleId) name
+    (select name from BoardCategory where id = b.roleId) name,
+     (select count(memId) from BoardLike where postId = b.id group by postId) hearts
 from Board b
 <trim prefix="WHERE" prefixOverrides="AND | OR">
 			<if test="roleId != null and roleId != 0">
@@ -21,17 +22,47 @@ order by regDate desc;
 	</select>
 	<select id="getListInit" resultType="com.artagit.web.entity.BoardListView">
 	select
-   b.*, 
+	   b.*, 
+	    (select count(id) from Comment where Comment.postid = b.id group by postId) commentTotal,
+	    (select nickname from Member where  id = b.memId ) nickname,
+	    (select name from BoardCategory where id = b.roleId) name,
+	    (select count(memId) from BoardLike where postId = b.id group by postId) hearts
+		from Board b
+		where
+				
+				 useYN = "Y"
+			
+		order by regDate desc
+		limit #{offset}, #{size}
+		</select>
+		
+		<select id="getListById" resultType="com.artagit.web.entity.BoardListView">
+		select
+  	 b.*, 
     (select count(id) from Comment where Comment.postid = b.id group by postId) commentTotal,
     (select nickname from Member where  id = b.memId ) nickname,
     (select name from BoardCategory where id = b.roleId) name
-from Board b
-where
-			
-			 useYN = "Y"
-		
-order by regDate desc;
+	from Board b
+		where
+					
+					 useYN = "Y" and memId = #{id}
+		order by regDate desc;
 		</select>
+		<select id="getLikeList" resultType="com.artagit.web.entity.BoardListView">
+			select
+	  	 bl.memId as blmemId, bl.postId as blPostId, b.*, 
+	    (select count(id) from Comment where Comment.postid = b.id group by postId) commentTotal,
+	    (select nickname from Member where  id = b.memId ) nickname,
+	    (select name from BoardCategory where id = b.roleId) name,
+	    (select count(memId) from BoardLike where postId = b.id group by postId) hearts
+		from BoardLike bl
+	    inner join Board b on bl.postId = b.id
+			where
+						
+						 useYN = "Y" and bl.memId = #{memId}
+			order by regDate desc;
+		</select>
+		
 	
 </mapper>
  

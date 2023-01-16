@@ -21,12 +21,10 @@ public interface ExhibitionService {
 	Exhibition getExhById(int exhId);
 	
 
-	int update(Exhibition exh);
-
 	// [주최자] 나의 등록전시 수정
-	int update(int id);
+	int update(Exhibition exh);
 	
-	// [주최자] 나의 등록전시 리스트
+	// [주최자] 나의 등록전시 리스트 
 	List<Exhibition> getListById(int id);
 	
 	int countOfExh(int memId);
@@ -58,11 +56,14 @@ public interface ExhibitionService {
 	//검색시 전시목록
 	List<ExhibitionView> getListBySearch(String query, int memberId) throws SQLSyntaxErrorException;
 	//일반 전시목록
-	List<ExhibitionView> getListByMemberId(int page, int local, int state, int category, int memberId);
+	List<ExhibitionView> getListByMemberId(int page, int size, int local, int state, int category, int memberId);
 
 	
 	//전시 등록 
 	int insert(Exhibition exhibition);
+
+	// [일반회원] 좋아요 전시
+	List<Exhibition> getLikeListById(int id);
 
 
 }

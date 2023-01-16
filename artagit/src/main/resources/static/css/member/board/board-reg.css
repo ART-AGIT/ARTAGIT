@@ -49,6 +49,11 @@ textarea.input{
     background-color: transparent;
 }
 
+img{
+  max-height: 40vh;
+  max-width: 40vw;
+}
+
 /* -------------셀렉트박스 커스텀-------------- */
 
 .select-box{
@@ -119,4 +124,14 @@ textarea.input{
   option{
     background: rgba(255, 192, 203, 0.677);
     border-radius: 5px;
+  }
+
+/* --------pc버전--------------- */
+  @media (min-width: 992px) {
+
+    form{
+      margin-left:200px;
+      margin-right:200px;
+    }
+
   }

@@ -14,23 +14,15 @@ public class DefaultLocalService implements LocalService{
 
 	@Override
 	public Local getLocalById(int id) {
-		
 		Local local = localDao.get(id);
-		
 		return local;
 	}
 
-	@Override
-	public int update(int id) {
-		int result = localDao.update(id);
-		return result;
-	}
-
+	// [주최자] 나의 등록전시 수정 -> 지역 정보 수정
 	@Override
 	public int update(Local local) {
-		// TODO Auto-generated method stub
-		return 0;
+		int result = localDao.update(local);
+		return result;
 	}
-	
 	
 }

@@ -73,8 +73,8 @@ public class DefaultExhibitionService implements ExhibitionService {
 
 	// [주최자] 나의 등록전시 수정
 	@Override
-	public int update(int id) {
-		 int result = exhDao.update(id);
+	public int update(Exhibition exh) {
+		 int result = exhDao.update(exh);
 		 return result;
 	}
 
@@ -160,8 +160,9 @@ public class DefaultExhibitionService implements ExhibitionService {
 	}
 
 	@Override
-	public List<ExhibitionView> getListByMemberId(int page, int local, int state, int category, int memberId) {
-		int size = 6;
+	public List<ExhibitionView> getListByMemberId(int page, int size, int local, int state, int category, int memberId) {
+		if (size == 0)
+			size = 6;
 		int offset = (page-1)*size;
 		
 		List<ExhibitionView> list = exhDao.getListByMemberId(offset, size, local, state, category, memberId);
@@ -183,10 +184,12 @@ public class DefaultExhibitionService implements ExhibitionService {
 		return 0;
 	}
 
+
+	// LikeList
 	@Override
-	public int update(Exhibition exh) {
-		// TODO Auto-generated method stub
-		return 0;
+	public List<Exhibition> getLikeListById(int id) {
+		List<Exhibition> list = exhDao.getLikeList(id);
+		return list;
 	}
 
 }

@@ -77,6 +77,7 @@
 .btn-way {
     border-left: 1px solid #ffffff55;
     right: 0;
+    cursor: pointer;
 }
 
 .btn-report {
@@ -180,4 +181,24 @@
 .btn-size-2 {
     min-width: 80px;
     height: 35px;
+}
+
+
+/************ pc버전 ************/
+@media (min-width: 992px){
+
+	.btn-booking {
+	    border-radius: 50px;
+	    width: 65px;
+	    height: 65px;
+	    /* position: fixed; */
+	    right: 250px;
+	    bottom: 30px;
+	    font-size: 16px;
+	}
+	
+	.btn-payment {
+	    font-size: 14px;
+	}
+	
 }

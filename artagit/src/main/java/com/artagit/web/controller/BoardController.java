@@ -43,15 +43,18 @@ public class BoardController {
 		Model model,
 		HttpSession session){
 			
-		List<BoardListView> list = service.getListInit(page);
+		List<BoardListView> list = service.getListInit(page, 0);
 		model.addAttribute("list",list);
 		
 		
 		return "board/list";
 			
 		}
+
 	
 	
+	
+	/***게시글 내용 조회****/
 		
 	
 	@GetMapping("{id}")
@@ -59,11 +62,11 @@ public class BoardController {
 	      
 	      @PathVariable("id")int id,
 	      Model model, @AuthenticationPrincipal ArtagitUserDetails user){
-		
+			
 		
 	      Board board = service.get(id);
 	      model.addAttribute("board",board);
-	   
+	     
 	      
 	      //Comment 조회
 	      model.addAttribute("user",user);

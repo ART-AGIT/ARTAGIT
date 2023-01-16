@@ -20,9 +20,10 @@ public interface PaymentDao {
 	Payment get(int id);
 	int count(String query);//***
 	
-	
-	int insert(Payment payment);//o
-//	int update(Payment payment);//o
+	// 결제 정보 insert 메서드	
+	int add(Payment payment);
+
+	//	int update(Payment payment);//o
 	int delete(int id);
 	int deleteAll(List<Payment> list);
 

@@ -145,12 +145,12 @@ form>h1 {
     width: 100%;
 }
 
-.content-box {
+.text-box {
     margin: 0 10px;
 }
 
 .warning {
-    height: 150px;
+    height: 100px;
 }
 
 /************** 모달 **************/
@@ -172,11 +172,6 @@ form>h1 {
 input[id="popup"] {
     /* 처음에는 팝업이 보이지 않아야 하므로 */
     display: none;
-}
-
-/* 팝업을 띄우기 위한 버튼의 스타일링 */
-input[id="popup"] + label {
-
 }
 
 
@@ -235,16 +230,6 @@ input[id="popup"] + label + div>div {
     cursor: pointer;
 }
 
-input[id="popup"] + label + div>label {
-    /* position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    color: red; */
-}
-
 input[id*="popup"] + label + div {
     /* display: none; */
     opacity: 0;
@@ -260,4 +245,91 @@ input[id*="popup"]:checked + label + div {
 
 .close {
     display: none;
+}
+
+/************ pc버전 ************/
+@media (min-width: 992px){
+	
+	.text {
+    	font-size: 16px;
+	}
+	
+	form>h1 {
+	    font-size: 24px;
+	}
+	
+	.cate-and-img {
+	    display: flex;
+	    flex-direction: column;
+	}
+
+	.flow-btn-box {
+	    display: flex;
+	    justify-content: start;
+	    margin: 0 0 8px;
+	}
+
+	.container {
+		display: flex;
+		justify-content: center;
+	}
+	
+	.menu-and-info {
+		display: flex;
+		flex-direction: column-reverse;
+		justify-content: flex-start;
+	}
+	
+	.mini-menu-list {
+	    width: 400px;
+	    display: flex;
+	    justify-content: flex-end;
+	    font-size: 13px;
+	    border: 0;
+	}
+	
+	.exh-img {
+		width: 400px;
+		height: 500px;
+	}
+	
+	.exh-info {
+	    display: flex;
+	    flex-direction: column;
+	    padding-bottom: 30px;
+	}
+	
+	.exh-info form {
+		margin-left: 40px;
+	    display: grid;
+	    grid-template:
+	        "title title" 70px
+	        "exh-author author" 40px
+	        "exh-place place" 40px
+	        "exh-date date" 40px
+	        "exh-time time" 40px
+	        "exh-price price" 40px
+	        "exh-phone phone" 40px
+	        "exh-addr addr" 40px / 100px;
+		}
+	
+	.exh-detail-box {
+		display: flex;
+		justify-content: center;
+	}
+
+	.exh-detail-img {
+	    width: 800px;
+	}
+	
+	.btn-hpg {
+	    width: 800px;
+	    padding: 8px 0;
+	    font-size: 14px;
+	    margin: 15px 0;
+	}
+	
+	main {
+		width: 800px;
+	}
 }

@@ -12,7 +12,8 @@
 
 .reg-list-input-box{
     width: 300px;
-    height: 80px;
+    /*height: 80px;*/
+    /* 여기에 높이쓰지말아주세욧! 저두 쓰거등요 */
     display: flex;
     flex-direction: column;
     padding: 2px 0;

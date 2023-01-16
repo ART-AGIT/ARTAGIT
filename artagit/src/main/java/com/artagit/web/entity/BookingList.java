@@ -9,7 +9,7 @@ public class BookingList {
 	private String reviewCon;
 	private int memId;
 	private String exhPoster;
-	
+	private int reviewId;
 	public BookingList() {
 		// TODO Auto-generated constructor stub
 	}
@@ -19,8 +19,16 @@ public class BookingList {
 
 	
 
+	
+
+
+
+
+
+
+
 	public BookingList(int bookingId, String exhName, String museumName, String bookingDate, String payMethod,
-			String reviewCon, int memId, String exhPoster) {
+			String reviewCon, int memId, String exhPoster, int reviewId) {
 		super();
 		this.bookingId = bookingId;
 		this.exhName = exhName;
@@ -30,8 +38,17 @@ public class BookingList {
 		this.reviewCon = reviewCon;
 		this.memId = memId;
 		this.exhPoster = exhPoster;
+		this.reviewId = reviewId;
 	}
 
+
+	public int getReviewId() {
+		return reviewId;
+	}
+
+	public void setReviewId(int reviewId) {
+		this.reviewId = reviewId;
+	}
 
 
 

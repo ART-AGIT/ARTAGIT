@@ -61,7 +61,24 @@
 <!-- ------------------------------------------ -->
 
     <main>
-        <h2 class="review">리뷰 보기</h2>
+        <!-- <div class="exh-img-box">
+            <img class="exh-img" src="../../image/anonymousProject.png">
+        </div> -->
+        <!-- <h2 class="review">리뷰 보기</h2> -->
+        
+        <div class="tong">
+        <div class="side-menu">
+            <div class="profile">
+                <div class="circle"></div>
+                <div >닉네임</div>
+            </div>
+            <ul class="side-menu-list">
+                <li><a href="">나의 예매내역</a></li>
+                <li><a href="">좋아요 전시</a></li>
+                <li><a href="">회원정보 수정</a></li>
+                <li><a href="">작성글 관리</a></li>
+            </ul>
+        </div>
 
         <form>
         <div class="review-form">
@@ -69,7 +86,7 @@
                 <div class="write-form">
                     <!-- <div class="content">리뷰 작성중</div> -->
                     <div class="">
-                        <textarea class="input" placeholder="리뷰를 작성해주세요"></textarea>
+                        <textarea class="input-review" placeholder="리뷰를 작성해주세요"></textarea>
                     </div>
                 </div>
                 <div class="detail-info">
@@ -92,8 +109,9 @@
             </div>
         </div>
     </form>
-        
-        <div class="review-option-list">
+</div>
+
+        <!-- <div class="review-option-list">
             <span class="review-option">
                 <input type="radio" name="공개여부">
                 <label>공개</label>
@@ -103,11 +121,11 @@
                 <input type="radio" name="공개여부">
                 <label>비공개</label>
             </span>    
-        </div>
+        </div> -->
 
         <div class="review-button-list">
-            <input class="btn btn-default btn-default-fill" type="submit" value="수정">
-            <input class="btn btn-default btn-default-line"type="submit" value="닫기">
+            <input class="btn btn-default btn-default-fill btn-mod" type="submit" value="수정">
+            <input class="btn btn-default btn-default-line btn-exit"type="submit" value="닫기">
         </div>
         
     </main>

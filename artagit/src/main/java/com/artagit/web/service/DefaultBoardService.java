@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.artagit.web.dao.BoardDao;
+import com.artagit.web.dao.BoardLikeDao;
 import com.artagit.web.dao.BoardListDao;
 import com.artagit.web.entity.Board;
 import com.artagit.web.entity.BoardListView;
@@ -24,19 +25,20 @@ public class DefaultBoardService implements BoardService{
 	@Autowired
 	private BoardListDao boardListDao;
 
+	@Autowired
+	private BoardLikeDao boardLikeDao;
 	
-	@Override
+	
 	public Board get(int id) {
 		// TODO Auto-generated method stub
 		return boardDao.get(id);
 	}
 
 
-	@Override
-
-	public void hitCountUp(Board board) {
-		boardDao.hitCountUp(board);
-	}
+//	@Override
+//	public void hitCountUp(Board board) {
+//		boardDao.hitCountUp(board);
+//	}
 
 	public List<BoardListView> getList(int roleId) {
 		int page =1;
@@ -48,10 +50,15 @@ public class DefaultBoardService implements BoardService{
 	}
 
 	@Override
-	public List<BoardListView> getListInit(int page) {
+	public List<BoardListView> getListInit(int page, int size) {
 		// TODO Auto-generated method stub
-		 int size = 10;
-		 int offset = (page-1)*size;
+//		메인페이지의 게시판 숫자때문에 설정해놓음
+		if(size == 0) {
+			size = 10;			
+		}
+		System.out.println(size);
+		
+		int offset = (page-1)*size;
 		return boardListDao.getListInit(offset,size,page);
 	}
 
@@ -84,9 +91,10 @@ public class DefaultBoardService implements BoardService{
 
 
 	@Override
-	public Board getDetail(int id) {
+	public Board getDetail(int id, int memId) {
 		// TODO Auto-generated method stub
-		return boardDao.getDetail(id);
+		
+		return boardDao.getDetail(id,memId);
 	}
 
 
@@ -102,6 +110,55 @@ public class DefaultBoardService implements BoardService{
 		// TODO Auto-generated method stub
 		return boardDao.hitUp(id);
 	}
+
+
+	@Override
+	public List<BoardListView> getListById(int id) {
+		// TODO Auto-generated method stub
+		return boardListDao.getListById(id);
+	}
+
+
+	@Override
+	public int likeUp(int boardId, int userId) {
+		// TODO Auto-generated method stub
+		return boardLikeDao.add(boardId,userId);
+	}
+
+
+	@Override
+	public int countOfLike(int id) {
+		// TODO Auto-generated method stub
+		return boardLikeDao.count(id);
+	}
+
+
+	@Override
+	public int deleteLikeUp(int boardId, int userId) {
+		// TODO Auto-generated method stub
+		return boardLikeDao.delete(boardId,userId);
+	}
+
+
+	@Override
+	@Transactional
+	public List<BoardListView> getLikeList(int memId) {
+		// TODO Auto-generated method stub
+		
+		
+		
+		return boardListDao.getLikeList(memId);
+	}
+
+
+	@Override
+	public void hitCountUp(Board board) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	
 
 
 

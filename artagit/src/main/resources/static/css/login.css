@@ -147,3 +147,8 @@ input::placeholder {
 input:focus::placeholder {
     color:transparent;
 }
+
+/* 
+input[type=radio]{
+    display: none;
+} */

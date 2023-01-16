@@ -39,7 +39,8 @@ public class ExhibitionApi {
 		else
 			memberId = user.getId();
 		
-		List<ExhibitionView> lists = service.getListByMemberId(page,local,state,category,memberId);
+		int size = 0;
+		List<ExhibitionView> lists = service.getListByMemberId(page,size,local,state,category,memberId);
 		
 		return lists;
 	}
@@ -52,13 +53,14 @@ public class ExhibitionApi {
 		System.out.println((user));
 		
 		int result = service.likeUp(exhId, user.getId());
-		int count = service.countOfLike(exhId);
+		System.out.println("좋아요 성공");
+//		int count = service.countOfLike(exhId);
 		Map<String, Object> dto = new HashMap<>();
 		//HTTP 가 가지고있는 기본 상태값
 		dto.put("status", 200);
 		dto.put("resultObject", result);
-		dto.put("countNum", count);
-		
+//		dto.put("countNum", count);
+//		
 		return dto;
 	}
 	

@@ -74,7 +74,7 @@
                             <!-- <a class="icon icon-heart exhibition-heart" href=""></a> -->
                             <a th:classappend="${list.memberId != 0}  ? 'icon-heart-red' : ''" class="icon icon-heart exhibition-heart" href=""></a>
                         </div>
-                        <div class="exhibititon-date" th:text="${list.startDate +' ~ '+list.endDate}">22.11.25 ~ 23.04.02</div>
+                        <div class="exhibititon-date" th:text="${#strings.substring(list.startDate, 2)} +' ~ '+ ${#strings.substring(list.endDate, 2)}">22.11.25 ~ 23.04.02</div>
                         <div class="exhibition-place" th:text="${list.artist}">그라운드시소 서촌</div>
                         
                     </form>

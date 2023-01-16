@@ -128,10 +128,6 @@ main section {
     background-color: #fff;
 }
 
-.name, input:disabled {
-    background: #f2f2f2cf;
-}
-
 .input-box {
     display: flex;
     flex-direction: column;
@@ -146,14 +142,20 @@ main section {
 }
 
 /* 투명한 input 태그 속성 */
-.transparency{
+.transparency, .username {
     border: 0;
+    border-radius: 5px;
     height: 30px;
     box-sizing: border-box;
     font-size: 14px;
     color: #545454;
-    /* line-height: 24px; */
-    text-indent: 12px;
+    line-height: 24px;
+    text-indent: 14px;
+    background-color: #FFFFFF;
+}
+
+.name, .username {
+    background: #f2f2f2cf;
 }
 
 input:focus{
@@ -161,10 +163,11 @@ input:focus{
 }
 
 .caution {
-    font-size: 12px;
-    margin: 0 0 0 10px;
+	font-size: 12px;
+    margin: 0;
     line-height: 16px;
     height: 130px;
+    width: 283px;
 }
 
 .highlight {
@@ -175,4 +178,102 @@ input:focus{
     display: flex;
     justify-content: space-between;
     /* flex-direction: row; */
+}
+
+.exh-date {
+/* 	visibility: hidden; */
+	color: #ffffff00;
+}
+
+/************ pc버전 ************/
+@media (min-width: 992px){
+	main {
+		width: 800px;
+	}
+	.img-and-cal {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-evenly;
+		margin-top: 50px;
+	}
+	.exh-img-box {
+	    /* display: flex; */
+	    height: 400px;
+	    /* margin-bottom: 30px; */
+	    border-radius: 10px;
+	    margin: 0;
+	}
+	
+	.img-and-info {
+	    display: flex;
+/* 	    align-items: center; */
+	}
+
+	.exh-img {
+	    width: 350px;
+	    filter: blur(0px);
+	    -webkit-filter: blur(0px);
+/* 	    object-fit: cover; */
+/* 	        position: fixed;
+    	left: 10px; */
+	}
+	
+	.text-box {
+		display: flex;
+	    flex-direction: column;
+	    justify-content: flex-end;
+	    align-items: end;
+	    color: #626262;
+	    /* position: fixed; */
+	    left: 0px;
+	    top: 322px;
+	    border-radius: 0 0 10px 10px;
+	    background-color: #ffffffe6;
+	    width: 100%;
+	    height: 80px;
+	}
+	    
+	
+	.exh-title {
+	    font-size: 20px;
+	    font-weight: 700;
+	    padding-right: 10px;
+	}
+	
+	.exh-place {
+	    font-size: 16px;
+	    font-weight: 400;
+	    padding-right: 10px;
+	}
+	
+	.choice-date {
+	    margin: 0;
+	    font-size: 14px;
+	}
+	
+	.name, .phone, .e-mail {
+	    width: 295px;
+	    height: 58px;
+	}
+	
+	.input-box label {
+	    font-size: 16px;
+	}
+	
+	.caution {
+		font-size: 14px;
+	    margin: 0;
+	    text-align: start;
+	    width: 283px;
+	}
+	
+	.booking-btn {
+/* 	width: 800px; */
+	    display: flex;
+	    justify-content: end;
+	    flex-direction: column;
+	    /* align-items: center; */
+	    gap: 3px;
+	    height: 450px;
+	}
 }

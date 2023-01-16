@@ -15,32 +15,33 @@ public class DefaultBookingService implements BookingService {
 	@Autowired
 	private BookingListDao bookListDao;
 	
+	@Autowired
+	private BookingDao bookingDao;
+	
 	@Override
 	public List<BookingList> getListById(int memId) {
-		// TODO Auto-generated method stub
 		return bookListDao.getListById(memId);
 	}
 
 	@Override
 	public BookingList getReviewByBookingId(int id) {
-		// TODO Auto-generated method stub
 		return bookListDao.getByBookingId(id);
+	}
+
+	// 예매내역 insert 메서드
+	@Override
+	public int add(Booking booking) {
+		int result = bookingDao.add(booking);
+		return result;
+	}
+
+	// payment 데이터 insert 하기 전, bookId를 얻어올 용도 (payNum을 가지고 bookId를 select)
+	@Override
+	public int getBookIdBypayNum(String payNum) {
+		// TODO Auto-generated method stub
+		return bookingDao.getBookIdBypayNum(payNum);
 	}
 
 }
 
-
-   
-//   @Override
-//   public List<Booking> getListById(int memId) {
-//      // TODO Auto-generated method stub
-//      return bookDao.getListById(memId);
-//   }
-
-	//주최자가 등록한 전시 상세내역 - 결제 내역
-//	@Override
-//	public List<Booking> getBookingById(int exhId) {
-//		// TODO Auto-generated method stub
-//		return bookDao.getListByExhId(exhId);
-//	}
 

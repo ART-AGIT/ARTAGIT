@@ -5,6 +5,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.artagit.web.dao.CorporateDao;
+import com.artagit.web.entity.ArtagitUserDetails;
 import com.artagit.web.entity.Corporate;
 import com.artagit.web.entity.Member;
 
@@ -28,8 +29,8 @@ public class DefaultCorporateService implements CorporateService{
 	
 	// [주최자] 나의 등록전시 수정 -> 주최측 정보 수정
 	@Override
-	public int update(int id) {
-		int result = corporateDao.update(id);
+	public int update(Corporate corp) {
+		int result = corporateDao.update(corp);
 		return result;
 	}
 
@@ -56,9 +57,19 @@ public class DefaultCorporateService implements CorporateService{
 	}
 
 
+
+//	@Override
+//	public int update(Corporate corp) {
+//		// TODO Auto-generated method stub
+//		return 0;
+//	}
+	
+	
+
+	// 주최자 정보 수정
 	@Override
-	public int update(Corporate corp) {
+	public int updateAccount(ArtagitUserDetails user) {
 		// TODO Auto-generated method stub
-		return 0;
+		return corporateDao.updateAccount(user);
 	}
 }

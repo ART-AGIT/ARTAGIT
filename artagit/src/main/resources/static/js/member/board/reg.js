@@ -1,6 +1,8 @@
 window.addEventListener("load", function(){
     const imgInput = document.querySelector(".input-image-button1")
 	const fileInput = document.querySelector(".input-image1");
+	var toolbox = document.querySelector(".toolbox");
+
 
 	imgInput.onclick = function(e) {
 

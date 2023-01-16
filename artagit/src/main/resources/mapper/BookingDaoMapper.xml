@@ -10,7 +10,17 @@
 		where Booking.memId = #{memId};
 	</select>
 	
+	<!-- 주문번호를 기준으로 bookId 가져오기 -->
+	<select id="getBookIdBypayNum" resultType="int">
+		select id from Booking
+		where payNum = #{payNum};
+	</select>
 	
+	<!-- 예매내역 insert -->
+	<insert id="add" parameterType="com.artagit.web.entity.Booking">
+		insert into Booking (date, amount, phone, email, memId, exhId, payNum)
+			values (#{date}, #{amount}, #{phone}, #{email}, #{memId}, #{exhId}, #{payNum});
+	</insert>
 	
 	
 </mapper>

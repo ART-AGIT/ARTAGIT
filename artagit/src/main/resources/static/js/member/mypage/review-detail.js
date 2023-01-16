@@ -7,51 +7,55 @@ window.addEventListener("load",function(e){
 	const btnDel = document.querySelector(".btn-del");
 	const writeForm = document.querySelector(".write-form");
 	const reviewForm = document.querySelector(".review-form");
-	const optionList = document.querySelector(".review-option-list");
+//	const optionList = document.querySelector(".review-option-list");
 	const input = document.querySelector(".input-review");
 	const detailInfo = document.querySelector(".detail-info");
+//	const color=null;
+	const colorOption = document.querySelector(".color-option");
 //	const trash = document.querySelector(".trash");
-	
+	var color=1;
 	//유효성검사
 	//리뷰작성 문자수
 	//관람일보다 지난 날짜일경우만 리뷰 작성 가능
 	
 	//	리뷰 테마 컬러 변경
-    colorInput.oninput= function(e){
-        box.style.background = colorInput.value;
-    }
+//    colorInput.oninput= function(e){
+//        box.style.background = colorInput.value;
+//    }
     
-    
+    colorOption.onclick=function(e){
+		
+		if(e.target.classList.contains("purple")){
+			box.style.background = "#E2D1F0";
+			color = "#ffb8b8";
+			}
+		else if(e.target.classList.contains("green")){
+			box.style.background = "#E4F0D1";
+			color = "#E4F0D1";
+			}
+		else if(e.target.classList.contains("blue")){
+			box.style.background = "#D1EBF0";
+			color = "#D1EBF0";
+			}
+			console.log(color);
+	}
+	
 	//	버튼리스트 (수정 등록 닫기)
 	btnList.onclick=function(e){
 		
-		//수정
-		if(e.target.classList.contains("btn-mod")){
-			let content = writeForm.getElementsByTagName("textarea").value;
-//			console.log(content);
-			console.log("수")
-		}
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+	console.log(color);
 		//등록
-		else if(e.target.classList.contains("btn-reg")){
+		if(e.target.classList.contains("btn-reg")){
 			e.preventDefault();
 			
+			console.log("color"+color);
 			console.log("등록버튼 reg test");
 
 			let form = new FormData();
 			form.append("content",writeForm.querySelector(".input-review").value);
-			form.append("color",box.querySelector(".color-input").value);
+			
+//			form.append("color",box.querySelector(".color-input").value);
+			form.append("color",color);
 			console.log("form객체----"+form);
 			var id = document.querySelector(".bookingId").value;
 			console.log(id);
@@ -101,24 +105,11 @@ window.addEventListener("load",function(e){
 		                </div>
 		            </div>
 	        	</div>
-	 
-    
-			        <div class="review-option-list">
-			            <span class="review-option">
-			                <input type="radio" name="공개여부">
-			                <label>공개</label>
-			            </span>
-			
-			            <span class="review-option">
-			                <input type="radio" name="공개여부">
-			                <label>비공개</label>
-			            </span>    
-			        </div>
 			
 			        <div class="review-button-list">
 			        	<input type="hidden" class= "bookingId" name="bookingId" >
 
-			            <input class="btn btn-default btn-default-fill btn-mod" type="submit" value="수정">
+			            <a href="/member/mypage/review/update/${review.id}" class="btn btn-default btn-default-fill btn-mod" type="submit" value="수정">수정</a>
 			            <a class="btn btn-default btn-default-line btn-exit" type="button" href="/member/mypage/review/list" value="닫기">닫기</a>
 			        </div>
 			          	
@@ -127,20 +118,11 @@ window.addEventListener("load",function(e){
 		        	
 	        	// 2번째시도 
 	        	reviewForm.innerHTML="";
-	        	optionList.innerHTML="";
+//	        	optionList.innerHTML="";
 	        	btnList.innerHTML="";
 						
 	        	reviewForm.insertAdjacentHTML("afterend",template);
 		        	
-	        	/*-----------------------3번째 시도
-	        	let template3 = `
-	                    <div class="content" >${review.content}</div>
-	        	`;
-	        	let trash = document.querySelector(".trash");
-	        	writeForm.innerHTML=template3;
-	        	console.log("trash---------"+trash);
-	        	trash.classList.add('d-none');
-				*/
 		        	
 			})
 		}
@@ -152,15 +134,5 @@ window.addEventListener("load",function(e){
 		
 	}
 	
-	//삭제
-	/*
-	btnDel.onclick=function(e){
-		e.preventDefault();
-		let reviewId = e.target.dataset.id;
-		console.log("reviewId "+reviewId);
-		console.log("삭제");
-	}
-	   */
-    
     
 });

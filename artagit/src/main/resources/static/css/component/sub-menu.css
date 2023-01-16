@@ -1,4 +1,8 @@
 /******* 마이페이지 서브 메뉴 속성 ****************************************/
+.profile-box{
+    display: none;
+}
+
 .menu-list {
     padding : 20px 0 10px 0;
     display: flex;
@@ -75,4 +79,69 @@ li .deco-ticket-on {
 .select-on {
     color: #FF6C9E;
     border-bottom: 2px solid #FF6C9E;
+}
+
+
+
+/******* 마이페이지 pc버전용 사이드 메뉴 속성 ****************************************/
+@media (min-width: 993px){ 
+    .menu-box{
+        display:inline-block;
+    }
+
+    .profile-box{
+        display: flex;
+        width: 180px;
+        height: 230px;
+        border:1.5px solid rgba(157, 157, 157, 0.353);
+        border-radius: 10px;
+        /* margin-bottom: 20px;   */
+    }
+
+    .profile-content{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        margin:0 auto;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .profile-img-box{
+        display: flex;
+        width: 130px;
+        height: 130px;
+        border-radius: 70%;
+        overflow: hidden;
+
+    }
+
+    .profile-img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .profile-name{
+        font-size: 18px;
+        display: flex;
+        justify-content: center;
+    }
+    .menu-list{
+        display:flex;
+        flex-direction: column;
+        width: 200px;
+    }
+
+    .list{
+        justify-content: left;
+        line-height: 40px;
+        border-bottom:2px solid rgba(157, 157, 157, 0.353);
+    }
+
+    .deco{
+        display: flex;
+        flex-direction: row;
+        gap:20px;
+        font-size: 18px;
+    }
 }

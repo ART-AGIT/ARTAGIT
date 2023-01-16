@@ -38,8 +38,7 @@ public interface ExhibitionDao {
 	
 	// 내가 등록한 전시 수정
 //	int update(int id);
-	int update(Integer id);
-//	int update(Exhibition exh);
+	int update(Exhibition exh);
 	
 	// 나의 전시 삭제
 	int delete(int id);
@@ -65,6 +64,8 @@ public interface ExhibitionDao {
 
 	int insert(Exhibition exhibition);
 
+	// [일반회원] 좋아요 전시
+	List<Exhibition> getLikeList(int id);
 
 	
 }

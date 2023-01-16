@@ -18,15 +18,24 @@ public class ArtagitUserDetails implements UserDetails {
 	private String loginId;
 	private String username;
 	private String password;
+
 	private String name;
 	private String phone;
 	private String nickname;
 	private String email;
 	private String img;
 	private List<GrantedAuthority> authorities; // 권한(ROLE_XXX) 
+	
+	private String ceoName;
+	private int businessNum;
+	private String manager;
+	private String managerPhone;
 	private String museumName;
 	private String address;
 	private int roleId;
+	
+	
+	
 	
 	public int getRoleId() {
 		return roleId;
@@ -120,19 +129,19 @@ public class ArtagitUserDetails implements UserDetails {
 
 	@Override
 	public boolean isAccountNonLocked() {
-		// TODO Auto-generated method stub
+		
 		return true;
 	}
 
 	@Override
 	public boolean isCredentialsNonExpired() {
-		// TODO Auto-generated method stub
+		
 		return true;
 	}
 
 	@Override
 	public boolean isEnabled() {
-		// TODO Auto-generated method stub
+		
 		return true;
 	}
 
@@ -148,15 +157,17 @@ public class ArtagitUserDetails implements UserDetails {
 	}
 	
 	
-
+	
 	@Override
 	public String toString() {
 		return "ArtagitUserDetails [id=" + id + ", loginId=" + loginId + ", username=" + username + ", password="
 				+ password + ", name=" + name + ", phone=" + phone + ", nickname=" + nickname + ", email=" + email
-				+ ", img=" + img + ", authorities=" + authorities + ", museumName=" + museumName + ", address="
-				+ address + ", roleId=" + roleId + "]";
+				+ ", img=" + img + ", authorities=" + authorities + ", ceoName=" + ceoName + ", businessNum="
+				+ businessNum + ", manager=" + manager + ", managerPhone=" + managerPhone + ", museumName=" + museumName
+				+ ", address=" + address + ", roleId=" + roleId + "]";
 	}
 
+	
 	public String getAddress() {
 		return address;
 	}
@@ -174,22 +185,33 @@ public class ArtagitUserDetails implements UserDetails {
 	}
 
 	public void setCeoName(String ceoName) {
-		// TODO Auto-generated method stub
-		
+		this.ceoName = ceoName;
 	}
 
 	public void setBusinessNum(int businessNum) {
-		// TODO Auto-generated method stub
+		this.businessNum = businessNum;
 		
 	}
+	public String getManager() {
+		return manager;
+	}
 
+	
 	public void setManager(String manager) {
-		// TODO Auto-generated method stub
+		this.manager = manager;
 		
+	}
+	
+	public void setManagerPhone(String managerPhone) {
+		this.managerPhone = managerPhone;
+		
+	}
+	public String getManagerPhone() {
+		return managerPhone;
 	}
 
 	public void setRegState(String regState) {
-		// TODO Auto-generated method stub
+//		this.regState = regState;
 		
 	}
 
@@ -203,14 +225,21 @@ public class ArtagitUserDetails implements UserDetails {
 		
 	}
 
-	public void setManagerPhone(String managerPhone) {
-		// TODO Auto-generated method stub
-		
-	}
 
 	public void setLocalId(int localId) {
-		// TODO Auto-generated method stub
-		
+//		this.setLocalId = localId;	
 	}
+
+	public String getCeoName() {
+		return ceoName;
+	}
+
+	public int getBusinessNum() {
+		return businessNum;
+	}
+
+	
+	
+	
 
 }

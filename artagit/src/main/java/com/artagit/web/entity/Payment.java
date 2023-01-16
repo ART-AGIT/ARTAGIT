@@ -4,7 +4,7 @@ public class Payment {
 	
 	private int id;
 	private int bookId;
-	private int payNum;
+	private String payNum;
 	private int price;
 	private String method;
 	private String regDate;
@@ -13,7 +13,7 @@ public class Payment {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Payment(int id, int bookId, int payNum, int price, String method, String regDate) {
+	public Payment(int id, int bookId, String payNum, int price, String method, String regDate) {
 		super();
 		this.id = id;
 		this.bookId = bookId;
@@ -39,11 +39,11 @@ public class Payment {
 		this.bookId = bookId;
 	}
 
-	public int getPayNum() {
+	public String getPayNum() {
 		return payNum;
 	}
 
-	public void setPayNum(int payNum) {
+	public void setPayNum(String payNum) {
 		this.payNum = payNum;
 	}
 
@@ -76,8 +76,4 @@ public class Payment {
 		return "Payment [id=" + id + ", bookId=" + bookId + ", payNum=" + payNum + ", price=" + price + ", method="
 				+ method + ", regDate=" + regDate + "]";
 	}
-	
-	
-	
-	
 }

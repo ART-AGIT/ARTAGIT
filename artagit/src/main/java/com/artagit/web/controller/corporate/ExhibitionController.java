@@ -98,7 +98,7 @@ public class ExhibitionController {
 	// 주최자가 등록한 전시 수정 ========================
 	@PostMapping("update")
 	@ResponseBody
-	public String update(@RequestBody HashMap<String,Object> map) {
+	public void update(@RequestBody HashMap<String,Object> map) {
 		System.out.println("update 메서드 진입");
 		HashMap<String, Object> exhList = (HashMap<String, Object>) map.get("exh");
 		Exhibition exh = new Exhibition();
@@ -108,6 +108,8 @@ public class ExhibitionController {
 		exh.setArtist(String.valueOf(exhList.get("artist")));
 		exh.setStartDate(String.valueOf(exhList.get("startDate")));
 		exh.setEndDate(String.valueOf(exhList.get("endDate")));
+		exh.setStartTime(String.valueOf(exhList.get("startTime")));
+		exh.setEndTime(String.valueOf(exhList.get("endTime")));
 		exh.setTicketPrice(Integer.parseInt(String.valueOf(exhList.get("ticketPrice"))));
 		exh.setTicketStock(Integer.parseInt(String.valueOf(exhList.get("ticketStock"))));
 		exh.setContent(String.valueOf(exhList.get("content")));
@@ -132,13 +134,13 @@ public class ExhibitionController {
 		System.out.println("주최자데이터 ===> " + corp);
 		System.out.println("지역데이터 ===> " + local);
 		
-		service.update(exh);
+		int result = service.update(exh);
+		System.out.println("전시정보 update결과: "+result);
+
 		corporateService.update(corp);
 		localService.update(local);
 		
 		System.out.println(exh.getId()+"번 전시 수정완료");
-		
-		return "redirect:detail";
 	}
 	
 	// 주최자가 등록한 전시 삭제 ========================
@@ -154,10 +156,10 @@ public class ExhibitionController {
 	//전시등록하기
 	@GetMapping("reg")
 	public String reg(Model model, @AuthenticationPrincipal ArtagitUserDetails user) {
-
+		//전시페이지 불러오면 주최자정보입력돼있기
 		System.out.println(user);
 		model.addAttribute("user",user);
-		
+		System.out.println(user.getAddress());
 		return "corporator/mypage/exh-reg";
 	}
 	// 주최자가 전시 등록하기 insert==========================
