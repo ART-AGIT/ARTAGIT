@@ -160,8 +160,9 @@ public class DefaultExhibitionService implements ExhibitionService {
 	}
 
 	@Override
-	public List<ExhibitionView> getListByMemberId(int page, int local, int state, int category, int memberId) {
-		int size = 6;
+	public List<ExhibitionView> getListByMemberId(int page, int size, int local, int state, int category, int memberId) {
+		if (size == 0)
+			size = 6;
 		int offset = (page-1)*size;
 		
 		List<ExhibitionView> list = exhDao.getListByMemberId(offset, size, local, state, category, memberId);

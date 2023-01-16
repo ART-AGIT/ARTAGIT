@@ -32,6 +32,7 @@ public class ExhibitionController2 {
 	@GetMapping("list")
 	public String list( // 전시목록 불러오기
 			@RequestParam(defaultValue = "1", name = "p") int page,
+			@RequestParam(defaultValue = "1", name = "s") int state,
 			Model model,
 			@AuthenticationPrincipal ArtagitUserDetails user
 			) {
@@ -44,7 +45,8 @@ public class ExhibitionController2 {
 		else
 			memberId = user.getId();
 		
-		List<ExhibitionView> lists = service.getListByMemberId(page,0,1,0,memberId);
+		int size = 0;
+		List<ExhibitionView> lists = service.getListByMemberId(page,size,0,1,0,memberId);
 
 		model.addAttribute("lists", lists);
 		

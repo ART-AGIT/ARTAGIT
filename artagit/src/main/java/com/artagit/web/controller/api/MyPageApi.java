@@ -78,14 +78,6 @@ public class MyPageApi {
 		return dto;
 	}
 	
-	/******좋아요한 게시글***********/
-	@GetMapping("/post-like")
-	public List<BoardListView> getListByCategory(
-			@AuthenticationPrincipal ArtagitUserDetails user) {
-		int memId = user.getId();
-		List<BoardListView> list = boardService.getLikeList(memId);
-		System.out.println("++++++++++=" + list);
-		return list;
-	}
+
 	
 }

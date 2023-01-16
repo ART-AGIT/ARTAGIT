@@ -4,6 +4,8 @@ window.addEventListener("load", function(){
 	const likeNum = document.querySelector(".like-num");
 	const mapBox = document.querySelector(".deco-map");
 	const modalBox = this.document.querySelector(".mini-menu-list>li");
+	
+	
 
 	/////// URL 복사 버튼 클릭 시
 	urlCopy.onclick = function(e){
@@ -76,6 +78,28 @@ window.addEventListener("load", function(){
 			})
 		}
 	}
+
+	
+
+	// this.window.scrollTo = function(e){
+	// 	console.log("스크롤 내려간다~~~");
+	// 	bookingBtn.style.marginTop = Math.max(-250, 0-this.scrollTop());
+	// }
 });
 
 
+window.addEventListener("scroll", function() {
+	console.log("스크롤 내려간다~~~");
+	let bookingBtn = this.document.querySelector(".btn-booking");
+	let limitVal = Math.max(document.body.scrollHeight,
+							document.body.offsetHeight,
+							document.documentElement.clientHeight,
+							document.documentElement.scrollHeight,
+							document.documentElement.offsetHeight);
+		bookingBtn.scrollTop = Math.max(-250, 0-this.scrollTop);
+		// this.window.scrollTo(0, limitVal-117.2);
+	
+		console.log("limitVal ==> " +limitVal);
+	// bookingBtn.style.marginTop = Math.max(-250, 0-this.scrollTop())
+	// el.scrollHeight - 117.2;
+});

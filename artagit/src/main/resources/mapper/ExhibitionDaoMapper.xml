@@ -49,13 +49,13 @@
 			<if test="state != null and state != 0">
 <!-- 				AND stateId = #{stateId} -->
 				<if test="state == 1">
-					AND startDate <![CDATA[< now() and endDate >= now()]]>
+					AND startDate <![CDATA[< now() and endDate >= now() - INTERVAL 1 DAY]]>
 				</if>
 				<if test="state == 2">
 					AND startDate <![CDATA[>= now()]]>
 				</if>
 				<if test="state == 3">
-					AND endDate <![CDATA[<= now()]]>
+					AND endDate <![CDATA[< now() - INTERVAL 1 DAY]]>
 				</if>
 			</if>
 			and useYN = "Y"

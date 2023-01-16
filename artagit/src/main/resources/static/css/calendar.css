@@ -1,7 +1,7 @@
 /* section calendar */
 
 .calendar-section {
-    width: 330px;
+    width: 350px;
     margin: 0 auto;
 /*     font-family: "NotoSansR"; */
 }
@@ -86,7 +86,7 @@
     width: calc(100% / 7);
     text-align: left;
     color: #999;
-    font-size: 13px;
+/*     font-size: 13px; */
     text-align: center;
 /*     border-radius:5px */
 }

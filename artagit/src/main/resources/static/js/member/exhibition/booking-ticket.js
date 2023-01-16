@@ -13,6 +13,7 @@ window.addEventListener("load", function(){
 
 	const payWayBtn = this.document.querySelector(".btn-way");
 	const doPayBtn = this.document.querySelector(".do-pay");
+	const exhDate = this.document.querySelector(".exh-date");
 	let depositDate = this.document.querySelector(".deposit-date");
 
 	let userInfo = this.document.querySelectorAll(".transparency");
@@ -56,8 +57,7 @@ window.addEventListener("load", function(){
 	// 결제방식 선택 버튼 클릭시
 	payWayBtn.onclick = function(e){
 		e.preventDefault();
-		console.log("결제방식 선택 클릭");
-		
+
 		// 결제금액 띄우기
 		totalPrice[1].innerText = (i*price).toLocaleString();
 		totalPrice[2].innerText = (i*price).toLocaleString();
@@ -112,14 +112,13 @@ window.addEventListener("load", function(){
 	let kakaoImg = this.document.querySelector(".kakao-img");
 
 	doPayBtn.onclick = function(e){
-		// const checkbox = document.querySelector(input[id="caution-check"]);
 		e.preventDefault();
 		const checkbox = document.getElementById('caution-check');
 
 		
 
 		if(checkbox.checked == false){
-			window.alert("결제 시, 예매 시 유의사항의 동의가 필요합니다.");
+			window.alert("결제 시, 유의사항 동의가 필요합니다.");
 		}
         console.log("test");
 
@@ -127,10 +126,20 @@ window.addEventListener("load", function(){
     }
 
     function kakaopay() {
-		let memId = doPayBtn.dataset.id;
+		let memId = doPayBtn.getAttribute('data-memId');
+		let exhId = doPayBtn.getAttribute('data-exhId');
 		console.log("memid ==> "+memId);
+		console.log("exhid ==> "+exhId);
+		const bookingDate = exhDate.innerText;
+		console.log("결제방식 선택 클릭");
+		console.log("선택한 날짜" + bookingDate);
+		
+		var yyyy = bookingDate.substring(0,4);
+		var mm = bookingDate.substring(6,8);
+		var dd = bookingDate.substring(10,12);
 		const exhTitle = document.querySelector(".exh-title").innerText;
 		console.log('카카오페이 클릭');
+		console.log("예매일자: "+yyyy+mm+dd);
 		var IMP = window.IMP; // 생략가능
 		IMP.init('imp63753861'); 
 		// i'mport 관리자 페이지 -> 내정보 -> 가맹점식별코드
@@ -149,12 +158,13 @@ window.addEventListener("load", function(){
 			// name: '주문명 : ${auction.a_title}',
 			// 위와같이 model에 담은 정보를 넣어 쓸수도 있습니다.
 			amount: i*price,
+			// approved_at: 
 			// amount: ${bid.b_bid},
 			// 가격 
-			buyer_name: '이름',
+			// buyer_name: '이름',
 			// 구매자 이름, 구매자 정보도 model값으로 바꿀 수 있습니다.
 			// 구매자 정보에 여러가지도 있으므로, 자세한 내용은 맨 위 링크를 참고해주세요.
-			buyer_postcode: '123-456',
+			// buyer_postcode: '123-456',
 			}, function (rsp) { // callback
 				console.log(rsp);
 			if (rsp.success) { // 결제 성공 시
@@ -170,16 +180,17 @@ window.addEventListener("load", function(){
 					},
 					body: JSON.stringify({
 						"booking" : {
-							"date" : '2023-01-13',
+							"date" : `${yyyy}-${mm}-${dd}`,
 							"amount" : numBox.innerText,
 							"phone" : userInfo[0].value,
 							"email" : userInfo[1].value,
 							"memId" : memId,
-							"exhId" : '17'
+							"exhId" : exhId,
+							"payNum" : '202301060002'
 						},
 
 						"payment" : {
-							"payNum" : '12345678',
+							"payNum" : '202301060002',
 							"price" : i*price,
 							"method" : '카카오페이'
 						}
@@ -187,7 +198,7 @@ window.addEventListener("load", function(){
 				})
 				.then(res => res.json())
 				.then( // db 전송 후, 페이지 이동
-					location.replace('/')
+					location.replace('/member/mypage/review/list')
 				)
 			} else {
 				var msg = '결제에 실패하였습니다. 다시 시도해주세요.';
@@ -196,6 +207,8 @@ window.addEventListener("load", function(){
 			alert(msg);
 		}); 
 	};
+
+	
 
 	// 입금기한 출력 (오늘부터 다음날 23:59:59 까지)
 	var today = new Date();
@@ -206,4 +219,8 @@ window.addEventListener("load", function(){
 
 	var dateString = year + '년 ' + month  + '월 ' + day + '일 23시 59분 59초' ;
 	depositDate.innerText = dateString;
+	
+	// input 태그에 숫자만 입력받기
+
+	
 });

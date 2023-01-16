@@ -56,7 +56,7 @@ public interface ExhibitionService {
 	//검색시 전시목록
 	List<ExhibitionView> getListBySearch(String query, int memberId) throws SQLSyntaxErrorException;
 	//일반 전시목록
-	List<ExhibitionView> getListByMemberId(int page, int local, int state, int category, int memberId);
+	List<ExhibitionView> getListByMemberId(int page, int size, int local, int state, int category, int memberId);
 
 	
 	//전시 등록 

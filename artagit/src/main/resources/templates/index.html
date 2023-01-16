@@ -7,95 +7,53 @@
 		<link href="/css/component/exhibition-list.css" type="text/css" rel="stylesheet">
 	    <link href="/css/component/board-list.css" type="text/css" rel="stylesheet">
 	    <link href="/css/index.css" type="text/css" rel="stylesheet">
+	    <link href="/css/exhibition/list.css" type="text/css" rel="stylesheet">
 		<script src="js/index.js"></script>
+		<script src="js/exhibition/list.js"></script>
     </th:block>
     
 <body id="body" layout:fragment="content">
     <main class="main-container">
         <div class="slider-box">
             <div class="slider">
-                <div class="slide"><a href="exhibition/detail.html">"<img src="image/anonymousProject.png" alt=""></a></div>
-                <div class="slide"><a href="exhibition/detail.html"><img src="image/exhimage.png" alt=""></a></div>
-                <div class="slide"><a href="exhibition/detail.html"><img src="image/전시포스터2.jpg" alt=""> </a></div>
+                <div class="slide"><a href="exhibition/detail.html"><img src="image/합스부르크 포스터.jpg" alt=""></a></div>
+                <div class="slide"><a href="exhibition/detail.html"><img src="image/송민호 개인전.jpg" alt=""></a></div>
+                <div class="slide"><a href="exhibition/detail.html"><img src="image/에바알머슨.png" alt=""> </a></div>
+                <div class="slide"><a href="exhibition/detail.html"><img src="image/다비드자맹.jpg" alt=""> </a></div>
                 <a class="prev">&#10094</a>
                 <a class="next">&#10095</a>
             </div>
         </div>
 
         <section class="main-seciton main-community-section">
-            <h1>커뮤니티 글</h1>
+            <h1>커뮤니티</h1>
             <div class="board-box">
-	            <section class="board-list">
-	                <h1 class="board-title"><a href = "../member/board/detail.html">회원님들 그만 좀 싸우세요들.</a></h1>
-	                <div class="board-category-s">[같이가요]</div>
-	                <div class="board-regdate">1분전</div>
+	            <section th:each="boardList:${boardList}"  class="board-list">
+	                <h1  class="board-title"><a th:utext="${boardList.title}" th:href="@{|/member/board/${boardList.id}|}" href = "../member/board/detail.html">회원님들 그만 좀 싸우세요들.</a></h1>
+	                <div th:text="${boardList.name}" class="board-category-s">[같이가요]</div>
+	                <div th:text="${#dates.format(boardList.regDate, 'yy/MM/dd HH:mm')}" class="board-regdate">1분전</div>
 	            </section>
-	            <section class="board-list">
-	                <h1 class="board-title"><a href = "../member/board/detail.html">Entity</a></h1>
-	                <div class="board-category-s">[자유]</div>
-	                <div class="board-regdate">10분전</div>
-	            </section>
-	            <section class="board-list">
-	                <h1 class="board-title"><a href = "../member/board/detail.html">칸쵸</a></h1>
-	                <div class="board-category-s">[전시후기]</div>
-	                <div class="board-regdate">12분전</div>
-	            </section>
-	            <section class="board-list">
-	                <h1 class="board-title"><a href = "../member/board/detail.html">여기 맛있어요!</a></h1>
-	                <div class="board-category-s">[맛집후기]</div>
-	                <div class="board-regdate">23분전</div>
-	            </section>
+
             </div>
             <div class="board-more">
-                <a href="board/list.html">더보기</a>
+                <a href="/board/list">더보기</a>
             </div>
             
         </section>
-        <section class="main-seciton main-popular-exh-seciton">
+        <section class="main-seciton main-popular-exh-seciton exhibition-section">
             <h1>인기있는 전시</h1>
             <section class="exhibition-list">
-                <section class="exhibition">
-                    <form action="">
-                        <h1>이노니머스 프로젝트</h1>
+                <section th:each="exhList:${exhList}" th:attr="data-id=${exhList.id}" class="exhibition">
+                    <form  action="">
+                       <h1 th:utext="${exhList.name}">이노니머스 프로젝트</h1>
                         <div class="exhibition-img-box">
-                            <a href="exhibition/detail.html"><img class="exhibition-img" src="/image/anonymousProject.png" alt=""></a>
-                            <a class="icon icon-heart exhibition-heart" href="" style="background-color: #fff;"></a>
+                            <a href="detail.html" th:href="@{/exhibition/{id}(id=${exhList.id})}"><img class="exhibition-img" th:src="@{|/image/poster/${exhList.poster}|}" src="/image/anonymousProject.png" alt=""></a>
+                            <!-- <a class="icon icon-heart exhibition-heart" href=""></a> -->
+                            <a th:classappend="${exhList.memberId != 0}  ? 'icon-heart-red' : ''" class="icon icon-heart exhibition-heart" href=""></a>
                         </div>
-                        <div class="exhibititon-date">22.11.25 ~ 23.04.02</div>
-                        <div class="exhibition-place">그라운드시소 서촌</div>
-                    </form>
-                </section>
-                <section class="exhibition">
-                    <form action="">
-                        <h1>이노니머스 프로젝트</h1>
-                        <div class="exhibition-img-box">
-                            <a href="exhibition/detail.html"><img class="exhibition-img" src="/image/anonymousProject.png" alt=""></a>
-                            <a class="icon icon-heart exhibition-heart" href="" style="background-color: #fff;"></a>
-                        </div>
-                        <div class="exhibititon-date">22.11.25 ~ 23.04.02</div>
-                        <div class="exhibition-place">그라운드시소 서촌</div>
-                    </form>
-                </section>
-                <section class="exhibition">
-                    <form action="">
-                        <h1>이노니머스 프로젝트</h1>
-                        <div class="exhibition-img-box">
-                            <a href="exhibition/detail.html"><img class="exhibition-img" src="/image/anonymousProject.png" alt=""></a>
-                            <a class="icon icon-heart exhibition-heart" href="" style="background-color: #fff;"></a>
-                        </div>
-                        <div class="exhibititon-date">22.11.25 ~ 23.04.02</div>
-                        <div class="exhibition-place">그라운드시소 서촌</div>
-                    </form>
-                </section>
-                <section class="exhibition">
-                    <form action="">
-                        <h1>이노니머스 프로젝트</h1>
-                        <div class="exhibition-img-box">
-                            <a href="exhibition/detail.html"><img class="exhibition-img" src="/image/anonymousProject.png" alt=""></a>
-                            <a class="icon icon-heart exhibition-heart" href="" style="background-color: #fff;"></a>
-                        </div>
-                        <div class="exhibititon-date">22.11.25 ~ 23.04.02</div>
-                        <div class="exhibition-place">그라운드시소 서촌</div>
+                        <div class="exhibititon-date" th:text="${exhList.startDate +' ~ '+exhList.endDate}">22.11.25 ~ 23.04.02</div>
+                        <div class="exhibition-place" th:text="${exhList.artist}">그라운드시소 서촌</div>
+                        
                     </form>
                 </section>
             </section>

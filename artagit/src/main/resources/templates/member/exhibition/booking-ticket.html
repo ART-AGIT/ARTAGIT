@@ -16,89 +16,94 @@
 	</th:block>
 <body layout:fragment="content">
     <main>
-        <div class="img-and-info">
-            <div class="exh-img-box">
-                <img class="exh-img" src="/image/전시사진.jpg" alt="">
-            </div>
-    
-            <div class="text-box">
-                <div class="exh-title" th:text="${exh.name}">합스부르크 600년, 매혹의 걸작들</div>
-                <div class="exh-place" th:text="${corp.museumName}">국립현대미술관</div>
-                <!-- 날짜출력 -->
-<!--                 <div class="exh-date"> -->
-<!--                     <span class="select-year"></span> -->
-<!--                     <span class="select-month"></span> -->
-<!--                     <span class="select-day"></span> -->
-<!--                 </div> -->
-            </div>
-        </div>
-            <!-- 달력 -->
-        <div class="booking-container">
-	        <div class="calendar-section">
-	            <div class="calendar-nav">
-	                <a href="" class="nav-btn go-prev">prev</a>
-	                <div class="year-month"></div>
-	                <a href="" class="nav-btn go-next">next</a>
+    	<div class="img-and-cal">
+	        <div class="img-and-info">
+	            <div class="exh-img-box">
+	                <img class="exh-img" th:src="@{|/image/poster/${exh.poster}|}" src="/image/전시사진.jpg" alt="">
 	            </div>
-	            <div class="calendar-wrap">
-	                <div class="days">
-	                    <div class="day">MON</div>
-	                    <div class="day">TUE</div>
-	                    <div class="day">WED</div>
-	                    <div class="day">THU</div>
-	                    <div class="day">FRI</div>
-	                    <div class="day">SAT</div>
-	                    <div class="day">SUN</div>
+	    
+	            <div class="text-box">
+	                <div class="exh-title" th:text="${exh.name}">합스부르크 600년, 매혹의 걸작들</div>
+	                <div class="exh-place" th:text="${corp.museumName}">국립현대미술관</div>
+	                <!-- 날짜출력 -->
+	                <div class="exh-date">
+	                    <span class="select-year">&npsp;</span>
+	                    <span class="select-month">&npsp;</span>
+	                    <span class="select-day">&npsp;</span>
 	                </div>
-	                <div class="dates"></div>
 	            </div>
 	        </div>
-	        <p class="choice-date">날짜를 선택해 주세요.</p>
-	        <div class="info-box">
-	            <section class="client-number d-none">
-	                <h1>관람인원</h1>
-	
-	                    <div class="rect-box">
-	                        <div class="item">
-	                            <span class="age">성인</span>
-	                            <span class="price" data-th-text="${#numbers.formatInteger(exh.ticketPrice, 3, 'COMMA') + '원'}">17,500</span>
-	                        </div>
-	
-	                        <div class="item">
-	                            <a class="minus" href="">-</a>
-	                            <span class="count">0</span>
-	                            <a class="plus" href="">+</a>
-	                        </div>
-	                    </div>
-	            </section>
-	
-	            <section class="client-info d-none">
-	                <h1>예매자 정보 입력</h1>
-	                <div class="input-box">
-	                    <div class="name">
-	                        <label for="">예매자 이름</label>
-	                        <span class="username" sec:authentication="principal.username"></span>
-	                    </div>
-	                    <div class="phone">
-	                        <label for="">연락처</label>
-	                        <input class="transparency" name="phone" type="text" placeholder="-를 제외하고 입력해주세요.">
-	                    </div>
-	                    <div class="e-mail">
-	                        <label for="">이메일주소</label>
-	                        <input class="transparency" name="email" type="text">
-	                    </div>
-	                    <p class="caution">티켓수령 및 본인확인을 위해 정확한 정보를 입력해주세요.<br>
-	                    티켓수령은 예매시 부여되는 <span class="highlight">"예약번호"로 관람일 당일 현장에서<br>
-	                    수령하여 입장</span>할 수 있습니다.</span>
-	                </div>
-	            </section>
-	          </div>
-		        <div class="booking-btn">
-		            <a class="btn btn-pay btn-price">결제금액&nbsp;<span class="total-price">0</span>원</a>
-		            <a class="btn btn-pay btn-way" href="/member/exh/pay">결제방식 선택</a>
+	            <!-- 달력 -->
+	        <div class="booking-container">
+		        <div class="calendar-section">
+		            <div class="calendar-nav">
+		                <a href="" class="nav-btn go-prev">prev</a>
+		                <div class="year-month"></div>
+		                <a href="" class="nav-btn go-next">next</a>
+		            </div>
+		            <div class="calendar-wrap">
+		                <div class="days">
+		                    <div class="day">MON</div>
+		                    <div class="day">TUE</div>
+		                    <div class="day">WED</div>
+		                    <div class="day">THU</div>
+		                    <div class="day">FRI</div>
+		                    <div class="day">SAT</div>
+		                    <div class="day">SUN</div>
+		                </div>
+		                <div class="dates"></div>
+		            </div>
 		        </div>
-	        </div>
-
+		        <p class="choice-date">날짜를 선택해 주세요.</p>
+		        <div class="info-box">
+		            <section class="client-number d-none">
+		                <h1>관람인원</h1>
+		
+		                    <div class="rect-box">
+		                        <div class="item">
+		                            <span class="age">성인</span>
+		                            <span class="price" data-th-text="${#numbers.formatInteger(exh.ticketPrice, 3, 'COMMA') + '원'}">17,500</span>
+		                        </div>
+		
+		                        <div class="item">
+		                            <a class="minus" href="">-</a>
+		                            <span class="count">0</span>
+		                            <a class="plus" href="">+</a>
+		                        </div>
+		                    </div>
+		            </section>
+		
+		            <section class="client-info d-none">
+		                <h1>예매자 정보 입력</h1>
+		                <div class="input-box">
+		                    <div class="name">
+		                        <label for="">예매자 이름</label>
+		                        <span class="username" sec:authentication="principal.username"></span>
+		                    </div>
+		                    <div class="phone">
+		                        <label for="">연락처</label>
+		                        <input class="transparency"
+		                        		name="phone"
+		                        		type="text"
+		                        		placeholder="-를 제외하고 입력해주세요."
+		                        oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"/>
+		                    </div>
+		                    <div class="e-mail">
+		                        <label for="">이메일주소</label>
+		                        <input class="transparency" name="email" type="text">
+		                    </div>
+		                    <p class="caution">티켓수령 및 본인확인을 위해 정확한 정보를 입력해주세요.<br>
+		                    티켓수령은 예매시 부여되는 <span class="highlight">"예약번호"로 관람일 당일 현장에서
+		                    수령하여 입장</span>할 수 있습니다.</p>
+		                </div>
+		            </section>
+		          </div>
+		        </div>
+			        <div class="booking-btn">
+			            <a class="btn btn-pay btn-price">결제금액&nbsp;<span class="total-price">0</span>원</a>
+			            <a class="btn btn-pay btn-way" href="/member/exh/pay">결제방식 선택</a>
+			        </div>
+			
 	        
 	        <div class="pay-container d-none">
 		        <div class="payment-container">
@@ -177,7 +182,7 @@
 		                    <div data-tab="3" class="tab-content d-none">
 		                        <div class="payment-select-phone">
 		                            <div>
-		                                준비 중 입니다.
+		                               서비스 준비 중 입니다.
 		                            </div>
 		                        </div>
 		                    </div>
@@ -196,7 +201,7 @@
 		                    <div  class="payment-info-list">
 		                        <div class="payment-info">
 		                            <span>티켓금액</span>
-		                            <span class="total-price">17,500</span>원
+		                            <span class="total-price">17,500</span>
 		                        </div>
 		                        <div>+</div>
 		                        <div class="payment-info">
@@ -230,18 +235,18 @@
 		                    ※ 방문하신 모든 관람객의 안전하고 쾌적한 관람을 위하여 예약 인원 외 추가 입장은 불가합니다.<br>
 		                    ※ 예약시간 10분전부터 15분 후까지만 입장 가능합니다. 이후 방문 시 현장 입장 대기 고객과 동일하게 대기해주셔야 합니다. 현장 상황에 따라 입장이 불가할 수 있으니 예약 시간을 반드시 지켜 주시기 바랍니다.<br>
 		                    ※ 아트아지트는 코로나19 확산방지를 위하여 관람객간 2M 거리두기를 실천하며 운영하고 있습니다. 이에따라, 이전 회차 입장객의 관람 지연 등으로 입장 시 대기 시간이 발생할 수 있습니다.<br>
-		                    ※ 티켓수령은 예매시 부여되는 <span class="highlight">"예약번호"로 관람일 당일 현장에서<br>
-		                    수령하여 입장</span>할 수 있습니다.</span>
+		                    ※ 티켓수령은 예매시 부여되는 <span class="highlight">"예약번호"로 관람일 당일 현장에서
+		                    수령하여 입장</span>할 수 있습니다.
 		                </div>
 		            </section>
 		        </div>
 		
 		        <div class="booking-btn">
 		            <a class="btn btn-pay btn-price">결제금액&nbsp;<span class="total-price">0</span>원</a>
-		            <a class="btn btn-pay btn-way do-pay" th:data-id="${mem.id}">결제하기</a>
+		            <a class="btn btn-pay btn-way do-pay" th:data-memId="${mem.id}" th:data-exhId="${exh.id}">결제하기</a>
 		        </div>
 	        </div>
-	        
+	        </div>
     </main>
     
 </body>

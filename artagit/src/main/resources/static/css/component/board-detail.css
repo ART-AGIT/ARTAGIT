@@ -77,15 +77,20 @@
     width: 12px;
 }
 
-
-
-.post-content-message{
-    min-height: 200px;
+.board-img{
+    max-height: 50%;
+    max-width: 60%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.text-image-wrapper{
+    min-height: 400px;  
 }
 
 .post-content{
     padding: 10px 0 10px 0;
     border-bottom: 1px solid #BCBCBC;
+   
 }
 
 .like{
@@ -203,3 +208,60 @@ textarea:focus{
 .heart-fix{
     padding-top:10px;
 }
+.icon-report{
+    margin-bottom:3px;
+}
+
+#modal.modal-overlay {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            left: 0;
+            top: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.25);
+            box-shadow: 0 8px 32px 0 rgb(136, 30, 123);
+            backdrop-filter: blur(1.5px);
+            -webkit-backdrop-filter: blur(1.5px);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+        #modal .modal-window {
+            background: white;
+            box-shadow: 0 8px 32px 0 rgb(177, 41, 126);
+            backdrop-filter: blur( 13.5px );
+            -webkit-backdrop-filter: blur( 13.5px );
+            border-radius: 10px;
+            border: 1px solid rgba( 255, 255, 255, 0.18 );
+            width:  200px;
+            height: 100px;
+            position: relative;
+            top: -100px;
+            padding: 10px;
+        }
+       
+        
+        #modal .content {
+            margin-top: 20px;
+             margin-bottom:20px;
+            padding: 0px 10px;
+            color: gray;
+        }
+		.button-wrap{
+		   margin-left: 30%;
+		
+		}
+
+
+/* --------pc버전--------------- */
+@media (min-width: 992px) {
+
+    .post-container{
+        margin-left:200px;
+        margin-right:200px;
+    }
+
+  }

@@ -39,8 +39,8 @@
         text-align: center;
         align-self: center;
 
-        height: 222px;
-        width: 158px;
+        height: 100%;
+        width: 100%;
 
     }
         .exhibition-img{
@@ -79,7 +79,7 @@
 @media (min-width: 992px) {
     .exhibition form{
         grid-template: 
-        "img " 360px
+        "img " 395px
         "title" 40px
         "date" 36px
         "place" 36px
@@ -90,7 +90,7 @@
         top: 5px;
     }
     .exhibition-list{
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(4, 1fr);
     }
     .exhibition form>h1{
         font-size: 18px;

@@ -122,7 +122,8 @@ public class ExhibitionController {
 
 		// payment에 bookId를 set해준다.
 		System.out.print("결제 정보 ==> " + payment);
-		payment.setBookId(booking.getId());
+		payment.setBookId(bookingService.getBookIdBypayNum(booking.getPayNum()));
+		System.out.println("booking===> "+ bookingService.getBookIdBypayNum(booking.getPayNum()));
 		payService.add(payment);
 		
 		System.out.println("결제 성공");

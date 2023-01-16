@@ -82,12 +82,13 @@
                 <nav class="main-menu">
                     <h1 class="d-none">목록선택</h1>
                     <ul>
+                    	<li><a href="/corp/exh/reg" sec:authorize="hasAnyRole('ADMIN','CORP')">전시등록</a></li>
                         <li>
                             <a href="/exhibition/list">전시</a>
-                            <ul class="sub-menu">
+<!--                             <ul class="sub-menu">
                                 <li><a href="/exhibition/list">진행 전시</a></li>
-                                <li><a href="/exhibition/list">전시 예정</a></li>
-                            </ul>
+                                <li><a href="/api/lists?p=1&l=0&s=2&c=1">전시 예정</a></li>
+                            </ul> -->
                         </li>
                         <li>
                             <a href="/board/list">커뮤니티</a>
@@ -102,7 +103,7 @@
                             <a class="btn-open-modal" href="">검색</a>
                             <div>
                                 <input type="text" class="search">
-                                <!-- <img src="../image/icons/search.svg" alt=""> -->
+                                <img src="../image/icons/search.svg" alt="">
                             </div>
                         </li>
                         <li>
@@ -129,10 +130,19 @@
                 </nav>
             </section>
         </div>
+        <!-- 모달 전체 -->
+	    <div class="modal">
+	        <div class="icon icon-close btn-close">닫기</div>
+	        <!-- 모달 창 -->
+	        <div class="modal-body modal-search">
+	            <!-- 모달 내용 -->
+	            <form action="/exhibition/search" method="GET">
+	                <input class="input input-search header-search" type="text" placeholder="전시 검색">
+	                <button type="submit" name="q" class="icon icon-search btn-search" value="바보">검색</button>
+	            </form>
+	        </div>
+	    </div>
     </header>
-    <div>
-    	안녕
-    </div>
 
     
 </body>
