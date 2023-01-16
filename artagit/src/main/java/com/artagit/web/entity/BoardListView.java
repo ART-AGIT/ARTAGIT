@@ -17,10 +17,33 @@ public class BoardListView {
 	private String content;	
 	private int like;
 	private Date modiDate;
+	private int hearts;
 	
 	
 	
 	
+	public BoardListView(int id, int memId, String name, String title, String image, int hit, Date regDate,
+			String nickname, int roleId, String useYN, int commentTotal, String content, int like, Date modiDate,
+			int hearts) {
+		super();
+		this.id = id;
+		this.memId = memId;
+		this.name = name;
+		this.title = title;
+		this.image = image;
+		this.hit = hit;
+		this.regDate = regDate;
+		this.nickname = nickname;
+		this.roleId = roleId;
+		this.useYN = useYN;
+		this.commentTotal = commentTotal;
+		this.content = content;
+		this.like = like;
+		this.modiDate = modiDate;
+		this.hearts = hearts;
+	}
+
+
 	public String getContent() {
 		return content;
 	}
@@ -87,20 +110,14 @@ public class BoardListView {
 	
 	
 
-	public BoardListView(int id, int postId, int memId, String name, String title, String image, int hit, Date regDate,
-			String nickname, int roleId, String useYN,int commentTotal) {
-		super();
-		this.id = id;
-		this.memId = memId;
-		this.name = name;
-		this.title = title;
-		this.image = image;
-		this.hit = hit;
-		this.regDate = regDate;
-		this.nickname = nickname;
-		this.roleId = roleId;
-		this.useYN = useYN;
-		this.commentTotal = commentTotal;
+
+	public int getHearts() {
+		return hearts;
+	}
+
+
+	public void setHearts(int hearts) {
+		this.hearts = hearts;
 	}
 
 

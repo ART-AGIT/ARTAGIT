@@ -25,10 +25,10 @@ public class DefaultBoardService implements BoardService{
 	@Autowired
 	private BoardListDao boardListDao;
 
-//	@Autowired
-//	private BoardLikeDao boardLikeDao;
+	@Autowired
+	private BoardLikeDao boardLikeDao;
 	
-	@Override
+	
 	public Board get(int id) {
 		// TODO Auto-generated method stub
 		return boardDao.get(id);
@@ -87,9 +87,10 @@ public class DefaultBoardService implements BoardService{
 
 
 	@Override
-	public Board getDetail(int id) {
+	public Board getDetail(int id, int memId) {
 		// TODO Auto-generated method stub
-		return boardDao.getDetail(id);
+		
+		return boardDao.getDetail(id,memId);
 	}
 
 
@@ -114,18 +115,35 @@ public class DefaultBoardService implements BoardService{
 	}
 
 
-//	@Override
-//	public int likeUp(int boardId, int userId) {
-//		// TODO Auto-generated method stub
-//		return boardLikeDao.add(boardId,userId);
-//	}
-//
-//
-//	@Override
-//	public int countOfLike(int id) {
-//		// TODO Auto-generated method stub
-//		return boardLikeDao.count(id);
-//	}
+	@Override
+	public int likeUp(int boardId, int userId) {
+		// TODO Auto-generated method stub
+		return boardLikeDao.add(boardId,userId);
+	}
+
+
+	@Override
+	public int countOfLike(int id) {
+		// TODO Auto-generated method stub
+		return boardLikeDao.count(id);
+	}
+
+
+	@Override
+	public int deleteLikeUp(int boardId, int userId) {
+		// TODO Auto-generated method stub
+		return boardLikeDao.delete(boardId,userId);
+	}
+
+
+	@Override
+	public List<BoardListView> getLikeList(int memId) {
+		// TODO Auto-generated method stub
+		return boardListDao.getLikeList(memId);
+	}
+
+
+	
 
 
 

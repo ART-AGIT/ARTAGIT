@@ -21,10 +21,8 @@ public interface ExhibitionService {
 	Exhibition getExhById(int exhId);
 	
 
-	int update(Exhibition exh);
-
 	// [주최자] 나의 등록전시 수정
-	int update(int id);
+	int update(Exhibition exh);
 	
 	// [주최자] 나의 등록전시 리스트
 	List<Exhibition> getListById(int id);

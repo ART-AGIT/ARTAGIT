@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{inc/layout}">
+<th:block layout:fragment="css">
+    <link href="/css/admin/deco.css" type="text/css" rel="stylesheet">
+    <link href="/css/member/board/board-reg.css" type="text/css" rel="stylesheet">
+	<script src="/js/header-menu.js"></script>
+	<script src="/js/member/board/reg.js"></script>
+</th:block>
+
+<body id="body" layout:fragment="content">
+  
+   
+    <main class="main-container">
+        <form action="../edit" method="post" enctype="multipart/form-data">
+            <section class="post-option">
+                <div class="first-line">
+                <h1 class="d-none">글작성 옵션</h1>
+              <input type="hidden" name="id" th:value=${board.id}>
+                    <select class="select-box" name="roleId">
+                      <option class="option" value=1>자유</option>
+                      <option class="option" value=2>전시후기</option>
+                      <option class="option" value=3>맛집후기</option>
+                      <option class="option" value=4>같이가요</option>
+                    </select>
+                
+                
+                <div class="save-temp">
+                    <button class="save-temp-btn">임시저장</button>
+                </div>
+                <div class="submit-btn">
+                    <input class="btn btn-default-fill" type="submit" value="등록">
+                </div>
+            </div>
+        </section>
+    </div>
+        <section>
+                <h1 class="">
+                    <label  for="" class="d-none">제목</label>
+                    <input class="input board-title" name = "title" th:value= "${board.title}" placeholder="제목" type="text" id="title">
+                </h1>
+                <div class="">
+                    <label class="d-none" for="" >내용</label>
+                    <textarea class="input" id="content" name="content" th:utext= "${board.content}" placeholder="내용을 입력해주세요."></textarea>
+                </div>
+               
+                <div class="reg-list-input-box detail">
+                    <div class="reg-list-input-box-image">
+                        <!-- <label for="input-image2" class="input-image-button"> -->
+                            <img th:src="@{|/image/${board.image}|}" class="input-image-button input-image-button1">
+                            <input name="img" type="file" class="input-image1 d-none">
+                            <!-- <div class="input-image-camera"></div> -->
+                    </div>
+                </div>
+            </section>
+        </form>
+    </main>
+    
+</body>
+</html>
