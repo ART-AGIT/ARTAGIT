@@ -25,9 +25,9 @@ public interface ExhibitionService {
 	int update(Exhibition exh);
 	
 	// [주최자] 나의 등록전시 리스트
-	List<Exhibition> getListById(int id);
+	List<Exhibition> getListById(int corpId);
 	
-	int countOfExh(int memId);
+	int getCountOfExh(int memId);
 
 	//List<Exhibition> getListByCategory(int page, int local, int state, int category);
 

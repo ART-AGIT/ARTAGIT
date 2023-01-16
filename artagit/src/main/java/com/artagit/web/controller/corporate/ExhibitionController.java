@@ -60,13 +60,14 @@ public class ExhibitionController {
 	@Autowired
 	private PaymentService payListService;
 	
-	//내가 등록한 전시리스트 -----------------
+	//내가 등록한 전시리스트 ========================
 	@GetMapping("list")
-	public String list(Model model) {
+	public String list(Model model,@AuthenticationPrincipal ArtagitUserDetails user) {
 			//@RequestParam(name="memId")int memId,Model model) {
-		int memId=1;
-		List<Exhibition> list = service.getListById(memId);
-		int countOfExh = service.countOfExh(memId);
+		int userId = user.getId();
+		List<Exhibition> list = service.getListById(userId);
+		int countOfExh = service.getCountOfExh(user.getId());
+		model.addAttribute("nickname",user.getUsername());
 		model.addAttribute("list",list);
 		model.addAttribute("countOfExh",countOfExh);
 		
