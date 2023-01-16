@@ -15,19 +15,29 @@ window.addEventListener("load",function(){
 	const imgInput = this.document.querySelector(".img-input");
 	const fileInput = this.document.querySelector(".file-input");
 	
+	// 회원탈퇴 modal
+	const modal = document.querySelector("#modal");
+	const unregBtn = this.document.querySelector(".btn-unregister");
+	const cancelBtn = this.document.querySelector(".cancel-btn");
+	const saveBtn = this.document.querySelector(".save-btn");
+
 	// 회원 탈퇴
-//	const btnUnregister = document.querySelector(".btn-unregister");
+	unregBtn.onclick = function(e){
+		modal.style.display="flex";
+	}
+
+	cancelBtn.onclick = function(e){
+		e.preventDefault();
+		
+		if(e.target.classList.contains("cancel-btn"))
+			modal.style.display="none";
+	}
 	
-//	btnUnregister.onclick = function(e){
-//			if(e.target.classList.contains("btn-unregister")){
-//		        console.log("test");
-//				fetch('/corp/account-edit/delete');
-//			}
-//		}
+
+		// 토글
 		formWrap.onclick = function(e){
             // e.preventDefault()
-            
-			
+
             if(regListBox[1].classList.contains("d-none") && e.target == btnHeader[1]){
                 contents[1].classList.remove("d-none");
 				icon[1].classList.remove("icon-arrow-toggle-up");
@@ -53,6 +63,7 @@ window.addEventListener("load",function(){
 				icon[0].classList.add("icon-arrow-toggle-up");
               
             }
+
 
 			if(e.target.classList.contains("icon-write")){
 				//  img 수정

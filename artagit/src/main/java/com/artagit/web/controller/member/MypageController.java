@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.artagit.web.entity.ArtagitUserDetails;
 import com.artagit.web.entity.BoardListView;
 import com.artagit.web.entity.BookingList;
+import com.artagit.web.entity.Exhibition;
 import com.artagit.web.entity.Member;
 import com.artagit.web.entity.Payment;
 import com.artagit.web.entity.Review;
@@ -38,8 +39,8 @@ public class MypageController {
 	private ExhibitionService exhService;
 	
 	@Autowired
-
 	private BookingService bookingService;
+	@Autowired
 	private MemberService memberService;
 	
 	@Autowired
@@ -55,6 +56,9 @@ public class MypageController {
 	
 	//@Autowired
 	//private PaymentService paymentService;
+	
+//	@Autowired
+//	private ExhLikeService exhLikeService;
 	
 	@Autowired
 	private BoardService boardService;
@@ -171,12 +175,19 @@ public class MypageController {
 		return "member/mypage/account-edit";
 	}
 
+
+	// 내가 좋아요한 전시
 	@GetMapping("like-list")
-	public String likeList(@AuthenticationPrincipal ArtagitUserDetails user) {
-		List<BoardListView> list = boardService.getLikeList(user.getId());
+	public String likeList(@AuthenticationPrincipal ArtagitUserDetails user,Model model) {
+		
+		List<Exhibition> list = exhService.getLikeListById(user.getId());
+		System.out.println("좋아요한 전시이이이~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+		System.out.println(list);
+		model.addAttribute("list", list);
 		return "member/mypage/like-list";
 	}
-	
+		
+
 	/********내가 쓴 게시글 리스트 불러오기*******/
 
 //	@GetMapping("/post-list")

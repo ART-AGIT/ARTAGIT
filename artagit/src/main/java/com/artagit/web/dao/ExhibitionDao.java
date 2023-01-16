@@ -64,6 +64,8 @@ public interface ExhibitionDao {
 
 	int insert(Exhibition exhibition);
 
+	// [일반회원] 좋아요 전시
+	List<Exhibition> getLikeList(int id);
 
 	
 }
