@@ -44,8 +44,8 @@
 		<set>
 			title = #{title},
 			content=#{content},
-			image=#{image},
-			roleId=#{roleId}
+			roleId=#{roleId},
+			<if test="image != null">image=#{image}</if>
 		</set>
 		where id =#{id}
 	</update>
