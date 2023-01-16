@@ -51,6 +51,7 @@ const modalDel = document.querySelector(".madal-delete");
 const btnWrap = this.document.querySelector(".button-wrap");
 let el = null;
 let id = 0;
+
 	//    모달~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 	// 취소, 삭제 누르면 모달 사라짐
