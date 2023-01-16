@@ -208,7 +208,9 @@ textarea:focus{
 .heart-fix{
     padding-top:10px;
 }
-
+.icon-report{
+    margin-bottom:3px;
+}
 
 #modal.modal-overlay {
             width: 100%;
@@ -253,3 +255,13 @@ textarea:focus{
 		
 		}
 
+
+/* --------pc버전--------------- */
+@media (min-width: 992px) {
+
+    .post-container{
+        margin-left:200px;
+        margin-right:200px;
+    }
+
+  }

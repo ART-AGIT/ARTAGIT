@@ -57,6 +57,7 @@ public class MyPageApi {
 		return dto;
 	}
 	
+
 	
 	
 	/*-----------모달로 리뷰보기------*/ 
@@ -116,15 +117,16 @@ public class MyPageApi {
 	}
 	
 
-	/******좋아요한 게시글***********/
-	@GetMapping("/post-like")
-	public List<BoardListView> getListByCategory(
-			@AuthenticationPrincipal ArtagitUserDetails user) {
-		int memId = user.getId();
-		List<BoardListView> list = boardService.getLikeList(memId);
-		System.out.println("++++++++++=" + list);
-		return list;
-	}
+//	/******좋아요한 게시글***********/
+//	@GetMapping("/post-like")
+//	public List<BoardListView> getListByCategory(
+//			@AuthenticationPrincipal ArtagitUserDetails user) {
+//		int memId = user.getId();
+//		List<BoardListView> list = boardService.getLikeList(memId);
+//		System.out.println("++++++++++=" + list);
+//		return list;
+//	}
+
 
 	
 }

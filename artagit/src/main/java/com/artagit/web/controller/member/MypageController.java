@@ -178,6 +178,7 @@ public class MypageController {
 	}
 	
 	/********내가 쓴 게시글 리스트 불러오기*******/
+
 //	@GetMapping("/post-list")
 //	public String post(Model model,@AuthenticationPrincipal ArtagitUserDetails user) {
 //		List<BoardListView> list = boardService.getListById(user.getId());
@@ -187,5 +188,26 @@ public class MypageController {
 //		return "member/mypage/post-list";
 //		
 //	}
+
+	@GetMapping("/post-list")
+	public String post(Model model,@AuthenticationPrincipal ArtagitUserDetails user) {
+		List<BoardListView> list = boardService.getListById(user.getId());
+		model.addAttribute("list",list);
+		
+		System.out.println("로그인한 아이디가 쓴 글====>"+model);
+		return "member/mypage/post-list";
+		
+	}
+	/******좋아요한 게시글***********/
+	@GetMapping("/post-like")
+	public String getListByCategory(
+			@AuthenticationPrincipal ArtagitUserDetails user,Model model) {
+		int memId = user.getId();
+		List<BoardListView> list = boardService.getLikeList(memId);
+		model.addAttribute("list",list);
+		System.out.println("++++++++++=" + list);
+		return "member/mypage/post-like";
+	}
+
 
 }
