@@ -35,6 +35,17 @@ public interface CommentDao {
 
 
 	List<Comment> getNickname(int id);
+
+
+
+
+
+
+	Comment getModifyOne(Comment comment);
+
+
+
+	Comment modifyTest(Comment comment);
 	
 }
 	

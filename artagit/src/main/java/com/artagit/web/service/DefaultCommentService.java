@@ -22,15 +22,22 @@ public class DefaultCommentService implements CommentService {
 	@Autowired
 	private MemberDao memberDao;
 
-	@Override
-	public List<Comment> getList(int postId) {
-		return dao.getList(postId);
-	}
+	
 
 
 	@Override
-	public int modify(Comment comment) {
-		return dao.modify(comment);
+	public Map<String, Object> modify(Comment comment) {
+		Member member = memberDao.get(comment.getMemId());
+//		System.out.println(comment);
+		dao.modify(comment);
+		Comment lastOne = dao.getModifyOne(comment);
+		System.out.println(member);
+		
+		Map<String, Object> dto = new HashMap<>();
+//		dto.put("member", member.getNickname());
+		dto.put("comment", lastOne);
+		return dto;
+		
 	}
 
 	@Override
@@ -50,6 +57,7 @@ public class DefaultCommentService implements CommentService {
 		Map<String, Object> dto = new HashMap<>();
 		dto.put("member", member.getNickname());
 		dto.put("comment", lastOne);
+//		System.out.println(lastOne);
 		return dto;
 	}
 
@@ -61,6 +69,18 @@ public class DefaultCommentService implements CommentService {
 		return list;
 	}
 
+	@Override
+	public Comment modifyTest(Comment comment, int id) {	
+		Comment result = dao.modifyTest(comment);
+		
+		return result;
+	}
+
+
+	
+
+
+	
 
 	
 

@@ -10,7 +10,7 @@
 
 </head>
 <script src="../../js/header-menu.js"></script>
-<script src="../../js/board/comment/comment.js"></script>
+<script src="../../js/board/comment/comment.js" defer></script>
 <body>
     
     <main class="main-container">
@@ -82,9 +82,16 @@
                 <h1 class="icon icon-comment">댓글</h1>
                 <div th:utext="${board.commentTotal}">11 </div>
             </section>
-            
-            
-                   <section  class="comment-detail"  th:each="comment : ${comments}" >
+<!--              <span  th:if="${comment == null}" class="comment-detail"></span> -->
+                   <section  class="comment-detail" th:each="comment : ${comments}">
+
+<!--                    <section  class="comment-detail"  th:text="${comment eq null}" ? th:each="comment : ${comments}" : th:text="${comment} > -->
+<!--                    <section  class="comment-detail"  th:each="comment : ${comments}" > -->
+<!--                      <div th:if="${comment == null"> -->
+<!--                      <section  class="comment-detail d-none"  th:each="comment : ${comments}" > -->
+<!--                      </section> -->
+<!--                      </div> -->
+<!--            <th:block    th:each="comment : ${comments}" > -->
             <form action="">
                <h1 class="d-none">댓글1개</h1>
                <div class="comment-writer-wrapper">
@@ -105,15 +112,17 @@
                      2022.11.26 18:38</div>
                   <div class="re-comment">
                      <a href="">답글쓰기</a>
-<!--                      <div th:if="${user.id == comment.memId}"> -->
-<!--                      <button id="1" class="comment-modify" type="submit" value="수정">수정</button> -->
-<!--                      <button id="2" class="comment-delete" type="submit" value="삭제">삭제</button> -->
-<!--                      </div> -->
+                     <div th:if="${user.id == comment.memId}">
+                     <button id="1" class="comment-modify" type="submit" value="수정">수정</button>
+                     <button id="2" class="comment-delete" type="submit" value="삭제">삭제</button>
+                     </div>
                         
                      
                   </div>
                </div>
                </form>
+               
+<!--             </th:block> -->
             </section>
             <div class="comment-page">
                <a href="">1</a>

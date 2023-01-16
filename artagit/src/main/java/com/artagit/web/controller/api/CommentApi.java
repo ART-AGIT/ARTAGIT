@@ -19,29 +19,43 @@ import com.artagit.web.service.CommentService;
 @RequestMapping("/api")
 public class CommentApi {
 
-	 
 	@Autowired
 	private CommentService service;
-	
 
-	
 	@PostMapping("reg")
-	public Map<String, Object> reg(Comment comment,@AuthenticationPrincipal ArtagitUserDetails user) {
-		
-		
-		
+	public Map<String, Object> reg(Comment comment, @AuthenticationPrincipal ArtagitUserDetails user) {
+
 		Map<String, Object> dto = new HashMap<>();
 		Map<String, Object> list = service.write(comment);
 
 		dto.put("status", 200);
-		dto.put("member", list.get("member") );
-		dto.put("comment", list.get("comment") );
+		dto.put("member", list.get("member"));
+		dto.put("comment", list.get("comment"));
+		
 		return dto;
 	}
+
+	@PutMapping("update")
+	public Map<String, Object> update(Comment comment,@AuthenticationPrincipal ArtagitUserDetails user) {
+		System.out.println(comment);
+		Map<String, Object> dto = new HashMap<>();
+		Map<String, Object> list = service.modify(comment);
+		dto.put("status", 200);
+		dto.put("members", list.get("member"));
+		dto.put("comments", list.get("comment"));
+		System.out.println(dto);
+		return dto;
+
+	}
+	
 	
 //	@PutMapping("update")
-//	public 
-
-
+//	public Comment update(Comment comment, @AuthenticationPrincipal ArtagitUserDetails user) {
+//		int id = 3;
+//	Comment	result = service.modifyTest(comment, id);
+//		return result;
+//	}
+//	
+	
 	
 }

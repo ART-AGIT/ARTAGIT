@@ -30,6 +30,14 @@ SELECT * FROM Comment INNER JOIN Member ON Comment.memId = Member.id   where pos
 		limit 0 ,1
 
 	</select>
+	
+	
+<select id="getModifyOne" resultType="Comment">
+		select * from Comment
+		where id =#{id}
+		
+
+	</select>
 
 	<insert id="add" parameterType="com.artagit.web.entity.Comment">
 		  insert into Comment (postId, memId, content )
@@ -38,11 +46,17 @@ SELECT * FROM Comment INNER JOIN Member ON Comment.memId = Member.id   where pos
     
 <!-- 댓글 수정 -->
 <update id="modify" parameterType="com.artagit.web.entity.Comment">
-    update tbl_reply set
-        memId = #{memId},
+    update Comment set
         content = #{content}
-    where id = #{id}
-        and postId = #{postId}    
+    where  id=#{id} 
+         
+</update>
+
+<update id="modifyTest"  parameterType="com.artagit.web.entity.Comment">
+    update Comment set
+        content = #{content}
+    where  id=#{id}  
+         
 </update>
 
 <!-- 댓글 삭제 -->
