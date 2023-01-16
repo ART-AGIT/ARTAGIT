@@ -108,6 +108,7 @@ public class artagitUserDetailsService implements UserDetailsService {
 			System.out.println("업체회원!!!!!"+user);
 		}
 		System.out.println(username + "회원의 권한 ====> "+authorities);
+		System.out.println(user.getAddress());
 		return user;
 	}
 }

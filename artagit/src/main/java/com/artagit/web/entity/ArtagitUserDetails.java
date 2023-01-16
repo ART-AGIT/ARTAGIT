@@ -18,6 +18,7 @@ public class ArtagitUserDetails implements UserDetails {
 	private String loginId;
 	private String username;
 	private String password;
+
 	private String name;
 	private String phone;
 	private String nickname;
@@ -32,6 +33,8 @@ public class ArtagitUserDetails implements UserDetails {
 	private String museumName;
 	private String address;
 	private int roleId;
+	
+	
 	
 	
 	public int getRoleId() {
@@ -126,19 +129,19 @@ public class ArtagitUserDetails implements UserDetails {
 
 	@Override
 	public boolean isAccountNonLocked() {
-		// TODO Auto-generated method stub
+		
 		return true;
 	}
 
 	@Override
 	public boolean isCredentialsNonExpired() {
-		// TODO Auto-generated method stub
+		
 		return true;
 	}
 
 	@Override
 	public boolean isEnabled() {
-		// TODO Auto-generated method stub
+		
 		return true;
 	}
 
@@ -164,6 +167,7 @@ public class ArtagitUserDetails implements UserDetails {
 				+ ", address=" + address + ", roleId=" + roleId + "]";
 	}
 
+	
 	public String getAddress() {
 		return address;
 	}
@@ -188,7 +192,11 @@ public class ArtagitUserDetails implements UserDetails {
 		this.businessNum = businessNum;
 		
 	}
+	public String getManager() {
+		return manager;
+	}
 
+	
 	public void setManager(String manager) {
 		this.manager = manager;
 		
@@ -230,9 +238,7 @@ public class ArtagitUserDetails implements UserDetails {
 		return businessNum;
 	}
 
-	public String getManager() {
-		return manager;
-	}
+	
 	
 	
 
