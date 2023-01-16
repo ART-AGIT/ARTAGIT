@@ -279,6 +279,9 @@ main{
 	    height: 75px;
 	}
 	/* 돋보기위치 */
+	.search-btn-pc{
+    	margin: 0 10px;
+   	}
 	.btn-search{
 	    right: 20px;
 	    top: 36%;
