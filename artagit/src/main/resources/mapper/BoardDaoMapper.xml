@@ -10,7 +10,8 @@
     select 
 			B.*,
 			(select count(memId) from BoardLike where memId = #{memId} and postId = B.id group by postId) heart,
-			(select memId from BoardLike where memId = B.memId and memId = #{memId}) memberId
+			(select memId from BoardLike where memId = B.memId and memId = #{memId}) memberId,
+			(select image from Member where id = b.memId ) memImage,
 		from Board B
       where id =#{id}
       and useYN='Y'
@@ -55,7 +56,8 @@
     (select count(id) from Comment where Comment.postid = b.id group by postId) commentTotal,
     (select nickname from Member where  id = b.memId ) nickname,
     (select name from BoardCategory where id = b.roleId) name,
-    (select count(memId) from BoardLike where postId = b.id group by postId) hearts
+    (select count(memId) from BoardLike where postId = b.id group by postId) hearts,
+    (select image from Member where id = b.memId ) memImage
 from Board b
 where
 			 b.id = #{id}

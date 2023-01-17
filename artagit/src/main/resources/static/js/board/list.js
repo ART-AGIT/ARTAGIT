@@ -47,9 +47,9 @@ window.addEventListener("load", function() {
          	<a href = "/member/board/${board.id}">${board.title}</a>
         </h1>
         <div>[${board.name}]</div>
-        <div class="board-regdate">1분전</div>
+        <div class="board-regdate">${board.regDate}</div>
         <div class="board-writer-info">
-                <img class="profile" src = "../image/accountImage.png">
+                <img class="profile" src = "../image/${board.memImage}">
             <div>${board.nickname}</div>
         </div>
         
@@ -69,7 +69,9 @@ window.addEventListener("load", function() {
             </div>
         </div>
         <div class="board-post-img-box">
+        <a href="/member/board/${board.id}">
            <img onerror="this.style.display='none'"  src="/image/${board.image}" class="post-img">
+           </a>
         </div>
           </section>
              <div class="writing-img-box">

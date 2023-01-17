@@ -6,8 +6,12 @@
 }
 .icon-report{
     -webkit-mask-size: 20px 20px;
+    cursor:pointer;
 }
 
+.post-like-btn{
+    cursor:pointer;
+}
 
 
 .post-detail-header{
@@ -189,6 +193,7 @@ textarea:focus{
     height: 20px;
     width: 20px;
     padding-right: 3px;
+    border-radius:100px;
 }
 .comment-writing>div{
     max-width: 40px;

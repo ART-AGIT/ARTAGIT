@@ -160,16 +160,20 @@ li.board-selected{
 
 /* --------------pc버전------------------ */
 @media (min-width: 992px) {
+    main{
+        width:1000px;
+    }
 
     .content-container{
-        display:grid;
-        grid-template-columns:1fr 4fr;
+        display: grid;
+        grid-template-columns: 1fr 6fr;
+    
     }
     
     .board-category-l{
         display:flex;
         flex-direction:column;
-        font-size: 20px;
+        font-size: 16px;
         position: fixed;
     }
 
@@ -186,22 +190,26 @@ li.board-selected{
         max-width: 800px;
         
     }
-
+   
     
     .board-list{
+       
         display: grid;
         grid-template: 
-        "category regdate img" 30px
-        "title title img" 50px
-        "writer post-info img " 30px
-        / 1.5fr 10fr 1.5fr;
+        "category category category img" 20px
+        "title title title img" 30px
+        "writer regdate post-info img " 30px
+                / 3fr 1fr 1fr 0.8fr;
         padding: 10px;
-        border-bottom: 1px solid  #9E9E9E;
+        
+        align-items: center;
+    
+      
     
     }
 
     .board-box-container{
-        max-width: 800px;
+        max-width: 700px;
     }
     
     .board-post-img-box{
@@ -214,9 +222,35 @@ li.board-selected{
         
 
 
+    .menu-s{
+        padding-left:50px;
+    }
 
 
+    .board-title{
+            display: flex;
+            font-size: 18px;
+          
+            align-items: center;
 
+    }
 
+    .icon-size{
+        -webkit-mask-size: 15px 15px;
+    }
+
+ 
+    .board-regdate{
+        justify-content: center;
+        font-size: 13px;
+    }
+
+    .post-img{
+   
+        object-fit: cover;
+        height: 80px;
+        width: 84px;
+        
+    }
 
 }

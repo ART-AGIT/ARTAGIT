@@ -10,15 +10,10 @@
 
     }
 
-    .menu-list-s{
-        min-width:300px;
-        display:flex;
-        
-    }
+    
 
     .menu-list-s>li{
-        display:flex;
-        justify-content: center;
+      
     }
 
 

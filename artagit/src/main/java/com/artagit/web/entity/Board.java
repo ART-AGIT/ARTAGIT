@@ -8,6 +8,7 @@ public class Board {
 	private String name;
 	private String title;
 	private String image;
+	private String memImage;
 	private int hit;
 	private Date regDate;
 	private String nickname;
@@ -20,6 +21,12 @@ public class Board {
 	private int heart;
 	private int hearts;
 	
+	public String getMemImage() {
+		return memImage;
+	}
+	public void setMemImage(String memImage) {
+		this.memImage = memImage;
+	}
 	public int getHeart() {
 		return heart;
 	}
@@ -27,15 +34,18 @@ public class Board {
 		this.heart = heart;
 	}
 	
-	public Board(int id, int memId, String name, String title, String image, int hit, Date regDate, String nickname,
-			int roleId, String useYN, int commentTotal, String content, int like, Date modiDate, int heart,
-			int hearts) {
+	
+	
+	public Board(int id, int memId, String name, String title, String image, String memImage, int hit, Date regDate,
+			String nickname, int roleId, String useYN, int commentTotal, String content, int like, Date modiDate,
+			int heart, int hearts) {
 		super();
 		this.id = id;
 		this.memId = memId;
 		this.name = name;
 		this.title = title;
 		this.image = image;
+		this.memImage = memImage;
 		this.hit = hit;
 		this.regDate = regDate;
 		this.nickname = nickname;

@@ -32,15 +32,16 @@
 	                <li class="list"><a class="deco deco-heart-red" href="../../member/mypage/like-list">좋아요 전시</a></li>
 	                <li class="list"><a class="deco deco-smile"  href="../../member/mypage/account-edit">내 정보 수정</a></li>
 	                <li class="list line-on"><a class="deco deco-write deco-write-on" href="../../member/mypage/post-list">게시글 관리</a></li>
+	            <div class="">
+		           
+		                <div class="list line-on menu-s"><a class=" " href="../../member/mypage/post-list">- 작성글 관리</a></div>
+		                <div class="list menu-s"><a class="deco-heart-on" href="../../member/mypage/post-like">- 좋아요 한 게시글</a></li>
+		            
+        </div>	
 	            </ul>
 	        </div>
 	        <div class="box-container">
- 		<div class="menu-box">
-            <ul class="menu-list-s">
-                <li class="list line-on"><a class=" " href="../../member/mypage/post-list">작성글 관리</a></li>
-                <li class="list"><a class="deco-heart-on" href="../../member/mypage/post-like">좋아요 한 게시글</a></li>
-            </ul>
-        </div>	        
+ 		        
        <div class="board-box">
 			    <div class="post-list">
 			        <h1 class="d-none">게시글 목록</h1>
@@ -75,10 +76,10 @@
 					        
 					        
 					        <div class="board-post-img-box">
-					            <img class="post-img" onerror="this.style.display='none'" 	src = "../image/전시포스터.jpg" th:src="@{|/image/${board.image}|}">
+					          	<a th:href="@{|/member/board/${board.id}|}"><img class="post-img" onerror="this.style.display='none'" 	src = "../image/전시포스터.jpg" th:src="@{|/image/${board.image}|}"></a>
 					        </div>
 					        </section>
-					  		</form>
+					  	</form>
 			   		 
 			 </div>
 			</div>

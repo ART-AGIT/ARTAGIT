@@ -20,17 +20,17 @@
     <nav class = "board-category-box">
         <ul class="board-category-l">
             <!-- <li>전체 글</li> -->
-            <li data-id="0" th:class="${param.c}==null?'board-selected'" class="deco-ticket-on ">전체 글</a></li>
-            <li data-id="1" th:class="${#strings.equals(param.c, '1')}?'board-selected'"class="line-on">자유</a></li>
-            <li data-id="2" th:class="${#strings.equals(param.c, '2')}?'board-selected'">전시후기</a></li>
-            <li data-id="3" th:class="${#strings.equals(param.c, '3')}?'board-selected'">맛집후기</a></li>
-            <li data-id="4" th:class="${#strings.equals(param.c, '4')}?'board-selected'">같이가요</a></li>
+            <li data-id="0" th:class="${param.c}==null?'board-selected'" class="deco-ticket-on  ">전체 글</li>
+            <li data-id="1" th:class="${#strings.equals(param.c, '1')}?'board-selected'"class="line-on icon-note">자유게시판</li>
+            <li data-id="2" th:class="${#strings.equals(param.c, '2')}?'board-selected'" class="icon-picture">전시후기</li>
+            <li data-id="3" th:class="${#strings.equals(param.c, '3')}?'board-selected'" class="icon-food">맛집후기</li>
+            <li data-id="4" th:class="${#strings.equals(param.c, '4')}?'board-selected'" class="icon-smile">같이가요</li>
         </ul> 
     </nav>
    <div class="board-box-container">
     <div class="board-box">
 			    <div class="post-list">
-			        <h1 class="d-none">게시글 목록</h1>
+			        <h1 class="">커뮤니티</h1>
 			            
 					        <section class="notice">
 					            <h1 class="d-none">공지목록</h1> 
@@ -41,7 +41,7 @@
 					            <div class="notice-info">
 					                
 				                <div>
-				                    <img class="profile" src = "../image/accountImage.png">
+				                   
 				                	<div>운영자 </div>
 					            </div>
 					            <div> 22-11-30 </div>
@@ -59,32 +59,33 @@
 						        </h1>
 						     <div><a th:text="[+${board.name}+]" class="board-category-s" href="">[같이가요]</a></div>
 						        
-						        <div class="board-regdate" th:text="${#dates.format(board.regDate, 'HH:mm')}">1분전</div>
+						        <div class="board-regdate" th:text="${#dates.format(board.regDate, 'YY/MM/DD HH:mm')}">1분전</div>
 						     
 						        <div class="board-writer-info">
-					                <img class="profile" src = "../image/accountImage.png">
+					                <img class="profile" src = "" th:src="@{|/image/${board.memImage}|}">
 					            	<div th:text="${board.nickname}">운영자 </div>
 						        </div>
 					        
 					        <div class="board-post-info">
 					            
 					            <div class="view">
-					                <div class="icon icon-view">조회수 아이콘</div>
+					                <div class="icon icon-view icon-size">조회수 아이콘</div>
 					                <div th:text=${board.hit}>11</div>
 					            </div>
 					            <div class="like-up">
-					                <div class="icon icon-like-up">좋아요 아이콘</div>
+					                <div class="icon icon-like-up icon-size">좋아요 아이콘</div>
 					                <div th:text=${board.hearts}>11</div>
 					            </div>
 					            <div class="comment">
-					                <div class="icon icon-comment">댓글 아이콘</div>
+					                <div class="icon icon-comment icon-size">댓글 아이콘</div>
 					                <div th:text=${board.commentTotal}>11</div>
 					            </div>
 					        </div>
 					          
 					        
 					        <div class="board-post-img-box">
-					            <img class="post-img" onerror="this.style.display='none'" 	src = "../image/전시포스터.jpg" th:src="@{|/image/${board.image}|}">
+					            
+					        	<a th:href="@{|/member/board/${board.id}|}"><img class="post-img" onerror="this.style.display='none'" 	src = "../image/전시포스터.jpg" th:src="@{|/image/${board.image}|}"></a>
 					        </div>
 					         <div class="writing-img-box">
 							        <a href = "../member/board/reg"><img src = "../image/writing-img.png"></img></a>

@@ -43,7 +43,7 @@
             </div>
            
                 <div class="post-writer-info">
-                    <img class = "profile-photo" src = "../../image/accountImage.png">
+                    <img class = "profile-photo" th:src="@{|/image/${board.memImage}|}" src = "../../image/accountImage.png">
                     <div><a th:text="${board.nickname}" href = "../mypage/like-list.html">운영자</a></div>
                 </div>
             
