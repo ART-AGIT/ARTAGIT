@@ -153,10 +153,10 @@
 		update Exhibition set useYn = 'N' where id = #{id}
 	</update>
 	
-	<delete id="">
-		delete from Exhibition
-			where id = #{id}
-	</delete>
+<!-- 	<delete id=""> -->
+<!-- 		delete from Exhibition -->
+<!-- 			where id = #{id} -->
+<!-- 	</delete> -->
 	
 <!-- 	전시 좋아요 -->
 	<select id="getLikeList" resultType="com.artagit.web.entity.ExhLikeList">

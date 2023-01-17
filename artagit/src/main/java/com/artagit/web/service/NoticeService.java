@@ -8,4 +8,7 @@ public interface NoticeService {
 	
 	// 공지 목록를 불러오는 메서드 
 	List<Notice> getList(int page);
+	
+	// 공지 상세보기 메서드
+	Notice getNoticeById(int id);
 }

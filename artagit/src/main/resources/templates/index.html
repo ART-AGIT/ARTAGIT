@@ -31,7 +31,7 @@
 	            <div class="board-box">
 		            <section th:each="boardList:${boardList}"  class="board-list">
 		                <h1  class="board-title"><a th:utext="${boardList.title}" th:href="@{|/member/board/${boardList.id}|}" href = "../member/board/detail.html">회원님들 그만 좀 싸우세요들.</a></h1>
-		                <div th:text="${boardList.name}+' 게시판'" class="board-category-s">[같이가요]</div>
+		                <div th:text="${boardList.name}" class="board-category-s">[같이가요]</div>
 		                <div th:text="${#dates.format(boardList.regDate, 'yy/MM/dd HH:mm')}" class="board-regdate">1분전</div>
 		            	<div class="board-post-info">   
 				            <div class="view">
