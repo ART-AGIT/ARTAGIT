@@ -88,10 +88,12 @@ form {
 @media (min-width: 993px){
 	
 	.main-content{
-	    display: flex;
-	    flex-direction: row;
-	    gap:30px;
+		padding-top:80px;
+		display:flex;
+		flex-direction:row;
+		gap:60px;
 	}
+
 	.my-booking{
 		display:flex;
 		padding-left:15px;

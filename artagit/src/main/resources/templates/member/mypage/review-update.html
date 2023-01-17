@@ -53,7 +53,7 @@
 		                    </div>
 		                    <div>
 		                        <span class="exh-loc" th:text="${booking.museumName}">국립현대미술관</span>
-		                        <span class="exh-date" th:text="${booking.bookingDate}">2022.08.08</span>
+		                        <span class="exh-date" th:text="${#dates.format(booking.bookingDate,'yyyy-MM-dd')}">2022.08.08</span>
 		                    </div>
 		    
 		                    <div class="color-option">

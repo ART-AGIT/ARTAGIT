@@ -6,10 +6,35 @@ window.addEventListener("load",function(){
 	var colorInput = document.querySelector(".color-input");
 	const reviewForm = document.querySelector(".review-form");
 //	const optionList = document.querySelector(".review-option-list");
+	const colorOption = document.querySelector(".color-option");
+	var color=1;
+//	colorInput.oninput= function(e){
+//        box.style.background = colorInput.value;
+//    }
 	
-	colorInput.oninput= function(e){
-        box.style.background = colorInput.value;
-    }
+	
+	colorOption.onclick=function(e){
+		
+		if(e.target.classList.contains("purple")){
+			box.style.background = "#E2D1F0";
+			color = "#E2D1F0";
+			}
+		else if(e.target.classList.contains("green")){
+			box.style.background = "#E4F0D1";
+			color = "#E4F0D1";
+			}
+		else if(e.target.classList.contains("blue")){
+			box.style.background = "#D1EBF0";
+			color = "#D1EBF0";
+			}
+			console.log(color);
+	}
+	
+	
+	
+	
+	
+	
 	
 	btnList.onclick=function(e){
 		
@@ -18,7 +43,8 @@ window.addEventListener("load",function(){
 			
 			let form = new FormData();
 			form.append("content",writeForm.querySelector(".input-review").value);
-			form.append("color",box.querySelector(".color-input").value);
+//			form.append("color",box.querySelector(".color-input").value);
+			form.append("color",color);
 			var id = document.querySelector(".reviewId").value;
 			var payid = document.querySelector(".payId").value;
 			console.log(payid);
@@ -78,10 +104,8 @@ window.addEventListener("load",function(){
 			          	
 	        	`;
 		        	
-		        	
-	        	// 2번째시도 
+		        
 	        	reviewForm.innerHTML="";
-//	        	optionList.innerHTML="";
 	        	btnList.innerHTML="";
 						
 	        	reviewForm.insertAdjacentHTML("afterend",template);	

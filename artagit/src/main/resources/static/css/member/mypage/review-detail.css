@@ -111,8 +111,10 @@
 @media (min-width: 993px){ 
 
 	.main-content{
+		padding-top:80px;
 		display:flex;
 		flex-direction:row;
+		gap:60px;
 	}
 	
 	form{

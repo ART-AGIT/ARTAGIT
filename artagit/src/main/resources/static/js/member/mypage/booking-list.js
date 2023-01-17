@@ -5,6 +5,7 @@ window.addEventListener("load", function(){
     // const btnClose = document.querySelector(".btn-close");
     
     payDetailModal.onclick=function(e){
+		console.log("ddd");
         e.preventDefault();
         document.querySelector(".modal").classList.remove("d-none");
         document.body.style.overflow = "unset";
