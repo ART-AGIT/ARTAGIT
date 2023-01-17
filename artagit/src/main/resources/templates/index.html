@@ -25,39 +25,34 @@
                 <a class="next">&#10095</a>
             </div>
         </div>
-		<div>
-	        <section class="main-seciton main-community-section">
-	            <h1>커뮤니티</h1>
-	            <div class="board-box">
-		            <section th:each="boardList:${boardList}"  class="board-list">
-		                <h1  class="board-title"><a th:utext="${boardList.title}" th:href="@{|/member/board/${boardList.id}|}" href = "../member/board/detail.html">회원님들 그만 좀 싸우세요들.</a></h1>
-		                <div th:text="${boardList.name}" class="board-category-s">[같이가요]</div>
-		                <div th:text="${#dates.format(boardList.regDate, 'yy/MM/dd HH:mm')}" class="board-regdate">1분전</div>
-		            	<div class="board-post-info">   
-				            <div class="view">
-				                <div class="icon icon-view">조회수 아이콘</div>
-				                <div th:text=${boardList.hit}>11</div>
-				            </div>
-				            <div class="like-up">
-				                <div class="icon icon-like-up">좋아요 아이콘</div>
-				                <div th:text=${boardList.hearts}>11</div>
-				            </div>
-				            <div class="comment">
-				                <div class="icon icon-comment">댓글 아이콘</div>
-				                <div th:text=${boardList.commentTotal}>11</div>
-				            </div>
-				        </div>
-		            </section>
-	            </div>
-	            <div class="board-more">
-	                <a href="/board/list">더보기</a>
-	            </div>
-	            
-	        </section>
-		</div>
+            <div class="board-box">
+	            <section th:each="boardList:${boardList}"  class="board-list">
+	                <h1  class="board-title"><a th:utext="${boardList.title}" th:href="@{|/member/board/${boardList.id}|}" href = "../member/board/detail.html">회원님들 그만 좀 싸우세요들.</a></h1>
+	                <div th:text="${boardList.name}+' 게시판'" class="board-category-s">[같이가요]</div>
+	                <div th:text="${#dates.format(boardList.regDate, 'yy/MM/dd HH:mm')}" class="board-regdate">1분전</div>
+	            	<div class="board-post-info">   
+			            <div class="view">
+			                <div class="icon icon-view">조회수 아이콘</div>
+			                <div th:text=${boardList.hit}>11</div>
+			            </div>
+			            <div class="like-up">
+			                <div class="icon icon-like-up">좋아요 아이콘</div>
+			                <div th:text=${boardList.hearts}>11</div>
+			            </div>
+			            <div class="comment">
+			                <div class="icon icon-comment">댓글 아이콘</div>
+			                <div th:text=${boardList.commentTotal}>11</div>
+			            </div>
+			        </div>
+	            </section>
+            </div>
+            <div class="board-more">
+                <a href="/board/list">더보기</a>
+            </div>
+            
+        </section>
         <section class="main-seciton main-popular-exh-seciton exhibition-section">
             <h1>지금 인기있는 전시</h1>
-            <section class="exhibition-list">
                 <section th:each="exhList:${exhList}" th:attr="data-id=${exhList.id}" class="exhibition">
                     <form  action="">
                        <h1 th:utext="${exhList.name}">이노니머스 프로젝트</h1>
