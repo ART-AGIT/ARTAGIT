@@ -1,6 +1,9 @@
 package com.artagit.web.controller.member;
 
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,12 +43,14 @@ public class MypageController {
 	
 	@Autowired
 	private BookingService bookingService;
+	
 	@Autowired
 	private MemberService memberService;
 	
 	@Autowired
 	private PasswordEncoder passwordEncoder;
-//	@Autowired
+
+	//	@Autowired
 //	private MyPageService myPageService;
 	
 	@Autowired
@@ -57,27 +62,39 @@ public class MypageController {
 	//@Autowired
 	//private PaymentService paymentService;
 	
-//	@Autowired
-//	private ExhLikeService exhLikeService;
-	
 	@Autowired
 	private BoardService boardService;
 	
 	/*-----------예매내역리스트------*/ 
+	//결제상세 모달 정보 : Payment(결제번호 결제날짜 ) User(아이디 
 	@GetMapping("/review/list")
-	public String list(Model model,@AuthenticationPrincipal ArtagitUserDetails user) {
+	public String list(Model model,@AuthenticationPrincipal ArtagitUserDetails user) throws ParseException {
 		
-		System.out.println("1. user==========="+user);
+		String todayfm = new SimpleDateFormat("yyyy-MM-dd").format(new Date(System.currentTimeMillis()));
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		System.out.println(todayfm);
+		Date today = new Date(dateFormat.parse(todayfm).getTime());
+		System.out.println(today);
+		
+		
+		String nickname = user.getNickname();
+//		System.out.println(nickname);
 		List<BookingList> bookingList = bookingService.getListById(user.getId());
 		int countOfBooking = bookingList.size();
-//		System.out.println("----"+bookingList.get(0).getImage());
 		for(int i=0;i<countOfBooking;i++) {
-			if(bookingList.get(i).getPayMethod()==null)
-				bookingList.get(i).setPayMethod("미결제");
+			Date date = bookingList.get(i).getBookingDate();
+			int compare = today.compareTo(date);
+			System.out.println(compare);
+			
+			if(compare>0) //today>date
+				bookingList.get(i).setPayMethod("관람 완료");
+			else if(compare<0) //today < date
+				bookingList.get(i).setPayMethod("미관람");		
 			else
-				bookingList.get(i).setPayMethod("결제완료");		
+				bookingList.get(i).setPayMethod("");
+				
 		}
-
+		model.addAttribute("nickname",nickname);
 		model.addAttribute("bookingList",bookingList);
 		model.addAttribute("countOfBooking",countOfBooking);
 		return "member/mypage/booking-list";
@@ -94,7 +111,7 @@ public class MypageController {
 		BookingList booking = bookingService.getReviewByBookingId(id);
 		Payment payment = payService.findByBookingId(booking.getBookingId());
 		int payId = payment.getId();
-
+	
 		Review review = reviewService.get(payId);
 		model.addAttribute("booking",booking);
 		model.addAttribute("review",review);
@@ -132,7 +149,7 @@ public class MypageController {
 
 
 //===================회원수정===================
-	@GetMapping("/account-edit/{id}")
+	@GetMapping("/account-edit")
 	public String update(@AuthenticationPrincipal ArtagitUserDetails user, Model model, Member member) {
 		//회원수정페이지불러올때 회원가입할때정보불러오기 user쓰기
 
@@ -168,26 +185,19 @@ public class MypageController {
 		
 		model.addAttribute("user",user);
 
-//		System.out.println("member"+memb);
-		
-		
-		
 		return "member/mypage/account-edit";
 	}
 
-
-	// 내가 좋아요한 전시
 	@GetMapping("like-list")
-	public String likeList(@AuthenticationPrincipal ArtagitUserDetails user,Model model) {
-		
-		List<Exhibition> list = exhService.getLikeListById(user.getId());
-		System.out.println("좋아요한 전시이이이~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-		System.out.println(list);
-		model.addAttribute("list", list);
-		return "member/mypage/like-list";
-	}
-		
-
+	   public String likeList(@AuthenticationPrincipal ArtagitUserDetails user,Model model) {
+	      
+	      List<Exhibition> list = exhService.getLikeListById(user.getId());
+	      System.out.println("좋아요한 전시이이이~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+	      System.out.println(list);
+	      model.addAttribute("list", list);
+	      return "member/mypage/like-list";
+	   }
+	
 	/********내가 쓴 게시글 리스트 불러오기*******/
 
 //	@GetMapping("/post-list")

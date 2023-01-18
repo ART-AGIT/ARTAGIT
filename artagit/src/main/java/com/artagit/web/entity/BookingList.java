@@ -1,10 +1,12 @@
 package com.artagit.web.entity;
 
+import java.util.Date;
+
 public class BookingList {
 	private int bookingId;
 	private String exhName;
 	private String museumName;
-	private String bookingDate;
+	private Date bookingDate;
 	private String payMethod;
 	private String reviewCon;
 	private int memId;
@@ -27,7 +29,7 @@ public class BookingList {
 
 
 
-	public BookingList(int bookingId, String exhName, String museumName, String bookingDate, String payMethod,
+	public BookingList(int bookingId, String exhName, String museumName, Date bookingDate, String payMethod,
 			String reviewCon, int memId, String exhPoster, int reviewId) {
 		super();
 		this.bookingId = bookingId;
@@ -116,11 +118,11 @@ public class BookingList {
 		this.museumName = museumName;
 	}
 
-	public String getBookingDate() {
+	public Date getBookingDate() {
 		return bookingDate;
 	}
 
-	public void setBookingDate(String bookingDate) {
+	public void setBookingDate(Date bookingDate) {
 		this.bookingDate = bookingDate;
 	}
 

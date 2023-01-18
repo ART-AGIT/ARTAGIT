@@ -42,6 +42,20 @@ public class DefaultBookingService implements BookingService {
 		return bookingDao.getBookIdBypayNum(payNum);
 	}
 
+	
+	//bookingId(=payId) 로 exhId 가져오기
+	@Override
+	public int getExhId(int payId) {
+		int exhId = bookingDao.getExhId(payId);
+		return exhId;
+	}
+
+	@Override
+	public Booking get(int id) {
+		Booking booking = bookingDao.get(id);
+		return booking;
+	}
+
 }
 
 
