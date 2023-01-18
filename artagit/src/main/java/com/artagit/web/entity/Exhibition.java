@@ -20,6 +20,8 @@ public class Exhibition {
 	private int corpId;
 	private int corpLocalId;
 	private String useYN;
+	private String homepage;
+
 
 	public Exhibition() {
 		// TODO Auto-generated constructor stub
@@ -42,10 +44,13 @@ public class Exhibition {
 
 	}
 
+	
+
 	public Exhibition(int id, String name, String content, String poster, String detailImage, String startDate,
 			String endDate, String startTime, String endTime, int ticketPrice, int ticketStock, String artist,
-			int memId, int cateId, int stateId, int museumId, int corpId, int corpLocalId, String useYN) {
-
+			int memId, int cateId, int stateId, int museumId, int corpId, int corpLocalId, String useYN,
+			String homepage) {
+		
 		this.id = id;
 		this.name = name;
 		this.content = content;
@@ -65,8 +70,14 @@ public class Exhibition {
 		this.corpId = corpId;
 		this.corpLocalId = corpLocalId;
 		this.useYN = useYN;
+		this.homepage = homepage;
 	}
-
+	public String getHomepage() {
+		return homepage;
+	}
+	public void setHomepage(String homepage) {
+		this.homepage = homepage;
+	}
 
 	public int getId() {
 		return id;
@@ -227,7 +238,7 @@ public class Exhibition {
 				+ startTime + ", endTime=" + endTime + ", ticketPrice=" + ticketPrice + ", ticketStock=" + ticketStock
 				+ ", artist=" + artist + ", memId=" + memId + ", cateId=" + cateId + ", stateId=" + stateId
 				+ ", museumId=" + museumId + ", corpId=" + corpId + ", corpLocalId=" + corpLocalId + ", useYN=" + useYN
-				+ "]";
+				+ ", homepage=" + homepage + "]";
 	}
 
 }

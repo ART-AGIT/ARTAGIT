@@ -117,8 +117,8 @@ body::-webkit-scrollbar, div::-webkit-scrollbar {
     /* layout */
     display: flex;
     /* display:inline-block; */
-    flex-direction: column;
-    /* justify-content: flex-start; */
+/*     flex-direction: column; */
+    justify-content: flex-start;
     align-items: center;
 
     box-sizing: content-box;
@@ -165,16 +165,73 @@ body::-webkit-scrollbar, div::-webkit-scrollbar {
 }
 
 
+/******* PC버전 ****************************************/
+
+@media (min-width: 992px) {
+	main {
+		width: 800px;
+	}
+	
+	.icon-title {
+		margin-bottom: 10px;
+	}
+	
+	.section>.box>h4, .accordion-header {
+	    margin: 0;
+	    display: flex;
+	    align-items: center;
+	    cursor: pointer;
+	    height: 70px;
+	    position: relative;
+	    padding-left: 0.7em;
+	    transition: background-color 1s;
+	    border-bottom: 1px solid #dbdbdb;
+	}
+	
+	.section>.box>div, .accordion-content {
+	    margin: 0;
+	}
+	
+	p {
+	    padding: 16px;
+	    margin: 0;
+	    font-size: 16px;
+	}
+/* 	.section span { */
+/* 		margin: 0; */
+/* 	} */
+	
+	.q-numbering {
+		padding-right: 5px;
+		font-size: 18px;
+	}
+	
+	.notice-box {
+		display: flex;
+    	align-items: center;
+    	border-bottom: 1px solid #dbdbdb;
+    	height: 75px;
+    }
+    
+    .notice-box section {
+    	margin: 0 10px;
+    	cursor: pointer;
+    }
+    
+    .notice-title {
+    	margin: 0;
+    }
+    .notice-date {
+    	font-size: 14px;
+    	margin: 5px 0;
+    	display: block;
+	    color: #828c94;
+	    line-height: 17px;
+	    font-weight: 500;
+	    padding-top: 5px;
+	}
+
+}
 
 
 
-
-
-/* .notice-content-box {
-    margin-left: 5px;
-} */
-
-/* .title-box {
-    display: flex;
-    align-items: center;
-} */

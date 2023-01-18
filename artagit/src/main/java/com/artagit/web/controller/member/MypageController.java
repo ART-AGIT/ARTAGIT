@@ -49,7 +49,8 @@ public class MypageController {
 	
 	@Autowired
 	private PasswordEncoder passwordEncoder;
-//	@Autowired
+
+	//	@Autowired
 //	private MyPageService myPageService;
 	
 	@Autowired
