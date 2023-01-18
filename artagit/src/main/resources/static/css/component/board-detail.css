@@ -215,7 +215,7 @@ textarea:focus{
     padding-top:10px;
 }
 .icon-report{
-    margin-bottom:5px;
+    /* margin-bottom:5px; */
 }
 
 #modal.modal-overlay {

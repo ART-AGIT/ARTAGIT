@@ -175,7 +175,7 @@ li.board-selected{
         display:block;
     }
     main{
-        width:1000px;
+        width:800px;
     }
 
     .content-container{
@@ -193,9 +193,10 @@ li.board-selected{
     }
 
     .board-category-l li{
-       
-        margin-right: 50px;
+        width: 200px;
         gap: 10px;
+        line-height: 40px;
+        font-size: 18px;
     }
     .board-category-box{
         display: flex;
