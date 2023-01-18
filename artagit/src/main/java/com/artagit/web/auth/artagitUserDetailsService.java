@@ -70,6 +70,7 @@ public class artagitUserDetailsService implements UserDetailsService {
 			user.setNickname(member.getNickname());
 			user.setEmail(member.getEmail());
 			user.setImg(member.getImage());
+			user.setRoleId(member.getRoleId());
 			user.setAuthorities(authorities);
 			
 			System.out.println("담겨진 user ====> "+user);

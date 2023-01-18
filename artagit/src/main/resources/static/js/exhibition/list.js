@@ -42,7 +42,16 @@ window.addEventListener("load", function(e){
 			})
 			.then(response => response.json())
 			.then(data => {
-				console.log(data.result);
+				console.log(data.status)
+				if(data.status == '405'){
+					window.alert("일반회원만 가능합니다.")
+					location.reload();		
+				}
+				if(data.status == '500'){
+					window.alert("로그인을 해주세요.")
+					location.replace("/user/login")	
+				}
+				
 			})
             
 
@@ -68,7 +77,9 @@ window.addEventListener("load", function(e){
 				})
 				.then(response => response.json())
 				.then(data => {
-					console.log(data.result);
+					if(data.status == '500')
+						window.alert("로그인하소")
+					console.log(data.status);
 				})
 			
 			}

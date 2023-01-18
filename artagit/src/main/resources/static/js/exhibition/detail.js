@@ -53,6 +53,14 @@ window.addEventListener("load", function(){
 	                        
 	            	likeNum.append(template);	
 				}
+				if(data.status == '405'){
+					window.alert("일반회원만 가능합니다.")
+					location.reload();		
+				}
+				if(data.status == '500'){
+					window.alert("로그인을 해주세요.")
+					location.replace("/user/login")	
+				}
 					
 			})
 		}

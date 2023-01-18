@@ -42,7 +42,7 @@ public class ArtagitUserDetails implements UserDetails {
 	}
 
 	public void setRoleId(int roleId) {
-		// TODO Auto-generated method stub
+		this.roleId = roleId;
 		
 	}
 

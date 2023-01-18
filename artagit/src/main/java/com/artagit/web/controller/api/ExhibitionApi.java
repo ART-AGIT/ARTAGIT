@@ -49,18 +49,21 @@ public class ExhibitionApi {
 	public Map<String, Object> likeUp(
 			@PathVariable("id") int exhId
 			, @AuthenticationPrincipal ArtagitUserDetails user){
-		
-		System.out.println((user));
-		
-		int result = service.likeUp(exhId, user.getId());
-		System.out.println("좋아요 성공");
-//		int count = service.countOfLike(exhId);
 		Map<String, Object> dto = new HashMap<>();
-		//HTTP 가 가지고있는 기본 상태값
-		dto.put("status", 200);
-		dto.put("resultObject", result);
+		if(user.getRoleId() == 2) {
+			int result = service.likeUp(exhId, user.getId());
+			System.out.println("좋아요 성공");
+//		int count = service.countOfLike(exhId);
+			//HTTP 가 가지고있는 기본 상태값
+			dto.put("status", 200);
+			dto.put("resultObject", result);
 //		dto.put("countNum", count);
-//		
+		}
+		else {
+			dto.put("status", 405);
+			dto.put("resultObject", 0);
+		}
+	
 		return dto;
 	}
 	
@@ -70,9 +73,7 @@ public class ExhibitionApi {
 	public Map<String, Object> likeDelete(
 			@PathVariable("id") int exhId,
 			@AuthenticationPrincipal ArtagitUserDetails user){
-		
-		int memId = 1;
-		
+
 		int result = service.likeDelete(exhId, user.getId());
 		int count = service.countOfLike(exhId);
 		Map<String, Object> dto = new HashMap<>();
