@@ -7,7 +7,7 @@
 	<th:block layout:fragment="css">
 	    <link href="/css/component/reg.css" type="text/css" rel="stylesheet">
 	    <link href="/css/component/sub-menu.css" type="text/css" rel="stylesheet">
-	
+        
 	    <link href="/css/corporator/mypage/exh-reg.css" type="text/css" rel="stylesheet">
 		<script src="/js/corporator/mypage/exh-reg.js"></script>
 	</th:block>
@@ -15,8 +15,21 @@
 <body  layout:fragment="content" >
 
     <main id="exh-reg-main">
-        <div class="menu-box">
+	
+	<div class="main-contents">
+        <div class="menu-box exh-reg">
+			<div class="profile-box">
+	        		<div class="profile-content">
+		                <div class="profile-img-box" >
+		                    <img class="profile-img" src="../../../image/camera.svg">
+		                </div>
+		                <div class="profile-name">
+		                    <span>1004님</span>
+		                </div>
+		            </div>
+	            </div>	
             <ul class="menu-list">
+				
                 <li class="list line-on"><a class="deco deco-ticket deco-ticket-on" href="">전시 등록</a></li>
 
                 <li class="list"><a class="deco deco-smile" href="corp/account-edit">내 정보 수정</a></li>
@@ -24,9 +37,9 @@
             </ul>
         </div>
 
-
+	<div class="sub-contents">
         <div class="exh-reg-list">
-
+	<h2 class="my-exh-reg">전시 등록</h2>
 
             <div class="step">
 
@@ -199,7 +212,8 @@
             </div>
          </form>   
         </div>
-
+  	</div>
+  	 </div>
     </main>
 </body>
 
