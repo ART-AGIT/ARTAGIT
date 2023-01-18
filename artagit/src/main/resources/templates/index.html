@@ -25,8 +25,6 @@
                 <a class="next">&#10095</a>
             </div>
         </div>
-        <section class="main-seciton main-community-section">
-            <h1>커뮤니티</h1>
             <div class="board-box">
 	            <section th:each="boardList:${boardList}"  class="board-list">
 	                <h1  class="board-title"><a th:utext="${boardList.title}" th:href="@{|/member/board/${boardList.id}|}" href = "../member/board/detail.html">회원님들 그만 좀 싸우세요들.</a></h1>
@@ -55,7 +53,6 @@
         </section>
         <section class="main-seciton main-popular-exh-seciton exhibition-section">
             <h1>지금 인기있는 전시</h1>
-            <section class="exhibition-list">
                 <section th:each="exhList:${exhList}" th:attr="data-id=${exhList.id}" class="exhibition">
                     <form  action="">
                        <h1 th:utext="${exhList.name}">이노니머스 프로젝트</h1>

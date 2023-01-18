@@ -77,16 +77,28 @@ input[type="time"]:focus, input[type="date"]:focus {
 .exh-detail-section{
     padding-top: 30px;
 }
-.exh-detail-table{
-    display: grid;
-    /* grid-template-columns: 0.8fr 2.5fr ; */
-    grid-template-columns: 70px 2.8fr .4fr 2.8fr;
-    margin: 0 30px;
 
-    font-size: 14px;
-    grid-template-rows: repeat(15, minmax(30px, auto));
-    align-items: center;
-    }
+/* .exh-detail-table{ */
+/*     display: grid; */
+/*     grid-template-columns: 0.8fr 2.5fr ; */
+/*     grid-template-columns: 70px 2.8fr .4fr 2.8fr; */
+/*     margin: 0 30px; */
+
+/*     font-size: 14px; */
+/*     grid-template-rows: repeat(15, minmax(30px, auto)); */
+/*     align-items: center; */
+/*     } */
+    
+.exh-detail-table{
+	display: grid;
+	/* grid-template-columns: 0.8fr 2.5fr ; */
+	grid-template-columns: 70px 3.8fr;
+	margin: 0 30px;
+	
+	font-size: 14px;
+	grid-template-rows: repeat(15, minmax(30px, auto));
+	align-items: center;
+}
 
 .exh-detail{
     /* border : 1px solid #9E9E9E; */
@@ -265,4 +277,61 @@ h1.mody-on:focus {
     /* border-bottom:  1px solid #FF6B90; */
     border: 0;
     outline-style: 1px solid #FF6B90;
+}
+
+/******* PC버전 ****************************************/
+
+@media (min-width: 992px) {
+	main {
+		width: 800px;
+	}
+	
+	.exh-detail-table{
+		display: grid;
+		grid-template-columns: 70px 3.8fr;
+		margin: 0 30px;
+		
+		font-size: 15px;
+		grid-template-rows: repeat(13, minmax(33px, auto));
+	}
+
+	.exh-detail {
+	    display: flex;
+	}
+
+	.exh-detail-img-box {
+	    align-self: flex-start;
+	}
+	
+	.during-time {
+		justify-self: center;
+	}
+	
+	.item:nth-child(even) {
+	    line-height: 22px;
+	    text-align: justify;
+	}
+	
+	.user-box {
+	    display: block;
+		margin: 0;
+	    width: 770px;
+	}
+
+	.btn-hpg {
+	    width: 100%;
+	    height: 20px;
+	    font-size: 14px;
+	    padding: 5px 0;
+	}
+	
+	.button-box-wrap {
+	    padding-top: 20px;
+	    gap: 6px;
+	    width: 770px;
+	}
+	
+	.exh-detail-pay {
+	    width: 770px;
+	}
 }

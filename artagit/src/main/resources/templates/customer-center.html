@@ -11,10 +11,11 @@
 	</th:block>
 
 <body layout:fragment="content">
+
 	<main>
         <div class="customer-center">고객센터</div>
 
-        <!--------------------- 자주 묻는 질문 --------------------->
+<!--         ------------------- 자주 묻는 질문 ------------------- -->
         <div class="icon-title">
             <img class="question-icon" src="../../image/icons/question.png">
             <h1 class="text question-h1">자주 묻는 질문</h1>
@@ -49,14 +50,14 @@
 
             </div>
 
-        <!--------------------- 공지사항 --------------------->
+<!--         ------------------- 공지사항 ------------------- -->
         <div class="icon-title notice">
             <img class="notice-icon" src="../../image/icons/notify.png">
             <h1 class="text question-h1">공지사항</h1>
         </div>
         
 
-            <div th:each="list:${list}" class="notice-box">
+            <div th:each="list:${list}" th:attr="data-id=${list.id}" class="notice-box">
                 <span class="text sm-text notice-category">일반</span>
 <!--                 <h4 th:text="${list.title}" class="text accordion-header">회원님들 그만 좀 싸우세요 진짜.</h4> -->
                 <section>
@@ -94,3 +95,21 @@
 <!--     </main> -->
 </body>
 </html>
+
+<!-- 	<main> -->
+<!-- 		<section class="notice-detail-container"> -->
+<!-- 			<h1 class="notice-detail-title">회원님들 그만 좀 싸우세요 진짜.</h1> -->
+<!-- 			<span class="notice-detail-date">관리자&nbsp;&nbsp;2023. 01. 17</span> -->
+<!-- 			<div class="notice-detail-content"> -->
+<!-- 				<p> -->
+<!-- 				안녕하세요.<br> -->
+<!-- 				버킷플레이스는 고객님들의 개인정보를 더욱 투명하고 안전하게 관리하고자 개인정보처리방침을 공개하고 있으며,<br> -->
+
+<!-- 				변경사항 발생 시 공지사항을 통해 오늘의집 고객분들에게 안내하고 있습니다.<br> -->
+
+<!-- 				새롭게 바뀌는 개인정보처리방침 내용을 확인하시고 서비스 이용에 참고하시기 바랍니다.<br>  -->
+<!-- 				</p> -->
+<!-- 			</div> -->
+<!-- 			<button class="notice-detail-back">목록보기</button> -->
+<!-- 		</section> -->
+<!-- 		</main> -->

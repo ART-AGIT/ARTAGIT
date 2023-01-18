@@ -23,4 +23,10 @@ public class DefaultNoticeService implements NoticeService {
 		return noticeDao.getList(offset, size);
 	}
 
+	// 공지 상세보기 
+	@Override
+	public Notice getNoticeById(int id) {
+		return noticeDao.getNoticeById(id);
+	}
+
 }
