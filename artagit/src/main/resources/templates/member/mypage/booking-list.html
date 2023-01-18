@@ -59,7 +59,9 @@
 
 	            <form action="" class ="list-form" th:each="bookingList:${bookingList}">
 	                <div class="exh-img-box">
-	                    <img class="exh-img"  th:src="@{|/image/poster/${bookingList.exhPoster}|}" src="../../image/exhimage.png" alt="">
+	                    <a    src="../../image/exhimage.png" th:href="@{|/exhibition/${bookingList.exhId}|}" alt="">
+	                    	<img class="exh-img" th:src="@{|/image/poster/${bookingList.exhPoster}|}">
+	                    </a>
 	                </div>
 	                
                     <div class="text pay-state" th:text="${bookingList.payMethod}">결제완료</div>

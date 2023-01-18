@@ -79,12 +79,12 @@ window.addEventListener("load",function(){
 		                        <span class="exh-date" >${bookingList.bookingDate}</span>
 		                    </div>
 		 
-		                    <div class="color-option">
-		                        <input type="color" class="color-input" name="color"></input>
+		                    <div class="color-option" >
+		                        <div  class="color" name="color" style="background-color:${review.color}"></div>
 		                    </div>
 		                    
 		                    <div class="trash">
-                        		<a href="/member/mypage/review/del/${review.id}"><img class="trash-img" src="../../../../image/trash.png" ></a>
+                        		<a href="/member/mypage/review/del/${review.id}"><img class="trash-img" src="../../../../image/trash2.png" ></a>
                     	
                     		</div>
 		                    
@@ -95,7 +95,7 @@ window.addEventListener("load",function(){
     
 			        
 			
-			        <div class="review-button-list">
+			        <div class="review-button-list" style="margin-left:0px">
 			        	<input type="hidden" class= "bookingId" name="bookingId" >
 
 			            <a href="/member/mypage/review/update/${review.id}" class="btn btn-default btn-default-fill btn-mod" type="submit" value="수정">수정</a>

@@ -5,6 +5,7 @@ import java.util.Date;
 public class BookingList {
 	private int bookingId;
 	private String exhName;
+	private int exhId;
 	private String museumName;
 	private Date bookingDate;
 	private String payMethod;
@@ -17,23 +18,13 @@ public class BookingList {
 	}
 	
 	
-	
 
-	
-
-	
-
-
-
-
-
-
-
-	public BookingList(int bookingId, String exhName, String museumName, Date bookingDate, String payMethod,
+	public BookingList(int bookingId, String exhName, int exhId, String museumName, Date bookingDate, String payMethod,
 			String reviewCon, int memId, String exhPoster, int reviewId) {
 		super();
 		this.bookingId = bookingId;
 		this.exhName = exhName;
+		this.exhId = exhId;
 		this.museumName = museumName;
 		this.bookingDate = bookingDate;
 		this.payMethod = payMethod;
@@ -42,6 +33,7 @@ public class BookingList {
 		this.exhPoster = exhPoster;
 		this.reviewId = reviewId;
 	}
+
 
 
 	public int getReviewId() {
@@ -54,6 +46,18 @@ public class BookingList {
 
 
 
+
+
+
+	public int getExhId() {
+		return exhId;
+	}
+
+
+
+	public void setExhId(int exhId) {
+		this.exhId = exhId;
+	}
 
 
 
