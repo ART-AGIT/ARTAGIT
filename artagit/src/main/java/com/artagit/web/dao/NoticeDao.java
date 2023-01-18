@@ -12,9 +12,7 @@ public interface NoticeDao {
 	List<Notice> getList(int offset,
 						int size);
 	
-//	List<Notice> getListById(int page);
-//	List<Notice> getListById(int id);
-//	String getListById(int id);
+	Notice getNoticeById(int id);
 	
 	int count(String title);
 	
