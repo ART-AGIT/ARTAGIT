@@ -145,6 +145,7 @@
  			<if test="ticketStock != null">ticketStock = #{ticketStock},</if>
  			<if test="artist != null">artist = #{artist},</if>
  			<if test="poster != null">poster = #{poster},</if>
+<!--  			<if test="poster != null">poster = #{poster},</if> -->
  		</set>
  			where id = #{id}
  	</update>

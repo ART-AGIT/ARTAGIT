@@ -52,24 +52,22 @@ window.addEventListener("load", function(){
             // let queryString = `?c=${noticeBox[i].dataset.id}`;
             let queryString = noticeBox[i].dataset.id;
 
+            console.log(queryString);
+
             // if(noticeBox[i].dataset.id == 0)
             //     queryString = "";
 
             fetch(`customer_notice/${queryString}`, {
-                method: "GET",
-                headers: {
-                    "Content-Type": "application/json",
-                }
+                method: "GET"
             })
             .then((response) => {
 				if(response.ok) {
                     console.log("성공");
-                    return response;
+                    return response.json();
                     } else {console.log("실패")}})
             .then((notice) => {
                 main.innerHTML = "";
                 console.log(notice);
-            
 
             let template = `<main>
                             <section class="notice-detail-container">
@@ -78,7 +76,7 @@ window.addEventListener("load", function(){
                                 <div class="notice-detail-content">
                                     <p>${notice.content}</p>
                                 </div>
-                                <button class="notice-detail-back">목록보기</button>
+                                <a class="notice-detail-back" href="/customer_notice">목록보기</a>
                             </section>
                             </main>`
 
@@ -88,6 +86,7 @@ window.addEventListener("load", function(){
                     // DOMParser가 넣어주는 것은 html의 태그 이기 때문에 body에 넣는다는 의미로 body 명시해주기.
             .firstElementChild;
 
+			window.scrollTo(0,0);
             main.append(el);
         })
         }

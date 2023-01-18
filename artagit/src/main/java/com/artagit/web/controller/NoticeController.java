@@ -52,7 +52,7 @@ public class NoticeController {
 	public Notice detail(
 			@PathVariable("id") int id,
 			Model model) {
-		
+		System.out.println("id:"+id);
 		Notice notice = service.getNoticeById(id);
 		model.addAttribute("notice", notice);
 			return notice;
