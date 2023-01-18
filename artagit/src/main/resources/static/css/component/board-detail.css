@@ -1,13 +1,17 @@
 .icon{
     background-color: #353535;
-    -webkit-mask-size: 16px 16px;
+    -webkit-mask-size: 14px 14px;
     padding:0;
     
 }
 .icon-report{
     -webkit-mask-size: 20px 20px;
+    cursor:pointer;
 }
 
+.post-like-btn{
+    cursor:pointer;
+}
 
 
 .post-detail-header{
@@ -75,6 +79,7 @@
 .profile-photo{
     height: 12px;
     width: 12px;
+   
 }
 
 .board-img{
@@ -189,6 +194,7 @@ textarea:focus{
     height: 20px;
     width: 20px;
     padding-right: 3px;
+    border-radius:100px;
 }
 .comment-writing>div{
     max-width: 40px;
@@ -209,7 +215,7 @@ textarea:focus{
     padding-top:10px;
 }
 .icon-report{
-    margin-bottom:3px;
+    margin-bottom:5px;
 }
 
 #modal.modal-overlay {
@@ -263,5 +269,14 @@ textarea:focus{
         margin-left:200px;
         margin-right:200px;
     }
+
+    .text-image-wrapper{
+       padding: 10px;    
+    }
+
+    .post-title{
+        font-size: 18px;
+    }
+    
 
   }

@@ -31,19 +31,21 @@
 	                <li class="list"><a class="deco deco-ticket" href="">나의 예매내역</a></li>
 	                <li class="list"><a class="deco deco-heart-red" href="../../member/mypage/like-list">좋아요 전시</a></li>
 	                <li class="list"><a class="deco deco-smile"  href="./account-edit">내 정보 수정</a></li>
-	                <li class="list line-on"><a class="deco deco-write deco-write-on" href="./post-list">게시글 관리</a></li>
+	                <li class="list line-on post-manage"><a class="deco deco-write deco-write-on" href="./post-list">게시글 관리</a>
+	                </li>
+	                  <div class="">
+			                <div class="list line-on menu-s post-manage"><a class=" deco-heart-on" href="../../member/mypage/post-list">- 작성글 관리</a></div>
+			                <div class="list menu-s post-manage"><a class="" href="../../member/mypage/post-like">- 좋아요 한 게시글</a></li>
+			            </div>
 	            </ul>
+	             
+			        
 	        </div>
 	        <div class="box-container">
- 		<div class="menu-box">
-            <ul class="menu-list-s">
-                <li class="list line-on"><a class=" deco-heart-on" href="../../member/mypage/post-list">작성글 관리</a></li>
-                <li class="list"><a class="" href="../../member/mypage/post-like">좋아요 한 게시글</a></li>
-            </ul>
-        </div>	        
+ 		       
        <div class="board-box">
 			    <div class="post-list">
-			        <h1 class="d-none">게시글 목록</h1>
+			        <h1 class="">게시글 관리</h1>
      
 					        <form class="" action="post-list" method="get">
 					        <section class="board-list" th:each="board:${list}">
@@ -51,31 +53,31 @@
 						            <a th:utext="${board.title}" th:href="@{|/member/board/${board.id}|}" href = "../member/board/detail.html">회원님들 그만 좀 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa싸우세요들.</a>
 						        </h1>
 						        <div><a th:text="[+${board.name}+]" class="board-category-s" href="">[같이가요]</a></div>
-						        <div class="board-regdate" th:text="${#dates.format(board.regDate, 'HH:mm')}">1분전</div>
+						        <div class="board-regdate" th:text="${#dates.format(board.regDate, 'YY/MM/DD HH:mm')}">1분전</div>
 						        <div class="board-writer-info">
-					                <img class="profile" src = "../image/accountImage.png">
+					                <img class="profile" th:src="@{|/image/${board.memImage}|}" src = "../image/accountImage.png">
 					            	<div th:text="${board.nickname}">운영자 </div>
 						        </div>
 					        
 					        <div class="board-post-info">
 					            
 					            <div class="view">
-					                <div class="icon icon-view">조회수 아이콘</div>
+					                <div class="icon icon-view icon-size">조회수 아이콘</div>
 					                <div th:text=${board.hit}>11</div>
 					            </div>
 					            <div class="like-up">
-					                <div class="icon icon-like-up">좋아요 아이콘</div>
+					                <div class="icon icon-like-up icon-size">좋아요 아이콘</div>
 					                <div th:text=${board.hearts}>11</div>
 					            </div>
 					            <div class="comment">
-					                <div class="icon icon-comment">댓글 아이콘</div>
+					                <div class="icon icon-comment icon-size">댓글 아이콘</div>
 					                <div th:text=${board.commentTotal}>11</div>
 					            </div>
 					        </div>
 					        
 					        
 					        <div class="board-post-img-box">
-					            <img class="post-img" onerror="this.style.display='none'" 	src = "../image/전시포스터.jpg" th:src="@{|/image/${board.image}|}">
+					           	<a th:href="@{|/member/board/${board.id}|}"><img class="post-img" onerror="this.style.display='none'" 	src = "../image/전시포스터.jpg" th:src="@{|/image/${board.image}|}"></a>
 					        </div>
 					        </section>
 					  		</form>

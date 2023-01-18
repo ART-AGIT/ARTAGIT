@@ -18,13 +18,26 @@ public class BoardListView {
 	private int like;
 	private Date modiDate;
 	private int hearts;
+	private String memImage;
 	
 	
 	
 	
+
+
+	public String getMemImage() {
+		return memImage;
+	}
+
+
+	public void setMemImage(String memImage) {
+		this.memImage = memImage;
+	}
+
+
 	public BoardListView(int id, int memId, String name, String title, String image, int hit, Date regDate,
 			String nickname, int roleId, String useYN, int commentTotal, String content, int like, Date modiDate,
-			int hearts) {
+			int hearts, String memImage) {
 		super();
 		this.id = id;
 		this.memId = memId;
@@ -41,6 +54,7 @@ public class BoardListView {
 		this.like = like;
 		this.modiDate = modiDate;
 		this.hearts = hearts;
+		this.memImage = memImage;
 	}
 
 

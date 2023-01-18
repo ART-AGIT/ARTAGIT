@@ -1,7 +1,7 @@
 @media (min-width: 768px){
     .box-container{
         min-width: 1000px;
-        margin-left:100px;
+       
 
     }
 
@@ -10,17 +10,15 @@
 
     }
 
-    .menu-list-s{
-        min-width:300px;
-        display:flex;
-        
-    }
+    
 
     .menu-list-s>li{
-        display:flex;
-        justify-content: center;
+      
     }
 
+    .post-manage{
+        border-bottom:none;
+    }
 
 
 
