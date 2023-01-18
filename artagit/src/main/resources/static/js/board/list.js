@@ -1,6 +1,7 @@
 window.addEventListener("load", function() {
 	const ul = document.querySelector(".board-category-l");
-	const boardbox = document.querySelector(".board-box");
+	const boardbox = document.querySelector(".post-list-box");
+	const noticebox = document.querySelector(".notice-list-box");
 	let currentLi = document.querySelector(".board-category-box ul li.board-selected");
 	
 	ul.onclick = function(e) {
@@ -31,6 +32,40 @@ window.addEventListener("load", function() {
 
 	let queryString = `?c=${currentLi.dataset.id}`
 		
+	fetch(
+		`/boardApi/notice${queryString}`)
+		.then((response) => 
+			response.json())
+		.then((list) => {
+			noticebox.innerHTML="";
+			console.log("notice========>"+list);
+		for (let notice of list) {
+			
+			let template1 =
+			` <section class="notice">
+	            <h1 class="d-none">공지목록</h1> 
+	            <img class="notice-icon" src="../image/notice.png">
+	            <h1 class="notice-title">
+	                <a href = "../member/board/detail.html">${notice.title}</a></h1>
+	            <div> </div>
+	            <div class="notice-info">
+	                
+                <div>
+                   
+                	<div>운영자 </div>
+	            </div>
+	            <div> ${notice.regDate} </div>
+	                
+                <div class="view">
+                    <div class="icon icon-view">조회수 아이콘</div>
+                    <div>${notice.hit}</div>
+                </div>
+	        </section>`;
+	        
+				let el1 = new DOMParser().parseFromString(template1, "text/html").body.firstElementChild;
+				//body를 지우면 body안쪽만 나온다. firstelement를 만들겠다.
+				noticebox.append(el1); //6개의 객체를 하나하나 넣어준다.
+		}})
 	console.log(queryString);
 	fetch(
 		`/boardApi/boards${queryString}`)
@@ -100,4 +135,3 @@ window.addEventListener("load", function() {
 			
 		};})
 		}})
-

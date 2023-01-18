@@ -1,6 +1,6 @@
 .icon{
     background-color: #353535;
-    -webkit-mask-size: 16px 16px;
+    -webkit-mask-size: 14px 14px;
     padding:0;
     
 }
@@ -214,7 +214,7 @@ textarea:focus{
     padding-top:10px;
 }
 .icon-report{
-    margin-bottom:3px;
+    margin-bottom:5px;
 }
 
 #modal.modal-overlay {
@@ -268,5 +268,14 @@ textarea:focus{
         margin-left:200px;
         margin-right:200px;
     }
+
+    .text-image-wrapper{
+       padding: 10px;    
+    }
+
+    .post-title{
+        font-size: 18px;
+    }
+    
 
   }

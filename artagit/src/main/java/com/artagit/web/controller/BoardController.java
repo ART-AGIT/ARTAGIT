@@ -17,6 +17,7 @@ import com.artagit.web.entity.ArtagitUserDetails;
 import com.artagit.web.entity.Board;
 import com.artagit.web.entity.BoardListView;
 import com.artagit.web.entity.Comment;
+import com.artagit.web.entity.Notice;
 import com.artagit.web.service.BoardService;
 import com.artagit.web.service.CommentService;
 import com.artagit.web.service.NoticeService;
@@ -44,8 +45,10 @@ public class BoardController {
 		HttpSession session){
 			
 		List<BoardListView> list = service.getListInit(page, 0);
+		List<Notice> notice = noticeService.getListInit(page,0);
 		model.addAttribute("list",list);
-		
+		model.addAttribute("noticeList",notice);
+		System.out.println("model에 들어가는지"+notice);
 		
 		return "board/list";
 			

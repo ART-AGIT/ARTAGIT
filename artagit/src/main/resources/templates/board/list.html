@@ -30,13 +30,14 @@
    <div class="board-box-container">
     <div class="board-box">
 			    <div class="post-list">
-			        <h1 class="">커뮤니티</h1>
-			            
-					        <section class="notice">
+			        <h1 class="community-h1">커뮤니티</h1>
+			           <form class="" action="list" method="get">
+			           <section class="notice-list-box">
+					        <section class="notice " th:each="noticeList:${noticeList}">
 					            <h1 class="d-none">공지목록</h1> 
 					            <img class="notice-icon" src="../image/notice.png">
 					            <h1 class="notice-title">
-					                <a href = "../member/board/detail.html">안녕하세요. 아트아지트 입니다.</a></h1>
+					                <a th:utext="${noticeList.title}" th:href="@{|/member/board/${noticeList.id}|}" href = "../member/board/detail.html">안녕하세요. 아트아지트 입니다.</a></h1>
 					            <div> </div>
 					            <div class="notice-info">
 					                
@@ -44,15 +45,16 @@
 				                   
 				                	<div>운영자 </div>
 					            </div>
-					            <div> 22-11-30 </div>
+					            <div th:text="${#dates.format(noticeList.regDate, 'YY/MM/DD HH:mm')}"> 22-11-30 </div>
 					                
 				                <div class="view">
 				                    <div class="icon icon-view">조회수 아이콘</div>
-				                    <div>11</div>
+				                    <div th:text=${noticeList.hit}>11</div>
 				                </div>
 					        </section>
-					          
-					        <form class="" action="list" method="get">
+			           </section>
+					    <section class="post-list-box">
+					       <!-- <form class="" action="list" method="get"> -->
 					        <section class="board-list" th:each="board:${list}">
 						        <h1 class="board-title">
 						            <a th:utext="${board.title}" th:href="@{|/member/board/${board.id}|}" href = "../member/board/detail.html">회원님들 그만 좀 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa싸우세요들.</a>
@@ -91,8 +93,8 @@
 							        <a href = "../member/board/reg"><img src = "../image/writing-img.png"></img></a>
 					    	</div>
 					        </section>
-					       
-					  		</form>
+					       </section>
+					  </form>
 			   		 </div>
 			 </div>
 			  
