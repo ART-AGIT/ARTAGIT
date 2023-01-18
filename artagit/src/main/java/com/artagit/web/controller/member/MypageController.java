@@ -76,7 +76,8 @@ public class MypageController {
 		System.out.println(today);
 		
 		
-		String nickname = user.getUsername();
+		String nickname = user.getNickname();
+//		System.out.println(nickname);
 		List<BookingList> bookingList = bookingService.getListById(user.getId());
 		int countOfBooking = bookingList.size();
 		for(int i=0;i<countOfBooking;i++) {

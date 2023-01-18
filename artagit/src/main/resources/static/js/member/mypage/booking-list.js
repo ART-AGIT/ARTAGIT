@@ -1,22 +1,19 @@
 window.addEventListener("load", function(){
     const payDetailModal = document.querySelectorAll(".pay-detail");
     const paymentTable = document.querySelectorAll(".payment-table");
-//    const modal = document.querySelector(".review-modal-background");
-
-//	실험
     const bookingListSection = document.querySelector(".booking-list");
     const ListSection = document.querySelector(".button-list");
 	
+
 
     bookingListSection.onclick=function(e){
 		
 		if(e.target.classList.contains("pay-detail")){
 			
-			
-			console.log("bookingid를 가져왔지만 그건 또한 payId "+e.target.dataset.id);
 			var id = e.target.dataset.id;
 			var current = e.target;
-			console.log(current);
+//			console.log("bookingid를 가져왔지만 그건 또한 payId "+e.target.dataset.id);
+//			console.log(current);
 			
 			fetch(
 				`/member/mypage/payment/${id}`,{
@@ -29,12 +26,12 @@ window.addEventListener("load", function(){
 				let user = data.user;
 				let exhibition = data.exhibition;
 				let booking = data.booking;
-				console.log("payment"+payment.payNum);
-				console.log("payment"+payment.id);
-				console.log("payment"+payment.method);
-				console.log("payment"+payment.account);
-				console.log("payment"+user.username);
-				console.log("payment"+user.name);
+//				console.log("payment"+payment.payNum);
+//				console.log("payment"+payment.id);
+//				console.log("payment"+payment.method);
+//				console.log("payment"+payment.account);
+//				console.log("payment"+user.username);
+//				console.log("payment"+user.name);
 			
 			
 			var template =
@@ -66,7 +63,7 @@ window.addEventListener("load", function(){
 					                <div class="item">${payment.regDate}</div>
 					            </div>
 					            <div class="btn-box"> 
- 			                        <a class="btn btn-default btn-default-fill btn-exit" href="">닫기</a> 
+ 			                        <div class="btn btn-default btn-default-fill btn-exit"  value="닫기">닫기</div> 
  			                    </div> 
  			                </div> 
  			            </section> 
@@ -75,14 +72,29 @@ window.addEventListener("load", function(){
  	        </div> 
 					            
 				`;
+				
 			
 			paymentTable.innerHTML="";
 			ListSection.insertAdjacentHTML("afterend",template);
 			
+			const closeBtn = document.querySelector(".btn-exit");
+			const payModal = document.querySelector(".pay-modal-background");
+			
+			closeBtn.addEventListener("click",()=>{close(payModal)})
+			
 			})
 		}
+		
+			let close = function(payModal){
+				console.log("in");
+				payModal.classList.add("d-none");	
+			}
+
+		
 	}
-    
+	
+
+	
     
 
 

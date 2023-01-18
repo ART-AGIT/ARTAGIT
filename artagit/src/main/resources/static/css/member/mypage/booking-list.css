@@ -119,6 +119,10 @@ form {
                     "img btn" 55px / 170px;
 	}
 	
+	.member-grade{
+/*         margin-bottom:20px; */
+    }
+	
 }
 
 /* ---------결제내역 모달 ------ */
