@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.HashMap;
 import java.util.List;
 
@@ -16,9 +17,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -154,7 +152,7 @@ public class ExhibitionController {
 		 return "redirect:list";
 	}
 	
-	//전시등록하기
+	//===================전시등록하기====================
 	@GetMapping("reg")
 	public String reg(Model model, @AuthenticationPrincipal ArtagitUserDetails user) {
 		//전시페이지 불러오면 주최자정보입력돼있기
@@ -163,13 +161,32 @@ public class ExhibitionController {
 		System.out.println(user.getAddress());
 		return "corporator/mypage/exh-reg";
 	}
-	// 주최자가 전시 등록하기 insert==========================
+	
 	@PostMapping("insert") 
-	public String insert(Exhibition exhibition) throws IOException{
+	public String insert(Exhibition exhibition, MultipartFile img,HttpServletRequest request) throws IOException{
 		
 		System.out.print("전시 :" +exhibition.toString());
 		
-		
+		if (!img.isEmpty()) {
+			String path = "/image"; // 어디에서 돌아갈지 모르니 운영되고 있는 home directory에서 생각 앞쪽은 어케될지 모름
+			String realPath = request.getServletContext().getRealPath(path);
+			System.out.println(realPath);
+
+			File pathFile = new File(realPath);
+			if (!pathFile.exists())
+				pathFile.mkdirs();
+
+			String fullPath = realPath + File.separator + img.getOriginalFilename();
+			InputStream fis = img.getInputStream();
+			OutputStream fos = new FileOutputStream(fullPath);
+			byte[] buf = new byte[1024];
+			int size = 0;
+			while ((size = fis.read(buf)) >= 0)
+				fos.write(buf, 0, size);
+
+			fos.close();
+			fis.close();
+		}
 		service.insert(exhibition);
 
 		//int result = 0;

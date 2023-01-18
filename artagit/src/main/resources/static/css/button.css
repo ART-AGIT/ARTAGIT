@@ -200,5 +200,27 @@
 	.btn-payment {
 	    font-size: 14px;
 	}
-	
+	.btn-unregister{
+        
+            width: 65px;
+            height: 25px;
+            font-size: 11px;
+        }
+        .unregister {
+            position: relative;
+            left: 108px;
+            padding-top: 30px;
+        }
+        .btn-next {
+            width: 45px;
+            height: 45px;
+        }
+        .btn-before {
+            width: 45px;
+            height: 45px;
+            
+        }
+        .btn-register {
+            height: 45px;
+        }
 }

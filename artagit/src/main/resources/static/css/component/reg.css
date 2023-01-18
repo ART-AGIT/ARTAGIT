@@ -1,61 +1,93 @@
-.reg-list{
-    /* padding: 20px 0; */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.reg-list>form{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+.reg-list {
+	/* padding: 20px 0; */
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
-.reg-list-input-box{
-    width: 300px;
-    /*height: 80px;*/
-    /* 여기에 높이쓰지말아주세욧! 저두 쓰거등요 */
-    display: flex;
-    flex-direction: column;
-    padding: 2px 0;
-    gap: 2px;
-
-}
-.reg-list-input-box>label{
-    display: flex;
-    flex-direction: column;
-    padding: 4px 0;
-
-}
-.reg-list-input-box>div{
-    display: flex;
-}
-    .reg-list-input-box>div>span{
-        padding: 0 14px;
-        line-height: 35px;
-    }
-.exhibition-input-date{
-    display: inline-flex;
-    position: relative;
-    
-}
-    .exhibition-input-date>a{
-        position: absolute;
-        left: 100px;
-        align-self: center;
-    }
-
-.reg-list-input-box textarea{
-    font-family: 'Pretendard-Regular', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 14px;
-    width: 300px;
-    resize: none;
-    padding: 8px;
+.reg-list>form {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
 }
 
-.input{
-    font-size: 14px;
+.reg-list-input-box {
+	width: 300px;
+	/*height: 80px;*/
+	/* 여기에 높이쓰지말아주세욧! 저두 쓰거등요 */
+	display: flex;
+	flex-direction: column;
+	padding: 2px 0;
+	gap: 2px;
+
 }
+
+.reg-list-input-box>label {
+	display: flex;
+	flex-direction: column;
+	padding: 4px 0;
+
+}
+
+.reg-list-input-box>div {
+	display: flex;
+}
+
+.reg-list-input-box>div>span {
+	padding: 0 14px;
+	line-height: 35px;
+}
+
+.exhibition-input-date {
+	display: inline-flex;
+	position: relative;
+
+}
+
+.exhibition-input-date>a {
+	position: absolute;
+	left: 100px;
+	align-self: center;
+}
+
+.reg-list-input-box textarea {
+	font-family: 'Pretendard-Regular', Tahoma, Geneva, Verdana, sans-serif;
+	font-size: 14px;
+	width: 300px;
+	resize: none;
+	padding: 8px;
+}
+
+.input {
+	font-size: 14px;
+}
+
 /* .reg-list-input-box input[type=file]{
     line-height: 45px;
     background: url();
 } */
+
+/*===================pc버전=====================*/
+
+@media (min-width: 993px) {
+
+
+
+	.reg-list-input-box {
+		width: 355px;
+		flex-direction: column;
+		padding: 10px 0;
+		gap: 10px;
+		font-weight: bold;
+	}
+
+	.input {
+		font-size: 16px;
+	}
+
+	.reg-list-input-box textarea {
+		font-size: 16px;
+		width: 340px;
+
+	}
+}

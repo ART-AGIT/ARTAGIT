@@ -290,7 +290,7 @@ main{
 /* ----- fixed 때문에 윗부분이 가려져, main 부분에 padding 줌 ----------- */
     main{
         padding-top: 100px;
-        width: 1300px;
+        width: 1000px;
         min-height: 1000px;
         margin: 0 auto;
     }
