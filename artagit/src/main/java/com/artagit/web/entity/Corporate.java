@@ -16,6 +16,7 @@ public class Corporate {
 	private String refuseReason;
 	private String managerPhone;
 	private String museumName; 
+	private String useYN;
 	private int roleId;
 	private int localId;
 	
@@ -25,7 +26,7 @@ public class Corporate {
 
 	public Corporate(String name, String loginId, String password, String ceoName, int businessNum,
 			String manager, String phone, String processDate, String address, String refuseReason,
-			String managerPhone, String museumName, int localId) {
+			String managerPhone, String museumName, int localId, String useYN) {
 
 		this.name = name;
 		this.loginId = loginId;
@@ -40,6 +41,7 @@ public class Corporate {
 		this.refuseReason = refuseReason;
 		this.managerPhone = managerPhone;
 		this.museumName = museumName;
+		this.useYN = useYN;
 
 	}
 
@@ -178,15 +180,26 @@ public class Corporate {
 	public void setRoleId(int roleId) {
 		this.roleId = roleId;
 	}
+	
+
+	public String getUseYN() {
+		return useYN;
+	}
+
+	public void setUseYN(String useYN) {
+		this.useYN = useYN;
+	}
 
 	@Override
 	public String toString() {
-		return "Coporate [id=" + id + ", name=" + name + ", loginId=" + loginId + ", password=" + password
-				+ ", ceoName=" + ceoName + ", businessNum=" + businessNum + ", manager=" + manager + ", phone=" + phone
-				+ ", regState=" + regState + ", processDate=" + processDate + ", address=" + address + ", refuseReason="
-				+ refuseReason + ", managerPhone=" + managerPhone + ", museumName=" + museumName + ", localId="
-				+ localId + "]";
+		return "Corporate [id=" + id + ", name=" + name + ", loginId=" + loginId + ", password=" + password
+				+ ", ceoName=" + ceoName + ", email=" + email + ", businessNum=" + businessNum + ", manager=" + manager
+				+ ", phone=" + phone + ", regState=" + regState + ", processDate=" + processDate + ", address="
+				+ address + ", refuseReason=" + refuseReason + ", managerPhone=" + managerPhone + ", museumName="
+				+ museumName + ", useYN=" + useYN + ", roleId=" + roleId + ", localId=" + localId + "]";
 	}
+
+
 
 	
 }

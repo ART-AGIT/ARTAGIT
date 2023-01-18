@@ -4,6 +4,7 @@
 
 .reg-list-box > div{
     margin: 0 auto;
+   
 }
 
 .reg-list-box > input{
@@ -21,6 +22,7 @@
 }
 .reg-list-input-box>div{
     gap: 10px;
+     flex-wrap: wrap;
 }
 /* 
 .reg-list-input-box>label{
@@ -32,7 +34,7 @@
     padding: 20px 0;
     justify-content: center;
     gap : 20px;
-    height:35px;
+/*     height:35px; */
 }
 
 .unregister{
@@ -119,8 +121,9 @@
 .member-profile-img{
     /* 일단회원이미지입니다 */
     border-radius: 70px;
-    width: 100px;
-    height: 100px;
+    border: 0.5px solid #575757;
+    width: 120px;
+    height: 120px;
     display: flex;
    
 }
@@ -128,7 +131,8 @@
 display: flex;
 align-items: flex-end;
 position: relative;
-right: 20px;
+right: 30px;
+top: -5px;
 }
 .icon-write-edit{
     position: absolute;
@@ -247,7 +251,7 @@ right: 20px;
 }
 #modal .title {
     padding-left: 10px;
-    display: inline;
+/*     display: inline; */
     /* text-shadow: 1px 1px 2px gray; */
     color: #545454;
     
@@ -276,3 +280,50 @@ right: 20px;
 .button-wrap{
 	margin-left: 100px;
 }
+
+/* 모바일에서는 안보이게 */
+.my-account-edit {
+	display:none;	
+}
+
+@media (min-width: 993px) {
+	.my-account-edit {
+	    display: flex;
+	    padding-left: 15px;
+	    padding-bottom: 20px;
+	}
+	
+	.content-wrap{
+		display:flex;
+	}
+	.reg-list{
+		margin : auto;
+	}
+	
+	
+    #modal .modal-window {
+        width: 300px;
+        height: 150px;
+    }
+    #modal .title{
+    	padding-top: 10px;
+    	font-size : 20px;
+    }
+    #modal .title h2{
+    	font-size : 20px;
+    }
+    
+    #modal .content{  	
+    	margin-bottom : 35px;
+ 		font-size : 16px;
+    }
+
+}
+
+
+
+
+
+
+
+

@@ -25,7 +25,7 @@
 		select count(id) from ExhLike 
 		where exhId=#{exhId}
 	</select>
-
 	
+
 	
 </mapper>

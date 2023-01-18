@@ -15,11 +15,11 @@
 <body layout:fragment="content"> 
     
     <main>
-    <div class="all-content">
+    <div class="content-wrap">
         <div class="menu-box">
             <ul class="menu-list">
                 <li class="list"><a class="deco deco-ticket" href="/corp/exh/list">나의 등록전시</a></li>
-                <li class="list line-on"><a class="deco deco-smile deco-ticket-on" href="/corp/account-edit">회원 정보 수정</a></li>
+                <li class="list line-on"><a class="deco deco-smile deco-ticket-on" href="/corp/account-edit">내 정보 수정</a></li>
             </ul>
         </div>
 
@@ -27,7 +27,7 @@
         <!-- 사업자 정보 -->
         
         <section class="reg-list"> 
-            
+            <h2 class="my-account-edit">내 정보 수정</h2>
             <form action="/corp/account-edit" method="post" enctype="multipart/form-data">
                 <div class="form-wrap">
                     <div class="member">   
@@ -58,30 +58,30 @@
 
                         <div class="reg-list-input-box">
                             <label for="ceo-name">대표자명</label>
-                            <input name="ceoName" id="ceo-name" type="text" required class="input input-lg" th:value="${user.ceoName}" value="뉴렉처">
+                            <input name="ceoName" id="ceo-name" type="text" required class="input input-lg" th:value="${user.ceoName}" value="뉴렉처" spellcheck="false">
                         </div>
                         
                         <div class="reg-list-input-box">
                             <label for="corp-name">법인명</label>
-                            <input name="name" id="corp-name" type="text" class="input input-lg" th:value="${user.name}" value="전시">
+                            <input name="name" id="corp-name" type="text" class="input input-lg" th:value="${user.name}" value="전시" spellcheck="false">
                         </div>
                         <div class="reg-list-input-box">
                             <label for="corp-phone">대표 전화번호</label>
-                            <input name="phone" id="corp-phone" type="text" required class="input input-lg" th:value="${user.phone}" value="02-4561-5412">
+                            <input name="phone" id="corp-phone" type="text" required class="input input-lg" th:value="${user.phone}" value="02-4561-5412" spellcheck="false">
                         </div>
 
                         <div class="reg-list-input-box">
                             <label for="business-num">사업자 번호</label>
-                            <input  name="businessNum" id="business-num" type="text" required class="input input-lg" th:value="${user.businessNum}" value="12345-78965">
+                            <input  name="businessNum" id="business-num" type="text" required class="input input-lg" th:value="${user.businessNum}" value="12345-78965" spellcheck="false">
                         </div>      
                         
                         <div class="reg-list-input-box">
                             <label for="address">전시관 주소</label>
                             <div>
-                                <input name="address" id="login-id" type="text" required class="input input-md-2" th:value="${user.address}" value="경기도 과천시 광명로 313">
+                                <input name="address" id="login-id" type="text" required class="input input-md-2" th:value="${user.address}" value="" spellcheck="false">
                                 <button class="btn btn-default btn-default-fill-off">주소검색</button>
+	                            <input name="addressDetail" id="address-detail" type="text" class="input input-lg" value="" placeholder="" spellcheck="false">
                             </div>
-                            <input name="addressDetail" id="address-detail" type="text" class="input input-lg" value="" placeholder="">
                         </div>
             
                     </section>
@@ -95,36 +95,36 @@
                     <section class="reg-list-box accordion-content d-none">
                         <div class="reg-list-input-box">
                             <label for="login-id">아이디</label>
-                            <input name="loginId" id="login-id" type="text" required class="input input-lg input-unable" th:value="${user.username}" value="hihi123" disabled>
+                            <input name="loginId" id="login-id" type="text" required class="input input-lg input-unable" th:value="${user.username}" value="hihi123" disabled >
                         </div>
                         <div class="reg-list-input-box">
                             <label for="manager">이름</label>
-                            <input  name="manager" id="name" type="text" class="input input-lg" th:value="${user.manager}" value="홍길동">
+                            <input  name="manager" id="name" type="text" class="input input-lg" th:value="${user.manager}" value="홍길동" spellcheck="false">
                         </div>
                         
                         <div class="reg-list-input-box">
                             <label for="password">비밀번호</label>
-                            <input name="password" id="password" type="password" required class="input input-lg"  placeholder="영문자, 숫자, 특수문자 포함 8자 이상"  >
+                            <input name="password" id="password" type="password" class="input input-lg"  placeholder="영문자, 숫자, 특수문자 포함 8자 이상" >
                         </div>
 
                         <div class="reg-list-input-box">
                             <label for="password-check">비밀번호 확인</label>
-                            <input name="password-check" id="password-check" type="password" required class="input input-lg" placeholder="영문자, 숫자, 특수문자 포함 8자 이상" >
+                            <input name="password-check" id="password-check" type="password" class="input input-lg" placeholder="영문자, 숫자, 특수문자 포함 8자 이상">
                         </div>                
                         <div class="reg-list-input-box">
                             <label for="email">이메일</label>
-                            <input name="email" id="email" type="email" class="input input-lg" th:value="${user.email}" value="hihi123@naver.com">
+                            <input name="email" id="email" type="email" class="input input-lg" th:value="${user.email}" value="hihi123@naver.com" spellcheck="false">
                         </div>
                         <div class="reg-list-input-box">
                             <label for="phone">휴대폰</label>
-                            <input name="managerPhone" id="phone" type="text" class="input input-lg" th:value="${user.managerPhone}" value="01012345678">
+                            <input name="managerPhone" id="phone" type="text" class="input input-lg" th:value="${user.managerPhone}" value="" spellcheck="false">
                         </div>
                
                     </section>
 
                     <!-- 저장 / 취소 버튼 / 회원탈퇴-->
                     <div class="reg-button-box">
-                        <button type="submit" class="btn btn-default-fill btn-size-1 save-btn">저장</button>
+                        <button type="submit" class="btn btn-default btn-default-fill btn-size-1 save-btn">저장</button>
 <!--                         <button onclick="" type="submit" class="btn btn-default-fill btn-size-1">취소</button> -->
                     </div>    
                 </div>
