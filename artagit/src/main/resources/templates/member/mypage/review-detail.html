@@ -31,8 +31,8 @@
 		            </div>
 	            </div>
 	            <ul class="menu-list">
-	                <li class="list line-on"><a class="deco deco-ticket deco-ticket-on" href="">나의 예매내역</a></li>
-	                <li class="list"><a class="deco deco-heart-red" href="../../member/mypage/like-list.html">좋아요 전시</a></li>
+	                <li class="list line-on"><a class="deco deco-ticket deco-ticket-on" th:href="@{/member/mypage/review/list}">나의 예매내역</a></li>
+	                <li class="list"><a class="deco deco-heart-red" href="../../member/mypage/like-list.html" th:href="@{/member/mypage/like-list}" >좋아요 전시</a></li>
 	                <li class="list"><a class="deco deco-smile"  href="./account-edit.html">내 정보 수정</a></li>
 	                <li class="list"><a class="deco deco-write" href="./post-list.html">작성글 관리</a></li>
 	            </ul>
@@ -63,15 +63,13 @@
 	                    </div>
 	                    <div>
 	                        <span class="exh-loc" th:text="${booking.museumName}" >국립현대미술관</span>
-	                        <span class="exh-date" th:text="${booking.bookingDate}">2022.08.08</span>
+	                        <span class="exh-date" th:text="${#dates.format(booking.bookingDate,'yyyy-MM-dd')}" >2022.08.08</span>
 	                    </div>
 	    
 	                    <div class="color-option">
-
-<!-- 	                        <input type="color" class="color-input" name="color" > -->
-								<a class="color purple" value="pink"></a>
-								<a class=" color green"></a>
-								<a class="color blue"></a>
+								<a class="color purple" value="pink"  th:if="!${review}"></a>
+								<a class=" color green"  th:if="!${review}" ></a>
+								<a class="color blue"  th:if="!${review}"></a>
 	                    </div>
 	                    
 	                    <div >
@@ -96,7 +94,7 @@
 	                    </div>
 	                    <div>
 	                        <span class="exh-loc" th:text="${booking.museumName}" >국립현대미술관</span>
-	                        <span class="exh-date" th:text="${booking.bookingDate}">2022.08.08</span>
+	                        <span class="exh-date" th:text="${#dates.format(booking.bookingDate,'yyyy-MM-dd')}">2022.08.08</span>
 	                    </div>
 	    
 	                    <div class="color-option">

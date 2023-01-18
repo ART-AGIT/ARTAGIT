@@ -1,5 +1,9 @@
+.my-account-edit{
+	display: none;
+}
+
 .main-container-edit{
-    padding-top: 20;
+	padding-top: 20;
 }
 .member{
     
@@ -86,9 +90,109 @@ top: -5px;
     width: 30px;
     height: 30px;
 }
-/*====================================================*/
-@media (min-width: 992px) {
+.main-content{
+    display: flex;
+    flex-direction: column;
+}
+/* 회원탈퇴 modal */
+
+#modal.modal-overlay {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(1.5px);
+    -webkit-backdrop-filter: blur(1.5px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+#modal .modal-window {
+    background: rgba(255, 255, 255);
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 13.5px );
+    -webkit-backdrop-filter: blur( 13.5px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    /* width: 400px;
+    height: 500px; */
+    width: 200px;
+    height: 100px;
+    position: relative;
+    top: -100px;
+    padding: 10px;
+}
+#modal .title {
+    padding-left: 10px;
+    display: inline;
+    /* text-shadow: 1px 1px 2px gray; */
+    color: #545454;
+    
+}
+#modal .title h2 {
+    display: inline;
+    font-size : 16px;
+}
+#modal .close-area .del-btn{
+    display: inline;
+    float: right;
+    padding-right: 10px;
+    cursor: pointer;
+    text-shadow: 1px 1px 2px gray;
+    color: #545454;
+}
+
+#modal .content {
+    margin-top: 20px;
+    margin-bottom:20px;
+    padding: 0px 10px;
+    /* text-shadow: 1px 1px 2px gray; */
+    color: rgb(0, 0, 0);
+}
+.button-wrap{
+	display:flex;
+	justify-content: space-evenly;
+}
+
+@media (min-width: 993px){
 	
-	
-	
+	.main-content{
+	    display: flex;
+	    flex-direction: row;
+	    gap:30px;
+	    padding-top: 20px;
 	}
+	.menu-box {
+    display: inline-block;
+    padding-top: 55px;
+}
+
+.edit{
+    padding : 25px 120px;
+    display: flex;
+}
+.my-account-edit{
+	display: flex;
+    padding-bottom: 20px;
+    border-bottom: 0.5px solid rgb(191, 191, 191);
+    height: 15px;
+    width: 340px;
+}
+	
+	/* .btn-unregister{
+		width: 65px;
+    	height: 25px;
+    	font-size: 11px;
+	}
+	.unregister{
+		position: relative;
+    left: 108px;
+	} */
+	
+}

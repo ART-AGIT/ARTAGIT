@@ -6,6 +6,7 @@
 
     -webkit-mask-size: 20px 20px;
     -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
 
     background-color: #373737;
 
@@ -95,7 +96,6 @@
 }
 .icon-search{
     -webkit-mask-image: url(../image/search.svg);
-    -webkit-mask-size: 18px 18px;
 }
 .icon-calendar{
     -webkit-mask-image: url(../image/calendar.svg);

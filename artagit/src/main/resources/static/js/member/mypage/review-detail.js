@@ -14,14 +14,7 @@ window.addEventListener("load",function(e){
 	const colorOption = document.querySelector(".color-option");
 //	const trash = document.querySelector(".trash");
 	var color=1;
-	//유효성검사
-	//리뷰작성 문자수
-	//관람일보다 지난 날짜일경우만 리뷰 작성 가능
-	
-	//	리뷰 테마 컬러 변경
-//    colorInput.oninput= function(e){
-//        box.style.background = colorInput.value;
-//    }
+
     
     colorOption.onclick=function(e){
 		

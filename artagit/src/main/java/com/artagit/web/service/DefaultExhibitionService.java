@@ -86,9 +86,9 @@ public class DefaultExhibitionService implements ExhibitionService {
 	}
 	
 	// [주최자] 나의 등록전시 리스트
-	public List<Exhibition> getListById(int id) {
+	public List<Exhibition> getListById(int corpId) {
 		
-		List<Exhibition> list =exhDao.getListByID(id);
+		List<Exhibition> list =exhDao.getListByID(corpId);
 		return list;
 
 	}
@@ -117,7 +117,7 @@ public class DefaultExhibitionService implements ExhibitionService {
 	
 	//나의 등록전시 개수 
 	@Override
-	public int countOfExh(int memId) {
+	public int getCountOfExh(int memId) {
 		int count = exhDao.getCount(memId);
 		return count;
 	}

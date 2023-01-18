@@ -19,9 +19,13 @@ import com.artagit.web.entity.ArtagitUserDetails;
 import com.artagit.web.entity.BoardListView;
 import com.artagit.web.entity.Booking;
 import com.artagit.web.entity.BookingList;
+import com.artagit.web.entity.Exhibition;
+import com.artagit.web.entity.Payment;
 import com.artagit.web.entity.Review;
 import com.artagit.web.service.BoardService;
 import com.artagit.web.service.BookingService;
+import com.artagit.web.service.ExhibitionService;
+import com.artagit.web.service.PaymentService;
 import com.artagit.web.service.ReviewService;
 
 @RestController
@@ -32,7 +36,13 @@ public class MyPageApi {
 	private ReviewService reviewService;
 	
 	@Autowired
+	private ExhibitionService exhService;
+	
+	@Autowired
 	private BookingService bookingService;
+	
+	@Autowired
+	private PaymentService paymentService;
 	
 	@Autowired
 	private BoardService boardService;
@@ -92,22 +102,16 @@ public class MyPageApi {
 	public Map<String,Object> update(Review review,Booking booking,@PathVariable("id") int reviewId
 			,@AuthenticationPrincipal ArtagitUserDetails user){
 
-
-
 		review.setColor(review.getColor());
 		System.out.println("review2---"+review);
 		Review result = reviewService.update(review);
 		System.out.println("result"+result);
 		
-		
 		int payId = result.getPayId();
 		System.out.println(payId);
 		BookingList bookingList = bookingService.getReviewByBookingId(payId);
 		System.out.println(bookingList);
-		
-		
-		
-		
+	
 		Map<String,Object> dto = new HashMap<>();
 		dto.put("status", 200);
 		dto.put("resultObject",result);
@@ -115,6 +119,37 @@ public class MyPageApi {
 
 		return dto;
 	}
+	
+	
+	
+	/*-----------모달로 결제상세------*/ 
+	@GetMapping("/payment/{id}")
+	@Transactional
+	public Map<String,Object> see(@PathVariable("id") int payId
+			,@AuthenticationPrincipal ArtagitUserDetails user){
+		
+		Map<String,Object> dto = new HashMap<>();
+		Payment payment = paymentService.get(payId);
+		Booking booking = bookingService.get(payId);
+
+		int exhId = bookingService.getExhId(payId);
+		Exhibition exh = exhService.getExhById(exhId);
+		
+		dto.put("booking",booking);
+		dto.put("payment",payment);
+		dto.put("user",user);
+		dto.put("exhibition",exh);
+		
+		return dto;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 	
 
 //	/******좋아요한 게시글***********/

@@ -13,4 +13,12 @@
 			values (#{payNum}, #{price}, #{method}, #{bookId});
 	</insert>
 	
+	<select id="get" resultType="com.artagit.web.entity.Payment">
+		select *
+		from Payment
+		where id = #{id}
+	</select>
+	
+	
+	
 </mapper>

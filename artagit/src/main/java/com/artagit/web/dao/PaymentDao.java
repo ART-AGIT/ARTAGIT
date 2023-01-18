@@ -17,7 +17,9 @@ public interface PaymentDao {
 			String field,
 			String input);//***
 	
+	//결제내역 get 메소드
 	Payment get(int id);
+	
 	int count(String query);//***
 	
 	// 결제 정보 insert 메서드	

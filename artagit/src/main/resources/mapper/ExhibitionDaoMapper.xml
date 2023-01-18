@@ -85,8 +85,12 @@
 	</select>
 	<select id="getListByID" resultType="com.artagit.web.entity.Exhibition">
 		select * from Exhibition
-		where useYN = 'Y'
+		where corpId = #{corpId};
 	</select>
+<!-- 	<select id="getListByID" resultType="com.artagit.web.entity.Exhibition"> -->
+<!-- 		select * from Exhibition -->
+<!-- 		where useYN = 'Y' -->
+<!-- 	</select> -->
 	<select id="getListtt" resultType="com.artagit.web.entity.Exhibition">
 		select * from Exhibition
 			join Booking 

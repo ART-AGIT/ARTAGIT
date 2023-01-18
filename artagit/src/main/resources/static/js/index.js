@@ -1,9 +1,11 @@
 window.addEventListener("load", function(){
     var body = document.getElementById("body");
     var header = body.querySelector("header");
-    var icons = header.querySelectorAll(".icon");
+    const icons = body.querySelectorAll(".icon");
     var subMenu = header.querySelector(".sub-menu-box");
     var links = subMenu.querySelectorAll("a");
+//    const boardBox = body.querySelector("board-box");
+//    var boardIcons = boardBox.querySelectorAll(".icon");
 
     var headerPc = body.querySelector(".header-pc");
     var mainMenuPc = headerPc.querySelector(".main-menu");
@@ -22,8 +24,11 @@ window.addEventListener("load", function(){
                 link.classList.add("bg-white");
             for(let linkPc of linksPc)
                 linkPc.classList.add("bg-white");
-            for(let icon of icons)
+            for(let icon of icons){
+				if(icon.classList.contains("icon-heart"))
+					return;
                 icon.classList.add("bg-white");
+			}
         }
         else{
             body.classList.remove("bg-white");
