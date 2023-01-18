@@ -65,7 +65,7 @@ window.addEventListener("load",function(){
 			let template =`
 				<div class="review-form" >
 	        
-		            <div class="box" style="background-color:${review.color}"}>
+		            <div class="box" style="background-color:${review.color}">
 		                <div class="write-form" >
 		                    <div class="content" >${review.content}</div>			                    
 		                    
@@ -78,7 +78,7 @@ window.addEventListener("load",function(){
 		                        <span class="exh-loc" >${bookingList.museumName}</span>
 		                        <span class="exh-date" >${bookingList.bookingDate}</span>
 		                    </div>
-		    
+		 
 		                    <div class="color-option">
 		                        <input type="color" class="color-input" name="color"></input>
 		                    </div>

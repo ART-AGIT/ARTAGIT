@@ -17,5 +17,9 @@ public interface BookingDao {
 	
 	// payment 데이터 insert 하기 전, bookId를 얻어올 용도 (payNum을 가지고 bookId를 select)
 	int getBookIdBypayNum(String payNum);
+
+	public int getExhId(int payId);
+
+	public Booking get(int id);
 }
 

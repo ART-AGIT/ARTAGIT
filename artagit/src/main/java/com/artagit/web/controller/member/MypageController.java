@@ -42,8 +42,9 @@ public class MypageController {
 	private ExhibitionService exhService;
 	
 	@Autowired
-
 	private BookingService bookingService;
+	
+	@Autowired
 	private MemberService memberService;
 	
 	@Autowired
@@ -146,7 +147,7 @@ public class MypageController {
 
 
 //===================회원수정===================
-	@GetMapping("/account-edit/{id}")
+	@GetMapping("/account-edit")
 	public String update(@AuthenticationPrincipal ArtagitUserDetails user, Model model, Member member) {
 		//회원수정페이지불러올때 회원가입할때정보불러오기 user쓰기
 
@@ -182,10 +183,6 @@ public class MypageController {
 		
 		model.addAttribute("user",user);
 
-//		System.out.println("member"+memb);
-		
-		
-		
 		return "member/mypage/account-edit";
 	}
 
