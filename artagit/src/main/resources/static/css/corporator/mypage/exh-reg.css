@@ -173,5 +173,15 @@ div.exh-reg-button-box {
 	.exh-reg-list{
 		padding-right: 200px;
 	}
+.member-grade {
+    background-color: #414141;
+    border-radius: 20px;
+    width: 60px;
+    height: 24px;
+    text-align: center;
+    line-height: 24px;
+    color: #fff;
+    margin-left: 20px;
+}
 
 }
