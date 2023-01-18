@@ -5,18 +5,9 @@
 	layout:decorate="~{inc/layout}">
 	
 	<th:block layout:fragment="css">
-
 		<link href="/css/component/sub-menu.css" type="text/css" rel="stylesheet">
-
-<!-- 		<script src="../js/modal.js"></script> -->
-<!-- 		<script src="../../../js/index.js"></script> -->
-<!-- 		<script src="../../../js/modal.js"></script> -->
-<!-- 		<script src="../js/exhibition/list.js"></script> -->
-<!--     	<link href="../../../css/member/mypage/mypage-payment.css" type="text/css" rel="stylesheet"> -->
 		<link href="/css/member/mypage/booking-list.css" type="text/css" rel="stylesheet">
 		<script src="/js/member/mypage/booking-list.js"></script>
-<!-- 		<script src="../../../js/header-menu.js"></script> -->
-<!-- 		<script src="../../../js/booking-list.js"></script> -->
 	</th:block>
 	
   
@@ -32,8 +23,13 @@
 		                <div class="profile-img-box" >
 		                    <img class="profile-img" src="../../../image/camera.svg">
 		                </div>
-		                <div class="profile-name"> 
-		                    <span th:text="${nickname}+' 님'">1004님</span>
+		                <div>
+			                <div class="profile-name"> 
+			                    <span th:text="${nickname}+' 님'">1004님</span>
+			                </div>
+			                <div class="member-grade">
+                        		일반회원
+                    		</div>
 		                </div>
 		            </div>
 	            </div>
