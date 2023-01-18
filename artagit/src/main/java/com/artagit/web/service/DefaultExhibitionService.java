@@ -1,6 +1,9 @@
 package com.artagit.web.service;
 
 import java.sql.SQLSyntaxErrorException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -88,7 +91,7 @@ public class DefaultExhibitionService implements ExhibitionService {
 	// [주최자] 나의 등록전시 리스트
 	public List<Exhibition> getListById(int corpId) {
 		
-		List<Exhibition> list =exhDao.getListByID(corpId);
+		List<Exhibition> list =exhDao.getListById(corpId);
 		return list;
 
 	}
@@ -191,5 +194,7 @@ public class DefaultExhibitionService implements ExhibitionService {
 		List<Exhibition> list = exhDao.getLikeList(id);
 		return list;
 	}
+
+
 
 }

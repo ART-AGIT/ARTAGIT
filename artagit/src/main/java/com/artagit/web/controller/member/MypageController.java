@@ -91,7 +91,7 @@ public class MypageController {
 			else if(compare<0) //today < date
 				bookingList.get(i).setPayMethod("미관람");		
 			else
-				bookingList.get(i).setPayMethod("");
+				bookingList.get(i).setPayMethod("미관람");
 				
 		}
 		model.addAttribute("nickname",nickname);
@@ -113,6 +113,8 @@ public class MypageController {
 		int payId = payment.getId();
 	
 		Review review = reviewService.get(payId);
+		String nickname = user.getNickname();
+		model.addAttribute("nickname",nickname);
 		model.addAttribute("booking",booking);
 		model.addAttribute("review",review);
 		model.addAttribute("bookingId",booking.getBookingId());
@@ -135,7 +137,8 @@ public class MypageController {
 		BookingList booking = bookingService.getReviewByBookingId(payId);
 		model.addAttribute("booking",booking);
 		System.out.println(booking);
-		
+		String nickname = user.getNickname();
+		model.addAttribute("nickname",nickname);
 		return "member/mypage/review-update";
 	}
 	

@@ -83,7 +83,7 @@
 		select * from Exhibition
 		where id=#{id}
 	</select>
-	<select id="getListByID" resultType="com.artagit.web.entity.Exhibition">
+	<select id="getListById" resultType="com.artagit.web.entity.Exhibition">
 		select * from Exhibition
 		where corpId = #{corpId};
 	</select>

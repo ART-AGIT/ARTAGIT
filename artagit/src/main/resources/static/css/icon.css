@@ -162,6 +162,10 @@
     -webkit-mask-image: url(../image/icons/question.png);
 }
 
+.icon-question3 {
+    -webkit-mask-image: url(../image/icons/question3.svg);
+}
+
 /* ----- icon util ---------------------------- */
 .icon-white{
     background-color: #fff;

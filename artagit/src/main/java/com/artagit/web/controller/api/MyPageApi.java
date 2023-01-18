@@ -60,6 +60,7 @@ public class MyPageApi {
 		Review result = reviewService.reg(review);
 
 		Map<String,Object> dto = new HashMap<>();
+		
 		dto.put("status", 200);
 		dto.put("resultObject",result);
 		dto.put("booking2",booking2);

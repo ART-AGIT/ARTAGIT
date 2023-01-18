@@ -63,10 +63,11 @@ public class ExhibitionController {
 	//내가 등록한 전시리스트 ========================
 	@GetMapping("list")
 	public String list(Model model,@AuthenticationPrincipal ArtagitUserDetails user) {
-			//@RequestParam(name="memId")int memId,Model model) {
 		int userId = user.getId();
+		System.out.println(userId);
 		List<Exhibition> list = service.getListById(userId);
 		int countOfExh = service.getCountOfExh(user.getId());
+		
 		model.addAttribute("nickname",user.getUsername());
 		model.addAttribute("list",list);
 		model.addAttribute("countOfExh",countOfExh);

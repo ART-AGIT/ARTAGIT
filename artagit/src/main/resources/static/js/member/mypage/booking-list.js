@@ -62,9 +62,9 @@ window.addEventListener("load", function(){
 					                <div class="item" >결제일</div>
 					                <div class="item">${payment.regDate}</div>
 					            </div>
-					            <div class="btn-box"> 
- 			                        <div class="btn btn-default btn-default-fill btn-exit"  value="닫기">닫기</div> 
- 			                    </div> 
+						            <div class="btn-box"> 
+	 			                        <a class="btn btn-default btn-default-fill btn-exit"  value="닫기">닫기</a> 
+	 			                    </div> 
  			                </div> 
  			            </section> 
  		        	</div>    

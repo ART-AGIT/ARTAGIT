@@ -23,14 +23,14 @@
 		                <div class="profile-img-box" >
 		                    <img class="profile-img" src="../../../image/camera.svg">
 		                </div>
-		                <div>
+		                <div></div>
 			                <div class="profile-name"> 
 			                    <span th:text="${nickname}+' 님'">1004님</span>
 			                </div>
 			                <div class="member-grade">
                         		일반회원
                     		</div>
-		                </div>
+		                
 		            </div>
 	            </div>
 	            <ul class="menu-list">
@@ -52,14 +52,12 @@
 			        </div>
 		        
 		        
-		        
-<!-- 연습 -->
-
-<div class= "booking-list">
+		       
+		<div class= "booking-list">
 
 
 
-	            <form action="" class ="forr" th:each="bookingList:${bookingList}">
+	            <form action="" class ="list-form" th:each="bookingList:${bookingList}">
 	                <div class="exh-img-box">
 	                    <img class="exh-img"  th:src="@{|/image/poster/${bookingList.exhPoster}|}" src="../../image/exhimage.png" alt="">
 	                </div>
@@ -117,7 +115,7 @@
 <!-- 	        </div> -->
 	        	</form>
 	        	
-	  </div>       	
+	  	</div>       	
 	        	
 	        	
 	        	
