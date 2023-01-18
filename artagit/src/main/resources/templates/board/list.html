@@ -10,7 +10,7 @@
 		<script src="/js/modal.js"></script>
 		<script src="/js/index.js"></script>
 </th:block>
-
+ 
 <body id="body" layout:fragment="content" >
    
 
@@ -35,7 +35,7 @@
 			           <section class="notice-list-box">
 					        <section class="notice " th:each="noticeList:${noticeList}">
 					            <h1 class="d-none">공지목록</h1> 
-					            <img class="notice-icon" src="../image/notice.png">
+					            <div class="notice-icon ">공지</div>
 					            <h1 class="notice-title">
 					                <a th:utext="${noticeList.title}" th:href="@{|/member/board/${noticeList.id}|}" href = "../member/board/detail.html">안녕하세요. 아트아지트 입니다.</a></h1>
 					            <div> </div>
@@ -48,7 +48,7 @@
 					            <div th:text="${#dates.format(noticeList.regDate, 'YY/MM/DD HH:mm')}"> 22-11-30 </div>
 					                
 				                <div class="view">
-				                    <div class="icon icon-view">조회수 아이콘</div>
+				                    <div class="icon icon-view icon-size">조회수 아이콘</div>
 				                    <div th:text=${noticeList.hit}>11</div>
 				                </div>
 					        </section>

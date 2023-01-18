@@ -40,11 +40,14 @@ window.addEventListener("load", function() {
 			noticebox.innerHTML="";
 			console.log("notice========>"+list);
 		for (let notice of list) {
+			let date = notice.regDate.toString().substring(2, 10);
+			console.log(date);
 			
 			let template1 =
-			` <section class="notice">
+			`
+			 <section class="notice">
 	            <h1 class="d-none">공지목록</h1> 
-	            <img class="notice-icon" src="../image/notice.png">
+	             <div class="notice-icon">공지</div>
 	            <h1 class="notice-title">
 	                <a href = "../member/board/detail.html">${notice.title}</a></h1>
 	            <div> </div>
@@ -54,10 +57,10 @@ window.addEventListener("load", function() {
                    
                 	<div>운영자 </div>
 	            </div>
-	            <div> ${notice.regDate} </div>
+	            <div> ${date}</div>
 	                
                 <div class="view">
-                    <div class="icon icon-view">조회수 아이콘</div>
+                    <div class="icon icon-view icon-size">조회수 아이콘</div>
                     <div>${notice.hit}</div>
                 </div>
 	        </section>`;
@@ -74,7 +77,7 @@ window.addEventListener("load", function() {
 		.then((list) => {
 			boardbox.innerHTML="";
 		for (let board of list) {
-			
+			let date = board.regDate.toString().substring(2, 10);
 			let template = ` 
 		<form class="board-box">
         <section class="board-list">
@@ -82,7 +85,9 @@ window.addEventListener("load", function() {
          	<a href = "/member/board/${board.id}">${board.title}</a>
         </h1>
         <div>[${board.name}]</div>
-        <div class="board-regdate">${board.regDate}</div>
+        
+        <div class="board-regdate">
+        ${date}</div>
         <div class="board-writer-info">
                 <img class="profile" src = "../image/${board.memImage}">
             <div>${board.nickname}</div>
@@ -91,15 +96,15 @@ window.addEventListener("load", function() {
         <div class="board-post-info">
             
             <div class="view">
-                <div class="icon icon-view">조회수 아이콘</div>
+                <div class="icon icon-view icon-size">조회수 아이콘</div>
                 <div>${board.hit}</div>
             </div>
             <div class="like-up">
-                <div class="icon icon-like-up">좋아요 아이콘</div>
+                <div class="icon icon-like-up icon-size">좋아요 아이콘</div>
                 <div>${board.hearts}</div>
             </div>
             <div class="comment">
-                <div class="icon icon-comment">댓글 아이콘</div>
+                <div class="icon icon-comment icon-size">댓글 아이콘</div>
                 <div>${board.commentTotal}</div>
             </div>
         </div>

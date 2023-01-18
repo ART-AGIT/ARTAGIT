@@ -1,7 +1,7 @@
 @media (min-width: 768px){
     .box-container{
         min-width: 1000px;
-        margin-left:100px;
+       
 
     }
 
@@ -16,6 +16,9 @@
       
     }
 
+    .post-manage{
+        border-bottom:none;
+    }
 
 
 
