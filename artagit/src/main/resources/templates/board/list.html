@@ -20,7 +20,7 @@
     <nav class = "board-category-box">
         <ul class="board-category-l">
             <!-- <li>전체 글</li> -->
-            <li data-id="0" th:class="${param.c}==null?'board-selected'" class="deco-ticket-on  ">전체 글</li>
+            <li data-id="0" th:class="${param.c}==null?'board-selected'" class="deco-ticket-on"><div class="deco deco-smile">전체 글</div></li>
             <li data-id="1" th:class="${#strings.equals(param.c, '1')}?'board-selected'"class="line-on icon-note">자유게시판</li>
             <li data-id="2" th:class="${#strings.equals(param.c, '2')}?'board-selected'" class="icon-picture">전시후기</li>
             <li data-id="3" th:class="${#strings.equals(param.c, '3')}?'board-selected'" class="icon-food">맛집후기</li>
@@ -45,7 +45,7 @@
 				                   
 				                	<div>운영자 </div>
 					            </div>
-					            <div th:text="${#dates.format(noticeList.regDate, 'YY/MM/DD HH:mm')}"> 22-11-30 </div>
+					            <div th:text="${#dates.format(noticeList.regDate, 'YY/MM/dd HH:mm')}"> 22-11-30 </div>
 					                
 				                <div class="view">
 				                    <div class="icon icon-view icon-size">조회수 아이콘</div>
