@@ -53,7 +53,7 @@
 /* 	    transition: ; */
 	}
 
-	.deco-write-on:hover .mini-menu-list { display: none; }
+	.deco-write-on:hover .mini-menu-list { display: block; }
 	
 
 	.mini-menu-list a {
