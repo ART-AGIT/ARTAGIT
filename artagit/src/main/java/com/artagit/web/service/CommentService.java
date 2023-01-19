@@ -7,11 +7,11 @@ import com.artagit.web.entity.Comment;
 
 public interface CommentService {
 	
-	List<Comment> getList(int postId);
+
 	
 	
-	int modify(Comment comment);
-	int delete(Comment comment);
+	Map<String, Object> modify(Comment comment);
+	int delete(int id);
 
 
 //	Comment write(int postId, int memId, String content, String string);
@@ -19,6 +19,14 @@ public interface CommentService {
 	List<Comment> getNickname(int id);
 
 	Map<String, Object> write(Comment comment);
+	
+	Comment getCommentId(int id);
+	
+	
+
+
+
+
 
 
 	

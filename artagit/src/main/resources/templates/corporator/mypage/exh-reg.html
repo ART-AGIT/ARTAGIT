@@ -17,25 +17,31 @@
     <main id="exh-reg-main">
 	
 	<div class="main-contents">
-        <div class="menu-box exh-reg">
-			<div class="profile-box">
+		
+		<div class="menu-box exh-reg">
+                <div class="profile-box">
 	        		<div class="profile-content">
 		                <div class="profile-img-box" >
 		                    <img class="profile-img" src="../../../image/camera.svg">
 		                </div>
-		                <div class="profile-name">
-		                    <span>1004님</span>
+		                <div>
+			                <div class="profile-name"> 
+			                    <span th:text="${user.museumName}+' 님'">1004님</span>
+			                </div>
+			                <div class="member-grade">
+                        		기업회원
+                    		</div>
 		                </div>
 		            </div>
-	            </div>	
-            <ul class="menu-list">
-				
-                <li class="list line-on"><a class="deco deco-ticket deco-ticket-on" href="">전시 등록</a></li>
+	            </div>
+                <ul class="menu-list">
+	                <li class="list line-on"><a class="deco deco-ticket deco-ticket-on" href="">전시 등록</a></li>
 
                 <li class="list"><a class="deco deco-smile" href="corp/account-edit">내 정보 수정</a></li>
-
-            </ul>
+	            </ul>
         </div>
+
+		
 
 	<div class="sub-contents">
         <div class="exh-reg-list">

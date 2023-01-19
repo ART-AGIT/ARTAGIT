@@ -20,7 +20,7 @@ public class ArtagitSecurityConfig {
 				.authorizeHttpRequests(authorize->authorize // 인가 요청이 오면! return값(authorize)을 authorize 에 담아서 사용?
 				.requestMatchers("/admin/**").hasAnyRole("ADMIN") // ADMIN 권한이 있는 계정만 들어갈 수 있는 경로
 				.requestMatchers("/corp/**").hasAnyRole("CORP", "ADMIN") // ADMIN, CORP 권한이 있는 계정만 접근할 수 있는 경로
-				.requestMatchers("/member/**").hasAnyRole("MEMBER","ADMIN") // MEMBER, ADMIN 권한이 있는 계정만 접근 가능한 경로
+				.requestMatchers("/member/**", "").hasAnyRole("MEMBER","ADMIN") // MEMBER, ADMIN 권한이 있는 계정만 접근 가능한 경로
 				.anyRequest().permitAll()) // 그 외의 나머지 (비회원) 권한을 가진 계정이 접근할 수 있는 경로
 				.formLogin(form->form.loginPage("/user/login") // 로그인 폼으로는, /login.html 를 로그인 페이지로 등록한다.
 									 .defaultSuccessUrl("/")) // loginPage("/user/login") 경로를 통해 로그인을 했을 때 로그인 성공 시 보내줄 페이지. 

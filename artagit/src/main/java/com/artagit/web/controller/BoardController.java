@@ -69,15 +69,11 @@ public class BoardController {
 	     
 	      
 	      //Comment 조회
-	      model.addAttribute("user",user);
-	      
-	      System.out.println(user);
-	      System.out.println(board);
-
-	      
-	      List<Comment> comments = commentService.getNickname(id);
-	      model.addAttribute("comments",comments);
-
+//	      model.addAttribute("user",user);
+//	      
+//	      
+//	      List<Comment> comments = commentService.getNickname(id);
+//	      model.addAttribute("comments",comments);
 	      return "member/board/detail";
 
 	         

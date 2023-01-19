@@ -18,7 +18,8 @@ public interface CommentDao {
 	int count(String input);
 //	int write(Comment comment);
 	int modify(Comment comment);
-	int delete(Comment comment);
+	
+	int delete(int id);
 
 
 
@@ -35,6 +36,24 @@ public interface CommentDao {
 
 
 	List<Comment> getNickname(int id);
+
+
+
+
+
+
+	Comment getModifyOne(Comment comment);
+
+
+
+	Comment modifyTest(Comment comment);
+
+
+
+
+
+
+	Comment getCommentId(int id);
 	
 }
 	
