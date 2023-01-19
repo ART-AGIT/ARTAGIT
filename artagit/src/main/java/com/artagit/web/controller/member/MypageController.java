@@ -1,6 +1,11 @@
 package com.artagit.web.controller.member;
 
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -15,6 +20,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.artagit.web.entity.ArtagitUserDetails;
 import com.artagit.web.entity.BoardListView;
@@ -32,6 +40,7 @@ import com.artagit.web.service.PaymentService;
 import com.artagit.web.service.ReviewService;
 
 import ch.qos.logback.core.recovery.ResilientSyslogOutputStream;
+import jakarta.servlet.http.HttpServletRequest;
 
 
 @Controller
@@ -152,7 +161,9 @@ public class MypageController {
 	@GetMapping("/account-edit")
 	public String update(@AuthenticationPrincipal ArtagitUserDetails user, Model model, Member member) {
 		//회원수정페이지불러올때 회원가입할때정보불러오기 user쓰기
-
+		
+		//member.setLoginId(user.getUsername());
+		System.out.println(user);
 		model.addAttribute("user",user);
 		//System.out.println(user.getPhone());
 		//memberService.update(user);
@@ -162,29 +173,47 @@ public class MypageController {
 	}
 	
 	@PostMapping("/account-edit")
-	public String modify(@AuthenticationPrincipal ArtagitUserDetails user, Model model, Member member) {
+	public String modify(MultipartFile img, HttpServletRequest request,@AuthenticationPrincipal ArtagitUserDetails user, Model model, Member member) throws IOException {
 		
-//		
-//		System.out.println("user"+user);
-//		System.out.println("member"+member);
+		model.addAttribute("user",user);
+		member.setImage(img.getOriginalFilename());
+		System.out.print(img);
+		if (!img.isEmpty()) {
+			String path = "/image"; 
+			String realPath = request.getServletContext().getRealPath(path);
+			System.out.println(realPath);
+
+			File pathFile = new File(realPath);
+			if (!pathFile.exists())
+				pathFile.mkdirs();
+
+			String fullPath = realPath + File.separator + img.getOriginalFilename();
+			InputStream fis = img.getInputStream();
+			OutputStream fos = new FileOutputStream(fullPath);
+			byte[] buf = new byte[1024];
+			int size = 0;
+			while ((size = fis.read(buf)) >= 0)
+				fos.write(buf, 0, size);
+
+			fos.close();
+			fis.close();
+		}
 		
+		
+
 		String password = member.getPassword();
 		String encPassword = passwordEncoder.encode(password);
 		
 		member.setPassword(encPassword);
-		System.out.println(encPassword);
-		System.out.println(member);
-		//member.setPassword(member.getPassword()); 
+
 		memberService.update(member);
-		
+		user.setImg(member.getImage());
 		user.setNickname(member.getNickname());
-		user.setUsername(member.getLoginId());
 		user.setName(member.getName());
 		user.setEmail(member.getEmail());
 		user.setPhone(member.getPhone());
 		
-		model.addAttribute("user",user);
-
+		//System.out.println(user.getUsername());
 		return "member/mypage/account-edit";
 	}
 

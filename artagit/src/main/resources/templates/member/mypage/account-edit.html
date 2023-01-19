@@ -57,15 +57,15 @@
 
             <section class="reg-list edit">
         	<h2 class="my-account-edit">내 정보 수정</h2>
-                <form action="/member/mypage/account-edit" method="post">
+                <form action="/member/mypage/account-edit" method="post" enctype="multipart/form-data">
 					
                     <div class="member">
 						<input type="hidden" th:value="${user.id}" name="id">
                         <div class="member-profile">
-                            <img src="../../image/회원기본이미지.svg" class="member-profile-img img-input">
+                            <img th:src="@{/image/{img}(img=${member.image})}" src="../../image/회원기본이미지.svg" class="member-profile-img img-input">
                             <div class="icon-img-choice">
                                 <div class="circle-edit"></div>
-                               <input name="image" type="file" src="../../image/icons/icon-edit.svg" class="icon icon-write icon-write-edit file-input">
+                               <input name="img" type="file" src="../../image/icons/icon-edit.svg" class="icon icon-write icon-write-edit file-input">
                                <!--  <a href=""><img class="img-edit" src="../../image/write-on.png"></a> -->
                             </div>
                         </div>
@@ -87,31 +87,31 @@
 
                     <div class="reg-list-input-box">
                         <label for="name">이름</label>
-                        <input th:value="${user.name}" name="name" id="name" type="text" class="input input-lg">
+                        <input th:value="${user.name}" name="name" id="name" type="text" class="input input-lg" spellcheck="false">
                     </div>
                     <div class="reg-list-input-box">
                         <label for="nickname">닉네임</label>
-                        <input th:value="${user.nickname}" name="nickname" id="nickname" type="text" class="input input-lg">
+                        <input th:value="${user.nickname}" name="nickname" id="nickname" type="text" class="input input-lg" spellcheck="false">
                     </div>
                     <div class="reg-list-input-box">
                         <label for="password">비밀번호</label>
-                        <input name="password" id="password" type="password" required class="input input-lg"
-                            placeholder="영문자, 숫자, 특수문자 포함 8자 이상">
+                        <input name="password" id="password" type="password" class="input input-lg"
+                            placeholder="영문자, 숫자, 특수문자 포함 8자 이상" spellcheck="false">
                     </div>
                     <div class="reg-list-input-box">
                         <label for="password-check">비밀번호 확인</label>
-                        <input id="password-check" type="password" required class="input input-lg"
-                            placeholder="영문자, 숫자, 특수문자 포함 8자 이상">
+                        <input id="password-check" type="password"  class="input input-lg"
+                            placeholder="영문자, 숫자, 특수문자 포함 8자 이상" spellcheck="false">
                             <span class="chkFialure-message d-none" style="color: red;">비밀번호가 일치하지 않습니다</span>
                     		<span class="chkSuccess-message d-none">비밀번호가 일치합니다</span>
                     </div>
                     <div class="reg-list-input-box">
                         <label for="email">이메일</label>
-                        <input th:value="${user.email}" name="email" id="email" type="email" class="input input-lg">
+                        <input th:value="${user.email}" name="email" id="email" type="email" class="input input-lg" spellcheck="false">
                     </div>
                     <div class="reg-list-input-box">
                         <label for="phone">휴대폰</label>
-                        <input th:value="${user.phone}" name="phone" id="phone" type="text" class="input input-lg">
+                        <input th:value="${user.phone}" name="phone" id="phone" type="text" class="input input-lg" spellcheck="false">
                     </div>
 
                     <div class="edit-button-box">

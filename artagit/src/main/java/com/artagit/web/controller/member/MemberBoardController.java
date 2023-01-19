@@ -120,7 +120,7 @@ public class MemberBoardController {
 		
 		int memId = user.getId();
 		System.out.println("이미지이름" + img.getOriginalFilename());
-		board.setMemId(memId);
+		board.setMemId(memId);		
 		board.setImage(img.getOriginalFilename());
 		if (!img.isEmpty()) {
 			String path = "/image"; // 어디에서 돌아갈지 모르니 운영되고 있는 home directory에서 생각 앞쪽은 어케될지 모름
