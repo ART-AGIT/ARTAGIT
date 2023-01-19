@@ -17,7 +17,6 @@ public class BookingList {
 		// TODO Auto-generated constructor stub
 	}
 	
-	
 
 	public BookingList(int bookingId, String exhName, int exhId, String museumName, Date bookingDate, String payMethod,
 			String reviewCon, int memId, String exhPoster, int reviewId) {
@@ -47,27 +46,9 @@ public class BookingList {
 
 
 
-
-
-	public int getExhId() {
-		return exhId;
-	}
-
-
-
-	public void setExhId(int exhId) {
-		this.exhId = exhId;
-	}
-
-
-
 	public String getExhPoster() {
 		return exhPoster;
 	}
-
-
-
-
 
 
 	public void setExhPoster(String exhPoster) {
@@ -76,6 +57,16 @@ public class BookingList {
 
 
 
+
+
+
+	public int getExhId() {
+		return exhId;
+	}
+
+	public void setExhId(int exhId) {
+		this.exhId = exhId;
+	}
 
 
 

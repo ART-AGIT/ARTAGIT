@@ -80,10 +80,9 @@ form {
 
 .btn-go-reg{
     margin-top: 30px;
+    height:20px;
 }
-.icon-arrow-right left{
 
-}
 .page{
     margin-top: 20px;
     display: flex;
@@ -110,8 +109,25 @@ form {
 	.my-reg{
 		font-size:20px;
 		display:flex;
-		padding-left:15px;
+		padding-left:12px;
 /* 		padding-bottom:20px; */
+	}
+	
+	.go-reg{
+		width:730px;
+	    padding-left: 10px;
+	    padding-top: 60px;
+	    /* justify-content: center; */
+	    align-items: center;
+	}
+	
+	.exh-state.exh-ing{
+		padding-bottom:30px;
+	}
+	
+
+	.do-not-exist{
+		font-size:18px;
 	}
 	.exh-list-tong{
 		display:grid;

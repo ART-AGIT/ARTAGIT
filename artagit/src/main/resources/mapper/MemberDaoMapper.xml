@@ -91,6 +91,7 @@
     <update id = "update" parameterType="com.artagit.web.entity.Member">
         update Member
         <set>
+			<if test="image != null">image = #{image},</if>
  			<if test="name != null">name = #{name},</if>
  			<if test="nickname != null">nickname = #{nickname},</if>
 			<if test="password != null">password = #{password},</if>

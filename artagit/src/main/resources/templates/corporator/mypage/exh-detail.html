@@ -22,6 +22,7 @@
             <div class="exh-detail-img-box">
                 <img class="exh-detail-img" th:src="@{|/image/poster/${exh.poster}|}" src="../../image/anonymousProject.png">
             </div>
+            <div>
             <h1 class="title content exh-name" th:text="${exh.name}" name=name>어노나미스 프로젝트</h1>
             <div class="exh-detail-table">
                 <div class="item">작가</div>
@@ -32,14 +33,14 @@
                 <div class="item content local-name" th:text="${local.name}" name="name">서울-종로구</div>
                 <div class="item exh-date">전시기간</div>
                 
-                <div class="item start-date" th:text="${exh.startDate}" name="startDate">2022.11.01</div>
-                <span class="during-date">~</span>
-                <div class="item end-date" th:text="${exh.endDate}" name="endDate">2022.11.01</div>
+                <div class="item start-date" th:text="${exh.startDate  +' ~ '+ exh.endDate}" name="startDate">2022.11.01</div>
+                <span class="during-date"></span>
+                <div class="item end-date" name="endDate"></div>
                 
                 <div class="item exh-time">관람시간</div>
-                <div class="item start-time" th:text="${#strings.substring(exh.startTime, 0,5)}" name="startTime">10:00</div>
-                <span class="during-time">~</span>
-                <div class="item end-time" th:text="${#strings.substring(exh.endTime, 0,5)}" name="endTime">18:00</div>
+                <div class="item start-time" th:text="${#strings.substring(exh.startTime, 0,5) +' ~ '+ #strings.substring(exh.endTime, 0,5)} " name="startTime">10:00</div>
+                <span class="during-time"></span>
+                <div class="item end-time" name="endTime"></div>
                 
                 <div class="item">관람료</div>
                 <div class="item content exh-price" th:text="${exh.ticketPrice}" name="price">12,000원</div>
@@ -58,12 +59,13 @@
 
                 <div class="item btn-more">더보기</div>
             </div>
+            </div>
 
+
+        </section>
             <div class="user-box">
                 <a class="btn btn-default-line btn-hpg" th:href="@{/exhibition/{id}(id=${exh.id})}">사용자 페이지 바로가기</a>
             </div>
-
-        </section>
         <div class="button-box-wrap">
 <!--  th:href="@{modify/{id}(id=${exh.id})} -->
             <button class="btn btn-default btn-size-1 modify-btn" type="">수정</button>

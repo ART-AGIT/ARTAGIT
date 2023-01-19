@@ -102,7 +102,8 @@ public class MyPageApi {
 	@Transactional
 	public Map<String,Object> update(Review review,Booking booking,@PathVariable("id") int reviewId
 			,@AuthenticationPrincipal ArtagitUserDetails user){
-
+		
+		System.out.println("color"+review.getColor());
 		review.setColor(review.getColor());
 		System.out.println("review2---"+review);
 		Review result = reviewService.update(review);

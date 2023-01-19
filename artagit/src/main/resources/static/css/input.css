@@ -7,7 +7,7 @@
 
     outline: 0;
 
-    font-size: 16px;
+    
     color: #545454;
     line-height: 24px;
     text-indent: 10px;
@@ -51,6 +51,26 @@
 .input-xl{
     width: 300px;
     height: 44px;
+}
+@media (min-width: 992px){
+
+    /* pc버전 인풋박스입니다 */
+    .input-lg{
+        width: 340px;
+        height: 45px;
+    }
+   
+    .input{
+        font-size: 16px;
+    }
+    .input-sm{
+        width: 150px;
+        height: 45px;
+    }
+    .input-md-3{
+        width: 260px;
+        height: 45px;
+    }
 }
 
 .input-border{

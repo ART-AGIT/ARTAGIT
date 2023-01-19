@@ -190,7 +190,8 @@
     
     .btn-mod, .btn-exit, .btn-reg{
     	width:60px;
-    	height:30px
+    	height:30px;
+    	cursor:pointer;
     }
 
     .review-button-list{
@@ -208,13 +209,17 @@
 		padding-right:25px;
 	}
 	
+	.color-option a{
+		cursor:pointer;
+	}
+	
 	.trash{
 		margin-right:30px;
 	}
 	
 	.trash-img{
-	    width: 30px;
-	    height: 30px;
+	    width: 35px;
+	    height: 35px;
 }
 	
 	.color{
@@ -250,5 +255,52 @@
 		height:50px;
 		
 	}
+	
+/* 	모달 */
+
+	.del-modal-background{
+	position: fixed;
+	  top: 0;
+	  left: 0;
+	  width: 100%;
+	  height: 100vh;
+	  background-color: rgba(0, 0, 0, 0.3);
+	  z-index: 1000;
+	}
+	
+	.del-modal-window {
+	  position: relative;
+	  width: 100%;
+	  height: 100%;
+	  
+	}
+	
+	.del-modal-popup {
+	  position: absolute;
+	  top: 50%;
+	  left: 50%;
+	  transform: translate(-50%, -50%);
+	  background-color: #ffffff;
+	  box-shadow: 0 2px 7px rgba(0, 0, 0, 0.3);
+	  border-radius:10px;
+	  
+	  width: 250px;
+	  height: 150px;
+	
+	}
+	
+	.del-wrap{
+		display: flex;
+	    flex-direction: column;
+	    justify-content: center;
+	    align-items: center;
+	    padding-top: 40px;
+	    gap: 20px;
+	
+		
+/* 		font-size:18px; */
+	}
+
+
 
 }

@@ -8,9 +8,7 @@ window.addEventListener("load",function(){
 //	const optionList = document.querySelector(".review-option-list");
 	const colorOption = document.querySelector(".color-option");
 	var color=1;
-//	colorInput.oninput= function(e){
-//        box.style.background = colorInput.value;
-//    }
+
 	
 	
 	colorOption.onclick=function(e){
@@ -61,6 +59,7 @@ window.addEventListener("load",function(){
 				let review = data.resultObject;
 				let bookingList = data.bookingList;
 				console.log(review);	
+				var bookingDate =bookingList.bookingDate.substring(0,10);
 				
 			let template =`
 				<div class="review-form" >
@@ -76,7 +75,7 @@ window.addEventListener("load",function(){
 		                    </div>
 		                    <div>
 		                        <span class="exh-loc" >${bookingList.museumName}</span>
-		                        <span class="exh-date" >${bookingList.bookingDate}</span>
+		                        <span class="exh-date" >${bookingDate}</span>
 		                    </div>
 		 
 		                    <div class="color-option" >

@@ -26,12 +26,8 @@ window.addEventListener("load", function(){
 				let user = data.user;
 				let exhibition = data.exhibition;
 				let booking = data.booking;
-//				console.log("payment"+payment.payNum);
-//				console.log("payment"+payment.id);
-//				console.log("payment"+payment.method);
-//				console.log("payment"+payment.account);
-//				console.log("payment"+user.username);
-//				console.log("payment"+user.name);
+				
+				var bookingDate = booking.date.substring(0,10);
 			
 			
 			var template =
@@ -41,6 +37,7 @@ window.addEventListener("load", function(){
 		        	<div class=" pay-modal-popup"> 
 			            <section class="payment-list"> 
 			                <h1>결제 상세</h1> 
+			                 <a class="btn btn-default btn-default-fill-off pay-cancel"  value="닫기">결제 취소</a> 
 			                <div class=""> 
 								<div class="payment-table">
 					                <div class="item" >결제번호</div>
@@ -54,7 +51,7 @@ window.addEventListener("load", function(){
 					                <div class="item">인원</div>
 					                <div class="item">${booking.amount}</div>
 					                <div class="item">관람일</div>
-					                <div class="item">${booking.date}</div>
+					                <div class="item">${bookingDate}</div>
 					                <div class="item">결제금액</div>
 					                <div class="item">${payment.price}</div>
 					                <div class="item">결제방식</div>

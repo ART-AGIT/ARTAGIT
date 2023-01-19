@@ -11,6 +11,7 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -72,19 +73,13 @@ public class MypageController {
 		
 		String todayfm = new SimpleDateFormat("yyyy-MM-dd").format(new Date(System.currentTimeMillis()));
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-		System.out.println(todayfm);
 		Date today = new Date(dateFormat.parse(todayfm).getTime());
-		System.out.println(today);
-		
-		
-		String nickname = user.getNickname();
-//		System.out.println(nickname);
+
 		List<BookingList> bookingList = bookingService.getListById(user.getId());
 		int countOfBooking = bookingList.size();
 		for(int i=0;i<countOfBooking;i++) {
 			Date date = bookingList.get(i).getBookingDate();
 			int compare = today.compareTo(date);
-			System.out.println(compare);
 			
 			if(compare>0) //today>date
 				bookingList.get(i).setPayMethod("관람 완료");
@@ -94,7 +89,8 @@ public class MypageController {
 				bookingList.get(i).setPayMethod("미관람");
 				
 		}
-		model.addAttribute("nickname",nickname);
+		System.out.println(user.getImg());
+		model.addAttribute("user",user);
 		model.addAttribute("bookingList",bookingList);
 		model.addAttribute("countOfBooking",countOfBooking);
 		return "member/mypage/booking-list";
@@ -146,6 +142,7 @@ public class MypageController {
 	/*-----------리뷰삭제------*/ 
 	@GetMapping("/review/del/{id}")
 	public String delete(@PathVariable("id") int id,@AuthenticationPrincipal ArtagitUserDetails user) {
+		System.out.println("------------들들");
 		int result = reviewService.del(id);
 		return "redirect:/member/mypage/review/list";
 	}

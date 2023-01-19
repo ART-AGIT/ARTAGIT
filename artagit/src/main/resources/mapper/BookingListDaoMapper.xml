@@ -7,7 +7,8 @@
 
 	<select id="getListById" resultType="com.artagit.web.entity.BookingList">
 		select * from BookingListView
-		where memId = #{memId};
+		where memId = #{memId}
+		order by bookingDate desc;
 	</select>
 	
 	<select id="getByBookingId" resultType="com.artagit.web.entity.BookingList">
