@@ -3,7 +3,7 @@
 }
 
 .reg-list-box > div{
-    margin: 0 auto;
+/*     margin: 0 auto; */
 }
 
 .reg-list-box > input{
@@ -96,67 +96,28 @@ input:focus::placeholder {
     height:0;
 }
 
-/* 아코디언 */
-/* .reg-list>.box{
-    height:400px;
-    display: flex;
-    flex-direction:column ;
-} */
+@media (min-width: 993px) {
+		
+	.toggle{
+		width: 355px;
+	    height: 42px;
+    	border: 1px solid #969696;
+	}
+	
+	
+    .toggle > h1 {
+		padding-right: 220px;
+    
+    }
 
-
-/* .reg-list>.box >h1,
-.accordion-header{/*h2에 대한 이름이 2개가 된다.*/
-   /* reset */
-    /* padding:0;
-    margin: 0; */
-
-    /* text */
-    /* font-size: 100%;
-    font-weight: normal;
-    color: #454545; */
-
-    /* layout */
-    /* cursor: pointer;
-    height:20px;
-    position:relative;
-    margin:2px 0 0 0;
-    padding : 0.5em 0.5em 0.5em 0.7em;
-    border: 1px solid #c5c5c5;
-    border-bottom-right-radius: 3px;
-    background : #f6f6f6; */
-
-    /* effect */
-    /* transition: background-color 1s;
-
+/* 	.reg-list-input-box>label{ */
+/* 		margin-left: 5px; */
+/* 	} */
+	
+/* 	.reg-list-input-box>div { */
+/*     	justify-content: center; */
+/* 	} */
+	
+	
+	
 }
-.reg-list >.box>h1.active+section,
-.accordion-header.active+.accordion-content{  */
-/* 클래스 이름을 바로 이어서 쓰면 클래스명을 동시에 같이 사용됬음을 의미 */
-/* +를 쓰면 동생에 대해서 스타일을 주겠다.  */
-    /* height: 100px !important; */
-    /* flex-grow: 1;
-}
-.reg-list>.box >section,
-.accordion-content{ */
-    /* reset
-    margin : 0;
-    outline: 0;
-    line-height: 1.3;
-    text-decoration: none;
-    font-size: 100%;
-    list-style: none; */
-
-    /* text */
-    /* color : #333; */
-
-    /* layout  */
-    /* border : 1px solid #ddd; */
-    /* border-bottom-left-radius: 3px; */
-    /* background:#fff; */
-
-    /* padding : 1em 2.2em;
-    border-top:0;
-    overflow: auto;
-    height:0;
-
-} */

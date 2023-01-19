@@ -16,7 +16,23 @@
     
     <main>
     <div class="content-wrap">
+    	
+    
+    
         <div class="menu-box">
+        <div class="profile-box">
+       		<div class="profile-content">
+                <div class="profile-img-box" >
+                    <img class="profile-img" src="../../../image/camera.svg">
+                </div>
+                <div>
+	                <div class="profile-name"> 
+	                    <span th:text="${user.museumName} +' 님'">1004님</span>
+	                </div>
+	                <div class="member-grade">업체회원</div>
+                </div>
+            </div>
+         </div>
             <ul class="menu-list">
                 <li class="list"><a class="deco deco-ticket" href="/corp/exh/list">나의 등록전시</a></li>
                 <li class="list line-on"><a class="deco deco-smile deco-ticket-on" href="/corp/account-edit">내 정보 수정</a></li>
@@ -89,7 +105,7 @@
                     <!-- 담당자 정보 -->
                     <div class="toggle">
                         <h1 class="accordion-header">담당자 정보</h1>
-                        <div class="icon arrow-icon icon-arrow-toggle-down"></div>
+                        <div class="icon arrow-icon icon-arrow-toggle-up"></div>
                     </div>
                     
                     <section class="reg-list-box accordion-content d-none">

@@ -287,6 +287,8 @@ top: -5px;
 }
 
 @media (min-width: 993px) {
+	
+	
 	.my-account-edit {
 	    display: flex;
 	    padding-left: 15px;
@@ -295,12 +297,23 @@ top: -5px;
 	
 	.content-wrap{
 		display:flex;
+		margin-top: 40px;
 	}
 	.reg-list{
 		margin : auto;
 	}
 	
+	.toggle{
+
+	    width: 355px;
+	    height: 42px;
+	    border: 1px solid #969696;
+
+	}
 	
+	
+	
+/* 	modal */
     #modal .modal-window {
         width: 300px;
         height: 150px;
@@ -317,6 +330,15 @@ top: -5px;
     	margin-bottom : 35px;
  		font-size : 16px;
     }
+    
+    .toggle > h1 {
+	    padding-right: 220px;
+
+    }
+
+/* 	.reg-list-box{ */
+/* 		padding-left :5px; */
+/* 	} */
 
 }
 

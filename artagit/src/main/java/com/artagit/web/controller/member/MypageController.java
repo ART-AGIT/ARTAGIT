@@ -188,6 +188,7 @@ public class MypageController {
 		return "member/mypage/account-edit";
 	}
 
+	// 좋아요 전시 리스트
 	@GetMapping("like-list")
 	   public String likeList(@AuthenticationPrincipal ArtagitUserDetails user,Model model) {
 	      
@@ -195,6 +196,9 @@ public class MypageController {
 	      System.out.println("좋아요한 전시이이이~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 	      System.out.println(list);
 	      model.addAttribute("list", list);
+	      
+	      Member member = memberService.get(user.getId());
+	      model.addAttribute(member);
 	      return "member/mypage/like-list";
 	   }
 	

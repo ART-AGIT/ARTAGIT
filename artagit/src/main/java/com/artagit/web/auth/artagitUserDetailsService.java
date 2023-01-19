@@ -44,7 +44,9 @@ public class artagitUserDetailsService implements UserDetailsService {
 		ArtagitUserDetails user = new ArtagitUserDetails(); // 회원이 로그인해 있는 동안에, id/pw/권한 외에 더 많은 정보에 접근할 수 있도록 필요한 회원 컬럼(속성)들을 담는 객체 생성
 		Corporate corp;
 		
-		Member member = memDao.getByUserName(username);		
+		Member member = memDao.getByUserName(username);
+		
+		
 		
 		System.out.println("member"+member);
 		if(member==null) {
@@ -53,12 +55,15 @@ public class artagitUserDetailsService implements UserDetailsService {
 
 		}
 		// member의 경우
-		if(member!=null && member.getUseYN().equals("Y")) {
+		if(member!=null) {
 			role = roleDao.getMemberByUserName(username);
 			//member = memDao.getByUserName(username); // loginId 에 대한 회원의 모든 정보가 member에 담긴다.
 			
 			System.out.println("담겨진 member ====> "+member);
-			
+			if(member.getUseYN().equals("N")) {
+				System.out.println("멤버 탈퇴 로그인 불가");
+				return user;
+			}
 			
 			//authorities.add(new SimpleGrantedAuthority(role.getName())); // authorities에 추가한다. 회원의 id에서 얻어온 권한의 이름을..
 			authorities.add(new SimpleGrantedAuthority(role.getName()));
