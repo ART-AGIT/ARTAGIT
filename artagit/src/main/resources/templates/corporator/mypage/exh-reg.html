@@ -29,7 +29,7 @@
 			                    <span th:text="${user.museumName}+' 님'">1004님</span>
 			                </div>
 			                <div class="member-grade">
-                        		기업회원
+                        		업체회원
                     		</div>
 		                </div>
 		            </div>
@@ -65,26 +65,26 @@
                 </div>
 
             </div>
-	<form action="/corp/exh/insert" method="post">
+	<form action="/corp/exh/insert" method="post" enctype="multipart/form-data">
             <div class="page1">
 
                 <div class="reg-list-page">
                     <section class="reg-list">
                         <div class="reg-list-input-box">
                             <label for="">전시명</label>
-                            <input name="name" type="text" class="input input-lg">
+                            <input name="name" type="text" class="input input-lg" spellcheck="false">
                         </div>
                         <div class="reg-list-input-box">
                             <label for="">작가</label>
-                            <input name="artist" type="text" class="input input-lg">
+                            <input name="artist" type="text" class="input input-lg" spellcheck="false">
                         </div>
                         <div class="reg-list-input-box">
                             <label for="">전시장소</label>
-                            <input th:value="${user.museumName}"  type="text" class="input input-lg">
+                            <input th:value="${user.museumName}"  type="text" class="input input-lg" spellcheck="false">
                         </div>
                         <div class="reg-list-input-box">
                             <label for="">지역상세</label>
-                            <input th:value="${user.address}" type="text" class="input input-lg">
+                            <input th:value="${user.address}" type="text" class="input input-lg" spellcheck="false">
                         </div>
                         <div class="reg-list-input-box">
                             <label for="">전시기간</label>
@@ -175,11 +175,11 @@
 
                     <div class="reg-list-input-box">
                         <label for="">전시설명</label>
-                        <textarea class="input" id="" name="content" rows="15" cols="10" placeholder="내용을 입력해주세요."></textarea>
+                        <textarea class="input" id="" name="content" rows="15" cols="10" placeholder="내용을 입력해주세요." spellcheck="false"></textarea>
                     </div>
                     <div class="reg-list-input-box">
                         <label for="">전시 URL</label>
-                        <input name="homepage" type="text" class="input input-lg">
+                        <input name="homepage" type="text" class="input input-lg" spellcheck="false">
                     </div>
                     <div class="reg-list-input-box poster">
                         포스터 이미지
@@ -192,15 +192,15 @@
                     <div class="reg-list-input-box detail">
                         상세 이미지
                         <div class="reg-list-input-box-image">
-                            <!-- <label for="input-image2" class="input-image-button"> -->
+                             <!--<label for="input-image2" class="input-image-button">-->
                                 <img src="../../image/camera.svg" class="input-image-button input-image-button2">
                                 <input name="detailImage" type="file" id="input-image2" class="d-none">
-                                <!-- <div class="input-image-camera"></div> -->
-                            <!-- </label> -->
+                           <!--<div class="input-image-camera"></div> -->
+                            <!-- </label>-->
                             
                             <!-- <label for="input-image3" class="input-image-button"> -->
-                                <img src="../../image/img-add.svg" class="input-image-button input-image-button3">
-                                <input name="detailImage" type="file" id="input-image3" class="d-none">
+                                <!--<img src="../../image/img-add.svg" class="input-image-button input-image-button3">
+                                <input name="detailImage" type="file" id="input-image3" class="d-none">-->
                                 <!-- <div class="input-image-addplus"></div> -->
                             <!-- </label> -->
                         </div>
@@ -213,7 +213,7 @@
             <div class="exh-reg-button-box-page3 d-none">
                 <div class="exh-reg-button-box">
                     <a type="submit" class="btn-before" id="btn-z" href="../../corporator/mypage/exh-reg.html"></a>
-                    <button type="submit" class="btn-default-fill-off btn-register" id="btn-z" onclick="alert('전시정보를 등록하시겠습니까?')">등록</button>
+                    <button type="submit" class="btn-default-fill-off btn-register" id="btn-z">등록</button>
                 </div>
             </div>
          </form>   

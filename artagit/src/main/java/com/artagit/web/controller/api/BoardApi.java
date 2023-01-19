@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.artagit.web.entity.ArtagitUserDetails;
 import com.artagit.web.entity.Board;
 import com.artagit.web.entity.BoardListView;
+import com.artagit.web.entity.Notice;
 import com.artagit.web.service.BoardService;
 import com.artagit.web.service.NoticeService;
 
@@ -37,6 +38,14 @@ public class BoardApi {
          @RequestParam("c") int roleId){
       List<BoardListView> list = service.getList(roleId);
       
+      return list;
+   }
+   /*************공지 리스트 불러오기*********/
+   @GetMapping("notice")
+   public List<Notice> getNoticeByCategory(
+         @RequestParam("c") int roleId){
+      List<Notice> list = noticeService.getListByCategory(1,roleId);
+      System.out.println("notice-==============>"+list);
       return list;
    }
    /*********게시글 삭제*************/

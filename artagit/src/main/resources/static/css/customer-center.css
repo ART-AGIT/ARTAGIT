@@ -44,7 +44,7 @@ body::-webkit-scrollbar, div::-webkit-scrollbar {
 }
 
 .section span {
-    margin: 0 5px 0 7px;
+    margin: 0;
 }
 
 /******* 자주 묻는 질문, 공지사항 아이콘 ****************************************/

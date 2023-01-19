@@ -18,20 +18,22 @@
     <main>
     	<div class="img-and-cal">
 	        <div class="img-and-info">
-	            <div class="exh-img-box">
-	                <img class="exh-img" th:src="@{|/image/poster/${exh.poster}|}" src="/image/전시사진.jpg" alt="">
-	            </div>
-	    
-	            <div class="text-box">
-	                <div class="exh-title" th:text="${exh.name}">합스부르크 600년, 매혹의 걸작들</div>
-	                <div class="exh-place" th:text="${corp.museumName}">국립현대미술관</div>
-	                <!-- 날짜출력 -->
-	                <div class="exh-date">
-	                    <span class="select-year">&npsp;</span>
-	                    <span class="select-month">&npsp;</span>
-	                    <span class="select-day">&npsp;</span>
-	                </div>
-	            </div>
+	      	   <div class="img-and-text">
+		            <div class="exh-img-box">
+		                <img class="exh-img" th:src="@{|/image/poster/${exh.poster}|}" src="/image/전시사진.jpg" alt="">
+		            </div>
+		    
+		            <div class="text-box">
+		                <div class="exh-title" th:text="${exh.name}">합스부르크 600년, 매혹의 걸작들</div>
+		                <div class="exh-place" th:text="${corp.museumName}">국립현대미술관</div>
+		                <!-- 날짜출력 -->
+		                <div class="exh-date">
+		                    <span class="select-year">&npsp;</span>
+		                    <span class="select-month">&npsp;</span>
+		                    <span class="select-day">&npsp;</span>
+		                </div>
+		            </div>
+				</div>	            
 	        </div>
 	            <!-- 달력 -->
 	        <div class="booking-container">
@@ -188,7 +190,6 @@
 		                        <div class="payment-select-simple img-box">
 		                                <img class="kakao-img" tabindex=0 src="/image/카카오페이.png" alt="">
 		                                <span>카카오페이</span>
-
 		                        </div>
 		                    </div>
 		                </section>

@@ -135,11 +135,6 @@ li .deco-ticket-on {
         text-align: center;
         line-height: 24px;
     }
-    .menu-list{
-        display:flex;
-        flex-direction: column;
-        width: 200px;
-    }
 
     .list{
         justify-content: left;
@@ -154,4 +149,71 @@ li .deco-ticket-on {
         gap:20px;
         font-size: 18px;
     }
+    
+    	.mini-menu-list {
+		display: flex;
+	    
+	    flex-direction: column;
+	    align-items: flex-start;
+	    padding-left: 80px;
+	    gap: 10px;
+	    font-weight: 400;
+	    
+/* 	    transition: ; */
+	}
+
+
+	.mini-menu-list a {
+		font-size: 14px;
+	}
+	
+	.about-mypost:hover, .my-like-post:hover {
+		font-weight: 500;
+		color: #FF6B90;
+
+		transition: all .5s;
+	}
+	
+	.menu-list{
+	    width: 200px;
+	    height: 250px;
+	    margin: 0 auto;
+	    display: inline-block;
+	    justify-items: center;
+	    align-items: center;
+	
+	}
+	
+	.post-manage{
+		display: flex;
+		flex-direction: column;
+		
+		border-bottom: none;
+	    height: 52px;
+	}
+	.post-manage:hover>.mini-menu-list{
+		display: block;
+	}
+	
+	.mini-menu-list{
+	    display: none;
+	    width: 100px;
+	    padding: 0;
+	
+	    position: relative;
+	    z-index: 10;
+	    left: 48px;
+	}
+	.mini-menu-list > li{
+		width: 100%;
+	}
+	.mini-menu-list a{
+	    display: block;
+	    width: 100%;
+	    height: 100%;
+	}
+         
+         
 }
+
+

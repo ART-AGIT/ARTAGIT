@@ -24,13 +24,24 @@
 
     
     <main class="main-container">	
+    <div class="content-wrapper">
+      <nav class = "board-category-box">
+        <ul class="board-category-l">
+            <!-- <li>전체 글</li> -->
+            <li data-id="0" th:class="${param.c}==null?'board-selected'" class="deco-ticket-on"><div class="deco deco-smile">전체 글</div></li>
+            <li data-id="1" th:class="${#strings.equals(param.c, '1')}?'board-selected'"class="line-on icon-note"><div class="deco deco-smile">자유게시판</div></li>
+            <li data-id="2" th:class="${#strings.equals(param.c, '2')}?'board-selected'" class="icon-picture"><div class="deco deco-smile">전시후기</div></li>
+            <li data-id="3" th:class="${#strings.equals(param.c, '3')}?'board-selected'" class="icon-food"><div class="deco deco-smile">맛집후기</div></li>
+            <li data-id="4" th:class="${#strings.equals(param.c, '4')}?'board-selected'" class="icon-smile"><div class="deco deco-smile">같이가요</div></li>
+        </ul> 
+    </nav>
     <div class="post-container">
     <nav class = "">
         <div class="post-detail-header">
             <div class="current-location">
-                <div><a href="../../index">HOME ></a></div>
+                <div><a href="../../">HOME ></a></div>
                 <div><a href="../../board/list">커뮤니티 ></a></div>
-                <div><a href="../../board/list">전시후기</a></div>
+                <div><a th:utext="${board.name}"href="../../board/list">전시후기</a></div>
             </div>
             <div class="list-btn">
                 <a class="btn btn-default-line" href="../../board/list">목록</a>
@@ -50,7 +61,7 @@
             </div>
            
                 <div class="post-writer-info">
-                    <img class = "profile-photo" src = "../../image/accountImage.png">
+                    <img class = "profile-photo" th:src="@{|/image/${board.memImage}|}" src = "../../image/accountImage.png">
                     <div><a th:text="${board.nickname}" href = "../mypage/like-list.html">운영자</a></div>
                 </div>
             
@@ -82,8 +93,7 @@
                </div>
                <div th:if="${user.id != board.memId}">
                 <span class="heart-fix">
-                <div th:classappend="${board.heart != 0}  ? 'icon-heart-red' : ''" class="icon icon-heart post-like-btn"></div>
-                
+                <div th:classappend="${board.heart != null}  ? 'icon-heart-red' : ''" class="icon icon-heart post-like-btn"></div>
                 </span>
                 <a class="icon icon-report" href=""></a>
             </div>
@@ -160,7 +170,7 @@
             </div>
         </div>
     </div>
-    
+    </div>
 </main>
 
 </body>

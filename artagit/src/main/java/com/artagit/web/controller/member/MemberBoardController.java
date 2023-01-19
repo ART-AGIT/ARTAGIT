@@ -120,7 +120,7 @@ public class MemberBoardController {
 		
 		int memId = user.getId();
 		System.out.println("이미지이름" + img.getOriginalFilename());
-		board.setMemId(memId);
+		board.setMemId(memId);		
 		board.setImage(img.getOriginalFilename());
 		if (!img.isEmpty()) {
 			String path = "/image"; // 어디에서 돌아갈지 모르니 운영되고 있는 home directory에서 생각 앞쪽은 어케될지 모름
@@ -161,8 +161,8 @@ public class MemberBoardController {
    public String Boardedit(@PathVariable("id") int id,Model model) {
        
 	   Board board = service.get(id);
+	   System.out.println("수정은 왜 또 안돼ㅡㅡㅡㅡ?");
 	   model.addAttribute("board",board);
-       
        return "member/board/edit";
    }
  
@@ -177,9 +177,12 @@ public class MemberBoardController {
 		int memId = user.getId();
 		System.out.println("이미지이름" + img.getOriginalFilename());
 		board.setMemId(memId);
-		board.setImage(img.getOriginalFilename());
 		
 		if (!img.isEmpty()) {
+			board.setImage(img.getOriginalFilename());
+			
+		
+		
 			String path = "/image"; // 어디에서 돌아갈지 모르니 운영되고 있는 home directory에서 생각 앞쪽은 어케될지 모름
 			String realPath = request.getServletContext().getRealPath(path);
 			System.out.println(realPath);
@@ -200,7 +203,6 @@ public class MemberBoardController {
 			fis.close();
 		}
 		
-		System.out.println(board.toString());
 		service.edit(board);
 		
 		String OriginalId = String.valueOf(board.getId());
@@ -211,5 +213,7 @@ public class MemberBoardController {
 		
 		return "redirect:/member/board/"+OriginalId;
 	}
+	
+	
 	
 }
