@@ -144,6 +144,7 @@ li .deco-ticket-on {
     .list{
         justify-content: left;
         line-height: 40px;
+        padding-left: 20px;
         border-bottom:2px solid rgba(157, 157, 157, 0.353);
     }
 
