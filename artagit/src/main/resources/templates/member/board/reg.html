@@ -15,17 +15,8 @@
   
    
     <main class="main-container">
-    <div class="category-reg-container">
-    <nav class = "board-category-box">
-        <ul class="board-category-l">
-            <!-- <li>전체 글</li> -->
-            <li data-id="0" th:class="${param.c}==null?'board-selected'" class="deco-ticket-on"><div class="deco deco-smile">전체 글</div></li>
-            <li data-id="1" th:class="${#strings.equals(param.c, '1')}?'board-selected'"class="line-on icon-note"><div class="deco deco-smile">자유게시판</div></li>
-            <li data-id="2" th:class="${#strings.equals(param.c, '2')}?'board-selected'" class="icon-picture"><div class="deco deco-smile">전시후기</div></li>
-            <li data-id="3" th:class="${#strings.equals(param.c, '3')}?'board-selected'" class="icon-food"><div class="deco deco-smile">맛집후기</div></li>
-            <li data-id="4" th:class="${#strings.equals(param.c, '4')}?'board-selected'" class="icon-smile"><div class="deco deco-smile">같이가요</div></li>
-        </ul> 
-    </nav>
+   
+   
         <form action="reg" method="post" enctype="multipart/form-data">
             <section class="post-option">
                 <div class="first-line">
@@ -62,7 +53,7 @@
                 </div>
             </section>
         </form>
-        </div>
+        
     </main>
     
 </body>

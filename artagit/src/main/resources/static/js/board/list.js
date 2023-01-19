@@ -3,22 +3,24 @@ window.addEventListener("load", function() {
 	const boardbox = document.querySelector(".post-list-box");
 	const noticebox = document.querySelector(".notice-list-box");
 	let currentLi = document.querySelector(".board-category-box ul li.board-selected");
+	let currentDiv = document.querySelector(".board-selected div");
 	
 	ul.onclick = function(e) {
 		e.preventDefault();
-		console.log(e.target);
+		console.log(e.target.tagName);
 		const el = e.target;
 		
-		if (el.tagName != "LI" && el.tagName != "SPAN")
+		if (el.tagName != "LI" && el.tagName != "DIV")
 			return;
 
 		let li = el;
-		if (el.tagName == "SPAN")
+		if (el.tagName == "DIV"){
 			li = el.parentElement;
 
 		li.classList.add("board-selected");
-
-		if (currentLi != null && currentLi != e.target)
+		}
+		
+		if (currentLi != null && currentLi != e.target && currentDiv != e.target)
 			currentLi.classList.remove("board-selected");
 
 		currentLi = li;
