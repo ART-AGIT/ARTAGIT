@@ -13,6 +13,7 @@
     <link href="../../css/component/sub-menu.css" type="text/css" rel="stylesheet">
     <link href="../../css/member/mypage/post.css" type="text/css" rel="stylesheet">
 	<script src="../../js/header-menu.js"></script>
+<!-- 	<script src="../../js/sub-menu.js"></script> -->
 	</th:block>
 	<body id="body" layout:fragment="content">
     <main>
@@ -31,15 +32,16 @@
 	                <li class="list"><a class="deco deco-ticket" href="">나의 예매내역</a></li>
 	                <li class="list"><a class="deco deco-heart-red" href="../../member/mypage/like-list">좋아요 전시</a></li>
 	                <li class="list"><a class="deco deco-smile"  href="./account-edit">내 정보 수정</a></li>
-	                <li class="list line-on post-manage"><a class="deco deco-write deco-write-on" href="./post-list">게시글 관리</a>
+	                <li class="list line-on post-manage">
+	                	<a class="deco deco-write deco-write-on" href="./post-list">게시글 관리</a>
+	                	
 	                </li>
-	                  <div class="">
-			                <div class="list line-on menu-s post-manage"><a class=" deco-heart-on" href="../../member/mypage/post-list">- 작성글 관리</a></div>
-			                <div class="list menu-s post-manage"><a class="" href="../../member/mypage/post-like">- 좋아요 한 게시글</a></li>
-			            </div>
 	            </ul>
+	                  <div class="mini-menu-list">
+			                <a class="about-mypost" href="../../member/mypage/post-list">작성글 관리</a>
+			                <a class="my-like-post" href="../../member/mypage/post-like">좋아요 한 게시글</a>
+			          </div>
 	             
-			        
 	        </div>
 	        <div class="box-container">
  		       
