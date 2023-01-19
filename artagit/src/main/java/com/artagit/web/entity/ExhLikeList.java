@@ -13,6 +13,8 @@ public class ExhLikeList {
 	private String startTime;
 	private String endTime;
 	private String museumName;
+	private String nickname;
+
 	
 	public String getPoster() {
 		return poster;
@@ -106,16 +108,27 @@ public class ExhLikeList {
 		this.endTime = endTime;
 	}
 
+	public String getNickname() {
+		return nickname;
+	}
+
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
+
+	
+
 	@Override
 	public String toString() {
 		return "ExhLikeList [id=" + id + ", name=" + name + ", corpId=" + corpId + ", corpLocalId=" + corpLocalId
 				+ ", poster=" + poster + ", useYN=" + useYN + ", startDate=" + startDate + ", endDate=" + endDate
-				+ ", startTime=" + startTime + ", endTime=" + endTime + ", museumName=" + museumName + "]";
+				+ ", startTime=" + startTime + ", endTime=" + endTime + ", museumName=" + museumName + ", nickname="
+				+ nickname + "]";
 	}
 
 	public ExhLikeList(int id, String name, int corpId, int corpLocalId, String poster, String useYN, String startDate,
 			String endDate, String startTime, String endTime, String museumName) {
-		super();
+	
 		this.id = id;
 		this.name = name;
 		this.corpId = corpId;
@@ -127,6 +140,8 @@ public class ExhLikeList {
 		this.startTime = startTime;
 		this.endTime = endTime;
 		this.museumName = museumName;
+		this.nickname = nickname;
+	
 	}
 
 

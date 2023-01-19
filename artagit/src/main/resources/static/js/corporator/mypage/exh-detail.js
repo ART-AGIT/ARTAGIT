@@ -6,10 +6,11 @@ window.addEventListener("load", function(){
     const yesBtn = document.querySelector(".yes-btn");
     const detailSection = this.document.querySelector(".exh-content-container");
     const modiLine = detailSection.querySelectorAll(".content");
+    
     const btnMore = this.document.querySelector(".btn-more");
     const feedContent = this.document.querySelector(".feed-content");
-    let id = this.document.querySelectorAll(".button-box-wrap input");
-    // let id = detailSection.querySelectorAll("input[type=hidden]");
+    
+    let id = detailSection.querySelectorAll(".button-box-wrap > input");
 
 
     //////////// 더보기/접기 버튼 눌렀을 때
