@@ -4,6 +4,9 @@ window.addEventListener("load",function(){
 	//  아코디언 =======================================
 	const btnHeader = this.document.querySelectorAll(".accordion-header");
     const regListBox = this.document.querySelectorAll(".reg-list-box");
+	const btnToggle = this.document.querySelectorAll(".toggle");
+	const btnIcon = document.querySelectorAll(".arrow-icon");
+    
     // let currentEl = this.document.querySelector(".d-none");
     let contents = this.document.querySelectorAll(".accordion-content");
     const form = this.document.querySelector("form");
@@ -37,27 +40,36 @@ window.addEventListener("load",function(){
 		// 토글
 		formWrap.onclick = function(e){
             // e.preventDefault()
+            console.log(e.target);
 
-            if(regListBox[1].classList.contains("d-none") && e.target == btnHeader[1]){
+            if(regListBox[1].classList.contains("d-none") && (e.target == btnHeader[1]
+    															|| e.target == btnToggle[1] 
+            													|| e.target == btnIcon[1])){
                 contents[1].classList.remove("d-none");
 				icon[1].classList.remove("icon-arrow-toggle-up");
 				icon[1].classList.add("icon-arrow-toggle-down");
             }
 
-            else if(e.target != regListBox[1].classList.contains("d-none") && e.target == btnHeader[1]){
+            else if(e.target != regListBox[1].classList.contains("d-none") && (e.target == btnHeader[1]
+				    															|| e.target == btnToggle[1] 
+				            													|| e.target == btnIcon[1])){
                 contents[1].classList.add("d-none");
 				icon[1].classList.remove("icon-arrow-toggle-down");
 				icon[1].classList.add("icon-arrow-toggle-up");
             }
 
-            if(regListBox[0].classList.contains("d-none") && e.target == btnHeader[0]){
+            if(regListBox[0].classList.contains("d-none") && (e.target == btnHeader[0] 
+            													|| e.target == btnToggle[0]
+            													|| e.target == btnIcon[0])){
                 contents[0].classList.remove("d-none");
 				icon[0].classList.remove("icon-arrow-toggle-up");
 				icon[0].classList.add("icon-arrow-toggle-down");
                 console.log("test");
             }
 
-            else if(e.target != regListBox[0].classList.contains("d-none") && e.target == btnHeader[0]){
+            else if(e.target != regListBox[0].classList.contains("d-none") && (e.target == btnHeader[0] 
+				            													|| e.target == btnToggle[0]
+				            													|| e.target == btnIcon[0])){
 				contents[0].classList.add("d-none");
 				icon[0].classList.remove("icon-arrow-toggle-down");
 				icon[0].classList.add("icon-arrow-toggle-up");

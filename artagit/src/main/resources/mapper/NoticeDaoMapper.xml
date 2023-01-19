@@ -5,9 +5,19 @@
 		select * from Notice
 			limit #{offset}, #{size}
 	</select>
-	
-	<select id="getNoticeById" resultType="Notice">
-		select * from Notice
-			where id = #{id}
-	</select>
+		<select id="getListInit" resultType="Notice">
+			select * from Notice
+			limit #{size}
+		</select>
+		<select id="getListByCategory" resultType="Notice">
+			select * from Notice
+				<trim prefix="WHERE" prefixOverrides="AND | OR">
+			<if test="category != null and category != 0">
+				roleId = #{category}
+			</if>
+			
+		</trim>
+		
+order by regDate desc; 
+		</select>
 </mapper>

@@ -68,4 +68,5 @@ public interface ExhibitionService {
 	List<Exhibition> getLikeListById(int id);
 
 
+
 }

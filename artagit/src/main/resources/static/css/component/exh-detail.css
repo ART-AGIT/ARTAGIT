@@ -156,6 +156,7 @@ input[type="time"]:focus, input[type="date"]:focus {
 .item:last-child {
     grid-column: 2/3;
 	text-align: right;
+	justify-self: end;
 }
 
 .user-box{
@@ -225,24 +226,33 @@ input[type="time"]:focus, input[type="date"]:focus {
     border-bottom: 1px solid #9E9E9E;
 }
 
-/* 더보기 */
-.feed-information .feed-content {
+.feed-content {
     display: inline-block;
     text-overflow: ellipsis;
     vertical-align: top;
+
   }
 
-  .feed-information .feed-content.hidden{
-    width: 150px;
-    overflow: hidden;
-    white-space: nowrap;
+.feed-content.hidden{
+	 display: -webkit-box;
+   	-webkit-line-clamp: 2;
+  	-webkit-box-orient: vertical;
+	width: 100%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+
   }
 
   .btn-more{
     font-weight: bold;
     cursor: pointer;
     margin: 0 8px;
+    width: fit-content;
+    
+/*     display: inline; */
+/*   	white-space: normal; */
 }
+/* =================== */
 
 .modal-action:hover,
 .modal-action:active {

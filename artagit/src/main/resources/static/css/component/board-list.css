@@ -1,15 +1,19 @@
 /* ====게시글 카테고리===== */
+.community-h1{
+    display:none;
+}
 .board-category-l{
    
     display: flex;
 }
 .board-category-l>li{
-    border-bottom: 1.5px solid #878787;
+    border-bottom: 2px solid rgba(157, 157, 157, 0.353);
     /* width: 25%; */
     padding-bottom: 10px;
     display: flex;
     flex-grow: 1;
     justify-content: space-around;
+    cursor:pointer;
     
 }
 
@@ -21,6 +25,10 @@ li.board-selected{
     color:#FF6B90;
     border-bottom: 2px solid #FF6B90;
 }
+li.board-selected>div{
+    color:#FF6B90;
+
+}
 
 .board-category-box{
     padding: 20px 0 10px 0;
@@ -31,9 +39,9 @@ li.board-selected{
 .notice{
     display: grid;
     grid-template-columns: 1fr 9fr;
-    padding: 0 5px 5px 5px;
-    border-bottom: 1px solid  #9E9E9E;
-    height: 80px;
+    padding: 10px 5px 5px 10px;
+    border-top: 1px solid  #d6d5d5;
+    height: 50px;
     align-items: center;
 }
 .notice div{
@@ -41,7 +49,7 @@ li.board-selected{
     align-items: center;
 }
 .notice-info{
-    padding: 10px;
+
 }
 .notice-info>div{
     padding-right: 10px;
@@ -52,17 +60,23 @@ li.board-selected{
     width: 20px;
     height: 20px;
     padding-right: 3px;
+    border-radius: 50%;
 }
 
 .notice-icon{
     justify-self: center;
+    width: 30px;
+    border-radius: 19px;
+    border: 1px solid #29292929;
+    background-color: #29292929;
+    height: 15px;
+    justify-content: center;
 }
+
 .notice-title{
-    padding: 5px;
+
     text-overflow:ellipsis;
     overflow:hidden;
-
-    height: 30px;
     font-size: 16px;
     font-weight: bold;
    
@@ -80,7 +94,7 @@ li.board-selected{
     "writer post-info img " 30px
     / 1.5fr 2fr 1.5fr;
     padding: 10px;
-    border-bottom: 1px solid  #9E9E9E;
+    border-top: 1px solid  #d6d5d5;
 
 }
 
@@ -99,7 +113,7 @@ li.board-selected{
     font-size: 16px;
     height: 40px;
     text-overflow: ellipsis;
-    overflow:hidden;
+    font-weight: 550;
 }
 
 .post-img{
@@ -146,7 +160,7 @@ li.board-selected{
 .writing-img-box{
    
     position: fixed;
-    bottom: 0;
+    bottom: 20px;
     display:inline-block;
     right: 10px;
    
@@ -160,23 +174,33 @@ li.board-selected{
 
 /* --------------pc버전------------------ */
 @media (min-width: 992px) {
+    .community-h1{
+        display:block;
+    }
+    main{
+        width:800px;
+    }
 
     .content-container{
-        display:grid;
-        grid-template-columns:1fr 4fr;
+        display: grid;
+        grid-template-columns: 1fr 6fr;
+    
     }
     
     .board-category-l{
         display:flex;
         flex-direction:column;
-        font-size: 20px;
+        font-size: 16px;
         position: fixed;
+        width: 200px;
     }
 
     .board-category-l li{
-        border-bottom: none;
-        margin-right: 50px;
+        width: 200px;
         gap: 10px;
+        
+        font-size: 18px;
+        justify-content: left;
     }
     .board-category-box{
         display: flex;
@@ -184,24 +208,29 @@ li.board-selected{
     }
     .post-list{
         max-width: 800px;
+        margin-left: 50px;
         
     }
-
+   
     
     .board-list{
+       
         display: grid;
         grid-template: 
-        "category regdate img" 30px
-        "title title img" 50px
-        "writer post-info img " 30px
-        / 1.5fr 10fr 1.5fr;
+        "category category category img" 20px
+        "title title title img" 30px
+        "writer regdate post-info img " 30px
+                / 3fr 1fr 1fr 0.8fr;
         padding: 10px;
-        border-bottom: 1px solid  #9E9E9E;
+        
+        align-items: center;
+    
+      
     
     }
 
     .board-box-container{
-        max-width: 800px;
+        max-width: 700px;
     }
     
     .board-post-img-box{
@@ -209,14 +238,58 @@ li.board-selected{
         
     }
     .writing-img-box{
-        right: 350px;
+        right: 300px;
     }
         
 
 
+    .menu-s{
+        padding-left:50px;
+    }
 
 
+    .board-title{
+            display: flex;
+            font-size: 18px;
+          
+            align-items: center;
+
+    }
+
+    .icon-size{
+        -webkit-mask-size: 15px 15px;
+    }
+
+ 
+    .board-regdate{
+
+        justify-content: center;
+        font-size: 13px;
+    }
+
+    .post-img{
+   
+        object-fit: cover;
+        height: 80px;
+        width: 84px;
+        
+    }
+    .notice-icon{
+        width: 40px;
+        height: 15px;
+    }
 
 
+    .deco{
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+    }
 
+    .board-category-l>li{
+        padding-bottom:5px;
+        padding-top:5px;
+
+    }
+    
 }
