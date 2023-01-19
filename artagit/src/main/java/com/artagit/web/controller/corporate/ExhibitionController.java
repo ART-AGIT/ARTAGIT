@@ -97,7 +97,7 @@ public class ExhibitionController {
 	// 주최자가 등록한 전시 수정 ========================
 	@PostMapping("update")
 	@ResponseBody
-	public void update(@RequestBody HashMap<String,Object> map) {
+	public String update(@RequestBody HashMap<String,Object> map) {
 		System.out.println("update 메서드 진입");
 		HashMap<String, Object> exhList = (HashMap<String, Object>) map.get("exh");
 		Exhibition exh = new Exhibition();
@@ -112,6 +112,7 @@ public class ExhibitionController {
 		exh.setTicketPrice(Integer.parseInt(String.valueOf(exhList.get("ticketPrice"))));
 		exh.setTicketStock(Integer.parseInt(String.valueOf(exhList.get("ticketStock"))));
 		exh.setContent(String.valueOf(exhList.get("content")));
+		exh.setHomepage(String.valueOf(exhList.get("homepage")));
 		
 		
 		HashMap<String, Object> corpList = (HashMap<String, Object>) map.get("corp");
@@ -140,6 +141,7 @@ public class ExhibitionController {
 		localService.update(local);
 		
 		System.out.println(exh.getId()+"번 전시 수정완료");
+		return "redirect:{id}";
 	}
 	
 	// 주최자가 등록한 전시 삭제 ========================
