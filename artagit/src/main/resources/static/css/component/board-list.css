@@ -178,12 +178,15 @@ li.board-selected>div{
         display:block;
     }
     main{
-        width:800px;
+        width:1000px;
     }
-
+    .main-width-13{
+        width:1300px;
+    }
     .content-container{
-        display: grid;
-        grid-template-columns: 1fr 6fr;
+       display:flex;
+       justify-content:center;
+       margin-top: 80px;
     
     }
     
@@ -208,7 +211,7 @@ li.board-selected>div{
     }
     .post-list{
         max-width: 800px;
-        margin-left: 50px;
+        margin-left: 60px;
         
     }
    

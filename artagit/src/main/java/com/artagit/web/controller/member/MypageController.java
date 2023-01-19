@@ -218,6 +218,8 @@ public class MypageController {
 	public String post(Model model,@AuthenticationPrincipal ArtagitUserDetails user) {
 		List<BoardListView> list = boardService.getListById(user.getId());
 		model.addAttribute("list",list);
+		Member member = memberService.get(user.getId());
+	      model.addAttribute(member);
 		
 		System.out.println("로그인한 아이디가 쓴 글====>"+model);
 		return "member/mypage/post-list";
@@ -229,6 +231,8 @@ public class MypageController {
 			@AuthenticationPrincipal ArtagitUserDetails user,Model model) {
 		int memId = user.getId();
 		List<BoardListView> list = boardService.getLikeList(memId);
+		Member member = memberService.get(user.getId());
+	      model.addAttribute(member);
 		model.addAttribute("list",list);
 		System.out.println("++++++++++=" + list);
 		return "member/mypage/post-like";

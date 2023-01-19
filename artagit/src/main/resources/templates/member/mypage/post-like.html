@@ -16,6 +16,7 @@
 	</th:block>
 	<body id="body" layout:fragment="content">
     <main>
+    <div class="margin">
           <div class="menu-box">
 	        	<div class="profile-box">
 	        		<div class="profile-content">
@@ -23,7 +24,7 @@
 		                    <img class="profile-img" src="../../../image/camera.svg">
 		                </div>
 		                <div class="profile-name">
-		                    <span>1004님</span>
+		                    <span th:text="${member.nickname} +' 님'">1004님</span>
 		                </div>
 		            </div>
 	            </div>
@@ -44,7 +45,7 @@
  		        
        <div class="board-box">
 			    <div class="post-list">
-			        <h1 class="">게시글 관리</h1>
+			        <h2 class="">게시글 관리</h2>
      
 					        <form class="" action="post-like" method="get">
 					        <section class="board-list" th:each="board:${list}">
@@ -83,7 +84,7 @@
 			   		 
 			 </div>
 			</div>
-   
+   			</div>
         </div>
     </main>
 </body>
