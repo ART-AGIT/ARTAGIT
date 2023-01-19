@@ -7,13 +7,19 @@
 <!-- 댓글 조회 -->
 <select id="getList" parameterType="int" resultType="com.artagit.web.entity.Comment">
     select
-        id, postId, memId, content, regDate
+        id, postId, memId, content, regDate , useYn
     from Comment
-        where postId =#{postId}   
+        where postId =#{postId}  
 </select>
 
 <select id="getNickname" parameterType="int" resultType="com.artagit.web.entity.Comment">
 SELECT * FROM Comment INNER JOIN Member ON Comment.memId = Member.id   where postId =#{postId}   order by Comment.id desc
+                                                                                             
+</select>
+
+<!-- postId 를이용하여 CommentId를얻는다 -->
+<select id="getCommentId" parameterType="int" resultType="com.artagit.web.entity.Comment">
+SELECT * FROM Comment where postId =#{postId}  and id=#{id}
                                                                                              
 </select>
 
@@ -30,6 +36,14 @@ SELECT * FROM Comment INNER JOIN Member ON Comment.memId = Member.id   where pos
 		limit 0 ,1
 
 	</select>
+	
+	
+<select id="getModifyOne" resultType="Comment">
+		select * from Comment
+		where id =#{id}
+		
+
+	</select>
 
 	<insert id="add" parameterType="com.artagit.web.entity.Comment">
 		  insert into Comment (postId, memId, content )
@@ -38,20 +52,29 @@ SELECT * FROM Comment INNER JOIN Member ON Comment.memId = Member.id   where pos
     
 <!-- 댓글 수정 -->
 <update id="modify" parameterType="com.artagit.web.entity.Comment">
-    update tbl_reply set
-        memId = #{memId},
+    update Comment set
         content = #{content}
-    where id = #{id}
-        and postId = #{postId}    
+    where  id=#{id} 
+         
+</update>
+
+<update id="modifyTest"  parameterType="com.artagit.web.entity.Comment">
+    update Comment set
+        content = #{content}
+    where  id=#{id}  
+         
 </update>
 
 <!-- 댓글 삭제 -->
-<delete id="delete" parameterType="com.artagit.web.entity.Comment">
-    delete from tbl_reply
-    where id = #{id}
-        and postId = ${postId}    
-</delete>
+<!-- <delete id="delete" parameterType="com.artagit.web.entity.Comment"> -->
+<!--     delete from Comment -->
+<!--     where id = #{id} -->
+          
+<!-- </delete> -->
 	
+	<update id="delete" parameterType="com.artagit.web.entity.Comment">
+		update Comment set useYn = 'N' where id = #{id}
+	</update>
 	
 	
 </mapper>
