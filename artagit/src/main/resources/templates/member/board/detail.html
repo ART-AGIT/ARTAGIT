@@ -105,7 +105,8 @@
                      <div class="user-name" th:text="${comment.nickname}">오라클</div>
                   </div>
                   <div class="icon icon-miniMenu">
-                     <a href=""></a>
+                            <button id="4"    class="icon icon-miniMenu" type="submit" value="수정">수정</button>
+                           
                   </div>
                </div>
 
@@ -116,7 +117,7 @@
                   <div th:text="${#dates.format(board.regDate, 'yy/MM/dd HH:mm')}">
                      2022.11.26 18:38</div>
                   <div class="re-comment"  >
-                  <a href="">답글쓰기</a>
+<!--                  <button id="3"    class="btn btn-default comment" type="submit" value="수정">답변쓰기</button> -->
                   </div>
                   	<div class="add-modify" th:attr="data-id=${comment.nickname}"  >
                      <th:block th:if="${user.id == comment.memId}">

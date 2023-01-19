@@ -53,11 +53,13 @@ e.preventDefault();
             </section>
       
       `;
-
+		
 				wrapper.insertAdjacentHTML("afterend", template);
 				// 댓글작성후 text창 초기화
 				content.value = "";
+				
 			})
+
 
 	}
 	
@@ -65,8 +67,7 @@ e.preventDefault();
 	
 	
 	
-	
-	
+		
 	
 
 	commentBox.onclick = function(e) {
@@ -89,7 +90,7 @@ e.preventDefault();
                   <div class="comment-writing comment-infoline">
                      <textarea class="content-null2" name="content">${oldComment}</textarea>
                     <button class="btn btn-default-fill comment-modify2" type="submit" value="작성">완료</button>
-                     <button class="btn btn-default-fill comment-del" type="submit" value="작성">취소</button>
+                     <button class="btn btn-default-fill comment-cancel" type="submit" value="취소">취소</button>
                   </div>
               </form>
          `;
@@ -98,7 +99,39 @@ e.preventDefault();
 //			oldText.innerHTML = oldComment.dataset.id;
 			form.insertAdjacentHTML("beforeend", template);
 
+			let commntCancel = document.querySelector(".comment-cancel")
+			commntCancel.onclick = function(e) {
+				form.innerHTML = "";
+					let template = `
+       		<section class="comment-detail">
+               <div class="comment-writer-wrapper">
+                  <div class="comment-writer">
+                     <img class="profile-photo" src="../../image/accountImage.png">
+                     <div class="user-name">${nickname.dataset.id}</div>
+                  </div>
+                  <div class="icon icon-miniMenu">
+                     <a href=""></a>
+                  </div>
+               </div>
 
+               <div class="comment-main" >${oldComment}</div>
+               <div class="comment-info">
+                  <div >
+                     2022.11.26 18:38</div>
+                  <div class="re-comment">
+                  </div>
+                     <div class="add-modify">
+					<button id="1" class="btn btn-default-fill comment-modify" type="submit" value="작성">수정</button>
+                     <button id="2" class="btn btn-default-fill  comment-del" type="submit" value="작성">삭제</button>
+                     </div>
+               </div>
+            </section>
+      
+      `;
+         form.insertAdjacentHTML("beforeend", template);
+			}
+	
+			
 			let commntModify = document.querySelector(".comment-modify2")
 			commntModify.onclick = function(e) {
 //				for (el = e.target; form.tagName != "FORM"; el = el.parentElement);
@@ -135,7 +168,6 @@ e.preventDefault();
                   <div >
                      2022.11.26 18:38</div>
                   <div class="re-comment">
-                       	    <a href="">답글쓰기</a>
                        	    </div>
                        	<div class="add-modify">
                        		<button id="1" class="btn btn-default-fill comment-modify" type="submit" value="작성">수정</button>
@@ -177,28 +209,71 @@ e.preventDefault();
 		}
 
 
-
-	}
-
-// =============================대댓글 구현 예쩡=======================
-//		info.onclick = function(e) {
-//			e.preventDefault();
-//			if(e.target.id ==3)
-//
-//				console.log(e.target)
-//				
-//		let template = `
-//       		<form>
+		
+//			if(e.target.id ==3){
+//			for (form = e.target; form.tagName != "FORM"; form = form.parentElement);
+//				 template = `
+//      			<form>
 //                  <div class="comment-writing comment-infoline">
 //                     <textarea class="content-null2" name="content"></textarea>
 //                    <button class="btn btn-default-fill comment-modify2" type="submit" value="작성">완료</button>
-//                     <button class="btn btn-default-fill comment-modify" type="submit" value="작성">취소</button>
+//                     <button class="btn btn-default-fill comment-del" type="submit" value="작성">취소</button>
 //                  </div>
 //              </form>
 //         `;
-//	
-//		info.insertAdjacentHTML("afterend", template);
+//		
+//		form.insertAdjacentHTML("afterend", template);
+//		
+//		
+//		
+//			let formData = new FormData(document.querySelector("#comment-form"));
+//		fetch(`/api/reg`, { method: "post", body: formData })
+//			.then(response => response.json())
+//			.then(data => {
+//				let name = data.member
+//				let name2 = data.comment
+//
+//				let template = `
+//   <section class="comment-detail">
+//            <form data-id=${name2.id}>
+//               <h1 class="d-none">댓글1개</h1>
+//               <div class="comment-writer-wrapper">
+//                  <div class="comment-writer">
+//                     <img class="profile-photo" src="../../image/accountImage.png">
+//                     <div class="user-name" >${name}</div>
+//                  </div>
+//                  <div class="icon icon-miniMenu">
+//                     <a href=""></a>
+//                  </div>
+//               </div>
+//
+//               <div class="comment-main" >${name2.content}</div>
+//               <div class="comment-info">
+//                  <div >
+//                     2022.11.26 18:38</div>
+//                  <div class="re-comment">
+//                  </div>
+//                     <div class="add-modify">
+//					<button id="1" class="btn btn-default-fill comment-modify" type="submit" value="작성">수정</button>
+//                     <button id="2" class="btn btn-default-fill  comment-del" type="submit" value="작성">삭제</button>
+//                     </div>
+//               </div>
+//               </form>
+//            </section>
+//      
+//      `;
+//
+//				wrapper.insertAdjacentHTML("afterend", template);
+//				// 댓글작성후 text창 초기화
+//				content.value = "";
+//			})
+//		
+//		
 //			}
+
+	}
+
+	
 
 
 
