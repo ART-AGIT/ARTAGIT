@@ -13,7 +13,9 @@
 .post-like-btn{
     cursor:pointer;
 }
-
+.delete-btn{
+    cursor:pointer;
+}
 
 .post-detail-header{
     display:flex;
@@ -278,8 +280,7 @@ textarea:focus{
 @media (min-width: 992px) {
 
     .post-container{
-        margin-left:200px;
-        margin-right:200px;
+       min-width: 800px;
     }
 
     .text-image-wrapper{
@@ -289,6 +290,10 @@ textarea:focus{
     .post-title{
         font-size: 18px;
     }
-    
+    .content-wrapper{
+        display:flex;
+        
+
+    }
 
   }

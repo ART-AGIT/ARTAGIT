@@ -25,6 +25,10 @@ li.board-selected{
     color:#FF6B90;
     border-bottom: 2px solid #FF6B90;
 }
+li.board-selected>div{
+    color:#FF6B90;
+
+}
 
 .board-category-box{
     padding: 20px 0 10px 0;
@@ -109,7 +113,6 @@ li.board-selected{
     font-size: 16px;
     height: 40px;
     text-overflow: ellipsis;
-    overflow:hidden;
     font-weight: 550;
 }
 
@@ -195,8 +198,9 @@ li.board-selected{
     .board-category-l li{
         width: 200px;
         gap: 10px;
-        line-height: 40px;
+        
         font-size: 18px;
+        justify-content: left;
     }
     .board-category-box{
         display: flex;
@@ -204,6 +208,7 @@ li.board-selected{
     }
     .post-list{
         max-width: 800px;
+        margin-left: 50px;
         
     }
    
@@ -233,7 +238,7 @@ li.board-selected{
         
     }
     .writing-img-box{
-        right: 350px;
+        right: 300px;
     }
         
 
@@ -278,6 +283,13 @@ li.board-selected{
     .deco{
         display: flex;
         flex-direction: row;
-        gap: 5px;
+        gap: 20px;
     }
+
+    .board-category-l>li{
+        padding-bottom:5px;
+        padding-top:5px;
+
+    }
+    
 }

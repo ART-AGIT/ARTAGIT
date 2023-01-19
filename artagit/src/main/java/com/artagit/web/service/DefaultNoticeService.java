@@ -35,4 +35,10 @@ public class DefaultNoticeService implements NoticeService {
 		return noticeDao.getListByCategory(page,category);
 	}
 
+	@Override
+	public Notice getNoticeById(int id) {
+		// TODO Auto-generated method stub
+		return noticeDao.getNoticeById(id);
+	}
+
 }

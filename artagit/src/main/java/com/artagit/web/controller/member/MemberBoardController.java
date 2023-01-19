@@ -161,8 +161,8 @@ public class MemberBoardController {
    public String Boardedit(@PathVariable("id") int id,Model model) {
        
 	   Board board = service.get(id);
+	   System.out.println("수정은 왜 또 안돼ㅡㅡㅡㅡ?");
 	   model.addAttribute("board",board);
-       
        return "member/board/edit";
    }
  
@@ -213,5 +213,7 @@ public class MemberBoardController {
 		
 		return "redirect:/member/board/"+OriginalId;
 	}
+	
+	
 	
 }
