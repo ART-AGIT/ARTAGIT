@@ -10,7 +10,7 @@ window.addEventListener("load", function(){
     const btnMore = this.document.querySelector(".btn-more");
     const feedContent = this.document.querySelector(".feed-content");
     
-    let id = detailSection.querySelectorAll(".button-box-wrap > input");
+    let id = document.querySelectorAll(".button-box-wrap input");
 
 
     //////////// 더보기/접기 버튼 눌렀을 때
