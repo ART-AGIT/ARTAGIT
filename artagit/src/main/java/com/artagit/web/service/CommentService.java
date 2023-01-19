@@ -11,7 +11,7 @@ public interface CommentService {
 	
 	
 	Map<String, Object> modify(Comment comment);
-	int delete(Comment comment);
+	int delete(int id);
 
 
 //	Comment write(int postId, int memId, String content, String string);
@@ -19,7 +19,10 @@ public interface CommentService {
 	List<Comment> getNickname(int id);
 
 	Map<String, Object> write(Comment comment);
-	Comment modifyTest(Comment comment, int id);
+	
+	Comment getCommentId(int id);
+	
+	
 
 
 

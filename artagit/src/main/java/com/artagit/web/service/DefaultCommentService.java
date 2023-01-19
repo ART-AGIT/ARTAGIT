@@ -41,8 +41,12 @@ public class DefaultCommentService implements CommentService {
 	}
 
 	@Override
-	public int delete(Comment comment) {
-		return dao.delete(comment);
+	public int delete(int id) {
+		
+		int result = dao.delete(id);
+		
+		return result;
+		
 	}
 
 	
@@ -57,7 +61,6 @@ public class DefaultCommentService implements CommentService {
 		Map<String, Object> dto = new HashMap<>();
 		dto.put("member", member.getNickname());
 		dto.put("comment", lastOne);
-//		System.out.println(lastOne);
 		return dto;
 	}
 
@@ -65,16 +68,18 @@ public class DefaultCommentService implements CommentService {
 	public List<Comment> getNickname(int id) {
 		
 		List<Comment> list  = dao.getNickname(id);
-		System.out.println("====="+id);
 		return list;
 	}
 
 	@Override
-	public Comment modifyTest(Comment comment, int id) {	
-		Comment result = dao.modifyTest(comment);
-		
+	public Comment getCommentId(int id) {
+		Comment result = dao.getCommentId(id);
+				List<Comment>	 result1 = dao.getList(id);
+				System.out.println("rererere"+result1);
 		return result;
+		
 	}
+
 
 
 	
