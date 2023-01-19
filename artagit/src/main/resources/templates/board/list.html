@@ -27,10 +27,12 @@
             <li data-id="4" th:class="${#strings.equals(param.c, '4')}?'board-selected'" class="icon-smile"><div class="deco deco-smile">같이가요</div></li>
         </ul> 
     </nav>
+     <div class="board-box-width">
    <div class="board-box-container">
+  
     <div class="board-box">
 			    <div class="post-list">
-			        <h1 class="community-h1">커뮤니티</h1>
+			        <h2 class="community-h1">커뮤니티</h2>
 			           <form class="" action="list" method="get">
 			           <section class="notice-list-box">
 					        <section class="notice " th:each="noticeList:${noticeList}">
@@ -95,6 +97,7 @@
 					        </section>
 					       </section>
 					  </form>
+			   		 </div>
 			   		 </div>
 			 </div>
 			  
