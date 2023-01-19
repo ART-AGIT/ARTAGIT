@@ -204,6 +204,7 @@ li.board-selected{
     }
     .post-list{
         max-width: 800px;
+        margin-left: 50px;
         
     }
    
