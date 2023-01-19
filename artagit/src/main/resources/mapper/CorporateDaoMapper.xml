@@ -41,6 +41,8 @@
 	<update id="updateAccount" parameterType="com.artagit.web.entity.Corporate">
 	update Corporate
 		<trim prefix="SET" suffixOverrides=",">
+			<if test="img != null">img = #{img},</if>
+		
 			<if test="ceoName != null">ceoName = #{ceoName},</if>
 			<if test="name != null">name = #{name},</if>
 			<if test="phone != null">phone = #{phone},</if>

@@ -22,7 +22,9 @@
 }
 .reg-list-input-box>div{
     gap: 10px;
-     flex-wrap: wrap;
+    flex-wrap: wrap;
+    justify-content: center;
+    
 }
 /* 
 .reg-list-input-box>label{
@@ -41,7 +43,6 @@
     display: flex;
     justify-content: end;
     padding-top : 100px;
-    padding-left: 250px;
 }
 
 
@@ -291,7 +292,7 @@ top: -5px;
 	
 	.my-account-edit {
 	    display: flex;
-	    padding-left: 15px;
+/* 	    padding-left: 15px; */
 	    padding-bottom: 20px;
 	}
 	
@@ -335,6 +336,11 @@ top: -5px;
 	    padding-right: 220px;
 
     }
+    
+    .reg-list-input-box>label{
+		padding-left: 7px;
+	}
+	
 
 /* 	.reg-list-box{ */
 /* 		padding-left :5px; */

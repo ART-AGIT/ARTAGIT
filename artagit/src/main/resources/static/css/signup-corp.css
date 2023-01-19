@@ -21,6 +21,7 @@
 }
 .reg-list-input-box>div{
     gap: 10px;
+    justify-content: center;
 }
 
 .reg-button-box{
@@ -114,9 +115,9 @@ input:focus::placeholder {
     
     }
 
-/* 	.reg-list-input-box>label{ */
-/* 		margin-left: 5px; */
-/* 	} */
+	.reg-list-input-box>label{
+		padding-left: 7px;
+	}
 	
 /* 	.reg-list-input-box>div { */
 /*     	justify-content: center; */
