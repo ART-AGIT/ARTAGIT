@@ -189,6 +189,7 @@ input:focus{
 @media (min-width: 992px){
 	main {
 		width: 800px;
+		height: 1140px;
 	}
 	.img-and-cal {
 		display: flex;
@@ -205,10 +206,15 @@ input:focus{
 	}
 	
 	.img-and-info {
-	    display: flex;
+/* 	    display: flex; */
 /* 	    align-items: center; */
+/* 		position: relative; */
 	}
-
+	.img-and-text {
+		position: sticky;
+    	top: 110px;
+	}
+	
 	.exh-img {
 	    width: 350px;
 	    filter: blur(0px);

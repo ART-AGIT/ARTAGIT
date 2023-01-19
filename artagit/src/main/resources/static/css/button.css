@@ -192,7 +192,7 @@
 	    width: 65px;
 	    height: 65px;
 	    /* position: fixed; */
-	    right: 250px;
+	    right: 230px;
 	    bottom: 30px;
 	    font-size: 16px;
 	}
@@ -223,4 +223,23 @@
         .btn-register {
             height: 45px;
         }
+        
+        	.btn-pay {
+	    border-radius: 10px 0 0 10px;
+	    padding: 0;
+	    height: 44px;
+	    font-size: 18px;
+	    position: fixed;
+	    width: 160px;
+	    bottom: 103px;
+	    right: 519px;
+	}
+	
+	.btn-way {
+	    border-left: 1px solid #ffffff55;
+	    right: 387px;
+	    cursor: pointer;
+	    width: 130px;
+	    border-radius: 0 10px 10px 0;
+	}
 }
