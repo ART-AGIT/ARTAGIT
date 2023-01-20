@@ -77,6 +77,36 @@
     -webkit-mask-image: url(../image/icons/location.svg);
 }
 
+.deco-food::before{
+    mask-image: url(../image/food.svg);
+    -webkit-mask-image: url(../image/food.svg);
+
+}
+
+.deco-total::before{
+    mask-image: url(../image/icons/total.svg);
+    -webkit-mask-image: url(../image/icons/total.svg);
+
+}
+.deco-free::before{
+    mask-image: url(../image/icons/free.svg);
+    -webkit-mask-image: url(../image/icons/free.svg);
+
+}
+.deco-picture::before{
+    mask-image: url(../image/icons/picture.svg);
+    -webkit-mask-image: url(../image/icons/picture.svg);
+
+}
+.deco-together::before{
+    mask-image: url(../image/icons/together.svg);
+    -webkit-mask-image: url(../image/icons/together.svg);
+
+}
+
+
+
+
 /* =================================================== */
 .my{
     display: grid;

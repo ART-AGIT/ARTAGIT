@@ -167,8 +167,8 @@ li.board-selected>div{
     
 }
 .writing-img-box img{
-    width: 50px;
-    height: 50px;
+    width: 55px;
+    height: 55px;
 }
 
 h2{
@@ -226,7 +226,7 @@ h2{
         "category category category img" 20px
         "title title title img" 30px
         "writer regdate post-info img " 30px
-                / 3fr 1fr 1fr 0.8fr;
+                / 3fr 1fr 1fr 1fr;
         padding: 10px;
         
         align-items: center;
