@@ -23,7 +23,6 @@
 					<if test="category != null and category != 0">
 						roleId = #{category}
 					</if>
-					
 				</trim>
 			order by regDate desc; 
 		</select>
