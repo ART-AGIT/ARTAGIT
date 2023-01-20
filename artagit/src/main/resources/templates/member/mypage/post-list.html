@@ -5,15 +5,15 @@
 	layout:decorate="~{inc/layout}">
 	
 	<th:block layout:fragment="css">
-    <link href="../../css/reset.css" type="text/css" rel="stylesheet">
-    <link href="../../css/style.css" type="text/css" rel="stylesheet">
-    
- 
-    <link href="../../css/component/board-list.css" type="text/css" rel="stylesheet">
-    <link href="../../css/component/sub-menu.css" type="text/css" rel="stylesheet">
-    <link href="../../css/member/mypage/post.css" type="text/css" rel="stylesheet">
-	<script src="../../js/header-menu.js"></script>
-<!-- 	<script src="../../js/sub-menu.js"></script> -->
+	    <link href="../../css/reset.css" type="text/css" rel="stylesheet">
+	    <link href="../../css/style.css" type="text/css" rel="stylesheet">
+	    
+	 
+	    <link href="../../css/component/board-list.css" type="text/css" rel="stylesheet">
+	    <link href="../../css/component/sub-menu.css" type="text/css" rel="stylesheet">
+	    <link href="../../css/member/mypage/post.css" type="text/css" rel="stylesheet">
+		<script src="../../js/header-menu.js"></script>
+		<script src="../../js/sub-menu.js"></script>
 	</th:block>
 	<body id="body" layout:fragment="content">
     <main>
@@ -36,8 +36,8 @@
 	                <li class="list line-on post-manage">
 	                	<a class="deco deco-write deco-write-on" href="./post-list">게시글 관리</a>
 	                	<ul class="mini-menu-list">
-	                		<li class="about-mypost"><a href="../../member/mypage/post-list">작성글 관리</a></li>
-	                		<li class="my-like-post"><a href="../../member/mypage/post-like">좋아요 한 게시글</a></li>
+	                		<li class="mini-menu about-mypost"><a href="../../member/mypage/post-list">작성글 관리</a></li>
+	                		<li class="mini-menu my-like-post"><a href="../../member/mypage/post-like">좋아요 한 게시글</a></li>
 	                	</ul>
 	                </li>
 	            </ul>
@@ -46,7 +46,7 @@
  		       
        <div class="board-box">
 			    <div class="post-list">
-			        <h2 class="">게시글 관리</h2>
+			        <h2 class="">작성글 관리</h2>
      
 					        <form class="" action="post-list" method="get">
 					        <section class="board-list" th:each="board:${list}">

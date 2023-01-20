@@ -204,6 +204,14 @@ li .deco-ticket-on {
 	    z-index: 10;
 	    left: 48px;
 	}
+	
+	.mini-menu-list.show{
+		display: block;
+	}
+	.mini-menu.selected a{
+		font-weight: 500;
+		color: #FF6B90;
+	}
 	.mini-menu-list > li{
 		width: 100%;
 	}
