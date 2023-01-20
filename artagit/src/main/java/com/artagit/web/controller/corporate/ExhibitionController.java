@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -97,7 +98,7 @@ public class ExhibitionController {
 	// 주최자가 등록한 전시 수정 ========================
 	@PostMapping("update")
 	@ResponseBody
-	public void update(@RequestBody HashMap<String,Object> map) {
+	public String update(@RequestBody HashMap<String,Object> map) {
 		System.out.println("update 메서드 진입");
 		HashMap<String, Object> exhList = (HashMap<String, Object>) map.get("exh");
 		Exhibition exh = new Exhibition();
@@ -112,6 +113,7 @@ public class ExhibitionController {
 		exh.setTicketPrice(Integer.parseInt(String.valueOf(exhList.get("ticketPrice"))));
 		exh.setTicketStock(Integer.parseInt(String.valueOf(exhList.get("ticketStock"))));
 		exh.setContent(String.valueOf(exhList.get("content")));
+		exh.setHomepage(String.valueOf(exhList.get("homepage")));
 		
 		
 		HashMap<String, Object> corpList = (HashMap<String, Object>) map.get("corp");
@@ -140,6 +142,7 @@ public class ExhibitionController {
 		localService.update(local);
 		
 		System.out.println(exh.getId()+"번 전시 수정완료");
+		return "redirect:{id}";
 	}
 	
 	// 주최자가 등록한 전시 삭제 ========================
@@ -162,32 +165,43 @@ public class ExhibitionController {
 		return "corporator/mypage/exh-reg";
 	}
 	
-	@PostMapping("insert") 
-	public String insert(Exhibition exhibition, MultipartFile img,HttpServletRequest request) throws IOException{
+	@PostMapping("insert")
+	@ResponseBody
+	public String insert(@RequestParam("poster") MultipartFile poster, @RequestParam("detailImage") MultipartFile detailImage, Exhibition exhibition,HttpServletRequest request) throws IOException{
 		
-		System.out.print("전시 :" +exhibition.toString());
-		
-		if (!img.isEmpty()) {
-			String path = "/image"; // 어디에서 돌아갈지 모르니 운영되고 있는 home directory에서 생각 앞쪽은 어케될지 모름
-			String realPath = request.getServletContext().getRealPath(path);
-			System.out.println(realPath);
-
-			File pathFile = new File(realPath);
-			if (!pathFile.exists())
-				pathFile.mkdirs();
-
-			String fullPath = realPath + File.separator + img.getOriginalFilename();
-			InputStream fis = img.getInputStream();
-			OutputStream fos = new FileOutputStream(fullPath);
-			byte[] buf = new byte[1024];
-			int size = 0;
-			while ((size = fis.read(buf)) >= 0)
-				fos.write(buf, 0, size);
-
-			fos.close();
-			fis.close();
-		}
 		service.insert(exhibition);
+	//	System.out.print("전시 :" +exhibition.toString());
+		
+			
+//		exhibition.setPoster(exhibition.getPoster());
+//		exhibition.setDetailImage(file.getOriginalFilename());
+//		System.out.println("이미지이름" + poster);
+//		System.out.println("이미지이름" + detailImage);
+//		
+//		for(MultipartFile mf : uploadFile)
+//			System.out.println(mf);
+		
+		
+//		if (!exhibition.getPoster().isEmpty()) {
+//				String path = "/image"; 
+//				String realPath = request.getServletContext().getRealPath(path);
+//				System.out.println(realPath);
+//
+//				File pathFile = new File(realPath);
+//				if (!pathFile.exists())
+//					pathFile.mkdirs();
+//
+//				String fullPath = realPath + File.separator + exhibition.getPoster();
+//				//InputStream fis = file.getInputStream();
+//				OutputStream fos = new FileOutputStream(fullPath);
+//				byte[] buf = new byte[1024];
+//				int size = 0;
+//				while ((size = fis.read(buf)) >= 0)
+//					fos.write(buf, 0, size);
+//
+//				fos.close();
+//				fis.close();
+//			}
 
 		//int result = 0;
 		// result =

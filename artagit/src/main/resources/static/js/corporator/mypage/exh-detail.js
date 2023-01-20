@@ -4,11 +4,13 @@ window.addEventListener("load", function(){
     const deleteBtn = this.document.querySelector(".delete-btn");
     const modal = this.document.querySelector(".modal");
     const yesBtn = document.querySelector(".yes-btn");
-    const detailSection = this.document.querySelector(".exh-detail-section");
+    const detailSection = this.document.querySelector(".exh-content-container");
     const modiLine = detailSection.querySelectorAll(".content");
+    
     const btnMore = this.document.querySelector(".btn-more");
     const feedContent = this.document.querySelector(".feed-content");
-    let id = detailSection.querySelectorAll(".button-box-wrap > input");
+    
+    let id = document.querySelectorAll(".button-box-wrap input");
 
 
     //////////// 더보기/접기 버튼 눌렀을 때
@@ -47,21 +49,31 @@ window.addEventListener("load", function(){
 
         console.log("수정버튼 클릭");
         btnMore.classList.add('d-none');
-
+        
+        // 각 항목들에 contenteditable (편집모드) 속성을 추가해준다. 
         if(modiLine[0].getAttribute('contenteditable') == null){
             for(let i = 0; i<modiLine.length; i++){
                 modiLine[i].setAttribute('contenteditable', 'true');
-                modiLine[i].classList.add('mody-on');
+                modiLine[i].classList.add('mody-on'); // 수정모드 의미를 가진 클래스 추가
             }
-            let start = detailSection.querySelector('.start-date').innerText;
-            let end = detailSection.querySelector('.end-date').innerText;
+            let date = detailSection.querySelector('.start-date').innerText;
+            let time = detailSection.querySelector('.start-time').innerText;
+            let startD = date.substring(0, 10);
+            let endD = date.substring(13, 23);
+            let startT = time.substring(0, 5);
+            let endT = time.substring(8, 13);
+
+            console.log(date);
+            console.log(startD);
+            console.log(endD);
+            console.log(startT);
+            console.log(endT);
+            // let end = detailSection.querySelector('.end-date').innerText;
             
-            console.log(start);
-            
-            let startDateTem = `<input type="date" class="item content start-date-input" value="${start}" required pattern="\d{4}-\d{2}-\d{2}"></input>`
-            let endDateTem = `<input type="date" class="item content end-date-input" value="${end}" required pattern="\d{4}-\d{2}-\d{2}"></input>`
-            let startTimeTem = `<input type="time" class="item content start-time-input" data-placeholder="시작시간" required></input>`
-            let endTimeTem = `<input type="time" class="item content end-time-input" data-placeholder="종료시간" required></input>`
+            let startDateTem = `<input type="date" class="item content start-date-input" style="font-weight: normal" value="${startD}" required pattern="\d{4}-\d{2}-\d{2}"><span>~</span>`
+            let endDateTem = `<input type="date" class="item content end-date-input" value="${endD}" required pattern="\d{4}-\d{2}-\d{2}"></input>`
+            let startTimeTem = `<input type="time" class="item content start-time-input" style="font-weight: normal" value="${startT}" data-placeholder="시작시간" required></input><span>~</span>`
+            let endTimeTem = `<input type="time" class="item content end-time-input" value="${endT}" data-placeholder="종료시간" required></input>`
             
             let el = new DOMParser() // string으로 된 HTML 태그들을 DOM 객체로 변환해준다.
             .parseFromString(startDateTem, "text/html") // 어떤 문자열(1st param)을 어떠한 형식(2nd param)으로 변환할건지.
@@ -86,13 +98,13 @@ window.addEventListener("load", function(){
 			
             
             detailSection.querySelector('.start-date').innerHTML='';
-            detailSection.querySelector('.end-date').innerHTML='';
+            // detailSection.querySelector('.end-date').innerHTML='';
             detailSection.querySelector('.start-time').innerHTML='';
-            detailSection.querySelector('.end-time').innerHTML='';
-            detailSection.querySelector('.start-date').append(el);
-            detailSection.querySelector('.end-date').append(el2);
-            detailSection.querySelector('.start-time').append(el3);
-            detailSection.querySelector('.end-time').append(el4);
+            // detailSection.querySelector('.end-time').innerHTML='';
+            detailSection.querySelector('.start-date').append(el, '~', el2);
+            // detailSection.querySelector('.start-date').append(el2);
+            detailSection.querySelector('.start-time').append(el3, '~', el4);
+            // detailSection.querySelector('.end-time').append(el4);
 			
 //			detailSection.querySelector('.start-date-input').setAttribute('data-placeholder', detailSection.querySelector('.start-date').innerText);
             modiBtn.innerText = '저장';
@@ -116,6 +128,7 @@ window.addEventListener("load", function(){
         let exhStock = detailSection.querySelector(".exh-stock").innerText;
         let corpManager = detailSection.querySelector(".corp-manager").innerText;
         let exhContent = detailSection.querySelector(".feed-content").innerText;
+        let exhURL = detailSection.querySelector(".exh-url").innerText;
 
             console.log(startDate);
         fetch("/corp/exh/update", {
@@ -134,7 +147,8 @@ window.addEventListener("load", function(){
                         "endTime": endTime,
                         "ticketPrice": exhPrice,
                         "ticketStock" : exhStock,
-                        "content" : exhContent
+                        "content" : exhContent,
+                        "homepage" : exhURL
                         },
                         "corp":{
                             "id" : id[1].value,

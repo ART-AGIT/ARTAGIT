@@ -19,4 +19,6 @@ public interface ExhLikeDao {
 
 	int count(int exhId);
 
+
+
 }

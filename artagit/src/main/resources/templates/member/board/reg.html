@@ -6,6 +6,7 @@
 <th:block layout:fragment="css">
     <link href="/css/admin/deco.css" type="text/css" rel="stylesheet">
     <link href="/css/member/board/board-reg.css" type="text/css" rel="stylesheet">
+
 	<script src="/js/header-menu.js"></script>
 	<script src="/js/member/board/reg.js"></script>
 </th:block>
@@ -14,18 +15,14 @@
   
    
     <main class="main-container">
+   
+   
         <form action="reg" method="post" enctype="multipart/form-data">
             <section class="post-option">
                 <div class="first-line">
                 <h1 class="d-none">글작성 옵션</h1>
               
-                    <select class="select-box" name="roleId">
-                      <option class="option" value=1>자유</option>
-                      <option class="option" value=2>전시후기</option>
-                      <option class="option" value=3>맛집후기</option>
-                      <option class="option" value=4>같이가요</option>
-                    </select>
-                
+                  
                 
                 <div class="save-temp">
                     <button class="save-temp-btn">임시저장</button>
@@ -56,6 +53,7 @@
                 </div>
             </section>
         </form>
+        
     </main>
     
 </body>

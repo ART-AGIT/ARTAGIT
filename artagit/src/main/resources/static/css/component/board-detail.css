@@ -1,14 +1,21 @@
 .icon{
     background-color: #353535;
-    -webkit-mask-size: 16px 16px;
+    -webkit-mask-size: 14px 14px;
     padding:0;
     
 }
 .icon-report{
     -webkit-mask-size: 20px 20px;
+    cursor:pointer;
+    cursor:pointer;
 }
 
-
+.post-like-btn{
+    cursor:pointer;
+}
+.delete-btn{
+    cursor:pointer;
+}
 
 .post-detail-header{
     display:flex;
@@ -75,6 +82,7 @@
 .profile-photo{
     height: 12px;
     width: 12px;
+   
 }
 
 .board-img{
@@ -121,8 +129,7 @@
     flex-direction: column;
 
     padding: 10px 0 10px 0;
-    border-bottom: 1px solid #BCBCBC;
-    gap: 7px;
+    
     word-break:break-all;
 }
 .comment-writer-wrapper{
@@ -145,12 +152,22 @@
 }
 
 .comment-info{
-    display:flex;
+    display:grid;
+  	border-bottom: 1px solid #BCBCBC;
+	padding-bottom: 10px;
+    grid-template-columns: 110px 80px 1fr;
+    align-items: center;
+
 }
 
-.comment-info>div:nth-child(2){
-    padding-left: 10px;
+.comment-infoline{
+	border-bottom: 1px solid #BCBCBC;
+	padding-bottom: 10px;
 }
+.add-modify{
+	 justify-self: end;
+}
+
 .re-comment>a{
     color:#FF6B90;
 }
@@ -159,23 +176,25 @@
     display:flex;
     height: 60px;
     padding-top: 10px;
-    justify-content: space-between;
     gap: 5px;
+    align-items: center;
 }
 form .user-name{
     padding-top:10px;
 }
 .btn-default-fill{
-    width: 45px;
+    width: 46px;
     height: 26px;
 }
 
 textarea{
     resize:none;
-    width: 80%;
+    width: 85%;
     height: 53px;
     border-radius: 5px;
     border: 1px solid #BCBCBC;
+    margin-right: 15px;
+    
 }
 textarea:focus{
     border:none;
@@ -189,6 +208,7 @@ textarea:focus{
     height: 20px;
     width: 20px;
     padding-right: 3px;
+    border-radius:100px;
 }
 .comment-writing>div{
     max-width: 40px;
@@ -209,7 +229,7 @@ textarea:focus{
     padding-top:10px;
 }
 .icon-report{
-    margin-bottom:3px;
+    /* margin-bottom:5px; */
 }
 
 #modal.modal-overlay {
@@ -260,8 +280,20 @@ textarea:focus{
 @media (min-width: 992px) {
 
     .post-container{
-        margin-left:200px;
-        margin-right:200px;
+       min-width: 800px;
+    }
+
+    .text-image-wrapper{
+       padding: 10px;    
+    }
+
+    .post-title{
+        font-size: 18px;
+    }
+    .content-wrapper{
+        display:flex;
+        
+
     }
 
   }

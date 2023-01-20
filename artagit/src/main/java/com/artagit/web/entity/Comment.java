@@ -11,8 +11,17 @@ public class Comment {
    private String content;
    private String nickname;
    private Date regDate;
+   private String useYn;
    
-   public Comment() {
+   public String getUseYn() {
+	return useYn;
+}
+
+public void setUseYn(String useYn) {
+	this.useYn = useYn;
+}
+
+public Comment() {
       // TODO Auto-generated constructor stub
    }
    
@@ -79,12 +88,13 @@ public class Comment {
       this.regDate = regDate;
    }
 
-   @Override
-   public String toString() {
-      return "Comment [id=" + id + ", postId=" + postId + ", memId=" + memId + ", content=" + content + ", nickname="
-            + nickname + ", regDate=" + regDate + "]";
-   }
+@Override
+public String toString() {
+	return "Comment [id=" + id + ", postId=" + postId + ", memId=" + memId + ", content=" + content + ", nickname="
+			+ nickname + ", regDate=" + regDate + ", useYn=" + useYn + "]";
+}
 
+  
 
 
 

@@ -10,7 +10,7 @@
 		<script src="/js/modal.js"></script>
 		<script src="/js/index.js"></script>
 </th:block>
-
+ 
 <body id="body" layout:fragment="content" >
    
 
@@ -20,78 +20,81 @@
     <nav class = "board-category-box">
         <ul class="board-category-l">
             <!-- <li>전체 글</li> -->
-            <li data-id="0" th:class="${param.c}==null?'board-selected'" class="deco-ticket-on ">전체 글</a></li>
-            <li data-id="1" th:class="${#strings.equals(param.c, '1')}?'board-selected'"class="line-on">자유</a></li>
-            <li data-id="2" th:class="${#strings.equals(param.c, '2')}?'board-selected'">전시후기</a></li>
-            <li data-id="3" th:class="${#strings.equals(param.c, '3')}?'board-selected'">맛집후기</a></li>
-            <li data-id="4" th:class="${#strings.equals(param.c, '4')}?'board-selected'">같이가요</a></li>
+            <li data-id="0" th:class="${param.c}==null?'board-selected'" class="deco-ticket-on"><div class="deco deco-smile">전체 글</div></li>
+            <li data-id="1" th:class="${#strings.equals(param.c, '1')}?'board-selected'"class="line-on icon-note"><div class="deco deco-smile">자유게시판</div></li>
+            <li data-id="2" th:class="${#strings.equals(param.c, '2')}?'board-selected'" class="icon-picture"><div class="deco deco-smile">전시후기</div></li>
+            <li data-id="3" th:class="${#strings.equals(param.c, '3')}?'board-selected'" class="icon-food"><div class="deco deco-smile">맛집후기</div></li>
+            <li data-id="4" th:class="${#strings.equals(param.c, '4')}?'board-selected'" class="icon-smile"><div class="deco deco-smile">같이가요</div></li>
         </ul> 
     </nav>
    <div class="board-box-container">
     <div class="board-box">
 			    <div class="post-list">
-			        <h1 class="d-none">게시글 목록</h1>
-			            
-					        <section class="notice">
+			        <h1 class="community-h1">커뮤니티</h1>
+			           <form class="" action="list" method="get">
+			           <section class="notice-list-box">
+					        <section class="notice " th:each="noticeList:${noticeList}">
 					            <h1 class="d-none">공지목록</h1> 
-					            <img class="notice-icon" src="../image/notice.png">
+					            <div class="notice-icon ">공지</div>
 					            <h1 class="notice-title">
-					                <a href = "../member/board/detail.html">안녕하세요. 아트아지트 입니다.</a></h1>
+					                <a th:utext="${noticeList.title}" th:href="@{|/member/board/${noticeList.id}|}" href = "../member/board/detail.html">안녕하세요. 아트아지트 입니다.</a></h1>
 					            <div> </div>
 					            <div class="notice-info">
 					                
 				                <div>
-				                    <img class="profile" src = "../image/accountImage.png">
+				                   
 				                	<div>운영자 </div>
 					            </div>
-					            <div> 22-11-30 </div>
+					            <div th:text="${#dates.format(noticeList.regDate, 'YY/MM/dd HH:mm')}"> 22-11-30 </div>
 					                
 				                <div class="view">
-				                    <div class="icon icon-view">조회수 아이콘</div>
-				                    <div>11</div>
+				                    <div class="icon icon-view icon-size">조회수 아이콘</div>
+				                    <div th:text=${noticeList.hit}>11</div>
 				                </div>
 					        </section>
-					          
-					        <form class="" action="list" method="get">
+			           </section>
+					    <section class="post-list-box">
+					       <!-- <form class="" action="list" method="get"> -->
 					        <section class="board-list" th:each="board:${list}">
 						        <h1 class="board-title">
 						            <a th:utext="${board.title}" th:href="@{|/member/board/${board.id}|}" href = "../member/board/detail.html">회원님들 그만 좀 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa싸우세요들.</a>
 						        </h1>
 						     <div><a th:text="[+${board.name}+]" class="board-category-s" href="">[같이가요]</a></div>
 						        
-						        <div class="board-regdate" th:text="${#dates.format(board.regDate, 'HH:mm')}">1분전</div>
+						        <div class="board-regdate" th:text="${#dates.format(board.regDate, 'YY/MM/DD HH:mm')}">1분전</div>
 						     
 						        <div class="board-writer-info">
-					                <img class="profile" src = "../image/accountImage.png">
+					                <img class="profile" src = "" th:src="@{|/image/${board.memImage}|}">
 					            	<div th:text="${board.nickname}">운영자 </div>
 						        </div>
 					        
 					        <div class="board-post-info">
 					            
 					            <div class="view">
-					                <div class="icon icon-view">조회수 아이콘</div>
+					                <div class="icon icon-view icon-size">조회수 아이콘</div>
 					                <div th:text=${board.hit}>11</div>
 					            </div>
 					            <div class="like-up">
-					                <div class="icon icon-like-up">좋아요 아이콘</div>
+					                <div class="icon icon-like-up icon-size">좋아요 아이콘</div>
 					                <div th:text=${board.hearts}>11</div>
 					            </div>
 					            <div class="comment">
-					                <div class="icon icon-comment">댓글 아이콘</div>
+					                <div class="icon icon-comment icon-size">댓글 아이콘</div>
 					                <div th:text=${board.commentTotal}>11</div>
 					            </div>
 					        </div>
 					          
 					        
 					        <div class="board-post-img-box">
-					            <img class="post-img" onerror="this.style.display='none'" 	src = "../image/전시포스터.jpg" th:src="@{|/image/${board.image}|}">
+					            
+					        	<a th:href="@{|/member/board/${board.id}|}"><img class="post-img" onerror="this.style.display='none'" 	src = "../image/전시포스터.jpg" th:src="@{|/image/${board.image}|}"></a>
 					        </div>
 					         <div class="writing-img-box">
 							        <a href = "../member/board/reg"><img src = "../image/writing-img.png"></img></a>
 					    	</div>
 					        </section>
-					       
-					  		</form>
+					       </section>
+					  </form>
 			   		 </div>
 			 </div>
 			  

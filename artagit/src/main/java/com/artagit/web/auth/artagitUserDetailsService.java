@@ -45,6 +45,9 @@ public class artagitUserDetailsService implements UserDetailsService {
 		Corporate corp;
 		
 		Member member = memDao.getByUserName(username);
+		
+		
+		
 		System.out.println("member"+member);
 		if(member==null) {
 			corp = corpDao.getByUserName(username);
@@ -54,10 +57,13 @@ public class artagitUserDetailsService implements UserDetailsService {
 		// member의 경우
 		if(member!=null) {
 			role = roleDao.getMemberByUserName(username);
-			member = memDao.getByUserName(username); // loginId 에 대한 회원의 모든 정보가 member에 담긴다.
+			//member = memDao.getByUserName(username); // loginId 에 대한 회원의 모든 정보가 member에 담긴다.
 			
 			System.out.println("담겨진 member ====> "+member);
-			
+			if(member.getUseYN().equals("N")) {
+				System.out.println("멤버 탈퇴 로그인 불가");
+				return user;
+			}
 			
 			//authorities.add(new SimpleGrantedAuthority(role.getName())); // authorities에 추가한다. 회원의 id에서 얻어온 권한의 이름을..
 			authorities.add(new SimpleGrantedAuthority(role.getName()));
@@ -80,6 +86,11 @@ public class artagitUserDetailsService implements UserDetailsService {
 			corp = corpDao.getByUserName(username); // loginId 에 대한 회원의 모든 정보가 member에 담긴다.
 			
 			System.out.println("담겨진 corp ====> "+corp);
+			
+			if(corp.getUseYN().equals("N")) {
+				System.out.println("주최자 탈퇴 로그인 불가");
+				return user;
+			}
 			
 //			List<GrantedAuthority> authorities = new ArrayList<>(); // 사용자의 권한을 담기 위해 authorities 객체 생성 (초기엔 아무 권한도 담겨있지 않음.. maybe..)
 			
