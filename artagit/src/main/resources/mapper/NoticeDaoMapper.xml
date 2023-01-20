@@ -13,6 +13,7 @@
 	
 		<select id="getListInit" resultType="Notice">
 			select * from Notice
+			where roleId != 5
 			limit #{size}
 		</select>
 		
@@ -22,6 +23,7 @@
 					<if test="category != null and category != 0">
 						roleId = #{category}
 					</if>
+					
 				</trim>
 			order by regDate desc; 
 		</select>
