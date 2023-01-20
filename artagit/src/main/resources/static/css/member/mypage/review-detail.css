@@ -126,13 +126,15 @@
 	}
     .review{
     	font-size:20px;
-/*     	margin-left:30px; */
+    	margin-left:20px;
 /*         width:0px; */
 /*         padding-bottom: 20px; */
-        margin-bottom:40px;
-        border-bottom: 2px solid #8f8f8f;
+        margin-bottom:0px;
+        border-bottom: 0px;
         display: flex;
         align-items: center;
+        padding-top:30px;
+        padding-bottom:0;
     }
 
     .review-form{
@@ -146,7 +148,7 @@
             margin-top: 0;
 /*             width:800px; */
 			width:730px;
-            height: 500px;
+            height: 550px;
             border-radius: 10px;
             border: 1px solid #ddd;
             background-color: #EDEDED;
@@ -158,7 +160,7 @@
         padding: 10px;
 /*         width:726px; */
 		width:660px;
-        height: 360px;
+        height: 300px;
         background-color: #fff;
 
         word-break: break-all;
@@ -181,11 +183,13 @@
     .input-review{
         font-family:'Pretendard', Tahoma, Geneva, Verdana, sans-serif;
         resize: none;
-        width:640px;
-        height: 340px;
+        width:642px;
+        height: 280px;
         display: flex;
-        padding:20px;
-        margin:-11px;
+        padding:10px;
+        margin:0px;
+        margin-bottom:20px;
+        border:0;
     }
     
     .btn-mod, .btn-exit, .btn-reg{
@@ -198,8 +202,8 @@
     display: flex;
     gap:20px;
     justify-content: center;
-    padding-top: 31px;
-    margin-left:250px;
+    padding-top: 20px;
+    margin-left:120px;
 	}
 /* 	테마색 */
 	.color-option{

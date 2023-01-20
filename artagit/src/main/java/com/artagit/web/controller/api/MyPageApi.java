@@ -68,32 +68,92 @@ public class MyPageApi {
 		return dto;
 	}
 	
+	/*-----------모달로 리뷰띄우기------*/ 
+	@GetMapping("/review/api/{reviewId}")
+	@Transactional
+	public Map<String,Object> view(@PathVariable("reviewId") int id
+			,@AuthenticationPrincipal ArtagitUserDetails user){
+				
+		System.out.println("리뷰모달띄우기에 들옴");
+		System.out.println("reviewId "+id);
+		
+		//리뷰 아이디로 부킹뷰 끌어오기
+		BookingList bookingInfo = bookingService.getBookingViewByReviewId(id);
+		System.out.println(bookingInfo);
+		System.out.println(bookingInfo.getColor());
+		Map<String,Object> dto = new HashMap<>();
+		dto.put("bookingInfo",bookingInfo);
 
+		return dto;
+		
+		
+	}
+	
+	/*-----------모달 리뷰 등록시 가져올 정보들------*/ 
+	@GetMapping("/review/api/view/{bookingId}")
+	@Transactional
+	public Map<String,Object> viewInfo(@PathVariable("bookingId") int bookingId
+			,@AuthenticationPrincipal ArtagitUserDetails user){
+		
+		System.out.println("들어왔니?"+bookingId);
+		//부킹아이디로 부킹리스트뷰 정보 갖고오기
+		BookingList bookingInfo = bookingService.getBookingViewByBookingId(bookingId);
+		System.out.println(bookingInfo);
+		Map<String,Object> dto = new HashMap<>();
+		dto.put("bookingInfo",bookingInfo);
+		return dto;
+	}
 	
 	
-	/*-----------모달로 리뷰보기------*/ 
-//	@PostMapping("/review/see/{id}")
+	/*-----------모달 리뷰 등록------*/ 
+	@PostMapping("/review/api/reg/{bookingId}")
+	@Transactional
+	public Map<String,Object> reg(@PathVariable("bookingId") int bookingId,Review review
+			,@AuthenticationPrincipal ArtagitUserDetails user){
+		
+		System.out.println("들어왔나 등록?"+bookingId);
+		System.out.println(review);
+		review.setPayId(bookingId);
+		System.out.println(review);
+		Review result = reviewService.reg(review);
+		System.out.println(result);
+		Map<String,Object> dto = new HashMap<>();
+		dto.put("result", result);
+		return dto ;
+	}
+	
+	
+	
+	
+	/*-----------모달로 리뷰등록------*/ 
+//	@GetMapping("/review/api/reg/{bookingId}")
 //	@Transactional
-//	public Map<String,Object> see(Booking booking,@PathVariable("id") int reviewId
+//	public Map<String,Object> reg(Review review, @PathVariable("bookingId") int bookingId
 //			,@AuthenticationPrincipal ArtagitUserDetails user){
+//				
+//		System.out.println("리뷰모달등록하기에 들옴");
+//		System.out.println("reviewId "+bookingId);
 //		
-//		System.out.println("들옴들옴");
-//		System.out.println(reviewId);
-//		Review review = reviewService.getbyId(reviewId);
-//		System.out.println(review);
-////		BookingList booking2 = bookingService.getReviewByBookingId(payId);
-////		review.setPayId(payId);
-////		review.setColor(review.getColor());
-////		Review result = reviewService.reg(review);
-//
+//		BookingList booking = bookingService.getReviewByBookingId(bookingId);
+//		
+//		review.set
+//		
+//		
+//		System.out.println(bookingInfo);
+//		System.out.println(bookingInfo.getColor());
 //		Map<String,Object> dto = new HashMap<>();
-////		dto.put("status", 200);
-////		dto.put("resultObject",result);
-////		dto.put("booking2",booking2);
-//		dto.put("review",review);
+//		dto.put("bookingInfo",bookingInfo);
 //
 //		return dto;
+//		
+//		
+//		
 //	}
+	
+	
+	
+	
+	
 	
 
 	/*-----------리뷰수정------*/ 

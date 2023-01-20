@@ -56,6 +56,18 @@ public class DefaultBookingService implements BookingService {
 		return booking;
 	}
 
+	@Override
+	public BookingList getBookingViewByReviewId(int id) {
+		// TODO Auto-generated method stub
+		return bookListDao.getByReviewId(id);
+	}
+
+	@Override
+	public BookingList getBookingViewByBookingId(int bookingId) {
+		// TODO Auto-generated method stub
+		return bookListDao.getByBookingId(bookingId);
+	}
+
 }
 
 
