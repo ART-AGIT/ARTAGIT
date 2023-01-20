@@ -34,7 +34,7 @@
                 <div class="profile-box">
 	        		<div class="profile-content">
 		                <div class="profile-img-box" >
-		                    <img class="profile-img" src="../../../image/camera.svg">
+		                    <img th:src="@{|/image/${user.img}|}" class="profile-img" src="../../../image/camera.svg">
 		                </div>
 		                <div>
 			                <div class="profile-name"> 
@@ -62,7 +62,7 @@
                     <div class="member">
 						<input type="hidden" th:value="${user.id}" name="id">
                         <div class="member-profile">
-                            <img th:src="@{/image/{img}(img=${member.image})}" src="../../image/회원기본이미지.svg" class="member-profile-img img-input">
+                            <img th:src="@{|/image/${user.img}|}" src="../../image/회원기본이미지.svg" class="member-profile-img img-input">
                             <div class="icon-img-choice">
                                 <div class="circle-edit"></div>
                                <input name="img" type="file" src="../../image/icons/icon-edit.svg" class="icon icon-write icon-write-edit file-input">
