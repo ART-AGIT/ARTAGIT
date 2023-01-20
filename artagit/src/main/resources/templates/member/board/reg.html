@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6"
-	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	layout:decorate="~{inc/layout}">
+   xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6"
+   xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+   layout:decorate="~{inc/layout}">
 <th:block layout:fragment="css">
     <link href="/css/admin/deco.css" type="text/css" rel="stylesheet">
     <link href="/css/member/board/board-reg.css" type="text/css" rel="stylesheet">
 
-	<script src="/js/header-menu.js"></script>
-	<script src="/js/member/board/reg.js"></script>
+   <script src="/js/header-menu.js"></script>
+   <script src="/js/member/board/reg.js"></script>
 </th:block>
 
 <body id="body" layout:fragment="content">
@@ -21,7 +21,13 @@
             <section class="post-option">
                 <div class="first-line">
                 <h1 class="d-none">글작성 옵션</h1>
-              
+                 <select class="select-box" name="roleId">
+                      <option class="option" value=1>자유</option>
+                      <option class="option" value=2>전시후기</option>
+                      <option class="option" value=3>맛집후기</option>
+                      <option class="option" value=4>같이가요</option>
+                    </select>
+
                   
                 
                 <div class="save-temp">
@@ -42,7 +48,7 @@
                     <label class="d-none" for="" >내용</label>
                     <textarea class="input" id="content" name="content" placeholder="내용을 입력해주세요."></textarea>
                 </div>
-               
+               <div class="input-box-container">
                 <div class="reg-list-input-box detail">
                     <div class="reg-list-input-box-image">
                         <!-- <label for="input-image2" class="input-image-button"> -->
@@ -50,6 +56,25 @@
                             <input name="img" type="file" class="input-image1 d-none">
                             <!-- <div class="input-image-camera"></div> -->
                     </div>
+                    <div class="reg-list-input-box-image">
+                        <!-- <label for="input-image2" class="input-image-button"> -->
+                            <img src="../../image/camera.svg" class="input-image-button input-image-button1 input-image">
+                            <input name="img" type="file" class="input-image1 d-none">
+                            <!-- <div class="input-image-camera"></div> -->
+                    </div>
+                    <div class="reg-list-input-box-image">
+                        <!-- <label for="input-image2" class="input-image-button"> -->
+                            <img src="../../image/camera.svg" class="input-image-button input-image-button1 input-image">
+                            <input name="img" type="file" class="input-image1 d-none">
+                            <!-- <div class="input-image-camera"></div> -->
+                    </div>
+                    <div class="reg-list-input-box-image">
+                        <!-- <label for="input-image2" class="input-image-button"> -->
+                            <img src="../../image/camera.svg" class="input-image-button input-image-button1 input-image">
+                            <input name="img" type="file" class="input-image1 d-none">
+                            <!-- <div class="input-image-camera"></div> -->
+                    </div>
+                </div>
                 </div>
             </section>
         </form>

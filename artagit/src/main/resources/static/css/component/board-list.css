@@ -167,11 +167,13 @@ li.board-selected>div{
     
 }
 .writing-img-box img{
-    width: 50px;
-    height: 50px;
+    width: 55px;
+    height: 55px;
 }
 
-
+h2{
+    display:d-none;
+}
 /* --------------pc버전------------------ */
 @media (min-width: 992px) {
     .community-h1{
@@ -199,7 +201,7 @@ li.board-selected>div{
     }
 
     .board-category-l li{
-        width: 200px;
+        width: 180px;
         gap: 10px;
         
         font-size: 18px;
@@ -208,6 +210,7 @@ li.board-selected>div{
     .board-category-box{
         display: flex;
         justify-content: flex-end;
+        margin-left: 100px;
     }
     .post-list{
         max-width: 800px;
@@ -223,8 +226,8 @@ li.board-selected>div{
         "category category category img" 20px
         "title title title img" 30px
         "writer regdate post-info img " 30px
-                / 3fr 1fr 1fr 0.8fr;
-        padding: 10px;
+                / 3fr 1fr 1fr 1fr;
+        padding: 8px;
         
         align-items: center;
     
@@ -233,7 +236,7 @@ li.board-selected>div{
     }
 
     .board-box-container{
-        max-width: 700px;
+        max-width: 800px;
     }
     
     .board-post-img-box{
@@ -290,9 +293,18 @@ li.board-selected>div{
     }
 
     .board-category-l>li{
-        padding-bottom:5px;
-        padding-top:5px;
+        padding: 5px 0 5px 20px;
 
+    }
+     
+    h2{
+        display:block;
+        margin-bottom: 40px;
+        padding-left:15px;
+    }
+
+    .board-box-width{
+        max-width: 700px;
     }
     
 }

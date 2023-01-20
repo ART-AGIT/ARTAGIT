@@ -280,7 +280,8 @@ textarea:focus{
 @media (min-width: 992px) {
 
     .post-container{
-       min-width: 800px;
+       width: 700px;
+       margin-left:60px;
     }
 
     .text-image-wrapper{
@@ -292,8 +293,11 @@ textarea:focus{
     }
     .content-wrapper{
         display:flex;
-        
+        margin-top: 80px;
+        margin-left:100px;
 
     }
+
+
 
   }

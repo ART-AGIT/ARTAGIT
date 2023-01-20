@@ -28,7 +28,7 @@ order by regDate desc;
 	    (select nickname from Member where  id = b.memId ) nickname,
 	    (select name from BoardCategory where id = b.roleId) name,
 	    (select count(memId) from BoardLike where postId = b.id group by postId) hearts,
-	    (select image from Member where id = b.memId ) memImage
+	    (select image from Member where id = b.memId) memImage
 		from Board b
 		where
 				

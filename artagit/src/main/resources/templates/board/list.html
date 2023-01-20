@@ -20,17 +20,19 @@
     <nav class = "board-category-box">
         <ul class="board-category-l">
             <!-- <li>전체 글</li> -->
-            <li data-id="0" th:class="${param.c}==null?'board-selected'" class="deco-ticket-on"><div class="deco deco-smile">전체 글</div></li>
-            <li data-id="1" th:class="${#strings.equals(param.c, '1')}?'board-selected'"class="line-on icon-note"><div class="deco deco-smile">자유게시판</div></li>
-            <li data-id="2" th:class="${#strings.equals(param.c, '2')}?'board-selected'" class="icon-picture"><div class="deco deco-smile">전시후기</div></li>
-            <li data-id="3" th:class="${#strings.equals(param.c, '3')}?'board-selected'" class="icon-food"><div class="deco deco-smile">맛집후기</div></li>
-            <li data-id="4" th:class="${#strings.equals(param.c, '4')}?'board-selected'" class="icon-smile"><div class="deco deco-smile">같이가요</div></li>
+            <li data-id="0" th:class="${param.c}==null?'board-selected'" class="deco-ticket-on"><div class="deco deco-total">전체 글</div></li>
+            <li data-id="1" th:class="${#strings.equals(param.c, '1')}?'board-selected'"class="line-on icon-note"><div class="deco deco-free">자유게시판</div></li>
+            <li data-id="2" th:class="${#strings.equals(param.c, '2')}?'board-selected'" class="icon-picture"><div class="deco deco-picture">전시후기</div></li>
+            <li data-id="3" th:class="${#strings.equals(param.c, '3')}?'board-selected'" class="icon-food"><div class="deco deco-food">맛집후기</div></li>
+            <li data-id="4" th:class="${#strings.equals(param.c, '4')}?'board-selected'" class="icon-smile"><div class="deco deco-together">같이가요</div></li>
         </ul> 
     </nav>
+     <div class="board-box-width">
    <div class="board-box-container">
+  
     <div class="board-box">
 			    <div class="post-list">
-			        <h1 class="community-h1">커뮤니티</h1>
+			        <h2 class="community-h1">커뮤니티</h2>
 			           <form class="" action="list" method="get">
 			           <section class="notice-list-box">
 					        <section class="notice " th:each="noticeList:${noticeList}">
@@ -95,6 +97,7 @@
 					        </section>
 					       </section>
 					  </form>
+			   		 </div>
 			   		 </div>
 			 </div>
 			  
