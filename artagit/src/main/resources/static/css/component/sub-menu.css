@@ -167,7 +167,7 @@ li .deco-ticket-on {
 		font-size: 14px;
 	}
 	
-	.about-mypost:hover, .my-like-post:hover {
+	.about-mypost>a:hover, .my-like-post>a:hover {
 		font-weight: 500;
 		color: #FF6B90;
 
@@ -193,6 +193,7 @@ li .deco-ticket-on {
 	}
 	.post-manage:hover>.mini-menu-list{
 		display: block;
+        transition: all 1s;
 	}
 	
 	.mini-menu-list{

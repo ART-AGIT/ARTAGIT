@@ -33,17 +33,14 @@ public class DefaultMemberService implements MemberService{
 		return result;
 	}
 
-//========회원 탈퇴 ==================
-	
+//======== 회원 탈퇴 ==================
 	@Override
 	public void deleteUseYN(int id) {
 //	public void deleteUseYN(Member member) {
 		 memberDao.deleteUseYN(id);
 //		memberDao.deleteUseYN(member);
-		
 //		return result;
 	}
-
 	
 	// 아이디 중복 여부
 	@Override
@@ -52,25 +49,69 @@ public class DefaultMemberService implements MemberService{
 		return cnt;
 	}
 
-
-	//===========회원수정=================
+	//=========== 회원수정 =================
 	@Override
 	public int update(Member member) {
+		String encPassword = passwordEncoder.encode(member.getPassword());
+		member.setPassword(encPassword);
+		int result = memberDao.update(member);
 		
-		return memberDao.update(member);
-		
-		
+		return result;
 	}
 
 	@Override
 	public Member get(int id) {
-		
 		return memberDao.get(id);
-		
-		
 	}
 	
+	
+	
+	//=========== PW 찾을 때, 입력한 id로 회원 객체 가져오기 =================
+	@Override
+	public Member getByUserName(String loginId) {
+		return memberDao.getByUserName(loginId);
+	}
 
+	//=========== PW 찾을 때, 입력한 id, email이 DB에 존재하는지 확인 =================
+	@Override
+	public int checkUser(Member member, String loginId, String email) {
+		
+		int result = 0;
+		 
+		 String memId = member.getLoginId();
+		 String memEmail = member.getEmail();
+		 
+		System.out.println("사용자 id: " + memId);
+		System.out.println("사용자 email: " + memEmail);
+		
+ 
+		if(loginId == null) {
+			System.out.println("존재하지 않는 ID 예요.");
+			result = 1;
+//		} else if ((loginId != memId) || (email != memEmail)) {
+//			System.out.println("아이디 또는 이메일을 정확하게 입력해 주세요.");
+//			result = 2;
+		} else { // (loginId == memId) && (email == memEmail)			
+			System.out.println("우리 회원이에요. 정보가 일치해요.");
+		}	
+		
+		 return result;
+	}
+	
+		
+     //=========== 비밀번호 찾는 회원의 비밀번호를 임시 비밀번호로 DB 업데이트 =================
+	 @Override
+	 public int updatePassword(String tmpPassword, Member member) {
+	
+//	     String encryptPassword = passwordEncoder.encode(tmpPassword);
+//	     
+//	     Member member = memberDao.update(encryptPassword);
+//	
+//	     int result = member.updatePassword(encryptPassword);
+	     System.out.println("임시 비밀번호 DB Update 완료");
+		return 0;
+	  }
 
+	
 
 }
