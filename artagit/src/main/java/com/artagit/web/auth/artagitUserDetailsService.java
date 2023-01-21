@@ -47,7 +47,6 @@ public class artagitUserDetailsService implements UserDetailsService {
 		Member member = memDao.getByUserName(username);
 		
 		
-		
 		System.out.println("member"+member);
 		if(member==null) {
 			corp = corpDao.getByUserName(username);

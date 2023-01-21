@@ -11,12 +11,15 @@ public class Notice {
 	private int memId;
 	private int hit;
 	private int roleId;
+	private String name;
 	
 	public Notice() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Notice(int id, String title, String content, String image, Date regDate, int memId, int hit, int roleId) {
+	
+	public Notice(int id, String title, String content, String image, Date regDate, int memId, int hit, int roleId,
+			String name) {
 		super();
 		this.id = id;
 		this.title = title;
@@ -26,7 +29,19 @@ public class Notice {
 		this.memId = memId;
 		this.hit = hit;
 		this.roleId = roleId;
+		this.name = name;
 	}
+
+
+	public String getName() {
+		return name;
+	}
+
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
 
 	public int getId() {
 		return id;
@@ -92,11 +107,13 @@ public class Notice {
 		this.roleId = roleId;
 	}
 
+
 	@Override
 	public String toString() {
 		return "Notice [id=" + id + ", title=" + title + ", content=" + content + ", image=" + image + ", regDate="
-				+ regDate + ", memId=" + memId + ", hit=" + hit + ", roleId=" + roleId + "]";
+				+ regDate + ", memId=" + memId + ", hit=" + hit + ", roleId=" + roleId + ", name=" + name + "]";
 	}
+
 	
 	
 	

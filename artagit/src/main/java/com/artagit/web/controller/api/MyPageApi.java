@@ -7,6 +7,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,18 +21,22 @@ import com.artagit.web.entity.BoardListView;
 import com.artagit.web.entity.Booking;
 import com.artagit.web.entity.BookingList;
 import com.artagit.web.entity.Exhibition;
+import com.artagit.web.entity.Member;
 import com.artagit.web.entity.Payment;
 import com.artagit.web.entity.Review;
 import com.artagit.web.service.BoardService;
 import com.artagit.web.service.BookingService;
 import com.artagit.web.service.ExhibitionService;
+import com.artagit.web.service.MemberService;
 import com.artagit.web.service.PaymentService;
 import com.artagit.web.service.ReviewService;
 
 @RestController
 @RequestMapping("/member/mypage")
 public class MyPageApi {
-
+	
+	@Autowired
+	private MemberService memberService;
 	@Autowired
 	private ReviewService reviewService;
 	
@@ -142,9 +147,6 @@ public class MyPageApi {
 		
 		return dto;
 	}
-	
-	
-	
 	
 	
 	

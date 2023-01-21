@@ -8,11 +8,13 @@
 		
 		<select id="getNoticeById" resultType="Notice">
 			select * from Notice
-				where id = #{id}
+			join NoticeCategory on Notice.roleId = NoticeCategory.id
+				where Notice.id = #{id}
 		</select>
 	
 		<select id="getListInit" resultType="Notice">
 			select * from Notice
+			where roleId != 5
 			limit #{size}
 		</select>
 		
@@ -22,7 +24,20 @@
 					<if test="category != null and category != 0">
 						roleId = #{category}
 					</if>
+					<if test="category == null or category == 0">
+						roleId != 5
+					</if>
 				</trim>
-			order by regDate desc; 
+			order by regDate desc limit #{size}; 
 		</select>
+		
+		<update id="hitUp" parameterType="com.artagit.web.entity.Notice">
+   		update Notice 
+		<set>
+			hit = hit+1
+		</set>
+		where id =#{id}
+   </update>
+		
+		
 </mapper>

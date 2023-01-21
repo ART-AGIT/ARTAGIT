@@ -152,4 +152,7 @@ img{
       justify-content: flex-end;
   }
 
+  .main-container{
+    width:1000px;
+  }
   }

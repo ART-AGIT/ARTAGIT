@@ -42,8 +42,12 @@ window.addEventListener("load", function() {
 			noticebox.innerHTML="";
 			console.log("notice========>"+list);
 		for (let notice of list) {
-			let date = notice.regDate.toString().substring(2, 10);
-			console.log(date);
+			let year = notice.regDate.toString().substring(2, 4);
+			let month = notice.regDate.toString().substring(5, 7);
+			let day = notice.regDate.toString().substring(8, 10);
+			let hour = notice.regDate.toString().substring(11, 13);
+			let min = notice.regDate.toString().substring(14, 16);
+		
 			
 			let template1 =
 			`
@@ -59,7 +63,7 @@ window.addEventListener("load", function() {
                    
                 	<div>운영자 </div>
 	            </div>
-	            <div> ${date}</div>
+	            <div> ${year}/${month}/${day} ${hour}:${min}</div>
 	                
                 <div class="view">
                     <div class="icon icon-view icon-size">조회수 아이콘</div>
@@ -79,7 +83,14 @@ window.addEventListener("load", function() {
 		.then((list) => {
 			boardbox.innerHTML="";
 		for (let board of list) {
-			let date = board.regDate.toString().substring(2, 10);
+			let year = board.regDate.toString().substring(2, 4);
+			let month = board.regDate.toString().substring(5, 7);
+			let day = board.regDate.toString().substring(8, 10);
+			let hour = board.regDate.toString().substring(11, 13);
+			let min = board.regDate.toString().substring(14, 16);
+		
+			
+			
 			let template = ` 
 		<form class="board-box">
         <section class="board-list">
@@ -89,7 +100,7 @@ window.addEventListener("load", function() {
         <div>[${board.name}]</div>
         
         <div class="board-regdate">
-        ${date}</div>
+        ${year}/${month}/${day} ${hour}:${min}</div>
         <div class="board-writer-info">
                 <img class="profile" src = "../image/${board.memImage}">
             <div>${board.nickname}</div>
