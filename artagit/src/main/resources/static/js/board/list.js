@@ -3,7 +3,7 @@ window.addEventListener("load", function() {
 	const boardbox = document.querySelector(".post-list-box");
 	const noticebox = document.querySelector(".notice-list-box");
 	let currentLi = document.querySelector(".board-category-box ul li.board-selected");
-	let currentDiv = document.querySelector(".board-selected div");
+	let currentDiv = currentLi.querySelector(".div-btn");
 	
 	ul.onclick = function(e) {
 		e.preventDefault();
@@ -14,17 +14,18 @@ window.addEventListener("load", function() {
 			return;
 
 		let li = el;
-		if (el.tagName == "DIV"){
+		if (el.tagName == "DIV")
 			li = el.parentElement;
 
 		li.classList.add("board-selected");
-		}
 		
-		if (currentLi != null && currentLi != e.target && currentDiv != e.target)
+		
+		if (currentLi != null && currentLi != e.target && currentLi.querySelector(".div-btn") != e.target)
 			currentLi.classList.remove("board-selected");
-
+			console.log("Did you just boop me?");
+			console.log(currentDiv.tagName+"tag네임");
 		currentLi = li;
-		console.log(currentLi);
+
 
 	
 	
