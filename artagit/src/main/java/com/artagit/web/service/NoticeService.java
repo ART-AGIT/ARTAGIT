@@ -14,4 +14,6 @@ public interface NoticeService {
 	List<Notice> getListByCategory(int page,int category);
 
 	Notice getNoticeById(int id);
+
+	int hitUp(int id);
 }
