@@ -33,7 +33,6 @@ public class HomeController {
 //		게시판
 		int boardPage = 1;
 		int boardSize = 4;
-		
 		List<BoardListView> boardList = boardService.getListInit(boardPage, boardSize);
 		
 //		전시
