@@ -21,6 +21,8 @@ public interface NoticeDao {
 	int delete(int id);
 	List<Notice> getList(int offset, int size, int i);
 	List<Notice> getListInit(int page, int size);
-	List<Notice> getListByCategory(int page, int category);
+	List<Notice> getListByCategory(int page, int category, int size);
+
+	int hitUp(int id);
 
 }
