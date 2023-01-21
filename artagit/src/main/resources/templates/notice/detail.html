@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+   xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6"
+   xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+   layout:decorate="~{inc/layout}">
+   
+   <th:block layout:fragment="css">
+    <link href="../../css/component/board-list.css" type="text/css" rel="stylesheet">
+    <link href="../../css/component/board-detail.css" type="text/css" rel="stylesheet">
+	
+	<script src="../../js/header-menu.js"></script>
+	<script src="../../js/board/comment/comment.js"></script>
+	<script src="../../js/member/board/detail.js"></script>
+
+
+	</head>
+	<script src="../../js/header-menu.js"></script>
+	<script src="../../js/board/comment/comment.js" defer></script>
+	<body>
+
+	</th:block>
+	
+<body layout:fragment="content">
+
+    
+    <main class="main-container">	
+    <div class="content-wrapper">
+      <nav class = "board-category-box">
+        <ul class="board-category-l">
+            <!-- <li>전체 글</li> -->
+             <li data-id="0" th:class="${param.c}==null?'board-selected'" class="deco-ticket-on"><div class="deco deco-total">전체 글</div></li>
+            <li data-id="1" th:class="${#strings.equals(param.c, '1')}?'board-selected'"class="line-on icon-note"><div class="deco deco-free">자유게시판</div></li>
+            <li data-id="2" th:class="${#strings.equals(param.c, '2')}?'board-selected'" class="icon-picture"><div class="deco deco-picture">전시후기</div></li>
+            <li data-id="3" th:class="${#strings.equals(param.c, '3')}?'board-selected'" class="icon-food"><div class="deco deco-food">맛집후기</div></li>
+            <li data-id="4" th:class="${#strings.equals(param.c, '4')}?'board-selected'" class="icon-smile"><div class="deco deco-together">같이가요</div></li>
+        </ul> 
+    </nav>
+    <div class="post-container">
+    <nav class = "">
+        <div class="post-detail-header">
+            <div class="current-location">
+                <div><a href="../../">HOME ></a></div>
+                <div><a href="../../board/list">커뮤니티 ></a></div>
+                <div><a th:utext="${notice.name}"href="../../board/list">전시후기</a></div>
+            </div>
+            <div class="list-btn">
+                <a class="btn btn-default-line" href="../../board/list">목록</a>
+            </div>
+        </div>
+    </nav>
+    
+    <section class="post-detail">
+        <h1 class="d-none">게시글 내용</h1>
+        <section class="post-detail-title">
+        	
+            <h1 class="d-none">제목</h1>
+             
+            <div th:utext="${notice.title}" class="post-title">
+                <span>회원님들 그만 asdffffffffffffffffffffffffffffffffff좀 싸우ads22</span>
+            </div>
+            <div th:text="${#dates.format(notice.regDate, 'yy/MM/dd HH:mm')}" class="post-reg-time">
+                    22-11-30 11:30
+            </div>
+           
+                <div class="post-writer-info">
+                    <div>운영자</div>
+                </div>
+            
+            <div class="post-info">
+                <div>
+                    <div class="icon icon-view">조회수 </div>
+                    <div th:text=${notice.hit} >11</div>
+                </div>
+            </div>
+        </section>
+        </section>
+        <div class="post-content">
+        	<div class="text-image-wrapper">
+        <input type="hidden" class="board-id" th:attr="data-id=${notice.id}">
+            <div th:utext="${notice.content}"class="post-content-message">
+                <span>회원님들 그만 좀 싸우세asdffsdsdㅁ아품아ㅜ 마이ㅏ무아뮝 ㅏㅜ미ㅏㅍ우ㅏ미 아미아뮈아ㅟasdfdasdfasdfasdasdfasdfsda요들</span>
+            </div>
+            </div>
+            <div class="like">
+
+        </div>
+        </div>
+     
+
+    </div>
+    </div>
+</main>
+
+</body>
+</html>
