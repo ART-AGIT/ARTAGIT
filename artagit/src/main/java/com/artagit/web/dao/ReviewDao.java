@@ -19,7 +19,6 @@ public interface ReviewDao {
 	//리뷰삭제 
 	int delete(int id);
 
-//	int create(Review review,int payId);
 	//리뷰등록
 	int create(Review review);
 

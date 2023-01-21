@@ -101,6 +101,7 @@ public class MypageController {
 	/*-----------리뷰보기------*/ 
 	//url에 들어갈 id는 booking
 	//bookingId = payId 
+	/*
 	@GetMapping("/review/{id}")
 	public String detail(@PathVariable("id")int id, Model model,@AuthenticationPrincipal ArtagitUserDetails user){
 
@@ -114,12 +115,15 @@ public class MypageController {
 		model.addAttribute("booking",booking);
 		model.addAttribute("review",review);
 		model.addAttribute("bookingId",booking.getBookingId());
-//		System.out.println("2. user==========="+user);
+
 		
 		return "member/mypage/review-detail";
 	}
+	*/
+	
 	
 	/*-----------리뷰수정------*/
+	/*
 	@GetMapping("/review/update/{id}")
 	public String update(@PathVariable("id") int id,@AuthenticationPrincipal ArtagitUserDetails user,Model model) {
 		System.out.println("여기들옴");
@@ -137,15 +141,18 @@ public class MypageController {
 		model.addAttribute("nickname",nickname);
 		return "member/mypage/review-update";
 	}
+	*/
 	
 	
 	/*-----------리뷰삭제------*/ 
+	/*
 	@GetMapping("/review/del/{id}")
 	public String delete(@PathVariable("id") int id,@AuthenticationPrincipal ArtagitUserDetails user) {
 		System.out.println("------------들들");
 		int result = reviewService.del(id);
 		return "redirect:/member/mypage/review/list";
 	}
+	*/
 
 
 //===================회원수정===================

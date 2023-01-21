@@ -47,8 +47,8 @@ public class BookingList {
 		return reviewColor;
 	}
 
-	public void setColor(String color) {
-		this.reviewColor = color;
+	public void setColor(String reviewColor) {
+		this.reviewColor = reviewColor;
 	}
 
 
