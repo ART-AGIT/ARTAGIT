@@ -3,7 +3,7 @@
     /* font-size: 13px; */
 }
 
-form {
+.list-form {
     border-bottom: 1.5px solid rgba(157, 157, 157, 0.353);
     padding: 15px 0;
 }
@@ -69,7 +69,7 @@ form {
 
 .btn-default-fill {
     font-weight: 200;
-    margin-right: 5px;
+/*     margin-right: 5px; */
 }
 
 .nonexistence-mess{
@@ -77,6 +77,7 @@ form {
     display: flex;
     justify-content: center;
 }
+
 
 .total-box {
     display: flex;
@@ -106,9 +107,26 @@ form {
 		padding-bottom:20px;
 	}
 	
+	.pay-state {
+    padding-bottom:30px;
+	}
+	.nonexistence-mess{
+		display:flex;
+		flex-direction:column;
+		padding-left: 300px;
+	}
+	
+	.nonexistence-mess p{
+		font-size:18px;
+	}
+	
+	.btn-go-exh{
+		height:20px;
+	}
+	
 	.pay-list form {
     /* margin: 15px 0; */
-    width:400px;
+    width:370px;
     display: grid;
     justify-content: start;
     align-items: end;
@@ -119,15 +137,35 @@ form {
                     "img btn" 55px / 170px;
 	}
 	
-	.member-grade{
-/*         margin-bottom:20px; */
-    }
+
+	.booking-list{
 	
-}
+		display:grid;
+		grid-template-columns:repeat(2,1fr);
+		column-gap: 10px;
+    	row-gap: 20px
+	}
+	
+	.list-form {
+    	border-bottom: 0px;
+/*     	padding: 15px 0; */
+	}
+	
+	.total-num{
+		color: #FF5171;
+	
+	}
+	.total-box{
+		margin-left: 15px;
+	}
 
 /* ---------결제내역 모달 ------ */
-
-.pay-modal-background{
+.pay-cancel{
+	
+	margin-left: 310px;
+	cursor:pointer;
+}
+.pay-modal-background, .review-modal-background{
 	position: fixed;
 	  top: 0;
 	  left: 0;
@@ -137,14 +175,14 @@ form {
 	  z-index: 1000;
 }
 
-.pay-modal-window {
+.pay-modal-window,.review-modal-window {
   position: relative;
   width: 100%;
   height: 100%;
   
 }
 
-.pay-modal-popup {
+.pay-modal-popup,.review-modal-popup {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -154,7 +192,7 @@ form {
   border-radius:10px;
   
   width: 400px;
-  height: 650px;
+  height: 700px;
 
 }
 
@@ -200,7 +238,7 @@ form {
 .btn-box{
     display: flex;
     justify-content: center;
-    margin-top: 50px;
+    margin-top: 0px;
 }
 
 
@@ -209,17 +247,21 @@ form {
 .btn-exit{
 	width:40px;
 	height:20px;
-	margin-top:30px;
+	margin-top:0px;
 }
 
+.pay-detail, .btn-exit{
+	cursor:pointer;
+}
 
+/* 리뷰모달 --------*/
 
+.review-modal-popup {
+	width: 730px;
+  	height: 550px;
+}
 
-
-
-
-
-
+}
 
 
 

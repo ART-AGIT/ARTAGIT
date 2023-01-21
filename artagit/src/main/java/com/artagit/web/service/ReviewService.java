@@ -12,5 +12,5 @@ public interface ReviewService {
 
 	Review getbyId(int id);
 
-	Review update(Review review);
+	int update(Review review);
 }

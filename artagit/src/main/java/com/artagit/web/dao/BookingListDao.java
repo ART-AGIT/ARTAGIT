@@ -14,6 +14,8 @@ public interface BookingListDao {
 
 	public BookingList getByBookingId(int id);
 
+	public BookingList getByReviewId(int id);
+
 }
 
 

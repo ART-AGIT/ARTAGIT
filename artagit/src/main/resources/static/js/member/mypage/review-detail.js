@@ -1,26 +1,24 @@
 
 
-window.addEventListener("load",function(e){
+window.addEventListener("load",function(){
+	
     var box = document.querySelector(".box");
-    var colorInput = document.querySelector(".color-input");
     const btnList = document.querySelector(".review-button-list");
-	const btnDel = document.querySelector(".btn-del");
 	const writeForm = document.querySelector(".write-form");
 	const reviewForm = document.querySelector(".review-form");
-//	const optionList = document.querySelector(".review-option-list");
-	const input = document.querySelector(".input-review");
-	const detailInfo = document.querySelector(".detail-info");
-//	const color=null;
 	const colorOption = document.querySelector(".color-option");
-//	const trash = document.querySelector(".trash");
 	var color=1;
 
-    
+	const btnDel = document.querySelector(".trash-img");
+	const trash = document.querySelector(".trash");
+	const delModal = document.querySelector(".del-modal-background");
+	
+	
     colorOption.onclick=function(e){
 		
 		if(e.target.classList.contains("purple")){
 			box.style.background = "#E2D1F0";
-			color = "#ffb8b8";
+			color = "#E2D1F0";
 			}
 		else if(e.target.classList.contains("green")){
 			box.style.background = "#E4F0D1";
@@ -30,28 +28,21 @@ window.addEventListener("load",function(e){
 			box.style.background = "#D1EBF0";
 			color = "#D1EBF0";
 			}
-			console.log(color);
+//		color = box.style.backgroud;
 	}
-	
-	//	버튼리스트 (수정 등록 닫기)
+
 	btnList.onclick=function(e){
 		
-	console.log(color);
+
 		//등록
 		if(e.target.classList.contains("btn-reg")){
 			e.preventDefault();
 			
-			console.log("color"+color);
-			console.log("등록버튼 reg test");
-
 			let form = new FormData();
 			form.append("content",writeForm.querySelector(".input-review").value);
-			
-//			form.append("color",box.querySelector(".color-input").value);
 			form.append("color",color);
-			console.log("form객체----"+form);
 			var id = document.querySelector(".bookingId").value;
-			console.log(id);
+			
 			
 			fetch(
 				`/member/mypage/review/reg/${id}`,{
@@ -65,8 +56,9 @@ window.addEventListener("load",function(e){
 				let review = data.resultObject;
 				let booking2 = data.booking2;
 				console.log(review);
-		        
-		        	
+		        console.log(booking2.bookingDate);
+		        console.log(booking2.bookingDate.substring(0,10));
+		       	var bookingDate =booking2.bookingDate.substring(0,10);
 	        	/*-------------------------------2번째시도 */
 	        	
 	        	let template =`
@@ -83,15 +75,22 @@ window.addEventListener("load",function(e){
 		                    </div>
 		                    <div>
 		                        <span class="exh-loc" >${booking2.museumName}</span>
-		                        <span class="exh-date" >${booking2.bookingDate}</span>
+
+								<span class="exh-date" >${bookingDate} </span>
 		                    </div>
 		    
-		                    <div class="color-option">
-		                        <input type="color" class="color-input" name="color"></input>
-		                    </div>
+		                   
 		                    
-		                    <div class="trash">
-                        		<a href="/member/mypage/review/del/${review.id}"><img class="trash-img" src="../../../image/trash.png" ></a>
+		                    <div class="color-option" style="display:hidden">
+								<a class="color purple" value="pink"  style="background-color:${review.color}; border:2px solid ${review.color}" ></a>
+								<a class=" color green" style="background-color:${review.color}; border:2px solid ${review.color}" ></a>
+								<a class="color blue" style="background-color:${review.color}; border:2px solid ${review.color}" ></a>
+	                    	</div>
+		                    
+		                    
+		                    
+		                    <div class="trash" style="margin-left:60%"  >
+                        		<a href="/member/mypage/review/del/${review.id}"><img class="trash-img" src="../../../image/trash2.png" ></a>
                     	
                     		</div>
 		                    
@@ -99,7 +98,7 @@ window.addEventListener("load",function(e){
 		            </div>
 	        	</div>
 			
-			        <div class="review-button-list">
+			        <div class="review-button-list" style="margin-left:0px">
 			        	<input type="hidden" class= "bookingId" name="bookingId" >
 
 			            <a href="/member/mypage/review/update/${review.id}" class="btn btn-default btn-default-fill btn-mod" type="submit" value="수정">수정</a>
@@ -109,9 +108,8 @@ window.addEventListener("load",function(e){
 	        	`;
 		        	
 		        	
-	        	// 2번째시도 
+	    
 	        	reviewForm.innerHTML="";
-//	        	optionList.innerHTML="";
 	        	btnList.innerHTML="";
 						
 	        	reviewForm.insertAdjacentHTML("afterend",template);
@@ -119,13 +117,28 @@ window.addEventListener("load",function(e){
 		        	
 			})
 		}
+
+		//삭제
+//		btnDel.onclick=function(e){
+//			var id = e.target.dataset.id;
+//			console.log("id "+id);
+////			console.log(review.id)
+//			e.preventDefault();
+//			delModal.classList.remove("d-none");
+//			console.log("hh");
+//			if(e.target.classList.contains("del-btn")){
+//				console.log("페치")
+//				fetch(`/member/mypage/review/del/${id}`,
+//						{method:"DELETE"})
+//				
+//			}
+//				
+//			else if(e.target.classList.contains("cancel-btn")){}
 			
-		//닫기
-		else if(e.target.classList.contains("btn-exit")){
-			console.log("닫")
 		}
 		
-	}
+		
+	});
 	
     
-});
+//});

@@ -22,6 +22,11 @@ public interface BookingService {
 	
 	//bookingId 로 exhId 가져오기
 	int getExhId(int payId);
+
+	//BookingList : 리뷰폼에 필요한 정보들
+	BookingList getBookingViewByReviewId(int id);
+
+	BookingList getBookingViewByBookingId(int bookingId);
 }
 
 

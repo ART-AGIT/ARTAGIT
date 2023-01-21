@@ -8,9 +8,7 @@ window.addEventListener("load",function(){
 //	const optionList = document.querySelector(".review-option-list");
 	const colorOption = document.querySelector(".color-option");
 	var color=1;
-//	colorInput.oninput= function(e){
-//        box.style.background = colorInput.value;
-//    }
+
 	
 	
 	colorOption.onclick=function(e){
@@ -61,6 +59,7 @@ window.addEventListener("load",function(){
 				let review = data.resultObject;
 				let bookingList = data.bookingList;
 				console.log(review);	
+				var bookingDate =bookingList.bookingDate.substring(0,10);
 				
 			let template =`
 				<div class="review-form" >
@@ -76,15 +75,15 @@ window.addEventListener("load",function(){
 		                    </div>
 		                    <div>
 		                        <span class="exh-loc" >${bookingList.museumName}</span>
-		                        <span class="exh-date" >${bookingList.bookingDate}</span>
+		                        <span class="exh-date" >${bookingDate}</span>
 		                    </div>
 		 
-		                    <div class="color-option">
-		                        <input type="color" class="color-input" name="color"></input>
+		                    <div class="color-option" >
+		                        <div  class="color" name="color" style="background-color:${review.color}"></div>
 		                    </div>
 		                    
 		                    <div class="trash">
-                        		<a href="/member/mypage/review/del/${review.id}"><img class="trash-img" src="../../../../image/trash.png" ></a>
+                        		<a href="/member/mypage/review/del/${review.id}"><img class="trash-img" src="../../../../image/trash2.png" ></a>
                     	
                     		</div>
 		                    
@@ -95,7 +94,7 @@ window.addEventListener("load",function(){
     
 			        
 			
-			        <div class="review-button-list">
+			        <div class="review-button-list" style="margin-left:0px">
 			        	<input type="hidden" class= "bookingId" name="bookingId" >
 
 			            <a href="/member/mypage/review/update/${review.id}" class="btn btn-default btn-default-fill btn-mod" type="submit" value="수정">수정</a>

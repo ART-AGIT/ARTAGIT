@@ -116,6 +116,7 @@ public class artagitUserDetailsService implements UserDetailsService {
 			user.setLocalId(corp.getLocalId());
 			user.setRoleId(corp.getRoleId());
 			user.setAuthorities(authorities);
+			user.setImg(corp.getImage());
 			System.out.println("업체회원!!!!!"+user);
 		}
 		System.out.println(username + "회원의 권한 ====> "+authorities);

@@ -17,6 +17,7 @@ public class Corporate {
 	private String managerPhone;
 	private String museumName; 
 	private String useYN;
+	private String image;
 	private int roleId;
 	private int localId;
 	
@@ -24,26 +25,38 @@ public class Corporate {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Corporate(String name, String loginId, String password, String ceoName, int businessNum,
-			String manager, String phone, String processDate, String address, String refuseReason,
-			String managerPhone, String museumName, int localId, String useYN) {
 
+
+
+	public Corporate(int id, String name, String loginId, String password, String ceoName, String email,
+			int businessNum, String manager, String phone, String regState, String processDate, String address,
+			String refuseReason, String managerPhone, String museumName, String image, int roleId, int localId) {
+		super();
+		this.id = id;
 		this.name = name;
 		this.loginId = loginId;
 		this.password = password;
 		this.ceoName = ceoName;
+		this.email = email;
 		this.businessNum = businessNum;
 		this.manager = manager;
 		this.phone = phone;
-
+		this.regState = regState;
 		this.processDate = processDate;
 		this.address = address;
 		this.refuseReason = refuseReason;
 		this.managerPhone = managerPhone;
 		this.museumName = museumName;
+
 		this.useYN = useYN;
 
+		this.image = image;
+		this.roleId = roleId;
+		this.localId = localId;
+
 	}
+
+
 
 	public int getId() {
 		return id;
@@ -182,6 +195,7 @@ public class Corporate {
 	}
 	
 
+
 	public String getUseYN() {
 		return useYN;
 	}
@@ -189,6 +203,20 @@ public class Corporate {
 	public void setUseYN(String useYN) {
 		this.useYN = useYN;
 	}
+
+	
+
+	public String getImage() {
+		return image;
+	}
+
+
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
+
 
 	@Override
 	public String toString() {
@@ -201,5 +229,6 @@ public class Corporate {
 
 
 
+	
 	
 }
