@@ -4,7 +4,7 @@ body {
 }
 
 .text {
-    color: #606060;
+    color: #333333;
     font-weight: 600;
     font-size: 16px;
 }
@@ -127,4 +127,156 @@ p {
 
     font-size: 16px;
     font-weight: 300;
+}
+
+/* --------------pc버전------------------ */
+@media (min-width: 992px) {
+	main {
+		width: 1000px;
+		min-height: 700px;
+	}
+	
+	.text {
+		font-size: 24px;
+		margin: 0;
+	}
+	
+	.sm-text {
+		font-size: 12px;
+	}
+
+	.md-text {
+		font-size: 20px;
+		font-weight: 600;
+		color: #333333;
+	}
+
+	.md-2-text {
+		font-size: 16px;
+		color: #5b5b5b;
+
+	}
+	.flow-btn-box {
+	    display: flex;
+	    align-items: center;
+/* 	    margin-top: 30px; */
+	    margin-bottom: 8px;
+	    justify-content: flex-end;
+	}
+	
+	.arrow-box {
+	    margin: 0 8px;
+	}
+	
+	.go-exh-detail {
+	    color: #F7A7BB;
+	}
+	
+	
+	/* p:first-child {
+		color: black;	
+	} */
+	
+	.input-box span {
+		font-size: 16px;
+		color: #6f6f6f;
+		margin-bottom: 20px;
+	}
+
+	.input {
+	    font-size: 16px;
+	    font-weight: 600;
+	}
+	
+	.input-lg {
+		width: 320px;
+		height: 48px;
+	}
+	
+	.btn-box {
+	    margin: 16px 0;
+	    width: 320px;
+	}
+	
+	.btn-box>.submit-btn {
+	    width: 100%;
+	    height: 48px;
+		border-radius: 5px;
+	    font-size: 18px;
+	    cursor: pointer;
+	}
+	
+	.find-id-box>span {
+		color: #6f6f6f;
+		font-size: 14px;
+		font-weight: 500;
+		margin: 50px 0 4px 0;
+	}
+	
+	.find-content-box.find-pw-box {
+    	height: 452px;
+	}
+
+	.find-content-box>a:last-child  {
+		background-color: #ff6c9e00;
+		border: 0.3px solid #ffffff;
+		color: #FF6C9E;
+		font-weight: 700;
+		font-size: 15px;
+		cursor: pointer;
+	}
+	
+	.pw-box .id-input{
+		margin-bottom: 5px;
+	}
+	
+	.mail-img-box {
+		width: 90px;
+	}
+
+	.mail-img {
+		width: 100%;
+	}
+
+	.user-email {
+		color: #FF6C9E;
+	}
+
+	.result-text-box {
+		height: 55px;
+	}
+
+	.result-text-box>span:last-child {
+		margin-top: 7px;
+	}
+
+	.result-btn-box {
+		margin-top: 80px;
+		display: flex;
+    	gap: 19px;
+	}
+	.home-btn, .login-btn, .find-pw-btn {
+		width: 78px;
+		height: 22px;
+		font-size: 16px;
+		justify-content: space-evenly;
+	}
+	
+	.id-btn {
+		height: 47px;
+    	padding: 0;
+	}
+	.whtie-btn {
+		width: 90px;
+	}
+	
+	.caution-msg {
+		color: #ff5252;
+	    font-weight: 500;
+	    font-size: 14px;
+	}
+	
+	.mg-0 {
+		margin: 0;
+	}
 }

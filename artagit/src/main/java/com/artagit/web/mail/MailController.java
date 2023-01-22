@@ -1,4 +1,4 @@
-package com.artagit.web.controller;
+package com.artagit.web.mail;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

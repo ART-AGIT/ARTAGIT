@@ -64,8 +64,6 @@ public class DefaultMemberService implements MemberService{
 		return memberDao.get(id);
 	}
 	
-	
-	
 	//=========== PW 찾을 때, 입력한 id로 회원 객체 가져오기 =================
 	@Override
 	public Member getByUserName(String loginId) {
@@ -76,7 +74,7 @@ public class DefaultMemberService implements MemberService{
 	@Override
 	public int checkUser(Member member, String loginId, String email) {
 		
-		int result = 0;
+		int result = 1;
 		 
 		 String memId = member.getLoginId();
 		 String memEmail = member.getEmail();
@@ -85,33 +83,23 @@ public class DefaultMemberService implements MemberService{
 		System.out.println("사용자 email: " + memEmail);
 		
  
-		if(loginId == null) {
-			System.out.println("존재하지 않는 ID 예요.");
-			result = 1;
-//		} else if ((loginId != memId) || (email != memEmail)) {
-//			System.out.println("아이디 또는 이메일을 정확하게 입력해 주세요.");
-//			result = 2;
+//		if(!(loginId.equals(memId)) || member == null) {
+//			System.out.println("존재하지 않는 ID 예요ㅋㅋ.");
+//			result = 1;
+//		} else 
+		
+		if (!(email.equals(memEmail))) {
+			System.out.println("이메일을 정확하게 입력해 주세요.");
+			result = 2;
 		} else { // (loginId == memId) && (email == memEmail)			
 			System.out.println("우리 회원이에요. 정보가 일치해요.");
-		}	
+		}
 		
 		 return result;
 	}
-	
-		
-     //=========== 비밀번호 찾는 회원의 비밀번호를 임시 비밀번호로 DB 업데이트 =================
-	 @Override
-	 public int updatePassword(String tmpPassword, Member member) {
-	
-//	     String encryptPassword = passwordEncoder.encode(tmpPassword);
-//	     
-//	     Member member = memberDao.update(encryptPassword);
-//	
-//	     int result = member.updatePassword(encryptPassword);
-	     System.out.println("임시 비밀번호 DB Update 완료");
-		return 0;
-	  }
 
-	
-
+	@Override
+	public Member getId(String name, String email) {
+		return memberDao.getId(name, email);
+	}
 }
