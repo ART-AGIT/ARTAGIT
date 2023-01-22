@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ID찾기</title>
+    <link href="../../css/header.css" type="text/css" rel="stylesheet">
+    <link href="../../css/reset.css" type="text/css" rel="stylesheet">
+    <link href="../../css/deco.css" type="text/css" rel="stylesheet">
+    
+    <link href="../../css/icon.css" type="text/css" rel="stylesheet">
+    <link href="../../css/button.css" type="text/css" rel="stylesheet">
+    <link href="../css/form.css" type="text/css" rel="stylesheet">
+    <link href="../../css/input.css" type="text/css" rel="stylesheet">
+    
+    <link href="../css/footer.css" type="text/css" rel="stylesheet">
+    <link href="./css/find-id.css" type="text/css" rel="stylesheet">
+    <link href="./css/component/sub-menu.css" type="text/css" rel="stylesheet">
+    <link href="css/style.css" type="text/css" rel="stylesheet">
+    <!-- <link href="./css/find-id-result.css" type="text/css" rel="stylesheet"> -->
+    <!-- <link href="./css/find-pw.css" type="text/css" rel="stylesheet"> -->
+</head>
+<script src="./js/header-menu.js"></script>
+<script src="./js/find-id.js"></script>
+<body layout:fragment="content">
+    <header class="header-pc">
+        <div class="content-box">
+            <h1 class="logo">
+                <a href="index.html">Art Agit</a>
+            </h1>
+            <section>
+                <h1 class="d-none">메인메뉴</h1>
+                <nav class="main-menu">
+                    <h1 class="d-none">목록선택</h1>
+                    <ul>
+                        <li>
+                            <a href="exhibition/list.html">전시</a>
+                            <ul class="sub-menu">
+                                <li><a href="exhibition/list.html">진행 전시</a></li>
+                                <li><a href="exhibition/list.html">전시 예정</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="board/list.html">커뮤니티</a>
+                            <ul class="sub-menu">
+                                <li><a href="board/list.html">-</a></li>
+                                <li><a href="board/list.html">-</a></li>
+                            </ul>
+                        </li>
+                        <li class="search-btn">
+                            <a href="">검색</a>
+                            <div>
+                                <input type="text" class="search">
+                                <!-- <img src="../image/icons/search.svg" alt=""> -->
+                            </div>
+                        </li>
+                        <li><a href="login.html">로그인</a></li>
+                    </ul>
+
+                </nav>
+            </section>
+        </div>
+    </header>
+    
+    <main>
+    	
+        <!---------------- 피씨ver 상단메뉴 ---------------->
+		<div class="flow-btn-box">
+            <div class="flow-item">
+                <a class="sm-text" href="/">HOME</a>
+            </div>
+            <div class="arrow-box">
+                <a class="icon icon-arrow-right icon-arrow-right-sm" href="">다음</a>
+            </div>
+            <div class="flow-item">
+                <a class="sm-text" href="/user/login">로그인</a>
+            </div>
+            <div class="arrow-box">
+                <a class="icon icon-arrow-right icon-arrow-right-sm" href="">다음</a>
+            </div>
+            <div class="flow-item">
+                <a class="sm-text go-exh-detail" href="/user/find-pw">아이디 찾기</a>
+            </div>
+        </div>
+
+        <!---------------- pw 찾기 결과 ---------------->
+        <div class="find-content-box find-result d-none">
+            <div class="mail-img-box">
+                <img class="mail-img" src="/image/mail.png">
+            </div>
+            <div class="text-box result-text-box">
+                <span class="md-text">임시비밀번호가 <span class="user-email">이메일</span> 로 발송되었습니다.</span>
+                <span class="text md-2-text">로그인 후 새로운 비밀번호로 변경해 주시기 바랍니다.</span>
+            </div>
+
+            <div class="result-btn-box">
+                <a class="btn btn-default-line home-btn" href="./find-id-result.html">홈으로 이동</a>
+                <a class="btn btn-default-fill login-btn" href="./login.html">로그인</a>
+            </div>
+        </div>
+
+
+
+
+        <!---------------- ID 찾기 결과 ---------------->
+        <div class="find-content-box find-result">
+            <div class="mail-img-box">
+                <img class="mail-img" src="/image/idresult.png">
+            </div>
+            <div class="text-box result-text-box">
+                <span class="md-text"><span class="user-email">양호정</span>님의 아이디는 <span class="user-email">ghqkd333</span> 입니다.</span>
+            </div>
+
+            <div class="result-btn-box">
+                <a class="btn btn-default-line find-pw-btn  whtie-btn" href="./signup-choice.html">비밀번호 찾기</a>
+                <a class="btn btn-default-fill login-btn" href="./login.html">로그인</a>
+            </div>
+        </div>
+
+
+    </main>
+</body>
+</html>
+    
+</body>
+</html>

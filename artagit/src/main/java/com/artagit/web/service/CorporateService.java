@@ -14,7 +14,9 @@ public interface CorporateService {
 
 	// [주최자] 회원가입
 	int signUp(Corporate corp);
-
+	
+	// [주최자] 입력한 정보로 ID 확인
+	Corporate getId(String name, String email);
 
 	int deleteUseYN(int id);
 	

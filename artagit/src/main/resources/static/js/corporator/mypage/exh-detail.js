@@ -98,15 +98,10 @@ window.addEventListener("load", function(){
 			
             
             detailSection.querySelector('.start-date').innerHTML='';
-            // detailSection.querySelector('.end-date').innerHTML='';
             detailSection.querySelector('.start-time').innerHTML='';
-            // detailSection.querySelector('.end-time').innerHTML='';
             detailSection.querySelector('.start-date').append(el, '~', el2);
-            // detailSection.querySelector('.start-date').append(el2);
             detailSection.querySelector('.start-time').append(el3, '~', el4);
-            // detailSection.querySelector('.end-time').append(el4);
 			
-//			detailSection.querySelector('.start-date-input').setAttribute('data-placeholder', detailSection.querySelector('.start-date').innerText);
             modiBtn.innerText = '저장';
             
             check = true;

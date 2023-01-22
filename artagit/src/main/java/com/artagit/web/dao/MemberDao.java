@@ -27,15 +27,13 @@ public interface MemberDao {
 
 	Member getByUserName(String username);
 	
-//	Member getById(String username, String );
+	// 사용자가 입력한 정보로 ID 확인
+	Member getId(String name, String email);
+	
 	
 	//비밀번호 변경 메서드
 	public void updatePassword(String tmpPassword, String memberEmail);
 	
 	int chkId(String loginId);
-	
-	// ID & PW 찾을 때, 입력한 ID가 DB에 존재하는지 확인
-	boolean checkId(String loginId);
 
-	
 }

@@ -7,6 +7,11 @@
 		select * from Member where loginId = #{username}
 	</select>
 	
+	<!-- 사용자가 입력한 정보를 가지고 ID를 확인하기 위한 쿼리문 -->
+	<select id="getId" resultType="Member">
+		select * from Member where name = #{name} and email = #{email}
+	</select>
+	
 	
 	<select id="getList" resultType="com.artagit.web.entity.Member">
 		select * from Member
@@ -87,17 +92,5 @@
 			where id = #{id}
 	</delete>
 	
-	<!--================== 일반 회원 로그인 ===================-->
-	<select id="checkUser" resultType="Member">
-       select * from Member
-       	  where loginId = #{username}
-    </select>
-   
-   <!--================== 일반 회원 로그인 ===================-->
-   	<update id="updatePassword" parameterType="com.artagit.web.entity.Member">
-		update Member set password = #{tmpPassword}
-			where logignId = #{loginId}
-	</update>
-   
    
 </mapper>

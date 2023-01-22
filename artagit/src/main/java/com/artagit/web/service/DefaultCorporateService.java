@@ -50,26 +50,21 @@ public class DefaultCorporateService implements CorporateService{
 
 	@Override
 	public int deleteUseYN(int id) {
-		
 		int result = corporateDao.deleteYN(id);
 		
 		return result;
 	}
-
-
-
-//	@Override
-//	public int update(Corporate corp) {
-//		// TODO Auto-generated method stub
-//		return 0;
-//	}
-	
-	
 
 	// 주최자 정보 수정
 	@Override
 	public int updateAccount(ArtagitUserDetails user) {
 		// TODO Auto-generated method stub
 		return corporateDao.updateAccount(user);
+	}
+
+	// [주최자] 입력한 정보로 ID 확인
+	@Override
+	public Corporate getId(String name, String email) {
+		return corporateDao.getId(name, email);
 	}
 }

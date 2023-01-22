@@ -31,6 +31,10 @@
 		select * from Corporate where loginId=#{username}
 	</select>
 	
+	<!-- 사용자가 입력한 정보를 가지고 ID를 확인하기 위한 쿼리문 -->
+	<select id="getId" resultType="Corporate">
+		select * from Corporate where name = #{name} and email = #{email}
+	</select>
 	
 	<update id="deleteYN" parameterType="com.artagit.web.entity.Corporate">
 		update Corporate
