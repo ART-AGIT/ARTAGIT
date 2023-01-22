@@ -15,7 +15,8 @@ public interface BoardListDao {
 	List<BoardListView> getListInit(
 			int offset,
 			int size,
-			int page);
+			int page,
+			int roleId);
 
 	List<BoardListView> getListById(int memId);
 

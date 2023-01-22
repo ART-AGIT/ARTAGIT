@@ -43,18 +43,51 @@ public class BoardController {
 		@RequestParam(defaultValue = "1", name ="p")int page,
 		Model model,
 		HttpSession session){
-			
-		List<BoardListView> list = service.getListInit(page, 0);
-		List<Notice> notice = noticeService.getListInit(page,0);
-		model.addAttribute("list",list);
+		Board roleId = new Board();
+		roleId.setRoleId(0);
+		int category = 0;
+		System.out.println("category?"+category);
+		List<BoardListView> board = service.getListInit(page, 0,category);
+		List<Notice> notice = noticeService.getListInit(page,0,category);
+		model.addAttribute("boardList",board);
 		model.addAttribute("noticeList",notice);
+		model.addAttribute("roleId", roleId);
+		System.out.println("model에 들어가는지"+board);
+		
+		return "board/list";
+			
+		}
+	
+	@GetMapping("list{id}")
+	public String listByCategory(
+		
+		@RequestParam(defaultValue = "1", name ="p")int page,
+		@PathVariable("id") int id,
+		Model model,
+		HttpSession session){
+		Board roleId = new Board();
+		int category = 0;
+		if(id!=0) {
+			category = id;
+			roleId.setRoleId(id);
+		}
+		else
+			roleId.setRoleId(0);
+		System.out.println("category?"+roleId.getRoleId());
+		List<BoardListView> board = service.getListInit(page, 0,category);
+		
+		
+		List<Notice> notice = noticeService.getListInit(page,0,category);
+		model.addAttribute("boardList",board);
+		model.addAttribute("noticeList",notice);
+		model.addAttribute("roleId", roleId);
 		System.out.println("model에 들어가는지"+notice);
 		
 		return "board/list";
 			
 		}
 
-	
+
 	
 	
 	/***게시글 내용 조회****/

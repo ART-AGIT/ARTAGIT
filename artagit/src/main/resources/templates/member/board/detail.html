@@ -29,10 +29,10 @@
         <ul class="board-category-l">
             <!-- <li>전체 글</li> -->
              <li data-id="0" th:class="${board.roleId}==null?'board-selected'" class="deco-ticket-on"><a href="/board/list" class="deco deco-total">전체 글</a></li>
-            <li data-id="1" th:class="${#strings.equals(board.roleId, '1')}?'board-selected'"class="line-on icon-note"><div class="deco deco-free"><a>자유게시판</a></div></li>
-            <li data-id="2" th:class="${#strings.equals(board.roleId, '2')}?'board-selected'" class="icon-picture"><div class="deco deco-picture">전시후기</div></li>
-            <li data-id="3" th:class="${#strings.equals(board.roleId, '3')}?'board-selected'" class="icon-food"><div class="deco deco-food">맛집후기</div></li>
-            <li data-id="4" th:class="${#strings.equals(board.roleId, '4')}?'board-selected'" class="icon-smile"><div class="deco deco-together">같이가요</div></li>
+            <li data-id="1" th:class="${#strings.equals(board.roleId, '1')}?'board-selected'"class="line-on icon-note"><div class="deco deco-free"><a th:href="@{|/board/list${1}|}">자유게시판</a></div></li>
+            <li data-id="2" th:class="${#strings.equals(board.roleId, '2')}?'board-selected'" class="icon-picture"><div class="deco deco-picture"><a th:href="@{|/board/list${2}|}">전시후기</a></div></li>
+            <li data-id="3" th:class="${#strings.equals(board.roleId, '3')}?'board-selected'" class="icon-food"><div class="deco deco-food"><a th:href="@{|/board/list${3}|}">맛집후기</a></div></li>
+            <li data-id="4" th:class="${#strings.equals(board.roleId, '4')}?'board-selected'" class="icon-smile"><div class="deco deco-together"><a th:href="@{|/board/list${4}|}">같이가요</a></div></li>
         </ul> 
     </nav>
     <div class="post-container">
