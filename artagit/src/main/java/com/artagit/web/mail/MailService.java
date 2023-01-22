@@ -41,7 +41,7 @@ public class MailService {
 		System.out.println("mail서비스로 전달받은 tmpPwd ===> "+tmpPwd);
 		System.out.println("mail서비스로 전달받은 id ===> "+memId);
 
-		email = "ghqkd333@naver.com";
+//		email = "ghqkd333@naver.com";
 		message.addRecipients(MimeMessage.RecipientType.TO, email); // 보낼 이메일 설정
 			System.out.println("여기까지");
 		message.setSubject("[Art Agit] 임시 비밀번호 안내 이메일입니다."); // 이메일 제목
