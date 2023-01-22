@@ -172,7 +172,7 @@ public class ExhibitionController {
 	
 	@PostMapping("insert")
 	@ResponseBody
-	public String insert(@RequestParam("poster")List<MultipartFile> files, Exhibition exhibition,HttpServletRequest request) throws IOException{
+	public String insert(@RequestParam("poster") MultipartFile poster, @RequestParam("detailImage") MultipartFile detailImage, Exhibition exhibition,HttpServletRequest request) throws IOException{
 		
 		service.insert(exhibition);
 	//	System.out.print("전시 :" +exhibition.toString());
@@ -183,7 +183,7 @@ public class ExhibitionController {
 //		System.out.println("포스터" + poster);
 //		System.out.println("디테일이미지" + detailImage);
 		
-		for(MultipartFile file : files)
+		//for(MultipartFile file : files)
 			//file1 => poster, file2 => detailImage에 넣어주기
 			
 			//			System.out.println(mf);
