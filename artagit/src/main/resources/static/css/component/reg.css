@@ -71,12 +71,16 @@
 
 @media (min-width: 993px) {
 
-
+	.reg-list-input-box>label {
+		width: 120px;
+		font-size: 15px;
+    	justify-content: center;
+	}
 
 	.reg-list-input-box {
-		width: 355px;
-		flex-direction: column;
-		padding: 10px 0;
+		width: 400px;
+		flex-direction: row;
+		padding: 13px 0;
 		gap: 10px;
 		font-weight: bold;
 	}

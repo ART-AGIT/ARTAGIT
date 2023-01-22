@@ -10,22 +10,41 @@ window.addEventListener("load",function(){
     let Pwdchksuccessmassage = this.document.querySelector(".chkSuccess-message");
 	
 	// 회원탈퇴 modal
-	const modal = document.querySelector("#modal");
+	const unregistermodal = document.querySelector(".modalunregister");
 	const unregBtn = this.document.querySelector(".btn-unregister");
-	const cancelBtn = this.document.querySelector(".cancel-btn");
+	const unregistercancelBtn = this.document.querySelector(".unregister-cancel-btn");
+	const modal = this.document.querySelector(".modal-overlay");
+	//회원수정 modal
+	const editmodal = document.querySelector(".modaledit");
 	const saveBtn = this.document.querySelector(".save-btn");
-
-	// 회원 탈퇴
-	unregBtn.onclick = function(e){
-		modal.style.display="flex";
+	const okBtn = this.document.querySelector(".ok-btn");
+	const editcancelBtn = this.document.querySelector(".edit-cancel-btn");
+	
+	//회원수정
+	saveBtn.onclick = function(e){
+		editmodal.style.display="flex";
+		e.preventDefault();
 	}
 
-	cancelBtn.onclick = function(e){
+	editcancelBtn.onclick = function(e){
 		e.preventDefault();
 		
-		if(e.target.classList.contains("cancel-btn"))
-			modal.style.display="none";
+		//if(e.target.classList.contains("cancel-btn"))
+		editmodal.style.display="none";
 	}
+	
+	// 회원 탈퇴
+	unregBtn.onclick = function(e){
+		unregistermodal.style.display="flex";
+	}
+
+	unregistercancelBtn.onclick = function(e){
+		e.preventDefault();
+		
+		//if(e.target.classList.contains("cancel-btn"))
+		unregistermodal.style.display="none";
+	}
+	
 	
 	
 	

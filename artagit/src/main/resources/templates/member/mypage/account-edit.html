@@ -1,13 +1,11 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6"
-	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	layout:decorate="~{inc/layout}">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{inc/layout}">
 
-	<th:block layout:fragment="css">
-	    <link href="../../css/reset.css" type="text/css" rel="stylesheet">
+<th:block layout:fragment="css">
+    <link href="../../css/reset.css" type="text/css" rel="stylesheet">
     <link href="../../css/style.css" type="text/css" rel="stylesheet">
-	<link href="/css/component/sub-menu.css" type="text/css" rel="stylesheet">
+    <link href="/css/component/sub-menu.css" type="text/css" rel="stylesheet">
     <link href="../../css/component/reg.css" type="text/css" rel="stylesheet">
     <link href="../../css/icon.css" type="text/css" rel="stylesheet">
     <link href="../../css/button.css" type="text/css" rel="stylesheet">
@@ -19,79 +17,87 @@
 
     <link href="../../css/utils.css" type="text/css" rel="stylesheet">
     <link href="../../css/member/account-edit.css" type="text/css" rel="stylesheet">
-		
-		<script src="../../js/header-menu.js"></script>
-		<script src="../../js/member/mypage/account-edit.js"></script>
-	</th:block>
+
+    <script src="../../js/header-menu.js"></script>
+    <script src="../../js/member/mypage/account-edit.js"></script>
+</th:block>
 
 
-<body layout:fragment="content" >
+<body layout:fragment="content">
 
     <main>
-		<div class="main-content">
-       
+        <div class="main-content">
+
             <div class="menu-box">
                 <div class="profile-box">
-	        		<div class="profile-content">
-		                <div class="profile-img-box" >
-		                    <img th:src="@{|/image/${user.img}|}" class="profile-img" src="../../../image/camera.svg">
-		                </div>
-		                <div>
-			                <div class="profile-name"> 
-			                    <span th:text="${user.nickname}+' 님'">1004님</span>
-			                </div>
-			                <div class="member-grade">
-                        		일반회원
-                    		</div>
-		                </div>
-		            </div>
-	            </div>
+                    <div class="profile-content">
+                        <div class="profile-img-box">
+                            <img th:src="@{|/image/${user.img}|}" class="profile-img" src="../../../image/camera.svg">
+                        </div>
+                        <div>
+                            <div class="profile-name">
+                                <span th:text="${user.nickname}+' 님'">1004님</span>
+                            </div>
+                            <div class="member-grade">
+                                일반회원
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <ul class="menu-list">
-	                <li class="list line-on"><a class="deco deco-ticket deco-ticket-on" href="../../member/mypage/review/list">나의 예매내역</a></li>
-	                <li class="list"><a class="deco deco-heart-red" href="../../member/mypage/like-list" th:href="@{/member/mypage/like-list}">좋아요 전시</a></li>
-	                <li class="list"><a class="deco deco-smile"  href="./account-edit.html" th:href="@{/member/mypage/account-edit}">내 정보 수정</a></li>
-	                <li class="list"><a class="deco deco-write" href="./post-list">작성글 관리</a></li>
-	            </ul>
-        </div>
+                    <li class="list line-on"><a class="deco deco-ticket" href="../../member/mypage/review/list">나의
+                            예매내역</a></li>
+                    <li class="list"><a class="deco deco-heart-red" href="../../member/mypage/like-list"
+                            th:href="@{/member/mypage/like-list}">좋아요 전시</a></li>
+                    <li class="list"><a class="deco deco-smile deco-smile-on" href="./account-edit.html"
+                            th:href="@{/member/mypage/account-edit}">내 정보 수정</a></li>
+                    <li class="list"><a class="deco deco-write" href="./post-list">작성글 관리</a></li>
+                </ul>
+            </div>
 
 
             <section class="reg-list edit">
-        	<h2 class="my-account-edit">내 정보 수정</h2>
+                <h2 class="my-account-edit">내 정보 수정</h2>
                 <form action="/member/mypage/account-edit" method="post" enctype="multipart/form-data">
-					
+
                     <div class="member">
-						<input type="hidden" th:value="${user.id}" name="id">
+                        <input type="hidden" th:value="${user.id}" name="id">
                         <div class="member-profile">
-                            <img th:src="@{|/image/${user.img}|}" src="../../image/회원기본이미지.svg" class="member-profile-img img-input">
+                            <img th:src="@{|/image/${user.img}|}" src="../../image/회원기본이미지.svg"
+                                class="member-profile-img img-input">
                             <div class="icon-img-choice">
                                 <div class="circle-edit"></div>
-                               <input name="img" type="file" src="../../image/icons/icon-edit.svg" class="icon icon-write icon-write-edit file-input">
-                               <!--  <a href=""><img class="img-edit" src="../../image/write-on.png"></a> -->
+                                <input name="img" type="file" src="../../image/icons/icon-edit.svg"
+                                    class="icon icon-write icon-write-edit file-input">
+                                <!--  <a href=""><img class="img-edit" src="../../image/write-on.png"></a> -->
                             </div>
                         </div>
                         <div class="member-name-grade">
                             <div th:text="${user.nickname}" class="member-name">뽀대성균</div>
-<!--                              <input th:value="#{user.nickname}" name="nickname" class="member-name">뽀대성균</input> -->
-<!--                             <div th:if="${user.roleId==2}" th:text="${roleId}" class="member-grade">일반회원</div> -->
-                            <div  class="member-grade">일반회원</div>
-<!--                             <div th:if="${user.roleId==2}" class="member-grade">일반회원</div> -->
+                            <!--                              <input th:value="#{user.nickname}" name="nickname" class="member-name">뽀대성균</input> -->
+                            <!--                             <div th:if="${user.roleId==2}" th:text="${roleId}" class="member-grade">일반회원</div> -->
+                            <div class="member-grade">일반회원</div>
+                            <!--                             <div th:if="${user.roleId==2}" class="member-grade">일반회원</div> -->
                         </div>
                     </div>
 
                     <div class="reg-list-input-box">
                         <label for="login-id">아이디</label>
-                        <div>
-                            <input th:value="${user.username}" name="loginId" id="login-id" type="text" required  disabled class="input input-lg">
-                        </div>
+                        <input th:value="${user.username}" name="loginId" id="login-id" type="text" required disabled
+                            class="input input-lg">
                     </div>
+
+
 
                     <div class="reg-list-input-box">
                         <label for="name">이름</label>
-                        <input th:value="${user.name}" name="name" id="name" type="text" class="input input-lg" spellcheck="false">
+                        <input th:value="${user.name}" name="name" id="name" type="text" class="input input-lg"
+                            spellcheck="false">
                     </div>
                     <div class="reg-list-input-box">
                         <label for="nickname">닉네임</label>
-                        <input th:value="${user.nickname}" name="nickname" id="nickname" type="text" class="input input-lg" spellcheck="false">
+                        <input th:value="${user.nickname}" name="nickname" id="nickname" type="text"
+                            class="input input-lg" spellcheck="false">
                     </div>
                     <div class="reg-list-input-box">
                         <label for="password">비밀번호</label>
@@ -100,46 +106,68 @@
                     </div>
                     <div class="reg-list-input-box">
                         <label for="password-check">비밀번호 확인</label>
-                        <input id="password-check" type="password"  class="input input-lg"
+                        <input id="password-check" type="password" class="input input-lg"
                             placeholder="영문자, 숫자, 특수문자 포함 8자 이상" spellcheck="false">
-                            <span class="chkFialure-message d-none" style="color: red;">비밀번호가 일치하지 않습니다</span>
-                    		<span class="chkSuccess-message d-none">비밀번호가 일치합니다</span>
                     </div>
+                    <span class="chkFialure-message d-none message" style="color: red;">비밀번호가 일치하지 않습니다</span>
+                    <span class="chkSuccess-message d-none message">비밀번호가 일치합니다</span>
+
+
+
+
                     <div class="reg-list-input-box">
                         <label for="email">이메일</label>
-                        <input th:value="${user.email}" name="email" id="email" type="email" class="input input-lg" spellcheck="false">
+                        <input th:value="${user.email}" name="email" id="email" type="email" class="input input-lg"
+                            spellcheck="false">
                     </div>
                     <div class="reg-list-input-box">
                         <label for="phone">휴대폰</label>
-                        <input th:value="${user.phone}" name="phone" id="phone" type="text" class="input input-lg" spellcheck="false">
+                        <input th:value="${user.phone}" name="phone" id="phone" type="text" class="input input-lg"
+                            spellcheck="false">
                     </div>
 
                     <div class="edit-button-box">
                         <button type="submit" class="btn btn-default btn-default-fill btn-size-1 save-btn">저장</button>
                     </div>
+                    <!-- 회원수정 modal -->
 
                 </form>
-                    <div class="unregister">
-                        <button type="submit" class="btn-unregister">회원 탈퇴</button>
+
+
+                <div id="modal" class="modal-overlay modaledit">
+                    <div class="modal-window">
+                        <div class="title">
+                            <h2>회원수정</h2>
+                        </div>
+                        <div class="content">이대로 수정하시겠습니까?</div>
+                        <div class="button-wrap">
+                            <a href=""><button class="btn btn-default del-btn ok-btn modal-btn">확인</button></a>
+                            <button class="btn btn-default-line edit-cancel-btn modal-btn" type="button">취소</button>
+                        </div>
                     </div>
-                    
-                   <!-- 회원탈퇴 modal -->
-                	<div id="modal" class="modal-overlay">
-		                 <div class="modal-window">
-			                 <div class="title">
-			                     <h2>회원탈퇴</h2>
-			                 </div>
-			                 <div class="content">정말 탈퇴하시겠습니까?</div>
-			                 <div class = "button-wrap">
-			                     <a href="account-edit/delete"><button class="btn btn-default del-btn" type="submit" >탈퇴</button></a>
-			                     <button class="btn btn-default-line cancel-btn" type="button">취소</button>
-			                 </div>
-		                 </div>
-		             </div>    
-                    
+                </div>
+                <div class="unregister">
+                    <button type="submit" class="btn-unregister">회원 탈퇴</button>
+                </div>
+
+                <!-- 회원탈퇴 modal -->
+                <div id="modal" class="modal-overlay modalunregister">
+                    <div class="modal-window">
+                        <div class="title">
+                            <h2>회원탈퇴</h2>
+                        </div>
+                        <div class="content">정말 탈퇴하시겠습니까?</div>
+                        <div class="button-wrap">
+                            <a href="account-edit/delete"><button class="btn btn-default del-btn modal-btn"
+                                    type="submit">탈퇴</button></a>
+                            <button class="btn btn-default-line unregister-cancel-btn modal-btn" type="button">취소</button>
+                        </div>
+                    </div>
+                </div>
+
             </section>
-       </div>
-        </main>
+        </div>
+    </main>
 
 </body>
 
