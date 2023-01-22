@@ -1,8 +1,23 @@
 window.addEventListener("load", function() {
-	let firstNext = document.querySelector(".btn-next");
-	let secondNext = document.querySelector("#btn-y");
-	let btnReg = document.querySelector(".exh-reg-button-box-page3");
-	let page1 = document.querySelector(".page1");
+	const firstNext = document.querySelector(".btn-next");
+	const secondNext = document.querySelector("#btn-y");
+	const btnReg = document.querySelector(".exh-reg-button-box-page3");
+	const page1 = document.querySelector(".page1");
+
+	// 페이지 전환(위저드)
+	const register = document.querySelector(".btn-register");
+	const registercancelBtn = this.document.querySelector(".register-cancel-btn");
+	const registermodal = this.document.querySelector(".modalregister");
+
+	register.onclick = function(e){
+		e.preventDefault();
+		registermodal.style.display="flex";
+	};
+	registercancelBtn.onclick = function(e){
+		e.preventDefault();
+		registermodal.style.display="none";
+	
+	}
 
 	firstNext.onclick = function(e) {
 		e.preventDefault();
@@ -24,18 +39,8 @@ window.addEventListener("load", function() {
 		document.querySelector("#third-circle").classList.remove("circle-off");
 	};
 
-//	btnReg.onclick = function(e) {
-//		e.preventDefault();
-//		
-//		location.href = 'http://localhost:8080/corporator/mypage/exh-list.html';
-//
-//
-//	};
-	btnReg.onclick = function(e) {
-//		e.preventDefault();
-		
-		//location.href = 'http://localhost:8080/corporator/mypage/exh-list.html';
 
+	btnReg.onclick = function(e) {
 
 	};
 
