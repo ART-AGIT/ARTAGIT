@@ -183,7 +183,7 @@ window.addEventListener("load", function(){
 									            <div class="box" style="background-color:${bookingInfo.color};">
 													<div class="review" >리뷰 수정</div>
 						                			<div class="write-form" >
-							                    		<textarea class="input-review" placeholder="리뷰를 작성해주세요">${bookingInfo.reviewCon}</textarea>
+							                    		<textarea class="input-review"  spellcheck="false" placeholder="리뷰를 작성해주세요">${bookingInfo.reviewCon}</textarea>
 						                			</div>
 						                
 							                		<div class="detail-info">
@@ -369,7 +369,7 @@ window.addEventListener("load", function(){
 												<div class="box">
 													<div class="review">리뷰 작성</div>
 													<div class="write-form">
-													     <textarea name ="content" class="input-review" placeholder="리뷰를 작성해주세요" ></textarea>       
+													     <textarea name ="content" spellcheck="false" class="input-review" placeholder="리뷰를 작성해주세요" ></textarea>       
 													</div>        
 									                <div class="detail-info">
 									                    <div>

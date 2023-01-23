@@ -8,7 +8,8 @@
 	<select id="getListById" resultType="com.artagit.web.entity.BookingList">
 		select * from BookingListView
 		where memId = #{memId}
-		order by bookingDate desc;
+		order by bookingDate desc
+<!-- 		limit 3,6; -->
 	</select>
 	
 	<select id="getByBookingId" resultType="com.artagit.web.entity.BookingList">

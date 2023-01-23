@@ -53,7 +53,8 @@
 		                <div class="exh-img-box">
 		                    <a href="" th:href="@{{id}(id=${list.id})}" ><img th:src="@{|/image/poster/${list.poster}|}" class="exh-img" src="../../image/exhimage.png" alt=""></a>
 		                </div>
-		                <div class="text exh-state exh-ing">전시중</div>
+<!-- 		                <div class="text exh-state exh-ing" th:text="${#calendars.format(#calendars.createNow(), 'yyyy-MM-dd')}">전시중</div> -->
+		                <div class="text exh-state exh-ing" th:text="${#calendars.format(#calendars.createNow(), 'yyyy-MM-dd')} > ${list.endDate} ?  '전시중' : '전시종료' ">전시중</div>
 		                <div class="text exh-title" th:text=${list.name}>모네 인사이드</div>
 		                <div class="text exh-author" th:text="'author. '+${list.artist}">author. 양작가 </div>
 		                <div class="text exh-date" th:text="${list.startDate} +' ~ '+ ${list.endDate}">2022.09.22 ~ 2099.12.25</div>
