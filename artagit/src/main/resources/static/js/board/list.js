@@ -56,7 +56,7 @@ window.addEventListener("load", function() {
 	            <h1 class="d-none">공지목록</h1> 
 	             <div class="notice-icon">공지</div>
 	            <h1 class="notice-title">
-	                <a href = "../member/board/detail.html">${notice.title}</a></h1>
+	                <a href = "../notice/${notice.id}">${notice.title}</a></h1>
 	            <div> </div>
 	            <div class="notice-info">
 	                
