@@ -30,10 +30,15 @@ order by regDate desc;
 	    (select count(memId) from BoardLike where postId = b.id group by postId) hearts,
 	    (select image from Member where id = b.memId) memImage
 		from Board b
-		where
-				
-				 useYN = "Y"
-			
+		<trim prefix="WHERE" prefixOverrides="AND | OR">
+				<if test="roleId != null and roleId != 0">
+				roleId = #{roleId}
+				</if>
+				<if test="roleId == null or roleId == 0">
+				roleId != 5
+				</if>
+				 and useYN = "Y"
+		</trim>
 		order by regDate desc
 		limit #{offset}, #{size}
 		</select>

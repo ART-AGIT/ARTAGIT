@@ -20,11 +20,11 @@
     <nav class = "board-category-box">
         <ul class="board-category-l">
             <!-- <li>전체 글</li> -->
-            <li data-id="0" th:class="${param.c}==null?'board-selected'" class="deco-ticket-on"><div class="deco deco-total div-btn">전체 글</div></li>
-            <li data-id="1" th:class="${#strings.equals(param.c, '1')}?'board-selected'"class="line-on icon-note"><div class="deco deco-free div-btn">자유게시판</div></li>
-            <li data-id="2" th:class="${#strings.equals(param.c, '2')}?'board-selected'" class="icon-picture"><div class="deco deco-picture div-btn">전시후기</div></li>
-            <li data-id="3" th:class="${#strings.equals(param.c, '3')}?'board-selected'" class="icon-food"><div class="deco deco-food div-btn">맛집후기</div></li>
-            <li data-id="4" th:class="${#strings.equals(param.c, '4')}?'board-selected'" class="icon-smile"><div class="deco deco-together div-btn">같이가요</div></li>
+            <li data-id="0" th:class="${param.c}==null and ${roleId.roleId}==0?'board-selected'" class="deco-ticket-on"><div class="deco deco-total div-btn">전체 글</div></li>
+            <li data-id="1" th:class="${#strings.equals(param.c, '1')}or (${roleId.roleId}!=0 and ${boardList[1].roleId}==1)?'board-selected'"class="line-on icon-note"><div class="deco deco-free div-btn">자유게시판</div></li>
+            <li data-id="2" th:class="${#strings.equals(param.c, '2')}or ${roleId.roleId}!=0 and ${boardList[1].roleId}==2?'board-selected'" class="icon-picture"><div class="deco deco-picture div-btn">전시후기</div></li>
+            <li data-id="3" th:class="${#strings.equals(param.c, '3')}or ${roleId.roleId}!=0 and ${boardList[1].roleId}==3?'board-selected'" class="icon-food"><div class="deco deco-food div-btn">맛집후기</div></li>
+            <li data-id="4" th:class="${#strings.equals(param.c, '4')}or ${roleId.roleId}!=0 and ${boardList[1].roleId}==4?'board-selected'" class="icon-smile"><div class="deco deco-together div-btn">같이가요</div></li>
         </ul> 
     </nav>
      <div class="board-box-width">
@@ -57,7 +57,7 @@
 			           </section>
 					    <section class="post-list-box">
 					       <!-- <form class="" action="list" method="get"> -->
-					        <section class="board-list" th:each="board:${list}">
+					        <section class="board-list" th:each="board:${boardList}">
 						        <h1 class="board-title">
 						            <a th:utext="${board.title}" th:href="@{|/member/board/${board.id}|}" href = "../member/board/detail.html">회원님들 그만 좀 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa싸우세요들.</a>
 						        </h1>
@@ -96,6 +96,7 @@
 					    	</div>
 					        </section>
 					       </section>
+					       
 					  </form>
 			   		 </div>
 			   		 </div>

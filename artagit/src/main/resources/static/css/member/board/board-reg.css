@@ -49,9 +49,10 @@ textarea.input{
     background-color: transparent;
 }
 
-img{
-  max-height: 40vh;
-  max-width: 40vw;
+.reg-list-input-box-image img{
+  height: 130px;
+  width: 120px;
+  object-fit: cover;
 }
 
 /* -------------셀렉트박스 커스텀-------------- */
@@ -154,5 +155,11 @@ img{
 
   .main-container{
     width:1000px;
+  }
+
+  .detail{
+    display:flex;
+    justify-content: space-between;
+    margin-top: 30px;
   }
   }

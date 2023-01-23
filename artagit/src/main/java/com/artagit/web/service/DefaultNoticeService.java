@@ -24,9 +24,9 @@ public class DefaultNoticeService implements NoticeService {
 	}
 
 	@Override
-	public List<Notice> getListInit(int page, int size) {
+	public List<Notice> getListInit(int page, int size, int category) {
 		// TODO Auto-generated method stub
-		return noticeDao.getListInit(page,3);
+		return noticeDao.getListInit(page,3,category);
 	}
 
 	@Override
