@@ -74,17 +74,22 @@ public class MypageController {
 	
 	/*-----------예매내역리스트------*/ 
 	//결제상세 모달 정보 : Payment(결제번호 결제날짜 ) User(아이디 
+	
 	@GetMapping("/review/list")
 	public String list(Model model,
-			@AuthenticationPrincipal ArtagitUserDetails user) throws ParseException {
+			@AuthenticationPrincipal ArtagitUserDetails user,
+			@RequestParam(defaultValue = "1", name = "p") int page) throws ParseException {
 		
+		System.out.println("page"+page);
 		String todayfm = new SimpleDateFormat("yyyy-MM-dd").format(new Date(System.currentTimeMillis()));
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		Date today = new Date(dateFormat.parse(todayfm).getTime());
 
-		List<BookingList> bookingList = bookingService.getListById(user.getId());
-		int countOfBooking = bookingList.size();
-		for(int i=0;i<countOfBooking;i++) {
+		List<BookingList> bookingList = bookingService.getListById(user.getId(),page);
+//		int countOfBooking = bookingList.size();
+		int countOfBooking = bookingService.getCount(user.getId());
+		System.out.println(countOfBooking);
+		for(int i=0;i<6;i++) {
 			Date date = bookingList.get(i).getBookingDate();
 			int compare = today.compareTo(date);
 			
@@ -92,7 +97,7 @@ public class MypageController {
 				bookingList.get(i).setPayMethod("관람 완료");		
 			else
 				bookingList.get(i).setPayMethod("미관람");
-				
+//				
 		}
 		System.out.println(user.getImg());
 		model.addAttribute("user",user);

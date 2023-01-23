@@ -1,5 +1,8 @@
 package com.artagit.web.controller.api;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -55,7 +58,39 @@ public class MyPageApi {
 	@Autowired
 	private BoardService boardService;
 	
+	
+	/*-----------api 로 예매내역리스트------*/ 
+	
+	@GetMapping("/review/api/list")
+	public List<BookingList> list(Model model,
+			@AuthenticationPrincipal ArtagitUserDetails user,
+			@RequestParam(defaultValue = "1", name = "p") int page) throws ParseException {
+				
+//		Map<String,Object> dto = new HashMap<>();
+		System.out.println("page"+page);
+		//ex) 2페이지이면 limit 6,6 개 보내기 
+		List<BookingList> bookingList = bookingService.getListById(user.getId(),page);
+//		dto.put("list", bookingList);
+		System.out.println(bookingList);
+		return bookingList;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	/*-----------리뷰등록------*/ 
+	/*
 	@PostMapping("/review/reg/{id}")
 	@Transactional
 	public Map<String,Object> reg(Review review,Booking booking,@PathVariable("id") int payId
@@ -75,8 +110,9 @@ public class MyPageApi {
 
 		return dto;
 	}
+	*/
 	
-	/*-----------모달로 리뷰띄우기------*/ 
+	/*-----------모달로 등록된 리뷰띄우기------*/ 
 	@GetMapping("/review/api/{reviewId}")
 	@Transactional
 	public Map<String,Object> view(@PathVariable("reviewId") int id
@@ -211,11 +247,11 @@ public class MyPageApi {
 	@Transactional
 	public Map<String,Object> see(@PathVariable("id") int payId
 			,@AuthenticationPrincipal ArtagitUserDetails user){
-		
+		System.out.println("payment api안에 들어옴");
 		Map<String,Object> dto = new HashMap<>();
 		Payment payment = paymentService.get(payId);
 		Booking booking = bookingService.get(payId);
-
+		System.out.println("booking"+booking);
 		int exhId = bookingService.getExhId(payId);
 		Exhibition exh = exhService.getExhById(exhId);
 		
