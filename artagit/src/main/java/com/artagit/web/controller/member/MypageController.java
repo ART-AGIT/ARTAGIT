@@ -59,9 +59,6 @@ public class MypageController {
 	
 	@Autowired
 	private PasswordEncoder passwordEncoder;
-
-	//	@Autowired
-//	private MyPageService myPageService;
 	
 	@Autowired
 	private PaymentService payService;
@@ -78,7 +75,8 @@ public class MypageController {
 	/*-----------예매내역리스트------*/ 
 	//결제상세 모달 정보 : Payment(결제번호 결제날짜 ) User(아이디 
 	@GetMapping("/review/list")
-	public String list(Model model,@AuthenticationPrincipal ArtagitUserDetails user) throws ParseException {
+	public String list(Model model,
+			@AuthenticationPrincipal ArtagitUserDetails user) throws ParseException {
 		
 		String todayfm = new SimpleDateFormat("yyyy-MM-dd").format(new Date(System.currentTimeMillis()));
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
@@ -91,9 +89,7 @@ public class MypageController {
 			int compare = today.compareTo(date);
 			
 			if(compare>0) //today>date
-				bookingList.get(i).setPayMethod("관람 완료");
-			else if(compare<0) //today < date
-				bookingList.get(i).setPayMethod("미관람");		
+				bookingList.get(i).setPayMethod("관람 완료");		
 			else
 				bookingList.get(i).setPayMethod("미관람");
 				
