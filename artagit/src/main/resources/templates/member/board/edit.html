@@ -62,25 +62,25 @@
                 <div class="reg-list-input-box detail">
                     <div class="reg-list-input-box-image">
                         <!-- <label for="input-image2" class="input-image-button"> -->
-                            <img th:src="@{|/image/${board.image}|}" class="input-image-button input-image-button1">
+                            <img th:src="${board.image}!=''?@{|/image/${board.image}|}:@{/image/camera.svg}" class="input-image-button input-image-button1">
                             <input name="img" type="file" class="input-image1 d-none">
                             <!-- <div class="input-image-camera"></div> -->
                     </div>
                     <div class="reg-list-input-box-image">
                         <!-- <label for="input-image2" class="input-image-button"> -->
-                            <img th:src="@{|/image/${board.image}|}" class="input-image-button input-image-button1">
+                            <img th:src="${board.image}!=''?@{|/image/${board.image}|}:@{/image/camera.svg}" class="input-image-button input-image-button1">
                             <input name="img" type="file" class="input-image1 d-none">
                             <!-- <div class="input-image-camera"></div> -->
                     </div>
                     <div class="reg-list-input-box-image">
                         <!-- <label for="input-image2" class="input-image-button"> -->
-                            <img th:src="@{|/image/${board.image}|}" class="input-image-button input-image-button1">
+                            <img th:src="${board.image}!=''?@{|/image/${board.image}|}:@{/image/camera.svg}" class="input-image-button input-image-button1">
                             <input name="img" type="file" class="input-image1 d-none">
                             <!-- <div class="input-image-camera"></div> -->
                     </div>
                     <div class="reg-list-input-box-image">
                         <!-- <label for="input-image2" class="input-image-button"> -->
-                            <img th:src="@{|/image/${board.image}|}" class="input-image-button input-image-button1">
+                            <img th:src="${board.image}!=''?@{|/image/${board.image}|}:@{/image/camera.svg}" class="input-image-button input-image-button1">
                             <input name="img" type="file" class="input-image1 d-none">
                             <!-- <div class="input-image-camera"></div> -->
                     </div>
