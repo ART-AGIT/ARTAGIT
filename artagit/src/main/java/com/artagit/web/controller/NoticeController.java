@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.artagit.web.entity.ArtagitUserDetails;
+import com.artagit.web.entity.Board;
 import com.artagit.web.entity.Notice;
+import com.artagit.web.service.BoardService;
 import com.artagit.web.service.NoticeService;
 
 import jakarta.servlet.http.Cookie;
@@ -27,7 +29,7 @@ public class NoticeController {
 
 	@Autowired
 	private NoticeService service;
-	
+
 	public NoticeController() {
 
 	}
@@ -70,6 +72,7 @@ public class NoticeController {
 			HttpServletRequest request,HttpServletResponse response){
 		System.out.println("noticeDetail"+id);
 		Notice notice = service.getNoticeById(id);
+	
 		model.addAttribute("notice",notice);
 		
 		//조회수(중복 제거)

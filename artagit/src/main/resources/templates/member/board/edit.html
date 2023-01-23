@@ -30,7 +30,7 @@
             <section class="post-option">
                 <div class="first-line">
                 <h1 class="d-none">글작성 옵션</h1>
-              <input type="hidden" name="id" th:value=${board.id}>
+              <input type="hidden" name="id" th:value=${board.id} required>
                     <select class="select-box" name="roleId">
                       <option class="option" value=1>자유게시판</option>
                       <option class="option" value=2>전시후기</option>
@@ -39,9 +39,7 @@
                     </select>
                 </div>
                 
-                <div class="save-temp">
-                    <button class="save-temp-btn">임시저장</button>
-                </div>
+               
                 <div class="submit-btn">
                     <input class="btn btn-default-fill" type="submit" value="등록">
                 </div>
@@ -55,7 +53,7 @@
                 </h1>
                 <div class="">
                 <div class="summernote">
-                        <textarea class="input" id="summernote" th:utext= "${board.content}" name="content" spellcheck="false"></textarea>
+                        <textarea class="input" id="summernote" th:utext= "${board.content}" name="content" spellcheck="false" required></textarea>
                     </div>
                 </div>
                
