@@ -17,7 +17,7 @@
 	            <div class="profile-box">
 	                <div class="profile-content">
 	                    <div class="profile-img-box" >
-	                        <img class="profile-img" src="../../image/camera.svg" th:src= "${user.img}">
+	                        <img class="profile-img" src="../../image/camera.svg"  th:src="@{|/image/${user.img}|}">
 	                    </div>
 	                    <div class="profile-name">
 	                        <span th:text="${user.username}+' 님'">1004님</span>
