@@ -32,7 +32,7 @@
                 <h1 class="d-none">글작성 옵션</h1>
               <input type="hidden" name="id" th:value=${board.id}>
                     <select class="select-box" name="roleId">
-                      <option class="option" value=1>자유</option>
+                      <option class="option" value=1>자유게시판</option>
                       <option class="option" value=2>전시후기</option>
                       <option class="option" value=3>맛집후기</option>
                       <option class="option" value=4>같이가요</option>
@@ -51,11 +51,11 @@
         <section>
                 <h1 class="">
                     <label  for="" class="d-none">제목</label>
-                    <input class="input board-title" name = "title" th:value= "${board.title}" placeholder="제목" type="text" id="title">
+                    <input class="input board-title" name = "title" th:value= "${board.title}" spellcheck="false" placeholder="제목" type="text" id="title">
                 </h1>
                 <div class="">
                 <div class="summernote">
-                        <textarea class="input" id="summernote" th:utext= "${board.content}" name="content"></textarea>
+                        <textarea class="input" id="summernote" th:utext= "${board.content}" name="content" spellcheck="false"></textarea>
                     </div>
                 </div>
                

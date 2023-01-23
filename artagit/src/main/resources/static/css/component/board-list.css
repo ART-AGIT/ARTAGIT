@@ -220,7 +220,6 @@ h2{
    
     
     .board-list{
-       
         display: grid;
         grid-template: 
         "category category category img" 20px
@@ -230,9 +229,6 @@ h2{
         padding: 8px;
         
         align-items: center;
-    
-      
-    
     }
 
     .board-box-container{
@@ -247,46 +243,37 @@ h2{
         right: 300px;
     }
         
-
-
     .menu-s{
         padding-left:50px;
     }
 
-
-    .board-title{
-            display: flex;
-            font-size: 18px;
-          
-            align-items: center;
-
+    .board-title {
+          display: flex;
+          font-size: 16px;
+          align-items: center;
     }
 
-    .icon-size{
+    .icon-size {
         -webkit-mask-size: 15px 15px;
     }
 
- 
-    .board-regdate{
-
+    .board-regdate {
         justify-content: center;
         font-size: 13px;
     }
 
-    .post-img{
-   
+    .post-img {
         object-fit: cover;
         height: 80px;
         width: 84px;
-        
     }
-    .notice-icon{
+    
+    .notice-icon {
         width: 40px;
         height: 15px;
     }
 
-
-    .deco{
+    .deco {
         display: flex;
         flex-direction: row;
         gap: 20px;
@@ -294,10 +281,9 @@ h2{
 
     .board-category-l>li{
         padding: 5px 0 5px 20px;
-
     }
      
-    h2{
+    h2 {
         display:block;
         margin-bottom: 40px;
         padding-left:15px;
