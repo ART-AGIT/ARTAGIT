@@ -11,7 +11,9 @@
 body{
     --color-white: #FDFBF9;
     --color-black: #000;
+    --color-black2: #2f2f2f;
     --color-gray: #707070;
+    --color-white2: #b5b5b5;
 
     background-color: var(--color-black);
     color: var(--color-white);
@@ -49,7 +51,7 @@ body{
 }
 
 .icon.bg-white{
-    background-color: var(--color-black);
+    background-color: var(--color-black2);
 }
 
 body.bg-white{
@@ -152,53 +154,62 @@ body.bg-white{
 /* ========================================================= */
 
 @media (min-width: 992px) {
-    .header-pc{
+    .header-pc {
         background-color: var(--color-black);
         color: var(--color-white);
         transition: 1s;
     }
-    .header-pc.bg-white{
+    
+    .header-pc.bg-white {
         background-color: var(--color-white);
         color: var(--color-black);
     }
-    .main-menu a{
+    
+    .main-menu a {
         color: var(--color-white);
     }
-    .main-menu a.bg-white{
+    
+    .main-menu a.bg-white {
         color: var(--color-black);
     }
+    
     .slider {
         width: 1250px;
         height: 400px;
 		overflow: hidden;
     }
+    
     .slide {
         width: 100%;
 /*         height: 100%; */
     }
-    .main-seciton{
+    
+    .main-seciton {
     	width: 1250px;
     	margin: 0 auto;
     }
-    .board-box{
+    
+    .board-box {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
     }
-    .exhibition-list{
+    
+    .exhibition-list {
         grid-template-columns: repeat(4, 1fr);
         margin-top: 0px;
     }
-    .main-list-box>div{
+    
+    .main-list-box>div {
         grid-template-columns: repeat(4, 1fr);
     }
-    .board-list{
+    
+    .board-list {
         grid-template:
-			"category regdate" 50px
-	        "title post-info" 30px / 2fr 1fr;
+			"category regdate" 40px
+			"title post-info" 33px / 2fr 1fr;
 	    border: 0.5px solid #959595b3;
-        margin: 1px;
+        margin: 3px;
     }
-
 
 }
 

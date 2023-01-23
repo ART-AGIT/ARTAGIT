@@ -49,9 +49,10 @@ window.addEventListener("load", function(){
 
         console.log("수정버튼 클릭");
         btnMore.classList.add('d-none');
+        document.querySelector(".feed-content").classList.remove('hidden');
         
         // 각 항목들에 contenteditable (편집모드) 속성을 추가해준다. 
-        if(modiLine[0].getAttribute('contenteditable') == null){
+        if(modiLine[0].getAttribute('contenteditable') == null) {
             for(let i = 0; i<modiLine.length; i++){
                 modiLine[i].setAttribute('contenteditable', 'true');
                 modiLine[i].classList.add('mody-on'); // 수정모드 의미를 가진 클래스 추가
@@ -62,13 +63,6 @@ window.addEventListener("load", function(){
             let endD = date.substring(13, 23);
             let startT = time.substring(0, 5);
             let endT = time.substring(8, 13);
-
-            console.log(date);
-            console.log(startD);
-            console.log(endD);
-            console.log(startT);
-            console.log(endT);
-            // let end = detailSection.querySelector('.end-date').innerText;
             
             let startDateTem = `<input type="date" class="item content start-date-input" style="font-weight: normal" value="${startD}" required pattern="\d{4}-\d{2}-\d{2}"><span>~</span>`
             let endDateTem = `<input type="date" class="item content end-date-input" value="${endD}" required pattern="\d{4}-\d{2}-\d{2}"></input>`
@@ -94,9 +88,7 @@ window.addEventListener("load", function(){
             .parseFromString(endTimeTem, "text/html")
             .body
             .firstElementChild;
-			
-			
-            
+
             detailSection.querySelector('.start-date').innerHTML='';
             detailSection.querySelector('.start-time').innerHTML='';
             detailSection.querySelector('.start-date').append(el, '~', el2);
@@ -105,8 +97,7 @@ window.addEventListener("load", function(){
             modiBtn.innerText = '저장';
             
             check = true;
-		}
-        }else{
+        }} else {
 			console.log("저장하기 버튼 클릭");            
         let exhName = detailSection.querySelector(".exh-name").innerText;
         let exhArtist = detailSection.querySelector(".exh-artist").innerText;

@@ -31,6 +31,9 @@ import com.artagit.web.service.ExhibitionService;
 import com.artagit.web.service.LocalService;
 import com.artagit.web.service.MuseumService;
 import com.artagit.web.service.PaymentService;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import jakarta.servlet.http.HttpServletRequest;
 
@@ -101,54 +104,33 @@ public class ExhibitionController {
 	}
 
 	// 주최자가 등록한 전시 수정 ========================
-	@PostMapping("update")
-	@ResponseBody
-	public String update(@RequestBody HashMap<String,Object> map) {
-		System.out.println("update 메서드 진입");
-		HashMap<String, Object> exhList = (HashMap<String, Object>) map.get("exh");
-		Exhibition exh = new Exhibition();
-		// 아이디
-		exh.setId(Integer.parseInt(String.valueOf(exhList.get("id"))));		
-		exh.setName(String.valueOf(exhList.get("name")));
-		exh.setArtist(String.valueOf(exhList.get("artist")));
-		exh.setStartDate(String.valueOf(exhList.get("startDate")));
-		exh.setEndDate(String.valueOf(exhList.get("endDate")));
-		exh.setStartTime(String.valueOf(exhList.get("startTime")));
-		exh.setEndTime(String.valueOf(exhList.get("endTime")));
-		exh.setTicketPrice(Integer.parseInt(String.valueOf(exhList.get("ticketPrice"))));
-		exh.setTicketStock(Integer.parseInt(String.valueOf(exhList.get("ticketStock"))));
-		exh.setContent(String.valueOf(exhList.get("content")));
-		exh.setHomepage(String.valueOf(exhList.get("homepage")));
-		
-		
-		HashMap<String, Object> corpList = (HashMap<String, Object>) map.get("corp");
-		Corporate corp = new Corporate();
-		corp.setId(Integer.parseInt(String.valueOf(corpList.get("id"))));
-		corp.setMuseumName(String.valueOf(corpList.get("museumName")));
-		corp.setName(String.valueOf(corpList.get("name")));
-		corp.setAddress(String.valueOf(corpList.get("address")));
-		corp.setPhone(String.valueOf(corpList.get("phone")));
-		corp.setManager(String.valueOf(corpList.get("manager")));
+		@PostMapping("update")
+		@ResponseBody
+		public String update(@RequestBody ObjectNode exhInfo) throws JsonProcessingException, IllegalArgumentException {
+			System.out.println("update 메서드 진입");
+			
+			// ObjectMapper = json 형태의 데이터를 java Object 로 변환해주는 클래스 (json 라이브러리 Jackson)
+			ObjectMapper mapper = new ObjectMapper();
 
-		HashMap<String, Object> localList = (HashMap<String, Object>) map.get("local");
-		Local local = new Local();
-		local.setId(Integer.parseInt(String.valueOf(localList.get("id"))));
-		local.setName(String.valueOf(localList.get("name")));
-		
-		
-		System.out.println("전시데이터 ===> " + exh);
-		System.out.println("주최자데이터 ===> " + corp);
-		System.out.println("지역데이터 ===> " + local);
-		
-		int result = service.update(exh);
-		System.out.println("전시정보 update결과: "+result);
-
-		corporateService.update(corp);
-		localService.update(local);
-		
-		System.out.println(exh.getId()+"번 전시 수정완료");
-		return "redirect:{id}";
-	}
+			// 클라이언트에서 넘어온 json의 키값을 가지고 클래스 정보를 얻어 자동으로 매핑을 해준다.
+			// 매핑된 값들을 각각의 객체에 담기.
+			Exhibition exh = mapper.treeToValue(exhInfo.get("exh"), Exhibition.class);
+			Corporate corp = mapper.treeToValue(exhInfo.get("corp"), Corporate.class);
+			Local local = mapper.treeToValue(exhInfo.get("local"), Local.class);
+			
+			System.out.println("전시데이터 ===> " + exh);
+			System.out.println("주최자데이터 ===> " + corp);
+			System.out.println("지역데이터 ===> " + local);
+			
+			// 각 객체를 인자로 넘겨 update 진행
+			int result = service.update(exh);
+						 corporateService.update(corp);
+						 localService.update(local);
+			
+			System.out.println("전시정보 update결과: "+result);
+			System.out.println(exh.getId()+"번 전시 수정완료");
+			return "redirect:{id}";
+		}
 	
 	// 주최자가 등록한 전시 삭제 ========================
 	@GetMapping("delete")

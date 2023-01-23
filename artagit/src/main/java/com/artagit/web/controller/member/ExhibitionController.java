@@ -107,7 +107,7 @@ public class ExhibitionController {
 	 * @throws JsonProcessingException **********************/
 	@PostMapping("pay")
 	public void pay(@RequestBody ObjectNode payInfo) throws JsonProcessingException, IllegalArgumentException {
-
+		System.out.println("pay 메서드 진입");
 		
 		// ObjectMapper = json 형태의 데이터를 java Object 로 변환해주는 클래스 (json 라이브러리 Jackson)
 		ObjectMapper mapper = new ObjectMapper();
