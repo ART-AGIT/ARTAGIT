@@ -19,24 +19,22 @@ window.addEventListener("load", function(e){
     }
 
     /*---------- 피씨 버전 ---------- */
-    const nameBox = findIdBox.querySelector(".name-input");
-    const emailBox = findIdBox.querySelector(".email-input")
-    // const idOkBtn = findIdBox.querySelector(".id-btn");
-    const okBtn = findIdBox.querySelector(".submit-btn");
-    const message = findIdBox.querySelector('.msg');
+    const idBox = findPwBox.querySelector(".id-input");
+    const emailBox = findPwBox.querySelector(".email-input")
+    const idOkBtn = findIdBox.querySelector(".id-btn");
+    const okBtn = findPwBox.querySelector(".submit-btn");
+    const message = findPwBox.querySelector('.msg');
     console.log(okBtn);
 
-    /*---------- ID 찾기 ---------- */
+    /*---------- PW 찾기 ---------- */
     okBtn.onclick = function(e){
         e.preventDefault();
-        console.log("클릭!");
-
-        let name = nameBox.value;
+        let id = idBox.value;
         let email = emailBox.value;
 
         // 입력값이 없을 경우 못넘어가게 하기
-        if(!name || (!name && !email)){
-            nameBox.focus();
+        if(!id || (!id && !email)){
+            idBox.focus();
             return false; // 아래 코드부터 아무것도 진행하지 말것
         }
 
@@ -44,58 +42,59 @@ window.addEventListener("load", function(e){
             emailBox.focus();
             return false;
         }
-
-        console.log(`입력한 name: ${name}, email: ${email}`);
-
-        fetch(`findId/${name}/${email}`, {
+        
+        console.log('클릭!');
+        console.log(`입력한 id: ${id}, email: ${email}`);
+    
+        fetch(`sendEmail/${id}/${email}`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify ({
-                "name": name,
+                "loginId": id,
                 "email": email,
             })
         })
-        .then((response) => {
-				if(response.ok) {
-                    console.log("성공");
-            		console.log(response);                 
-                    return response.text();
-                    } else {console.log("실패");}})
-        .then((user) => {
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            // let result = data.resultObject;
 
-            console.log(user);
-            
-            if (user==="비회원"){
-                message.classList.add('caution-msg');
-                message.innerText = "존재하지 않는 회원입니다."
-            }
-            else if(user!=="비회원"){
+            if(data == 1){
                 let template = `<div class="find-content-box find-result">
                                 <div class="mail-img-box">
-                                    <img class="mail-img" src="/image/idresult.png">
+                                    <img class="mail-img" src="/image/mail.png">
                                 </div>
                                 <div class="text-box result-text-box">
-                                    <span class="md-text"><span class="user-email">${name}</span>님의 아이디는 <span class="user-email">${user}</span> 입니다.</span>
+                                    <span class="md-text">임시비밀번호가 <span class="user-email">${email}</span> 로 발송되었습니다.</span>
+                                    <span class="text md-2-text">로그인 후 새로운 비밀번호로 변경해 주시기 바랍니다.</span>
                                 </div>
                     
                                 <div class="result-btn-box">
-                                    <a class="btn btn-default-line find-pw-btn  whtie-btn" href="find-pw">비밀번호 찾기</a>
+                                    <a class="btn btn-default-line home-btn" href="/">홈으로 이동</a>
                                     <a class="btn btn-default-fill login-btn" href="login">로그인</a>
                                 </div>
                             </div>`
-                
+
                 let el = new DOMParser()
                         .parseFromString(template, "text/html")
                         .body
                         .firstElementChild; 
-
+                
                 document.querySelector(".flow-btn-box").classList.add("d-none");
-                findIdBox.innerHTML='';
-                findIdBox.append(el);
-            } 
-    })
-    .catch(err => {
-        console.log(err);
-        alert("일시적인 오류가 발생되었습니다. 다시 시도해주세요.")})
+                findPwBox.innerHTML='';
+                findPwBox.append(el);
+            }
+            else if(data == 2){
+                message.classList.add('caution-msg');
+                message.innerText = "이메일이 올바르지 않습니다."
+            }
+            else if(data == 0){
+                message.classList.add('caution-msg');
+                message.innerText = "존재하지 않는 ID 입니다."				
+			}
+        })
+        .catch(err => {
+            alert("일시적인 오류가 발생되었습니다. 다시 시도해주세요.")})
     }
+
 });

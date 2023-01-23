@@ -177,57 +177,41 @@ public class ExhibitionController {
 		service.insert(exhibition);
 	//	System.out.print("전시 :" +exhibition.toString());
 		
+//		exhibition.setPoster(poster.getOriginalFilename());
+//		exhibition.setDetailImage(detailImage.getOriginalFilename());
 			
-//		exhibition.setPoster(exhibition.getPoster());
-//		exhibition.setDetailImage(file.getOriginalFilename());
-//		System.out.println("이미지이름" + poster);
-//		System.out.println("이미지이름" + detailImage);
-//		
-//		for(MultipartFile mf : uploadFile)
-//			System.out.println(mf);
+//		System.out.println("포스터" + poster);
+//		System.out.println("디테일이미지" + detailImage);
 		
-		
-//		if (!exhibition.getPoster().isEmpty()) {
-//				String path = "/image"; 
-//				String realPath = request.getServletContext().getRealPath(path);
-//				System.out.println(realPath);
-//
-//				File pathFile = new File(realPath);
-//				if (!pathFile.exists())
-//					pathFile.mkdirs();
-//
-//				String fullPath = realPath + File.separator + exhibition.getPoster();
-//				//InputStream fis = file.getInputStream();
-//				OutputStream fos = new FileOutputStream(fullPath);
-//				byte[] buf = new byte[1024];
-//				int size = 0;
-//				while ((size = fis.read(buf)) >= 0)
-//					fos.write(buf, 0, size);
-//
-//				fos.close();
-//				fis.close();
-//			}
+		//for(MultipartFile file : files)
+			//file1 => poster, file2 => detailImage에 넣어주기
+			
+			//			System.out.println(mf);
 
-		//int result = 0;
-		// result =
-		
-		
-//		try {
-//		}
-//		catch(Exception e) {
-//			result = -1;
-//		}
-//		
-//		if(result >0 ) {
-//			//log
-//		}else if(result == 0) {
-//		
-//		}else if( result == -1) {
-//		 
-//		}else {
+//		if (!img.isEmpty()) {
+//			String path = "/image"; 
+//			String realPath = request.getServletContext().getRealPath(path);
+//			System.out.println(realPath);
 //			
+//			File pathFile = new File(realPath);
+//			if (!pathFile.exists())
+//				pathFile.mkdirs();
+//			
+//			String fullPath = realPath + File.separator + img.getOriginalFilename();
+//			InputStream fis = img.getInputStream();
+//			OutputStream fos = new FileOutputStream(fullPath);
+//			byte[] buf = new byte[1024];
+//			int size = 0;
+//			while ((size = fis.read(buf)) >= 0)
+//				fos.write(buf, 0, size);
+//			
+//			fos.close();
+//			fis.close();
 //		}
+
+	
 		return "redirect:list";
+		
 	}
 
 	// 주최자가 등록한 전시 데이터 수정페이지에 불러오기
