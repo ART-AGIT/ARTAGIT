@@ -10,7 +10,7 @@ public interface BookingService {
 	//id로 booking 가져오기
 	Booking get(int id);
 	
-	List<BookingList> getListById(int memId);
+	List<BookingList> getListById(int memId,int page);
 
 	BookingList getReviewByBookingId(int id);
 	
@@ -27,6 +27,9 @@ public interface BookingService {
 	BookingList getBookingViewByReviewId(int id);
 
 	BookingList getBookingViewByBookingId(int bookingId);
+
+	//회원의 예매 내역 건수 가져오기
+	int getCount(int id);
 }
 
 

@@ -9,6 +9,7 @@
 		<link href="/css/member/mypage/booking-list.css" type="text/css" rel="stylesheet">
 		<link href="/css/member/mypage/review-detail.css" type="text/css" rel="stylesheet">
 		<script src="/js/member/mypage/booking-list.js"></script>
+		<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 	</th:block>
 	
   
@@ -44,53 +45,53 @@
 	        </div>
 	        
 			<div>
-	         <div class="pay-list" >
-	         	<div class="my-booking">나의 예매내역</div>
-			        <div class="total-box">
-			            <span class="text total">Total:&nbsp;</span><span class="text total-num" th:text="${countOfBooking}" >2</span>
-			        </div>
-			        <div class="nonexistence-mess" th:if="${countOfBooking}==0" >
-			            <p class="">예매내역이 없습니다.</p>
-			            <a class="btn btn-default-fill btn-go-exh" th:href="@{/exhibition/list}" >전시 관람가기</a>
-			        </div>
-		        
-		        
-		       
-					<div class= "booking-list">
-				            <form action="" class ="list-form" th:each="bookingList:${bookingList}">
-				                <div class="exh-img-box">
-			
-				                    <a    src="../../image/exhimage.png" th:href="@{|/exhibition/${bookingList.exhId}|}" alt="">
-				                    	<img class="exh-img" th:src="@{|/image/poster/${bookingList.exhPoster}|}">
-				                    </a>			
-				                </div>
-				                
-			                    <div class="text pay-state" th:text="${bookingList.payMethod}" th:style="${bookingList.payMethod =='관람 완료' ? 'color:#545454;' :'color:#FF5171;'} ">결제완료</div>
-			                    <div class="text exh-title" th:text="${bookingList.exhName}"> 모네 인사이드</div> 
-			                    <div class="text exh-place" th:text="${bookingList.museumName}"> 국립현대미술관</div> 
-			
-			                    <div class="text exh-date" th:text="${#dates.format(bookingList.bookingDate,'yyyy-MM-dd')}">관람일 2022.09.22</div>
-			
-								<div class="button-list" >
-				                    <a class="btn btn-default-fill-off btn-review"   th:if="${bookingList.reviewCon}" href="" th:attr="data-id=${bookingList.reviewId}">리뷰보기</a>
-				                    <a class="btn btn-default-fill btn-write" th:if="!${bookingList.reviewCon}" th:attr="data-id=${bookingList.bookingId}" href="" >리뷰작성</a>
-				                    <a class="text btn btn-default-line pay-detail" th:attr="data-id=${bookingList.bookingId}" >결제상세</a>
-				                </div>
-
-				        	</form>			        	
-				  	</div>       	
-	        	
-	        	</div>        
+		         <div class="pay-list" >
+		         	<div class="my-booking">나의 예매내역</div>
+				        <div class="total-box">
+				            <span class="text total">Total:&nbsp;</span><span class="text total-num" th:text="${countOfBooking}" >2</span>
+				        </div>
+				        <div class="nonexistence-mess" th:if="${countOfBooking}==0" >
+				            <p class="">예매내역이 없습니다.</p>
+				            <a class="btn btn-default-fill btn-go-exh" th:href="@{/exhibition/list}" >전시 관람가기</a>
+				        </div>
+			        
+			        
+			       
+						<div class= "booking-list">
+					            <form action="" class ="list-form" th:each="bookingList:${bookingList}">
+					                <div class="exh-img-box">
+				
+					                    <a    src="../../image/exhimage.png" th:href="@{|/exhibition/${bookingList.exhId}|}" alt="">
+					                    	<img class="exh-img" th:src="@{|/image/poster/${bookingList.exhPoster}|}">
+					                    </a>			
+					                </div>
+					                
+				                    <div class="text pay-state" th:text="${bookingList.payMethod}"> 결제완료</div>
+				                    <div class="text exh-title" th:text="${bookingList.exhName}"> 모네 인사이드</div> 
+				                    <div class="text exh-place" th:text="${bookingList.museumName}"> 국립현대미술관</div> 
+				
+				                    <div class="text exh-date" th:text="${#dates.format(bookingList.bookingDate,'yyyy-MM-dd')}">관람일 2022.09.22</div>
+				
+									<div class="button-list" >
+					                    <a class="btn btn-default-fill-off btn-review"   th:if="${bookingList.reviewCon}" href="" th:attr="data-id=${bookingList.reviewId}">리뷰보기</a>
+					                    <a class="btn btn-default-fill btn-write" th:if="!${bookingList.reviewCon}" th:attr="data-id=${bookingList.bookingId}" href="" >리뷰작성</a>
+					                    <a class="text btn btn-default-line pay-detail" th:attr="data-id=${bookingList.bookingId}" >결제상세</a>
+					                </div>
+	
+					        	</form>			        	
+					  	</div>       	
+		        	
+		        	</div>        
 	        	
 	       	  
-	        <button class="text item-more">
-	        	<div>더보기</div>
-	        	<div>(1</div>	
-	        	<div>/</div>
-	        	<div>10)</div>
-	        </button>
+		        <button class="text item-more" th:if="${countOfBooking}>6">
+		        	<div>더보기</div>
+<!-- 		        	<div>(6</div>	 -->
+<!-- 		        	<div>/</div> -->
+<!-- 		        	<div th:text="${countOfBooking}+')'">10)</div> -->
+		        </button>
 	        	
-	        	</div>
+	        </div>
         </div>
     </main>
 </body>
