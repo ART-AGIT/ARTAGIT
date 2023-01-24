@@ -20,6 +20,7 @@ public class Corporate {
 	private String image;
 	private int roleId;
 	private int localId;
+	private String img;
 	
 	public Corporate() {
 		// TODO Auto-generated constructor stub
@@ -49,8 +50,8 @@ public class Corporate {
 		this.museumName = museumName;
 
 		this.useYN = useYN;
+		this.img = img;
 
-		this.image = image;
 		this.roleId = roleId;
 		this.localId = localId;
 
@@ -204,31 +205,17 @@ public class Corporate {
 		this.useYN = useYN;
 	}
 
-	
-
-	public String getImage() {
-		return image;
-	}
-
-
-
-	public void setImage(String image) {
-		this.image = image;
-	}
-
-
-
 	@Override
 	public String toString() {
 		return "Corporate [id=" + id + ", name=" + name + ", loginId=" + loginId + ", password=" + password
 				+ ", ceoName=" + ceoName + ", email=" + email + ", businessNum=" + businessNum + ", manager=" + manager
 				+ ", phone=" + phone + ", regState=" + regState + ", processDate=" + processDate + ", address="
 				+ address + ", refuseReason=" + refuseReason + ", managerPhone=" + managerPhone + ", museumName="
-				+ museumName + ", useYN=" + useYN + ", roleId=" + roleId + ", localId=" + localId + "]";
+				+ museumName + ", useYN=" + useYN + ", roleId=" + roleId + ", localId=" + localId + ", img=" + img
+				+ "]";
 	}
 
 
 
-	
 	
 }
