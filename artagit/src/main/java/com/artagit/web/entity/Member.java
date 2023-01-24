@@ -15,6 +15,8 @@ public class Member {
    private String image;
    private String useYN;
    private String tmpPassword;
+   private String oAuthId;
+   private String oAuthIss;
    
 
 public Member() {
@@ -133,11 +135,27 @@ public Member() {
 		this.tmpPassword = tmpPassword;
 	}
 
-@Override
-   public String toString() {
-      	return "Member [id=" + id + ", loginId=" + loginId + ", password=" + password + ", name=" + name + ", phone="
-            + phone + ", nickname=" + nickname + ", email=" + email + ", regDate=" + regDate + ", roleId=" + roleId
-            + ", image=" + image + "]";
-   }
-   
+	public String getOAuthId() {
+		return oAuthId;
+	}
+
+	public void setOAuthId(String oAuthId) {
+		this.oAuthId = oAuthId;
+	}
+
+	public String getOAuthIss() {
+		return oAuthIss;
+	}
+
+	public void setOAuthIss(String oAuthIss) {
+		this.oAuthIss = oAuthIss;
+	}
+
+	@Override
+	public String toString() {
+		return "Member [id=" + id + ", loginId=" + loginId + ", password=" + password + ", name=" + name + ", phone="
+				+ phone + ", nickname=" + nickname + ", email=" + email + ", regDate=" + regDate + ", roleId=" + roleId
+				+ ", image=" + image + ", useYN=" + useYN + ", tmpPassword=" + tmpPassword + ", oAuthId=" + oAuthId
+				+ ", oAuthIss=" + oAuthIss + "]";
+	}
 }

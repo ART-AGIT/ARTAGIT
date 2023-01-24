@@ -49,12 +49,10 @@ public class MemberController {
 	// 회원가입
 	@PostMapping("signup")
 	public String reg(Member member) {
-
 		int result = service.signUp(member);
 		System.out.println("insert 결과 => " + result);
 		System.out.println("가입된 member => " + member);
 		return "redirect:/";
-
 	}
 	
 	// id찾기
@@ -103,14 +101,8 @@ public class MemberController {
 		
 		String id = "비회원";
 		
-//		JSONObject jsonObj = new JSONObject();
-		
-//		Object userid = jsonObject.get("id");
-		
-		
 		if(member == null && corp == null) {
 			System.out.println("가입된 회원이 아니에요.");
-//			id = "";
 		}
 		else if (member !=null ){			
 			id = member.getLoginId();
@@ -119,8 +111,6 @@ public class MemberController {
 			id = corp.getLoginId();
 			System.out.println("아이디는 "+ id +"입니다.");
 		}
-		
-		
 		
 		return id;
 	}
@@ -146,7 +136,6 @@ public class MemberController {
 		else if(member != null) {
 			result = service.checkUser(member, loginId, email);
 			System.out.println("result===>" + result);
-			
 
 			// 회원이 맞으면,
 			if(result == 1) {
