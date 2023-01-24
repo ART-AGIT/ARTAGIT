@@ -115,8 +115,10 @@ public class artagitUserDetailsService implements UserDetailsService {
 			user.setMuseumName(corp.getMuseumName());
 			user.setLocalId(corp.getLocalId());
 			user.setRoleId(corp.getRoleId());
+			user.setImg(corp.getImg());
+//			user.setImg(corp.getImg());
 			user.setAuthorities(authorities);
-			user.setImg(corp.getImage());
+			
 			System.out.println("업체회원!!!!!"+user);
 		}
 		System.out.println(username + "회원의 권한 ====> "+authorities);
