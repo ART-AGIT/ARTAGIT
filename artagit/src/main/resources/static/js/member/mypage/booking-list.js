@@ -6,29 +6,135 @@ window.addEventListener("load", function(){
     const bookingListSection = document.querySelector(".booking-list");
     const ListSection = document.querySelector(".button-list"); //리뷰등록, 결제상세
     
+    //현재날짜
+    var now = new Date();
+		now = 
+		    leadingZeros(now.getFullYear(), 4) + '-' +
+		    leadingZeros(now.getMonth() + 1, 2) + '-' +
+		    leadingZeros(now.getDate(), 2);
+		console.log("timestamp"+now);
+    
+//  예매내역리스트 보여주기 (더보기 기능)
+    const itemMore = document.querySelector(".item-more");
+	var page=1;
+    itemMore.onclick = function(){
+		page+=1;
+
+		queryString = `?p=${page}`;
+
+		fetch(`/member/mypage/review/api/list${queryString}`)
+		.then((response)=>response.json())
+		.then((list)=>{
+
+			for(let booking of list){
+
+                    if(list.length<6)
+                    	itemMore.classList.add("d-none");
+						
+					var bookingDate = booking.bookingDate.substring(0,10);
+						
+					var state ="";
+					if(bookingDate >=  now){
+						state="미관람";
+					}
+					else{
+						state="관람완료";
+					}
+					
+					//리뷰 없음
+					if(booking.reviewId ==0){
+                    var template = `
+                        <form action="" class ="list-form" >
+					                <div class="exh-img-box">
+				
+					                    <a src="../../image/exhimage.png"  alt="">
+					                    	<img class="exh-img" src="/image/poster/${booking.exhPoster}">
+					                    </a>			
+					                </div>
+					                
+
+ 									<div class="text pay-state" > ${state}</div>
+				                    <div class="text exh-title" >${booking.exhName}</div> 
+				                    <div class="text exh-place" > ${booking.museumName}</div> 
+				                    <div class="text exh-date">${bookingDate}</div>
+				
+									<div class="button-list" >
+					                    <a class="btn btn-default-fill btn-write" data-id="${booking.bookingId}" href="${booking.bookingId}">리뷰작성</a>
+					                    <a class="text btn btn-default-line pay-detail"  data-id="${booking.bookingId}" >결제상세</a>
+					                </div>
 	
+					        	</form>		
+					        	
+					        	 	  
+                    	`;
+                    
+                    }
+                    //리뷰 있음
+                    else{
+                     var template = `
+		                        <form action="" class ="list-form" >
+							                <div class="exh-img-box">
+						
+							                    <a src="../../image/exhimage.png"  alt="">
+							                    	<img class="exh-img" src="/image/poster/${booking.exhPoster}">
+							                    </a>			
+							                </div>
+							                
+		
+											<div class="text pay-state" > ${state}</div>
+						                    <div class="text exh-title" >${booking.exhName}</div> 
+						                    <div class="text exh-place" > ${booking.museumName}</div> 
+						
+						                    <div class="text exh-date">${bookingDate}</div>
+						
+											<div class="button-list" >
+							               
+							                    <a class="btn btn-default-fill-off btn-review" data-id="${booking.reviewId}" href="${booking.reviewId}"   href="" >리뷰보기</a>
+							                    <a class="text btn btn-default-line pay-detail" data-id="${booking.bookingId}">결제상세</a>
+							                </div>
+			
+							        	</form>			  
+		                    `;
+
+		            }
+		            	
+                    let el = new DOMParser()
+                             .parseFromString(template, "text/html")
+                             .body
+                             .firstElementChild;
+                                
+                    var list = document.querySelector(".booking-list");
+                    list.append(el);	
+                    
+					}
+                    
+                    
+					
+			
+			})
+	}
+
 
 	//리뷰보기(o), 리뷰작성(o), 결제상세(o)
     bookingListSection.onclick=function(e){
 		
 		
-		//결제상세-----------------------------------------------------------------------------
+		//1) 결제상세-----------------------------------------------------------------------------
 		if(e.target.classList.contains("pay-detail")){
-	
+			
+			
 			var id = e.target.dataset.id;
-
+			console.log("ididid"+id);
 			fetch(
 				`/member/mypage/payment/${id}`,{
 					method:"GET"}
 					)
 			.then((response)=>response.json())
 			.then((data)=>{
-				console.log("페치안에들어옴");
 				let payment = data.payment;
 				let user = data.user;
 				let exhibition = data.exhibition;
 				let booking = data.booking;
-				
 				var bookingDate = booking.date.substring(0,10);
 			
 			
@@ -72,7 +178,6 @@ window.addEventListener("load", function(){
 					            
 				`;
 				
-			
 			paymentTable.innerHTML="";
 			ListSection.insertAdjacentHTML("afterend",template);
 			
@@ -88,11 +193,11 @@ window.addEventListener("load", function(){
 		
 		
 		
-		//등록된 리뷰 보기------------------------------------------------------------------------------
+		//2) 등록된 리뷰 보기------------------------------------------------------------------------------
 		else if(e.target.classList.contains("btn-review")){
 			e.preventDefault();
 			var reviewId = e.target.dataset.id;
-
+			console.log(reviewId);
 			fetch(
 				`/member/mypage/review/api/${reviewId}`,{
 					method:"GET"}
@@ -182,8 +287,9 @@ window.addEventListener("load", function(){
 					
 									            <div class="box" style="background-color:${bookingInfo.color};">
 													<div class="review" >리뷰 수정</div>
-						                			<div class="write-form" >
-							                    		<textarea class="input-review"  spellcheck="false" placeholder="리뷰를 작성해주세요">${bookingInfo.reviewCon}</textarea>
+													 <span id="textLengthCheck" style="padding-left:600px;">(0 / 최대 950자)</span>
+						                			<div class="write-form" style="margin-top: 0px" >
+							                    		<textarea id="content"  class="input-review"  spellcheck="false" placeholder="리뷰를 작성해주세요">${bookingInfo.reviewCon}</textarea>
 						                			</div>
 						                
 							                		<div class="detail-info">
@@ -277,6 +383,17 @@ window.addEventListener("load", function(){
 										})
 															
 							}
+							
+							$("#content").keyup(function(e) {
+	    		
+							var content = $(this).val();
+							$("#textLengthCheck").text("(" + content.length + " / 최대 950자)"); //실시간 글자수 카운팅
+							if (content.length > 950) {
+								alert("최대 950자까지 입력 가능합니다.");
+								$(this).val(content.substring(0, 950));
+								$('#textLengthCheck').text("(950 / 최대 950자)");
+								}
+							});
 						}//수정 끝-------------------------------
 						
 						
@@ -310,15 +427,14 @@ window.addEventListener("load", function(){
 						alert('리뷰가 삭제되었습니다.');
 						reload();
 					}
-//					else
-//						reviewModal.classList.add("d-none");
+
 				}
 				
 				
 				//등록된 리뷰 보기 안에서 닫기
 				var exit = document.querySelector(".btn-exit");
 				console.log(reviewModal)
-				exit.addEventListener("click",()=>{close1(reviewModal)});
+				exit.addEventListener("click",()=>{close(reviewModal)});
 			})
 			
 			}
@@ -330,10 +446,8 @@ window.addEventListener("load", function(){
 			//리뷰 작성--------------------------------------------------------------------------
 			else if(e.target.classList.contains("btn-write")){
 				e.preventDefault();
-				console.log("h");
 				
 				var bookingId = e.target.dataset.id;
-				console.log(bookingId);
 				
 				fetch(
 				`/member/mypage/review/api/view/${bookingId}`,{
@@ -341,20 +455,12 @@ window.addEventListener("load", function(){
 					)
 				.then((response)=>response.json())
 				.then((data)=>{
-				console.log("패치2들")
 				var bookingInfo = data.bookingInfo;
-				console.log(bookingInfo);
 				var bookingDate = bookingInfo.bookingDate.substring(0,10);
 
 
-				console.log("bookingDate"+bookingDate);
-				var now = new Date();
-					now = 
-				    leadingZeros(now.getFullYear(), 4) + '-' +
-				    leadingZeros(now.getMonth() + 1, 2) + '-' +
-				    leadingZeros(now.getDate(), 2);
-				console.log("timestamp"+now);
 
+				
 				if(bookingDate >=  now){
     				alert("관람 전인 리뷰에 대해서는 작성할 수 없습니다. \n관람 후에 작성해 주세요.");
   				}			
@@ -367,9 +473,14 @@ window.addEventListener("load", function(){
 			        			<div class=" review-modal-popup">
 		
 												<div class="box">
+													<div >
 													<div class="review">리뷰 작성</div>
-													<div class="write-form">
-													     <textarea name ="content" spellcheck="false" class="input-review" placeholder="리뷰를 작성해주세요" ></textarea>       
+													    <span id="textLengthCheck" style="padding-left:600px;">(0 / 최대 950자)</span>
+													</div>
+													<div class="write-form" style="margin-top:0px;">
+													    <textarea  id="content" name ="content" spellcheck="false" class="input-review" placeholder="리뷰를 작성해주세요\n최대 1000자까지 작성가능합니다." >
+													    </textarea>       
+														
 													</div>        
 									                <div class="detail-info">
 									                    <div>
@@ -482,33 +593,57 @@ window.addEventListener("load", function(){
 					}
 					
 					
+					
+//			-----------------실시간 글자수체크
+
+				$("#content").keyup(function(e) {
+	    		
+				var content = $(this).val();
+				$("#textLengthCheck").text("(" + content.length + " / 최대 950자)"); //실시간 글자수 카운팅
+				if (content.length > 950) {
+					alert("최대 950자까지 입력 가능합니다.");
+					$(this).val(content.substring(0, 950));
+					$('#textLengthCheck').text("(950 / 최대 950자)");
+					}
+				});
+//			-----------------
 				}
 					
 			})
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
 		}
 		//리뷰 작성끝--------------------------------------------------------------------------
 		
 	
 	
 		}
-	
-				
 			
 		function reload(){  
 		   location.reload();
 		}
 
 		//닫기
-		let close = function(paymodal){
+		let close = function(modal){
 			console.log("in");
-			paymodal.classList.add("d-none");	
+			modal.classList.add("d-none");	
 		}
 		
-		let close1 = function(reviewModal){
-			console.log("in1");	
-			reviewModal.classList.add("d-none");
-		}
 		
+		//현재날짜 
 		function leadingZeros(n, digits) {
 			    var zero = '';
 			    n = n.toString();
@@ -521,3 +656,4 @@ window.addEventListener("load", function(){
 			}
 	
 });
+
