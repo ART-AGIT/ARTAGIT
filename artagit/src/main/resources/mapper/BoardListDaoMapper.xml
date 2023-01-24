@@ -6,7 +6,7 @@
 	<select id="getList" resultType="com.artagit.web.entity.BoardListView">
 		select
    b.*, 
-    (select count(id) from Comment where Comment.postid = b.id group by postId) commentTotal,
+    (select count(id) from Comment where Comment.postid = b.id and Comment.useYn = "Y" group by postId) commentTotal,
     (select nickname from Member where  id = b.memId ) nickname,
     (select image from Member where id = b.memId ) memImage,
     (select name from BoardCategory where id = b.roleId) name,
@@ -24,7 +24,7 @@ order by regDate desc;
 	<select id="getListInit" resultType="com.artagit.web.entity.BoardListView">
 	select
 	   b.*, 
-	    (select count(id) from Comment where Comment.postid = b.id group by postId) commentTotal,
+	    (select count(id) from Comment where Comment.postid = b.id and Comment.useYn = "Y" group by postId) commentTotal,
 	    (select nickname from Member where  id = b.memId ) nickname,
 	    (select name from BoardCategory where id = b.roleId) name,
 	    (select count(memId) from BoardLike where postId = b.id group by postId) hearts,
@@ -46,7 +46,7 @@ order by regDate desc;
 		<select id="getListById" resultType="com.artagit.web.entity.BoardListView">
 		select
   	 b.*, 
-    (select count(id) from Comment where Comment.postid = b.id group by postId) commentTotal,
+    (select count(id) from Comment where Comment.postid = b.id and Comment.useYn = "Y" group by postId) commentTotal,
     (select nickname from Member where  id = b.memId ) nickname,
     (select name from BoardCategory where id = b.roleId) name,
     (select image from Member where id = b.memId ) memImage
@@ -59,7 +59,7 @@ order by regDate desc;
 		<select id="getLikeList" resultType="com.artagit.web.entity.BoardListView">
 			select
 	  	 bl.memId as blmemId, bl.postId as blPostId, b.*, 
-	    (select count(id) from Comment where Comment.postid = b.id group by postId) commentTotal,
+	    (select count(id) from Comment where Comment.postid = b.id and Comment.useYn = "Y" group by postId) commentTotal,
 	    (select nickname from Member where  id = b.memId ) nickname,
 	    (select name from BoardCategory where id = b.roleId) name,
 	    (select count(memId) from BoardLike where postId = b.id group by postId) hearts,

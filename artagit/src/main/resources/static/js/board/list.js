@@ -22,8 +22,7 @@ window.addEventListener("load", function() {
 		
 		if (currentLi != null && currentLi != e.target && currentLi.querySelector(".div-btn") != e.target)
 			currentLi.classList.remove("board-selected");
-			console.log("Did you just boop me?");
-			console.log(currentDiv.tagName+"tag네임");
+			
 		currentLi = li;
 
 

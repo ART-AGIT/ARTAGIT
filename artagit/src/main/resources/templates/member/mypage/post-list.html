@@ -47,6 +47,10 @@
        <div class="board-box">
 			    <div class="post-list">
 			        <h2 class="">작성글 관리</h2>
+			        <div class="nonexistence-mess" th:if="${#lists.isEmpty(list)}" >
+				            <p class="">작성한 글이 없습니다.</p>
+				            <a class="btn btn-default-fill" th:href="@{/board/list}" >커뮤니티 가기</a>
+			        </div>
      
 					        <form class="" action="post-list" method="get">
 					        <section class="board-list" th:each="board:${list}">
