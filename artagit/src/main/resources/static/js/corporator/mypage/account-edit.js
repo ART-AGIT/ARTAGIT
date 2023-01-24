@@ -118,7 +118,7 @@ window.addEventListener("load",function(){
 
 			if(e.target.classList.contains("icon-write")){
 				//  img 수정
-				imgInput.onclick = function(e){
+				fileInput.onclick = function(e){
 					//  e.preventDefault();
 					console.log("test")
 					let event = new MouseEvent("click",{

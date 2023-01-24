@@ -17,7 +17,6 @@ public class Corporate {
 	private String managerPhone;
 	private String museumName; 
 	private String useYN;
-	private String image;
 	private int roleId;
 	private int localId;
 	private String img;
@@ -32,7 +31,7 @@ public class Corporate {
 	public Corporate(int id, String name, String loginId, String password, String ceoName, String email,
 			int businessNum, String manager, String phone, String regState, String processDate, String address,
 			String refuseReason, String managerPhone, String museumName, String image, int roleId, int localId) {
-		super();
+		
 		this.id = id;
 		this.name = name;
 		this.loginId = loginId;
@@ -204,6 +203,19 @@ public class Corporate {
 	public void setUseYN(String useYN) {
 		this.useYN = useYN;
 	}
+	
+
+	public String getImg() {
+		return img;
+	}
+
+
+	public void setImg(String img) {
+		this.img = img;
+	}
+
+
+
 
 	@Override
 	public String toString() {
