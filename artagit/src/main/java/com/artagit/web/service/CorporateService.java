@@ -21,4 +21,7 @@ public interface CorporateService {
 	
 	// mypage 주최자 정보 수정
 	int updateAccount(ArtagitUserDetails user);
+
+
+	int chkId(String loginId);
 }

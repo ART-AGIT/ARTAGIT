@@ -26,4 +26,7 @@ public interface CorporateDao {
 
 	// mypage 주최자 정보 수정
 	int updateAccount(ArtagitUserDetails user);
+
+	// 아이디 중복 확인
+	int chkId(String loginId);
 }

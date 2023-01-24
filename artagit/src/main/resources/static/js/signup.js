@@ -69,7 +69,7 @@ window.addEventListener("load", function(){
 
     // 비빌번호 정규식
     elInputPassword.onkeyup = function(){
-        var regExpPwd = /^(?=.*[a-z])(?=.*\d)(?=.*[~!@#$%^&*()+|=])[a-z\d~!@#$%^&*()+|=]{8,16}$/
+        var regExpPwd = /^[a-z0-9_]{8,16}$/
 
         
         if(elInputPassword.value==false){ 

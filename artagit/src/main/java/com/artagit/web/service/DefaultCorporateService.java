@@ -72,4 +72,12 @@ public class DefaultCorporateService implements CorporateService{
 		// TODO Auto-generated method stub
 		return corporateDao.updateAccount(user);
 	}
+
+
+
+	@Override
+	public int chkId(String loginId) {
+		int cnt=corporateDao.chkId(loginId);
+		return cnt;
+	}
 }

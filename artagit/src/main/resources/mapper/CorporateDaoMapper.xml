@@ -40,9 +40,8 @@
 	
 	<update id="updateAccount" parameterType="com.artagit.web.entity.Corporate">
 	update Corporate
-		<trim prefix="SET" suffixOverrides=",">
-			<if test="img != null">img = #{img},</if>
-		
+<!-- 		<trim prefix="SET" suffixOverrides=","> -->
+		<set>		
 			<if test="ceoName != null">ceoName = #{ceoName},</if>
 			<if test="name != null">name = #{name},</if>
 			<if test="phone != null">phone = #{phone},</if>
@@ -53,10 +52,15 @@
 			<if test="manager != null">manager = #{manager},</if>
 			<if test="email != null">email = #{email},</if>
 			<if test="managerPhone!= null">managerPhone = #{managerPhone}</if>
-			
-		</trim>
+			</set>
+<!-- 		</trim> -->
 			where id = #{id}
 	</update>
 	
+<!-- 	아이디 중복확인 -->
+	<select id="chkId" resultType="int">
+		select count(id) from Corporate
+			where loginId = #{loginId}
+	</select>
 	
 </mapper>

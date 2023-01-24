@@ -228,6 +228,7 @@ public class MypageController {
 	      
 	      Member member = memberService.get(user.getId());
 	      model.addAttribute(member);
+	      model.addAttribute("user",user);
 	      return "member/mypage/like-list";
 	   }
 	
