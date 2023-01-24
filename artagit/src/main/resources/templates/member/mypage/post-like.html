@@ -46,7 +46,10 @@
        <div class="board-box">
 			    <div class="post-list">
 			        <h2 class="">좋아요 한 게시글</h2>
-     
+      				<div class="nonexistence-mess" th:if="${#lists.isEmpty(list)}" >
+				            <p class="">좋아요한 글이 없습니다.</p>
+				            <a class="btn btn-default-fill" th:href="@{/board/list}" >커뮤니티 가기</a>
+			        </div>
 			        <form class="" action="post-like" method="get">
 			        <section class="board-list" th:each="board:${list}">
 				        <h1 class="board-title">
