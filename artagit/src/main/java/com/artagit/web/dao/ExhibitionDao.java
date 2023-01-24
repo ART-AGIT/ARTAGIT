@@ -62,7 +62,11 @@ public interface ExhibitionDao {
 
 	Exhibition getexh(int exhId);
 
+	//[주최자] 전시등록
 	int insert(Exhibition exhibition);
+	
+	//[주최자] 가장 최근에 등록한 전시
+	Exhibition getLast(int corpId);
 
 	// [일반회원] 좋아요 전시
 	List<Exhibition> getLikeList(int id);

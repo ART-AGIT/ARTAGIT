@@ -45,10 +45,12 @@ public class DefaultExhibitionService implements ExhibitionService {
 	
 	
 	@Override
-	public int insert (Exhibition exhibition) {
+	//전시등록
+	public Exhibition insert (Exhibition exhibition,int corpId) {
 		
-		int result = exhDao.insert(exhibition);
-		
+//		int result = exhDao.insert(exhibition);
+		exhDao.insert(exhibition);
+		Exhibition result = exhDao.getLast(corpId);
 		return result;
 		
 	}
