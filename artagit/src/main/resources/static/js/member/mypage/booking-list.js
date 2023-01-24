@@ -25,11 +25,12 @@ window.addEventListener("load", function(){
 		fetch(`/member/mypage/review/api/list${queryString}`)
 		.then((response)=>response.json())
 		.then((list)=>{
+			
+            if(list.length<6)
+            	itemMore.classList.add("d-none");
 
 			for(let booking of list){
 
-                    if(list.length<6)
-                    	itemMore.classList.add("d-none");
 						
 					var bookingDate = booking.bookingDate.substring(0,10);
 						
