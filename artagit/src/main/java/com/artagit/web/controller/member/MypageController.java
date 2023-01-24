@@ -86,10 +86,16 @@ public class MypageController {
 		Date today = new Date(dateFormat.parse(todayfm).getTime());
 
 		List<BookingList> bookingList = bookingService.getListById(user.getId(),page);
-//		int countOfBooking = bookingList.size();
+
 		int countOfBooking = bookingService.getCount(user.getId());
-		System.out.println(countOfBooking);
-		for(int i=0;i<6;i++) {
+		int temp;
+		if(countOfBooking<6)
+			temp=countOfBooking;
+		else
+			temp=6;
+		
+		System.out.println(temp);
+		for(int i=0;i<temp;i++) {
 			Date date = bookingList.get(i).getBookingDate();
 			int compare = today.compareTo(date);
 			
