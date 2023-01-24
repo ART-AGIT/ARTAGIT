@@ -27,8 +27,8 @@ window.addEventListener("load", function(){
 		.then((list)=>{
 
 			for(let booking of list){
-
-                    if(list.length<6)
+					console.log("length"+list.length)
+                    if(list.length<=6)
                     	itemMore.classList.add("d-none");
 						
 					var bookingDate = booking.bookingDate.substring(0,10);
