@@ -62,6 +62,14 @@ public class DefaultCorporateService implements CorporateService{
 		return corporateDao.updateAccount(user);
 	}
 
+
+
+	@Override
+	public int chkId(String loginId) {
+		int cnt=corporateDao.chkId(loginId);
+		return cnt;
+	}
+
 	// [주최자] 입력한 정보로 ID 확인
 	@Override
 	public Corporate getId(String name, String email) {

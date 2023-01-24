@@ -17,9 +17,9 @@ public class Corporate {
 	private String managerPhone;
 	private String museumName; 
 	private String useYN;
-	private String image;
 	private int roleId;
 	private int localId;
+	private String img;
 	
 	public Corporate() {
 		// TODO Auto-generated constructor stub
@@ -31,7 +31,7 @@ public class Corporate {
 	public Corporate(int id, String name, String loginId, String password, String ceoName, String email,
 			int businessNum, String manager, String phone, String regState, String processDate, String address,
 			String refuseReason, String managerPhone, String museumName, String image, int roleId, int localId) {
-		super();
+		
 		this.id = id;
 		this.name = name;
 		this.loginId = loginId;
@@ -49,8 +49,8 @@ public class Corporate {
 		this.museumName = museumName;
 
 		this.useYN = useYN;
+		this.img = img;
 
-		this.image = image;
 		this.roleId = roleId;
 		this.localId = localId;
 
@@ -203,18 +203,17 @@ public class Corporate {
 	public void setUseYN(String useYN) {
 		this.useYN = useYN;
 	}
-
 	
 
-	public String getImage() {
-		return image;
+	public String getImg() {
+		return img;
 	}
 
 
-
-	public void setImage(String image) {
-		this.image = image;
+	public void setImg(String img) {
+		this.img = img;
 	}
+
 
 
 
@@ -224,11 +223,11 @@ public class Corporate {
 				+ ", ceoName=" + ceoName + ", email=" + email + ", businessNum=" + businessNum + ", manager=" + manager
 				+ ", phone=" + phone + ", regState=" + regState + ", processDate=" + processDate + ", address="
 				+ address + ", refuseReason=" + refuseReason + ", managerPhone=" + managerPhone + ", museumName="
-				+ museumName + ", useYN=" + useYN + ", roleId=" + roleId + ", localId=" + localId + "]";
+				+ museumName + ", useYN=" + useYN + ", roleId=" + roleId + ", localId=" + localId + ", img=" + img
+				+ "]";
 	}
 
 
 
-	
 	
 }

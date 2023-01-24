@@ -32,6 +32,8 @@ public class ArtagitUserDetails implements UserDetails {
 	private String managerPhone;
 	private String museumName;
 	private String address;
+	
+
 	private int roleId;
 	
 	
@@ -237,9 +239,6 @@ public class ArtagitUserDetails implements UserDetails {
 	public int getBusinessNum() {
 		return businessNum;
 	}
-
-	
-	
 	
 
 }
