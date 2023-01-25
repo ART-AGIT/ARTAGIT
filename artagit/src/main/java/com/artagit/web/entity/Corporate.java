@@ -30,7 +30,7 @@ public class Corporate {
 
 	public Corporate(int id, String name, String loginId, String password, String ceoName, String email,
 			int businessNum, String manager, String phone, String regState, String processDate, String address,
-			String refuseReason, String managerPhone, String museumName, String image, int roleId, int localId) {
+			String refuseReason, String managerPhone, String museumName, String img, int roleId, int localId, String useYN) {
 		
 		this.id = id;
 		this.name = name;

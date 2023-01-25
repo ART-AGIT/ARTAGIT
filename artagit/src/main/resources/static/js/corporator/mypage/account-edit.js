@@ -15,7 +15,8 @@ window.addEventListener("load",function(){
 
 	// img 등록하기
 	const editImg = document.querySelector(".edit-img")
-	const imgInput = this.document.querySelector(".img-input");
+//	const imgInput = this.document.querySelector(".img-input");
+	const imgInput = this.document.querySelectorAll(".img-input");
 	const fileInput = this.document.querySelector(".file-input");
 	
 	// 회원탈퇴 modal
@@ -28,6 +29,7 @@ window.addEventListener("load",function(){
 //	const modal = document.querySelector(".modal-wrap");
 	const saveBtn = this.document.querySelector(".save-btn");
 	const okBtn = document.querySelector(".ok-btn");
+	const btnWrap =document.querySelector(".button-wrap");
 	
 	const editmodal = document.querySelector(".modaledit");
 //	const saveBtn = this.document.querySelector(".save-btn");
@@ -53,7 +55,6 @@ window.addEventListener("load",function(){
 	}
 
 	editcancelBtn.onclick = function(e){
-		e.preventDefault();
 		editmodal.style.display="none";
 	}
 
@@ -70,17 +71,12 @@ window.addEventListener("load",function(){
 		if(e.target.classList.contains("cancel-btn"))
 			modal[1].style.display="none";
 	}
-	delBtn.onclick = function(e){
-		
-		console.log("회원탈퇴")
-	}
-	
 	
 		// 토글
 		formWrap.onclick = function(e){
              e.preventDefault()
             console.log(e.target);
-
+			
             if(regListBox[1].classList.contains("d-none") && (e.target == btnHeader[1]
     															|| e.target == btnToggle[1] 
             													|| e.target == btnIcon[1])){
@@ -118,32 +114,32 @@ window.addEventListener("load",function(){
 
 			if(e.target.classList.contains("icon-write")){
 				//  img 수정
-				fileInput.onclick = function(e){
-					//  e.preventDefault();
-					console.log("test")
-					let event = new MouseEvent("click",{
-						'view':window,
-						'bubbles':true,
-						'cancelable':true
-						
-					})
-					fileInput.dispatchEvent(event);
-					
-				}
-				
-				// 미리보기
-				fileInput.oninput = function(e){
-					
-					let url = fileInput.files[0];
-					let reader = new FileReader();
-					reader.onload = (evt) =>{
-						imgInput.src = evt.target.result;
-					};
-					reader.readAsDataURL(url)
-				}
+				console.log("이미지 수정");
+				console.log("imgInput[1]"+imgInput[1]);
+				imgInput[1].onclick=function(e){
+			      e.preventDefault();
+			      let event = new MouseEvent("click",{
+			         'view':window,
+			         'bubble':true,
+			         'cancelable':true
+			         
+			      });
+			      fileInput.dispatchEvent(event); //이거무슨의미 
+			   	 }
+			   
+			   //미리보기로 한 이미지를 
+			   fileInput.oninput = function(e){
+			      let url =fileInput.files[0];
+			      
+			      let reader = new FileReader();
+			      reader.onload = (evt)=>{
+			         imgInput[1].src = evt.target.result;
+			      };
+			      reader.readAsDataURL(url);
+			   }
 			}
 
-        }
+        };
         
         
         
@@ -194,6 +190,8 @@ window.addEventListener("load",function(){
             Pwdchksuccessmassage.classList.add('d-none');
         }
     }
+    
+    
 		document.getElementById("address_kakao").addEventListener("click", function(){ //주소입력칸을 클릭하면
 //       	e.preventDefault();
        	console.log("주소를 찾자!!!!!!!!!!!!!!!!!!!!!!!")
@@ -210,6 +208,3 @@ window.addEventListener("load",function(){
         
 	 
  });
-
-
- 

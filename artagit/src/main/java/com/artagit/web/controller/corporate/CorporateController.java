@@ -87,7 +87,7 @@ public class CorporateController {
 			System.out.println("이미지%%%%%%%%%%%%%%%%%%%%"+imgFile);
 			
 			if (!img.isEmpty()) {
-				user.setImg(img.getOriginalFilename());
+				corporate.setImg(img.getOriginalFilename());
 				String path = "/image"; // 어디에서 돌아갈지 모르니 운영되고 있는 home directory에서 생각 앞쪽은 어케될지 모름
 				String realPath = request.getServletContext().getRealPath(path);
 				System.out.println(realPath);
@@ -120,7 +120,7 @@ public class CorporateController {
 			user.setEmail(corporate.getEmail());
 			user.setManagerPhone(corporate.getManagerPhone());
 			
-//			user.setImg(corporate.getImg());
+			user.setImg(corporate.getImg());
 			
 			model.addAttribute("user",user);
 //			model.addAttribute("corporate",corporate);
