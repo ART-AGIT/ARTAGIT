@@ -155,13 +155,11 @@ window.addEventListener("load",function(){
 
         else if(regExpPwd.test(elInputPassword.value)==true){
             Pwdfailuremassage.classList.add('d-none');
-
             Pwdsuccessmassage.classList.remove('d-none');
             
         }
         else {
-            Pwdfailuremassage.classList.remove('d-none');
-    
+            Pwdfailuremassage.classList.remove('d-none');  
             Pwdsuccessmassage.classList.add('d-none');
         }
 

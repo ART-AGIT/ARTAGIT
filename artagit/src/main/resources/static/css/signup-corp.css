@@ -92,6 +92,10 @@ input:focus::placeholder {
     -webkit-mask-size: 15px 15px;
     height:0;
 }
+.id-confirm,
+.password-confirm{
+      padding-left: 10px;
+}
 
 /* 아이디, 비밀번호 유효성 및 정규식 */
 .idFialure-message,
@@ -112,29 +116,38 @@ input:focus::placeholder {
 @media (min-width: 993px) {
 		
 	.toggle{
-		width: 355px;
+		width: 480px;
 	    height: 42px;
     	border: 1px solid #969696;
 	}
-	
-	
+		
     .toggle > h1 {
-		padding-right: 220px;
+		padding-right: 345px;
     
     }
     
-    .box-wrap{
-    
+    .reg-list-input-box {
+    	flex-direction: row;
+    	width:466px;   	
     }
 
 	.reg-list-input-box>label{
 		padding-left: 7px;
+		width:115px;
 	}
 	
-/* 	.reg-list-input-box>div { */
-/*     	justify-content: center; */
-/* 	} */
-	
-	
-	
+	.reg-list-input-box>div{
+		justify-content: end;
+	}
+	.address{
+		width: 256px;
+	}
+	.id-confirm,
+	.password-confirm{
+        padding-left: 137px;
+	}
+		
+	.reg-list-box > input {
+		margin-left: 135px;		
+	}
 }

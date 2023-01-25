@@ -190,8 +190,13 @@ public class DefaultExhibitionService implements ExhibitionService {
 
 	// LikeList
 	@Override
-	public List<Exhibition> getLikeListById(int id) {
-		List<Exhibition> list = exhDao.getLikeList(id);
+	public List<Exhibition> getLikeListById(int id,int page) {
+		int size=6;
+		int offset = (page-1)*size;
+		
+		System.out.println("서비스의 page"+page);
+		System.out.println("서비스의 offset"+offset);
+		List<Exhibition> list = exhDao.getLikeList(id,page,offset,size);
 		return list;
 	}
 

@@ -67,7 +67,6 @@ public class CorporateController {
 		public String modify(MultipartFile imgFile,HttpServletRequest request, 
 				@AuthenticationPrincipal ArtagitUserDetails user, Model model,  Corporate corporate) throws IOException {
 			System.out.println("정보 수정 하자~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-			
 			// 정보 수정 - 비밀번호 수정 안했을 때 유지코드
 			if (!corporate.getPassword().isEmpty()) {
 				String password = corporate.getPassword();
@@ -82,12 +81,13 @@ public class CorporateController {
 //			System.out.println("user"+user);
 			
 			// 이미지
-			MultipartFile img = imgFile;
 //			user.setImage(corporate.getImage());
+			MultipartFile img = imgFile;
 			System.out.println("이미지%%%%%%%%%%%%%%%%%%%%"+imgFile);
 			
 			if (!img.isEmpty()) {
 				corporate.setImg(img.getOriginalFilename());
+				user.setImg(corporate.getImg());
 				String path = "/image"; // 어디에서 돌아갈지 모르니 운영되고 있는 home directory에서 생각 앞쪽은 어케될지 모름
 				String realPath = request.getServletContext().getRealPath(path);
 				System.out.println(realPath);
@@ -118,9 +118,8 @@ public class CorporateController {
 					
 			user.setManager(corporate.getManager());
 			user.setEmail(corporate.getEmail());
-			user.setManagerPhone(corporate.getManagerPhone());
+			user.setManagerPhone(corporate.getManagerPhone());	
 			
-			user.setImg(corporate.getImg());
 			
 			model.addAttribute("user",user);
 //			model.addAttribute("corporate",corporate);

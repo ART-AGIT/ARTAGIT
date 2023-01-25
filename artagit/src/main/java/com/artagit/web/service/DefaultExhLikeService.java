@@ -22,6 +22,12 @@ public class DefaultExhLikeService implements ExhLikeService {
 		
 		return lists;
 	}
+
+	@Override
+	public int getCount(int id) {
+		int getCount = exhLikeDao.getCount(id);
+		return getCount;
+	}
 	
 	
 

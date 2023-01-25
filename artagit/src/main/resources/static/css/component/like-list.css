@@ -159,6 +159,24 @@ form {
 	display:none;	
 }
 
+.item-more{
+	font-family: 'Pretendard', Tahoma, Geneva, Verdana, sans-serif;
+	background-color:white;
+	width:250px;
+	height:50px;
+	border:none;
+	display:flex;
+	gap:10px;
+	margin:0 auto;
+	align-items: center;
+	margin-top:20px;
+    /* align-content: center; */
+    justify-content: center;
+	border-top:2px dashed rgba(157, 157, 157, 0.353);
+	border-bottom:2px dashed rgba(157, 157, 157, 0.353);
+	font-size:20px;
+}
+
 
 
 /* pc */

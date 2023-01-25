@@ -8,6 +8,6 @@ public interface ExhLikeService {
 
 	List<ExhLike> getListByMemberId(int id);
 	
-	
+	int getCount(int id);
 
 }
