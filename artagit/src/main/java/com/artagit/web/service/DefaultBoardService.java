@@ -144,10 +144,12 @@ public class DefaultBoardService implements BoardService{
 	@Transactional
 	public List<BoardListView> getLikeList(int memId) {
 		// TODO Auto-generated method stub
+		int page =1;
+		int size =3;
+		int offset = (page-1)*size;
 		
 		
-		
-		return boardListDao.getLikeList(memId);
+		return boardListDao.getLikeList(memId,offset,size);
 	}
 
 
@@ -155,6 +157,15 @@ public class DefaultBoardService implements BoardService{
 	public void hitCountUp(Board board) {
 		// TODO Auto-generated method stub
 		
+	}
+
+
+	@Override
+	public List<BoardListView> getListById(int memId, int page) {
+
+		int size = 6;
+		int offset = (page-1)*size;
+		return boardListDao.getListById(memId,page,offset,size);
 	}
 
 

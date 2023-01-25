@@ -5,15 +5,7 @@ window.addEventListener("load", function(){
 	let title = document.querySelector(".input-title");
 	let content = document.querySelector(".input-content");
 
- 	function login(){
-            var loginForm = document.querySelector("form");
-            
-            if(!title.value || !content.value){
-                alert("제목과 내용 모두 입력해주세요.")
-            }else{
-                loginForm.submit();
-            }
-        }
+ 
 
 
 	imgInput.onclick = function(e) {
