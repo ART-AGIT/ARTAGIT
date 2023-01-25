@@ -155,15 +155,15 @@ public class ExhibitionController {
 	}
 	
 	@PostMapping("insert")
-	@ResponseBody
+//	@ResponseBody
 	public String insert(MultipartFile file1,MultipartFile file2, Exhibition exhibition,HttpServletRequest request
 			,@AuthenticationPrincipal ArtagitUserDetails user) throws IOException{
 		
-		System.out.print("들어옴들어옴");
-		System.out.print("poster" +file1);
-		System.out.print("detailImage" +file2);
-		System.out.print("exhibition" +exhibition);
-		System.out.print("주최자의 전시등록에서 user" +user.getId());
+		System.out.println("들어옴들어옴");
+		System.out.println("poster" +file1);
+		System.out.println("detailImage" +file2);
+		System.out.println("exhibition" +exhibition);
+		System.out.println("주최자의 전시등록에서 user" +user.getId());
 		
 		System.out.println("이미지파일명"+file1.getOriginalFilename());
 		System.out.println("이미지파일명"+file2.getOriginalFilename());
@@ -206,7 +206,7 @@ public class ExhibitionController {
 		Exhibition result = service.insert(exhibition,user.getId());
 		String id = String.valueOf(result.getId());
 		System.out.println(id);
-		return "";
+		return "redirect:/exhibition/"+id;
 	 }
 	
 	
