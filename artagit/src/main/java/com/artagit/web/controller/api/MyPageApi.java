@@ -269,16 +269,20 @@ public class MyPageApi {
 	
 	
 
-//	/******좋아요한 게시글***********/
-//	@GetMapping("/post-like")
-//	public List<BoardListView> getListByCategory(
-//			@AuthenticationPrincipal ArtagitUserDetails user) {
-//		int memId = user.getId();
-//		List<BoardListView> list = boardService.getLikeList(memId);
-//		System.out.println("++++++++++=" + list);
-//		return list;
-//	}
-
-
+	/******좋아요한 게시글***********/
+	@GetMapping("/board/api/list")
+	public List<BoardListView> boardList(Model model,
+			@AuthenticationPrincipal ArtagitUserDetails user,
+			@RequestParam(defaultValue = "1", name = "p") int page) throws ParseException {
+				
+//		Map<String,Object> dto = new HashMap<>();
+		System.out.println("page"+page);
+		//ex) 2페이지이면 limit 6,6 개 보내기 
+		List<BoardListView> list = boardService.getListById(user.getId(),page);
+//		dto.put("list", bookingList);
+		
+		System.out.println(list);
+		return list;
+	}
 	
 }

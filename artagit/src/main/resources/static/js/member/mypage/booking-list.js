@@ -22,7 +22,7 @@ window.addEventListener("load", function(){
 
 		queryString = `?p=${page}`;
 
-		fetch(`/member/mypage/review/api/list${queryString}`)
+		fetch(`/member/mypage/board/api/list${queryString}`)
 		.then((response)=>response.json())
 		.then((list)=>{
 

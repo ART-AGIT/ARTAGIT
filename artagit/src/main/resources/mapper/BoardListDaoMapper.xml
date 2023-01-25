@@ -54,7 +54,8 @@ order by regDate desc;
 		where
 					
 					 useYN = "Y" and memId = #{id}
-		order by regDate desc;
+		order by regDate desc
+		limit #{offset},#{size};
 		</select>
 		<select id="getLikeList" resultType="com.artagit.web.entity.BoardListView">
 			select
@@ -69,7 +70,8 @@ order by regDate desc;
 			where
 						
 						 useYN = "Y" and bl.memId = #{memId}
-			order by regDate desc;
+			order by regDate desc
+			limit #{offset},#{size};
 		</select>
 		
 	

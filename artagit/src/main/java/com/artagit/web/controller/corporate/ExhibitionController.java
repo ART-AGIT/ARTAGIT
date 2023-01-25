@@ -153,48 +153,59 @@ public class ExhibitionController {
 	}
 	
 	@PostMapping("insert")
-	@ResponseBody
-	public String insert(@RequestParam("poster") MultipartFile poster, @RequestParam("detailImage") MultipartFile detailImage, Exhibition exhibition,HttpServletRequest request) throws IOException{
-		
-		service.insert(exhibition);
-	//	System.out.print("전시 :" +exhibition.toString());
-		
-//		exhibition.setPoster(poster.getOriginalFilename());
-//		exhibition.setDetailImage(detailImage.getOriginalFilename());
-			
-//		System.out.println("포스터" + poster);
-//		System.out.println("디테일이미지" + detailImage);
-		
-		//for(MultipartFile file : files)
-			//file1 => poster, file2 => detailImage에 넣어주기
-			
-			//			System.out.println(mf);
+//  @ResponseBody
+  public String insert(MultipartFile file1,MultipartFile file2, Exhibition exhibition,HttpServletRequest request
+        ,@AuthenticationPrincipal ArtagitUserDetails user) throws IOException{
+     
+     System.out.println("들어옴들어옴");
+     System.out.println("poster" +file1);
+     System.out.println("detailImage" +file2);
+     System.out.println("exhibition" +exhibition);
+     System.out.println("주최자의 전시등록에서 user" +user.getId());
+     
+     System.out.println("이미지파일명"+file1.getOriginalFilename());
+     System.out.println("이미지파일명"+file2.getOriginalFilename());
+     
+     exhibition.setCorpId(user.getId());
+     exhibition.setPoster(file1.getOriginalFilename());
+     exhibition.setDetailImage(file2.getOriginalFilename());
+     List<MultipartFile> imgList = new ArrayList<>();
 
-//		if (!img.isEmpty()) {
-//			String path = "/image"; 
-//			String realPath = request.getServletContext().getRealPath(path);
-//			System.out.println(realPath);
-//			
-//			File pathFile = new File(realPath);
-//			if (!pathFile.exists())
-//				pathFile.mkdirs();
-//			
-//			String fullPath = realPath + File.separator + img.getOriginalFilename();
-//			InputStream fis = img.getInputStream();
-//			OutputStream fos = new FileOutputStream(fullPath);
-//			byte[] buf = new byte[1024];
-//			int size = 0;
-//			while ((size = fis.read(buf)) >= 0)
-//				fos.write(buf, 0, size);
-//			
-//			fos.close();
-//			fis.close();
-//		}
-
-	
-		return "redirect:list";
-		
-	}
+     imgList.add(file1);
+     imgList.add(file2);
+     
+     System.out.println(imgList);
+     
+     for(MultipartFile file: imgList) {
+        
+        if(!file.isEmpty()) {
+           String path = "/image/poster"; 
+           String realPath = request.getServletContext().getRealPath(path);
+           System.out.println(realPath);
+           
+           File pathFile = new File(realPath);
+           if (!pathFile.exists())
+              pathFile.mkdirs();
+           
+           String fullPath = realPath + File.separator + file.getOriginalFilename();
+           InputStream fis = file.getInputStream();
+           OutputStream fos = new FileOutputStream(fullPath);
+           byte[] buf = new byte[1024];
+           int size = 0;
+           while ((size = fis.read(buf)) >= 0)
+              fos.write(buf, 0, size);
+           
+           fos.close();
+           fis.close();
+           
+        }
+     }
+     System.out.println(exhibition);
+     Exhibition result = service.insert(exhibition,user.getId());
+     String id = String.valueOf(result.getId());
+     System.out.println(id);
+     return "redirect:/exhibition/{id}";
+   }
 
 	// 주최자가 등록한 전시 데이터 수정페이지에 불러오기
 	@GetMapping("modify/{id}")

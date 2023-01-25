@@ -118,9 +118,9 @@ window.addEventListener("load",function(){
 
 			if(e.target.classList.contains("icon-write")){
 				//  img 수정
-				fileInput.onclick = function(e){
-					//  e.preventDefault();
-					console.log("test")
+				imgInput.onclick = function(e){
+					// e.preventDefault();
+					console.log("test---------------------")
 					let event = new MouseEvent("click",{
 						'view':window,
 						'bubbles':true,
@@ -133,7 +133,7 @@ window.addEventListener("load",function(){
 				
 				// 미리보기
 				fileInput.oninput = function(e){
-					
+				
 					let url = fileInput.files[0];
 					let reader = new FileReader();
 					reader.onload = (evt) =>{

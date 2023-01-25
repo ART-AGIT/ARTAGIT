@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 
 import com.artagit.web.entity.BoardListView;
 
+
 @Mapper
 public interface BoardListDao {
 	List<BoardListView> getList(
@@ -20,6 +21,8 @@ public interface BoardListDao {
 
 	List<BoardListView> getListById(int memId);
 
-	List<BoardListView> getLikeList(int memId);
+	List<BoardListView> getLikeList(int memId,int offset,int size);
+
+	List<BoardListView> getListById(int memId, int page, int offset, int size);
 	
 }
