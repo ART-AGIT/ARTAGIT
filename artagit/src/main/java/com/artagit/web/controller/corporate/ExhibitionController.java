@@ -172,7 +172,7 @@ public class ExhibitionController {
 	
 	@PostMapping("insert")
 	@ResponseBody
-	public String insert(@RequestParam("poster") MultipartFile poster, @RequestParam("detailImage") MultipartFile detailImage, Exhibition exhibition,HttpServletRequest request) throws IOException{
+	public String insert(@RequestParam("posters")List<MultipartFile> files, Exhibition exhibition,HttpServletRequest request) throws IOException{
 		
 		service.insert(exhibition);
 	//	System.out.print("전시 :" +exhibition.toString());
