@@ -162,4 +162,10 @@ textarea.input{
     justify-content: space-between;
     margin-top: 30px;
   }
-  }
+.reg-list-input-box-image{
+  	display: flex;
+    flex-direction: column;
+    align-items: end;
+    cursor:pointer;
+	}
+ }
