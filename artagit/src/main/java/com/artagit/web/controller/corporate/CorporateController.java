@@ -36,22 +36,6 @@ public class CorporateController {
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 	
-	// 회원가입
-	@GetMapping("signup")
-	public String signUp() {
-		return "signup-corp";
-	}
-	
-	@PostMapping("signup")
-	public String reg(Corporate corp){
-
-		int result = corpService.signUp(corp);
-//		System.out.println("insert 결과 => " + result);
-//		System.out.println("가입된 corporate => " + corp);
-		return "redirect:/";
-		
-	}
-	
 
 	//===================My page===================
 	//===================회원수정===================

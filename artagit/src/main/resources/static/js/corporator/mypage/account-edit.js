@@ -45,8 +45,18 @@ window.addEventListener("load",function(){
     let Pwdchkfailuremassage = this.document.querySelector(".chkFialure-message");
     let Pwdchksuccessmassage = this.document.querySelector(".chkSuccess-message");
 
-
-
+	//비번 유효성 - 가입 막기
+	let pwdReg = true;
+	let pwdChk = true;
+	
+	okBtn.onclick = function(e){
+//		e.preventDefault();
+		if(pwdReg == false || pwdChk == false){
+			e.preventDefault();
+			alert("비밀버호가 맞지 않습니다.");
+			editmodal.style.display="none";
+		}
+	}
 
 	//회원수정
 	saveBtn.onclick = function(e){
@@ -156,11 +166,12 @@ window.addEventListener("load",function(){
         else if(regExpPwd.test(elInputPassword.value)==true){
             Pwdfailuremassage.classList.add('d-none');
             Pwdsuccessmassage.classList.remove('d-none');
-            
+            pwdReg = true;
         }
         else {
             Pwdfailuremassage.classList.remove('d-none');  
             Pwdsuccessmassage.classList.add('d-none');
+            pwdReg = false;
         }
 
     };
@@ -174,18 +185,19 @@ window.addEventListener("load",function(){
         if(pwd2==false){ 
             Pwdchkfailuremassage.classList.add('d-none');
             Pwdchksuccessmassage.classList.add('d-none');
+
         }
 
         else if(pwd1 === pwd2){
             Pwdchkfailuremassage.classList.add('d-none');
-
             Pwdchksuccessmassage.classList.remove('d-none');
+            pwdChk = true;
         }
         else{
 
             Pwdchkfailuremassage.classList.remove('d-none');
-
             Pwdchksuccessmassage.classList.add('d-none');
+            pwdChk = false;
         }
     }
     

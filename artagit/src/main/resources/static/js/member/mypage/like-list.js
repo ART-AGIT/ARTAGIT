@@ -49,7 +49,10 @@ let id = 0;
  				console.log("result"+result);
  				if(result==1){
  				console.log("삭제완료");  
- 				el.remove();  
+ 				el.remove(); 
+ 				 
+// 				 if()
+ 				 
  				}
  			})
 

@@ -28,14 +28,33 @@ window.addEventListener("load",function(){
     const chkLoginId = this.document.querySelector(".id-check-massage");
     const elIdfailuremassage = this.document.querySelector(".idFialure-message");
     const elIdsuccessmassage = this.document.querySelector(".idSuccess-message");
+    
+    // 가입 버튼
+    const btnSignup = document.querySelector(".btn-signup");
 
+	// 아이디, 비번 유효성 - 가입 막기
+	let idReg = true;
+	let idChk = true;
+	let pwdReg = true;
+	let pwdChk = true;
+	
+	btnSignup.onclick = function(e){
+		if(pwdReg == false || pwdChk == false || idReg ==false || idChk==false){
+			e.preventDefault();
+			alert("아이디 또는 비밀번호가 올바르지 않습니다.");
+		
+		}
+	}
+    
+	// 토글
     regList.onclick = function(e){
-            e.preventDefault()
+//            e.preventDefault();
 			console.log(e.target.className);
             var isHeader = e.target.classList.contains("accordion-header")
 //                            ||e.target.classList.contains("accordion")
                             ||e.target.classList.contains("toggle")
-                            ||e.target.classList.contains("icon");
+                            ||e.target.classList.contains("icon")
+                            ||e.target.classList.contains("btn-signup");
            
             if(!isHeader)
                 return;
@@ -73,8 +92,7 @@ window.addEventListener("load",function(){
 				icon[0].classList.add("icon-arrow-toggle-up");
               
             }
-
-           
+     
     }
 	 
 	 // 비빌번호 정규식
@@ -91,18 +109,19 @@ window.addEventListener("load",function(){
             Pwdfailuremassage.classList.add('d-none');
 
             Pwdsuccessmassage.classList.remove('d-none');
-            
+            pwdReg = true;
         }
         else {
             Pwdfailuremassage.classList.remove('d-none');
     
             Pwdsuccessmassage.classList.add('d-none');
+            pwdReg = false;
         }
 
     };
     
     //아이디 유효성 및 정규식, 중복 확인
-    elInputLoginId.onkeyup = function(){
+    elInputLoginId.oninput = function(){
 
         // console.log(input)s
         var regExpId = /^[a-z0-9_]{8,16}$/
@@ -117,16 +136,20 @@ window.addEventListener("load",function(){
             elIdfailuremassage.classList.add('d-none');
 
             elIdsuccessmassage.classList.remove('d-none');
+            idReg = true;
             
         }
         else {
             elIdfailuremassage.classList.remove('d-none');
     
             elIdsuccessmassage.classList.add('d-none');
+            idReg = false;
         }
-        console.log(elInputLoginId.value);
+        console.log("값을 찍어 보자"+elInputLoginId.value);
 
          // 아이디 중복확인
+         if(elInputLoginId.value != ''){
+		
          fetch(`/corpApi/signup/id-check/${elInputLoginId.value}`)
          .then(resp=>resp.json())
          .then(data=>{
@@ -135,13 +158,17 @@ window.addEventListener("load",function(){
                  if(data.resultObject == 1){
                      chkLoginId.classList.remove('d-none');
 					 elIdsuccessmassage.classList.add('d-none');
+					 idChk=false;
 				 }
 				 //나머진 사용가능
 				 else{
 					 chkLoginId.classList.add('d-none');
+					 idChk = true;
 				 }
 
              })
+         }
+             
 
     };
     
@@ -160,12 +187,14 @@ window.addEventListener("load",function(){
             Pwdchkfailuremassage.classList.add('d-none');
 
             Pwdchksuccessmassage.classList.remove('d-none');
+            pwdChk = true;
         }
         else{
 
             Pwdchkfailuremassage.classList.remove('d-none');
 
             Pwdchksuccessmassage.classList.add('d-none');
+            pwdChk = false;
         }
     }
  
