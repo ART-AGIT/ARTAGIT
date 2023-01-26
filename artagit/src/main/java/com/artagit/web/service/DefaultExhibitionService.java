@@ -45,10 +45,12 @@ public class DefaultExhibitionService implements ExhibitionService {
 	
 	
 	@Override
-	public int insert (Exhibition exhibition) {
+	//전시등록
+	public Exhibition insert (Exhibition exhibition,int corpId) {
 		
-		int result = exhDao.insert(exhibition);
-		
+//		int result = exhDao.insert(exhibition);
+		exhDao.insert(exhibition);
+		Exhibition result = exhDao.getLast(corpId);
 		return result;
 		
 	}
@@ -90,8 +92,8 @@ public class DefaultExhibitionService implements ExhibitionService {
 	
 	// [주최자] 나의 등록전시 리스트
 	public List<Exhibition> getListById(int corpId) {
-		
-		List<Exhibition> list =exhDao.getListById(corpId);
+		int limit = 6;
+		List<Exhibition> list =exhDao.getListByIdInit(corpId,limit);
 		return list;
 
 	}
@@ -197,6 +199,15 @@ public class DefaultExhibitionService implements ExhibitionService {
 		System.out.println("서비스의 page"+page);
 		System.out.println("서비스의 offset"+offset);
 		List<Exhibition> list = exhDao.getLikeList(id,page,offset,size);
+		return list;
+	}
+
+	@Override
+	public List<Exhibition> getListById(int id, int page) {
+		// TODO Auto-generated method stub
+		int size = 6;
+		int offset = (page-1)*size;
+		List<Exhibition> list = exhDao.getListById(id,size,offset);
 		return list;
 	}
 

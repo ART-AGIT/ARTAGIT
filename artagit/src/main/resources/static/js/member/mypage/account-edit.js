@@ -5,7 +5,9 @@ window.addEventListener("load",function(){
 	//비밀번호 일치확인
 	let elInputPassword = this.document.querySelector("#password");
     let elInputPasswordCheck = this.document.querySelector("#password-check");
-    
+
+    let Pwdfailuremassage = this.document.querySelector(".passwordFialure-message");
+    let Pwdsuccessmassage = this.document.querySelector(".passwordSuccess-message");
 	let Pwdchkfailuremassage = this.document.querySelector(".chkFialure-message");
     let Pwdchksuccessmassage = this.document.querySelector(".chkSuccess-message");
 	
@@ -71,7 +73,31 @@ window.addEventListener("load",function(){
 		 };
 		 reader.readAsDataURL(url)
 	 }
-	 
+ // 비밀번호 정규식-숫자와 문자 포함 형태의 8~12자리 이내의 암호 정규식
+	//  elInputPassword.onkeyup = function(){
+    //     var regExpPwd = /^[A-Za-z0-9]{8,12}$/;
+
+        
+    //     if(elInputPassword.value==false){ 
+    //         Pwdfailuremassage.classList.add('d-none');
+    //         Pwdsuccessmassage.classList.add('d-none');
+    //     }
+
+    //     else if(regExpPwd.test(elInputPassword.value)==true){
+    //         Pwdfailuremassage.classList.add('d-none');
+
+    //         Pwdsuccessmassage.classList.remove('d-none');
+            
+    //     }
+    //     else {
+    //         Pwdfailuremassage.classList.remove('d-none');
+    
+    //         Pwdsuccessmassage.classList.add('d-none');
+    //     }
+
+    // };
+
+	 // 비밀번호 확인과 일치여부
 	 elInputPasswordCheck.onkeyup = function(){
         let pwd1=elInputPassword.value;
         let pwd2=elInputPasswordCheck.value;

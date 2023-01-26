@@ -52,8 +52,8 @@ public class DefaultMemberService implements MemberService{
 	//=========== 회원수정 =================
 	@Override
 	public int update(Member member) {
-		String encPassword = passwordEncoder.encode(member.getPassword());
-		member.setPassword(encPassword);
+//		String encPassword = passwordEncoder.encode(member.getPassword());
+//		member.setPassword(encPassword);
 		int result = memberDao.update(member);
 		
 		return result;

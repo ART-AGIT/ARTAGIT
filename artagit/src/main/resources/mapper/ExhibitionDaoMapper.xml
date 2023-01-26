@@ -85,7 +85,13 @@
 	</select>
 	<select id="getListById" resultType="com.artagit.web.entity.Exhibition">
 		select * from Exhibition
-		where corpId = #{corpId};
+		where corpId = #{id}
+		limit #{offset},#{size};
+	</select>
+	<select id="getListByIdInit" resultType="com.artagit.web.entity.Exhibition">
+		select * from Exhibition
+		where corpId = #{id}
+		limit #{limit};
 	</select>
 <!-- 	<select id="getListByID" resultType="com.artagit.web.entity.Exhibition"> -->
 <!-- 		select * from Exhibition -->
@@ -118,6 +124,7 @@
 		ticketPrice,
 		ticketStock,
 		artist,
+		corpId,
 		homepage)
 	
 		VALUES
@@ -132,6 +139,7 @@
 		#{ticketPrice},
 		#{ticketStock},
 		#{artist},
+		#{corpId},
 		#{homepage});
 	</insert>
 	
@@ -176,6 +184,16 @@
 		    where L.memId = #{id}
 		    order by M.id
 		    limit #{offset},#{size};
+	</select>
+	
+	
+	<select id="getLast" resultType="com.artagit.web.entity.Exhibition">
+		select * from Exhibition
+		where corpId =#{corpId}
+		order by regDate
+		desc
+		limit 0 ,1
+
 	</select>
 
 </mapper>

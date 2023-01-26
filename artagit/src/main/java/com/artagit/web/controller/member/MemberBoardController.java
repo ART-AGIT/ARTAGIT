@@ -54,7 +54,7 @@ public class MemberBoardController {
 		model.addAttribute("user", user);
 		List<Comment> comments = commentService.getNickname(id);
 		model.addAttribute("comments", comments);
-		
+	
 		
 		//조회수(중복 제거)
 		Cookie oldCookie = null; //쿠키 객체 만들고 초기화

@@ -34,7 +34,7 @@ public interface ExhibitionDao {
 	
 	/*********** 주최자 ************/
 	//나의 등록전시 리스트
-	List<Exhibition> getListById(int id);
+	List<Exhibition> getListByIdInit(int id, int limit);
 	
 	// 내가 등록한 전시 수정
 //	int update(int id);
@@ -62,10 +62,16 @@ public interface ExhibitionDao {
 
 	Exhibition getexh(int exhId);
 
+	//[주최자] 전시등록
 	int insert(Exhibition exhibition);
+	
+	//[주최자] 가장 최근에 등록한 전시
+	Exhibition getLast(int corpId);
 
 	// [일반회원] 좋아요 전시
 	List<Exhibition> getLikeList(int id, int page, int offset, int size);
+
+	List<Exhibition> getListById(int id,int size,int offset);
 
 	
 }
