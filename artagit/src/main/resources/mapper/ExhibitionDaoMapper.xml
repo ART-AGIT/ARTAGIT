@@ -85,7 +85,13 @@
 	</select>
 	<select id="getListById" resultType="com.artagit.web.entity.Exhibition">
 		select * from Exhibition
-		where corpId = #{corpId};
+		where corpId = #{id}
+		limit #{offset},#{size};
+	</select>
+	<select id="getListByIdInit" resultType="com.artagit.web.entity.Exhibition">
+		select * from Exhibition
+		where corpId = #{id}
+		limit #{limit};
 	</select>
 <!-- 	<select id="getListByID" resultType="com.artagit.web.entity.Exhibition"> -->
 <!-- 		select * from Exhibition -->

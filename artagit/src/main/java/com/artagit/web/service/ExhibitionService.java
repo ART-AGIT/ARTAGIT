@@ -67,6 +67,8 @@ public interface ExhibitionService {
 	// [일반회원] 좋아요 전시
 	List<Exhibition> getLikeListById(int id);
 
+	List<Exhibition> getListById(int id, int page);
+
 
 
 }
