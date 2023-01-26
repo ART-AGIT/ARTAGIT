@@ -20,6 +20,7 @@ public class Corporate {
 	private int roleId;
 	private int localId;
 	private String img;
+	private String addressDetail;
 	
 	public Corporate() {
 		// TODO Auto-generated constructor stub
@@ -30,7 +31,7 @@ public class Corporate {
 
 	public Corporate(int id, String name, String loginId, String password, String ceoName, String email,
 			int businessNum, String manager, String phone, String regState, String processDate, String address,
-			String refuseReason, String managerPhone, String museumName, String img, int roleId, int localId, String useYN) {
+			String refuseReason, String managerPhone, String museumName, String img, int roleId, int localId, String useYN,String addressDetail) {
 		
 		this.id = id;
 		this.name = name;
@@ -53,6 +54,8 @@ public class Corporate {
 
 		this.roleId = roleId;
 		this.localId = localId;
+		this.addressDetail = addressDetail;
+		
 
 	}
 
@@ -214,6 +217,15 @@ public class Corporate {
 		this.img = img;
 	}
 
+	public String getAddressDetail() {
+		return addressDetail;
+	}
+
+
+	public void setAddressDetail(String addressDetail) {
+		this.addressDetail = addressDetail;
+	}
+
 
 
 
@@ -224,7 +236,7 @@ public class Corporate {
 				+ ", phone=" + phone + ", regState=" + regState + ", processDate=" + processDate + ", address="
 				+ address + ", refuseReason=" + refuseReason + ", managerPhone=" + managerPhone + ", museumName="
 				+ museumName + ", useYN=" + useYN + ", roleId=" + roleId + ", localId=" + localId + ", img=" + img
-				+ "]";
+				+ ", addressDetail=" + addressDetail + "]";
 	}
 
 
