@@ -22,12 +22,11 @@ window.addEventListener("load", function(){
 
 
 
-
     // input에 값 입력시 버튼색 바뀜
     elInputLoginId.onkeyup = function(){
 
         // console.log(input)s
-        var regExpId = /^[a-z0-9_]{8,16}$/
+        var regExpId = /^[a-z0-9_]{6,16}$/
        
 
         if(elInputLoginId.value==false){ 
