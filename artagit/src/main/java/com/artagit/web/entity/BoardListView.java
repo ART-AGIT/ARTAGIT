@@ -7,7 +7,10 @@ public class BoardListView {
 	private int memId;
 	private String name;
 	private String title;
-	private String image;
+	private String image1;
+	private String image2;
+	private String image3;
+	private String image4;
 	private int hit;
 	private Date regDate;
 	private String nickname;
@@ -25,25 +28,20 @@ public class BoardListView {
 	
 
 
-	public String getMemImage() {
-		return memImage;
-	}
 
 
-	public void setMemImage(String memImage) {
-		this.memImage = memImage;
-	}
-
-
-	public BoardListView(int id, int memId, String name, String title, String image, int hit, Date regDate,
-			String nickname, int roleId, String useYN, int commentTotal, String content, int like, Date modiDate,
-			int hearts, String memImage) {
+	public BoardListView(int id, int memId, String name, String title, String image1, String image2, String image3,
+			String image4, int hit, Date regDate, String nickname, int roleId, String useYN, int commentTotal,
+			String content, int like, Date modiDate, int hearts, String memImage) {
 		super();
 		this.id = id;
 		this.memId = memId;
 		this.name = name;
 		this.title = title;
-		this.image = image;
+		this.image1 = image1;
+		this.image2 = image2;
+		this.image3 = image3;
+		this.image4 = image4;
 		this.hit = hit;
 		this.regDate = regDate;
 		this.nickname = nickname;
@@ -54,6 +52,56 @@ public class BoardListView {
 		this.like = like;
 		this.modiDate = modiDate;
 		this.hearts = hearts;
+		this.memImage = memImage;
+	}
+
+
+	public String getImage1() {
+		return image1;
+	}
+
+
+	public void setImage1(String image1) {
+		this.image1 = image1;
+	}
+
+
+	public String getImage2() {
+		return image2;
+	}
+
+
+	public void setImage2(String image2) {
+		this.image2 = image2;
+	}
+
+
+	public String getImage3() {
+		return image3;
+	}
+
+
+	public void setImage3(String image3) {
+		this.image3 = image3;
+	}
+
+
+	public String getImage4() {
+		return image4;
+	}
+
+
+	public void setImage4(String image4) {
+		this.image4 = image4;
+	}
+
+
+	public String getMemImage() {
+		return memImage;
+	}
+
+
+	public void setMemImage(String memImage) {
 		this.memImage = memImage;
 	}
 
@@ -161,12 +209,7 @@ public class BoardListView {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public String getImage() {
-		return image;
-	}
-	public void setImage(String image) {
-		this.image = image;
-	}
+
 	public int getHit() {
 		return hit;
 	}
@@ -189,11 +232,13 @@ public class BoardListView {
 
 	@Override
 	public String toString() {
-		return "BoardListView [id=" + id +" memId=" + memId + ", name=" + name + ", title="
-				+ title + ", image=" + image + ", hit=" + hit + ", regDate=" + regDate + ", nickname=" + nickname
-				+ ", roleId=" + roleId + ", useYN=" + useYN + ", commentTotal=" + commentTotal + ", content=" + content
-				+ ", like=" + like + ", modiDate=" + modiDate + "]";
+		return "BoardListView [id=" + id + ", memId=" + memId + ", name=" + name + ", title=" + title + ", image1="
+				+ image1 + ", image2=" + image2 + ", image3=" + image3 + ", image4=" + image4 + ", hit=" + hit
+				+ ", regDate=" + regDate + ", nickname=" + nickname + ", roleId=" + roleId + ", useYN=" + useYN
+				+ ", commentTotal=" + commentTotal + ", content=" + content + ", like=" + like + ", modiDate="
+				+ modiDate + ", hearts=" + hearts + ", memImage=" + memImage + "]";
 	}
+
 
 
 	
