@@ -60,6 +60,7 @@
     .exh-name{
         grid-area: exh-name;
         font-size: 18px;
+        font-weight:bold;
     }
     .exh-loc{
         grid-area:exh-loc;

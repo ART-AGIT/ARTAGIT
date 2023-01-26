@@ -39,7 +39,7 @@
 
 .pay-state {
     grid-area: state;
-    color: #FF5171;
+/*     color: #FF5171; */
     font-size: 15px;
     font-weight: 700;
 }
@@ -120,6 +120,9 @@
 		font-size:18px;
 	}
 	
+	.exh-title {
+    	font-size:16px;
+	}
 	.btn-go-exh{
 		height:20px;
 	}
@@ -133,8 +136,8 @@
     grid-template: "img state" 60px
                     "img title" 23px
                     "img place" 18px
-                    "img date" 18px
-                    "img btn" 55px / 170px;
+                    "img date" 30px
+                    "img btn" 40px / 170px;
 	}
 	
 

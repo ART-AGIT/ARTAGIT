@@ -17,44 +17,36 @@ window.addEventListener("load", function(){
 	            if(list.length<6)
 	            	itemMore.classList.add("d-none");
 	            	else{
-//                    if(list.length<=6)
-//                    	itemMore.classList.add("d-none")
-					//리뷰 없음
+
 					let date = new Date(list.endDate);
 					
 					if(date<today){
-						state = "전시종료"
+						state="<p style='color:#545454;'>전시종료</p>";
 					}
 					else if(date>=today)
-						state = "전시중"
+						state="<p style='color:#FF5171;'>전시중</p>";
 						
                     var template = `
-                     
-		       
-                      
-		        <div class="exh-list">
-		            <form action="">
-		
-		                <div class="exh-img-box">
-		                    <a href="/corp/exh/${list.id}" ><img class="exh-img" src="/image/poster/${list.poster}" alt=""></a>
-		                </div>
-		                <div class="text exh-state exh-ing">${state}</div>
-		                <div class="text exh-title">${list.name}</div>
-		                <div class="text exh-author">author. ${list.artist}</div>
-		                <div class="text exh-date" >${list.startDate} ~ ${list.endDate}</div>
-		
-			            </form>
-			        </div>
-			    	 <button class="text item-more"">
-		        	<div>더보기</div>
-		        </button>
+				        <div class="exh-list">
+				            <form action="">
+				
+				                <div class="exh-img-box">
+				                    <a href="/corp/exh/${list.id}" ><img class="exh-img" src="/image/poster/${list.poster}" alt=""></a>
+				                </div>
+				                <div class="text exh-state exh-ing">${state}</div>
+				                <div class="text exh-title">${list.name}</div>
+				                <div class="text exh-author">author. ${list.artist}</div>
+				                <div class="text exh-date" >${list.startDate} ~ ${list.endDate}</div>
+				
+					            </form>
+					        </div>
+					    	 <button class="text item-more"">
+				        	<div>더보기</div>
+				        </button>
                     	`;
                     
                     }
-                    
-                    //리뷰 있음
-                 
-		            	
+                   
                     let el = new DOMParser()
                              .parseFromString(template, "text/html")
                              .body

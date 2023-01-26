@@ -24,22 +24,22 @@
 	                    <div class="profile-name">
 	                        <span th:text="${user.username}+' 님'">1004님</span>
 	                    </div>
-	                    <div class="member-grade">
+	                    <div class="member-grade-corp">
                         	업체회원
                     	</div>
 	                </div>
 	            </div>
 	            <ul class="menu-list">
 
-	                <li class="list line-on"><a class="deco deco-ticket deco-ticket-on" href="/corp/exh/list">내가 등록한 전시</a></li>
-	                <li class="list"><a class="deco deco-smile" th:href="@{/corp/account-edit}">내 정보 수정</a></li>
+	                <li class="list line-on"><a class="deco deco-ticket deco-ticket-on" href="/corp/exh/list">나의 등록전시</a></li>
+	                <li class="list"><a class="deco deco-smile" href="/corp/mypage/account-edit">내 정보 수정</a></li>
 					<li class="list"><a class="deco deco-write" href="/corp/exh/reg">전시 등록</a></li>
 	               
 
 	            </ul>
 	        </div>
 	    	<div>
-		    	<div class="my-reg">내가 등록한 전시</div>
+		    	<h2 class="my-reg">나의 등록전시</h2>
 		    	
 		        <div class="total-box-wrapper">
 		        <div class="total-box">
@@ -48,7 +48,7 @@
 		        
 		        <div class="go-reg" th:if="${countOfExh}==0">
 		            <p class="do-not-exist"> 등록된 전시가 없습니다.</p>
-		            <a class="btn btn-default-fill btn-go-reg" th:href="@{/corp/exh/reg}" >전시등록하러 가기</a>
+		            <a class="btn btn-default-fill btn-go-reg" href="/corp/exh/reg" >전시등록하러 가기</a>
 		        </div>
 			<div class="exh-list-tong">
 		        <div class="exh-list" th:each="list:${list}" >
@@ -58,7 +58,7 @@
 		                    <a href="" th:href="@{{id}(id=${list.id})}" ><img th:src="@{|/image/poster/${list.poster}|}" class="exh-img" src="../../image/exhimage.png" alt=""></a>
 		                </div>
 <!-- 		                <div class="text exh-state exh-ing" th:text="${#calendars.format(#calendars.createNow(), 'yyyy-MM-dd')}">전시중</div> -->
-		                <div class="text exh-state exh-ing" th:text="${#calendars.format(#calendars.createNow(), 'yyyy-MM-dd')} > ${list.endDate} ?  '전시중' : '전시종료' ">전시중</div>
+		                <div class="text exh-state exh-ing" th:text="${#calendars.format(#calendars.createNow(), 'yyyy-MM-dd')} < ${list.endDate} ?  '전시중' : '전시종료' " th:style="${#calendars.format(#calendars.createNow(), 'yyyy-MM-dd')} < ${list.endDate} ?  'color:#FF5171;' : 'color:#545454;' ">전시중</div>
 		                <div class="text exh-title" th:text=${list.name}>모네 인사이드</div>
 		                <div class="text exh-author" th:text="'author. '+${list.artist}">author. 양작가 </div>
 		                <div class="text exh-date" th:text="${list.startDate} +' ~ '+ ${list.endDate}">2022.09.22 ~ 2099.12.25</div>

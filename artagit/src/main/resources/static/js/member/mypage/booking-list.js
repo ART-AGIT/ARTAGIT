@@ -22,7 +22,7 @@ window.addEventListener("load", function(){
 
 		queryString = `?p=${page}`;
 
-		fetch(`/member/mypage/board/api/list${queryString}`)
+		fetch(`/member/mypage/review/api/list${queryString}`)
 		.then((response)=>response.json())
 		.then((list)=>{
 
@@ -31,18 +31,15 @@ window.addEventListener("load", function(){
 				
 	            if(list.length<6)
 	            	itemMore.classList.add("d-none");
-//                    if(list.length<=6)
-//                    	itemMore.classList.add("d-none");
 		
-					var bookingDate = booking.bookingDate.substring(0,10);
-						
-					var state ="";
-					if(bookingDate >=  now){
-						state="미관람";
-					}
-					else{
-						state="관람완료";
-					}
+				var bookingDate = booking.bookingDate.substring(0,10);
+				var state ="";
+				if(bookingDate >=  now)
+					state="<p style='color:#FF5171;'>미관람</p>";
+
+				else
+					state="<p style='color:#545454;'>관람완료</p>";
+				
 					
 					//리뷰 없음
 					if(booking.reviewId ==0){
@@ -50,16 +47,16 @@ window.addEventListener("load", function(){
                         <form action="" class ="list-form" >
 					                <div class="exh-img-box">
 				
-					                    <a src="../../image/exhimage.png"  alt="">
+					                    <a src="../../image/exhimage.png"  href="/exhibition/${booking.exhId}" alt="">
 					                    	<img class="exh-img" src="/image/poster/${booking.exhPoster}">
 					                    </a>			
 					                </div>
 					                
 
- 									<div class="text pay-state" > ${state}</div>
+ 									<div class="text pay-state"> ${state}</div>
 				                    <div class="text exh-title" >${booking.exhName}</div> 
 				                    <div class="text exh-place" > ${booking.museumName}</div> 
-				                    <div class="text exh-date">${bookingDate}</div>
+				                    <div class="text exh-date">관람일 : ${bookingDate}</div>
 				
 									<div class="button-list" >
 					                    <a class="btn btn-default-fill btn-write" data-id="${booking.bookingId}" href="${booking.bookingId}">리뷰작성</a>
@@ -70,7 +67,6 @@ window.addEventListener("load", function(){
 					        	
 					        	 	  
                     	`;
-                    
                     }
                     //리뷰 있음
                     else{
@@ -78,7 +74,7 @@ window.addEventListener("load", function(){
 		                        <form action="" class ="list-form" >
 							                <div class="exh-img-box">
 						
-							                    <a src="../../image/exhimage.png"  alt="">
+							                    <a src="../../image/exhimage.png"  alt="" href="/exhibition/${booking.exhId}">
 							                    	<img class="exh-img" src="/image/poster/${booking.exhPoster}">
 							                    </a>			
 							                </div>
@@ -88,7 +84,7 @@ window.addEventListener("load", function(){
 						                    <div class="text exh-title" >${booking.exhName}</div> 
 						                    <div class="text exh-place" > ${booking.museumName}</div> 
 						
-						                    <div class="text exh-date">${bookingDate}</div>
+						                    <div class="text exh-date">관람일 : ${bookingDate}</div>
 						
 											<div class="button-list" >
 							               
@@ -98,7 +94,7 @@ window.addEventListener("load", function(){
 			
 							        	</form>			  
 		                    `;
-
+		            
 		            }
 		            	
                     let el = new DOMParser()
@@ -110,10 +106,6 @@ window.addEventListener("load", function(){
                     list.append(el);	
                     
 					}
-                    
-                    
-					
-			
 			})
 	}
 
@@ -230,8 +222,8 @@ window.addEventListener("load", function(){
 		                        		<label class="exh-name"  id="exhName">${bookingInfo.exhName}</label>
 		                    		</div>
 		                    		<div>
-		                        		<span class="exh-loc" >${bookingInfo.museumName}국립현대미술관</span>
-		                        		<span class="exh-date"  >${bookingDate}</span>
+		                        		<span class="exh-loc" >${bookingInfo.museumName}</span>
+		                        		<span class="exh-date"  >[ 관람일 : ${bookingDate} ] </span>
 		                    		</div>
 		    
 		                    		<div class="color-option">
@@ -301,7 +293,7 @@ window.addEventListener("load", function(){
 							                    		</div>
 							                    		<div>
 							                        		<span class="exh-loc" >${bookingInfo.museumName}국립현대미술관</span>
-							                        		<span class="exh-date"  >${bookingDate}</span>
+							                        		<span class="exh-date"  >[ 관람일 : ${bookingDate} ]</span>
 							                    		</div>
 							    
 							                    		<div class="color-option">
@@ -491,7 +483,7 @@ window.addEventListener("load", function(){
 									                    </div>
 									                    <div>
 									                        <span class="exh-loc"  >${bookingInfo.museumName}</span>
-									                        <span class="exh-date" >${bookingDate}</span>
+									                        <span class="exh-date" >[ 관람일 : ${bookingDate} ]</span>
 									                    </div>
 									    
 									                    <div class="color-option">
