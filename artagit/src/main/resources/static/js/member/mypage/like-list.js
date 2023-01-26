@@ -50,7 +50,7 @@ let id = 0;
  				if(result==1){
  				console.log("삭제완료");  
  				el.remove(); 
- 				 
+ 				 // 더보기 삭제 시 추가할 전시1개
 // 				 if()
  				 
  				}
