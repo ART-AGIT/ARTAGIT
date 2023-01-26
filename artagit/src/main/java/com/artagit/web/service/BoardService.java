@@ -26,7 +26,7 @@ public interface BoardService {
 
 	Board getDetail(int id, int memId);
 
-
+	//게시글 등록
 	int reg(Board board);
 
 

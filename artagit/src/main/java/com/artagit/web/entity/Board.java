@@ -7,7 +7,12 @@ public class Board {
 	private int memId;
 	private String name;
 	private String title;
-	private String image;
+//	private String image;
+	private String image1;
+	private String image2;
+	private String image3;
+	private String image4;
+	
 	private String memImage;
 	private int hit;
 	private Date regDate;
@@ -20,6 +25,8 @@ public class Board {
 	private Date modiDate;
 	private int heart;
 	private int hearts;
+	
+	
 	
 	public String getMemImage() {
 		return memImage;
@@ -36,15 +43,18 @@ public class Board {
 	
 	
 	
-	public Board(int id, int memId, String name, String title, String image, String memImage, int hit, Date regDate,
-			String nickname, int roleId, String useYN, int commentTotal, String content, int like, Date modiDate,
-			int heart, int hearts) {
+	public Board(int id, int memId, String name, String title, String image1, String image2, String image3, String image4,
+			String memImage, int hit, Date regDate, String nickname, int roleId, String useYN, int commentTotal,
+			String content, int like, Date modiDate, int heart, int hearts) {
 		super();
 		this.id = id;
 		this.memId = memId;
 		this.name = name;
 		this.title = title;
-		this.image = image;
+		this.image1 = image1;
+		this.image2 = image2;
+		this.image3 = image3;
+		this.image4 = image4;
 		this.memImage = memImage;
 		this.hit = hit;
 		this.regDate = regDate;
@@ -58,6 +68,35 @@ public class Board {
 		this.heart = heart;
 		this.hearts = hearts;
 	}
+	
+	
+	public String getImage1() {
+		return image1;
+	}
+	public void setImage1(String image1) {
+		this.image1 = image1;
+	}
+	public String getImage2() {
+		return image2;
+	}
+	public void setImage2(String image2) {
+		this.image2 = image2;
+	}
+	public String getImage3() {
+		return image3;
+	}
+	public void setImage3(String image3) {
+		this.image3 = image3;
+	}
+	public String getImage4() {
+		return image4;
+	}
+	public void setImage4(String image4) {
+		this.image4 = image4;
+	}
+	
+	
+	
 	public int getHearts() {
 		return hearts;
 	}
@@ -88,15 +127,19 @@ public class Board {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public String getImage() {
-		return image;
-	}
-	public void setImage(String image) {
-		this.image = image;
-	}
+//	public String getImage() {
+//		return image;
+//	}
+//	public void setImage(String image) {
+//		this.image = image;
+//	}
+	
+	
+	
 	public int getHit() {
 		return hit;
 	}
+	
 	public void setHit(int hit) {
 		this.hit = hit;
 	}
@@ -152,13 +195,23 @@ public class Board {
 	public Board() {
 		// TODO Auto-generated constructor stub
 	}
+//	@Override
+//	public String toString() {
+//		return "Board [id=" + id + ", memId=" + memId + ", name=" + name + ", title=" + title + ", image=" + image
+//				+ ", hit=" + hit + ", regDate=" + regDate + ", nickname=" + nickname + ", roleId=" + roleId + ", useYN="
+//				+ useYN + ", commentTotal=" + commentTotal + ", content=" + content + ", like=" + like + ", modiDate="
+//				+ modiDate + "]";
+//	}
 	@Override
 	public String toString() {
-		return "Board [id=" + id + ", memId=" + memId + ", name=" + name + ", title=" + title + ", image=" + image
+		return "Board [id=" + id + ", memId=" + memId + ", name=" + name + ", title=" + title + ", image1=" + image1
+				+ ", image2=" + image2 + ", image3=" + image3 + ", image4=" + image4 + ", memImage=" + memImage
 				+ ", hit=" + hit + ", regDate=" + regDate + ", nickname=" + nickname + ", roleId=" + roleId + ", useYN="
 				+ useYN + ", commentTotal=" + commentTotal + ", content=" + content + ", like=" + like + ", modiDate="
-				+ modiDate + "]";
+				+ modiDate + ", heart=" + heart + ", hearts=" + hearts + "]";
 	}
+	
+	
 
 
 }

@@ -7,10 +7,10 @@
    <th:block layout:fragment="css">
     <link href="../../css/component/board-list.css" type="text/css" rel="stylesheet">
     <link href="../../css/component/board-detail.css" type="text/css" rel="stylesheet">
-	
-	<script src="../../js/header-menu.js"></script>
-	<script src="../../js/board/comment/comment.js"></script>
-	<script src="../../js/member/board/detail.js"></script>
+   
+   <script src="../../js/header-menu.js"></script>
+   <script src="../../js/board/comment/comment.js"></script>
+   <script src="../../js/member/board/detail.js"></script>
 
 
 </head>
@@ -18,12 +18,12 @@
 <script src="../../js/board/comment/comment.js" defer></script>
 <body>
 
-	</th:block>
-	
+   </th:block>
+   
 <body layout:fragment="content">
 
     
-    <main class="main-container">	
+    <main class="main-container">   
     <div class="content-wrapper">
       <nav class = "board-category-box">
         <ul class="board-category-l">
@@ -79,23 +79,26 @@
         </section>
         </section>
         <div class="post-content">
-        	<div class="text-image-wrapper">
+           <div class="text-image-wrapper">
         <input type="hidden" class="board-id" th:attr="data-id=${board.id}">
             <div th:utext="${board.content}"class="post-content-message">
                 <span>회원님들 그만 좀 싸우세asdffsdsdㅁ아품아ㅜ 마이ㅏ무아뮝 ㅏㅜ미ㅏㅍ우ㅏ미 아미아뮈아ㅟasdfdasdfasdfasdasdfasdfsda요들</span>
             </div>
-                <img class="board-img" th:classappend="${board.image.isEmpty()}?d-none" th:src="@{/image/{img}(img=${board.image})}">
+                <img class="board-img" th:if="${board.image1}" th:src="@{/image/board/{img}(img=${board.image1})}">
+                <img class="board-img" th:if="${board.image2}" th:src="@{/image/board/{img}(img=${board.image2})}">
+                <img class="board-img" th:if="${board.image3}" th:src="@{/image/board/{img}(img=${board.image3})}">
+                <img class="board-img" th:if="${board.image4}" th:src="@{/image/board/{img}(img=${board.image4})}">
             </div>
             <div class="like">
-             <div th:if="${user.id == board.memId}">
-               <a th:href="@{|/member/board/edit/${id}|}" class="btn btn-default-line">수정</a>
-               <div type="button" class="btn btn-default-line delete-btn">삭제</div>
+             	<div th:if="${user.id == board.memId}">
+	               	<a th:href="@{|/member/board/edit/${id}|}" class="btn btn-default-line">수정</a>
+	            	<div type="button" class="btn btn-default-line delete-btn">삭제</div>
                </div>
                <div th:if="${user.id != board.memId}">
-                <div class="heart-fix">
-                <div th:classappend="${board.heart} != 1? '' : 'icon-heart-red'" class="icon icon-heart post-like-btn"></div>
-                </div>
-                <a class="icon icon-report" href=""></a>
+                	<div class="heart-fix">
+                		<div th:classappend="${board.heart} != 1? '' : 'icon-heart-red'" class="icon icon-heart post-like-btn"></div>
+                	</div>
+                	<a class="icon icon-report" href=""></a>
             </div>
         </div>
         </div>
@@ -130,7 +133,7 @@
                   <div class="re-comment"  >
 <!--                  <button id="3"    class="btn btn-default comment" type="submit" value="수정">답변쓰기</button> -->
                   </div>
-                  	<div class="add-modify" th:attr="data-id=${comment.nickname}"  >
+                     <div class="add-modify" th:attr="data-id=${comment.nickname}"  >
                      <th:block th:if="${user.id == comment.memId}">
                      <button id="1"    class="btn btn-default comment-modify" type="submit" value="수정">수정</button>
                      <button id="2"    class="btn btn-default comment-del" type="submit" value="삭제">삭제</button>
