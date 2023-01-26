@@ -83,13 +83,11 @@
 					        
 					        
 					        <div class="board-post-img-box">
-					           	<a th:href="@{|/member/board/${board.id}|}"><img class="post-img" onerror="this.style.display='none'" 	src = "../image/전시포스터.jpg" th:src="@{|/image/${board.image}|}"></a>
+					           	<a th:href="@{|/member/board/${board.id}|}"><img class="post-img" onerror="this.style.display='none'" 	src = "../image/전시포스터.jpg" th:src="@{|/image/${board.image1}|}"></a>
 					        </div>
 					        </section>
 					  		</form>
-			   		   <button class="text item-more" th:if="${member.id}>6">
-		        			<div>더보기</div>
-   					 </button>	
+			   		  
 			 </div>
 			</div>
    
