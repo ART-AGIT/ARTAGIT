@@ -7,6 +7,10 @@ window.addEventListener("load", function(){
 	
 	const del =document.querySelectorAll(".icon-trash");
 
+
+
+
+
 		imgInput[0].onclick=function(e){
 			
 			let event = new MouseEvent("click", {
@@ -86,7 +90,6 @@ window.addEventListener("load", function(){
 			};
 			reader.readAsDataURL(url);
 		}
-		
 		
 		
 			
