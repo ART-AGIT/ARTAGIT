@@ -13,10 +13,10 @@ window.addEventListener("load", function(){
 		.then((response)=>response.json())
 		.then((lists)=>{
 			for(list of lists){
-				
-	            if(list.length<6)
+				console.log(Object.keys(lists).length);
+	            if(Object.keys(lists).length<6)
 	            	itemMore.classList.add("d-none");
-	            	else{
+	            
 //                    if(list.length<=6)
 //                    	itemMore.classList.add("d-none")
 					//리뷰 없음
@@ -50,7 +50,7 @@ window.addEventListener("load", function(){
 		        </button>
                     	`;
                     
-                    }
+                    
                     
                     //리뷰 있음
                  
@@ -62,6 +62,6 @@ window.addEventListener("load", function(){
                                 
                     var list = document.querySelector(".exh-list-tong");
                     list.append(el);
-                 }  });}})
+                 } });}})
 
 
