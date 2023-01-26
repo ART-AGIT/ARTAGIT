@@ -13,11 +13,9 @@ window.addEventListener("load", function(){
 		.then((response)=>response.json())
 		.then((lists)=>{
 			for(list of lists){
-				
-	            if(list.length<6)
+				console.log(Object.keys(lists).length);
+	            if(Object.keys(lists).length<6)
 	            	itemMore.classList.add("d-none");
-	            	else{
-
 					let date = new Date(list.endDate);
 					
 					if(date<today){
@@ -45,8 +43,16 @@ window.addEventListener("load", function(){
 				        </button>
                     	`;
                     
+<<<<<<< HEAD
                     }
                    
+=======
+                    
+                    
+                    //리뷰 있음
+                 
+		            	
+>>>>>>> dev
                     let el = new DOMParser()
                              .parseFromString(template, "text/html")
                              .body
@@ -54,6 +60,6 @@ window.addEventListener("load", function(){
                                 
                     var list = document.querySelector(".exh-list-tong");
                     list.append(el);
-                 }  });}})
+                 } });}})
 
 

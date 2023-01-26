@@ -165,4 +165,24 @@ public class MemberController {
 	}
 	
 	
+	
+	
+	
+	// 사업자 회원 가입
+	@GetMapping("/corp/signup")
+	public String signUp() {
+		return "signup-corp";
+	}
+	
+	@PostMapping("/corp/signup")
+	public String reg(Corporate corp){
+
+		int result = corpService.signUp(corp);
+		System.out.println("insert 결과 => " + result);
+		System.out.println("가입된 corporate => " + corp);
+		return "redirect:/";
+		
+	}
+	
+	
 }

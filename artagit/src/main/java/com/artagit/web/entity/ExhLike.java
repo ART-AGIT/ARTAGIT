@@ -61,9 +61,6 @@ public class ExhLike {
 	public String toString() {
 		return "ExhLike [id=" + id + ", memId=" + memId + ", exhId=" + exhId + ", regDate=" + regDate + "]";
 	}
-	
-	
-
 
 
 }

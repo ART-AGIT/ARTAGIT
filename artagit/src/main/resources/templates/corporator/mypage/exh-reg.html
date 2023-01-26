@@ -33,10 +33,13 @@
                     </div>
                 </div>
                 <ul class="menu-list">
-                    <li class="list line-on"><a class="deco deco-ticket deco-ticket-on" href="">전시 등록</a></li>
 
-                    <li class="list"><a class="deco deco-smile" href=".././mypage/account-edit">내 정보 수정</a></li>
-                </ul>
+	                <li class="list line-on"><a class="deco deco-ticket" href="/corp/exh/list">내가 등록한 전시</a></li>
+	                <li class="list"><a class="deco deco-smile" th:href="@{/corp/account-edit}">내 정보 수정</a></li>
+					<li class="list"><a class="deco deco-write deco-write-on" href="/corp/exh/reg">전시 등록</a></li>
+	               
+
+	            </ul>
             </div>
 
 
@@ -89,13 +92,13 @@
                                     <div class="reg-list-input-box">
                                         <label for="">전시기간</label>
                                         <div>
-                                            <div class="exhibition-input-date">
-                                                <input name="startDate" type="date" class="input input-sm">
+                                            <div class="exhibition-input-date" id="regdate">
+                                                <input name="startDate" type="date" class="input input-sm" id="start-date">
                                                 <!-- <a class="icon icon-calendar" href="">달력</a> -->
                                             </div>
                                             <span>~</span>
                                             <div class="exhibition-input-date">
-                                                <input name="endDate" type="date" class="input input-sm">
+                                                <input name="endDate" type="date" class="input input-sm" id="end-date">
                                                 <!-- <a class="icon icon-calendar" href="">달력</a> -->
                                             </div>
                                         </div>

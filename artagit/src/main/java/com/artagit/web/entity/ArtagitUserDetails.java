@@ -32,7 +32,10 @@ public class ArtagitUserDetails implements UserDetails {
 	private String managerPhone;
 	private String museumName;
 	private String address;
+	private String addressDetail;
 	
+
+
 
 	private int roleId;
 	
@@ -160,16 +163,17 @@ public class ArtagitUserDetails implements UserDetails {
 	
 	
 	
+
+	
 	@Override
 	public String toString() {
 		return "ArtagitUserDetails [id=" + id + ", loginId=" + loginId + ", username=" + username + ", password="
 				+ password + ", name=" + name + ", phone=" + phone + ", nickname=" + nickname + ", email=" + email
 				+ ", img=" + img + ", authorities=" + authorities + ", ceoName=" + ceoName + ", businessNum="
 				+ businessNum + ", manager=" + manager + ", managerPhone=" + managerPhone + ", museumName=" + museumName
-				+ ", address=" + address + ", roleId=" + roleId + "]";
+				+ ", address=" + address + ", addressDetail=" + addressDetail + ", roleId=" + roleId + "]";
 	}
 
-	
 	public String getAddress() {
 		return address;
 	}
@@ -240,5 +244,12 @@ public class ArtagitUserDetails implements UserDetails {
 		return businessNum;
 	}
 	
+	public String getAddressDetail() {
+		return addressDetail;
+	}
+
+	public void setAddressDetail(String addressDetail) {
+		this.addressDetail = addressDetail;
+	}
 
 }

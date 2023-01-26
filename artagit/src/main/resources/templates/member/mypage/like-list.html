@@ -20,8 +20,8 @@
 	        		<div class="profile-content">
 		                <div class="profile-img-box" >
 <!-- 		                    	<img th:src="@{|/image/${user.img}|}" class="profile-img" src="../../../image/camera.svg"> -->
-							<img th:if="${user.img}!= null" th:src="@{|/image/${user.img}|}" class="member-profile-img img-input">
-                            <img th:unless="${user.img}!= null" th:src="@{/image/프사.jpg}" class="member-profile-img img-input">
+							<img th:if="${user.img}!= null" th:src="@{|/image/${user.img}|}" class="profile-img img-input">
+                            <img th:unless="${user.img}!= null" th:src="@{/image/프사.jpg}" class="profile-img img-input">
 		                </div>
 		                <div>
 			                <div class="profile-name"> 
@@ -80,8 +80,12 @@
 			                 </div>
 		                </div>
 			         </div> 
-		<!--  좋아요 전시 삭제  modal -->            
+		<!--  좋아요 전시 삭제  modal -->  
+		
 		</section>   
+			<button class="text item-more" >
+				<div>더보기</div>
+			</button>          
 	</div>	
 	</div>	
   </main>

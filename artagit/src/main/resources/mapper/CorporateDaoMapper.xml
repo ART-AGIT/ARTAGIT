@@ -22,8 +22,8 @@
 	
 	<!-- 주최자 회원가입 -->
 	<insert id="insert" parameterType="com.artagit.web.entity.Corporate">
-		insert into Corporate(loginId, password, name, phone, ceoName, email, businessNum, manager, managerPhone, roleId, address, museumName, localId)
-			values(#{loginId}, #{password}, #{name}, #{phone}, #{ceoName}, #{email}, #{manager}, #{managerPhone}, #{businessNum}, #{roleId}, #{address}, #{museumName}, 3)
+		insert into Corporate(loginId, password, name, phone, ceoName, email, businessNum, manager, managerPhone, roleId, address,addressDetail, museumName, localId)
+			values(#{loginId}, #{password}, #{name}, #{phone}, #{ceoName}, #{email}, #{businessNum}, #{manager}, #{managerPhone}, 3, #{address},#{addressDetail}, #{museumName}, 2)
 	</insert>
 	
 		<!-- 사용자가 입력한 id를 가지고 권한 확인하기 위한 쿼리문 -->
@@ -46,6 +46,7 @@
 	update Corporate
 <!-- 		<trim prefix="SET" suffixOverrides=","> -->
 		<set>		
+			<if test="img != null">img=#{img},</if>
 			<if test="ceoName != null">ceoName = #{ceoName},</if>
 			<if test="name != null">name = #{name},</if>
 			<if test="phone != null">phone = #{phone},</if>

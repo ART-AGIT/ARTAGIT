@@ -27,12 +27,14 @@ import org.springframework.web.multipart.MultipartFile;
 import com.artagit.web.entity.ArtagitUserDetails;
 import com.artagit.web.entity.BoardListView;
 import com.artagit.web.entity.BookingList;
+import com.artagit.web.entity.ExhLike;
 import com.artagit.web.entity.Exhibition;
 import com.artagit.web.entity.Member;
 import com.artagit.web.entity.Payment;
 import com.artagit.web.entity.Review;
 import com.artagit.web.service.BoardService;
 import com.artagit.web.service.BookingService;
+import com.artagit.web.service.ExhLikeService;
 import com.artagit.web.service.ExhibitionService;
 import com.artagit.web.service.MemberService;
 //import com.artagit.web.service.MyPageService;
@@ -63,10 +65,13 @@ public class MypageController {
 
 	@Autowired
 	private ReviewService reviewService;
-
-	// @Autowired
-	// private PaymentService paymentService;
-
+	
+	@Autowired
+	private ExhLikeService exhLikeService;
+	
+	//@Autowired
+	//private PaymentService paymentService;
+	
 	@Autowired
 	private BoardService boardService;
 
@@ -232,20 +237,27 @@ public class MypageController {
 
 	// 좋아요 전시 리스트
 	@GetMapping("like-list")
-	public String likeList(@AuthenticationPrincipal ArtagitUserDetails user, Model model) {
-
-		List<Exhibition> list = exhService.getLikeListById(user.getId());
-		System.out.println("좋아요한 전시이이이~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-		System.out.println(list);
-		model.addAttribute("list", list);
-
-		Member member = memberService.get(user.getId());
-		model.addAttribute(member);
-		model.addAttribute("user", user);
-		return "member/mypage/like-list";
-	}
-
-	/******** 내가 쓴 게시글 리스트 불러오기 *******/
+	   public String likeList(@AuthenticationPrincipal ArtagitUserDetails user,
+			   					Model model,
+			   					@RequestParam(defaultValue = "1", name = "p") int page) {
+	      System.out.println("page@@@@@@@@@@@@@@@@"+page);
+	      List<Exhibition> list = exhService.getLikeListById(user.getId(),page);
+	      System.out.println("좋아요한 전시이이이~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+	      System.out.println(list);
+	      model.addAttribute("list", list);
+	      
+	      Member member = memberService.get(user.getId());
+	      int countOfExhLike = exhLikeService.getCount(user.getId());
+	      System.out.println(countOfExhLike);
+	      
+	      model.addAttribute(member);
+	      model.addAttribute(countOfExhLike);
+	      model.addAttribute("user",user);
+	      return "member/mypage/like-list";
+	     
+	   }
+	
+	/********내가 쓴 게시글 리스트 불러오기*******/
 
 //	@GetMapping("/post-list")
 //	public String post(Model model,@AuthenticationPrincipal ArtagitUserDetails user) {

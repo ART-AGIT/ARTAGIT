@@ -22,7 +22,7 @@
 
         <!-- 사업자 정보 -->
         <section class="reg-list">            
-            <form action="/corp/signup" method="post">
+            <form action="/user/corp/signup" method="post" class="signup">
                 <div class="toggle">
                     <h1 class="accordion-header">사업자 정보</h1>
                     <div class="icon arrow-icon icon-arrow-toggle-down"></div>
@@ -34,7 +34,7 @@
                         <label for="login-id">사업자 등록 번호</label>
                         <div>
                             <input name="businessNum" id="businessNum" type="text" required class="input input-md-2" spellcheck="false" placeholder="10자리 ('-'제외)">
-                            <button class="btn btn-default btn-default-fill btn-default-fill-off btn-certify">인증</button>
+                            <button class="btn btn-default btn-default-fill btn-default-fill btn-certify">인증</button>
                         </div>
                     </div>
                     
@@ -42,50 +42,54 @@
                         <label for="login-id">아이디</label>
                         <div>
                         	<input name="loginId" id="login-id" type="text" required class="input input-lg input-check" spellcheck="false" placeholder="영문자, 숫자 포함 6~16자">
-                        </div>
-                 	        <span class="idFialure-message d-none">사용 불가능한 아이디입니다</span>
-		                    <span class="idSuccess-message d-none">사용 가능한 아이디입니다</span>
-		                    <span class="id-check-massage d-none">중복된 아이디입니다</span>
+                        </div>   
+                    </div>
+                    <div class="id-confirm">
+                    	<span class="idFialure-message d-none">사용 불가능한 아이디입니다</span>
+		                <span class="idSuccess-message d-none">사용 가능한 아이디입니다</span>
+		                <span class="id-check-massage d-none">중복된 아이디입니다</span>
                     </div>
                     <div class="reg-list-input-box">
                         <label for="password">비밀번호</label>
                         <div>
                         	<input name="password" id="password" type="password" required class="input input-lg"
                             placeholder="영문자, 숫자 포함 8자 이상" spellcheck="false">
-                        </div>
-                            	<span class="passwordFialure-message d-none">사용 불가능한 비밀번호입니다</span>
-                    			<span class="passwordSuccess-message d-none">사용 가능한 비밀번호입니다</span>
-                    </div>
-        
+                        </div>        
+                   	</div>
+        			<div class="password-confirm">
+                        <span class="passwordFialure-message d-none">사용 불가능한 비밀번호입니다</span>
+                  		<span class="passwordSuccess-message d-none">사용 가능한 비밀번호입니다</span>
+                	</div>
                     <div class="reg-list-input-box">
                         <label for="password-check">비밀번호 확인</label>
                         <div>
-                        	<input name="password" id="password-check" type="password" required class="input input-lg"
+                        	<input name="password-check" id="password-check" type="password" required class="input input-lg"
                             placeholder="영문자, 숫자 포함 8자 이상" spellcheck="false">
-                        </div>   
+                        </div> 
+                    </div>
+					<div class="password-confirm">  
                             <span class="chkFialure-message d-none">비밀번호가 일치하지 않습니다</span>
                    			<span class="chkSuccess-message d-none">비밀번호가 일치합니다</span>
-                    </div>
-
+                   	</div>
     
                     <div class="reg-list-input-box">
                         <label for="exh-name">전시관 이름</label>
                         <div>
-                        	<input name="museumName" id="exh-name" type="text" class="input input-lg" spellcheck="false">
+                        	<input name="museumName" id="exh-name" required type="text" class="input input-lg" spellcheck="false">
                         </div>
                     </div>
         
                     <div class="reg-list-input-box">
                         <label for="ceo-name">대표자명</label>
                         <div>
-                        	<input name="ceoName" id="ceo-name" type="text" required class="input input-lg" spellcheck="false">
+                        	<input name="ceoName" id="ceo-name" required type="text" class="input input-lg" spellcheck="false">
                     	</div>
                     </div>
         
                     <div class="reg-list-input-box">
                         <label for="corp-name">법인명</label>
                         <div>
-                        	<input name="name" id="corp-name" type="text" class="input input-lg" spellcheck="false">
+                        	<input name="name" id="corp-name" required type="text" class="input input-lg" spellcheck="false">
                     	</div>
                     </div>
                     <div class="reg-list-input-box">
@@ -98,7 +102,7 @@
                     <div class="reg-list-input-box">
                         <label for="business-num">사업자 번호</label>
                         <div>
-                        	<input name="businessNum" id="business-num" type="text" required class="input input-lg" spellcheck="false">
+                        	<input name="" id="business-num" type="text" required class="input input-lg" spellcheck="false">
                     	</div>
                     </div>
         
@@ -106,13 +110,10 @@
                         <label for="address">전시관 주소</label>
                         <div id="address_kakao">
                             <input name="address" id="address" type="text" required class="input input-md-2" placeholder="주소 입력" spellcheck="false">
-                            <button  class="btn btn-default btn-default-fill-off">주소검색</button>
+                            <button id="address_kakao"  class="btn btn-default btn-default-fill address-detail" >주소검색</button>
                         </div>
-                        <div>
-                        	<input name="addressDetail" id="" type="text" class="input input-lg address-detail" placeholder="상세 주소 입력" spellcheck="false">
-                    	</div>
                     </div>
-        
+                        	<input name="addressDetail" id=""  type="text" class="input input-lg address-detail" placeholder="상세 주소 입력" spellcheck="false">
         
                 </section>
         
@@ -128,27 +129,27 @@
                     <div class="reg-list-input-box">
                         <label for="name">이름</label>
                         <div>
-                        	<input name="manager" id="name" type="text" class="input input-lg" spellcheck="false">
+                        	<input name="manager" id="name" required type="text" class="input input-lg" spellcheck="false">
                     	</div>
                     </div>
                     
                     <div class="reg-list-input-box">
                         <label for="email">이메일</label>
                         <div>
-                        <input name="" id="email" type="email" class="input input-lg" spellcheck="false">
+                        <input name="email" id="email" required type="email" class="input input-lg" spellcheck="false">
                     	</div>
                     </div>
                     <div class="reg-list-input-box">
                         <label for="phone">휴대폰</label>
                         <div>
-                        	<input name="managerPhone" id="phone" type="text" class="input input-lg" spellcheck="false">
+                        	<input name="managerPhone" id="phone" required type="text" class="input input-lg" spellcheck="false">
                     	</div>
                     </div>
                     
                     <!-- 가입 -->
                 </section>
                 <div class="reg-button-box">
-                    <button type="submit" class="btn btn-default-fill-off btn-xl">가입하기</button>
+                    <button type="submit" class="btn btn-default-fill btn-xl btn-signup">가입하기</button>
                 </div>
             </form>
         </section>

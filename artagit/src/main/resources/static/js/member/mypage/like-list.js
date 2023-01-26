@@ -49,12 +49,30 @@ let id = 0;
  				console.log("result"+result);
  				if(result==1){
  				console.log("삭제완료");  
- 				el.remove();  
+ 				el.remove(); 
+ 				 // 더보기 삭제 시 추가할 전시1개
+// 				 if()
+ 				 
  				}
  			})
 
 		}
 
 	}
+	
+	//  좋아요 전시 보여주기 (더보기 기능)
+    const itemMore = document.querySelector(".item-more");
+	let page=1;
+    itemMore.onclick = function(){
+		console.log("더보자************************8");
+		page+=1;
+		console.log("더보기"+page);
+		
+		queryString = `?p=${page}`;
+
+		fetch(`/member/mypage/like-list${queryString}`)
+		
+	}
+	
 
 });
