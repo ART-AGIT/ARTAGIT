@@ -19,6 +19,9 @@ public interface ExhLikeDao {
 
 	int count(int exhId);
 
+	//member - 좋아요 전시 건수 가져오기
+	int getCount(int id);
+
 
 
 }

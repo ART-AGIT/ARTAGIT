@@ -182,7 +182,8 @@
 				inner join Corporate C
 				on E.corpId = C.id
 		    where L.memId = #{id}
-		    order by M.id;
+		    order by M.id
+		    limit #{offset},#{size};
 	</select>
 	
 	

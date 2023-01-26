@@ -106,8 +106,9 @@ public class artagitUserDetailsService implements UserDetailsService {
 			user.setBusinessNum(corp.getBusinessNum());
 			user.setManager(corp.getManager());
 			user.setPhone(corp.getPhone());
-			user.setEmail(corp.getEmail());
+//			user.setEmail(corp.getEmail());
 			user.setAddress(corp.getAddress());
+			user.setAddressDetail(corp.getAddressDetail());
 			user.setRegState(corp.getRegState());
 			user.setProcessDate(corp.getProcessDate());
 			user.setRefuseReason(corp.getRefuseReason());
