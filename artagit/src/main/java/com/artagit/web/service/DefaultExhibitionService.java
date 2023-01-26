@@ -92,8 +92,8 @@ public class DefaultExhibitionService implements ExhibitionService {
 	
 	// [주최자] 나의 등록전시 리스트
 	public List<Exhibition> getListById(int corpId) {
-		
-		List<Exhibition> list =exhDao.getListById(corpId);
+		int limit = 6;
+		List<Exhibition> list =exhDao.getListByIdInit(corpId,limit);
 		return list;
 
 	}
@@ -194,6 +194,15 @@ public class DefaultExhibitionService implements ExhibitionService {
 	@Override
 	public List<Exhibition> getLikeListById(int id) {
 		List<Exhibition> list = exhDao.getLikeList(id);
+		return list;
+	}
+
+	@Override
+	public List<Exhibition> getListById(int id, int page) {
+		// TODO Auto-generated method stub
+		int size = 6;
+		int offset = (page-1)*size;
+		List<Exhibition> list = exhDao.getListById(id,size,offset);
 		return list;
 	}
 

@@ -6,6 +6,8 @@
     <th:block layout:fragment="css">
 	    <link href="../../css/corporator/mypage/exh-list.css" type="text/css" rel="stylesheet">
 	    <link href="../../css/component/sub-menu.css" type="text/css" rel="stylesheet">
+	    	<link href="../../css/member/mypage/booking-list.css" type="text/css" rel="stylesheet">
+	    	<script src="/js/corporator/mypage/exh-list.js"></script>
   	 </th:block>
 
 
@@ -39,7 +41,7 @@
 	    	<div>
 		    	<div class="my-reg">내가 등록한 전시</div>
 		    	
-		        
+		        <div class="total-box-wrapper">
 		        <div class="total-box">
 		            <span class="text total" >Total :&nbsp</span><span class="text total-num" th:text="${countOfExh}"></span>
 		        </div>
@@ -64,7 +66,10 @@
 		            </form>
 		        </div>
 		    </div>
-	        
+		    </div>
+	         <button class="text item-more" th:if="${countOfExh}>6">
+		        	<div>더보기</div>
+		        </button>
 	        
 	        </div>
 	        
