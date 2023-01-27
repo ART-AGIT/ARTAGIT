@@ -46,7 +46,7 @@ window.addEventListener("load", function(e){
         console.log('클릭!');
         console.log(`입력한 id: ${id}, email: ${email}`);
     
-        fetch(`sendEmail/${id}/${email}`, {
+        fetch("/user/sendEmail", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify ({

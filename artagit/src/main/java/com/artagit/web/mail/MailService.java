@@ -34,19 +34,19 @@ public class MailService {
      */
 	
 	// 임시 비밀번호 메일 설정
-	public void sendMail(@PathVariable String email, String memId, String tmpPwd) throws Exception{
+	public void sendMail(@PathVariable String email, String id, String tmpPwd) throws Exception{
 		
 		MimeMessage message = mailSender.createMimeMessage();
 		
 		System.out.println("mail서비스로 전달받은 tmpPwd ===> "+tmpPwd);
-		System.out.println("mail서비스로 전달받은 id ===> "+memId);
+		System.out.println("mail서비스로 전달받은 id ===> "+id);
 
 //		email = "ghqkd333@naver.com";
 		message.addRecipients(MimeMessage.RecipientType.TO, email); // 보낼 이메일 설정
 			System.out.println("여기까지");
 		message.setSubject("[Art Agit] 임시 비밀번호 안내 이메일입니다."); // 이메일 제목
 		message.setFrom(new InternetAddress("lucky_belief@naver.com", "Art Agit")); // 보내는 사람 이름 설정하고 싶은 경우
-		message.setText(setContext(memId, tmpPwd), "utf-8", "html"); // 내용 설정(Template Process)
+		message.setText(setContext(id, tmpPwd), "utf-8", "html"); // 내용 설정(Template Process)
 			System.out.println("여기까지222");
         
         mailSender.send(message); // 이메일 전송

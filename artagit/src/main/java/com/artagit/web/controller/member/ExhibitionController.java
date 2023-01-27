@@ -91,13 +91,13 @@ public class ExhibitionController {
 		
 		System.out.println(user);
 		ExhibitionView exh = service.getExhById(exhId, user.getId());
-		System.out.println(exh);
 		model.addAttribute("exh", exh);
+		
 		Corporate corp = corporateService.getCorpById(exh.getCorpId());
 		model.addAttribute("corp", corp);
+		
 		Member mem = memberService.get(memberId);
 		model.addAttribute("mem", mem);
-//		model.addAttribute("user", user);
 		
 		return "member/exhibition/booking-ticket";
 	}

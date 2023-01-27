@@ -47,7 +47,7 @@ window.addEventListener("load", function(e){
 
         console.log(`입력한 name: ${name}, email: ${email}`);
 
-        fetch(`findId/${name}/${email}`, {
+        fetch("/user/findId", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify ({

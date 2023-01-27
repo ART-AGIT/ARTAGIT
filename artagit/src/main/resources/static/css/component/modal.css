@@ -2,7 +2,7 @@
 
 /* 모달2 */
 
-.modal-hj {
+.d-modal {
     position: fixed;
     display: flex;
     flex-direction: column;
@@ -22,7 +22,7 @@
     border-radius: .5rem;
 }
 
-.header-title-hj {
+.header-title {
     margin: 0;
     text-align: center;
     padding: 1rem 0;
@@ -31,7 +31,7 @@
     font-weight: 500;
 }
 
-.modal-actions-hj {
+.modal-actions {
     text-align: center;
     display: flex;
     justify-content: center;
@@ -40,7 +40,7 @@
 }
 
   /* 버튼 */
-.modal-action-hj {
+.modal-action {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -56,21 +56,29 @@
     margin: 0 8px;
 }
 
-.modal-action-hj:hover,
-.modal-action-hj:active {
+.modal-action:hover,
+.modal-action:active {
     background: #FF6B90;
     color: #ffffff;
     border: none;
     border: 1px solid #FF6B90;
 }
 
-.modal-hj.show {
+.modal.show {
 	transform: translate(-50%, -50%);
     transition: all 0.5s;
 }
 
 @media (min-width: 992px){
-	.modal-hj {
+	.modal {
 	    width: 260px;
 	}
+	
+	.d-modal {
+	    width: 20%;
+	    height: 8rem;
+	    gap: 10px;
+	}
+
 }
+
