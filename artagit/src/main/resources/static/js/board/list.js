@@ -40,14 +40,19 @@ window.addEventListener("load", function() {
 			response.json())
 		.then((list) => {
 			noticebox.innerHTML="";
-			console.log("notice========>"+list);
+		
 		for (let notice of list) {
+			let beforeNoticeDate = new Date(notice.regDate);
+			let utc = beforeNoticeDate.getTime() + (beforeNoticeDate.getTimezoneOffset() * 60 * 1000);
+			let time_diff = 9 * 60 * 60 * 1000;
+			let cur_date_korea = new Date(utc + (time_diff));
 			let year = notice.regDate.toString().substring(2, 4);
 			let month = notice.regDate.toString().substring(5, 7);
 			let day = notice.regDate.toString().substring(8, 10);
-			let hour = notice.regDate.toString().substring(11, 13);
-			let min = notice.regDate.toString().substring(14, 16);
-		
+			let hour = cur_date_korea.toString().substring(15, 18);
+			let min = cur_date_korea.toString().substring(19, 21);
+			
+			
 			
 			let template1 =
 			`
@@ -83,11 +88,17 @@ window.addEventListener("load", function() {
 		.then((list) => {
 			boardbox.innerHTML="";
 		for (let board of list) {
+			//시간 format설정(->KST)
+			let beforeBoardDate = new Date(board.regDate);
+			let utcBoard = beforeBoardDate.getTime() + (beforeBoardDate.getTimezoneOffset() * 60 * 1000);
+			let time_diffBoard = 9 * 60 * 60 * 1000;
+			let cur_date_koreaBoard = new Date(utcBoard + (time_diffBoard));
+			
 			let year = board.regDate.toString().substring(2, 4);
 			let month = board.regDate.toString().substring(5, 7);
 			let day = board.regDate.toString().substring(8, 10);
-			let hour = board.regDate.toString().substring(11, 13);
-			let min = board.regDate.toString().substring(14, 16);
+			let hour = cur_date_koreaBoard.toString().substring(15, 18);
+			let min = cur_date_koreaBoard.toString().substring(19, 21);
 		
 			
 			
@@ -123,7 +134,7 @@ window.addEventListener("load", function() {
         </div>
         <div class="board-post-img-box">
         <a href="/member/board/${board.id}">
-           <img onerror="this.style.display='none'"  src="/image/${board.image}" class="post-img">
+           <img onerror="this.style.display='none'"  src="/image/board/${board.image1}" class="post-img">
            </a>
         </div>
           </section>

@@ -226,10 +226,14 @@ textarea:focus{
 }
 
 .heart-fix{
-    padding-top:10px;
+    padding-top: 2px;
 }
 .icon-report{
     /* margin-bottom:5px; */
+}
+
+.icon-flex{
+    display:flex;
 }
 
 #modal.modal-overlay {

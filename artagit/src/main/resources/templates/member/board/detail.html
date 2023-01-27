@@ -94,7 +94,7 @@
 	               	<a th:href="@{|/member/board/edit/${id}|}" class="btn btn-default-line">수정</a>
 	            	<div type="button" class="btn btn-default-line delete-btn">삭제</div>
                </div>
-               <div th:if="${user.id != board.memId}">
+               <div class="icon-flex" th:if="${user.id != board.memId}">
                 	<div class="heart-fix">
                 		<div th:classappend="${board.heart} != 1? '' : 'icon-heart-red'" class="icon icon-heart post-like-btn"></div>
                 	</div>

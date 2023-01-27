@@ -52,7 +52,7 @@ public class BoardController {
 		model.addAttribute("boardList",board);
 		model.addAttribute("noticeList",notice);
 		model.addAttribute("roleId", roleId);
-		System.out.println("model에 들어가는지"+board);
+		
 		
 		return "board/list";
 			
