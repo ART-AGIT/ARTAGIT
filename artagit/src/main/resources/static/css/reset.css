@@ -31,6 +31,6 @@ body::-webkit-scrollbar, div::-webkit-scrollbar {
     display: none;
 }
 
-*{
-    font-family: 'Pretendard-Regular', Tahoma, Geneva, Verdana, sans-serif;
-}
+/* *{ */
+/*     font-family: 'Pretendard-Regular', Tahoma, Geneva, Verdana, sans-serif; */
+/* } */

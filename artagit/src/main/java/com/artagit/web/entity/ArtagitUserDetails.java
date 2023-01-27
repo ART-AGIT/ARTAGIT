@@ -163,6 +163,14 @@ public class ArtagitUserDetails implements UserDetails {
 		this.address = address;
 	}
 
+	public String getAddressDetail() {
+		return addressDetail;
+	}
+
+	public void setAddressDetail(String addressDetail) {
+		this.addressDetail = addressDetail;
+	}
+
 	public String getMuseumName() {
 		return museumName;
 	}

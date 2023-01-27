@@ -42,8 +42,7 @@
                            		</a>
 <!--                            role이 member면 내 예매 리스트 -->
                             	<a href="/member/mypage/review/list" sec:authorize="hasAnyRole('MEMBER')">
-                            		<span th:if="${sec:authentication="principal.username"}" sec:authentication="principal.username"></span>
-                            		<span th:unless="${sec:authentication="principal.username"}" th:text="${}"></span>
+                            		<span sec:authentication="principal.username"></span>
                            		</a>
                            	</li>
                             <li>
