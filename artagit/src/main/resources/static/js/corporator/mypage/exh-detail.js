@@ -2,7 +2,7 @@ window.addEventListener("load", function(){
     const modiBtn = this.document.querySelector(".modify-btn");
 
     const deleteBtn = this.document.querySelector(".delete-btn");
-    const modal = this.document.querySelector(".modal");
+    const modal = this.document.querySelector(".d-modal");
     const yesBtn = document.querySelector(".yes-btn");
     const detailSection = this.document.querySelector(".exh-content-container");
     const modiLine = detailSection.querySelectorAll(".content");
@@ -26,17 +26,6 @@ window.addEventListener("load", function(){
         }
     };
 
-    //////////// 삭제 버튼 눌렀을 때
-    deleteBtn.onclick = function(e){
-        e.preventDefault();
-
-        if(e.target.classList.contains("delete-btn")){
-            console.log("삭제버튼 클릭");
-            
-            modal.classList.remove("d-none");
-            document.body.classList.add("stop-scroll");
-        }
-};
 
 
 	let check = false; // 수정 버튼 상태값
@@ -157,50 +146,60 @@ window.addEventListener("load", function(){
 				return response;
 				} else {console.log("실패")}})
 //            .then(location.href='/corp/exh/'+id[0].value);
-            .then(location.reload());
+            // .then(location.reload());
 		}
     }
+
+
+        //////////// 삭제 버튼 눌렀을 때
+        deleteBtn.onclick = function(e){
+            e.preventDefault();
     
+            if(e.target.classList.contains("delete-btn")){
+                console.log("삭제버튼 클릭");
+                
+                modal.classList.remove("d-none");
+                document.body.classList.add("stop-scroll");
+            }
+        };
+	
+        yesBtn.onclick = function(e){
+            let id = e.target.dataset.id;
+            console.log("id========>" + id);
+            console.log(e.target);
 
-    // }
+            // if(e.target.classList.contains(".yes-btn")){
+                e.preventDefault();
+                // console.log(e.target);
 
+                fetch(`/api/delete/${id}`, {
+                    method: "DELETE" // delete 라는 메서드를 보낸다.
+                })
+                .then(resp => resp.json())
+                .then(data => {
+                    console.log(data.resultObject);
+                    let result = data.resultObject;
 
-	// yesBtn.onclick = function(e){
-	//     let id = e.target.dataset.id;
-	//     console.log("id========>" + id);
-	//     console.log(e.target);
-
-    //         // if(e.target.classList.contains(".yes-btn")){
-    //             e.preventDefault();
-    //             // console.log(e.target);
-
-    //             fetch(`/api/delete/${id}`, {
-    //                 method: "DELETE" // delete 라는 메서드를 보낸다.
-    //             })
-    //             .then(resp => resp.json())
-    //             .then(data => {
-    //                 console.log(data.resultObject);
-    //                 let result = data.resultObject;
-
-	// 				console.log(result);
-    //                 if(result == 1){
+					console.log(result);
+                    if(result == 1){
+							console.log("왔다,");
+							modal.classList.add("d-none");
+                            // modal.innerHTML = '';
+                            document.body.classList.remove("stop-scroll");
 							
-	// 						modal.classList.add("d-none");
-							
-    //                         let modal2 = `
-    //                                     <div class="modal">
-    //                                         <div class="modal-header">
-    //                                             <h1 class="header-title">정상적으로 삭제되었습니다.</h1>
-    //                                         </div>
-    //                                         <div class="modal-actions">
-    //                                             <a class="modal-action" href="">확인</a>
-    //                                         </div>
-    //                                     </div>
-    //                                     `
-    //                     detailSection.insertAdjacentHTML("beforeend", modal2);
-    //                     // document.body.classList.add("stop-scroll");
-    //                 }
-    //             })
-    //             .then(location.href="/corp/exh/list");
-    //     };
+                            let modal2 = `
+                                        <div class="d-modal">
+                                            <div class="modal-header">
+                                                <h1 class="header-title">정상적으로 삭제되었습니다.</h1>
+                                            </div>
+                                            <div class="modal-actions">
+                                                <a class="modal-action" href="/corp/exh/list">확인</a>
+                                            </div>
+                                        </div>
+                                        `
+                        detailSection.insertAdjacentHTML("beforeend", modal2);
+                    }
+                })
+                // .then(location.href="/corp/exh/list");
+        };
 });

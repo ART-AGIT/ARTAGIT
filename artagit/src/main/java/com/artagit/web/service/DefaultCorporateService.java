@@ -67,4 +67,43 @@ public class DefaultCorporateService implements CorporateService{
 	public Corporate getId(String name, String email) {
 		return corporateDao.getId(name, email);
 	}
+
+	
+	//=========== PW 찾을 때, 입력한 id로 회원 객체 가져오기 =================
+	@Override
+	public Corporate getByUserName(String loginId) {
+		return corporateDao.getByUserName(loginId);
+	}
+	
+	
+	//=========== PW 찾을 때, 입력한 id, email이 DB에 존재하는지 확인 =================
+	@Override
+	public int checkUser(Corporate corp, String loginId, String email) {
+		
+		int result = 1;
+		 
+		 String corpId = corp.getLoginId();
+		 String corpEmail = corp.getEmail();
+		 
+		System.out.println("사용자 id: " + corpId);
+		System.out.println("사용자 email: " + corpEmail);
+		
+ 
+//		if(!(loginId.equals(memId)) || member == null) {
+//			System.out.println("존재하지 않는 ID 예요ㅋㅋ.");
+//			result = 1;
+//		} else 
+		
+		if (!(email.equals(corpEmail))) {
+			System.out.println("이메일을 정확하게 입력해 주세요.");
+			result = 2;
+		} else { // (loginId == memId) && (email == memEmail)			
+			System.out.println("우리 회원이에요. 정보가 일치해요.");
+		}
+		
+		 return result;
+	}
+
+
+
 }

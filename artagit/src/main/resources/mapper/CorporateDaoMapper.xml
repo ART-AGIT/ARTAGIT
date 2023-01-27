@@ -10,7 +10,6 @@
 	<update id="update" parameterType="com.artagit.web.entity.Corporate">
 		update Corporate
  		<set>
- 			
  			<if test="museumName != null">museumName = #{museumName},</if>
  			<if test="name != null">name = #{name},</if>
  			<if test="address != null">address = #{address},</if>
