@@ -169,6 +169,13 @@ public class DefaultBoardService implements BoardService{
 	}
 
 
+	@Override
+	public List<BoardListView> getSearchList(String query) {
+		// TODO Auto-generated method stub
+		return boardListDao.getSearchList(query);
+	}
+
+
 	
 
 

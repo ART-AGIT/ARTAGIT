@@ -286,12 +286,25 @@ h2{
      
     h2 {
         display:block;
-        margin-bottom: 40px;
+        
         padding-left:15px;
     }
 
     .board-box-width{
         max-width: 700px;
+    }
+    .board-search{
+        display:flex;
+        justify-content: flex-end;
+        padding-bottom: 16px;
+        width: 640px;
+    }
+    .input{
+        border:2px solid #FFF1F3;
+    }
+
+    .input:focus{
+        border: 2px solid #FF6C9E;
     }
     
 }

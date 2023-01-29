@@ -107,7 +107,7 @@ public class MypageController {
 				bookingList.get(i).setPayMethod("미관람");
 //				
 		}
-		System.out.println(user.getImg());
+		System.out.println("user정보~~~~"+user);
 		model.addAttribute("user", user);
 		model.addAttribute("bookingList", bookingList);
 		model.addAttribute("countOfBooking", countOfBooking);

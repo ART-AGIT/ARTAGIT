@@ -57,6 +57,9 @@ public interface BoardService {
 	List<BoardListView> getListById(int id, int page);
 
 
+	List<BoardListView> getSearchList(String query);
+
+
 
 
 	
