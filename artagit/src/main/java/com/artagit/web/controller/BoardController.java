@@ -1,5 +1,6 @@
 package com.artagit.web.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -39,7 +40,6 @@ public class BoardController {
 	/*************게시글 리스트 불러오기*********/
 	@GetMapping("list")
 	public String list(
-		
 		@RequestParam(defaultValue = "1", name ="p")int page,
 		Model model,
 		HttpSession session){
@@ -49,12 +49,28 @@ public class BoardController {
 		System.out.println("category?"+category);
 		List<BoardListView> board = service.getListInit(page, 0,category);
 		List<Notice> notice = noticeService.getListInit(page,0,category);
-		model.addAttribute("boardList",board);
 		model.addAttribute("noticeList",notice);
 		model.addAttribute("roleId", roleId);
+		model.addAttribute("boardList",board);
+		
 		
 		
 		return "board/list";
+			
+		}
+	
+	//게시글 검색 결과
+	@GetMapping("search")
+	public String searchList(
+		@RequestParam(defaultValue = "", name ="q")String query,
+		Model model){
+		System.out.println("ㅎㅎ");
+		Board roleId = new Board();
+		List<BoardListView> board = service.getSearchList(query);
+		model.addAttribute("roleId", roleId);		
+		model.addAttribute("boardList",board);	
+		System.out.println(board);
+		return "board/searchlist";
 			
 		}
 	

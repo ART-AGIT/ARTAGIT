@@ -24,5 +24,7 @@ public interface BoardListDao {
 	List<BoardListView> getLikeList(int memId,int offset,int size);
 
 	List<BoardListView> getListById(int memId, int page, int offset, int size);
+
+	List<BoardListView> getSearchList(String query);
 	
 }

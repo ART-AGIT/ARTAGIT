@@ -52,7 +52,7 @@ window.addEventListener("load", function() {
 			let hour = cur_date_korea.toString().substring(15, 18);
 			let min = cur_date_korea.toString().substring(19, 21);
 			
-			
+		
 			
 			let template1 =
 			`
@@ -100,7 +100,6 @@ window.addEventListener("load", function() {
 			let hour = cur_date_koreaBoard.toString().substring(15, 18);
 			let min = cur_date_koreaBoard.toString().substring(19, 21);
 		
-			
 			
 			let template = ` 
 		<form class="board-box">
