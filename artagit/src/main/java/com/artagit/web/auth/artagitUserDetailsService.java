@@ -111,7 +111,7 @@ public class artagitUserDetailsService implements UserDetailsService {
 			user.setMuseumName(corp.getMuseumName());
 			user.setLocalId(corp.getLocalId());
 			user.setRoleId(corp.getRoleId());
-			user.setImg(corp.getImg());
+//			user.setImg(corp.getImg());
 //			user.setImg(corp.getImg());
 			user.setAuthorities(authorities);
 			user.setImg(corp.getImg());
