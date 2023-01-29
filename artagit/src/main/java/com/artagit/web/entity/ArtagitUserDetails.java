@@ -48,10 +48,7 @@ public class ArtagitUserDetails implements UserDetails {
 
 	public void setRoleId(int roleId) {
 		this.roleId = roleId;
-		
 	}
-
-	
 
 	public int getId() {
 		return id;
@@ -134,19 +131,16 @@ public class ArtagitUserDetails implements UserDetails {
 
 	@Override
 	public boolean isAccountNonLocked() {
-		
 		return true;
 	}
 
 	@Override
 	public boolean isCredentialsNonExpired() {
-		
 		return true;
 	}
 
 	@Override
 	public boolean isEnabled() {
-		
 		return true;
 	}
 
@@ -161,25 +155,20 @@ public class ArtagitUserDetails implements UserDetails {
 		this.authorities = authorities;
 	}
 	
-	
-	
-
-	
-	@Override
-	public String toString() {
-		return "ArtagitUserDetails [id=" + id + ", loginId=" + loginId + ", username=" + username + ", password="
-				+ password + ", name=" + name + ", phone=" + phone + ", nickname=" + nickname + ", email=" + email
-				+ ", img=" + img + ", authorities=" + authorities + ", ceoName=" + ceoName + ", businessNum="
-				+ businessNum + ", manager=" + manager + ", managerPhone=" + managerPhone + ", museumName=" + museumName
-				+ ", address=" + address + ", addressDetail=" + addressDetail + ", roleId=" + roleId + "]";
-	}
-
 	public String getAddress() {
 		return address;
 	}
 
 	public void setAddress(String address) {
 		this.address = address;
+	}
+
+	public String getAddressDetail() {
+		return addressDetail;
+	}
+
+	public void setAddressDetail(String addressDetail) {
+		this.addressDetail = addressDetail;
 	}
 
 	public String getMuseumName() {
@@ -196,41 +185,35 @@ public class ArtagitUserDetails implements UserDetails {
 
 	public void setBusinessNum(int businessNum) {
 		this.businessNum = businessNum;
-		
 	}
+
 	public String getManager() {
 		return manager;
 	}
-
 	
 	public void setManager(String manager) {
 		this.manager = manager;
-		
 	}
 	
 	public void setManagerPhone(String managerPhone) {
 		this.managerPhone = managerPhone;
-		
 	}
+
 	public String getManagerPhone() {
 		return managerPhone;
 	}
 
 	public void setRegState(String regState) {
 //		this.regState = regState;
-		
 	}
 
 	public void setProcessDate(String processDate) {
 		// TODO Auto-generated method stub
-		
 	}
 
 	public void setRefuseReason(String refuseReason) {
 		// TODO Auto-generated method stub
-		
 	}
-
 
 	public void setLocalId(int localId) {
 //		this.setLocalId = localId;	
@@ -244,12 +227,13 @@ public class ArtagitUserDetails implements UserDetails {
 		return businessNum;
 	}
 	
-	public String getAddressDetail() {
-		return addressDetail;
-	}
-
-	public void setAddressDetail(String addressDetail) {
-		this.addressDetail = addressDetail;
+	@Override
+	public String toString() {
+		return "ArtagitUserDetails [id=" + id + ", loginId=" + loginId + ", username=" + username + ", password="
+				+ password + ", name=" + name + ", phone=" + phone + ", nickname=" + nickname + ", email=" + email
+				+ ", img=" + img + ", authorities=" + authorities + ", ceoName=" + ceoName + ", businessNum="
+				+ businessNum + ", manager=" + manager + ", managerPhone=" + managerPhone + ", museumName=" + museumName
+				+ ", address=" + address + ", roleId=" + roleId + "]";
 	}
 
 }

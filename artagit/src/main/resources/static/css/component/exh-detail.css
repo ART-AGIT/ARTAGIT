@@ -248,9 +248,6 @@ input[type="time"]:focus, input[type="date"]:focus {
     cursor: pointer;
     margin: 0 8px;
     width: fit-content;
-    
-/*     display: inline; */
-/*   	white-space: normal; */
 }
 /* =================== */
 
@@ -282,6 +279,18 @@ h1.mody-on:focus {
     outline-style: 1px solid #FF6B90;
 }
 
+/* .stop-scroll{ */
+/*   height: 100%; */
+/*   overflow: hidden; */
+/* } */
+
+.stop-scroll{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: fixed;
+  pointer-events: click;
+}
 /******* PC버전 ****************************************/
 
 @media (min-width: 992px) {

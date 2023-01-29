@@ -102,7 +102,7 @@ public class ExhibitionApi {
 		dto.put("status", 200); // http가 갖고 있는 기본 상태값
 		dto.put("resultObject", result);
 		
-		System.out.println("주최자 등록한 전시(id==>"+ id +") 삭제(useYn = N)완료");
+		System.out.println("주최자 등록한 전시(id==>"+ id +") 삭제(useYn = N)완료! result==>" + result);
 		 return dto;
 	}
 

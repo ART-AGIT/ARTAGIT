@@ -159,9 +159,7 @@ p {
 	.flow-btn-box {
 	    display: flex;
 	    align-items: center;
-/* 	    margin-top: 30px; */
-	    margin-bottom: 8px;
-	    justify-content: flex-end;
+    	margin: 15px 0 8px 90px;
 	}
 	
 	.arrow-box {
