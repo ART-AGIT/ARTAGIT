@@ -139,15 +139,17 @@
 	    </section>
     </div>
 		<!------------ 모달 ------------>
-         <div class="d-modal d-none">
-            <div class="modal-header">
-                <h1 class="header-title">정말 삭제하시겠습니까?</h1>
-            </div>
-            <div class="modal-actions">
-                <a class="modal-action yes-btn" href="" type="" th:attr="data-id=${exh.id}">예</a>
-                <a class="modal-action no-btn">아니오</a>
-            </div>
-        </div>
+	<div class="d-modal modal-overlay d-none">
+    	<div class="modal-window">
+	    	<div class="modal-header">
+	        	<h1 class="header-title">정말 삭제하시겠습니까?</h1>
+	        </div>
+	        <div class="modal-actions">
+	            <a class="modal-action yes-btn" href="" type="" th:attr="data-id=${exh.id}">예</a>
+	            <a class="modal-action no-btn">아니오</a>
+	    	</div>
+    	</div>
+    </div>
     
 </main>
 </body>

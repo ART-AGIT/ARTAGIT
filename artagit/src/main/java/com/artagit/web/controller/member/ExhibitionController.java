@@ -29,7 +29,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 @Controller
-//@RequestMapping("/corporator/mypage/")
 @RequestMapping("/member/exh")
 
 public class ExhibitionController {

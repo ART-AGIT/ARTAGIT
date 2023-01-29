@@ -7,7 +7,7 @@
 	<th:block layout:fragment="css">
 	    <link href="/css/component/like-list.css" type="text/css" rel="stylesheet">
 	    <link href="/css/component/sub-menu.css" type="text/css" rel="stylesheet">
-	    
+	    <link href="/css/component/modal.css" type="text/css" rel="stylesheet">
 		<script src="../../js/header-menu.js"></script>
 		<script src="../../js/member/mypage/like-list.js"></script>
 	</th:block>
@@ -70,13 +70,15 @@
 		 <!-- 좋아요 전시 삭제  modal -->
 			         <div id="modal" class="modal-overlay modal-delete">
 		                <div class="modal-window">
-			                 <div class="title">
-			                     <h2>좋아요 삭제</h2>
-			                 </div>
-			                 <div class="content">삭제하시겠습니까?</div>
-			                 <div class="button-wrap">
-			                     <button class="btn btn-default del-btn" type="submit" >삭제</button>
-			                     <button  class="btn btn-default-line cancel-btn" type="button">취소</button>
+<!-- 			                 <div class="title"> -->
+<!-- 			                     <h2>좋아요 삭제</h2> -->
+<!-- 			                 </div> -->
+			                 <div class="modal-header">
+					        	<h1 class="header-title">정말 삭제하시겠습니까?</h1>
+					         </div>
+			                 <div class="button-wrap modal-actions">
+			                     <button class="modal-action del-btn" type="submit" >예</button>
+			                     <button  class="modal-action cancel-btn" type="button">아니오</button>
 			                 </div>
 		                </div>
 			         </div> 
