@@ -144,5 +144,85 @@ form {
 	    margin-left: 13px;
 	    padding-bottom:20px;
 	}
-	
+    .total-exh-menu-list{
+        display: flex;
+        justify-content: space-between;
+    }
+    /* .exh-menu-list {
+
+    
+        display: flex;
+        justify-content: space-around;
+        
+        cursor: pointer;
+        width: 300px;
+
+        font-size: 18px;
+    
+    }
+	.exh-menu-selected > span{
+         font-weight: bold; 
+        color: #545454;
+        font-size: 14px;
+    } */
+    
+    
+    /* 서브메뉴 펼칠 때, 각 높이만큼 펼치기 */
+  
+    .exh-menu-selected.active+.sub-menu-2{
+        display: block;
+        height: 117px;
+        width: 85px;
+    }
+    
+    /* 서브메뉴 */
+    .exh-sub-menu{
+        height: 0; 
+        width: 100%;
+        background-color: #fff;
+        padding: 0;
+        overflow: hidden;
+    
+        position: absolute;
+        z-index: 10;
+    
+        border-radius: 10px;
+    
+        /* effect */
+        transition: height 1s;
+    }
+    
+    .exh-sub-menu>li:hover{
+        background-color: #FFBFCF;
+        border-radius: 10px;
+        transition: .5s;
+    }
+    
+
+    .exh-menu-box {
+	    margin: 40px 0 25px 0;
+	}
+
+
+    .exh-sub-menu>li {
+	    font-size: 16px;
+        padding: 10px 0;
+	}
+/* ================================== */
+.pl{
+    width: 116px;
+    height: 30px;
+    border: 1px solid #C4C4C4;
+    border-radius: 10px;
+    padding: 5px 7px;
+    font-size: 13px;
+}
+
+.pl:focus{
+    border: 1px solid #C4C4C4;
+    border-radius: 10px;
+    outline: 3px solid #FFBFCF;
+    border-radius: 10px;
+}
+
 }

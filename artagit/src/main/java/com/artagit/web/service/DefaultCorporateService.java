@@ -1,5 +1,7 @@
 package com.artagit.web.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -7,6 +9,8 @@ import org.springframework.stereotype.Service;
 import com.artagit.web.dao.CorporateDao;
 import com.artagit.web.entity.ArtagitUserDetails;
 import com.artagit.web.entity.Corporate;
+import com.artagit.web.entity.Exhibition;
+import com.artagit.web.entity.ExhibitionView;
 import com.artagit.web.entity.Member;
 
 @Service
@@ -74,5 +78,14 @@ public class DefaultCorporateService implements CorporateService{
 	@Override
 	public Corporate getId(String name, String email) {
 		return corporateDao.getId(name, email);
+	}
+
+	// 주최자가 등록한 전시date필터링
+	@Override
+	public List<Exhibition> getListByDateId(int page,int size, int state,int corpId) {
+		int limit = 0;
+		
+		List<Exhibition> list = corporateDao.getListByDateId(limit,size, state, corpId,page);
+		return list;
 	}
 }

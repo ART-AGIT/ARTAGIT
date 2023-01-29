@@ -1,7 +1,11 @@
 package com.artagit.web.service;
 
+import java.util.List;
+
 import com.artagit.web.entity.ArtagitUserDetails;
 import com.artagit.web.entity.Corporate;
+import com.artagit.web.entity.Exhibition;
+import com.artagit.web.entity.ExhibitionView;
 
 public interface CorporateService {
 
@@ -26,4 +30,7 @@ public interface CorporateService {
 
 
 	int chkId(String loginId);
+
+	// 주최자가 등록한 전시date필터링
+	List<Exhibition> getListByDateId(int page, int size, int state,int id);
 }

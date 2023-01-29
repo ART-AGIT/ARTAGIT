@@ -210,6 +210,8 @@ public class DefaultExhibitionService implements ExhibitionService {
 		List<Exhibition> list = exhDao.getListById(id,size,offset);
 		return list;
 	}
+	
+	
 
 
 

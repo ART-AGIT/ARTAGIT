@@ -1,9 +1,13 @@
 package com.artagit.web.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Mapper;
 
 import com.artagit.web.entity.ArtagitUserDetails;
 import com.artagit.web.entity.Corporate;
+import com.artagit.web.entity.Exhibition;
+import com.artagit.web.entity.ExhibitionView;
 import com.artagit.web.entity.Member;
 import com.artagit.web.entity.Museum;
 
@@ -31,4 +35,9 @@ public interface CorporateDao {
 
 	// 아이디 중복 확인
 	int chkId(String loginId);
+
+	// 주최자가 등록한 전시date필터링
+	List<Exhibition> getListByDateId(int offset, int size, int state, int corpId, int page);
+
+
 }
