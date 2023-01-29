@@ -193,7 +193,13 @@
 		order by regDate
 		desc
 		limit 0 ,1
-
+	</select>
+	
+	<select id="getPayNum" resultType="String">
+		select concat(today, right(concat("00000", rowCount+1), 6)) as payNum
+	    from 
+		    (select date_format(now(), '%Y%m%d-') as today,
+		    (select id as cnt from Booking order by id desc limit 1) as rowCount from dual) d;
 	</select>
 
 </mapper>

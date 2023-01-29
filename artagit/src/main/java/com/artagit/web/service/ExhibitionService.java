@@ -69,6 +69,6 @@ public interface ExhibitionService {
 
 	List<Exhibition> getListById(int id, int page);
 
-
+	String getPayNum();
 
 }

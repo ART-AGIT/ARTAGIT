@@ -73,6 +73,6 @@ public interface ExhibitionDao {
 
 	List<Exhibition> getListById(int id,int size,int offset);
 
-	
+	String getPayNum();
 }
  

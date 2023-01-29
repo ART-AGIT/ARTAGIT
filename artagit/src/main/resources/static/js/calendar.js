@@ -96,6 +96,8 @@ window.addEventListener("load", function(){
     const cInfoBox = document.querySelector(".client-info");
     const incOrdec = document.querySelector(".plus");
     const choiceDate = document.querySelector(".choice-date");
+    const bookingBtn = document.querySelector(".booking-btn");
+    const msgBox = document.querySelector(".msg-box");
 
     // 선택한 날짜 색 바뀜, 날짜 바뀜
     calendar.onclick = function(e){
@@ -124,10 +126,14 @@ window.addEventListener("load", function(){
         exhDate.innerHTML = template;
 		choiceDate.classList.add("d-none");
         cNumBox.classList.remove("d-none");
+        bookingBtn.classList.remove("d-none");
+        msgBox.classList.remove("d-none");
     }
+
     incOrdec.onclick = function(e){
 		e.preventDefault();
 		cInfoBox.classList.remove("d-none");
+		console.log("msgBox==> " + msgBox);
 	}
 
 })
