@@ -26,12 +26,14 @@ import com.artagit.web.entity.ArtagitUserDetails;
 import com.artagit.web.entity.BoardListView;
 import com.artagit.web.entity.Booking;
 import com.artagit.web.entity.BookingList;
+import com.artagit.web.entity.ExhLikeList;
 import com.artagit.web.entity.Exhibition;
 import com.artagit.web.entity.Member;
 import com.artagit.web.entity.Payment;
 import com.artagit.web.entity.Review;
 import com.artagit.web.service.BoardService;
 import com.artagit.web.service.BookingService;
+import com.artagit.web.service.ExhLikeService;
 import com.artagit.web.service.ExhibitionService;
 import com.artagit.web.service.MemberService;
 import com.artagit.web.service.PaymentService;
@@ -58,6 +60,9 @@ public class MyPageApi {
 	@Autowired
 	private BoardService boardService;
 	
+	@Autowired
+	private ExhLikeService exhLikeService;
+	
 	
 	/*-----------api 로 예매내역리스트------*/ 
 	
@@ -75,7 +80,28 @@ public class MyPageApi {
 		return bookingList;
 	}
 	
-	
+		// 좋아요 전시 더보기 api
+		@GetMapping("/api/like-list")
+		public List<ExhLikeList> likeList(@AuthenticationPrincipal ArtagitUserDetails user,
+			   					Model model,
+			   					@RequestParam(defaultValue = "1", name = "p") int page,
+			   					@RequestParam(defaultValue = "0", name = "d")int delCount) {
+	      System.out.println("APIIIIIIIpage@@@@@@@@@@@@@@@@"+page);
+	      List<ExhLikeList> ehxLikeList = exhLikeService.getLikeListById(user.getId(),page);
+	      System.out.println("좋아요한 전시APIIIIIIIIIIIIIIIIII");
+	      System.out.println(ehxLikeList);
+//	      model.addAttribute("ehxLikeList", ehxLikeList);
+//	      
+//	      Member member = memberService.get(user.getId());
+//	      int countOfExhLike = exhLikeService.getCount(user.getId());
+//	      System.out.println(countOfExhLike);
+//	      w3e
+//	      model.addAttribute(member);
+//	      model.addAttribute(countOfExhLike);
+//	      model.addAttribute("user",user);
+	      return ehxLikeList;
+	     
+	   }
 	
 	
 	

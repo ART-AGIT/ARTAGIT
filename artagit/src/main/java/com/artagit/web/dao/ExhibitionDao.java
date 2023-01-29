@@ -6,6 +6,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 
 import com.artagit.web.entity.Corporate;
+import com.artagit.web.entity.ExhLikeList;
 import com.artagit.web.entity.Exhibition;
 import com.artagit.web.entity.ExhibitionView;
 
@@ -69,9 +70,14 @@ public interface ExhibitionDao {
 	Exhibition getLast(int corpId);
 
 	// [일반회원] 좋아요 전시
-	List<Exhibition> getLikeList(int id, int page, int offset, int size);
-
+	List<Exhibition> getLikeList(int id);
+//	List<Exhibition> getLikeList(int id, int page, int offset, int size);
+	
 	List<Exhibition> getListById(int id,int size,int offset);
+
+	// 좋아요 전시 더보기
+	List<ExhLikeList> getLikeListById(int id, int size, int offset);
+	List<Exhibition> getLikeListAll(int id);
 
 	
 }

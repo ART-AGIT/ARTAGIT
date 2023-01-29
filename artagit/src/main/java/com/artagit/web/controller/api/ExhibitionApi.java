@@ -15,7 +15,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.artagit.web.entity.ArtagitUserDetails;
+import com.artagit.web.entity.ExhLikeList;
+import com.artagit.web.entity.Exhibition;
 import com.artagit.web.entity.ExhibitionView;
+import com.artagit.web.service.ExhLikeService;
 import com.artagit.web.service.ExhibitionService;
 
 @RestController
@@ -24,6 +27,9 @@ public class ExhibitionApi {
 	
 	@Autowired
 	private ExhibitionService service;
+	
+//	@Autowired
+//	private ExhLikeService exhLikeService;
 	
 	@GetMapping("lists")
 	public List<ExhibitionView> list(
@@ -76,11 +82,13 @@ public class ExhibitionApi {
 
 		int result = service.likeDelete(exhId, user.getId());
 		int count = service.countOfLike(exhId);
+		List<Exhibition> likeList = service.getLikeListByIdAll(user.getId());
 		Map<String, Object> dto = new HashMap<>();
 		//HTTP 가 가지고있는 기본 상태값
 		dto.put("status", 200);
 		dto.put("resultObject", result);
 		dto.put("countNum", count);
+		dto.put("likeList",likeList);
 		
 		return dto;
 	}

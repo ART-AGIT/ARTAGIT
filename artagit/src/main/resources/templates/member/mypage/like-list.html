@@ -46,12 +46,10 @@
     <div class="my-like-list">
         <h2 class="my-like-list-title">좋아요 전시</h2>
         <section class="like-list-section">
-			<div class="nonexistence-mess" th:if="${#lists.isEmpty(list)}" >
-	        	<p>좋아요 한 전시가 없습니다.</p>
-	        </div>
-        
 	        <section class="like-list" th:each="list:${list}" th:attr="data-id=${list.id}">
-	        	
+	        	<div class="nonexistence-mess" th:if="${#lists.isEmpty(list)}" >
+	        		<p>좋아요 한 전시가 없습니다.</p>
+	       		</div>
 	            <form action="">
 <!-- 				<input type="hidden" class="find-id" th:attr="data-id=${list.id}"> -->
 	                <div class="exh-img-box">
@@ -62,14 +60,12 @@
                     <div class="text exh-title" th:text="${list.name}">모네 인사이드</div>
                     <div class="text exh-place" th:text="${list.museumName}">국립현대미술관</div>
                     <div class="text exh-date" th:text="${list.startDate} +' ~ '+ ${list.endDate}">2022.09.22 ~ 2022.09.22</div>
-<!--            			<div class="text  start-date" th:text="${list.startDate} +' ~ '">2022.09.22 ~ 2022.09.22</div> -->
-<!-- 					<div class="text  end-date" th:text="${list.endDate}">2022.09.22 ~ 2022.09.22</div>	     -->
 	            </form>
-	        </section>  
-	        
-		 <!-- 좋아요 전시 삭제  modal -->
+	        </section>
+		</section> 
+				 <!-- 좋아요 전시 삭제  modal -->
 			         <div id="modal" class="modal-overlay modal-delete">
-		                <div class="modal-window">
+			               <div class="modal-window">
 			                 <div class="title">
 			                     <h2>좋아요 삭제</h2>
 			                 </div>
@@ -78,12 +74,12 @@
 			                     <button class="btn btn-default del-btn" type="submit" >삭제</button>
 			                     <button  class="btn btn-default-line cancel-btn" type="button">취소</button>
 			                 </div>
-		                </div>
+			               </div>
 			         </div> 
-		<!--  좋아요 전시 삭제  modal -->  
+				<!--  좋아요 전시 삭제  modal -->  
 		
-		</section>   
-			<button class="text item-more" >
+		  
+			<button class="text item-more" th:if="${countOfExhLike}>6">
 				<div>더보기</div>
 			</button>          
 	</div>	
