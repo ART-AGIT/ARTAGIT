@@ -79,6 +79,6 @@ public interface ExhibitionDao {
 	List<ExhLikeList> getLikeListById(int id, int size, int offset);
 	List<Exhibition> getLikeListAll(int id);
 
-	
+	String getPayNum();
 }
  

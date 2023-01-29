@@ -3,6 +3,8 @@ package com.artagit.web.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.artagit.web.dao.CorporateDao;
 import com.artagit.web.entity.ArtagitUserDetails;
@@ -28,6 +30,7 @@ public class DefaultCorporateService implements CorporateService{
 
 	
 	// [주최자] 나의 등록전시 수정 -> 주최측 정보 수정
+	@Transactional(isolation = Isolation.READ_UNCOMMITTED)
 	@Override
 	public int update(Corporate corp) {
 		int result = corporateDao.update(corp);

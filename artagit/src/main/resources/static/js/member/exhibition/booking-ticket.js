@@ -28,6 +28,8 @@ window.addEventListener("load", function(){
 
 	let tabContents = document.querySelectorAll(".tab-content");
     let choosePay = document.querySelector(".choose-pay")
+
+
 	// [+] 버튼 클릭 시, 수량 증가 및 수량에 따른 결제 금액 증가
 	plus.onclick = function(e){
 		e.preventDefault();
@@ -73,9 +75,11 @@ window.addEventListener("load", function(){
 			console.log(`연락처 : ${phone}`);
 			console.log(`이메일 : ${email}`);
 			// 버튼 텍스트 변경
-			// payWayBtn.innerText = '결제하기';
+			payWayBtn.innerText = '결제하기';
 			bookingContainer.classList.add('d-none');
 			payContainer.classList.remove('d-none');
+
+			window.scrollTo(0,0);
 		}
 	}
 
@@ -85,7 +89,6 @@ window.addEventListener("load", function(){
         e.preventDefault();
 
 		choosePay.innerHTML="";
-        
         let el = e.target;
 
         if(el.tagName != 'A' || currentEl == el)
@@ -105,7 +108,6 @@ window.addEventListener("load", function(){
 			if(!tab.classList.contains("d-none"))
 				tab.classList.add("d-none")
 		})
-
 		tabContent.classList.remove("d-none");
     })
 
@@ -114,8 +116,6 @@ window.addEventListener("load", function(){
 	doPayBtn.onclick = function(e){
 		e.preventDefault();
 		const checkbox = document.getElementById('caution-check');
-
-		
 
 		if(checkbox.checked == false){
 			window.alert("결제 시, 유의사항 동의가 필요합니다.");
@@ -142,29 +142,12 @@ window.addEventListener("load", function(){
 		console.log("예매일자: "+yyyy+mm+dd);
 		var IMP = window.IMP; // 생략가능
 		IMP.init('imp63753861'); 
-		// i'mport 관리자 페이지 -> 내정보 -> 가맹점식별코드
-		// ''안에 띄어쓰기 없이 가맹점 식별코드를 붙여넣어주세요. 안그러면 결제창이 안뜹니다.
 		IMP.request_pay({
 			pg: 'kakaopay',
 			pay_method: 'card',
 			merchant_uid: 'merchant_' + new Date().getTime(),
-			/* 
-			 *  merchant_uid에 경우 
-			 *  https://docs.iamport.kr/implementation/payment
-			 *  위에 url에 따라가시면 넣을 수 있는 방법이 있습니다.
-			 */
 			name: exhTitle,
-			// 결제창에서 보여질 이름
-			// name: '주문명 : ${auction.a_title}',
-			// 위와같이 model에 담은 정보를 넣어 쓸수도 있습니다.
 			amount: i*price,
-			// approved_at: 
-			// amount: ${bid.b_bid},
-			// 가격 
-			// buyer_name: '이름',
-			// 구매자 이름, 구매자 정보도 model값으로 바꿀 수 있습니다.
-			// 구매자 정보에 여러가지도 있으므로, 자세한 내용은 맨 위 링크를 참고해주세요.
-			// buyer_postcode: '123-456',
 			}, function (rsp) { // callback
 				console.log(rsp);
 			if (rsp.success) { // 결제 성공 시
@@ -172,7 +155,6 @@ window.addEventListener("load", function(){
 				msg += '결제 금액 : ' + rsp.paid_amount + '원';
 				// success.submit();
 				// 결제 성공 시 정보를 넘겨줘야한다면 body에 form을 만든 뒤 위의 코드를 사용하는 방법이 있습니다.
-				// 자세한 설명은 구글링으로 보시는게 좋습니다.
 				fetch("/member/exh/pay", {
 					method: "POST",
 					headers: {
@@ -186,11 +168,11 @@ window.addEventListener("load", function(){
 							"email" : userInfo[1].value,
 							"memId" : memId,
 							"exhId" : exhId,
-							"payNum" : '202301060002'
+							// "payNum" : '20230129-000003'
 						},
 
 						"payment" : {
-							"payNum" : '202301060002',
+							// "payNum" : '20230129-000003',
 							"price" : i*price,
 							"method" : '카카오페이'
 						}
@@ -199,7 +181,8 @@ window.addEventListener("load", function(){
 				.then(res => res.json())
 				.then( // db 전송 후, 페이지 이동
 					location.replace('/member/mypage/review/list')
-				)
+//					console.log("결제완료!")
+			)
 			} else {
 				var msg = '결제에 실패하였습니다. 다시 시도해주세요.';
 				msg += '에러내용 : ' + rsp.error_msg;

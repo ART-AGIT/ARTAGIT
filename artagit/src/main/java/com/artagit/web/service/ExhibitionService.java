@@ -70,7 +70,7 @@ public interface ExhibitionService {
 
 	List<Exhibition> getListById(int id, int page);
 
-
+	String getPayNum();
 	// 좋아요 전시 API
 	List<Exhibition> getLikeListByIdAll(int id);
 	

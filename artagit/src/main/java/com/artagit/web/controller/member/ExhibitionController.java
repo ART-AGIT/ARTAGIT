@@ -4,12 +4,14 @@ package com.artagit.web.controller.member;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.artagit.web.entity.ArtagitUserDetails;
 import com.artagit.web.entity.Booking;
@@ -27,7 +29,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 @Controller
-//@RequestMapping("/corporator/mypage/")
 @RequestMapping("/member/exh")
 
 public class ExhibitionController {
@@ -99,39 +100,62 @@ public class ExhibitionController {
 		Member mem = memberService.get(memberId);
 		model.addAttribute("mem", mem);
 		
+		System.out.println("주문번호: "+service.getPayNum());
+		
 		return "member/exhibition/booking-ticket";
 	}
 	/********************** 전시 예매 = 예매정보 insert 하기 **********************/
 	/********************** 전시 결제 = 결제정보 insert 하기 
 	 * @throws IllegalArgumentException 
 	 * @throws JsonProcessingException **********************/
+	@Transactional
 	@PostMapping("pay")
-	public void pay(@RequestBody ObjectNode payInfo) throws JsonProcessingException, IllegalArgumentException {
+	public void pay(@RequestBody ObjectNode payInfo)  {
 		System.out.println("pay 메서드 진입");
 		
-		// ObjectMapper = json 형태의 데이터를 java Object 로 변환해주는 클래스 (json 라이브러리 Jackson)
+		// ObjectMapper = json 형태의 데이터를 java Object 로 변환해주는 클래스 (json 라이브러리인 Jackson의 ObjectMapper 이용)
 		ObjectMapper mapper = new ObjectMapper();
 		
-		// 클라이언트에서 넘어온 json의 키값을 가지고 클래스 정보를 얻어 자동으로 매핑을 해준다,
-		Booking booking = mapper.treeToValue(payInfo.get("booking"), Booking.class);
-		Payment payment = mapper.treeToValue(payInfo.get("payment"), Payment.class);
+		// 클라이언트에서 넘어온 json의 키값을 가지고 클래스 정보를 얻어 자동으로 매핑을 해준다.
+		// treeToValue는 JsonProcessingException을 내기 때문에 이에 대한 예외처리를 꼭 해줘야한다.
+		// JsonProcessingException은 IOException의 하위 클래스이다. 즉, checked Exception 이고, 컴파일 시 예외를 검사하므로
+		// 반드시 예외처리를 해주어야 하기때문에 try / catch로 묶어주었다. 
 		
-		// bookId를 구하기 위해 booking 먼저 update 해준다.
-		System.out.println("예매 정보 ==> " + booking);
-		bookingService.add(booking);
+		Booking booking = null; // 예외 처리를 하니까 왜 Booking booking = mapper.treeToValue 에서 Booking booking; 을 분리해버리는거지?
+		Payment payment = null;
+		
+		try {
+			booking = mapper.treeToValue(payInfo.get("booking"), Booking.class);
+		} catch (JsonProcessingException e) {
+			e.printStackTrace();
+			System.out.println("JsonProcessingException. Ex:" + e.getMessage() + ", booking: " + booking);
+		} catch (IllegalArgumentException e) { // 객체 반환 시 json 으로 변환이 되지 않는 경우
+			e.printStackTrace();
+		}
 
-		// payment에 bookId를 set해준다.
-		System.out.print("결제 정보 ==> " + payment);
-		payment.setBookId(bookingService.getBookIdBypayNum(booking.getPayNum()));
-		System.out.println("booking===> "+ bookingService.getBookIdBypayNum(booking.getPayNum()));
-		payService.add(payment);
+		try {
+			payment = mapper.treeToValue(payInfo.get("payment"), Payment.class);
+		} catch (JsonProcessingException e) {
+			e.printStackTrace();
+			throw new RuntimeException();
+		} catch (IllegalArgumentException e) {
+			e.printStackTrace();
+			throw new RuntimeException();
+		} finally {
+			// bookId를 구하기 위해 booking 먼저 update 해준다.
+			System.out.println("예매 정보 ==> " + booking);
+			booking.setPayNum(service.getPayNum());
+			bookingService.add(booking);
+			
+			// payment에 bookId를 set해준다.
+			System.out.print("결제 정보 ==> " + payment);
+			payment.setPayNum(booking.getPayNum());
+			payment.setBookId(bookingService.getBookIdBypayNum(booking.getPayNum()));
+			System.out.println("생성된 주문번호: "+ bookingService.getBookIdBypayNum(booking.getPayNum()));
+			payService.add(payment);
+		}
 		
 		System.out.println("결제 성공");
-		
 	}
-	
-	
-
-	
 
 }
