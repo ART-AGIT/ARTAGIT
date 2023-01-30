@@ -1,12 +1,18 @@
 window.addEventListener("load", function(){
-    const imgInput = document.querySelectorAll(".input-image-button1")
-	const fileInput = document.querySelectorAll(".input-image1");
-	var toolbox = document.querySelector(".toolbox");
-	let title = document.querySelector(".input-title");
-	let content = document.querySelector(".input-content");
+    const imgInput = this.document.querySelectorAll(".input-image-button1")
+	const fileInput = this.document.querySelectorAll(".input-image1");
+	var toolbox = this.document.querySelector(".toolbox");
+	let title = this.document.querySelector(".input-title");
+	let content = this.document.querySelector(".content");
+	const del =this.document.querySelectorAll(".icon-trash");
 	
-	const del =document.querySelectorAll(".icon-trash");
 
+
+
+	
+	
+	
+	
 
 		imgInput[0].onclick=function(e){
 			
@@ -92,28 +98,7 @@ window.addEventListener("load", function(){
 			
 		
 		
-//		del[0].onclick=function(){
-//			var box = document.querySelector(".input-box-container");
-////			imgInput[0].remove();
-////			fileInput[0].remove();
-//			imgInput[0].src = "";
-////			fileInput[0].style.display="d-none";
-////			reader.readAsDataURL("");
-// 			var template=`
-// 				<div class="reg-list-input-box-image">     
-//					<div class=" icon icon-trash d-none"></div>  
-//                    <img src="../../image/camera.svg" class="input-image-button input-image-button1 input-image">
-//                    <input name="img1" type="file" class="input-image1 d-none">
-//		        </div>
-// 			`;
-// 			
-//// 			fileInput[0].insertAdjacentElement("afterend",template);
-// 			
-// 			
-//			console.log("dd")
-//		}
-		
-		
+
 		
 	
 	})

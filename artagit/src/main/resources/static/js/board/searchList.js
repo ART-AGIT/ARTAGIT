@@ -1,91 +1,37 @@
 window.addEventListener("load", function() {
-	const ul = document.querySelector(".board-category-l");
-	const boardbox = document.querySelector(".post-list-box");
+	var boardbox = document.querySelector(".post-list-box");
 	const noticebox = document.querySelector(".notice-list-box");
-	let currentLi = document.querySelector(".board-category-box ul li.board-selected");
-	let currentDiv = currentLi.querySelector(".div-btn");
-	var currentPage = document.querySelector(".current-page");
-	var category = null; //전역변수로 빼서 상태 저장
-
-	ul.onclick = function(e) {
-		e.preventDefault();
+	var currentPage = document.querySelector(".paging");
+	let currentLi = document.querySelector(".paging btn-default");
+	var firstPage = document.querySelector(".current-page")
+	currentPage.onclick = function(e){
 		console.log(e.target.tagName);
 		const el = e.target;
+		if(el.tagName != "DIV"|| el==currentPage)
+		return;
 		
-		if (el.tagName != "LI" && el.tagName != "DIV")
-			return;
-
-		let li = el;
-		if (el.tagName == "DIV")
-			li = el.parentElement;
-
-		li.classList.add("board-selected");
+		el.classList.remove("btn-default-line");
+		el.classList.add("btn-default");
+		if(el!=firstPage){
+		firstPage.classList.remove("btn-default");
+		firstPage.classList.add("btn-default-line");
+		}
+		else{
+			firstPage.classList.add("btn-default");
+		}
+		if (currentLi != null && currentLi != e.target){
+			currentLi.classList.remove("btn-default");
+			currentLi.classList.add("btn-default-line")}
 		
+		currentLi = el;
 		
-		if (currentLi != null && currentLi != e.target && currentLi.querySelector(".div-btn") != e.target)
-			currentLi.classList.remove("board-selected");
-			
-		currentLi = li;
-		
-
-	
-	
-
-
-
-
-	let queryString = `?c=${currentLi.dataset.id}`
-		
-	fetch(
-		`/boardApi/notice${queryString}`)
-		.then((response) => 
-			response.json())
-		.then((list) => {
-			noticebox.innerHTML="";
-
-		for (let notice of list) {
-			let beforeNoticeDate = new Date(notice.regDate);
-			let utc = beforeNoticeDate.getTime() + (beforeNoticeDate.getTimezoneOffset() * 60 * 1000);
-			let time_diff = 9 * 60 * 60 * 1000;
-			let cur_date_korea = new Date(utc + (time_diff));
-			let year = notice.regDate.toString().substring(2, 4);
-			let month = notice.regDate.toString().substring(5, 7);
-			let day = notice.regDate.toString().substring(8, 10);
-			let hour = cur_date_korea.toString().substring(15, 18);
-			let min = cur_date_korea.toString().substring(19, 21);
-			
-			
-		
-			
-			let template1 =
-			`
-			 <section class="notice">
-	            <h1 class="d-none">공지목록</h1> 
-	             <div class="notice-icon">공지</div>
-	            <h1 class="notice-title">
-	                <a href = "../notice/${notice.id}">${notice.title}</a></h1>
-	            <div> </div>
-	            <div class="notice-info">
-	                
-                <div>
-                   
-                	<div>운영자 </div>
-	            </div>
-	            <div> ${year}/${month}/${day} ${hour}:${min}</div>
-	                
-                <div class="view">
-                    <div class="icon icon-view icon-size">조회수 아이콘</div>
-                    <div>${notice.hit}</div>
-                </div>
-	        </section>`;
-	        
-				let el1 = new DOMParser().parseFromString(template1, "text/html").body.firstElementChild;
-				//body를 지우면 body안쪽만 나온다. firstelement를 만들겠다.
-				noticebox.append(el1); //6개의 객체를 하나하나 넣어준다.
-		}})
+	console.log("Hi"+e.target.dataset.id);
+	console.log("please"+e.target.dataset.query);
+	let queryString = `?q=${e.target.dataset.query}&p=${e.target.dataset.id}`
 	console.log(queryString);
 	fetch(
-		`/boardApi/boards${queryString}`)
+		`/boardApi/boards/search${queryString}`
+		)
 		.then((response) => 
 			response.json())
 		.then((list) => {

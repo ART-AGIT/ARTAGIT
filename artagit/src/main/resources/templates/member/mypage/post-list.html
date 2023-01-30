@@ -83,8 +83,13 @@
 					        
 					        
 					        <div class="board-post-img-box">
-					           	<a th:href="@{|/member/board/${board.id}|}"><img class="post-img" onerror="this.style.display='none'" 	src = "../image/전시포스터.jpg" th:src="@{|/image/board/${board.image1}|}"></a>
-					        </div>
+	<a th:href="@{|/member/board/${board.id}|}"><img class="post-img" onerror="this.style.display='none'" 	src = "../image/전시포스터.jpg" 
+					        	th:src="${board.image1}==null?(${board.image2}==null?
+					        	(${board.image3}==null?(${board.image4}==null?''
+					        	:@{|/image/board/${board.image4}|})
+					        	:@{|/image/board/${board.image3}|})
+					        	:@{|/image/board/${board.image2}|})
+					        	:@{|/image/board/${board.image1}|}"></a>					        </div>
 					        </section>
 					  		</form>
 			   		  

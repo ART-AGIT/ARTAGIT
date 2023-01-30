@@ -90,10 +90,50 @@ from Board b
 				</if>
 			and useYN = "Y"
 		</trim>
-order by regDate desc;
+order by regDate desc
+limit #{offset}, #{size};
+		
+	</select>
+	<select id="getBoardAllCount" resultType="double">
+	select count(*) from Board where useYN = "Y"
+	order by regDate desc
 		
 	</select>
 		
+	
+	
+	<select id="getBoardSearchCount" resultType="double">
+		select count(*) from Board
+<trim prefix="WHERE" prefixOverrides="AND | OR">
+				<if test="query != null">
+				title like '%${query}%' or
+				content like '%${query}%'
+				</if>
+			and useYN = "Y"
+		</trim>
+	
+	</select>
+	
+	<select id="getListByPage" resultType="com.artagit.web.entity.BoardListView">
+		select
+   b.*, 
+    (select count(id) from Comment where Comment.postid = b.id and Comment.useYn = "Y" group by postId) commentTotal,
+    (select nickname from Member where  id = b.memId ) nickname,
+    (select image from Member where id = b.memId ) memImage,
+    (select name from BoardCategory where id = b.roleId) name,
+     (select count(memId) from BoardLike where postId = b.id group by postId) hearts
+from Board b
+<trim prefix="WHERE" prefixOverrides="AND | OR">
+				<if test="query != null">
+				title like '%${query}%' or
+				content like '%${query}%'
+				</if>
+			and useYN = "Y"
+		</trim>
+order by regDate desc
+limit #{size},#{offset};
+		
+	</select>
 	
 </mapper>
  
