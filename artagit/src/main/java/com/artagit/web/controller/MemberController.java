@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,7 +31,31 @@ public class MemberController {
 	
 	@Autowired
 	private CorporateService corpService;
-
+	
+	///////////////// test ////////////////
+//	@GetMapping("/test/login")
+//	public @ResponseBody String testLogin(Authentication authentication, @AuthenticationPrincipal ArtagitUserDetails userDetails) {
+//		// @AuthenticationPrincipal 어노테이션을 통해 session 정보에 접근할 수 있다.
+//		System.out.println("/test/login ==============");
+//		ArtagitUserDetails artagitUserDetails = (ArtagitUserDetails)authentication.getPrincipal();
+//		System.out.println("authentication: " + authentication.getPrincipal());
+//		
+//		System.out.println("userDetails: " + userDetails.getLoginId());
+//		return "세션 정보 확인하기";
+//	}
+//	
+//	@GetMapping("/test/oauth/login")
+//	public @ResponseBody String testOAuthLogin(Authentication authentication, @AuthenticationPrincipal OAuth2User oauth) {
+//		// @AuthenticationPrincipal 어노테이션을 통해 session 정보에 접근할 수 있다.
+//		System.out.println("/test/oauth/login ==============");
+//		OAuth2User oauth2User = (OAuth2User)authentication.getPrincipal();
+//		System.out.println("authentication: " + oauth2User.getAttributes());
+//		System.out.println("oauth2User: " + oauth.getAttributes());
+//		
+//		return "OAuth(소셜) 세션 정보 확인하기";
+//	}
+	
+	
 	@GetMapping("login")
 	public String login() {
 		return "user/login";

@@ -14,28 +14,45 @@ public class Member {
    private int roleId;
    private String image;
    private String useYN;
-   private String oAuthId;
-   private String oAuthIss;
+   
+   private String provider;
+   private String providerId;
    
 
 		public Member() {
 					
 		}
 
-		public Member(int id, String loginId, String password, String name, String phone, String nickname, String email,
-		         		Date regDate, int roleId, String image) {
-		      this.id = id;
-		      this.loginId = loginId;
-		      this.password = password;
-		      this.name = name;
-		      this.phone = phone;
-		      this.nickname = nickname;
-		      this.email = email;
-		      this.regDate = regDate;
-		      this.roleId = roleId;
-		      this.image = image;
+//		public Member(int id, String loginId, String password, String name, String phone, String nickname, String email,
+//		         		Date regDate, int roleId, String image) {
+//		      this.id = id;
+//		      this.loginId = loginId;
+//		      this.password = password;
+//		      this.name = name;
+//		      this.phone = phone;
+//		      this.nickname = nickname;
+//		      this.email = email;
+//		      this.regDate = regDate;
+//		      this.roleId = roleId;
+//		      this.image = image;
+//		}
+		
+		public Member(String loginId, String password, String name, String phone, String nickname, String email,
+				Date regDate, int roleId, String image, String useYN, String provider, String providerId) {
+			this.loginId = loginId;
+			this.password = password;
+			this.name = name;
+			this.phone = phone;
+			this.nickname = nickname;
+			this.email = email;
+			this.regDate = regDate;
+			this.roleId = roleId;
+			this.image = image;
+			this.useYN = useYN;
+			this.provider = provider;
+			this.providerId = providerId;
 		}
-   
+		
 		public int getId() {
 			return id;
 		}
@@ -124,27 +141,29 @@ public class Member {
 		   this.useYN = useYN;
 	   }
 	
-		public String getOAuthId() {
-			return oAuthId;
+		public String getProvider() {
+			return provider;
 		}
 	
-		public void setOAuthId(String oAuthId) {
-			this.oAuthId = oAuthId;
+		public void setProvider(String provider) {
+			this.provider = provider;
 		}
 	
-		public String getOAuthIss() {
-			return oAuthIss;
+		public String getProviderId() {
+			return providerId;
 		}
 	
-		public void setOAuthIss(String oAuthIss) {
-			this.oAuthIss = oAuthIss;
+		public void setProviderId(String providerId) {
+			this.providerId = providerId;
 		}
 
-	@Override
-	public String toString() {
-		return "Member [id=" + id + ", loginId=" + loginId + ", password=" + password + ", name=" + name + ", phone="
-				+ phone + ", nickname=" + nickname + ", email=" + email + ", regDate=" + regDate + ", roleId=" + roleId
-				+ ", image=" + image + ", useYN=" + useYN + ", oAuthId=" + oAuthId
-				+ ", oAuthIss=" + oAuthIss + "]";
-	}
+		@Override
+		public String toString() {
+			return "Member [id=" + id + ", loginId=" + loginId + ", password=" + password + ", name=" + name
+					+ ", phone=" + phone + ", nickname=" + nickname + ", email=" + email + ", regDate=" + regDate
+					+ ", roleId=" + roleId + ", image=" + image + ", useYN=" + useYN + ", provider=" + provider
+					+ ", providerId=" + providerId + "]";
+		}
+
+		
 }

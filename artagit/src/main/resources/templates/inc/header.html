@@ -41,8 +41,8 @@
                             		<span sec:authentication="principal.username"></span>
                            		</a>
 <!--                            role이 member면 내 예매 리스트 -->
-                            	<a href="/member/mypage/review/list" sec:authorize="hasAnyRole('MEMBER')">
-                            		<span sec:authentication="principal.username"></span>
+                            	<a href="/member/mypage/review/list">
+                            		<span sec:authentication="name"></span>
                            		</a>
                            	</li>
                             <li>

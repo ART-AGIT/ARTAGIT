@@ -35,7 +35,6 @@ public class DefaultBookingService implements BookingService {
 	}
 
 	// 예매내역 insert 메서드
-	@Transactional(isolation = Isolation.READ_UNCOMMITTED)
 	@Override
 	public int add(Booking booking) {
 		int result = bookingDao.add(booking);
@@ -43,7 +42,6 @@ public class DefaultBookingService implements BookingService {
 	}
 
 	// payment 데이터 insert 하기 전, bookId를 얻어올 용도 (payNum을 가지고 bookId를 select)
-	@Transactional(isolation = Isolation.READ_UNCOMMITTED)
 	@Override
 	public int getBookIdBypayNum(String payNum) {
 		// TODO Auto-generated method stub

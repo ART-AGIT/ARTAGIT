@@ -37,6 +37,6 @@ public interface MemberDao {
 	int chkId(String loginId);
 	
 	// member 테이블에 있는 oAuthId, oAuthIss 를 매개변수로 한다.
-	Member getByOAuthIdWithIss(String oAuthId, Object oAuthIss);
+	Member getByOAuthIdWithIss(String provider, Object providerId);
 
 }

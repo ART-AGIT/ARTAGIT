@@ -14,6 +14,7 @@ import com.artagit.web.dao.CorporateDao;
 import com.artagit.web.dao.MemberDao;
 import com.artagit.web.dao.RoleDao;
 import com.artagit.web.entity.ArtagitOidcUser;
+//import com.artagit.web.entity.ArtagitOidcUser;
 import com.artagit.web.entity.ArtagitUserDetails;
 import com.artagit.web.entity.Corporate;
 import com.artagit.web.entity.Member;
@@ -118,7 +119,7 @@ public class artagitUserDetailsService implements UserDetailsService {
 			System.out.println("업체회원!==> "+user);
 		}
 		System.out.println(username + "회원의 권한 ====> "+authorities);
-		System.out.println(user.getAddress());
+		System.out.println(user.getCorpAddress());
 		return user;
 	}
 }
