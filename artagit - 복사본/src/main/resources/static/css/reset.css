@@ -1,0 +1,36 @@
+/* 이 파일은 html 태그가 가지고 있는 기본 스타일을 제거하기 위한 스타일 파일입니다.
+
+기존 태그에는 스타일이 있어요? 업성요? > 있다.
+그대로 사용하기에는 적합하지 않다.
+그래서 지우는게 필요하다. > reset.css 파일이다. */
+
+body, h1, h2, ul, li, button, dd, dt,hr{
+    margin: 0;
+    padding: 0;
+}
+
+a{
+    text-decoration: none;
+    color: #575757;
+}
+
+ul{
+    list-style-type: none;
+}
+button{
+    cursor: pointer;
+}
+
+body {
+    background-color: #FDFBF9;
+    padding: 0 15px;
+    
+}
+
+body::-webkit-scrollbar, div::-webkit-scrollbar {
+    display: none;
+}
+
+*{
+    font-family: 'Pretendard', Tahoma, Geneva, Verdana, sans-serif;
+}

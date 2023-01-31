@@ -1,0 +1,12 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/variable/pretendardvariable.css");
+
+body{
+    font-family: 'Pretendard', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
+    color: #545454;
+
+}
+
+.d-none{
+    display: none !important;
+}

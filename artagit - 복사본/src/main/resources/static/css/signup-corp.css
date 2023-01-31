@@ -1,0 +1,153 @@
+.reg-list-box > div{
+    margin: 0 auto;
+}
+
+.reg-list-box > input{
+    margin: 0 0;
+    justify-content: center;
+}
+.reg-list form>h1{
+    text-align: center;
+    padding-bottom: 18px;
+
+}
+.reg-list-input-box{
+    padding-bottom: 10px;
+    gap:4px;
+}
+.reg-list-input-box>div{
+    gap: 10px;
+    justify-content: center;
+}
+
+.reg-button-box{
+    display: flex;
+    padding: 20px 0;
+    justify-content: center;
+    gap : 20px;
+} 
+
+.unregister{
+    display: flex;
+    justify-content: end;
+    padding-top : 100px;
+    
+}
+
+.btn-certify{
+    width: 68px;
+}
+
+/*  */
+.toggle{
+    display: flex;
+    width: 320px;
+    height: 37px;
+    margin-top: 30px;
+    margin-bottom: 9px;
+    /* text-align: center; */
+    border: 1px solid #969696;
+    border-radius: 15px;
+    line-height : 37px;
+    align-items: center;
+
+}
+
+.toggle > h1{
+    font-size: 16px;
+    padding-left: 15px;
+    padding-right: 200px;
+    
+    /* line-height : 37px; */
+}
+
+/*회원가입 글씨*/
+.signup-corp{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top:50px;
+}
+
+.signup-corp>h1{
+    padding-bottom: 5px;
+   
+}
+
+.exh-name{
+    font-size: 18px;
+    font-weight: 600;
+    /* justify-content: center; */
+    padding : 5px 0;
+    margin: auto;
+    text-align: center;
+    
+}
+
+input:focus::placeholder {
+    color:transparent;
+}
+
+.icon-arrow-toggle-down, .icon-arrow-toggle-up{
+    -webkit-mask-size: 15px 15px;
+    height:0;
+}
+.id-confirm,
+.password-confirm{
+      padding-left: 10px;
+}
+
+/* 아이디, 비밀번호 유효성 및 정규식 */
+.idFialure-message,
+.id-check-massage,
+.passwordFialure-message, 
+.chkFialure-message{
+	color: #ff4e4e;
+    padding-left: 5px;
+}
+.idSuccess-message,
+.passwordSuccess-message, 
+.chkSuccess-message{
+	color: #268e48;
+    padding-left: 5px;
+	
+}
+
+@media (min-width: 993px) {
+		
+	.toggle{
+		width: 480px;
+	    height: 42px;
+    	border: 1px solid #969696;
+	}
+		
+    .toggle > h1 {
+		padding-right: 345px;
+    
+    }
+    
+    .reg-list-input-box {
+    	flex-direction: row;
+    	width:466px;   	
+    }
+
+	.reg-list-input-box>label{
+		padding-left: 7px;
+		width:115px;
+	}
+	
+	.reg-list-input-box>div{
+		justify-content: end;
+	}
+	.address{
+		width: 256px;
+	}
+	.id-confirm,
+	.password-confirm{
+        padding-left: 137px;
+	}
+		
+	.reg-list-box > input {
+		margin-left: 135px;		
+	}
+}

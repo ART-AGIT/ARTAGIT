@@ -1,0 +1,115 @@
+input[type="time"], input[type="date"] {
+	cursor: pointer;
+}
+
+input[type="date" i], input[type="time" i] {
+    /* display: f; */
+    color: #545454;
+    font-family: Pretendard;
+    padding-inline-start: 1px;
+    padding: 0 10px 0 0;
+    overflow: hidden;
+    font-weight: 400;
+}
+
+
+#exh-modify-main .exh-reg-list{
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-color: #FF6B90;
+}
+
+.title-box {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.step {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 0 15px 0;
+    width: 300px;
+}
+
+.circle {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.circle-on {
+    /* position: relative; */
+    width: 43px;
+    height: 42px;
+    color: #FFFFFF;
+    font-weight: bold;
+    background-color: #FF6B90;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.circle-off {
+    background-color: #FFBFCF;
+}
+.exh-reg-button-box{
+    display: flex;
+    justify-content: space-around;
+}
+.price-count {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+div.exh-reg-button-box{
+    display: flex;
+    justify-content: space-between;
+    width: 296px;
+    padding: 20px 0;
+}
+#first-page-next .exh-reg-button-box{
+    justify-content: end;
+}
+
+
+.input-image-button{
+    width: 100px;
+    height: 100px;
+    background-color: #EBEBEB;
+   position: relative;
+  padding: 0 !important;
+  margin-right: 20px;
+}
+
+.input-image-camera{
+    background: url(../../../image/icons/camera.svg) no-repeat;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 40px;
+    right: 31px;
+    
+}
+.input-image-addplus{
+    background: url(../../../image/icons/add-plus.svg) no-repeat;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 34px;
+    right: 35px;
+
+}
+.reg-list-input-box.poster{
+    padding-top: 10px;
+}
+.reg-list-input-box.detail{
+    padding-top: 5px;
+}

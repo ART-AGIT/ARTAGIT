@@ -1,0 +1,74 @@
+.exhibition-reg-step-list{
+    display: flex;
+    gap: 50px;
+    margin: 10px 20px;
+}
+
+
+
+.exhibition-reg-step>div:first-child{
+
+    width: 42px;
+    height: 42px;
+    border-radius: 21px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+    .exhibition-reg-step>div>span{
+        color: #fff;
+        font-weight: bold;
+    }
+.exhibition-reg-step-default{
+        background-color: #FFBFCF;
+    }
+.exhibition-reg-step-active{
+    background-color: #FF6C9E;
+}
+
+
+
+.exhibition-reg-list{
+    height: 550px;
+}
+.exhibition-reg-list-input-box{
+    display: flex;
+    flex-direction: column;
+    padding: 2px 0;
+
+}
+.exhibition-reg-list-input-box>label{
+    display: flex;
+    flex-direction: column;
+    padding: 2px 0;
+
+}
+.exhibition-reg-list-input-box>div{
+    display: flex;
+}
+    .exhibition-reg-list-input-box>div>span{
+        padding: 0 14px;
+    }
+.exhibition-input-date{
+    display: inline-flex;
+    position: relative;
+    
+}
+    .exhibition-input-date>a{
+        position: absolute;
+        left: 100px;
+        align-self: center;
+    }
+
+.exhibition-reg-list-input-box textarea{
+    font-family: 'Pretendard-Regular', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
+    width: 300px;
+    resize: none;
+    padding: 8px;
+}
+
+
+.input{
+    font-size: 14px;
+}

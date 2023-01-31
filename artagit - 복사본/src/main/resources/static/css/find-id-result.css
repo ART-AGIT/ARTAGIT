@@ -1,0 +1,40 @@
+/******* 콘텐츠 영역 ****************************************/
+.find-content-box {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.text-box {
+    height: 110px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+}
+
+.result-box {
+    color: #606060;
+    margin: 35px 0 50px 0;
+
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.result-box span {
+    margin: 0 5px;
+}
+
+.mem-id {
+    color: #F7A7BB;
+    font-weight: 500;
+}
+
+.find-content-box>a:last-child {
+    width: 140px;
+    height: 21px;
+
+    font-size: 16px;
+    font-weight: 300;
+}

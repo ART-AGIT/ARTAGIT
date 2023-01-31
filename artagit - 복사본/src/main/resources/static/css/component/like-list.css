@@ -1,0 +1,273 @@
+
+
+/* ----------------------------------- */
+
+
+.text {
+    color: #545454;
+    /* font-size: 13px; */
+}
+
+form {
+  
+    padding: 15px 0;
+}
+
+.nonexistence-mess{
+/*     padding-top: 60px; */
+/*     display: flex; */
+    justify-content: center;
+}
+
+.total-box {
+    display: flex;
+    margin-left: 4%;
+    height: 25px;
+/*     align-items: flex-end; */
+}
+
+.like-list form {
+    /* margin: 15px 0; */
+    display: grid;
+    justify-content: start;
+    align-items: end;
+    grid-template: "img like" 50px
+                    "img blank" 23px
+                    "img title" 18px
+                    "img place" 18px
+                    "img date" 55px / 170px;
+    border-bottom : 1px solid #9E9E9E;
+}
+
+.exh-img-box {
+    grid-area: img;
+}
+
+.exh-like {
+    grid-area: like;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.exh-title {
+    grid-area: title;
+    
+/*     font-weight :500; */
+    font-size : 16px;
+    word-break: keep-all;
+/*     width: 240px; */
+/*     overflow: hidden; */
+/*     white-space: nowrap; */
+/*     text-overflow: ellipsis; */
+
+}
+
+.exh-place {
+    grid-area: place;
+}
+
+.exh-date {
+    grid-area: date;
+}
+
+.exh-img {
+    margin-left: 10px;
+    width:150px;
+    height:170px;
+}
+
+/* 좋아요 삭제 modal */
+
+#modal.modal-overlay {
+    width: 100%;
+    height: 100%; 
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(1.5px);
+    -webkit-backdrop-filter: blur(1.5px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+#modal .modal-window {
+/*     background: rgba(255, 255, 255); */
+/*     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 ); */
+/*     backdrop-filter: blur( 13.5px ); */
+/*     -webkit-backdrop-filter: blur( 13.5px ); */
+/*     border-radius: 10px; */
+/*     border: 1px solid rgba( 255, 255, 255, 0.18 ); */
+/*     width: 200px; */
+/*     height: 100px; */
+/*     position: relative; */
+/*     top: -100px; */
+/*     padding: 10px; */
+
+	position: fixed;
+    box-shadow: 0px 0px 19px 1px rgb(31 38 135 / 16%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 200;
+    top: 50%;
+    left: 50%;
+    width: 20%;
+    height: 7rem;
+    transform: translate(-50%, -50%);
+    background: rgb(255, 255, 255);
+    padding: 1rem;
+    border: 1px solid #a9a9a996;
+    box-sizing: border-box;
+    border-radius: 0.5rem;
+}
+
+#modal .title {
+    padding-left: 10px;
+/*     display: inline; */
+/*     text-shadow: 1px 1px 2px gray; */
+    color: #545454;
+    
+}
+#modal .title h2 {
+    display: inline;
+    font-size : 16px;
+}
+#modal .close-area .del-btn{
+    display: inline;
+    float: right;
+    padding-right: 10px;
+    cursor: pointer;
+    text-shadow: 1px 1px 2px gray;
+    color: #545454;
+}
+
+#modal .content {
+    margin-top: 20px;
+    margin-bottom:20px;
+    padding: 0px 10px;
+/*     text-shadow: 1px 1px 2px gray; */
+    color: rgb(0, 0, 0);
+}
+
+/* .button-wrap{ */
+
+/*    display: flex; */
+/*    gap : 5px; */
+/*    justify-content: center; */
+/* } */
+
+.start-date {
+	display:none;
+}
+.end-date {
+	display:none;
+}
+
+ 
+/* 모바일에서는 안보이게 */
+.my-like-list-title{
+	display:none;	
+}
+
+.item-more{
+	font-family: 'Pretendard', Tahoma, Geneva, Verdana, sans-serif;
+	background-color:white;
+	width:250px;
+	height:50px;
+	border:none;
+	display:flex;
+	gap:10px;
+	margin:0 auto;
+	align-items: center;
+	margin-top:20px;
+    /* align-content: center; */
+    justify-content: center;
+	border-top:2px dashed rgba(157, 157, 157, 0.353);
+	border-bottom:2px dashed rgba(157, 157, 157, 0.353);
+	font-size:20px;
+}
+
+
+
+/* pc */
+
+@media (min-width: 993px) {
+	main{
+		width:1000px;
+	}
+    .my-like-list-title {
+	    display: flex;
+	    flex-direction:column;
+	    padding-left: 15px;
+	    padding-bottom: 20px;
+	}
+
+
+	.content-wrap{
+		display:flex;
+		margin-top: 80px;
+	}
+	
+	.like-list-section {
+		display:grid;
+		grid-template-columns: repeat(2, 1fr);	
+		margin-top: 20px;
+	}
+	.my-like-list{
+		margin-left : 60px;
+	}
+
+	
+	.like-list form {
+    margin: 5px 0;
+    display: grid;
+    justify-content: start;
+    align-items: end;
+ 	grid-template: "img like" 50px
+                    "img blank" 23px
+                    "img title" 18px
+                    "img place" 18px
+                    "img date" 55px / 170px;
+    border-bottom: 0px;
+	}
+
+	.exh-title{
+/* 		 width: 240px; */
+	}
+
+    #modal .modal-window {
+		width: 20%;
+    	height: 7rem;
+    }
+    
+    #modal .title{
+    	padding-top: 10px;
+    	font-size : 20px;
+   	    font-weight :500;
+	    width: 240px;
+	    word-break: keep-all;
+    }
+    
+    #modal .title h2{
+    	font-size : 20px;
+    }
+    
+    #modal .content{
+    	margin-bottom : 35px;
+ 		font-size : 16px;
+    }
+    
+    .total-box{
+    	padding-top:10px;
+    }
+    .member-grade{
+    	margin: 0 auto;
+    }
+
+} 

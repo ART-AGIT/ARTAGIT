@@ -1,0 +1,335 @@
+body {
+    padding: 0;
+}
+
+.text {
+    color: #545454;
+    font-size: 14px;
+}
+
+.flow-btn-box {
+    display: flex;
+    align-items: center;
+    margin-left: 13px;
+    margin-top: 30px;
+    margin-bottom: 8px;
+}
+
+.arrow-box {
+    margin: 0 8px;
+}
+
+.go-exh-detail {
+    color: #F7A7BB;
+}
+
+.mini-menu-list {
+    /* padding: 10px; */
+    display: flex;
+    justify-content: flex-end;
+    font-size: 11px;
+    border-bottom: 1px solid rgba(157, 157, 157, 0.353);
+}
+
+.mini-menu-list li {
+    margin-right: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.like-num {
+    color: #E14705;
+    font-weight: 500;
+}
+
+.deco-map {
+    cursor: pointer;
+}
+
+.exh-info form { 
+    /* 2 x 8 */
+    margin-left: 15px;
+    display: grid;
+    grid-template:
+        "title title" 36px
+        "exh-author author" 25px
+        "exh-place place" 25px
+        "exh-date date" 25px
+        "exh-time time" 25px
+        "exh-price price" 25px 
+        "exh-phone phone" 25px
+        "exh-addr addr" 25px / 75px;
+    align-items: center;
+}
+
+.exh-author, .exh-place, .exh-date, .exh-time, .exh-phone, .exh-address, .exh-price {
+    font-weight: 600;
+}
+
+form>h1 {
+    grid-area: title;
+    font-size: 20px;
+    font-weight: 500;
+    margin:5px 0;
+}
+
+.exh-author {
+    grid-area: exh-author;
+}
+
+.author {
+    grid-area: author;
+}
+
+.exh-place {
+    grid-area: exh-place;
+}
+
+.place {
+    grid-area: place;
+}
+
+.exh-date {
+    grid-area: exh-date;
+}
+
+.date {
+    grid-area: date;
+}
+
+.exh-time {
+    grid-area: exh-time;
+}
+
+.time {
+    grid-area: time;
+}
+
+.exh-phone {
+    grid-area: exh-phone;
+}
+
+.phone {
+    grid-area: phone;
+}
+
+.exh-addr {
+    grid-area: exh-addr;
+} 
+
+.addr {
+    grid-area: addr;
+}
+
+.price {
+    grid-area: price;
+}
+
+.hpg-box {
+    margin: 30px 0px 60px 0px;
+    display: flex;
+    justify-content: center;
+}
+
+.exh-img-box {
+    display: flex;
+}
+
+.exh-img {
+    width: 100%;
+    /* height: 100%; */
+}
+
+.exh-detail-img {
+    width: 100%;
+}
+
+.text-box {
+    margin: 0 10px;
+}
+
+.warning {
+    height: 100px;
+}
+
+/************** 모달 **************/
+.popup-title {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.pop-place-addr p {
+    margin: 5px 0 10px 0;
+    font-weight: 400;
+}
+
+.pop-text {
+    color: #414141;
+}
+
+input[id="popup"] {
+    /* 처음에는 팝업이 보이지 않아야 하므로 */
+    display: none;
+}
+
+
+input[id="popup"] + label + div {
+    position: fixed; /* 브라우저에 고정하는 위치값 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100; /* 위치값(position)의 우선순위 값 */
+}
+
+input[id="popup"] + label + div>div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* width: 350px; */
+    width: 23rem;
+    height: 370px;
+    /* padding: .5rem 1rem; */
+    background: #fff;
+    z-index: 2;
+    border: 0.1px solid rgb(166, 166, 166);
+    border-radius: .5rem;
+    box-shadow: 0 0.5rem 1rem rgba(49, 49, 49, 0.172);
+    box-sizing: border-box;
+}
+
+.popup-head {
+    padding: 5px 10px;
+    border-bottom: 0.1px solid rgb(166, 166, 166);
+    text-align: center;
+}
+
+.pop-place-title {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.popup-body {
+    font-size: 13px;
+    padding: .6rem .8rem .8rem .8rem;
+}
+
+.popup-footer {
+    font-size: 12px;
+    text-align: center;
+}
+
+/* 닫기 버튼의 스타일링 */
+.popup-close-btn {
+    font-size: 14px;
+    font-weight: 600;
+    z-index: 1;
+    cursor: pointer;
+}
+
+input[id*="popup"] + label + div {
+    /* display: none; */
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s;
+}
+
+input[id*="popup"]:checked + label + div {
+    /* display: block; */
+    opacity: 1;
+    visibility: visible;
+}
+
+.close {
+    display: none;
+}
+
+/************ pc버전 ************/
+@media (min-width: 992px){
+	
+	.text {
+    	font-size: 16px;
+	}
+	
+	form>h1 {
+	    font-size: 24px;
+	}
+	
+	.cate-and-img {
+	    display: flex;
+	    flex-direction: column;
+	}
+
+	.flow-btn-box {
+	    display: flex;
+	    justify-content: start;
+	    margin: 0 0 8px;
+	}
+
+	.container {
+		display: flex;
+		justify-content: center;
+	}
+	
+	.menu-and-info {
+		display: flex;
+		flex-direction: column-reverse;
+		justify-content: flex-start;
+	}
+	
+	.mini-menu-list {
+	    width: 400px;
+	    display: flex;
+	    justify-content: flex-end;
+	    font-size: 13px;
+	    border: 0;
+	}
+	
+	.exh-img {
+		width: 400px;
+		height: 500px;
+	}
+	
+	.exh-info {
+	    display: flex;
+	    flex-direction: column;
+	    padding-bottom: 30px;
+	}
+	
+	.exh-info form {
+		margin-left: 40px;
+	    display: grid;
+	    grid-template:
+	        "title title" 70px
+	        "exh-author author" 40px
+	        "exh-place place" 40px
+	        "exh-date date" 40px
+	        "exh-time time" 40px
+	        "exh-price price" 40px
+	        "exh-phone phone" 40px
+	        "exh-addr addr" 40px / 100px;
+		}
+	
+	.exh-detail-box {
+		display: flex;
+		justify-content: center;
+	}
+
+	.exh-detail-img {
+	    width: 800px;
+	}
+	
+	.btn-hpg {
+	    width: 800px;
+	    padding: 8px 0;
+	    font-size: 14px;
+	    margin: 15px 0;
+	}
+	
+	main {
+		width: 800px;
+	}
+}

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.artagit.web.dao.ReviewDao">
+	
+	<select id="get" resultType="com.artagit.web.entity.Review">
+		select *
+		from Review
+		where payId =#{id}
+	</select>
+	
+	<select id="getbyId" resultType="com.artagit.web.entity.Review">
+		select *
+		from Review
+		where id =#{id}
+	</select>
+	
+	<insert id="create" parameterType="com.artagit.web.entity.Review" >
+		INSERT INTO Review
+      (content,payId,color)
+      VALUES
+      (#{content},#{payId},#{color})
+	</insert>
+	
+	<delete id="delete" parameterType="int" >
+		delete from Review
+		where id = #{id}
+	</delete>
+	
+	
+	<update id="update" parameterType="com.artagit.web.entity.Review" >
+		update Review 
+		set 
+		<if test='!color.equals("1")'>  
+			color = #{color},
+		</if>
+		content=#{content} where id = #{id};
+	</update>
+	
+</mapper>
+ 

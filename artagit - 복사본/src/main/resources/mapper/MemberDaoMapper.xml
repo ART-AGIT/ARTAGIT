@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.artagit.web.dao.MemberDao">
+	
+	<!-- 사용자가 입력한 id를 가지고 권한 확인하기 위한 쿼리문 -->
+	<select id="getByUserName" resultType="Member">
+		select * from Member where loginId = #{username}
+	</select>
+	
+	<!-- 사용자가 입력한 정보를 가지고 ID를 확인하기 위한 쿼리문 -->
+	<select id="getId" resultType="Member">
+		select * from Member where name = #{name} and email = #{email}
+	</select>
+	
+	
+	<select id="getList" resultType="com.artagit.web.entity.Member">
+		select * from Member
+			<trim prefix="WHERE" prefixOverrides="AND | OR">
+				<if test="field != null">
+					${field} like '%${input}%'
+				</if>
+					and useYN = 'Y'
+			</trim>
+			limit #{(page-1)*10}, 10
+	</select>
+	
+	
+	<!--================== 회원 탈퇴 ===================	-->
+	<update id="deleteUseYN" parameterType="com.artagit.web.entity.Member">
+		update Member 
+		set useYN = 'N' 	 
+		where id = #{id}
+	</update>
+	
+	
+	<!--================== 일반 회원 로그인 ===================-->
+	<select id="getByName" resultType="com.artagit.web.entity.Member">
+       select *
+       from Member
+       where loginId = #{loginId}
+   </select>	
+	
+	
+	<select id="get" resultType="com.artagit.web.entity.Member">
+		select * from Member
+			where id = #{id}
+	</select>
+	
+	
+	<select id="count" resultType="int">
+		select count(id) from Member
+			where name like '%${input}%'	
+	</select>
+	
+	
+	<!-- 멤버 회원가입 -->
+	<insert id="insert" parameterType="com.artagit.web.entity.Member">
+		insert into Member(loginId, password, name, phone, nickname, email, image, roleId, provider, providerId)
+			values(#{loginId}, #{password}, #{name}, #{phone}, #{nickname}, #{email}, #{image}, #{roleId}, #{provider}, #{providerId})
+	</insert>
+	
+	
+	<!--================== 아이디 중복 확인 ===================-->
+	<select id="chkId" resultType="int">
+		select count(id) from Member
+			where loginId = #{loginId}
+	</select>
+
+
+	<update id="withdrawal " parameterType="com.artagit.web.entity.Member">
+		update Member
+		<set>useYN = 'N'</set>
+		where id=38;
+	</update>
+
+
+    <update id = "update" parameterType="com.artagit.web.entity.Member">
+        update Member
+        <set>
+			<if test="image != null">image = #{image},</if>
+ 			<if test="name != null">name = #{name},</if>
+ 			<if test="nickname != null">nickname = #{nickname},</if>
+			<if test="password != null">password = #{password},</if>
+			<if test="email != null">email = #{email},</if>
+			<if test="phone != null">phone = #{phone},</if>
+ 		</set>
+        where id = #{id}
+    </update>
+
+	<delete id="delete">
+		delete from Member
+			where id = #{id}
+	</delete>
+	
+	<select id="getByOAuthIdWithIss" resultType="Member">
+		select * from Member
+			where provider = #{provider} and providerId = #{providerId}
+	</select>
+   
+</mapper>

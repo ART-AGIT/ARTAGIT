@@ -1,0 +1,56 @@
+html{
+    height: 100%
+
+}
+body{
+    display: flex;
+    flex-direction: column;
+    
+    height: 100%;
+}
+.header{
+    background-color: yellow;
+}
+
+.body{
+    height: 100%;
+    background-color: gray;
+    flex-grow: 1;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.aside{
+    background-color: green;
+}
+.main{
+    background-color: beige;
+
+    flex-grow: 1;
+}
+.footer{
+    background-color: black;
+    color: white;
+}
+
+/* =========================== */
+@media (min-width: 576px) {
+    /* .body{
+        flex-direction: row;
+    } */
+    .main{
+        background-color: brown;
+    }
+}
+
+@media (min-width: 768px) {
+    /* .body{
+        flex-direction: row;
+    } */
+    .main{
+        background-color: whitesmoke;
+    }
+}
+
+

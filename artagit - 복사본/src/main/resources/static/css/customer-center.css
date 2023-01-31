@@ -1,0 +1,277 @@
+/******* 기본 설정 ****************************************/
+p {
+    /* margin: 5px 0 0 0; */
+    /* margin: 7px 0 18px 0; */
+    padding: 8px 15px 0 15px;
+}
+
+.section {
+    margin-bottom: 30px;
+}
+
+.text {
+    color: #606060;
+    font-weight: 500;
+    font-size: 16px;
+    /* font-size: 100%; */
+}
+
+.sm-text {
+    font-size: 14px;
+}
+
+.q-numbering {
+    color: #FF6C9E;
+    margin-right: 3px;
+}
+
+body::-webkit-scrollbar, div::-webkit-scrollbar {
+    display: none;
+}
+
+.section>.box {
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+.accordion-header.active + .accordion-content {
+    height: auto;
+    opacity: 1;
+    
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+
+.section span {
+    margin: 0;
+}
+
+/******* 자주 묻는 질문, 공지사항 아이콘 ****************************************/
+.icon-title {
+    display: flex;
+    width: 120px;
+    height: 23px;
+    justify-content: center;
+    align-items: center;
+    
+    margin: 40px 0 20px 0;
+    
+    border-radius: 15px;
+    border: 2px solid #FF6C9E;
+}
+
+.question-icon {
+    width: 20px;
+    height: 20px;
+    /* margin-right: 3px; */
+}
+
+.notice-icon {
+    
+    width: 20px;
+    height: 20px;
+}
+
+/******* 자주 묻는 질문 ****************************************/
+.customer-center {
+    font-size: 22px;
+    font-weight: 700;
+    text-align: center;
+    padding-top: 20px;
+}
+
+.section>.box>h4,
+.accordion-header {
+    /* reset */
+    margin: 12px 0 0 0;
+    /* layout */
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    /* height: 20px; */
+    position: relative;
+}
+
+.section>.box>div,
+.accordion-content {
+    /* reset */
+    margin: 10px 0 10px 0;
+    outline: 0;
+    line-height: 1.4;
+    text-decoration: none;
+    font-size: 100%;
+    list-style: none;
+
+    /* text */
+    color: #544d4d;
+
+    /* layout */
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    box-sizing: content-box;
+    background-color: #fff1f5;
+
+    overflow: auto;
+    height: 0px;
+    opacity: 0;
+}
+
+/******* 공지사항 ****************************************/
+
+.notice-category {
+    border: 1px solid #303030;
+    border-radius: 10px;
+    width: 45px;
+    height: 19px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    color: #1205AF;
+}
+
+.event {
+    color: #E73939;
+}
+
+.img-content {
+    width: 90%;
+    justify-content: center;
+}
+
+
+/******* PC버전 ****************************************/
+
+@media (min-width: 992px) {
+	main {
+		width: 800px;
+	}
+	
+	.icon-title {
+		margin-bottom: 10px;
+	}
+	
+	.section>.box>h4, .accordion-header {
+	    margin: 0;
+	    display: flex;
+	    align-items: center;
+	    cursor: pointer;
+	    height: 70px;
+	    position: relative;
+	    padding-left: 0.7em;
+	    transition: background-color 1s;
+	    border-bottom: 1px solid #dbdbdb;
+	}
+	
+	.section>.box>div, .accordion-content {
+	    margin: 0;
+	}
+	
+	p {
+	    padding: 16px;
+	    margin: 0;
+	    font-size: 16px;
+	}
+	
+	.q-numbering {
+		padding-right: 5px;
+		font-size: 18px;
+	}
+	
+	.notice-box {
+		display: flex;
+    	align-items: center;
+    	border-bottom: 1px solid #dbdbdb;
+    	height: 75px;
+    }
+    
+    .notice-box section {
+    	margin: 0 10px;
+    	cursor: pointer;
+    }
+    
+    .notice-title {
+    	margin: 0;
+    }
+    .notice-date {
+    	font-size: 14px;
+    	margin: 5px 0;
+    	display: block;
+	    color: #828c94;
+	    line-height: 17px;
+	    font-weight: 500;
+	    padding-top: 5px;
+	}
+	
+		/* 공지사항 디테일 페이지 */
+	.notice-detail-container {
+		width: 100%;
+	/*     max-width: 780px; */
+	    box-sizing: border-box;
+	}
+	
+	.notice-detail-title {
+		word-break: keep-all;
+	    overflow-wrap: break-word;
+	    margin: 0 0 10px;
+	    font-size: 24px;
+	    font-weight: 700;
+	    line-height: 30px;
+	    color: #292929;
+	}
+	
+	.notice-detail-date {
+		display: block;
+	    font-size: 16px;
+	    line-height: 20px;    
+	    font-weight: 500;
+	    color: #828c94;
+	}
+	
+	.notice-detail-content {
+		word-break: keep-all;
+	    overflow-wrap: break-word;
+		border: solid #dbdbdb;
+	    border-width: 1px 0 0;
+	    font-size: 15px;
+	    line-height: 28px;
+	    color: #000;
+		margin: 20px 0;
+	    padding: 30px 0;
+	    border-width: 1px 0;
+	    display: flex;
+	    flex-direction: column;
+	    align-items: center;
+	    text-align: justify;
+	}
+	
+	.notice-detail-content p {
+		padding: 0;
+	}
+	
+	.notice-detail-back {
+		background: none;
+	    font: inherit;
+	    display: block;
+	    width: 160px;
+	    margin: 0 auto;
+	   	padding: 11px 0 12px;
+	   	
+	    text-align: center;    
+	    font-weight: 500;
+	    font-size: 17px;
+	    line-height: 22px;
+	    
+	    background-color: #FF6C9E;
+	    border: none;
+	    color: #fff;
+	    border-radius: 4px;
+	    transition: background-color .1s;
+	}
+
+}
+
+

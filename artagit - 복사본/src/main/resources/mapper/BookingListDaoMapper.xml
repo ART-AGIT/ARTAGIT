@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.artagit.web.dao.BookingListDao">
+
+	<select id="getListById" resultType="com.artagit.web.entity.BookingList">
+		select * from BookingListView
+		where memId = #{memId}
+		order by bookingDate desc
+		limit #{offset},#{size};
+	</select>
+	
+	<select id="getByBookingId" resultType="com.artagit.web.entity.BookingList">
+		select * from BookingListView
+		where bookingId = #{id};
+	</select>
+	
+	
+	<select id="getByReviewId" resultType="com.artagit.web.entity.BookingList">
+		select * from BookingListView
+		where reviewId = #{id};
+	</select>
+
+	<select id="getCount" resultType="int">
+		select count(bookingId) 
+		from BookingListView where  memId =#{id};
+	</select>	
+	
+</mapper>
+ 
+   
+   
+
