@@ -27,9 +27,9 @@
 	
 	<!--================== 회원 탈퇴 ===================	-->
 	<update id="deleteUseYN" parameterType="com.artagit.web.entity.Member">
-			update Member 
-		<set> useYN = 'N' </set>	 
-				where id = #{id}
+		update Member 
+		set useYN = 'N' 	 
+		where id = #{id}
 	</update>
 	
 	

@@ -37,7 +37,7 @@ public interface CorporateDao {
 	int chkId(String loginId);
 
 	// 주최자가 등록한 전시date필터링
-	List<Exhibition> getListByDateId(int offset, int size, int state, int corpId, int page);
+	List<Exhibition> getListByDateId(int offset, int state, int corpId ,int size);
 
 
 }

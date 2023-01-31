@@ -32,5 +32,5 @@ public interface CorporateService {
 	int chkId(String loginId);
 
 	// 주최자가 등록한 전시date필터링
-	List<Exhibition> getListByDateId(int page, int size, int state,int id);
+	List<Exhibition> getListByDateId(int page, int id, int state);
 }
