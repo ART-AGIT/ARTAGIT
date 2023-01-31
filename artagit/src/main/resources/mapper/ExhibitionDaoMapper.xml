@@ -183,7 +183,20 @@
 				on E.corpId = C.id
 		    where L.memId = #{id}
 		    order by M.id
-		    limit #{offset},#{size};
+		    limit 6;
+	</select>
+	
+	<select id="getLikeListAll" resultType="com.artagit.web.entity.ExhLikeList">
+		select E.name,E.startDate, E.endDate, E.id, E.poster, C.museumName, M.nickname
+			from Member M
+			    inner join ExhLike L
+			    on M.id = L.memId
+				inner join Exhibition E
+				on L.exhId = E.id
+				inner join Corporate C
+				on E.corpId = C.id
+		    where L.memId = #{id};
+<!-- 		    order by M.id; -->
 	</select>
 	
 	

@@ -12,11 +12,23 @@ import org.springframework.security.core.userdetails.UserDetails;
 // 스프링 시큐리티는 세션/쿠키를 사용해서 로그인한 사용자의 정보들을 시큐리티 컨텍스트에 가지고 있게 된다.
 // 그래서 회원이 로그인을 해 있는 동안 컨텍스트에 담겨있는 정보를 이용하게 되고..
 // 로그아웃을 하면 시큐리티가 알아서 회원 객체(UserDetails)를 해제해준다.
+
+/**********
+ * 스프링 시큐리티가 들고 있는 세션 정보에는 Authentication 타입의 객체만 들어갈 수 있다.
+ * 여기서, Authentication 객체가 가진 필드는 2개가 있다. 1. OAuth2User 타입 과 2. UserDetails 타입
+ * 일반 로그인을 하면 UserDetails 타입의 객체가 Authentication에 들어가고,
+ * 소셜 로그인을 하면 OAuth2User 타입의 객체가 Authentication에 들어간다.
+ * 스프링 시큐리티가 사용자의 세션 정보를 찾을 때, 일반 로그인과 소셜 로그인 두 가지의 경우를 처리해야 하므로 
+ * ArtagitUserDetails 타입으로 UserDetails, OAuth2User를 묶는다. => 스프링 시큐리티가 회원을 처리할 때, 로그인 경로에 상관없이 무조건 ArtagitUserDetails 타입만 찾을 수 있도록 설계.
+ *
+ * @author hojung
+ ******************/
 public class ArtagitUserDetails implements UserDetails {
-	
+
+//	private Member member;
 	private int id; 
-	private String loginId;
-	private String username;
+	private String loginId; // 로그인 아이디.
+	private String username; // 회원 이름
 	private String password;
 
 	private String name;
@@ -34,14 +46,22 @@ public class ArtagitUserDetails implements UserDetails {
 	private String address;
 	private String addressDetail;
 	
-
-
-
 	private int roleId;
+	private static final long serialVersionUID = 1L;
+//	private Map<String, Object> attributes;
+//    private String provider;
+//    private String providerId;
 	
-	
-	
-	
+    // 일반로그인용 생성자
+    public ArtagitUserDetails() {
+    }
+    
+    // OAuth 로그인용 생성자
+//    public ArtagitUserDetails(Member member, Map<String, Object> attributes) {
+//    	this.member = member;
+//    	this.attributes = attributes;
+//	}
+
 	public int getRoleId() {
 		return roleId;
 	}
@@ -84,7 +104,8 @@ public class ArtagitUserDetails implements UserDetails {
 		this.password = password;
 	}	
 	
-	public String getName() {
+	public String getMemName() {
+		System.out.println("hihi");
 		return name;
 	}
 
@@ -155,7 +176,7 @@ public class ArtagitUserDetails implements UserDetails {
 		this.authorities = authorities;
 	}
 	
-	public String getAddress() {
+	public String getCorpAddress() {
 		return address;
 	}
 
@@ -208,11 +229,9 @@ public class ArtagitUserDetails implements UserDetails {
 	}
 
 	public void setProcessDate(String processDate) {
-		// TODO Auto-generated method stub
 	}
 
 	public void setRefuseReason(String refuseReason) {
-		// TODO Auto-generated method stub
 	}
 
 	public void setLocalId(int localId) {
@@ -227,13 +246,47 @@ public class ArtagitUserDetails implements UserDetails {
 		return businessNum;
 	}
 	
+//	public String getProvider() {
+//		return provider;
+//	}
+//
+//	public void setProvider(String provider) {
+//		this.provider = provider;
+//	}
+//
+//	public String getProviderId() {
+//		return providerId;
+//	}
+//
+//	public void setProviderId(String providerId) {
+//		this.providerId = providerId;
+//	}
+
+//	@Override
+//	public Map<String, Object> getAttributes() {
+//		return attributes;
+//	}
+	
+//	@Override
+//	public String getName() {
+//		return null;
+//	}
+
 	@Override
 	public String toString() {
-		return "ArtagitUserDetails [id=" + id + ", loginId=" + loginId + ", username=" + username + ", password="
+		return "ArtagitUserDetails [id=" + id + ", loginId=" + loginId + ", password="
 				+ password + ", name=" + name + ", phone=" + phone + ", nickname=" + nickname + ", email=" + email
 				+ ", img=" + img + ", authorities=" + authorities + ", ceoName=" + ceoName + ", businessNum="
 				+ businessNum + ", manager=" + manager + ", managerPhone=" + managerPhone + ", museumName=" + museumName
-				+ ", address=" + address + ", roleId=" + roleId + "]";
+				+ ", address=" + address + ", roleId=" + "]";
 	}
 
+
+//	public Member getMember() {
+//		return member;
+//	}
+//
+//	public void setMember(Member member) {
+//		this.member = member;
+//	}
 }

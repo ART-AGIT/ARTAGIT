@@ -108,7 +108,6 @@ public class ExhibitionController {
 	/********************** 전시 결제 = 결제정보 insert 하기 
 	 * @throws IllegalArgumentException 
 	 * @throws JsonProcessingException **********************/
-	@Transactional
 	@PostMapping("pay")
 	public void pay(@RequestBody ObjectNode payInfo)  {
 		System.out.println("pay 메서드 진입");
@@ -142,10 +141,11 @@ public class ExhibitionController {
 			e.printStackTrace();
 			throw new RuntimeException();
 		} finally {
-			// bookId를 구하기 위해 booking 먼저 update 해준다.
 			System.out.println("예매 정보 ==> " + booking);
-			booking.setPayNum(service.getPayNum());
-			bookingService.add(booking);
+
+			// bookId를 구하기 위해 booking 먼저 update 해준다.
+			booking.setPayNum(service.getPayNum()); //booking 테이블에 들어갈 주문번호(payNum) 생성 후,
+			bookingService.add(booking); 
 			
 			// payment에 bookId를 set해준다.
 			System.out.print("결제 정보 ==> " + payment);

@@ -14,10 +14,12 @@ import com.artagit.web.dao.CorporateDao;
 import com.artagit.web.dao.MemberDao;
 import com.artagit.web.dao.RoleDao;
 import com.artagit.web.entity.ArtagitOidcUser;
+//import com.artagit.web.entity.ArtagitOidcUser;
 import com.artagit.web.entity.ArtagitUserDetails;
 import com.artagit.web.entity.Corporate;
 import com.artagit.web.entity.Member;
 import com.artagit.web.entity.Role;
+
 
 //개발자가 직접 커스텀해서 사용자 정보를 불러오기 위한 서비스.
 public class artagitUserDetailsService implements UserDetailsService {
@@ -111,14 +113,14 @@ public class artagitUserDetailsService implements UserDetailsService {
 			user.setMuseumName(corp.getMuseumName());
 			user.setLocalId(corp.getLocalId());
 			user.setRoleId(corp.getRoleId());
-			user.setImg(corp.getImg());
+//			user.setImg(corp.getImg());
 //			user.setImg(corp.getImg());
 			user.setAuthorities(authorities);
 			user.setImg(corp.getImg());
 			System.out.println("업체회원!==> "+user);
 		}
 		System.out.println(username + "회원의 권한 ====> "+authorities);
-		System.out.println(user.getAddress());
+		System.out.println(user.getCorpAddress());
 		return user;
 	}
 }

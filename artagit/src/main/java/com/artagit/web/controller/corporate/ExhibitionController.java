@@ -24,7 +24,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.artagit.web.entity.ArtagitOidcUser;
+//import com.artagit.web.entity.ArtagitOidcUser;
 import com.artagit.web.entity.ArtagitUserDetails;
 import com.artagit.web.entity.Corporate;
 import com.artagit.web.entity.Exhibition;
@@ -149,11 +149,11 @@ public class ExhibitionController {
 	
 	//===================전시등록하기====================
 	@GetMapping("reg")
-	public String reg(Model model, @AuthenticationPrincipal ArtagitOidcUser user) {
+	public String reg(Model model, @AuthenticationPrincipal ArtagitUserDetails user) {
 		//전시페이지 불러오면 주최자정보입력돼있기
 		System.out.println(user);
 		model.addAttribute("user",user);
-		System.out.println(user.getAddress());
+		System.out.println(user.getCorpAddress());
 		return "corporator/mypage/exh-reg";
 	}
 	

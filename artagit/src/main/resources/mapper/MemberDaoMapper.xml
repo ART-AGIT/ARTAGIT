@@ -55,8 +55,8 @@
 	
 	<!-- 멤버 회원가입 -->
 	<insert id="insert" parameterType="com.artagit.web.entity.Member">
-		insert into Member(loginId, password, name, phone, nickname, email, image, roleId, oAuthId, oAuthIss)
-			values(#{loginId}, #{password}, #{name}, #{phone}, #{nickname}, #{email}, #{image}, #{roleId}, #{oAuthId}, #{oAuthIss})
+		insert into Member(loginId, password, name, phone, nickname, email, image, roleId, provider, providerId)
+			values(#{loginId}, #{password}, #{name}, #{phone}, #{nickname}, #{email}, #{image}, #{roleId}, #{provider}, #{providerId})
 	</insert>
 	
 	
@@ -94,7 +94,7 @@
 	
 	<select id="getByOAuthIdWithIss" resultType="Member">
 		select * from Member
-			where oAuthId = #{oAuthId} and oAuthIss = #{oAuthIss}
+			where provider = #{provider} and providerId = #{providerId}
 	</select>
    
 </mapper>

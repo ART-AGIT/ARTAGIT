@@ -8,23 +8,26 @@ import org.springframework.security.oauth2.core.oidc.user.OidcUser;
 
 //사용자의 정보를 담는 껍데기 클래스
 public class ArtagitOidcUser extends ArtagitUserDetails implements OidcUser {
-
+	
+	private static final long serialVersionUID = 1L;
+	
 	// 사용자의 기본정보를 생성자를 통해 넘겨 받는다.
 	public ArtagitOidcUser() {
 		// TODO Auto-generated constructor stub
 	}
 	
 	public ArtagitOidcUser(OidcUser oidcUser) {
-		
-	}
-	
-	@Override
-	public String getName() {
-		return null;
+		// TODO Auto-generated constructor stub
 	}
 	
 	@Override
 	public Map<String, Object> getAttributes() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getName() {
 		// TODO Auto-generated method stub
 		return null;
 	}
