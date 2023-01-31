@@ -76,7 +76,7 @@ public interface ExhibitionService {
 	// 좋아요 전시 API
 	List<Exhibition> getLikeListByIdAll(int id);
 	
-
-
+	// 주최자 등록한 전시 리스트 필터링
+	List<Exhibition> getListByDateId(int page, int id, int state);
 
 }

@@ -3,13 +3,12 @@ window.addEventListener("load", function() {
 	const boardbox = document.querySelector(".post-list-box");
 	const noticebox = document.querySelector(".notice-list-box");
 	var currentPage = document.querySelector(".paging");
-	let currentLi = document.querySelector(".paging btn-default");
-	var firstPage = document.querySelector(".current-page")
-	var category = null; //전역변수로 빼서 상태 저장
+	   let currentLi = document.querySelector(".board-category-box ul li.board-selected");
+	
 
 	ul.onclick = function(e) {
 		e.preventDefault();
-		console.log(e.target.tagName);
+		
 		const el = e.target;
 		
 		if (el.tagName != "LI" && el.tagName != "DIV")
@@ -22,9 +21,9 @@ window.addEventListener("load", function() {
 		li.classList.add("board-selected");
 		
 		
-		if (currentLi != null && currentLi != e.target && currentLi.querySelector(".div-btn") != e.target)
+		if (currentLi != null && currentLi != e.target 
+		&& currentLi.querySelector(".div-btn") != e.target)
 			currentLi.classList.remove("board-selected");
-			
 		currentLi = li;
 		
 
@@ -157,22 +156,7 @@ window.addEventListener("load", function() {
              <div class="writing-img-box">
 			        <a href = "../member/board/reg"><img src = "../image/writing-img.png"></img></a>
 	    </div>
-	    <div class="paging">
-	    <!-- 현재 페이지가 1보다 클 경우 이전 href, 1보다 작은 경우 이전 text -->
-	    <span th:if="${currentPage > 1}"><a th:href="@{/board/list(currentPage=(${currentPage}-1))}">이전</a></span>
-	    <span th:unless="${currentPage > 1}" th:text="이전"></span>
-	    
-	    <!-- #number.sequence 인수로 지정한 2개의 수 범위에서 배열을 생성 -->
-	    <th:block th:each="num : ${#numbers.sequence(startPageNum,lastPageNum)}">
-	        <div th:data-id="1" th:data-query="${sendQuery}" class="btn btn-default current-page" th:if="${currentPage == num}" th:text="${num}"></div>
-	        <div th:data-id="${num}" th:data-query="${sendQuery}" class="btn btn-default-line not-current-page" th:unless="${currentPage == num}" th:text="${num}"></div>
-	    </th:block>
-	    
-	    <!-- 현재 페이지가 마지막페이지와 같지 않을 경우 다음 href, 같을 경우 다음 text -->
-	    <span th:if="${currentPage != lastPage}">다음</span>
-	    <span th:unless="${currentPage != lastPage}" th:text="다음"></span>
-	    <span><a th:href="@{/board/list(currentPage=${lastPage})}">마지막</a></span>
-    </div>
+	   
     </form>
     
 			 

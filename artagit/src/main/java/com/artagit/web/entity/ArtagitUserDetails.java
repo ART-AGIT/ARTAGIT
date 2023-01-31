@@ -43,7 +43,7 @@ public class ArtagitUserDetails implements UserDetails {
 	private String manager;
 	private String managerPhone;
 	private String museumName;
-	private String address;
+	private String corpAddress;
 	private String addressDetail;
 	
 	private int roleId;
@@ -104,7 +104,7 @@ public class ArtagitUserDetails implements UserDetails {
 		this.password = password;
 	}	
 	
-	public String getMemName() {
+	public String getName() {
 		System.out.println("hihi");
 		return name;
 	}
@@ -177,11 +177,11 @@ public class ArtagitUserDetails implements UserDetails {
 	}
 	
 	public String getCorpAddress() {
-		return address;
+		return corpAddress;
 	}
 
-	public void setAddress(String address) {
-		this.address = address;
+	public void setCorpAddress(String corpAddress) {
+		this.corpAddress = corpAddress;
 	}
 
 	public String getAddressDetail() {
@@ -278,7 +278,7 @@ public class ArtagitUserDetails implements UserDetails {
 				+ password + ", name=" + name + ", phone=" + phone + ", nickname=" + nickname + ", email=" + email
 				+ ", img=" + img + ", authorities=" + authorities + ", ceoName=" + ceoName + ", businessNum="
 				+ businessNum + ", manager=" + manager + ", managerPhone=" + managerPhone + ", museumName=" + museumName
-				+ ", address=" + address + ", roleId=" + "]";
+				+ ", corpAddress=" + corpAddress + ", roleId=" + "]";
 	}
 
 
