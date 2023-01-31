@@ -37,7 +37,21 @@ public class BoardApi {
    public List<BoardListView> getListByCategory(
          @RequestParam("c") int roleId){
       List<BoardListView> list = service.getList(roleId);
+      
+      
+      
+      
      
+      return list;
+   }
+   /*************게시글 검색결과 페이징 불러오기*********/
+   @GetMapping("boards/search")
+   public List<BoardListView> getListByPage(
+		  @RequestParam(defaultValue = "1", name ="p")int page,
+          @RequestParam(defaultValue = "", name="q") String query){
+	   System.out.println("q===>"+query+"p"+page);
+      List<BoardListView> list = service.getListByPage(page,query);
+     System.out.println(list+"paging list");
       return list;
    }
    /*************공지 리스트 불러오기*********/

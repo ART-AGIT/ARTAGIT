@@ -1,5 +1,6 @@
 package com.artagit.web.service;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -50,16 +51,39 @@ public class DefaultBoardService implements BoardService{
 	}
 
 	@Override
-	public List<BoardListView> getListInit(int page, int size,int category) {
+	public Map<String, Object> getListInit(int page, int size,int category) {
 		// TODO Auto-generated method stub
 //		메인페이지의 게시판 숫자때문에 설정해놓음
 		if(size == 0) {
-			size = 10;			
+			size = 5;			
 		}
-		System.out.println(size);
+		int startPageNum = 1;
+		int lastPageNum = size;
+		// 현재 페이지가 size/2보다 클 경우
+		if (page > (size / 2)) {
+			// 보여지는 페이지 첫번째 페이지 번호는 현재페이지 - ((마지막 페이지 번호/2) -1 )
+			// ex 현재 페이지가 6이라면 첫번째 페이지번호는 2
+			startPageNum = page - ((lastPageNum / 2) - 1);
+			// 보여지는 마지막 페이지 번호는 현재 페이지 번호 + 현재 페이지 번호 - 1
+			lastPageNum += (startPageNum - 1);
+		}
 		
+		//게시글 총 개수 구하는 함수
+		 double boardCount = boardListDao.getBoardAllCount();
+		 int lastPage = (int)(Math.ceil(boardCount/size));
+			if (page >= (lastPage - 4)) {
+				// 마지막 페이지 번호는 lastPage
+				lastPageNum = lastPage;
+			}
 		int offset = (page-1)*size;
-		return boardListDao.getListInit(offset,size,page,category);
+	    Map<String, Object> resultMap = new HashMap<String, Object>();
+        resultMap.put("list", boardListDao.getListInit(offset,size,category));
+        resultMap.put("currentPage", page);
+        resultMap.put("lastPage", lastPage);
+        resultMap.put("startPageNum", startPageNum);
+        resultMap.put("lastPageNum", lastPageNum);
+		
+		return resultMap;
 	}
 
 	@Override
@@ -168,13 +192,55 @@ public class DefaultBoardService implements BoardService{
 		return boardListDao.getListById(memId,page,offset,size);
 	}
 
-
+//------------검색결과 동기
 	@Override
-	public List<BoardListView> getSearchList(String query) {
+	public  Map<String, Object> getSearchList(String query,int page) {
 		// TODO Auto-generated method stub
-		return boardListDao.getSearchList(query);
+		
+		
+		int size = 5;			
+		
+		int startPageNum = 1;
+		int lastPageNum = size;
+		// 현재 페이지가 size/2보다 클 경우
+		if (page > (size / 2)) {
+			// 보여지는 페이지 첫번째 페이지 번호는 현재페이지 - ((마지막 페이지 번호/2) -1 )
+			// ex 현재 페이지가 6이라면 첫번째 페이지번호는 2
+			startPageNum = page - ((lastPageNum / 2) - 1);
+			// 보여지는 마지막 페이지 번호는 현재 페이지 번호 + 현재 페이지 번호 - 1
+			lastPageNum += (startPageNum - 1);
+		}
+		
+		//게시글 총 개수 구하는 함수
+		 double boardCount = boardListDao.getBoardSearchCount(query);
+		 int lastPage = (int)(Math.ceil(boardCount/size));
+			if (page >= (lastPage - 4)) {
+				// 마지막 페이지 번호는 lastPage
+				lastPageNum = lastPage;
+			}
+		int offset = (page-1)*size;
+	    Map<String, Object> resultMap = new HashMap<String, Object>();
+        resultMap.put("list", boardListDao.getSearchList(query,offset,size));
+        resultMap.put("currentPage", page);
+        resultMap.put("lastPage", lastPage);
+        resultMap.put("startPageNum", startPageNum);
+        resultMap.put("lastPageNum", lastPageNum);
+		
+		return resultMap;
+	
 	}
+//------------------검색결과 비동기
 
+
+@Override
+public List<BoardListView> getListByPage(int page,String query) {
+	// TODO Auto-generated method stub
+	int size = 5;			
+	int offset = (page-1)*size;
+	System.out.println("size"+size+"offset"+offset+"query"+query);
+	
+	return boardListDao.getListByPage(query,offset,size);
+}
 
 	
 
