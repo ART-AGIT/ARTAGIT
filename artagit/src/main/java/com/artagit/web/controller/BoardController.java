@@ -109,11 +109,11 @@ public class BoardController {
 		else
 			roleId.setRoleId(0);
 		System.out.println("category?"+roleId.getRoleId());
-//		List<BoardListView> board = service.getListInit(page, 0,category);
+		Map<String,Object> board = service.getListInit(page, 0,category);
 		
 		
 		List<Notice> notice = noticeService.getListInit(page,0,category);
-//		model.addAttribute("boardList",board);
+		model.addAttribute("boardList", board.get("list"));
 		model.addAttribute("noticeList",notice);
 		model.addAttribute("roleId", roleId);
 		System.out.println("model에 들어가는지"+notice);
