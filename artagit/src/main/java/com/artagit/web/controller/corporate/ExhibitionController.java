@@ -13,6 +13,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+//import com.artagit.web.entity.ArtagitOidcUser;
 import com.artagit.web.entity.ArtagitUserDetails;
 import com.artagit.web.entity.Corporate;
 import com.artagit.web.entity.Exhibition;
@@ -106,6 +108,7 @@ public class ExhibitionController {
 	}
 
 	// 주최자가 등록한 전시 수정 ========================
+		@Transactional
 		@PostMapping("update")
 		@ResponseBody
 		public String update(@RequestBody ObjectNode exhInfo) throws JsonProcessingException, IllegalArgumentException {
@@ -150,7 +153,7 @@ public class ExhibitionController {
 		//전시페이지 불러오면 주최자정보입력돼있기
 		System.out.println(user);
 		model.addAttribute("user",user);
-		System.out.println(user.getAddress());
+		System.out.println(user.getCorpAddress());
 		return "corporator/mypage/exh-reg";
 	}
 	

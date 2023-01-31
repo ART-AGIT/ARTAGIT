@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.artagit.web.dao.BookingDao;
 import com.artagit.web.dao.BookingListDao;
@@ -47,7 +49,6 @@ public class DefaultBookingService implements BookingService {
 		// TODO Auto-generated method stub
 		return bookingDao.getBookIdBypayNum(payNum);
 	}
-
 	
 	//bookingId(=payId) 로 exhId 가져오기
 	@Override

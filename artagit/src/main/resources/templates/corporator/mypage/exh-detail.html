@@ -6,6 +6,7 @@
 	<th:block layout:fragment="css">
 	    <link href="/css/component/sub-menu.css" type="text/css" rel="stylesheet">
 	    <link href="/css/component/exh-detail.css" type="text/css" rel="stylesheet">
+	    <link href="/css/component/modal.css" type="text/css" rel="stylesheet">
 	    <script src="/js/corporator/mypage/exh-detail.js" type="text/javascript"></script>
 	</th:block>
 <body spellcheck="false"  layout:fragment="content">
@@ -138,15 +139,17 @@
 	    </section>
     </div>
 		<!------------ 모달 ------------>
-         <div class="modal d-none">
-            <div class="modal-header">
-                <h1 class="header-title">정말 삭제하시겠습니까?</h1>
-            </div>
-            <div class="modal-actions">
-                <a class="modal-action yes-btn" href="" type="" th:attr="data-id=${exh.id}">예</a>
-                <a class="modal-action no-btn">아니오</a>
-            </div>
-        </div>
+	<div class="d-modal modal-overlay d-none">
+    	<div class="modal-window">
+	    	<div class="modal-header">
+	        	<h1 class="header-title">정말 삭제하시겠습니까?</h1>
+	        </div>
+	        <div class="modal-actions">
+	            <a class="modal-action yes-btn" href="" type="" th:attr="data-id=${exh.id}">예</a>
+	            <a class="modal-action no-btn">아니오</a>
+	    	</div>
+    	</div>
+    </div>
     
 </main>
 </body>

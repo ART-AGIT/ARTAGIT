@@ -7,7 +7,7 @@
    <th:block layout:fragment="css">
     <link href="../../css/component/board-list.css" type="text/css" rel="stylesheet">
     <link href="../../css/component/board-detail.css" type="text/css" rel="stylesheet">
-   
+   <link href="/css/component/modal.css" type="text/css" rel="stylesheet">
    <script src="../../js/header-menu.js"></script>
    <script src="../../js/board/comment/comment.js"></script>
    <script src="../../js/member/board/detail.js"></script>
@@ -167,12 +167,15 @@
     
     
 
-    <div id="modal" class="modal-overlay d-none">
-        <div class="modal-window">
-            <div class="content">삭제하시겠습니까?</div>
-            <a class="button-wrap"></a>
-            <a th:href="@{/member/board/delete(id=${id})}" class="btn btn-default-line yes">예</a>
-            <div class="btn btn-default no">아니요</div>
+    	<div id="modal" class="modal-overlay d-none">
+        	<div class="modal-window">
+	                <div class="modal-header">
+			        	<h1 class="header-title">정말 삭제하시겠습니까?</h1>
+			        </div>
+	            <div class="button-wrap modal-actions">
+	            <a th:href="@{/member/board/delete(id=${id})}" class="modal-action yes">예</a>
+	            <button class="modal-action no">아니오</button>
+	            </div>
             </div>
         </div>
     </div>

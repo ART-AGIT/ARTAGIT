@@ -238,20 +238,19 @@ public class MypageController {
 	// 좋아요 전시 리스트
 	@GetMapping("like-list")
 	   public String likeList(@AuthenticationPrincipal ArtagitUserDetails user,
-			   					Model model,
-			   					@RequestParam(defaultValue = "1", name = "p") int page) {
-	      System.out.println("page@@@@@@@@@@@@@@@@"+page);
-	      List<Exhibition> list = exhService.getLikeListById(user.getId(),page);
+			   					Model model) {
+	      System.out.println("page@@@@@@@@@@@@@@@@");
+	      List<Exhibition> list = exhService.getLikeListById(user.getId());
 	      System.out.println("좋아요한 전시이이이~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 	      System.out.println(list);
 	      model.addAttribute("list", list);
 	      
 	      Member member = memberService.get(user.getId());
 	      int countOfExhLike = exhLikeService.getCount(user.getId());
-	      System.out.println(countOfExhLike);
+	      System.out.println("countOfExhLike를 알고 싶니?"+countOfExhLike);
 	      
 	      model.addAttribute(member);
-	      model.addAttribute(countOfExhLike);
+	      model.addAttribute("countOfExhLike",countOfExhLike);
 	      model.addAttribute("user",user);
 	      return "member/mypage/like-list";
 	     

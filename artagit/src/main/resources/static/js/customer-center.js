@@ -28,22 +28,7 @@ window.addEventListener("load", function(){
             e.target.style.fontWeight = 600;
             e.target.style.borderBottom = 0;
             currentEl = e.target;
-            // 닫혀있는 것 열어주기
-            // if(!e.target.classList.contains("active")){
-            //     e.target.classList.add("active");
-            //     prev = e.target;
-            // } else if() {
-            // }
-
-            // if(currentEl!=null || isOpen){
-                //     currentEl.classList.remove('active');
-        //     currentEl = null;
-        // }else{
-        //     e.target.classList.add('active');
-        //     isOpen = true;
-        //     currentEl = e.target;
-        // }
-        }
+    }
     
     for(let i=0; i<noticeBox.length; i++){
         noticeBox[i].onclick = function(e){
@@ -68,12 +53,17 @@ window.addEventListener("load", function(){
             .then((notice) => {
                 main.innerHTML = "";
                 console.log(notice);
-
+                console.log(notice.image);
+                if(notice.image == ""){
+                    notice.image == "/image/idresult.png";
+                }
             let template = `<main>
                             <section class="notice-detail-container">
                                 <h1 class="notice-detail-title">${notice.title}</h1>
                                 <span class="notice-detail-date">관리자&nbsp;&nbsp;${notice.regDate}</span>
+
                                 <div class="notice-detail-content">
+                                    <img class="notice-img" src="/image/딸기청.jpg">
                                     <p>${notice.content}</p>
                                 </div>
                                 <a class="notice-detail-back" href="/customer_notice">목록보기</a>
@@ -92,27 +82,3 @@ window.addEventListener("load", function(){
         }
     }
 });
-
-
-//////////// 공지사항 내용 펼치기
-//     for(let i=0; i<noticeBox.length; i++){
-
-    
-//     noticeBox[i].onclick = function(e){
-//         var isHeader = e.target.nodeName == 'H4'
-//                         || e.target.classList.contains('accordion-header');
-
-//         if(!isHeader)
-//             return;
-
-//         console.log("공지 click!");
-
-//         if(currentEl != null){
-//             console.log(e.target.classList);
-//             currentEl.classList.remove("active");
-//         }
-        
-//         e.target.classList.add('active');
-//         currentEl = e.target;
-//     }
-// }

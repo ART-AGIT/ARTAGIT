@@ -82,8 +82,7 @@
     .exhibition form{
         grid-template: 
 			"img " 345px
-	        "title" auto /*
-	        "date" 11px */
+	        "title" auto 
 	        "date" 12px
 	        "place" 19px / 290px;
 	    gap: 5px;
@@ -98,11 +97,12 @@
     }
     
     .exhibition form>h1{
-        font-size: 18px;
+        font-size: 16px;
+    	line-height: 17px;
     }
     
     .exhibititon-date {
-        font-size: 16px;
+        font-size: 14px;
     }
     
     .exhibition-place {

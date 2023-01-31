@@ -104,7 +104,13 @@
 	        </div>
 	        
 	        <div class="booking-btn">
-	            <a class="btn btn-booking" th:href="@{/member/exh/booking/{id}(id=${exh.id})}">예매하기</a>
+	            <a class="btn btn-booking"
+	            	sec:authorize="hasRole('ROLE_MEMBER')"
+	            	th:href="@{/member/exh/booking/{id}(id=${exh.id})}"
+	            	th:if="${#calendars.format(#calendars.createNow(), 'yyyy-MM-dd')} <= ${exh.endDate}">예매하기</a>
+	            <span th:text="${#calendars.format(#calendars.createNow(), 'yyyy-MM-dd')}"></span>
+	             <span th:text="${exh.endDate}"></span>
+	            
 	        </div>
     	</main>
 </body>

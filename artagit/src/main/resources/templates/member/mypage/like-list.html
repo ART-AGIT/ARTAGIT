@@ -7,7 +7,7 @@
 	<th:block layout:fragment="css">
 	    <link href="/css/component/like-list.css" type="text/css" rel="stylesheet">
 	    <link href="/css/component/sub-menu.css" type="text/css" rel="stylesheet">
-	    
+	    <link href="/css/component/modal.css" type="text/css" rel="stylesheet">
 		<script src="../../js/header-menu.js"></script>
 		<script src="../../js/member/mypage/like-list.js"></script>
 	</th:block>
@@ -46,12 +46,10 @@
     <div class="my-like-list">
         <h2 class="my-like-list-title">좋아요 전시</h2>
         <section class="like-list-section">
-			<div class="nonexistence-mess" th:if="${#lists.isEmpty(list)}" >
-	        	<p>좋아요 한 전시가 없습니다.</p>
-	        </div>
-        
 	        <section class="like-list" th:each="list:${list}" th:attr="data-id=${list.id}">
-	        	
+	        	<div class="nonexistence-mess" th:if="${#lists.isEmpty(list)}" >
+	        		<p>좋아요 한 전시가 없습니다.</p>
+	       		</div>
 	            <form action="">
 <!-- 				<input type="hidden" class="find-id" th:attr="data-id=${list.id}"> -->
 	                <div class="exh-img-box">
@@ -62,28 +60,28 @@
                     <div class="text exh-title" th:text="${list.name}">모네 인사이드</div>
                     <div class="text exh-place" th:text="${list.museumName}">국립현대미술관</div>
                     <div class="text exh-date" th:text="${list.startDate} +' ~ '+ ${list.endDate}">2022.09.22 ~ 2022.09.22</div>
-<!--            			<div class="text  start-date" th:text="${list.startDate} +' ~ '">2022.09.22 ~ 2022.09.22</div> -->
-<!-- 					<div class="text  end-date" th:text="${list.endDate}">2022.09.22 ~ 2022.09.22</div>	     -->
 	            </form>
-	        </section>  
-	        
-		 <!-- 좋아요 전시 삭제  modal -->
+	        </section>
+		</section> 
+				 <!-- 좋아요 전시 삭제  modal -->
 			         <div id="modal" class="modal-overlay modal-delete">
 		                <div class="modal-window">
-			                 <div class="title">
-			                     <h2>좋아요 삭제</h2>
+<!-- 			                 <div class="title"> -->
+<!-- 			                     <h2>좋아요 삭제</h2> -->
+<!-- 			                 </div> -->
+			                 <div class="modal-header">
+					        	<h1 class="header-title">정말 삭제하시겠습니까?</h1>
+					         </div>
+			                 <div class="button-wrap modal-actions">
+			                     <button class="modal-action del-btn" type="submit" >예</button>
+			                     <button  class="modal-action cancel-btn" type="button">아니오</button>
 			                 </div>
-			                 <div class="content">삭제하시겠습니까?</div>
-			                 <div class="button-wrap">
-			                     <button class="btn btn-default del-btn" type="submit" >삭제</button>
-			                     <button  class="btn btn-default-line cancel-btn" type="button">취소</button>
-			                 </div>
-		                </div>
+			               </div>
 			         </div> 
-		<!--  좋아요 전시 삭제  modal -->  
+				<!--  좋아요 전시 삭제  modal -->  
 		
-		</section>   
-			<button class="text item-more" >
+		  
+			<button class="text item-more" th:if="${countOfExhLike}>6">
 				<div>더보기</div>
 			</button>          
 	</div>	

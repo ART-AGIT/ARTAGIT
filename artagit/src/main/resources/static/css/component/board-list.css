@@ -251,6 +251,7 @@ h2{
           display: flex;
           font-size: 16px;
           align-items: center;
+          font-weight: 500;
     }
 
     .icon-size {

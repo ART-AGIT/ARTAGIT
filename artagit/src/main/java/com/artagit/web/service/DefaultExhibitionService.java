@@ -1,9 +1,6 @@
 package com.artagit.web.service;
 
 import java.sql.SQLSyntaxErrorException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,8 +11,9 @@ import org.springframework.transaction.annotation.Transactional;
 import com.artagit.web.dao.CorporateDao;
 import com.artagit.web.dao.ExhLikeDao;
 import com.artagit.web.dao.ExhibitionDao;
-import com.artagit.web.entity.Corporate;
 import com.artagit.web.entity.ExhLike;
+import com.artagit.web.entity.ExhLikeList;
+import com.artagit.web.entity.ExhLikeList;
 import com.artagit.web.entity.Exhibition;
 import com.artagit.web.entity.ExhibitionView;
 
@@ -36,12 +34,9 @@ public class DefaultExhibitionService implements ExhibitionService {
 
 	}
 	
-	// @Autowired ==> 여기에 애너테이션을 붙이면 Constructor DI ==> 뭐가 다른거지?
-	// constructor injection 랑 setter injection 의 차이점 질문하기
 	public DefaultExhibitionService(ExhibitionDao exhDao) {
 		this.exhDao = exhDao;
 	}
-	
 	
 	
 	@Override
@@ -78,6 +73,7 @@ public class DefaultExhibitionService implements ExhibitionService {
 
 	// [주최자] 나의 등록전시 수정
 	@Override
+	@Transactional(isolation = Isolation.READ_UNCOMMITTED)
 	public int update(Exhibition exh) {
 		 int result = exhDao.update(exh);
 		 return result;
@@ -129,11 +125,10 @@ public class DefaultExhibitionService implements ExhibitionService {
 
 	@Override
 	public List<Exhibition> getListtt(int memId) {
-		
 		return exhDao.getListtt(memId);
 	}
+	
 	public int likeUp(int exhId, int memId) {
-		
 		ExhLike exhLike = new ExhLike(memId, exhId);
 
 		return exhLikeDao.add(exhLike);
@@ -148,7 +143,6 @@ public class DefaultExhibitionService implements ExhibitionService {
 
 	@Override
 	public int countOfLike(int exhId) {
-		
 		return exhLikeDao.count(exhId);
 
 	}
@@ -190,15 +184,10 @@ public class DefaultExhibitionService implements ExhibitionService {
 	}
 
 
-	// LikeList
+	// LikeList -controller
 	@Override
-	public List<Exhibition> getLikeListById(int id,int page) {
-		int size=6;
-		int offset = (page-1)*size;
-		
-		System.out.println("서비스의 page"+page);
-		System.out.println("서비스의 offset"+offset);
-		List<Exhibition> list = exhDao.getLikeList(id,page,offset,size);
+	public List<Exhibition> getLikeListById(int id) {
+		List<Exhibition> list = exhDao.getLikeList(id);
 		return list;
 	}
 
@@ -210,7 +199,17 @@ public class DefaultExhibitionService implements ExhibitionService {
 		List<Exhibition> list = exhDao.getListById(id,size,offset);
 		return list;
 	}
-
+	
+	// 주문번호 생성 후 가져오는 메서드
+	@Transactional(isolation = Isolation.READ_UNCOMMITTED)
+	public String getPayNum() {
+		return exhDao.getPayNum();
+	}	
+	@Override
+	public List<Exhibition> getLikeListByIdAll(int id) {
+		List<Exhibition> list = exhDao.getLikeListAll(id);
+		return list;
+	}
 
 
 }
