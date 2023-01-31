@@ -80,5 +80,8 @@ public interface ExhibitionDao {
 	List<Exhibition> getLikeListAll(int id);
 
 	String getPayNum();
+	
+	// 주최자가 등록한 전시date필터링
+	List<Exhibition> getListByDateId(int offset, int state, int corpId ,int size);
 }
  

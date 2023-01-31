@@ -114,27 +114,4 @@
 			where loginId = #{loginId}
 	</select>
 	
-<!--	주최자가등록한전시날짜에따른필터기능-->
-	<select id="getListByDateId" resultType="com.artagit.web.entity.Exhibition">
-		select 
-			* from Exhibition 
-		<trim prefix="WHERE" prefixOverrides="AND | OR">
-			<if test="state != null and state != 0">
-<!-- 				AND stateId = #{stateId} -->
-				<if test="state == 1">
-					AND startDate <![CDATA[< now() and endDate >= now() - INTERVAL 1 DAY]]>
-				</if>
-				<if test="state == 2">
-					AND startDate <![CDATA[>= now()]]>
-				</if>
-				<if test="state == 3">
-					AND endDate <![CDATA[< now() - INTERVAL 1 DAY]]>
-				</if>
-			</if>
-			and corpId = #{corpId}
-		</trim>
-		limit #{offset},#{size};
-	</select>
-			
-	
 </mapper>

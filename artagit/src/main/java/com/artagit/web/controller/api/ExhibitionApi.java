@@ -18,6 +18,7 @@ import com.artagit.web.entity.ArtagitUserDetails;
 import com.artagit.web.entity.ExhLikeList;
 import com.artagit.web.entity.Exhibition;
 import com.artagit.web.entity.ExhibitionView;
+import com.artagit.web.service.CorporateService;
 import com.artagit.web.service.ExhLikeService;
 import com.artagit.web.service.ExhibitionService;
 
@@ -26,7 +27,8 @@ import com.artagit.web.service.ExhibitionService;
 public class ExhibitionApi {
 	
 	@Autowired
-	private ExhibitionService service;
+	private ExhibitionService service;	
+	
 	
 //	@Autowired
 //	private ExhLikeService exhLikeService;
@@ -104,6 +106,19 @@ public class ExhibitionApi {
 		
 		System.out.println("주최자 등록한 전시(id==>"+ id +") 삭제(useYn = N)완료! result==>" + result);
 		 return dto;
+	}
+	
+	// 주최자 등록한 전시 리스트 필터링
+	@GetMapping("/exh/list/date")
+	public List<Exhibition> date(
+			@RequestParam(defaultValue = "1", name = "p") int page, 
+			@RequestParam("s") int state
+			, @AuthenticationPrincipal ArtagitUserDetails user) throws InterruptedException{
+		System.out.println("페이지컨트롤"+page);
+		//int size = 0;
+		List<Exhibition> lists = service.getListByDateId(page,state,user.getId());
+		System.out.println("상태"+state);
+		return lists;
 	}
 
 }
