@@ -2,6 +2,8 @@ package com.artagit.web.service;
 
 import java.util.List;
 
+import java.util.List;
+
 import com.artagit.web.entity.ArtagitUserDetails;
 import com.artagit.web.entity.Corporate;
 import com.artagit.web.entity.Member;

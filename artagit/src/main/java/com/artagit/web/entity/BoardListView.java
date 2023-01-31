@@ -22,17 +22,13 @@ public class BoardListView {
 	private Date modiDate;
 	private int hearts;
 	private String memImage;
+	private String titleImage;
 	
 	
-	
-	
-
-
-
 
 	public BoardListView(int id, int memId, String name, String title, String image1, String image2, String image3,
 			String image4, int hit, Date regDate, String nickname, int roleId, String useYN, int commentTotal,
-			String content, int like, Date modiDate, int hearts, String memImage) {
+			String content, int like, Date modiDate, int hearts, String memImage, String titleImage) {
 		super();
 		this.id = id;
 		this.memId = memId;
@@ -53,6 +49,17 @@ public class BoardListView {
 		this.modiDate = modiDate;
 		this.hearts = hearts;
 		this.memImage = memImage;
+		this.titleImage = titleImage;
+	}
+
+
+	public String getTitleImage() {
+		return titleImage;
+	}
+
+
+	public void setTitleImage(String titleImage) {
+		this.titleImage = titleImage;
 	}
 
 

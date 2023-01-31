@@ -12,7 +12,7 @@
  		<set>
  			<if test="museumName != null">museumName = #{museumName},</if>
  			<if test="name != null">name = #{name},</if>
- 			<if test="address != null">address = #{address},</if>
+ 			<if test="corpAddress != null">corpAddress = #{corpAddress},</if>
  			<if test="phone != null">phone = #{phone},</if>
  			<if test="manager != null">manager = #{manager},</if>
  		</set>
@@ -31,29 +31,29 @@
                     businessNum = #{businessNum}, 
                     manager = #{manager}, 
                     phone = #{phone}, 
-                    address = #{address}, 
+                    corpAddress = #{corpAddress}, 
                     addressDetail = #{addressDetail}, 
                     managerPhone = #{managerPhone}, 
                     museumName= #{museumName}, 
                     email = #{email},
 					<choose>
 						
-						<when test='address.contains("종로구") '>
+						<when test='corpAddress.contains("종로구") '>
 							localId = 1
 						</when>
-						<when test='address.contains("강남구") '>
+						<when test='corpAddress.contains("강남구") '>
 							localId = 2
 						</when>
-						<when test='address.contains("성동구") '>
+						<when test='corpAddress.contains("성동구") '>
 							localId = 3
 						</when>
-						<when test='address.contains("인천") '>
+						<when test='corpAddress.contains("인천") '>
 							localId = 5
 						</when>
-						<when test=' !address.contains("서울") and address.contains("경기")'>
+						<when test=' !corpAddress.contains("서울") and address.contains("경기")'>
 							localId = 5
 						</when>
-						<when test='address.contains("서울") '>
+						<when test='corpAddress.contains("서울") '>
 							localId = 4
 						</when>
 						<otherwise>
@@ -96,7 +96,7 @@
 			<if test="name != null">name = #{name},</if>
 			<if test="phone != null">phone = #{phone},</if>
 			<if test="businessNum != null">businessNum = #{businessNum},</if>
-			<if test="address != null">address = #{address},</if>
+			<if test="corpAddress != null">corpAddress = #{corpAddress},</if>
 			<if test="addressDetail != null">addressDetail = #{addressDetail},</if>
 			
 			<if test="password != null"> password = #{password},</if>

@@ -108,7 +108,7 @@ public class MypageController {
 //				
 		}
 		System.out.println();
-		System.out.println(user.getImg());
+		System.out.println("user정보~~~~"+user);
 		model.addAttribute("user", user);
 		model.addAttribute("bookingList", bookingList);
 		model.addAttribute("countOfBooking", countOfBooking);
@@ -292,5 +292,12 @@ public class MypageController {
 		System.out.println("++++++++++=" + list);
 		return "member/mypage/post-like";
 	}
-
+	//===== 회원 탈퇴 (useYN 변경) ==================================		
+			@GetMapping("/account-edit/delete")
+			public String deleteUseYN(
+					@AuthenticationPrincipal ArtagitUserDetails user){
+				memberService.deleteUseYN(user.getId());
+				System.out.println("탈퇴ㄱ");
+				return "redirect:/user/logout";
+			}
 }

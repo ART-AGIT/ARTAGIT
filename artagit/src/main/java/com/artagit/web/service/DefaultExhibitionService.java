@@ -210,6 +210,18 @@ public class DefaultExhibitionService implements ExhibitionService {
 		List<Exhibition> list = exhDao.getLikeListAll(id);
 		return list;
 	}
+	
+	
+	// 주최자가 등록한 전시date필터링
+	@Override
+	public List<Exhibition> getListByDateId(int page, int state,int corpId) {
+		int size = 6;
+	      int offset = (page-1)*size;
+	      System.out.println("오프셋"+offset);
+	      System.out.println("페이지"+page);
+		List<Exhibition> list = exhDao.getListByDateId(offset, state, corpId, size);
+		return list;
+	}
 
 
 }

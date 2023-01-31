@@ -97,7 +97,7 @@ public class CorporateController {
 			user.setName(corporate.getName());
 			user.setPhone(corporate.getPhone());
 			user.setBusinessNum(corporate.getBusinessNum());
-			user.setAddress(corporate.getAddress());
+			user.setCorpAddress(corporate.getCorpAddress());
 			user.setAddressDetail(corporate.getAddressDetail());
 			// 담당자 정보
 					

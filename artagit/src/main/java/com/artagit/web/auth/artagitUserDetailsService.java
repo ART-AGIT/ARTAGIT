@@ -44,8 +44,8 @@ public class artagitUserDetailsService implements UserDetailsService {
 		//System.out.println("담겨진 role ====> "+role);
 
 		List<GrantedAuthority> authorities = new ArrayList<>(); // 사용자의 권한을 담기 위해 authorities 객체 생성 (초기엔 아무 권한도 담겨있지 않음.. maybe..)
-		ArtagitUserDetails user = new ArtagitUserDetails(); // 회원이 로그인해 있는 동안에, id/pw/권한 외에 더 많은 정보에 접근할 수 있도록 필요한 회원 컬럼(속성)들을 담는 객체 생성
-//		ArtagitOidcUser user = new ArtagitOidcUser(); // 회원이 로그인해 있는 동안에, id/pw/권한 외에 더 많은 정보에 접근할 수 있도록 필요한 회원 컬럼(속성)들을 담는 객체 생성
+//		ArtagitUserDetails user = new ArtagitUserDetails(); // 회원이 로그인해 있는 동안에, id/pw/권한 외에 더 많은 정보에 접근할 수 있도록 필요한 회원 컬럼(속성)들을 담는 객체 생성
+		ArtagitOidcUser user = new ArtagitOidcUser(); // 회원이 로그인해 있는 동안에, id/pw/권한 외에 더 많은 정보에 접근할 수 있도록 필요한 회원 컬럼(속성)들을 담는 객체 생성
 		
 		Corporate corp;
 		
@@ -104,7 +104,7 @@ public class artagitUserDetailsService implements UserDetailsService {
 			user.setManager(corp.getManager());
 			user.setPhone(corp.getPhone());
 //			user.setEmail(corp.getEmail());
-			user.setAddress(corp.getAddress());
+			user.setCorpAddress(corp.getCorpAddress());
 			user.setAddressDetail(corp.getAddressDetail());
 			user.setRegState(corp.getRegState());
 			user.setProcessDate(corp.getProcessDate());

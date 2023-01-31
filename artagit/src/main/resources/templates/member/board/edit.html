@@ -60,26 +60,26 @@
                 <div class="reg-list-input-box detail">
                     <div class="reg-list-input-box-image">
                         <!-- <label for="input-image2" class="input-image-button"> -->
-                            <img th:src="${board.image1}!=''?@{|/image/board/${board.image1}|}:@{/image/camera.svg}" class="input-image-button input-image-button1">
-                            <input name="img" type="file" class="input-image1 d-none">
+                            <img th:src="${board.image1}!=null?@{|/image/${board.image1}|}:@{/image/camera.svg}" class="input-image-button input-image-button1">
+                            <input name="img1" type="file" class="input-image1 d-none">
                             <!-- <div class="input-image-camera"></div> -->
                     </div>
                     <div class="reg-list-input-box-image">
                         <!-- <label for="input-image2" class="input-image-button"> -->
-                            <img th:src="${board.image2}!=''?@{|/image/board/${board.image2}|}:@{/image/camera.svg}" class="input-image-button input-image-button1">
-                            <input name="img" type="file" class="input-image1 d-none">
+                            <img th:src="${board.image2}!=null?@{|/image/${board.image2}|}:@{/image/camera.svg}" class="input-image-button input-image-button1">
+                            <input name="img2" type="file" class="input-image1 d-none">
                             <!-- <div class="input-image-camera"></div> -->
                     </div>
                     <div class="reg-list-input-box-image">
                         <!-- <label for="input-image2" class="input-image-button"> -->
-                            <img th:src="${board.image3}!=''?@{|/image/board/${board.image3}|}:@{/image/camera.svg}" class="input-image-button input-image-button1">
-                            <input name="img" type="file" class="input-image1 d-none">
+                            <img th:src="${board.image3}!=null?@{|/image/${board.image3}|}:@{/image/camera.svg}" class="input-image-button input-image-button1">
+                            <input name="img3" type="file" class="input-image1 d-none">
                             <!-- <div class="input-image-camera"></div> -->
                     </div>
                     <div class="reg-list-input-box-image">
                         <!-- <label for="input-image2" class="input-image-button"> -->
-                            <img th:src="${board.image4}!=''?@{|/image/board/${board.image4}|}:@{/image/camera.svg}" class="input-image-button input-image-button1">
-                            <input name="img" type="file" class="input-image1 d-none">
+                            <img th:src="${board.image4}!=null?@{|/image/${board.image4}|}:@{/image/camera.svg}" class="input-image-button input-image-button1">
+                            <input name="img4" type="file" class="input-image1 d-none">
                             <!-- <div class="input-image-camera"></div> -->
                     </div>
                 </div>

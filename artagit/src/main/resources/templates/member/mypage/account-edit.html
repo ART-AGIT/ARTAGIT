@@ -101,8 +101,8 @@
 
                     <div class="reg-list-input-box">
                         <label for="password-check">비밀번호 확인</label>
-                        <input id="password-check" type="password" class="input input-lg"
-                            placeholder="영문자, 숫자 포함 8자 이상" spellcheck="false">
+                        <input id="password-check" type="password" class="input input-lg" placeholder="영문자, 숫자 포함 8자 이상"
+                            spellcheck="false">
                     </div>
                     <span class="chkFialure-message d-none message" style="color: red;">비밀번호가 일치하지 않습니다</span>
                     <span class="chkSuccess-message d-none message">비밀번호가 일치합니다</span>
@@ -127,17 +127,21 @@
                     <!-- 회원수정 modal -->
 
 
-                <div id="modal" class="modal-overlay modaledit">
-                    <div class="modal-window">
-                        <div class="modal-header">
-			        		<h1 class="header-title">회원 정보를 저장하시겠습니까?</h1>
-			        	</div>
-                        <div class="button-wrap modal-actions">
-                            <a href=""><button class="modal-action del-btn ok-btn modal-btn">예</button></a>
-                            <button class="modal-action edit-cancel-btn modal-btn" type="button">아니오</button>
+                    <div id="modal" class="modal-overlay modaledit">
+                        <div class="modal-window">
+                            <div class="title">
+                                <h2>회원수정</h2>
+                            </div>
+                            <div class="content">이대로 수정하시겠습니까?</div>
+                            <div class="button-wrap">
+                                <a href=""><button class="btn btn-default del-btn ok-btn modal-btn">확인</button></a>
+                                <button class="btn btn-default-line edit-cancel-btn modal-btn" type="button">취소</button>
+                            </div>
                         </div>
                     </div>
-                </div>
+
+
+                </form>
                 <div class="unregister">
                     <button type="submit" class="btn-unregister">회원 탈퇴</button>
                 </div>
@@ -145,17 +149,17 @@
                 <!-- 회원탈퇴 modal -->
                 <div id="modal" class="modal-overlay modalunregister">
                     <div class="modal-window">
-          			<div class="modal-header">
-		        		<h1 class="header-title">정말 탈퇴하시겠습니까?</h1>
-		         	</div>
-                        <div class="button-wrap modal-actions">
-                            <a href="account-edit/delete"><button class="modal-action del-btn modal-btn"
-                                    type="submit">예</button></a>
-                            <button class="modal-action unregister-cancel-btn modal-btn" type="button">아니오</button>
+                        <div class="title">
+                            <h2>회원탈퇴</h2>
+                        </div>
+                        <div class="content">정말 탈퇴하시겠습니까?</div>
+                        <div class="button-wrap">
+                            <a href="account-edit/delete"><button class="btn btn-default del-btn modal-btn"
+                                    type="submit">탈퇴</button></a>
+                            <button class="btn btn-default-line unregister-cancel-btn modal-btn" type="button">취소</button>
                         </div>
                     </div>
                 </div>
-            </form>
             </section>
         </div>
     </main>

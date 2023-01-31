@@ -1,14 +1,13 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	layout:decorate="~{inc/layout}">
-    
-    <th:block layout:fragment="css">
-	    <link href="../../css/corporator/mypage/exh-list.css" type="text/css" rel="stylesheet">
-	    <link href="../../css/component/sub-menu.css" type="text/css" rel="stylesheet">
-	    	<link href="../../css/member/mypage/booking-list.css" type="text/css" rel="stylesheet">
-	    	<script src="/js/corporator/mypage/exh-list.js"></script>
-  	 </th:block>
+
+<th:block layout:fragment="css">
+	<link href="../../css/corporator/mypage/exh-list.css" type="text/css" rel="stylesheet">
+	<link href="../../css/component/sub-menu.css" type="text/css" rel="stylesheet">
+	<link href="../../css/member/mypage/booking-list.css" type="text/css" rel="stylesheet">
+	<script src="/js/corporator/mypage/exh-list.js"></script>
+</th:block>
 
 
 <body id="body" layout:fragment="content">
@@ -33,7 +32,7 @@
 	                <li class="list line-on"><a class="deco deco-ticket deco-ticket-on" href="/corp/exh/list">나의 등록전시</a></li>
 	                <li class="list"><a class="deco deco-smile" href="/corp/mypage/account-edit">내 정보 수정</a></li>
 					<li class="list"><a class="deco deco-write" href="/corp/exh/reg">전시 등록</a></li>
-	               
+
 
 	            </ul>
 	            
@@ -94,4 +93,5 @@
     
 	
 </body>
+
 </html>

@@ -35,11 +35,11 @@ public class DefaultMemberService implements MemberService{
 
 //======== 회원 탈퇴 ==================
 	@Override
-	public void deleteUseYN(int id) {
-//	public void deleteUseYN(Member member) {
-		 memberDao.deleteUseYN(id);
-//		memberDao.deleteUseYN(member);
-//		return result;
+	public int deleteUseYN(int id) {
+
+		int result = memberDao.deleteUseYN(id);
+
+		return result;
 	}
 	
 	// 아이디 중복 여부

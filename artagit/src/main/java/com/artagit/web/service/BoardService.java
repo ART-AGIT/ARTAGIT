@@ -15,7 +15,7 @@ public interface BoardService {
 
 	Board get(int id);
 
-	List<BoardListView> getListInit(int page, int size, int roleId);
+	Map<String, Object> getListInit(int currentPage, int size, int roleId);
 
 	int delete(int id);
 
@@ -55,6 +55,12 @@ public interface BoardService {
 
 
 	List<BoardListView> getListById(int id, int page);
+
+
+	 Map<String, Object> getSearchList(String query, int page);
+
+
+	List<BoardListView> getListByPage(int page, String query);
 
 
 
