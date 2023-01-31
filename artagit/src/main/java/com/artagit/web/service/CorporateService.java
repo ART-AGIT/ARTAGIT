@@ -33,4 +33,11 @@ public interface CorporateService {
 
 
 	List<Exhibition> getListByDateId(int page, int state, int corpId);
+	
+	
+	// 로그인 id로 계정 정보가 존재하는지 확인
+   Corporate getByUserName(String loginId);
+	   
+   // PW 찾을 때, 입력한 ID가 DB에 존재하는지 확인
+   int checkUser(Corporate corp, String loginId, String email);
 }

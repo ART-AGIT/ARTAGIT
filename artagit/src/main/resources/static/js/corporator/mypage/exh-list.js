@@ -1,5 +1,5 @@
 //======================================================
-/*
+
 window.addEventListener("load", function(){
 //  예매내역리스트 보여주기 (더보기 기능)
 	const itemMore = document.querySelector(".item-more");
@@ -58,13 +58,13 @@ window.addEventListener("load", function(){
                  } });}})
 
 
-*/
 
 
 
 
 //=====================================================
 
+/*
 window.addEventListener("load", function () {
    //  예매내역리스트 보여주기 (더보기 기능)
    const itemMore = document.querySelector(".item-more");
@@ -410,7 +410,6 @@ function selectexh() {
 
 
 
-
    
    
 
@@ -419,3 +418,4 @@ function selectexh() {
 
 
 
+*/
