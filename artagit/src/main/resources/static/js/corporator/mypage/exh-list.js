@@ -86,7 +86,7 @@ function selectexh() {
 		queryString = `?p=${page}&s=${selectList.options[selectList.selectedIndex].dataset.id}`;
 		console.log("전시예정");
 		console.log(queryString);
-		fetch(`/corpApi/exh/list/date${queryString}`)
+		fetch(`/api/exh/list/date${queryString}`)
 			.then((response) => response.json())
 			.then((lists) => {
 
@@ -131,7 +131,7 @@ function selectexh() {
 	if (selectList.options[selectList.selectedIndex].value == "exh-ing") {
 		console.log("전시중")
 		queryString = `?p=${page}&s=${selectList.options[selectList.selectedIndex].dataset.id}`;
-		fetch(`/corpApi/exh/list/date${queryString}`)
+		fetch(`/api/exh/list/date${queryString}`)
 			.then((response) => response.json())
 			.then((lists) => {
 
@@ -177,7 +177,7 @@ function selectexh() {
 		queryString = `?p=${page}&s=${selectList.options[selectList.selectedIndex].dataset.id}`;
 		console.log(page)
 		console.log(queryString)
-		fetch(`/corpApi/exh/list/date${queryString}`)
+		fetch(`/api/exh/list/date${queryString}`)
 		.then((response) => response.json())
 		.then((lists) => {
 			
