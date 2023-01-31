@@ -20,6 +20,7 @@ import com.artagit.web.entity.Corporate;
 import com.artagit.web.entity.Member;
 import com.artagit.web.entity.Role;
 
+
 //개발자가 직접 커스텀해서 사용자 정보를 불러오기 위한 서비스.
 public class artagitUserDetailsService implements UserDetailsService {
 	

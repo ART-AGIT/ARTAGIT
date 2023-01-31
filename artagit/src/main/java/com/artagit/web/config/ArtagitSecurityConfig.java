@@ -131,8 +131,11 @@ public class ArtagitSecurityConfig {
 				
 				
 				memberDao.insert(temp); // 새로 추가(insert) 해준다.
+				
+				System.out.println("회원의 권한==> "+roleDao.getMemberByUserName(username));
 			} else if (member != null) {
 				System.out.println("계정이 있는 회언");
+				System.out.println("회원의 권한==> "+roleDao.getMemberByUserName(username));
 			}
 //			return user;
 			return new DefaultOidcUser(mappedAuthorities, oidcUser.getIdToken(), oidcUser.getUserInfo()); // <OidcUserRequest, OidcUser> 를 자료로 하는 userService를 반환
