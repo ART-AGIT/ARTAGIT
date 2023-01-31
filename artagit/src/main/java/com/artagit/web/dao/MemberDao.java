@@ -23,7 +23,8 @@ public interface MemberDao {
 	// 회원정보 수정
 	int update(Member member);
 	
-	void deleteUseYN(int id); // 회원 탈퇴
+	// 회원 탈퇴
+	int deleteUseYN(int id); 
 
 	Member getByUserName(String username);
 	

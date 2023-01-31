@@ -8,7 +8,7 @@ public interface MemberService {
 
 //	void insertMember(Member member);
 
-	void deleteUseYN(int id);
+	int deleteUseYN(int id);
 //	void deleteUseYN(Member member);
 
 	int chkId(String loginId);

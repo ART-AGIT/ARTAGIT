@@ -37,6 +37,8 @@ window.addEventListener("load",function(){
 	
 	// 회원 탈퇴
 	unregBtn.onclick = function(e){
+		e.preventDefault();
+		console.log("회원탈퇴")
 		unregistermodal.style.display="flex";
 	}
 

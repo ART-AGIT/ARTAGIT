@@ -16,8 +16,8 @@ window.addEventListener("load", function() {
 	const date = new Date().toISOString().substring(0, 10);
 	//오늘날짜
 
-	startDate.onchange = function(e) {
-		//오늘날짜보다 전날을 누르면 적용되지않고 오늘날짜로적용되도록
+	 startDate.onchange = function(e) {
+	// 	//오늘날짜보다 전날을 누르면 적용되지않고 오늘날짜로적용되도록
 		console.log("date ==> " + date)
 		console.log("startDate.value ==> " + startDate.value);
 
@@ -30,11 +30,11 @@ window.addEventListener("load", function() {
 	endDate.onchange = function(e) {
 		
 		if (endDate.value != "" && endDate.value < date) {
-			//빈칸이거나 오늘보다 이전일때
+	 		//빈칸이거나 오늘보다 이전일때
 			alert('현재 시간보다 이전의 날짜는 설정할 수 없습니다.');
 			endDate.value = startDate.value;
 		} else if (endDate.value != "" && endDate.value < startDate.value) {
-			//빈칸이거나 끝나는날이 시작날보다 이전일때 
+	 		//빈칸이거나 끝나는날이 시작날보다 이전일때 
 			alert('전시시작일 이전의 날짜는 설정할 수 없습니다.');
 			endDate.value = startDate.value;
 		}
@@ -149,6 +149,20 @@ window.addEventListener("load", function() {
 		reader.readAsDataURL(url);
 	}
 
-
-
 });
+
+// function IsNullOrWhiteSpace(input) {
+// 	const okBtn = document.querySelector(".ok-btn");
+// 	//let fer = document.getElementsByTagName('input');
+// 	okBtn.onclick = function(e){
+// 		e.preventDefault();
+// 		console.log("클릭")
+		
+// 		if (typeof input === 'undefined' || input === null)
+// 			alert('모든 정보를 입력해 주세요');
+		
+		
+// 	};
+	
+
+// }  => <input>에 require로 대체하겠습니다

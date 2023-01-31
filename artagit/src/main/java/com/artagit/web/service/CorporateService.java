@@ -1,8 +1,9 @@
 package com.artagit.web.service;
 
+import java.util.List;
+
 import com.artagit.web.entity.ArtagitUserDetails;
 import com.artagit.web.entity.Corporate;
-import com.artagit.web.entity.Member;
 
 public interface CorporateService {
 
@@ -27,10 +28,4 @@ public interface CorporateService {
 
 
 	int chkId(String loginId);
-	
-	// 로그인 id로 계정 정보가 존재하는지 확인
-	Corporate getByUserName(String loginId);
-	
-	// PW 찾을 때, 입력한 ID가 DB에 존재하는지 확인
-	int checkUser(Corporate corp, String loginId, String email);
 }

@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.artagit.web.entity.ArtagitUserDetails;
 import com.artagit.web.entity.BookingList;
 import com.artagit.web.entity.Exhibition;
+import com.artagit.web.entity.ExhibitionView;
 import com.artagit.web.service.CorporateService;
 import com.artagit.web.service.ExhibitionService;
 
@@ -55,5 +56,15 @@ public class CorporateApi {
 		return list;
 	}
 	
-	
+	@GetMapping("/exh/list/date")
+	public List<Exhibition> date(
+			@RequestParam(defaultValue = "1", name = "p") int page, 
+			@RequestParam("s") int state
+			, @AuthenticationPrincipal ArtagitUserDetails user) throws InterruptedException{
+		System.out.println("페이지컨트롤"+page);
+		//int size = 0;
+		List<Exhibition> lists = corpService.getListByDateId(page,state,user.getId());
+		System.out.println("상태"+state);
+		return lists;
+	}
 }
