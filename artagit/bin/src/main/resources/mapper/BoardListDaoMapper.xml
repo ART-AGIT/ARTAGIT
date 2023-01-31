@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.artagit.web.dao.BoardListDao">
+	<select id="getList" resultType="com.artagit.web.entity.BoardListView">
+		select
+   b.*, 
+    (select count(id) from Comment where Comment.postid = b.id group by postId) commentTotal,
+    (select nickname from Member where  id = b.memId ) nickname,
+    (select name from BoardCategory where id = b.roleId) name,
+     (select count(memId) from BoardLike where postId = b.id group by postId) hearts
+from Board b
+<trim prefix="WHERE" prefixOverrides="AND | OR">
+			<if test="roleId != null and roleId != 0">
+				roleId = #{roleId}
+			</if>
+			and useYN = "Y"
+		</trim>
+order by regDate desc;
+		
+	</select>
+	<select id="getListInit" resultType="com.artagit.web.entity.BoardListView">
+	select
+	   b.*, 
+	    (select count(id) from Comment where Comment.postid = b.id group by postId) commentTotal,
+	    (select nickname from Member where  id = b.memId ) nickname,
+	    (select name from BoardCategory where id = b.roleId) name,
+	    (select count(memId) from BoardLike where postId = b.id group by postId) hearts
+		from Board b
+		where
+				
+				 useYN = "Y"
+			
+		order by regDate desc
+		limit #{offset}, #{size}
+		</select>
+		
+		<select id="getListById" resultType="com.artagit.web.entity.BoardListView">
+		select
+  	 b.*, 
+    (select count(id) from Comment where Comment.postid = b.id group by postId) commentTotal,
+    (select nickname from Member where  id = b.memId ) nickname,
+    (select name from BoardCategory where id = b.roleId) name
+	from Board b
+		where
+					
+					 useYN = "Y" and memId = #{id}
+		order by regDate desc;
+		</select>
+		<select id="getLikeList1" resultType="com.artagit.web.entity.BoardListView">
+		select L.*,Board.*,Member.*,BoardCategory.name From BoardLike L 
+			inner join Board on L.postId = Board.id 
+			inner join Member on L.memId = Member.id 
+			inner join BoardCategory on Board.roleId = BoardCategory.id
+			where
+					 useYN = "Y" and L.memId = #{id}
+		order by regDate desc;
+		</select>
+		<select id="getLikeList2" resultType="com.artagit.web.entity.BoardListView">
+		select BoardLike.*,
+		(select count(id) from Comment where Comment.postId = BoardLike.postId group by postId) commentTotal,
+		(select count(id) from BoardLike where BoardLike.memId = #{id} group by postId) hearts
+		from BoardLike where BoardLike.memId = #{id} and useYN = "Y" 
+		order by regDate desc;
+		</select>
+	
+</mapper>
+ 

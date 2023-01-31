@@ -1,0 +1,18 @@
+
+
+
+:root{
+    --color-bg: #1D4683;
+
+    --color-text: #000;
+    --color-text-dark: #000;
+}
+
+body{
+    font-family: 'Pretendard-Regular', Tahoma, Geneva, Verdana, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 16px;
+    color: var(--color-text);
+}

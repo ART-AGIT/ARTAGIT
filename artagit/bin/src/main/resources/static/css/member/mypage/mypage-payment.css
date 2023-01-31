@@ -1,0 +1,123 @@
+
+
+.payment-table{
+    border-top: 1px solid #707070;
+    margin: 20px 0; 
+    display:grid;
+    grid-template-columns: 1fr 2fr; 
+    text-align: center;
+
+   
+    
+}
+.payment-list{
+    margin-top: 90px;
+    width: 100%;
+    height: 100%;
+}
+
+.payment-list>h1{
+    margin: 50px 0px 0px 0px;
+    color: #FF6C9E;
+}
+
+
+.item{
+    /* display:flex;
+    align-self:center;
+    justify-self:center; */
+    /* width: 100%;
+    height: 100%; */
+    padding: 20px;
+    
+    border-right   : 2px solid #BCBCBC ;
+    border-bottom   : 2px solid #BCBCBC ;
+    
+}
+
+.item:nth-child(odd){
+    font-weight: bold;
+    
+}
+.item:nth-child(even){
+    border-right:none;
+    
+}
+.btn-box{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+
+
+
+
+
+.
+
+/* ----------------------------------- */
+@media (min-width: 768px){
+    .menu-list{
+        display:grid;
+        grid-template-columns: repeat(3,1fr);w
+        grid-gap: 20px 30px;
+    }
+
+    .menu{
+        flex-shrink:0;
+        padding: 0 0 10px 0;
+        /* width: 200px; */
+        border-bottom: none;
+       
+        border: 1px solid #707070;
+    }
+
+    .menu:last-child{
+        border:1px solid #707070;
+       /* 맨 마지막 줄 없애기 */
+    
+    }
+
+    .menu form{
+        display:grid;
+        grid-template: 
+            "img img" 130px 
+            "title price" 30px 
+            "option option" 30px 
+            "button button" 40px/ 1fr 70px;
+    }
+
+    .menu form>h1{
+        display:flex;
+        align-self:center;
+        justify-self: flex-start;
+    }
+
+    .menu-price{
+        display:flex;
+        align-self:center;
+        justify-self: flex-end;
+        margin-right: 10px;
+    }
+
+    .menu-img{
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+
+    }
+
+    .menu-button-list{
+        justify-self: center;
+        display:flex;
+        align-items: center;
+    }
+
+    .menu-option-list{
+        justify-self: center;
+        display:flex;
+        align-items: center;
+    }
+    
+}

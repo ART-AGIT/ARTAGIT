@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="../reset.css" type="text/css" rel="stylesheet">
+    <link href="../deco.css" type="text/css" rel="stylesheet">
+    <link href="../style.css" type="text/css" rel="stylesheet">
+
+    <link href="../icon.css" type="text/css" rel="stylesheet">
+    <link href="../button.css" type="text/css" rel="stylesheet">
+    <!-- <link href="./mypage-menu.css" type="text/css" rel="stylesheet"> -->
+    
+    <link href="../header.css" type="text/css" rel="stylesheet">
+    <link href="../footer.css" type="text/css" rel="stylesheet">
+
+    <link href="../member/mypage/booking-list.css" type="text/css" rel="stylesheet">
+    <link href="sub-menu.css" type="text/css" rel="stylesheet">
+
+    <link href="../utils.css" type="text/css" rel="stylesheet">
+</head>
+<script src="../../js/header-menu.js"></script>
+<body>
+    <header class="header">
+        <section class="header-wrapper">
+            <div class="header-box">
+                <h1 class="logo"><a href="index.html">Art Agit</a></h1>
+                <ul class="d-none">
+                    <!-- <li><a href="">전시</a></li>
+                    <li><a href="">커뮤니티</a></li>
+                    <li><a href="">로그인</a></li> -->
+                </ul>
+                <div>
+                    <a class="icon icon-menu burger-nav" href="">확장메뉴</a>
+                </div>
+            </div>
+            <div class="sub-menu-box">
+                <div class="sub-menu">
+                    <div class="sub-menu-1">
+                        <ul>
+                            <li><a href="exhibition/list.html">전시</a></li>
+                            <li><a href="board/list.html">커뮤니티</a></li>
+                            <li><a href="">-</a></li>
+                        </ul>
+                    </div>
+                    <div class="sub-menu-2">
+                        <ul>
+                            <li><a href="login.html">로그인</a></li>
+                            <li><a href="">검색</a></li>
+                            <li><a href="">고객센터</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </header>
+
+    <!-- =====pc버젼 용 html============ -->
+    <header class="header-pc">
+        <div class="content-box">
+            <h1 class="logo">
+                <a href="index.html">Art Agit</a>
+            </h1>
+            <section>
+                <h1 class="d-none">메인메뉴</h1>
+                <nav class="main-menu">
+                    <h1 class="d-none">목록선택</h1>
+                    <ul>
+                        <li>
+                            <a href="exhibition/list.html">전시</a>
+                            <ul class="sub-menu">
+                                <li><a href="exhibition/list.html">진행 전시</a></li>
+                                <li><a href="exhibition/list.html">전시 예정</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="board/list.html">커뮤니티</a>
+                            <ul class="sub-menu">
+                                <li><a href="board/list.html">-</a></li>
+                                <li><a href="board/list.html">-</a></li>
+                            </ul>
+                        </li>
+                        <li class="search-btn">
+                            <a href="">검색</a>
+                            <div>
+                                <input type="text" class="search">
+                                <!-- <img src="../image/icons/search.svg" alt=""> -->
+                            </div>
+                        </li>
+                        <li><a href="login.html">로그인</a></li>
+                    </ul>
+
+                </nav>
+            </section>
+        </div>
+    </header>
+    <main>
+        <div class="menu-box">
+            <ul class="menu-list">
+                <li class="list line-on"><a class="deco deco-ticket deco-ticket-on" href="">나의 예매내역</a></li>
+                <li class="list"><a class="deco deco-heart-red" href="../../member/mypage/like-list.html">좋아요 전시</a></li>
+                <li class="list"><a class="deco deco-smile" href="./account-edit.html">내 정보 수정</a></li>
+                <li class="list"><a class="deco deco-write" href="./post-list.html">작성글 관리</a></li>
+            </ul>
+        </div>
+
+
+        <div class="find-box">
+            <a class="text find find-id select-on" href=""></a>
+            <a class="text find find-pw" href="./find-pw.html"></a>
+        </div>
+
+        <div class="find-box">
+            <a class="text find total-brd select-on" href="../../board/list.html"></a>
+            <a class="text find free-brd" href="../../board/list.html"></a>
+            <a class="text find exh-review-brd" href="../../board/list.html"></a>
+            <a class="text find food-review-brd" href="../../board/list.html"></a>
+            <a class="text find together-brd" href="../../board/list.html"></a>
+        </div>
+    </main>
+</body>
+</html>

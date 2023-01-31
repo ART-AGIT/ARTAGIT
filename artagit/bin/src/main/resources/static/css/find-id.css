@@ -1,0 +1,130 @@
+/******* 기본 설정 ****************************************/
+body {
+    background-color: #FDFBF9;
+}
+
+.text {
+    color: #606060;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+/* 아이디 찾기 or 비밀번호 초기화 버튼 클릭 시 속성 변경 */
+.find-id-on {
+    color: #FF6C9E;
+    border-bottom: 2px solid #FF6C9E;
+}
+
+.find-pw-on {
+    color: #FF6C9E;
+    border-bottom: 2px solid #FF6C9E;
+}
+
+
+/******* 콘텐츠 영역 ****************************************/
+.find-content-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 550px;
+}
+
+.find-content-box.find-result {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 550px;
+}
+
+.find-content-box.find-pw-box {
+    /* display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; */
+    height: 490px;
+}
+
+.text-box {
+    height: 110px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+}
+
+.result-box {
+    color: #606060;
+    margin: 35px 0 50px 0;
+
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.result-box span {
+    margin: 0 5px;
+}
+
+.mem-id {
+    color: #F7A7BB;
+    font-weight: 500;
+}
+
+
+
+.input-box {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+label {
+    margin-bottom: 5px;
+}
+
+p {
+    font-size: 12px;
+    font-weight: 300;
+    color: #a8a8a8;
+    width: 100%;
+    height: 20px;
+    margin: 0;
+}
+
+/******* 버튼 영역 ****************************************/
+.btn-box {
+    margin-top: 50px;
+    width: 140px;
+    display: flex;
+    justify-content: space-around;
+    font-weight: 400;
+}
+
+.btn-box>a{
+    width: 38px;
+    height: 19px;
+}
+
+.find-content-box>span {
+    font-size: 13px;
+    font-weight: 400;
+    margin-top: 100px;
+    margin-bottom: 20px;
+}
+
+.find-content-box>a:last-child {
+    width: 110px;
+    height: 22px;
+
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.find-content-box .find-result>a:last-child {
+    width: 140px;
+    height: 21px;
+
+    font-size: 16px;
+    font-weight: 300;
+}

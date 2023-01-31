@@ -1,0 +1,78 @@
+/******* 마이페이지 서브 메뉴 속성 ****************************************/
+.menu-list {
+    padding : 20px 0 10px 0;
+    display: flex;
+}
+
+.list{
+    border-bottom: 2px solid #A8A8A8;
+    /* width: 25%; */
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-around;
+}
+
+.line-on{
+    border-bottom: 2px solid #FF6B90;
+}
+
+
+li .deco-ticket-on {
+    /* color: #FF6B90; */
+}
+
+
+/******* ID/PW 찾기 메뉴 속성 ****************************************/
+.find-box {
+    margin-top: 15px;
+    height: 40px;
+    display: flex;
+    /* text-align: center; */
+}
+
+.find {
+    /* height: 100%; */
+    align-items: center;
+    border-bottom: 2px solid #A8A8A8;
+
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+}
+
+.find-id::before {
+    content: '아이디 찾기';
+}
+
+.find-pw::before {
+    content: '비밀번호 초기화';
+}
+
+
+/******* 커뮤니티 메뉴 속성 ****************************************/
+.total-brd::before {
+    content: '전체글';
+}
+
+.free-brd::before {
+    content: '자유게시판';
+}
+
+.exh-review-brd::before {
+    content: '전시후기';
+}
+
+.food-review-brd::before {
+    content: '맛집후기';
+}
+
+.together-brd::before {
+    content: '같이가요';
+}
+
+
+/* 메뉴 클릭 시 변경되는 속성 */
+.select-on {
+    color: #FF6C9E;
+    border-bottom: 2px solid #FF6C9E;
+}

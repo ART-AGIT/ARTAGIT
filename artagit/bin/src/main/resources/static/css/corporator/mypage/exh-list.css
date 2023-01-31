@@ -1,0 +1,93 @@
+.text {
+    color: #545454;
+}
+
+.total-box {
+    display: flex;
+    margin-left: 4%;
+    height: 25px;
+    align-items: flex-end;
+}
+
+.total, .total-num {
+    font-weight: 500;
+}
+
+form {
+    border-bottom: 1.5px solid rgba(157, 157, 157, 0.353);
+    padding: 15px 0;
+}
+
+.exh-list form {
+    /* margin: 15px 0; */
+    display: grid;
+    justify-content: start;
+    align-items: end;
+    grid-template: "img state" 50px
+                    "img title" 26px
+                    "img author" 18px
+                    "img blank" 15px
+                    "img date" 55px / 170px;
+}
+
+.exh-img-box {
+    grid-area: img;
+}
+
+.exh-state {
+    grid-area: state;
+    font-size: 15px;
+}
+
+.exh-state.exh-ing, .total-num {
+    color: #FF5171;
+    font-weight: 700;
+}
+
+.exh-state.exh-end {
+    color: #6f6666;
+    font-weight: 700;
+}
+
+.exh-title {
+    grid-area: title;
+}
+
+.exh-author {
+    grid-area: author;
+}
+
+.exh-date {
+    grid-area: date;
+    padding-bottom: 8px;
+}
+
+.exh-img {
+    margin-left: 10px;
+    width: 146px;
+    height: 164px;
+}
+
+.go-reg{
+    display: flex;
+    /* display: flex; */
+    flex-direction: column;
+    padding-left: 10px;
+    padding-top: 60px;
+    /* justify-content: center; */
+    align-items: center;
+}
+
+.btn-go-reg{
+    margin-top: 30px;
+}
+.icon-arrow-right left{
+
+}
+.page{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:10px;
+}

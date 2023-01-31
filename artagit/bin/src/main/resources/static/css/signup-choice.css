@@ -1,0 +1,95 @@
+@import url("../css/icon.css");
+
+.signup-main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ------가입 유형 2가지------ */
+.signup-type-wrap{
+    margin : 40px auto; 
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+    /* .signup-type-wrap li{
+        display: inline-flex;
+        width: 160px;
+        height: 160px;
+        border: 2px solid #bcbcbc;
+        border-radius: 10px;
+        text-align: center;
+    } */
+
+.wrap{
+    display: inline-flex;
+    width: 160px;
+    height: 160px;
+    border: 2px solid #bcbcbc;
+    border-radius: 10px;
+    text-align: center;
+    justify-content: center;
+}
+
+.wrap:hover{
+    background-color: #FFBFCF;
+    color:white;
+}
+
+
+
+
+/* ------일반회원-------- */
+.mem-pers{
+    margin-right:20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ------사업자회원-------- */
+.mem-corp{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 
+.circle{
+    width:60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #FFBFCF;
+    margin-bottom:20px;
+} */
+
+.icon-wrap{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:20px;
+
+}
+
+.wrap-text{
+    font-size: 16px;
+}
+
+/* ---------유의사항---------- */
+.signup-precaution{
+    display: flex;
+    justify-content: center;
+}
+    .signup-precaution>ul>li>p{
+        margin : 10px 10px;
+        color:gray;
+    }
+
+    .pre-sec{
+        padding-left: 12px; 
+    }
