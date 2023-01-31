@@ -21,9 +21,55 @@
 	
 	<!-- 주최자 회원가입 -->
 	<insert id="insert" parameterType="com.artagit.web.entity.Corporate">
-		insert into Corporate(loginId, password, name, phone, ceoName, email, businessNum, manager, managerPhone, roleId, address,addressDetail, museumName, localId)
-			values(#{loginId}, #{password}, #{name}, #{phone}, #{ceoName}, #{email}, #{businessNum}, #{manager}, #{managerPhone}, 3, #{address},#{addressDetail}, #{museumName}, 2)
+		insert into Corporate
+			<set> 
+					roleId = 3, 
+                    name = #{name} ,           
+                    loginId = #{loginId}, 
+                    password = #{password}, 
+                    ceoName = #{ceoName}, 
+                    businessNum = #{businessNum}, 
+                    manager = #{manager}, 
+                    phone = #{phone}, 
+                    address = #{address}, 
+                    addressDetail = #{addressDetail}, 
+                    managerPhone = #{managerPhone}, 
+                    museumName= #{museumName}, 
+                    email = #{email},
+					<choose>
+						
+						<when test='address.contains("종로구") '>
+							localId = 1
+						</when>
+						<when test='address.contains("강남구") '>
+							localId = 2
+						</when>
+						<when test='address.contains("성동구") '>
+							localId = 3
+						</when>
+						<when test='address.contains("인천") '>
+							localId = 5
+						</when>
+						<when test=' !address.contains("서울") and address.contains("경기")'>
+							localId = 5
+						</when>
+						<when test='address.contains("서울") '>
+							localId = 4
+						</when>
+						<otherwise>
+					   		localId = 4
+					    </otherwise>
+					
+					</choose>
+
+                   
+           </set>
+                    
 	</insert>
+
+
+
+
 	
 		<!-- 사용자가 입력한 id를 가지고 권한 확인하기 위한 쿼리문 -->
 	<select id="getByUserName" resultType="com.artagit.web.entity.Corporate">

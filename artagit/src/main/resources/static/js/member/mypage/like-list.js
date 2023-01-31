@@ -13,6 +13,7 @@ const btnWrap = this.document.querySelector(".button-wrap");
 let el = null;
 let id = 0;
 let page=1;
+let likeListSize =0;
 //let i = page*6-1;
 
 // 하트 누르면 삭제되는 로직 끝================================================================
@@ -56,8 +57,10 @@ let page=1;
 		 				
 		 				// 삭제 시 추가할 전시1개
 		 				let likeList = data.likeList;
-		 				console.log(likeList);
-//							oneItem(likeList);
+//		 				likeListSize= likeList.length;
+		 				console.log("하트 눌렀을 때 likeList"+likeList);
+		 				console.log("하트 눌렀을 때 likeList길이"+likeList.length);
+							oneItem(likeList);
 //		 				if(e.target.classList.contains("item-more"))
 //		 				{
 //							  
@@ -70,45 +73,48 @@ let page=1;
 
 	} // 하트 클릭 시 끝
 	
-//	let i = page*6-1;
-//	function oneItem(likeList) {
-//		console.log("한 개만 더 보자~~~~~~~~~~~");
-//			
-//				console.log("길이~~~~~~"+likeList.length);
-//
-//	          	if(likeList.length>6){	
-//	            	var template = `
-//				        	<section class="like-list" data-id="${likeList[i].id}">
-//					            <form action="">
-//					                <div class="exh-img-box">
-//					                    <a href="/exhibition/${likeList[i].id}"><img src="/image/poster/${likeList[i].poster}" class="exh-img"alt=""></a>
-//					                </div>
-//					               
-//				                    <div class="icon icon-heart icon-heart-red exh-like"></div>
-//				                    <div class="text exh-title">${likeList[i].name}</div>
-//				                    <div class="text exh-place">${likeList[i].museumName}</div>
-//				                    <div class="text exh-date">${likeList[i].startDate} ~ ${likeList[i].endDate}</div>
-//					            </form>
-//					        </section>
-//					        
-////					        <button class="text item-more" >
-////								<div>더보기</div>
-////							</button>  
-//	            	
-//	        	            	
-//	            	`;	
-//	            	
-//	            	let el = new DOMParser()
-//                             .parseFromString(template, "text/html")
-//                             .body
-//                             .firstElementChild;
-//                                
-//                    var list = document.querySelector(".like-list-section");
-//                    list.append(el);
-//	            	
+	let i = page*6-1;
+	function oneItem(likeList) {
+		console.log("한 개만 더 보자~~~~~~~~~~~");
+			
+				console.log("전체길이~~~~~~"+likeList.length);
+				console.log("더 보여줄 길이~~~~~~"+likeListSize);
+//	          	if(likeList.length>6){
+//	            if(likeListSize>6){
+					if(Object.keys(lists).length<6)
+	            		itemMore.classList.add("d-none");
+	            	var template = `
+				        	<section class="like-list" data-id="${likeList[i].id}">
+					            <form action="">
+					                <div class="exh-img-box">
+					                    <a href="/exhibition/${likeList[i].id}"><img src="/image/poster/${likeList[i].poster}" class="exh-img"alt=""></a>
+					                </div>
+					               
+				                    <div class="icon icon-heart icon-heart-red exh-like"></div>
+				                    <div class="text exh-title">${likeList[i].name}</div>
+				                    <div class="text exh-place">${likeList[i].museumName}</div>
+				                    <div class="text exh-date">${likeList[i].startDate} ~ ${likeList[i].endDate}</div>
+					            </form>
+					        </section>
+					        
+					        <button class="text item-more" >
+								<div>더보기</div>
+							</button>  
+	            	
+	        	            	
+	            	`;	
+	            	
+	            	let el = new DOMParser()
+                             .parseFromString(template, "text/html")
+                             .body
+                             .firstElementChild;
+                                
+                    var list = document.querySelector(".like-list-section");
+                    list.append(el);
+	            	
 //	            }// if	
-//
-//	}
+
+	}
 	
 	
 	
@@ -120,15 +126,19 @@ let page=1;
 		page+=1;
 		console.log("더보기"+page);
 		
+		//2개일 때 : ?param1=CODE& param2=:J 
 		queryString = `?p=${page}`;
 
 		fetch(`/member/mypage/api/like-list${queryString}`)
 		.then((response)=>response.json())
 		.then((lists)=>{
+			likeListSize=lists.length;
+				console.log("더 보여줄 list 길이*********"+lists.length);
 			for(list of lists){
-				console.log(Object.keys(lists).length);
-	            if(Object.keys(lists).length<6)
+	            if(Object.keys(lists).length<6){
 	            	itemMore.classList.add("d-none");
+//					console.log(Object.keys(lists).length);					
+				}
 	            	
 	            	var template = `
         	<section class="like-list" data-id="${list.id}">

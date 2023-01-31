@@ -51,11 +51,11 @@ public class DefaultBookingService implements BookingService {
 	}
 	
 	//bookingId(=payId) 로 exhId 가져오기
-//	@Override
-//	public int getExhId(int payId) {
-//		int exhId = bookingDao.getExhId(payId);
-//		return exhId;
-//	}
+	@Override
+	public int getExhId(int payId) {
+		int exhId = bookingDao.getExhId(payId);
+		return exhId;
+	}
 
 	 
 	@Override

@@ -311,4 +311,15 @@ public class MyPageApi {
 		return list;
 	}
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
