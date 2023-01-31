@@ -10,11 +10,6 @@ window.addEventListener("load", function(){
 
 
 	
-	
-	const del =document.querySelectorAll(".icon-trash");
-
-
-
 //		=======================================================
 // 반복되는 코드 수정 필요 ..? 
 

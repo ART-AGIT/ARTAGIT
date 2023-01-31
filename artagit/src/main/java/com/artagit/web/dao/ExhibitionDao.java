@@ -75,7 +75,6 @@ public interface ExhibitionDao {
 	
 	List<Exhibition> getListById(int id,int size,int offset);
 
-	List<Exhibition> getListByDateId(int offset, int state, int corpId, int size);
 
 	// 좋아요 전시 더보기
 	List<ExhLikeList> getLikeListById(int id, int size, int offset);
