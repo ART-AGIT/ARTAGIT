@@ -47,19 +47,32 @@
 			<div>
 		         <div class="pay-list" >
 		         	<h2 class="my-booking">나의 예매내역</h2>
-				        <div class="total-box">
-				            <span class="text total">Total:&nbsp;</span><span class="text total-num" th:text="${countOfBooking}" >2</span>
-				        </div>
-				        <div class="nonexistence-mess" th:if="${countOfBooking}==0" >
-				            <p class="">예매내역이 없습니다.</p>
-				            <a class="btn btn-default-fill btn-go-exh" th:href="@{/exhibition/list}" >전시 관람가기</a>
-				        </div>
+				        
+				        
+				        <div class="select-wrap">
+					        <div class="total-box">
+					            <span class="text total">Total:&nbsp;</span><span class="text total-num" th:text="${countOfBooking}" >2</span>
+					        </div>
+					        <div class="nonexistence-mess" th:if="${countOfBooking}==0" >
+					            <p class="">예매내역이 없습니다.</p>
+					            <a class="btn btn-default-fill btn-go-exh" th:href="@{/exhibition/list}" >전시 관람가기</a>
+					        </div>
+					       
+					       
+					       <select  class="select-box" id="selectValue" name="category" >
+		                      <option class="option" value=1 selected="selected">전체</option>
+		                      <option class="option" value=2>등록</option>
+		                      <option class="option" value=3>미등록</option>
+	                    	</select>
+<!-- 	                    	<button class="btn btn-default-fill-off btn-filter" href="" > GO </button> -->
+	                    	
+				       </div>
 				       
 <!-- 				        <div class="review-menu-list"> -->
 <!-- 					        <div> -->
 <!-- 					        	<span class="select-btn">전체</span> -->
 <!-- 					        </div> -->
-<!-- 					        <ul> -->
+<!-- 					        <ul class="review-sub-menu"> -->
 <!-- 					        	<li data-id="0" class="option1">전체</li> -->
 <!-- 					        	<li data-id="1" class="option2">등록</li> -->
 <!-- 					        	<li data-id="2" class="option3">미등록</li> -->

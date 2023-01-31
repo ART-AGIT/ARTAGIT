@@ -5,6 +5,101 @@ window.addEventListener("load", function(){
     const paymentTable = document.querySelectorAll(".payment-table");
     const bookingListSection = document.querySelector(".booking-list");
     const ListSection = document.querySelector(".button-list"); //리뷰등록, 결제상세
+    const totalNum = document.querySelector(".total-num");
+    const colorOption = document.querySelector(".color-option");
+    
+    
+    /*
+    ============================================================================================
+    //필터링 (+더보기)
+    //예 ) 등록된 리뷰만 검색시 등록된 리뷰 리스트 가져오기 갯수가 6보다 많으면 더보기 보여주고 더보기 클릭횟수에 따라 보여줄 리스트 다시 가져오기
+   	var selectBox = document.querySelector(".select-box");
+    selectBox.onchange=function(e){
+		
+		let el = e.target;
+		
+		queryString = null;
+		var category = null;
+		var category = el.value;
+		
+		var page =1;
+
+		queryString = `?c=${category}&p=${page}`;
+		
+		
+		fetch(`/member/mypage/review/api/list2${queryString}`)
+		.then((response)=>response.json())
+		.then((list)=>{
+	
+				console.log(list);
+				totalNum.innerHTML = list.length;
+
+				 //예매내역 뿌려주는 공간싹비우기
+				 var listBox = document.querySelector(".booking-list");
+				 listBox.innerHTML ="";
+				
+
+					for(let booking of list){
+						
+						var bookingDate = booking.bookingDate.substring(0,10);
+						var state ="";
+					
+						if(bookingDate >=  now)
+							state="<div style='color:#FF5171;'>미관람</div>";
+		
+						else
+							state="<div style='color:#545454;'>관람완료</div>";
+					 
+					 
+					 var template = `
+                    		<form action="" class ="list-form" >
+				                <div class="exh-img-box">
+			
+				                    <a src="../../image/exhimage.png"  href="/exhibition/${booking.exhId}" alt="">
+				                    	<img class="exh-img" src="/image/poster/${booking.exhPoster}">
+				                    </a>			
+				                </div>
+				                
+
+								<div class="text pay-state"> ${state}</div>
+			                    <div class="text exh-title" >${booking.exhName}</div> 
+			                    <div class="text exh-place" > ${booking.museumName}</div> 
+			                    <div class="text exh-date">관람일 : ${bookingDate}</div>
+			
+								<div class="button-list" >
+				                    <a class="btn btn-default-fill btn-write" data-id="${booking.bookingId}" href="${booking.bookingId}">리뷰작성</a>
+				                    <a class="text btn btn-default-line pay-detail"  data-id="${booking.bookingId}" >결제상세</a>
+				                </div>
+
+				        	</form>		
+				        	
+				        	 	  
+                	`;
+                	
+                	  let el = new DOMParser()
+	                         .parseFromString(template, "text/html")
+	                         .body
+	                         .firstElementChild;
+
+	                	listBox.append(el);		
+                	
+                	}
+                })
+//                const colorOption = document.querySelector(".color-option");
+       
+       
+       
+       }
+       
+    ===================================================================================================
+    */
+    
+    
+    
+    
+    
+    
+    
     
     //현재날짜
     var now = new Date();
@@ -12,13 +107,14 @@ window.addEventListener("load", function(){
 		    leadingZeros(now.getFullYear(), 4) + '-' +
 		    leadingZeros(now.getMonth() + 1, 2) + '-' +
 		    leadingZeros(now.getDate(), 2);
-		console.log("timestamp"+now);
-    
-//  예매내역리스트 보여주기 (더보기 기능)
-    const itemMore = document.querySelector(".item-more");
-	var page=1;
-    itemMore.onclick = function(){
-		page+=1;
+ 
+	//  예매내역리스트 보여주기 (더보기 기능)
+   	//list<6일때 존재하지않는 클래스를 가져오려하는 오류발생
+  	if(document.querySelector(".item-more")){
+	    const itemMore = document.querySelector(".item-more");
+		var page=1;
+	    itemMore.onclick = function(){
+			page+=1;
 
 		queryString = `?p=${page}`;
 
@@ -34,81 +130,81 @@ window.addEventListener("load", function(){
 		
 				var bookingDate = booking.bookingDate.substring(0,10);
 				var state ="";
+				
 				if(bookingDate >=  now)
-					state="<p style='color:#FF5171;'>미관람</p>";
+					state="<div style='color:#FF5171;'>미관람</div>";
 
 				else
-					state="<p style='color:#545454;'>관람완료</p>";
+					state="<div style='color:#545454;'>관람완료</div>";
 				
-					
-					//리뷰 없음
-					if(booking.reviewId ==0){
-                    var template = `
-                        <form action="" class ="list-form" >
-					                <div class="exh-img-box">
-				
-					                    <a src="../../image/exhimage.png"  href="/exhibition/${booking.exhId}" alt="">
-					                    	<img class="exh-img" src="/image/poster/${booking.exhPoster}">
-					                    </a>			
-					                </div>
-					                
-
- 									<div class="text pay-state"> ${state}</div>
-				                    <div class="text exh-title" >${booking.exhName}</div> 
-				                    <div class="text exh-place" > ${booking.museumName}</div> 
-				                    <div class="text exh-date">관람일 : ${bookingDate}</div>
-				
-									<div class="button-list" >
-					                    <a class="btn btn-default-fill btn-write" data-id="${booking.bookingId}" href="${booking.bookingId}">리뷰작성</a>
-					                    <a class="text btn btn-default-line pay-detail"  data-id="${booking.bookingId}" >결제상세</a>
-					                </div>
-	
-					        	</form>		
-					        	
-					        	 	  
-                    	`;
-                    }
-                    //리뷰 있음
-                    else{
-                     var template = `
-		                        <form action="" class ="list-form" >
-							                <div class="exh-img-box">
-						
-							                    <a src="../../image/exhimage.png"  alt="" href="/exhibition/${booking.exhId}">
-							                    	<img class="exh-img" src="/image/poster/${booking.exhPoster}">
-							                    </a>			
-							                </div>
-							                
-		
-											<div class="text pay-state" > ${state}</div>
-						                    <div class="text exh-title" >${booking.exhName}</div> 
-						                    <div class="text exh-place" > ${booking.museumName}</div> 
-						
-						                    <div class="text exh-date">관람일 : ${bookingDate}</div>
-						
-											<div class="button-list" >
-							               
-							                    <a class="btn btn-default-fill-off btn-review" data-id="${booking.reviewId}" href="${booking.reviewId}"   href="" >리뷰보기</a>
-							                    <a class="text btn btn-default-line pay-detail" data-id="${booking.bookingId}">결제상세</a>
-							                </div>
+				//리뷰 없음
+				if(booking.reviewId ==0){
+                var template = `
+                    <form action="" class ="list-form" >
+				                <div class="exh-img-box">
 			
-							        	</form>			  
-		                    `;
-		            
-		            }
-		            	
-                    let el = new DOMParser()
-                             .parseFromString(template, "text/html")
-                             .body
-                             .firstElementChild;
-                                
-                    var list = document.querySelector(".booking-list");
-                    list.append(el);	
-                    
-					}
-			})
-	}
+				                    <a src="../../image/exhimage.png"  href="/exhibition/${booking.exhId}" alt="">
+				                    	<img class="exh-img" src="/image/poster/${booking.exhPoster}">
+				                    </a>			
+				                </div>
+				                
 
+								<div class="text pay-state"> ${state}</div>
+			                    <div class="text exh-title" >${booking.exhName}</div> 
+			                    <div class="text exh-place" > ${booking.museumName}</div> 
+			                    <div class="text exh-date">관람일 : ${bookingDate}</div>
+			
+								<div class="button-list" >
+				                    <a class="btn btn-default-fill btn-write" data-id="${booking.bookingId}" href="${booking.bookingId}">리뷰작성</a>
+				                    <a class="text btn btn-default-line pay-detail"  data-id="${booking.bookingId}" >결제상세</a>
+				                </div>
+
+				        	</form>		
+				        	
+				        	 	  
+                	`;
+                }
+                //리뷰 있음
+                else{
+                 var template = `
+	                        <form action="" class ="list-form" >
+						                <div class="exh-img-box">
+					
+						                    <a src="../../image/exhimage.png"  alt="" href="/exhibition/${booking.exhId}">
+						                    	<img class="exh-img" src="/image/poster/${booking.exhPoster}">
+						                    </a>			
+						                </div>
+						                
+	
+										<div class="text pay-state" > ${state}</div>
+					                    <div class="text exh-title" >${booking.exhName}</div> 
+					                    <div class="text exh-place" > ${booking.museumName}</div> 
+					
+					                    <div class="text exh-date">관람일 : ${bookingDate}</div>
+					
+										<div class="button-list" >
+						               
+						                    <a class="btn btn-default-fill-off btn-review" data-id="${booking.reviewId}" href="${booking.reviewId}"   href="" >리뷰보기</a>
+						                    <a class="text btn btn-default-line pay-detail" data-id="${booking.bookingId}">결제상세</a>
+						                </div>
+		
+						        	</form>			  
+	                    `;
+	            
+	            }
+		            	
+                let el = new DOMParser()
+                         .parseFromString(template, "text/html")
+                         .body
+                         .firstElementChild;
+                            
+                var list = document.querySelector(".booking-list");
+                list.append(el);	
+                    
+			  }
+			})
+		}
+	}	
 
 	//리뷰보기(o), 리뷰작성(o), 결제상세(o)
     bookingListSection.onclick=function(e){
@@ -132,6 +228,7 @@ window.addEventListener("load", function(){
 				let booking = data.booking;
 				var bookingDate = booking.date.substring(0,10);
 			
+			console.log(data)
 			
 			var template =
 				`
@@ -173,12 +270,13 @@ window.addEventListener("load", function(){
 					            
 				`;
 				
+			const ListSection = document.querySelector(".button-list");
 			paymentTable.innerHTML="";
 			ListSection.insertAdjacentHTML("afterend",template);
 			
 			const closeBtn = document.querySelector(".btn-exit");
 			const payModal = document.querySelector(".pay-modal-background");
-			
+
 			closeBtn.addEventListener("click",()=>{close(payModal)})
 			
 			})
@@ -330,23 +428,25 @@ window.addEventListener("load", function(){
 										const colorOption = document.querySelector(".color-option");
 										var color=1;
 										var box = document.querySelector(".box");
-					
-										colorOption.onclick=function(e){
-									
-											if(e.target.classList.contains("purple")){
-												box.style.background = "#E2D1F0";
-												color = "#E2D1F0";
+										
+										
+//										if(colorOption){}
+											colorOption.onclick=function(e){
+										
+												if(e.target.classList.contains("purple")){
+													box.style.background = "#E2D1F0";
+													color = "#E2D1F0";
+												}
+												else if(e.target.classList.contains("green")){
+													box.style.background = "#E4F0D1";
+													color = "#E4F0D1";
+												}
+												else if(e.target.classList.contains("blue")){
+													box.style.background = "#D1EBF0";
+													color = "#D1EBF0";
+												}
+												
 											}
-											else if(e.target.classList.contains("green")){
-												box.style.background = "#E4F0D1";
-												color = "#E4F0D1";
-											}
-											else if(e.target.classList.contains("blue")){
-												box.style.background = "#D1EBF0";
-												color = "#D1EBF0";
-											}
-											
-										}
 										
 										const modreg = document.querySelector(".btn-reg");
 										const writeForm = document.querySelector(".write-form");
@@ -440,6 +540,7 @@ window.addEventListener("load", function(){
 		
 			//리뷰 작성--------------------------------------------------------------------------
 			else if(e.target.classList.contains("btn-write")){
+				console.log("작")
 				e.preventDefault();
 				
 				var bookingId = e.target.dataset.id;
@@ -517,7 +618,7 @@ window.addEventListener("load", function(){
 					const colorOption = document.querySelector(".color-option");
 					var color=1;
 					var box = document.querySelector(".box");
-
+					
 					colorOption.onclick=function(e){
 				
 						if(e.target.classList.contains("purple")){
@@ -539,43 +640,47 @@ window.addEventListener("load", function(){
 					const reviewBtn= document.querySelector(".review-button-list"); // 등록, 수정, 삭제
 					const writeForm = document.querySelector(".write-form");
 					
-					reviewBtn.onclick = function(e){
-							e.preventDefault();
-						
-						//등록
-						if(e.target.classList.contains("btn-reg")){
-
-							let form = new FormData();
-							form.append("content",writeForm.querySelector(".input-review").value);
-							form.append("color",color);
-							console.log(form);
-							fetch(
-								`/member/mypage/review/api/reg/${bookingId}`,
-								{method:"POST",body:form})
-							.then((response)=>response.json())
-							.then((data)=>{
-								
-								var result = data.regResult;
-								if(result ==0){
-									alert('리뷰가 등록되었습니다');
-								}	
-								else if(result==0){
-									alert('리뷰 등록에 실패했습니다.');
-								}
-
+					if(reviewBtn){
+						reviewBtn.onclick = function(e){
+								e.preventDefault();
+							
+							//등록
+							if(e.target.classList.contains("btn-reg")){
+	
+								let form = new FormData();
+								form.append("content",writeForm.querySelector(".input-review").value);
+								form.append("color",color);
+								console.log(form);
+								fetch(
+									`/member/mypage/review/api/reg/${bookingId}`,
+									{method:"POST",body:form})
+								.then((response)=>response.json())
+								.then((data)=>{
+									
+									var result = data.regResult;
+									if(result ==0){
+										alert('리뷰가 등록되었습니다');
+									}	
+									else if(result==0){
+										alert('리뷰 등록에 실패했습니다.');
+									}
+	
+									var reviewModal = document.querySelector(".review-modal-background");
+									reviewModal.classList.add("d-none");
+	       							reload();
+									
+								})
+					
+							}
+							//닫기
+							else if(e.target.classList.contains("btn-exit")){
 								var reviewModal = document.querySelector(".review-modal-background");
 								reviewModal.classList.add("d-none");
-       							reload();
-								
-							})
-				
+							}
 						}
-						//닫기
-						else if(e.target.classList.contains("btn-exit")){
-							var reviewModal = document.querySelector(".review-modal-background");
-							reviewModal.classList.add("d-none");
-						}
-					}
+					}	
+						
+						
 					
 					//도움말 호버
 					var ques = document.querySelector(".icon-question3");

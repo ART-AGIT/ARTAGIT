@@ -12,6 +12,21 @@
 		limit #{offset},#{size};
 	</select>
 	
+	<select id="getListBySearch"  resultType="com.artagit.web.entity.BookingList">
+		select * 
+		from BookingListView where  memId =#{memId}
+		
+		<if test="category==2">
+			and reviewId is not null
+		</if>
+		<if test="category==3">
+			and reviewId is null
+		</if>
+		order by bookingDate desc
+		limit #{offset},#{size};
+	</select>	
+	
+	
 	<select id="getByBookingId" resultType="com.artagit.web.entity.BookingList">
 		select * from BookingListView
 		where bookingId = #{id};
@@ -27,6 +42,9 @@
 		select count(bookingId) 
 		from BookingListView where  memId =#{id};
 	</select>	
+	
+	
+	
 	
 </mapper>
  

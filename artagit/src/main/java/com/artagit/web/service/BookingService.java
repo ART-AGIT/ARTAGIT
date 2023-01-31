@@ -10,8 +10,13 @@ public interface BookingService {
 	//id로 booking 가져오기
 	Booking get(int id);
 	
+	//예매내역 가져오기
 	List<BookingList> getListById(int memId,int page);
 
+	//예매내역 가져오기(+필터링)
+	List<BookingList> getListBySearch(int memId, int page, int category);
+	
+	
 	BookingList getReviewByBookingId(int id);
 	
 	// 예매내역 insert 메서드
@@ -30,6 +35,10 @@ public interface BookingService {
 
 	//회원의 예매 내역 건수 가져오기
 	int getCount(int id);
+
+	
+
+	
 }
 
 

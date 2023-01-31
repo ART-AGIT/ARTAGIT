@@ -55,5 +55,23 @@ public class CorporateApi {
 		return list;
 	}
 	
+	//나의 등록전시 (필터링+더보기)
+	@GetMapping("/exh/list/date")
+	   public List<Exhibition> date(
+	         @RequestParam(defaultValue = "1", name = "p") int page, 
+	         @RequestParam("s") int state
+	         , @AuthenticationPrincipal ArtagitUserDetails user) throws InterruptedException{
+	      System.out.println("페이지컨트롤"+page);
+	      System.out.println("페이지컨트롤"+page);
+	      List<Exhibition> list = corpService.getListByDateId(page,state,user.getId());
+	      System.out.println("================================="+list);
+	      System.out.println("상태"+state);
+	      return list;
+	   }
+	
+	
+	
+	
+	
 	
 }

@@ -76,6 +76,7 @@ window.addEventListener("load", function() {
 				noticebox.append(el1); //6개의 객체를 하나하나 넣어준다.
 		}})
 	console.log(queryString);
+			const KR_TIME = 9*60*60*1000;
 	fetch(
 		`/boardApi/boards${queryString}`)
 		.then((response) => 
@@ -83,12 +84,15 @@ window.addEventListener("load", function() {
 		.then((list) => {
 			boardbox.innerHTML="";
 		for (let board of list) {
-			let year = board.regDate.toString().substring(2, 4);
-			let month = board.regDate.toString().substring(5, 7);
-			let day = board.regDate.toString().substring(8, 10);
-			let hour = board.regDate.toString().substring(11, 13);
-			let min = board.regDate.toString().substring(14, 16);
 		
+			var kr_cur = new Date(board.regDate+KR_TIME);
+//			console.log(cur);
+//			let year = cur.toString().substring(2, 4);
+//			let month = board.regDate.toString().substring(5, 7);
+//			let day = board.regDate.toString().substring(8, 10);
+//			let hour = board.regDate.toString().substring(11, 13).getUTCHours();
+//			let min = board.regDate.toString().substring(14, 16).getUTCMinutes();
+			console.log(kr_cur);
 			
 			
 			let template = ` 

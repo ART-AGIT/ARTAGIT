@@ -1,12 +1,16 @@
 package com.artagit.web.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.artagit.web.dao.CorporateDao;
+import com.artagit.web.dao.ExhibitionDao;
 import com.artagit.web.entity.ArtagitUserDetails;
 import com.artagit.web.entity.Corporate;
+import com.artagit.web.entity.Exhibition;
 import com.artagit.web.entity.Member;
 
 @Service
@@ -14,6 +18,9 @@ public class DefaultCorporateService implements CorporateService{
 	
 	@Autowired
 	private CorporateDao corporateDao;
+	
+	@Autowired
+	private ExhibitionDao exhibitionDao;
 	
 	@Autowired
 	private PasswordEncoder passwordEncoder;
@@ -75,4 +82,17 @@ public class DefaultCorporateService implements CorporateService{
 	public Corporate getId(String name, String email) {
 		return corporateDao.getId(name, email);
 	}
+
+	
+	// 주최자가 등록한 전시date필터링
+	   @Override
+	   public List<Exhibition> getListByDateId(int page, int state,int corpId) {
+	      int size = 6;
+         int offset = (page-1)*size;
+         System.out.println("오프셋"+offset);
+         System.out.println("페이지"+page);
+	      List<Exhibition> list = exhibitionDao.getListByDateId(offset, state, corpId, size);
+	      return list;
+	   }
+	
 }

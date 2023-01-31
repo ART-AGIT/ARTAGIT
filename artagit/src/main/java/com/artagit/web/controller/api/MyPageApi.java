@@ -66,51 +66,30 @@ public class MyPageApi {
 			@AuthenticationPrincipal ArtagitUserDetails user,
 			@RequestParam(defaultValue = "1", name = "p") int page) throws ParseException {
 				
-//		Map<String,Object> dto = new HashMap<>();
 		System.out.println("page"+page);
 		//ex) 2페이지이면 limit 6,6 개 보내기 
 		List<BookingList> bookingList = bookingService.getListById(user.getId(),page);
-//		dto.put("list", bookingList);
 		System.out.println(bookingList);
+		return bookingList;
+	}
+	
+	/*-----------예매내역리스트 (카테고리 + 페이지 추가) ------*/ 
+	@GetMapping("/review/api/list2")
+	public List<BookingList> list2(Model model,
+			@AuthenticationPrincipal ArtagitUserDetails user,
+			@RequestParam(defaultValue = "1", name = "c") int category, 
+			@RequestParam(defaultValue = "1", name = "p") int page) throws ParseException{
+				
+		
+		System.out.println("page"+page);
+		System.out.println("category"+category);
+		List<BookingList> bookingList = bookingService.getListBySearch(user.getId(),page,category);
+		
 		return bookingList;
 	}
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	/*-----------리뷰등록------*/ 
-	/*
-	@PostMapping("/review/reg/{id}")
-	@Transactional
-	public Map<String,Object> reg(Review review,Booking booking,@PathVariable("id") int payId
-			,@AuthenticationPrincipal ArtagitUserDetails user){
-		
-		System.out.println("들옴ㅇㅇㅇㅇ");
-		BookingList booking2 = bookingService.getReviewByBookingId(payId);
-		review.setPayId(payId);
-		review.setColor(review.getColor());
-		Review result = reviewService.reg(review);
-
-		Map<String,Object> dto = new HashMap<>();
-		
-		dto.put("status", 200);
-		dto.put("resultObject",result);
-		dto.put("booking2",booking2);
-
-		return dto;
-	}
-	*/
 	
 	/*-----------모달로 등록된 리뷰띄우기------*/ 
 	@GetMapping("/review/api/{reviewId}")
