@@ -95,9 +95,16 @@
 										src="../../image/exhimage.png" alt=""></a>
 							</div>
 							<!-- 		                <div class="text exh-state exh-ing" th:text="${#calendars.format(#calendars.createNow(), 'yyyy-MM-dd')}">전시중</div> -->
-							<div class="text exh-state exh-ing"
+							<!-- <div class="text exh-state exh-ing"
 								th:text="${#calendars.format(#calendars.createNow(), 'yyyy-MM-dd')} > ${list.endDate} ?  '전시중' : '전시종료' ">
-								전시중</div>
+								전시중</div> -->
+							<th:block th:if="${#calendars.format(#calendars.createNow(), 'yyyy-MM-dd')} < ${list.endDate} 
+								and ${#calendars.format(#calendars.createNow(), 'yyyy-MM-dd')} > ${list.startDate}" >
+								<div class="text exh-state exh-ing">전시중</div></th:block>
+							<th:block th:if="${#calendars.format(#calendars.createNow(), 'yyyy-MM-dd')} < ${list.startDate} ">
+									<div class="text exh-state exh-ing">전시예정</div></th:block>
+							<th:block th:if="${#calendars.format(#calendars.createNow(), 'yyyy-MM-dd')} > ${list.endDate} ">
+									<div class="text exh-state exh-ing">전시종료</div>	</th:block>
 							<div class="text exh-title" th:text=${list.name}>모네 인사이드</div>
 							<div class="text exh-author" th:text="'author. '+${list.artist}">author. 양작가 </div>
 							<div class="text exh-date" th:text="${list.startDate} +' ~ '+ ${list.endDate}">
