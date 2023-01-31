@@ -5,10 +5,11 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
+import com.artagit.web.entity.BoardReport;
 import com.artagit.web.entity.CommentReport;
 
 @Mapper
-public interface CommentReportDao {
+public interface BoardReportDao {
 	
 	List<CommentReport> getList(
 			int page,
@@ -21,7 +22,7 @@ public interface CommentReportDao {
 	int count(String query); // 집계 count
 	
 	
-	int insert(CommentReport report); 
+	int insert(BoardReport report); 
 	int update(CommentReport report);
 	int delete(int id); 
 	int deleteAll(CommentReport report);

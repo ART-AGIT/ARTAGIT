@@ -1,32 +1,27 @@
 package com.artagit.web.entity;
 
-public class CommentReport {
+public class BoardReport {
 	private int id;
 	private int roleId;
-	private int commentId;
+	private int postId;
 	
 	private String regDate;
 	private String content;
 	private String file;
 	private String processDate;
 	
-	public int getCommentId() {
-		return commentId;
-	}
 
-	public void setCommentId(int commentId) {
-		this.commentId = commentId;
-	}
 
-	public CommentReport() {
+	public BoardReport() {
 		// TODO Auto-generated constructor stub
 	}
 	
 
-	public CommentReport(int id, int roleId, int postId, String regDate, String content, String file, String processDate) {
+	public BoardReport(int id, int roleId, int postId, String regDate, String content, String file, String processDate) {
 		super();
 		this.id = id;
 		this.roleId = roleId;
+		this.postId = postId;
 		this.regDate = regDate;
 		this.content = content;
 		this.file = file;
@@ -50,6 +45,13 @@ public class CommentReport {
 		this.roleId = roleId;
 	}
 
+	public int getPostId() {
+		return postId;
+	}
+
+	public void setPostId(int postId) {
+		this.postId = postId;
+	}
 
 	public String getRegDate() {
 		return regDate;
@@ -85,11 +87,13 @@ public class CommentReport {
 
 	@Override
 	public String toString() {
-		return "Report [id=" + id + ", roleId=" + roleId + ", commentId=" + commentId
-				+ ", regDate=" + regDate + ", content=" + content + ", file=" + file + ", processDate=" + processDate
+		return "Report [id=" + id + ", roleId=" + roleId + ", postId=" + postId + 
+				 ", regDate=" + regDate + ", content=" + content + ", file=" + file + ", processDate=" + processDate
 				+ "]";
 	}
 
+	
+	
 	
 	
 }

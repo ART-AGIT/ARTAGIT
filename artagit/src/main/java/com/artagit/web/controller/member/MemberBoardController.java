@@ -54,6 +54,8 @@ public class MemberBoardController {
 		model.addAttribute("user", user);
 		List<Comment> comments = commentService.getNickname(id);
 		model.addAttribute("comments", comments);
+		model.addAttribute("reportType","게시글");
+		model.addAttribute("reportType1","댓글");
 		
 		
 		//조회수(중복 제거)
