@@ -12,6 +12,8 @@ import com.artagit.web.dao.CorporateDao;
 import com.artagit.web.dao.ExhLikeDao;
 import com.artagit.web.dao.ExhibitionDao;
 import com.artagit.web.entity.ExhLike;
+import com.artagit.web.entity.ExhLikeList;
+import com.artagit.web.entity.ExhLikeList;
 import com.artagit.web.entity.Exhibition;
 import com.artagit.web.entity.ExhibitionView;
 
@@ -182,15 +184,10 @@ public class DefaultExhibitionService implements ExhibitionService {
 	}
 
 
-	// LikeList
+	// LikeList -controller
 	@Override
-	public List<Exhibition> getLikeListById(int id,int page) {
-		int size=6;
-		int offset = (page-1)*size;
-		
-		System.out.println("서비스의 page"+page);
-		System.out.println("서비스의 offset"+offset);
-		List<Exhibition> list = exhDao.getLikeList(id,page,offset,size);
+	public List<Exhibition> getLikeListById(int id) {
+		List<Exhibition> list = exhDao.getLikeList(id);
 		return list;
 	}
 
@@ -207,6 +204,12 @@ public class DefaultExhibitionService implements ExhibitionService {
 	@Transactional(isolation = Isolation.READ_UNCOMMITTED)
 	public String getPayNum() {
 		return exhDao.getPayNum();
+	}	
+	@Override
+	public List<Exhibition> getLikeListByIdAll(int id) {
+		List<Exhibition> list = exhDao.getLikeListAll(id);
+		return list;
 	}
+
 
 }
