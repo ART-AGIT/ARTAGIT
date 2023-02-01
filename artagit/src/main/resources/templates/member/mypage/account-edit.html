@@ -18,34 +18,33 @@
 <body layout:fragment="content">
 
     <main>
-        <div class="main-content">
+        <div class ="main-content">
+    	
+	        <div class="menu-box">
+	        	<div class="profile-box">
+	        		<div class="profile-content">
+		                <div class="profile-img-box" >
+		                   <img th:if="${user.img}!= null" th:src="@{|/image/${user.img}|}" class="profile-img img-input">
+                            <img th:unless="${user.img}!= null" th:src="@{/image/프사.jpg}" class="profile-img img-input">
+		                </div>
+		                <div></div>
+			                <div class="profile-name"> 
+			                    <span th:text="${user.nickname}+' 님'">1004님</span>
+			                </div>
+			                <div class="member-grade">
+                        		일반회원
+                    		</div>
+		                
+		            </div>
+	            </div>
+	            <ul class="menu-list">
+	                <li class="list line-on"><a class="deco deco-ticket "  href="/member/mypage/review/list">나의 예매내역</a></li>
+	                <li class="list"><a class="deco deco-heart-red" href="/member/mypage/like-list">좋아요 전시</a></li>
+	                <li class="list"><a class="deco deco-smile deco-ticket-on"  href="/member/mypage/account-edit">내 정보 수정</a></li>
+	                <li class="list"><a class="deco deco-write" href="/member/mypage/post-list" >작성글 관리</a></li>
 
-            <div class="menu-box">
-                <div class="profile-box">
-                    <div class="profile-content">
-                        <div class="profile-img-box">
-                            <img th:src="@{|/image/${user.img}|}" class="profile-img" src="../../../image/camera.svg">
-                        </div>
-                        <div>
-                            <div class="profile-name">
-                                <span th:text="${user.nickname}+' 님'">1004님</span>
-                            </div>
-                            <div class="member-grade">
-                                일반회원
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <ul class="menu-list">
-                    <li class="list line-on"><a class="deco deco-ticket" href="../../member/mypage/review/list">나의
-                            예매내역</a></li>
-                    <li class="list"><a class="deco deco-heart-red" href="../../member/mypage/like-list"
-                            th:href="@{/member/mypage/like-list}">좋아요 전시</a></li>
-                    <li class="list"><a class="deco deco-smile deco-smile-on" href="./account-edit.html"
-                            th:href="@{/member/mypage/account-edit}">내 정보 수정</a></li>
-                    <li class="list"><a class="deco deco-write" href="./post-list">작성글 관리</a></li>
-                </ul>
-            </div>
+	            </ul>
+	        </div>
 
 
             <section class="reg-list edit">

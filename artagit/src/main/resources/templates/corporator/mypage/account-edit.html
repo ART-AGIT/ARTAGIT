@@ -27,8 +27,8 @@
                 <div class="profile-img-box" >
 <!--                       <img  src="../../image/회원기본이미지.svg" class="member-profile-img"> -->
 <!--                   <img th:if="${user.img}!= null" th:src="@{|/image/${user.img}|}" class="input-image-button input-image-button1"> -->
-                        <img th:if="${user.img}!= null" th:src="@{|/image/${user.img}|}"  src="../../image/회원기본이미지.svg" class="profile-img img-input">
-                        <img th:unless="${user.img}!= null" th:src="@{/image/프사.jpg}" src="../../image/회원기본이미지.svg" class="profile-img img-input">
+                        <img th:if="${user.img}!= null" th:src="@{|/image/${user.img}|}"  src="../../image/회원기본이미지.svg" class="profile-img ">
+                        <img th:unless="${user.img}!= null" th:src="@{/image/프사.jpg}" src="../../image/회원기본이미지.svg" class="profile-img ">
                                  
                 </div>
                 <div>
@@ -55,13 +55,11 @@
                 <div class="form-wrap">
                     <div class="member">   
                         <div class="member-profile">
-                              <img th:if="${user.img}!= null" th:src="@{|/image/${user.img}|}"  src="../../image/회원기본이미지.svg" class="member-profile-img img-input">
-                                 <img th:unless="${user.img}!= null" th:src="@{/image/프사.jpg}" src="../../image/회원기본이미지.svg" class="member-profile-img img-input">
-                                 
-<!--                            <img th:if="${corporate.img}==null" src="../../image/회원기본이미지.svg" class="member-profile-img img-input">  -->
+                            <img th:if="${user.img}!= null" th:src="@{|/image/${user.img}|}"  src="../../image/회원기본이미지.svg" class="member-profile-img img-input">
+                            <img th:unless="${user.img}!= null" th:src="@{/image/프사.jpg}" src="../../image/회원기본이미지.svg" class="member-profile-img img-input">     
                             <div class="icon-img-choice">
                                 <div class="circle-edit"></div>
-                            <input name="imgFile" type="file" src="../../image/icons/icon-edit.svg" class=" icon icon-write icon-write-edit file-input">
+                            	<input name="imgFile" type="file" src="../../image/icons/icon-edit.svg" class=" icon icon-write icon-write-edit file-input">
                             </div>
                         </div>
                         <div class="member-name-grade">

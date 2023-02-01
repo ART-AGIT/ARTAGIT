@@ -105,7 +105,6 @@ public class ArtagitUserDetails implements UserDetails {
 	}	
 	
 	public String getName() {
-		System.out.println("hihi");
 		return name;
 	}
 

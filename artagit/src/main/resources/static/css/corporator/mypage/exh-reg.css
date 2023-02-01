@@ -230,23 +230,26 @@ div.exh-reg-button-box {
 		width: 430px;
 	}
 
-.main-contents {
-	display: flex;
-	gap: 20px;
-	padding-top: 20px;
-	justify-content: space-around;
-	width: 1000px;
-}
+	.main-contents {
+		display: flex;
+		gap: 20px;
+		padding-top: 160px;
+		justify-content: space-around;
+		width: 1000px;
+	}
+	
 }
 
-	.menu-box.exh-reg{
-		padding-left: 100px;
-		padding-top: 40px;
-		
-	}
-	.exh-reg-list{
-		width: 500px;
-	}
+.menu-box.exh-reg{
+	padding-left: 106px;
+	padding-top: 0;
+	
+}
+
+.exh-reg-list{
+	width: 500px;
+}
+
 .member-grade {
     background-color: #414141;
     border-radius: 20px;
