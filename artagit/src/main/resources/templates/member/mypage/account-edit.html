@@ -24,8 +24,8 @@
 	        	<div class="profile-box">
 	        		<div class="profile-content">
 		                <div class="profile-img-box" >
-		                   <img th:if="${user.img}!= null" th:src="@{|/image/${user.img}|}" class="profile-img img-input">
-                            <img th:unless="${user.img}!= null" th:src="@{/image/프사.jpg}" class="profile-img img-input">
+		                   <img th:if="${user.img}!= null" th:src="@{|/image/${user.img}|}" class="profile-img ">
+                            <img th:unless="${user.img}!= null" th:src="@{/image/프사.jpg}" class="profile-img ">
 		                </div>
 		                <div></div>
 			                <div class="profile-name"> 
