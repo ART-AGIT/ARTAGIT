@@ -25,14 +25,25 @@ window.addEventListener("load", function() {
 				let name = data.member
 				let name2 = data.comment
 				
+				 let beforeNoticeDate = new Date(name2.regDate);
+		         let utc = beforeNoticeDate.getTime() + (beforeNoticeDate.getTimezoneOffset() * 60 * 1000);
+		         let time_diff = 9 * 60 * 60 * 1000;
+		         let cur_date_korea = new Date(utc + (time_diff));
+		         let year = name2.regDate.toString().substring(2, 4);
+		         let month = name2.regDate.toString().substring(5, 7);
+		         let day = name2.regDate.toString().substring(8, 10);
+		         let hour = cur_date_korea.toString().substring(15, 18);
+		         let min = cur_date_korea.toString().substring(19, 21);
+         
+         
 				let template = `
    <section class="comment-detail">
             <form data-id=${name2.id}>
                <h1 class="d-none">댓글1개</h1>
                <div class="comment-writer-wrapper">
                   <div class="comment-writer">
-                     <img class="profile-photo" src="${img.src}">
-                     <div class="user-name">${name}</div>
+                     <img class="profile-photo" src="/image/${name.image}">
+                     <div class="user-name">${name.nickname}</div>
                      
                   </div>
                   <div class="icon icon-report">
@@ -43,7 +54,7 @@ window.addEventListener("load", function() {
                <div class="comment-main" >${name2.content}</div>
                <div class="comment-info">
                   <div class="date" >
-                    ${date.dataset.id}</div>
+                    ${year}/${month}/${day}/${hour}:${min}</div>
                   <div class="re-comment">
                   </div>
                      <div class="add-modify">
@@ -118,9 +129,7 @@ window.addEventListener("load", function() {
                <div class="comment-main" >${oldComment}</div>
                <div class="comment-info">
               <div class="date" >
-                    ${time}</div>
-              <div class="date" >
-                    ${time}</div>
+                    ${date.dataset.id}</div>
                   <div class="re-comment">
                   </div>
                      <div class="add-modify">
@@ -140,7 +149,6 @@ window.addEventListener("load", function() {
 //				for (el = e.target; form.tagName != "FORM"; el = el.parentElement);
 //				console.log(el.parentElement.parentElement.dataset.id)
 //				for (el = e.target; form.tagName != "SECTION"; el = el.parentElement);
-	let img = document.querySelector(".comment-profile")
 				let textValue = e.target.previousElementSibling.value
 //				nickName = asd
 				let formData2 = new FormData();
@@ -159,7 +167,6 @@ window.addEventListener("load", function() {
                <div class="comment-writer-wrapper">
                   <div class="comment-writer">
                          <img class="profile-photo" src="${img.src}">
-                         <img class="profile-photo" src="${img.src}">
                      <div class="user-name">${nickname.dataset.id}</div>
                   </div>
                  <div class="icon icon-report">
@@ -171,9 +178,7 @@ window.addEventListener("load", function() {
                <div class="comment-main" >${textValue}</div>
                <div class="comment-info">
                   <div class="date" >
-                    ${time}</div>
-                  <div class="date" >
-                    ${time}</div>
+                    ${date.dataset.id}</div>
                   <div class="re-comment">
                               </div>
                           <div class="add-modify">
