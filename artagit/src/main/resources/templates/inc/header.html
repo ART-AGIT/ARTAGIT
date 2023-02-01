@@ -34,6 +34,7 @@
                     <div class="sub-menu-2">
                         <ul>
                             <li>
+                            	<span sec:authentication="principal">테스트</span>
 <!--                            로그인되지 않은 사용자는 회원가입 -->
                             	<a href="/signup-choice" sec:authorize="isAnonymous()">회원가입</a>
 <!--                            admin 이거나 corp면 내 전시등록 리스트 -->
@@ -42,7 +43,7 @@
                            		</a>
 <!--                            role이 member면 내 예매 리스트 -->
                             	<a href="/member/mypage/review/list" sec:authorize="hasAnyRole('MEMBER')">
-                            		<span sec:authentication="name"></span>
+                            		<span sec:authentication="principal.username"></span>
                            		</a>
                            	</li>
                             <li>

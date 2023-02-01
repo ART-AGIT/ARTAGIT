@@ -81,7 +81,7 @@ public class MypageController {
 	@GetMapping("/review/list")
 	public String list(Model model, @AuthenticationPrincipal ArtagitUserDetails user,
 			@RequestParam(defaultValue = "1", name = "p") int page) throws ParseException {
-
+		System.out.println("user는 ~~~~~~ " + user);
 		System.out.println("page" + page);
 		String todayfm = new SimpleDateFormat("yyyy-MM-dd").format(new Date(System.currentTimeMillis()));
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");

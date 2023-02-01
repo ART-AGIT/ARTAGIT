@@ -1,6 +1,8 @@
 package com.artagit.web.config;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -64,7 +66,7 @@ public class ArtagitSecurityConfig {
 				.and()
 				.oauth2Login(oauth2->oauth2
 						.userInfoEndpoint() // 로그인 성공시 사용자 정보를 가져올 때 설정 담당 
-						.userAuthoritiesMapper(this.userAuthoritiesMapper()) // 소셜로그인 시 "권한"에 대한 설정
+//						.userAuthoritiesMapper(this.userAuthoritiesMapper()) // 소셜로그인 시 "권한"에 대한 설정
 						.oidcUserService(oidcUserService())) // 이후 후속초치 즉, 사용자 정보를 가져온 상태에서 추가로 진행하고자 하는 기능 명시(ex. 가입, 정보수정, 세션 저장 등등) 
 															// 후처리 1.코드받기(인증이 완료됐다는 것)
 															// 2.받은 코드를 통해 엑세스토큰받기(시큐리티 서버가 로그인한 사용자 정보에 접근할 수 있는 권한이 생김) 
@@ -81,10 +83,9 @@ public class ArtagitSecurityConfig {
 	private OAuth2UserService<OidcUserRequest, OidcUser> oidcUserService() {
 		// 자식 클래스를 정의해서 객체로 만들어서 반환하는 코드... (OAuth2UserService 는 인터페이스 이기 때문에 구현체가 필요)
 		return (oidcUserRequest) -> { // Request 정보를 받으면, 그걸로 
-			System.out.println("순서체크");
 			OidcUserService oidcUserService = new OidcUserService();
 			OidcUser oidcUser = oidcUserService.loadUser(oidcUserRequest);
-	
+			
 			System.out.println("======= user info ======");
 			System.out.println(oidcUser);
 			System.out.println("======= user attributes ======");
@@ -94,11 +95,15 @@ public class ArtagitSecurityConfig {
 			String providerId = oidcUser.getAttribute("sub");
 			String username = oidcUser.getAttribute("name");
 			
-			Set<GrantedAuthority> mappedAuthorities = new HashSet<>();
-			
+			// 권한 담기
+			List<GrantedAuthority> mappedAuthorities = new ArrayList<>();
+			mappedAuthorities.add(new SimpleGrantedAuthority("ROLE_MEMBER"));
 			
 			// OidcUser (아무것도 없는 맨땅 사용자 정보) 를 -> ArtagitOidcUser(우리가 원하는 사용자 정보 객체로 반환)
 			ArtagitOidcUser user = new ArtagitOidcUser(oidcUser);
+			user.setAuthorities(mappedAuthorities);
+			System.out.println("user ==> " + user);
+
 			System.out.println("getName ==> " + oidcUser.getName());
 			System.out.println("getAttribute ==> " + oidcUser.getAttribute("iss"));
 			
@@ -106,21 +111,18 @@ public class ArtagitSecurityConfig {
 			Member member = memberDao.getByOAuthIdWithIss(
 					provider, providerId); // oidcUser 에서 반환되는 name(사용자아이디)와 iss를 가지고 사용자를 확인하기.
 
+			System.out.println("oidcUser.getAttribute(\"Name\")" + oidcUser.getAttribute("name"));
 			// Db에 해당 사용자의 정보가 없을 경우 ==> 신규 회원
 			if(member == null) {
-				Member temp = memberDao.getByUserName(oidcUser.getAttribute("Name"));
-				System.out.println("temp===> " + oidcUser.getName());
+				Member temp = memberDao.getByUserName(oidcUser.getAttribute("name"));
 //				String username = oidcUser.getAttribute("name");
 				
 				if(temp != null) // 현재 로그인한 사용자와 동일한 이름을 가진 기존 유저가 존재하다면
 					username += "_Google"; // 중복을 피하기 위해 이름 뒤에 표시를 위한 문자열을 붙여서 저장해주기.
 				
-				
 				// 넘어온 해당 유저의 정보들을 담아서
 				temp = new Member();
-				System.out.println("요오기이이이");
 				temp.setEmail(oidcUser.getEmail());
-				System.out.println(username);
 				temp.setLoginId(username); // id와 pw는 저장할 필요 없다.
 				temp.setProvider(provider);
 				temp.setProviderId(providerId);
@@ -130,24 +132,38 @@ public class ArtagitSecurityConfig {
 				temp.setRoleId(2);
 				temp.setNickname(oidcUser.getGivenName());
 				
-				
 				memberDao.insert(temp); // 새로 추가(insert) 해준다.
 				
 				System.out.println("회원의 권한==> "+roleDao.getMemberByUserName(username));
 			} else if (member != null) {
 				System.out.println("계정이 있는 회언");
 				System.out.println("회원의 권한==> "+roleDao.getMemberByUserName(username));
+				user.setId(member.getId());
+				user.setEmail(member.getEmail());
+				user.setLoginId(member.getLoginId()); // id와 pw는 저장할 필요 없다.
+//				user.setProvider(provider);
+//				user.setProviderId(providerId);
+				user.setName(member.getName());
+				user.setPassword("NULL");
+				user.setImg(member.getImage());
+				user.setRoleId(2);
+				user.setNickname(member.getNickname());
+				user.setProvider(member.getProvider());
+				user.setUsername(member.getProviderId());
+//				member.setAuthorities(mappedAuthorities);
 			}
-//			return user;
-			mappedAuthorities.add(new SimpleGrantedAuthority("ROLE_MEMBER"));
-			System.out.println("mappedAuthorities===> " +mappedAuthorities);
-			return new DefaultOidcUser(mappedAuthorities, oidcUser.getIdToken(), oidcUser.getUserInfo()); // <OidcUserRequest, OidcUser> 를 자료로 하는 userService를 반환
+			System.out.println("user========" + user);
+			return user;
+			
+//			System.out.println("mappedAuthorities===> " +mappedAuthorities);
+//			return new DefaultOidcUser(mappedAuthorities, oidcUser.getIdToken(), oidcUser.getUserInfo()); // <OidcUserRequest, OidcUser> 를 자료로 하는 userService를 반환
 		};
 	}
-	
+	 
 	// 소셜(구글, 카카오, 네이버) 로그인 시, 회원의 권한을 부여해주는 메서드
 	private GrantedAuthoritiesMapper userAuthoritiesMapper() {
 		System.out.println("왔나요1");
+		
 		return (authorities) -> {
 			System.out.println("왔나요2");
 			Set<GrantedAuthority> mappedAuthorities = new HashSet<>();

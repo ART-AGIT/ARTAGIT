@@ -1,32 +1,42 @@
 window.addEventListener("load", function() {
-   const btnReg = document.querySelector(".btn-write")
-   let content = document.querySelector(".content-null")
-   let wrapper = document.querySelector(".comment-title-wrapper")
-   let modal = document.querySelector(".popup-overlay")
-   let com = document.getElementById("modal-popup");
-   let content1 = document.querySelector(".report-form")
-   let nickname =  document.querySelector(".add-modify")
-   let commentBox = document.querySelector(".comment")
-   let type = document.querySelector(".type-post")
-   let img = document.querySelector(".comment-profile")
-  
-   
- 
+	const btnReg = document.querySelector(".btn-write")
+	let content = document.querySelector(".content-null")
+	let wrapper = document.querySelector(".comment-title-wrapper")
+	let modal = document.querySelector(".popup-overlay")
+	let com = document.getElementById("modal-popup");
+	let content1 = document.querySelector(".report-form")
+	let nickname =  document.querySelector(".add-modify")
+	let commentBox = document.querySelector(".comment")
+	let type = document.querySelector(".type-post")
+	let img = document.querySelector(".comment-profile")
+
+	let date = document.querySelector(".date")
 	
 
 
-   btnReg.onclick = function(e) {
-      e.preventDefault();
-       let date = document.querySelector(".date")
-      
-      let formData = new FormData(document.querySelector("#comment-form"));
-      fetch(`/api/reg`, { method: "post", body: formData })
-         .then(response => response.json())
-         .then(data => {
-            let name = data.member
-            let name2 = data.comment
-			console.log(name);
-            let template = `
+	btnReg.onclick = function(e) {
+		e.preventDefault();
+		
+				
+		let formData = new FormData(document.querySelector("#comment-form"));
+		fetch(`/api/reg`, { method: "post", body: formData })
+			.then(response => response.json())
+			.then(data => {
+				let name = data.member
+				let name2 = data.comment
+				
+				 let beforeNoticeDate = new Date(name2.regDate);
+		         let utc = beforeNoticeDate.getTime() + (beforeNoticeDate.getTimezoneOffset() * 60 * 1000);
+		         let time_diff = 9 * 60 * 60 * 1000;
+		         let cur_date_korea = new Date(utc + (time_diff));
+		         let year = name2.regDate.toString().substring(2, 4);
+		         let month = name2.regDate.toString().substring(5, 7);
+		         let day = name2.regDate.toString().substring(8, 10);
+		         let hour = cur_date_korea.toString().substring(15, 18);
+		         let min = cur_date_korea.toString().substring(19, 21);
+         
+         
+				let template = `
    <section class="comment-detail">
             <form data-id=${name2.id}>
                <h1 class="d-none">댓글1개</h1>
@@ -44,7 +54,7 @@ window.addEventListener("load", function() {
                <div class="comment-main" >${name2.content}</div>
                <div class="comment-info">
                   <div class="date" >
-                    ${name2.regDate}</div>
+                    ${year}/${month}/${day}/${hour}:${min}</div>
                   <div class="re-comment">
                   </div>
                      <div class="add-modify">
@@ -119,7 +129,7 @@ window.addEventListener("load", function() {
                <div class="comment-main" >${oldComment}</div>
                <div class="comment-info">
               <div class="date" >
-                    ${time}</div>
+                    ${date.dataset.id}</div>
                   <div class="re-comment">
                   </div>
                      <div class="add-modify">
@@ -131,22 +141,22 @@ window.addEventListener("load", function() {
       
       `;
          form.insertAdjacentHTML("beforeend", template);
-         }
-   
-         
-         let commntModify = document.querySelector(".comment-modify2")
-         commntModify.onclick = function(e) {
-//            for (el = e.target; form.tagName != "FORM"; el = el.parentElement);
-//            console.log(el.parentElement.parentElement.dataset.id)
-//            for (el = e.target; form.tagName != "SECTION"; el = el.parentElement);
-            let textValue = e.target.previousElementSibling.value
-//            nickName = asd
-            let formData2 = new FormData();
-            formData2.append("id",commentId)
-            formData2.append("content",textValue)
-            fetch(`/api/update`, { method: "put", body: formData2})
-               .then(response => response.json())
-               .then(data => {
+			}
+	
+			
+			let commntModify = document.querySelector(".comment-modify2")
+			commntModify.onclick = function(e) {
+//				for (el = e.target; form.tagName != "FORM"; el = el.parentElement);
+//				console.log(el.parentElement.parentElement.dataset.id)
+//				for (el = e.target; form.tagName != "SECTION"; el = el.parentElement);
+				let textValue = e.target.previousElementSibling.value
+//				nickName = asd
+				let formData2 = new FormData();
+				formData2.append("id",commentId)
+				formData2.append("content",textValue)
+				fetch(`/api/update`, { method: "put", body: formData2})
+					.then(response => response.json())
+					.then(data => {
 
 
 
@@ -168,7 +178,7 @@ window.addEventListener("load", function() {
                <div class="comment-main" >${textValue}</div>
                <div class="comment-info">
                   <div class="date" >
-                    ${time}</div>
+                    ${date.dataset.id}</div>
                   <div class="re-comment">
                               </div>
                           <div class="add-modify">
@@ -188,23 +198,23 @@ window.addEventListener("load", function() {
          }
       }
 
-   
-            
-         
-            if(e.target.id == 2){
-               for (form = e.target; form.tagName != "FORM"; form = form.parentElement);
-                  commentId = form.dataset.id;
-            let formData2 = new FormData();
-            formData2.append("id",commentId)
-            fetch(`/api/delete`, { method: "delete", body: formData2})
-               .then(response => response.json())
-               .then(data => {
-                  let result = (data.result)
-                  if(result == 1)
-                     form.remove();
-               })
-               
-         
+	
+				
+			
+				if(e.target.id == 2){
+					for (form = e.target; form.tagName != "FORM"; form = form.parentElement);
+						commentId = form.dataset.id;
+				let formData2 = new FormData();
+				formData2.append("id",commentId)
+				fetch(`/api/delete`, { method: "delete", body: formData2})
+					.then(response => response.json())
+					.then(data => {
+						let result = (data.result)
+						if(result == 1)
+							form.remove();
+					})
+					
+			
 
 
       }

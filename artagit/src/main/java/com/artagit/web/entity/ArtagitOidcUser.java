@@ -17,6 +17,7 @@ public class ArtagitOidcUser extends ArtagitUserDetails implements OidcUser {
 	}
 	
 	public ArtagitOidcUser(OidcUser oidcUser) {
+		System.out.println("왔나요~~~~~~~~~~~~~");
 		// TODO Auto-generated constructor stub
 	}
 	
