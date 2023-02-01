@@ -4,6 +4,7 @@ window.addEventListener("load", function() {
 	const btnReg = document.querySelector(".exh-reg-button-box-page3");
 	const page1 = document.querySelector(".page1");
 
+	
 	// 페이지 전환(위저드)
 	const register = document.querySelector(".btn-register");
 	const registercancelBtn = this.document.querySelector(".register-cancel-btn");
@@ -58,6 +59,7 @@ window.addEventListener("load", function() {
 		document.querySelector(".exh-reg-button-box-page2").classList.remove("d-none");
 		document.querySelector("#second-circle").classList.remove("circle-off");
 		document.querySelector("#first-circle").classList.add("circle-off");
+		window.scrollTo(0,0);
 	};
 
 	secondNext.onclick = function(e) {
@@ -68,6 +70,7 @@ window.addEventListener("load", function() {
 		document.querySelector(".exh-reg-button-box-page3").classList.remove("d-none");
 		document.querySelector("#second-circle").classList.add("circle-off");
 		document.querySelector("#third-circle").classList.remove("circle-off");
+		window.scrollTo(0,0);
 	};
 
 
@@ -88,6 +91,7 @@ window.addEventListener("load", function() {
 		document.querySelector("#third-circle").classList.add("circle-off");
 		document.querySelector("#second-circle").classList.add("circle-off");
 		document.querySelector("#first-circle").classList.remove("circle-off");
+		window.scrollTo(0,0);
 	};
 	secondBefore.onclick = function(e) {
 		e.preventDefault();
@@ -99,6 +103,7 @@ window.addEventListener("load", function() {
 		document.querySelector("#first-circle").classList.add("circle-off");
 		document.querySelector("#second-circle").classList.remove("circle-off");
 		document.querySelector("#third-circle").classList.add("circle-off");
+		window.scrollTo(0,0);
 	};
 	//==========================이미지 첨부, 미리보기=================================================
 	const imgInput = document.querySelector(".input-image-button1");

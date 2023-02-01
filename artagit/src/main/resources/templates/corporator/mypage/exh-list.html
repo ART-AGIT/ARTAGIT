@@ -3,9 +3,9 @@
    layout:decorate="~{inc/layout}">
 
 <th:block layout:fragment="css">
-   <link href="../../css/corporator/mypage/exh-list.css" type="text/css" rel="stylesheet">
-   <link href="../../css/component/sub-menu.css" type="text/css" rel="stylesheet">
-   <link href="../../css/member/mypage/booking-list.css" type="text/css" rel="stylesheet">
+	<link href="../../css/component/sub-menu.css" type="text/css" rel="stylesheet">
+	<link href="../../css/member/mypage/booking-list.css" type="text/css" rel="stylesheet">
+	<link href="../../css/corporator/mypage/exh-list.css" type="text/css" rel="stylesheet">
    <script src="/js/corporator/mypage/exh-list.js"></script>
 </th:block>
 
@@ -21,7 +21,7 @@
                      <img class="profile-img" src="../../image/camera.svg" th:src="@{|/image/${user.img}|}">
                   </div>
                   <div class="profile-name">
-                     <span th:text="${user.username}+' 님'">1004님</span>
+                     <span th:text="${user.museumName}+' 님'">1004님</span>
                   </div>
                   <div class="member-grade-corp">
                      업체회원
@@ -30,8 +30,7 @@
             </div>
             <ul class="menu-list">
 
-               <li class="list line-on"><a class="deco deco-ticket deco-ticket-on" href="/corp/exh/list">내가 등록한
-                     전시</a></li>
+               <li class="list line-on"><a class="deco deco-ticket deco-ticket-on" href="/corp/exh/list">나의 등록전시</a></li>
                <li class="list"><a class="deco deco-smile" href="/corp/mypage/account-edit">내 정보 수정</a></li>
                <li class="list"><a class="deco deco-write" href="/corp/exh/reg">전시 등록</a></li>
 
@@ -39,7 +38,7 @@
             </ul>
          </div>
          <div>
-            <h2 class="my-reg">내가 등록한 전시</h2>
+            <h2 class="my-reg">나의 등록전시</h2>
 
             <div class="total-exh-menu-list">
 
@@ -69,7 +68,7 @@
                   <select name="" id="selectexhibition" class="pl select-box" data-id="0"
                      onchange="selectexh(this)">
 
-                     <option class="" value="exh-total" selected data-id="0">전체</option>
+                     <option class="option-2" value="exh-total" selected data-id="0">전체</option>
 
 
                      <option class="option-2" data-id="1" value="exh-ing">전시중</option>
