@@ -70,7 +70,7 @@ window.addEventListener("load", function () {
 function selectexh() {
    const selectList = document.querySelector("#selectexhibition");
    const selectBtnTwo = document.querySelector(".select-box");
-   const optionsTwo = document.querySelectorAll(".option-2");
+//    const optionsTwo = document.querySelectorAll(".option-2");
    let page = 1;
    
    let current = document.querySelector(".active");
