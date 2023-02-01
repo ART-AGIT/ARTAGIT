@@ -39,7 +39,7 @@ public class SearchController {
 			memberId = 0;
 		else
 			memberId = user.getId();
-		
+		System.out.println(query+"q===============");
 		List<ExhibitionView> lists = service.getListBySearch(query, memberId);
 		
 		model.addAttribute("lists", lists);

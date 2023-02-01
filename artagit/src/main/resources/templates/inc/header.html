@@ -65,8 +65,8 @@
 	        <div class="modal-body modal-search">
 	            <!-- 모달 내용 -->
 	            <form action="/exhibition/search" method="GET">
-	                <input class="input input-search header-search" type="text" placeholder="전시 검색">
-	                <button type="submit" name="q" class="icon icon-search btn-search" value="바보">검색</button>
+	                <input name="q" class="input input-search header-search" type="text" placeholder="전시 검색">
+	                <button type="submit" class="icon icon-search btn-search"  th:value="${q}">검색</button>
 	            </form>
 	        </div>
 	    </div>
@@ -143,9 +143,9 @@
 	        <!-- 모달 창 -->
 	        <div class="modal-body modal-search">
 	            <!-- 모달 내용 -->
-	            <form action="/exhibition/search" method="GET">
-	                <input class="input input-search header-search" type="text" placeholder="전시 검색">
-	                <button type="submit" name="q" class="icon icon-search btn-search" value="바보">검색</button>
+	           <form action="/exhibition/search" method="GET">
+	                <input name="q" class="input input-search header-search" type="text" placeholder="전시 검색">
+	                <button type="submit" class="icon icon-search btn-search"  th:value="${q}">검색</button>
 	            </form>
 	        </div>
 	    </div>
