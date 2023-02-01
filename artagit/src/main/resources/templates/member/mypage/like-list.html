@@ -19,25 +19,25 @@
 	        	<div class="profile-box">
 	        		<div class="profile-content">
 		                <div class="profile-img-box" >
-<!-- 		                    	<img th:src="@{|/image/${user.img}|}" class="profile-img" src="../../../image/camera.svg"> -->
-							<img th:if="${user.img}!= null" th:src="@{|/image/${user.img}|}" class="profile-img img-input">
+		                   <img th:if="${user.img}!= null" th:src="@{|/image/${user.img}|}" class="profile-img img-input">
                             <img th:unless="${user.img}!= null" th:src="@{/image/프사.jpg}" class="profile-img img-input">
 		                </div>
-		                <div>
+		                <div></div>
 			                <div class="profile-name"> 
-			                    <span th:text="${member.nickname} +' 님'">1004님</span>
+			                    <span th:text="${user.nickname}+' 님'">1004님</span>
 			                </div>
 			                <div class="member-grade">
                         		일반회원
                     		</div>
-		                </div>
+		                
 		            </div>
 	            </div>
 	            <ul class="menu-list">
-	                <li class="list line-on"><a class="deco deco-ticket " href="/member/mypage/review/list">나의 예매내역</a></li>
+	                <li class="list line-on"><a class="deco deco-ticket "  href="/member/mypage/review/list">나의 예매내역</a></li>
 	                <li class="list"><a class="deco deco-heart-red deco-ticket-on" href="/member/mypage/like-list">좋아요 전시</a></li>
 	                <li class="list"><a class="deco deco-smile"  href="/member/mypage/account-edit">내 정보 수정</a></li>
-	                <li class="list"><a class="deco deco-write" href="/member/mypage/post-list">작성글 관리</a></li>
+	                <li class="list"><a class="deco deco-write" href="/member/mypage/post-list" >작성글 관리</a></li>
+
 	            </ul>
 	        </div>
     <!-- pc 프로필 부분 끝 ==== -->

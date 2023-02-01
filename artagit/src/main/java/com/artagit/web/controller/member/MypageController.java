@@ -81,7 +81,7 @@ public class MypageController {
 	@GetMapping("/review/list")
 	public String list(Model model, @AuthenticationPrincipal ArtagitUserDetails user,
 			@RequestParam(defaultValue = "1", name = "p") int page) throws ParseException {
-
+		System.out.println("user는 ~~~~~~ " + user);
 		System.out.println("page" + page);
 		String todayfm = new SimpleDateFormat("yyyy-MM-dd").format(new Date(System.currentTimeMillis()));
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
@@ -180,7 +180,7 @@ public class MypageController {
 
 	
 		if (!member.getPassword().isEmpty()) {
-			//비번 수정할게있으면 
+			//비번칸이 빈칸이 아니면
 			String password = member.getPassword();
 			String encPassword = passwordEncoder.encode(password);
 
@@ -221,7 +221,7 @@ public class MypageController {
 		}
 
 		System.out.println("멤버의 이름"+member.getName());
-		user.setPassword(member.getPassword());
+		//user.setPassword(member.getPassword());
 		user.setImg(member.getImage());
 		user.setNickname(member.getNickname());
 		user.setName(member.getName());

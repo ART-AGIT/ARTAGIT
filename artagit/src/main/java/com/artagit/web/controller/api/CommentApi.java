@@ -34,6 +34,7 @@ public class CommentApi {
 		dto.put("status", 200);
 		dto.put("member", list.get("member"));
 		dto.put("comment", list.get("comment"));
+		
 		return dto;
 	}
 
