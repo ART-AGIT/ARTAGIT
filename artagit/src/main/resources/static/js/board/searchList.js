@@ -63,7 +63,6 @@ window.addEventListener("load", function() {
 			
 			
 		
-			
 			let template = ` 
 		<form class="board-box">
         <section class="board-list">
@@ -95,14 +94,18 @@ window.addEventListener("load", function() {
             </div>
         </div>
         <div class="board-post-img-box">
-        <a href="/member/board/${board.id}">
-           <img onerror="this.style.display='none'"  src="/image/board/${titleImage}" class="post-img">
+        <a href="/member/board/${board.id}">`
+        if(titleImage!=null)
+        template+=`
+           <img src="/image/board/${titleImage}" class="post-img">`
+        template+=`
            </a>
         </div>
           </section>
              <div class="writing-img-box">
 			        <a href = "../member/board/reg"><img src = "../image/writing-img.png"></img></a>
 	    </div>
+	   
     </form>
     
 			 

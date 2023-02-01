@@ -583,8 +583,7 @@ window.addEventListener("load", function(){
                                            <span id="textLengthCheck" style="padding-left:600px;">(0 / 최대 950자)</span>
                                        </div>
                                        <div class="write-form" style="margin-top:0px;">
-                                           <textarea  id="content" name ="content" spellcheck="false" class="input-review" placeholder="리뷰를 작성해주세요\n최대 1000자까지 작성가능합니다." >
-                                           </textarea>       
+                                           <textarea  id="content" name ="content" spellcheck="false" class="input-review" placeholder="리뷰를 작성해주세요\n최대 1000자까지 작성가능합니다." ></textarea>       
                                           
                                        </div>        
                                            <div class="detail-info">

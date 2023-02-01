@@ -124,7 +124,7 @@ window.addEventListener("load",function(){
     elInputLoginId.oninput = function(){
 
         // console.log(input)s
-        var regExpId = /^[a-z0-9_]{8,16}$/
+        var regExpId = /^[a-z0-9_]{6,16}$/
        
 
         if(elInputLoginId.value==false){ 

@@ -346,6 +346,7 @@ h1.mody-on:focus {
 	.item:nth-child(even) {
 	    line-height: 22px;
 	    text-align: justify;
+	    overflow: hidden;
 	}
 	
 	.user-box {

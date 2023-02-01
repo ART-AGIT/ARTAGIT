@@ -16,8 +16,9 @@ window.addEventListener("load",function(){
 	// img 등록하기
 	const editImg = document.querySelector(".edit-img")
 //	const imgInput = this.document.querySelector(".img-input");
-	const imgInput = this.document.querySelectorAll(".img-input");
+	const imgInput = this.document.querySelector(".img-input");
 	const fileInput = this.document.querySelector(".file-input");
+	
 	
 	// 회원탈퇴 modal
 	const modal = document.querySelectorAll("#modal");
@@ -123,10 +124,12 @@ window.addEventListener("load",function(){
 
 
 			if(e.target.classList.contains("icon-write")){
+				console.log("fileInput")
+//				 e.preventDefault();
 				//  img 수정
 				console.log("이미지 수정");
-				console.log("imgInput[1]"+imgInput[1]);
-				imgInput[1].onclick=function(e){
+//				console.log("imgInput[1]"+imgInput[1]);
+//				imgInput.onclick=function(e){
 			      e.preventDefault();
 			      let event = new MouseEvent("click",{
 			         'view':window,
@@ -135,7 +138,7 @@ window.addEventListener("load",function(){
 			         
 			      });
 			      fileInput.dispatchEvent(event); //이거무슨의미 
-			   	 }
+//			   	 }
 			   
 			   //미리보기로 한 이미지를 
 			   fileInput.oninput = function(e){
@@ -143,7 +146,7 @@ window.addEventListener("load",function(){
 			      
 			      let reader = new FileReader();
 			      reader.onload = (evt)=>{
-			         imgInput[1].src = evt.target.result;
+			         imgInput.src = evt.target.result;
 			      };
 			      reader.readAsDataURL(url);
 			   }
