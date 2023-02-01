@@ -219,7 +219,7 @@ public class MypageController {
 			member.setImage(user.getImg());
 		}
 
-
+		System.out.println("멤버의 이름"+member.getName());
 		user.setPassword(member.getPassword());
 		user.setImg(member.getImage());
 		user.setNickname(member.getNickname());
