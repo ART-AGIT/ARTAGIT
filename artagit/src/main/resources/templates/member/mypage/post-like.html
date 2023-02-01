@@ -22,6 +22,7 @@
 	        		<div class="profile-content">
 		                <div class="profile-img-box" >
 		                    <img th:src="@{|/image/${user.img}|}" class="profile-img" src="../../../image/camera.svg">
+		                	<img th:if="${user.provider != null}" th:src="${user.img}" class="profile-img img-input">
 		                </div>
 		                <div class="profile-name">
 		                    <span th:text="${member.nickname} +' 님'">1004님</span>

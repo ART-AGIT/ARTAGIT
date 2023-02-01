@@ -6,8 +6,6 @@ window.addEventListener("load", function(){
     var currentEl = section.querySelector(".active");
 
     qnaBox.onclick = function(e){ 
-        // var currentEl = e.target;
-        
         var isHeader = e.target.nodeName == 'H4'
                         || e.target.classList.contains('accordion-header');
         
@@ -34,13 +32,9 @@ window.addEventListener("load", function(){
         noticeBox[i].onclick = function(e){
             console.log(`${noticeBox[i].dataset.id}번 공지 클릭`);
 
-            // let queryString = `?c=${noticeBox[i].dataset.id}`;
             let queryString = noticeBox[i].dataset.id;
 
             console.log(queryString);
-
-            // if(noticeBox[i].dataset.id == 0)
-            //     queryString = "";
 
             fetch(`customer_notice/${queryString}`, {
                 method: "GET"
@@ -54,11 +48,14 @@ window.addEventListener("load", function(){
                 main.innerHTML = "";
                 console.log(notice);
                 console.log(notice.image);
+                const regDate = notice.regDate.substring(0,10);
+                const regTime = notice.regDate.substring(11,19);
+                // notice.regDate.sub
 
             let template = `<main>
                             <section class="notice-detail-container">
                                 <h1 class="notice-detail-title">${notice.title}</h1>
-                                <span class="notice-detail-date">관리자&nbsp;&nbsp;${notice.regDate}</span>
+                                <span class="notice-detail-date">관리자&nbsp;&nbsp;${regDate}  ${regTime}</span>
 
                                 <div class="notice-detail-content">`
 

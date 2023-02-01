@@ -1,11 +1,11 @@
 window.addEventListener("load", function(){
+	const main = this.document.querySelector("main");
 	const urlCopy = document.querySelector(".deco-url");
-	const heart=document.querySelector(".deco-heart");
+	const heart = document.querySelector(".deco-heart");
 	const likeNum = document.querySelector(".like-num");
 	const mapBox = document.querySelector(".deco-map");
 	const modalBox = this.document.querySelector(".mini-menu-list>li");
-	
-	
+
 
 	/////// URL 복사 버튼 클릭 시
 	urlCopy.onclick = function(e){
@@ -13,18 +13,26 @@ window.addEventListener("load", function(){
 
 		navigator.clipboard.writeText(window.location.href)
 		.then(()=>{
-			let modal = `
-						<div class="modal-hj">
-							<div class="modal-header-hj">
-								<h1 class="header-title-hj">URL이 복사되었습니다.</h1>
+			let modal = 
+						`<div class="d-modal modal-overlay">
+							<div class="modal-window">
+								<div class="modal-header">
+									<h1 class="header-title">URL이 복사되었습니다.</h1>
+								</div>
+								<div class="modal-actions">
+									<a class="modal-action" href="">확인</a>
+								</div>
 							</div>
-							<div class="modal-actions-hj">
-								<a class="modal-action-hj" href="">확인</a>
-							</div>
-						</div>
-						`
+						</div>`
 
-						modalBox.insertAdjacentHTML("beforeend", modal);
+						let el = new DOMParser()
+						.parseFromString(modal, "text/html")
+						.body
+						.firstElementChild;
+					const container = document.querySelector('.container');
+					main.append(el);
+
+					// document.insertAdjacentHTML("beforeend", modal);
                         document.body.classList.add("stop-scroll");
 		})
 		.then(console.log("성공"));
@@ -50,8 +58,8 @@ window.addEventListener("load", function(){
 				if(data.resultObject == 1){
 					likeNum.innerHTML="";
 					let template = `${count}`
-	                        
-	            	likeNum.append(template);	
+
+					likeNum.append(template);	
 				}
 				if(data.status == '405'){
 					window.alert("일반회원만 가능합니다.")
@@ -86,13 +94,6 @@ window.addEventListener("load", function(){
 			})
 		}
 	}
-
-	
-
-	// this.window.scrollTo = function(e){
-	// 	console.log("스크롤 내려간다~~~");
-	// 	bookingBtn.style.marginTop = Math.max(-250, 0-this.scrollTop());
-	// }
 });
 
 

@@ -35,7 +35,7 @@
 .unregister{
     display: flex;
     justify-content: end;
-    padding-top : 100px;
+    padding-top: 200px;
 }
 
 
@@ -204,12 +204,14 @@ top: -5px;
 
 .icon-arrow-toggle-down{
     -webkit-mask-size: 15px 15px;
-    height:0;
+    height: 0;
+    cursor: pointer;
 }
 
 .icon-arrow-toggle-up{
     -webkit-mask-size: 15px 15px;
-    height:0;
+    height: 0;
+    cursor: pointer;
 }
 
 /* 회원탈퇴 modal */
@@ -376,6 +378,7 @@ top: -5px;
     
     .toggle > h1 {
 	    padding-right: 345px;
+	    cursor: pointer;
     }
     
     .reg-list-input-box {

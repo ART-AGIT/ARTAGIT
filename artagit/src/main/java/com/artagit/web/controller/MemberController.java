@@ -174,7 +174,7 @@ public class MemberController {
 				service.update(member);		// 멤버객체를 update 하기				
 			} else {
 				corp.setPassword(tmpPwd);
-				corpService.update(corp);
+				corpService.updateAccount(corp);
 			}
 			mailService.sendMail(email, id, tmpPwd); // 메일 발송
 			

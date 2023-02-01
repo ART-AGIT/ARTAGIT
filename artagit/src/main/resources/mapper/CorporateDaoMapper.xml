@@ -7,12 +7,13 @@
 		where id = #{id}
 	</select>
 	
-	<update id="update" parameterType="com.artagit.web.entity.Corporate">
+	<update id="updateExhInfo" parameterType="com.artagit.web.entity.Corporate">
 		update Corporate
  		<set>
  			<if test="museumName != null">museumName = #{museumName},</if>
  			<if test="name != null">name = #{name},</if>
  			<if test="corpAddress != null">corpAddress = #{corpAddress},</if>
+ 			<if test="addressDetail != null">addressDetail = #{addressDetail},</if>
  			<if test="phone != null">phone = #{phone},</if>
  			<if test="manager != null">manager = #{manager},</if>
  		</set>

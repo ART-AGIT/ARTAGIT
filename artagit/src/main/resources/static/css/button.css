@@ -109,7 +109,8 @@
 
 
 .btn-size-1 {
-    min-width: 80px;
+    min-width: 70px;
+    font-size: 14px;
 }
 
 .btn-unregister {

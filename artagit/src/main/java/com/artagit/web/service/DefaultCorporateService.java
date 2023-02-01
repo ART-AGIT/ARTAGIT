@@ -42,8 +42,8 @@ public class DefaultCorporateService implements CorporateService{
 	// [주최자] 나의 등록전시 수정 -> 주최측 정보 수정
 	@Transactional(isolation = Isolation.READ_UNCOMMITTED)
 	@Override
-	public int update(Corporate corp) {
-		int result = corporateDao.update(corp);
+	public int updateExhInfo(Corporate corp) {
+		int result = corporateDao.updateExhInfo(corp);
 		return result;
 	}
 
@@ -64,15 +64,18 @@ public class DefaultCorporateService implements CorporateService{
 	@Override
 	public int deleteUseYN(int id) {
 		int result = corporateDao.deleteYN(id);
-		
 		return result;
 	}
 
 	// 주최자 정보 수정
 	@Override
-	public int updateAccount(ArtagitUserDetails user) {
-		// TODO Auto-generated method stub
-		return corporateDao.updateAccount(user);
+	public int updateAccount(Corporate corp) {
+		System.out.println("전달받은 비번: " + corp.getPassword());
+		String encPassword = passwordEncoder.encode(corp.getPassword());
+		corp.setPassword(encPassword);
+		System.out.println("암호화된 비번: " + encPassword);
+		int result = corporateDao.updateAccount(corp);
+		return result;
 	}
 
 
