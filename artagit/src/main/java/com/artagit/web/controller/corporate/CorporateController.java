@@ -43,7 +43,8 @@ public class CorporateController {
 		public String update(@AuthenticationPrincipal ArtagitUserDetails user, Model model, Corporate corporate) {
 			//회원수정페이지불러올때 회원가입할때정보불러오기 user쓰기
 			System.out.println("마이페이지~~~~~~~!!!!!!!"+user);
-			model.addAttribute("user",user);			
+			model.addAttribute("user",user);
+//			model.addAttribute(corporate.getName());
 			return "corporator/mypage/account-edit";
 		}
 		

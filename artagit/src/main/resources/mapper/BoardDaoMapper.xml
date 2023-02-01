@@ -52,7 +52,10 @@
 			title = #{title},
 			content=#{content},
 			roleId=#{roleId},
-			<if test="image != null">image=#{image}</if>
+			<if test="image1 != null">image1=#{image1}</if>
+			<if test="image2 != null">image2=#{image2}</if>
+			<if test="image3 != null">image3=#{image3}</if>
+			<if test="image4 != null">image4=#{image4}</if>
 		</set>
 		where id =#{id}
 	</update>

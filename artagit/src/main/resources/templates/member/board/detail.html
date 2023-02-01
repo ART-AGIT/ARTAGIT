@@ -34,7 +34,7 @@
             <!-- <li>전체 글</li> -->
              <li data-id="0" th:class="${board.roleId}==null?'board-selected'" class="deco-ticket-on"><a href="/board/list" class="deco deco-total">전체 글</a></li>
             <li data-id="1" th:class="${#strings.equals(board.roleId, '1')}?'board-selected'"class="line-on icon-note"><div class="deco deco-free"><a th:href="@{|/board/list${1}|}">자유게시판</a></div></li>
-            <li data-id="2" th:class="${#strings.equals(board.roleId, '2')}?'board-selected'" class="icon-picture"><div class="deco deco-picture"><a th:href="@{|/board/list${1}|}">전시후기</a></div></li>
+            <li data-id="2" th:class="${#strings.equals(board.roleId, '2')}?'board-selected'" class="icon-picture"><div class="deco deco-picture"><a th:href="@{|/board/list${2}|}">전시후기</a></div></li>
             <li data-id="3" th:class="${#strings.equals(board.roleId, '3')}?'board-selected'" class="icon-food"><div class="deco deco-food"><a th:href="@{|/board/list${3}|}">맛집후기</a></div></li>
             <li data-id="4" th:class="${#strings.equals(board.roleId, '4')}?'board-selected'" class="icon-smile"><div class="deco deco-together"><a th:href="@{|/board/list${4}|}">같이가요</a></div></li>
         </ul> 
@@ -60,13 +60,13 @@
             <div th:utext="${board.title}" class="post-title">
                 <span>회원님들 그만 asdffffffffffffffffffffffffffffffffff좀 싸우ads22</span>
             </div>
-            <div th:text="${#dates.format(board.regDate, 'yy/MM/dd HH:mm')}" class="post-reg-time">
+            <div th:text="${#dates.format(board.regDate, 'yy/MM/dd HH:mm')}" class="post-reg-time"  >
                     22-11-30 11:30
             </div>
            
                 <div class="post-writer-info">
                     <img class = "profile-photo" th:src="@{|/image/${board.memImage}|}" src = "../../image/accountImage.png">
-                    <div><a th:text="${board.nickname}" href = "../mypage/like-list.html">운영자</a></div>
+                    <div><a th:text="${board.nickname}">운영자</a></div>
                 </div>
             
             <div class="post-info">
@@ -118,12 +118,13 @@
                <h1 class="d-none">댓글1개</h1>
                <div class="comment-writer-wrapper" >
                   <div class="comment-writer">
-                     <img class="profile-photo" src = "../../image/accountImage.png">
+                     <img class="profile-photo" th:src="@{|/image/${comment.image}|}" th:attr="data-id=${comment.image}" >
                      <div class="user-name" th:text="${comment.nickname}">오라클</div>
                   </div>
                   <div class="icon icon-report" >
                         <button id="4" th:attr="data-id=${comment.memId}" class="icon icon-report btn-black" type="submit" value="댓글">수정</button>
                   </div>
+                  
                   
                   
                </div>
@@ -132,7 +133,7 @@
                   다녀왔는데 정말 좋더라고요~ 굿즈asfdddddddddddddddddddddsdaaaaaaaaaaaaaaaaaas도 다
                   너무 예뻣더라는..</div>
                <div class="comment-info">
-                  <div th:text="${#dates.format(comment.regDate, 'yy/MM/dd HH:mm')}">
+                  <div class="date" th:text="${#dates.format(comment.regDate, 'yy/MM/dd HH:mm')}" th:attr="data-id=${#dates.format(comment.regDate, 'yy/MM/dd HH:mm')}">
                      2022.11.26 18:38</div>
                   <div class="re-comment"  >
 <!--                  <button id="3"    class="btn btn-default comment" type="submit" value="수정">답변쓰기</button> -->
@@ -225,8 +226,6 @@
 							<div class="item item-report">
 							    <textarea class="report-form" spellcheck="false"></textarea>
 							</div>
-							<div class="item">이미지 첨부</div>
-							<div class="item">ddd</div>
 						</div>
 						<div class="icon-box">
 						</div>

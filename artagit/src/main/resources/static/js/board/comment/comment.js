@@ -8,20 +8,25 @@ window.addEventListener("load", function() {
 	let nickname =  document.querySelector(".add-modify")
 	let commentBox = document.querySelector(".comment")
 	let type = document.querySelector(".type-post")
+	let img = document.querySelector(".profile-photo")
+	let date = document.querySelector(".date")
+	
+	let time = date.dataset.id
+	
+		
+
+
 
 	btnReg.onclick = function(e) {
-e.preventDefault();
+		e.preventDefault();
 		
 		
 		let formData = new FormData(document.querySelector("#comment-form"));
 		fetch(`/api/reg`, { method: "post", body: formData })
 			.then(response => response.json())
 			.then(data => {
-//				for (form = e.target; form.tagName != "FORM"; form = form.parentElement);
-//				console.log(commentId = form.dataset.id)
 				let name = data.member
 				let name2 = data.comment
-				console.log(name2)
 
 				let template = `
    <section class="comment-detail">
@@ -29,7 +34,7 @@ e.preventDefault();
                <h1 class="d-none">댓글1개</h1>
                <div class="comment-writer-wrapper">
                   <div class="comment-writer">
-                     <img class="profile-photo" src="../../image/accountImage.png">
+                     <img class="profile-photo" src="${img.src}">
                      <div class="user-name">${name}</div>
                      
                   </div>
@@ -40,8 +45,8 @@ e.preventDefault();
 
                <div class="comment-main" >${name2.content}</div>
                <div class="comment-info">
-                  <div >
-                     2022.11.26 18:38</div>
+                  <div class="date" >
+                    ${time}</div>
                   <div class="re-comment">
                   </div>
                      <div class="add-modify">
@@ -104,7 +109,7 @@ e.preventDefault();
        		<section class="comment-detail">
                <div class="comment-writer-wrapper">
                   <div class="comment-writer">
-                     <img class="profile-photo" src="../../image/accountImage.png">
+                         <img class="profile-photo" src="${img.src}">
                      <div class="user-name">${nickname.dataset.id}</div>
                   </div>
                   <div class="icon icon-report">
@@ -115,8 +120,8 @@ e.preventDefault();
 
                <div class="comment-main" >${oldComment}</div>
                <div class="comment-info">
-                  <div >
-                     2022.11.26 18:38</div>
+              <div class="date" >
+                    ${time}</div>
                   <div class="re-comment">
                   </div>
                      <div class="add-modify">
@@ -144,7 +149,6 @@ e.preventDefault();
 				fetch(`/api/update`, { method: "put", body: formData2})
 					.then(response => response.json())
 					.then(data => {
-						console.log(data)
 
 
 
@@ -154,7 +158,7 @@ e.preventDefault();
                <h1 class="d-none">댓글1개</h1>
                <div class="comment-writer-wrapper">
                   <div class="comment-writer">
-                     <img class="profile-photo" src="../../image/accountImage.png">
+                         <img class="profile-photo" src="${img.src}">
                      <div class="user-name">${nickname.dataset.id}</div>
                   </div>
                  <div class="icon icon-report">
@@ -165,8 +169,8 @@ e.preventDefault();
 
                <div class="comment-main" >${textValue}</div>
                <div class="comment-info">
-                  <div >
-                     2022.11.26 18:38</div>
+                  <div class="date" >
+                    ${time}</div>
                   <div class="re-comment">
                        	    </div>
                        	<div class="add-modify">
@@ -200,7 +204,6 @@ e.preventDefault();
 						let result = (data.result)
 						if(result == 1)
 							form.remove();
-//						console.log(result);
 					})
 					
 			
