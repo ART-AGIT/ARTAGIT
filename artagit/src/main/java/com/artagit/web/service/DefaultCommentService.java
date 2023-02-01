@@ -7,9 +7,13 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.artagit.web.dao.BoardReportDao;
 import com.artagit.web.dao.CommentDao;
+import com.artagit.web.dao.CommentReportDao;
 import com.artagit.web.dao.MemberDao;
+import com.artagit.web.entity.BoardReport;
 import com.artagit.web.entity.Comment;
+import com.artagit.web.entity.CommentReport;
 import com.artagit.web.entity.Member;
 
 @Service
@@ -22,8 +26,13 @@ public class DefaultCommentService implements CommentService {
 	@Autowired
 	private MemberDao memberDao;
 
+	@Autowired
+	private CommentReportDao reportDao;
 	
-
+	@Autowired
+	private BoardReportDao boardReportDao;
+	
+	
 
 	@Override
 	public Map<String, Object> modify(Comment comment) {
@@ -79,6 +88,23 @@ public class DefaultCommentService implements CommentService {
 		return result;
 		
 	}
+
+	@Override
+	public int regReport(CommentReport report) {
+		
+		int result = reportDao.insert(report);
+		
+		return result;
+	}
+
+	@Override
+	public int regReportBoard(BoardReport report) {
+		
+		int result = boardReportDao.insert(report);
+		
+		return result;
+	}
+
 
 
 

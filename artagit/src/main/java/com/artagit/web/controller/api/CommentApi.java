@@ -1,21 +1,20 @@
 package com.artagit.web.controller.api;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.artagit.web.entity.ArtagitUserDetails;
+import com.artagit.web.entity.BoardReport;
 import com.artagit.web.entity.Comment;
-import com.artagit.web.service.BoardService;
+import com.artagit.web.entity.CommentReport;
 import com.artagit.web.service.CommentService;
 
 @RestController
@@ -61,5 +60,23 @@ public class CommentApi {
 		dto.put("result", result);
 		 return dto;
 	}	
+	
+	//댓글 신고
+	@PostMapping("reportComment")
+	public int regReportComment(CommentReport report) {
+	
+	int result = service.regReport(report);
+	return result;
+	}
+	
+	//게시글 신고
+	
+	@PostMapping("reportBoard")
+	public int regReportBoard(BoardReport report) {
+	
+	int result = service.regReportBoard(report);
+	System.out.println(report);
+	return result;
+	}
 	
 }

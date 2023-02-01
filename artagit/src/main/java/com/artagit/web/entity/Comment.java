@@ -12,8 +12,16 @@ public class Comment {
    private String nickname;
    private Date regDate;
    private String useYn;
-   
-   public String getUseYn() {
+   private String image;
+   public String getImage() {
+	return image;
+}
+
+public void setImage(String image) {
+	this.image = image;
+}
+
+public String getUseYn() {
 	return useYn;
 }
 
@@ -91,8 +99,9 @@ public Comment() {
 @Override
 public String toString() {
 	return "Comment [id=" + id + ", postId=" + postId + ", memId=" + memId + ", content=" + content + ", nickname="
-			+ nickname + ", regDate=" + regDate + ", useYn=" + useYn + "]";
+			+ nickname + ", regDate=" + regDate + ", useYn=" + useYn + ", image=" + image + "]";
 }
+
 
   
 

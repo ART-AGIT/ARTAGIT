@@ -148,7 +148,6 @@
     display:flex;
     justify-content: center;
     padding: 10px 0 10px 0;
-    border-bottom: 1px solid #BCBCBC;
 }
 
 .comment-info{
@@ -166,6 +165,11 @@
 }
 .add-modify{
 	 justify-self: end;
+}
+.report{
+	    display: flex;
+    	justify-content: end;
+    	    margin-top: 10px;
 }
 
 .re-comment>a{
@@ -187,6 +191,16 @@ form .user-name{
     height: 26px;
 }
 
+.btn-default-dark{
+    width: 46px;
+    height: 26px;
+   background-color: #b7b5b5;
+   border-color: #b7b5b5;
+    
+}
+
+
+
 textarea{
     resize:none;
     width: 85%;
@@ -205,9 +219,10 @@ textarea:focus{
 .profile-photo{
     display:flex;
     align-self:center;
-    height: 20px;
-    width: 20px;
+    height: 25px;
+    width: 25px;
     padding-right: 3px;
+    padding-top: 5px;
     border-radius:100px;
 }
 .comment-writing>div{
@@ -229,12 +244,24 @@ textarea:focus{
     padding-top: 2px;
 }
 .icon-report{
+    padding-top: 10px;
     /* margin-bottom:5px; */
 }
 
 .icon-flex{
     display:flex;
 }
+
+.a-btn{
+	color:#FF6C9E;
+	font-size:14px;
+	margin-right: 10px;
+	cursor: pointer;
+}
+.a-btn-black{
+	color:#837e7e;
+}
+
 
 #modal.modal-overlay {
             width: 100%;
@@ -293,11 +320,111 @@ textarea:focus{
 /*             color: gray; */
 /*         } */
 
+
+
+  
+		
+/* 		================================================= */
+#modal-popup.modal-overlay {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            left: 0;
+            top: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.25);
+            box-shadow: 0 3px 5px 0 rgb(136, 30, 123);
+            backdrop-filter: blur(1.5px);
+            -webkit-backdrop-filter: blur(1.5px);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+        #modal-popup .modal-window {
+            background: white;
+            box-shadow: 0 3px 5px 0 rgb(177, 41, 126);
+            backdrop-filter: blur( 13.5px );
+            -webkit-backdrop-filter: blur( 13.5px );
+            border-radius: 10px;
+            border: 1px solid rgba( 255, 255, 255, 0.18 );
+            width:  200px;
+            height: 100px;
+            position: relative;
+            top: -100px;
+            padding: 10px;
+        }
+       
+        
+        #modal-popup .content {
+            margin-top: 20px;
+             margin-bottom:20px;
+            padding: 0px 10px;
+            color: gray;
+        }
 		.button-wrap{
-/* 		   margin-left: 30%; */
+		margin-bottom: 10px;
 		
 		}
 
+
+
+        
+/*         =============================================== */
+		
+		
+		
+
+
+        #popup.popup-overlay {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            left: 0;
+            top: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.25);
+            box-shadow: 0 3px 5px 0 rgb(136, 30, 123);
+            backdrop-filter: blur(1.5px);
+            -webkit-backdrop-filter: blur(1.5px);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+        #popup .popup-window {
+            background: white;
+            box-shadow: 0 3px 5px 0 rgb(177, 41, 126);
+            backdrop-filter: blur( 13.5px );
+            -webkit-backdrop-filter: blur( 13.5px );
+            border-radius: 10px;
+            border: 1px solid rgba( 255, 255, 255, 0.18 );
+            width:  550px;
+            height: 450px;
+            position: relative;
+            top: -30px;
+            padding: 10px;
+        }
+       
+        
+        #popup .popup-content {
+            margin-bottom: -5px;
+            padding: 0px 10px;
+            color: gray;
+        }
+		.button-popup{
+            display: flex;
+            gap: 70px;
+		   margin-left: 32%;
+		
+		}
+		
+	.btn{
+		cursor: pointer;
+	}
+	
 
 /* --------pc버전--------------- */
 @media (min-width: 992px) {

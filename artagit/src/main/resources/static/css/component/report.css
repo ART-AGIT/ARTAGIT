@@ -1,6 +1,6 @@
 .main-box{
     width: 100%;
-    height: 800px;
+    height: 100%;
 }
 
 .table-box{
@@ -16,7 +16,7 @@
 
 .table{
     width: 100%;
-    height: 50%;
+    height: 330px;
     border: 1px solid #707070;
     display:grid;
     grid-template-columns: 1fr 1.4fr; 
@@ -46,20 +46,40 @@
   
   
   .btn-select, .box-select {
-      width: 130px;
-      height: 50px;
-      padding: 15px;
-      background: rgb(71, 70, 70);
+      width: 170px;
+      height: 35px;
+      background: #FF6C9E;
       /* margin-left: 30px; */
+      text-align-last: center;
       color: #fff;
-      text-align-last: left;
     line-height: 1;
-    border-radius: 15px;
+    border-radius: 10px;
+        border: none;
     justify-self: center;
     align-self: center;
     
   }
   
+  .report-form{
+      resize: none;
+    width: 93%;
+    height: 89%;
+    border-radius: 5px;
+    border:none;
+  	margin:0px;
+  	padding: 10px;
+  }
+  .btn-black-size{
+  	background-color:#6e6868;
+  	border:none;
+	width:45px;
+  	
+  }
+  .btn-large{
+    width: 60px;
+    height: 35px;
+    margin-left:20px;
+  }
  
 
 .table :last-child{

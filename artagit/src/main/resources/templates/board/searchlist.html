@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6"
-	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-	layout:decorate="~{inc/layout}">
+   xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6"
+   xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+   layout:decorate="~{inc/layout}">
 
 <th:block layout:fragment="css">
     <link href="/css/component/board-list.css" type="text/css" rel="stylesheet">
-	<script src="/js/board/list.js"></script>
-		<script src="/js/modal.js"></script>
-		<script src="/js/index.js"></script>
-		<script src="/js/board/searchList.js"></script>
+   <script src="/js/board/list.js"></script>
+      <script src="/js/modal.js"></script>
+      <script src="/js/index.js"></script>
+      <script src="/js/board/searchList.js"></script>
 </th:block>
  
 <body id="body" layout:fragment="content" >
@@ -32,109 +32,105 @@
    <div class="board-box-container">
   
     <div class="board-box">
-			    <div class="post-list">
-			        <h2 class="community-h1">커뮤니티</h2>
-			       <form action="/board/search" class= "board-search" method="GET">
-		                <input class="input" name="q" type="text"  placeholder="제목 또는 내용">
-		                <button type="submit"  class="icon icon-search" th:value="${q}" >검색</button>
-	            	</form>
-			           <form class="" action="list" method="get">
-			           <section class="notice-list-box">
-					        <section class="notice " th:each="noticeList:${noticeList}">
-					            <h1 class="d-none">공지목록</h1> 
-					            <div class="notice-icon ">공지</div>
-					            <h1 class="notice-title">
-					                <a th:utext="${noticeList.title}" th:href="@{|/notice/${noticeList.id}|}" href = "../member/board/detail.html">안녕하세요. 아트아지트 입니다.</a></h1>
-					            <div> </div>
-					            <div class="notice-info">
-					                
-				                <div>
-				                   
-				                	<div>운영자 </div>
-					            </div>
-					            <div th:text="${#dates.format(noticeList.regDate, 'YY/MM/dd HH:mm')}"> 22-11-30 </div>
-					                
-				                <div class="view">
-				                    <div class="icon icon-view icon-size">조회수 아이콘</div>
-				                    <div th:text=${noticeList.hit}>11</div>
-				                </div>
-					        </section>
-			           </section>
-			           </form>
-					    <section class="post-list-box">
-					       <!-- <form class="" action="list" method="get"> -->
-					       <section class="board-list" th:if="${boardList.size()==0}">
-		            			<div>검색결과가 없습니다.</div>
-		            		</section>
-		            		
-					        <section class="board-list" th:each="board:${boardList}">
-						        <h1 class="board-title">
-						            <a th:utext="${board.title}" th:href="@{|/member/board/${board.id}|}" href = "../member/board/detail.html">회원님들 그만 좀 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa싸우세요들.</a>
-						        </h1>
-						     <div><a th:text="[+${board.name}+]" class="board-category-s" href="">[같이가요]</a></div>
-						        
-						        <div class="board-regdate" th:text="${#dates.format(board.regDate, 'YY/MM/DD HH:mm')}">1분전</div>
-						     
-						        <div class="board-writer-info">
-					                <img class="profile" src = "" th:src="@{|/image/${board.memImage}|}">
-					            	<div th:text="${board.nickname}">운영자 </div>
-						        </div>
-					        
-					        <div class="board-post-info">
-					            
-					            <div class="view">
-					                <div class="icon icon-view icon-size">조회수 아이콘</div>
-					                <div th:text=${board.hit}>11</div>
-					            </div>
-					            <div class="like-up">
-					                <div class="icon icon-like-up icon-size">좋아요 아이콘</div>
-					                <div th:text=${board.hearts}>11</div>
-					            </div>
-					            <div class="comment">
-					                <div class="icon icon-comment icon-size">댓글 아이콘</div>
-					                <div th:text=${board.commentTotal}>11</div>
-					            </div>
-					        </div>
-					          
-					        
-					        <div class="board-post-img-box">
-					            
+             <div class="post-list">
+                 <h2 class="community-h1">커뮤니티</h2>
+                <form action="/board/search" class= "board-search" method="GET">
+                      <input class="input" name="q" type="text"  placeholder="제목 또는 내용">
+                      <button type="submit"  class="icon icon-search" th:value="${q}" >검색</button>
+                  </form>
+                    <form class="" action="list" method="get">
+                    <section class="notice-list-box">
+                       <section class="notice " th:each="noticeList:${noticeList}">
+                           <h1 class="d-none">공지목록</h1> 
+                           <div class="notice-icon ">공지</div>
+                           <h1 class="notice-title">
+                               <a th:utext="${noticeList.title}" th:href="@{|/notice/${noticeList.id}|}" href = "../member/board/detail.html">안녕하세요. 아트아지트 입니다.</a></h1>
+                           <div> </div>
+                           <div class="notice-info">
+                               
+                            <div>
+                               
+                               <div>운영자 </div>
+                           </div>
+                           <div th:text="${#dates.format(noticeList.regDate, 'YY/MM/dd HH:mm')}"> 22-11-30 </div>
+                               
+                            <div class="view">
+                                <div class="icon icon-view icon-size">조회수 아이콘</div>
+                                <div th:text=${noticeList.hit}>11</div>
+                            </div>
+                       </section>
+                    </section>
+                    </form>
+                   <section class="post-list-box">
+                      <!-- <form class="" action="list" method="get"> -->
+                      <section class="board-list" th:if="${boardList.size()==0}">
+                           <div>검색결과가 없습니다.</div>
+                        </section>
+                        
+                       <section class="board-list" th:each="board:${boardList}">
+                          <h1 class="board-title">
+                              <a th:utext="${board.title}" th:href="@{|/member/board/${board.id}|}" href = "../member/board/detail.html">회원님들 그만 좀 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa싸우세요들.</a>
+                          </h1>
+                       <div><a th:text="[+${board.name}+]" class="board-category-s" href="">[같이가요]</a></div>
+                          
+                          <div class="board-regdate" th:text="${#dates.format(board.regDate, 'YY/MM/DD HH:mm')}">1분전</div>
+                       
+                          <div class="board-writer-info">
+                               <img class="profile" src = "" th:src="@{|/image/${board.memImage}|}">
+                              <div th:text="${board.nickname}">운영자 </div>
+                          </div>
+                       
+                       <div class="board-post-info">
+                           
+                           <div class="view">
+                               <div class="icon icon-view icon-size">조회수 아이콘</div>
+                               <div th:text=${board.hit}>11</div>
+                           </div>
+                           <div class="like-up">
+                               <div class="icon icon-like-up icon-size">좋아요 아이콘</div>
+                               <div th:text=${board.hearts}>11</div>
+                           </div>
+                           <div class="comment">
+                               <div class="icon icon-comment icon-size">댓글 아이콘</div>
+                               <div th:text=${board.commentTotal}>11</div>
+                           </div>
+                       </div>
+                         
+                       
+                       <div class="board-post-img-box">
+                           
 
-					        	    	<a th:href="@{|/member/board/${board.id}|}"><img class="post-img" onerror="this.style.display='none'" 	src = "../image/전시포스터.jpg" 
-					        	th:src="${board.image1}==null?(${board.image2}==null?
-					        	(${board.image3}==null?(${board.image4}==null?''
-					        	:@{|/image/board/${board.image4}|})
-					        	:@{|/image/board/${board.image3}|})
-					        	:@{|/image/board/${board.image2}|})
-					        	:@{|/image/board/${board.image1}|}"></a>					        </div>
-					         <div class="writing-img-box">
-							        <a href = "../member/board/reg"><img src = "../image/writing-img.png"></img></a>
-					    	</div>
-					        </section>
-					       </section>
-					       <span><a th:href="@{/board/list(currentPage=1)}">처음</a></span>
+                                 <a th:href="@{|/member/board/${board.id}|}"><img class="post-img" onerror="this.style.display='none'"    src = "../image/전시포스터.jpg" 
+                          th:src="${board.image1}==null?(${board.image2}==null?
+                          (${board.image3}==null?(${board.image4}==null?''
+                          :@{|/image/board/${board.image4}|})
+                          :@{|/image/board/${board.image3}|})
+                          :@{|/image/board/${board.image2}|})
+                          :@{|/image/board/${board.image1}|}"></a>                       </div>
+                        <div class="writing-img-box">
+                             <a href = "../member/board/reg"><img src = "../image/writing-img.png"></img></a>
+                      </div>
+                       </section>
+                      </section>
+                     
     <div class="paging">
-	    <!-- 현재 페이지가 1보다 클 경우 이전 href, 1보다 작은 경우 이전 text -->
-	    <span th:if="${currentPage > 1}"><a th:href="@{/board/list(currentPage=(${currentPage}-1))}">이전</a></span>
-	    <span th:unless="${currentPage > 1}" th:text="이전"></span>
-	    
-	    <!-- #number.sequence 인수로 지정한 2개의 수 범위에서 배열을 생성 -->
-	    <th:block th:each="num : ${#numbers.sequence(startPageNum,lastPageNum)}">
-	        <div th:data-id="1" th:data-query="${sendQuery}" class="btn btn-default current-page" th:if="${currentPage == num}" th:text="${num}"></div>
-	        <div th:data-id="${num}" th:data-query="${sendQuery}" class="btn btn-default-line not-current-page" th:unless="${currentPage == num}" th:text="${num}"></div>
-	    </th:block>
-	    
-	    <!-- 현재 페이지가 마지막페이지와 같지 않을 경우 다음 href, 같을 경우 다음 text -->
-	    <span th:if="${currentPage != lastPage}">다음</span>
-	    <span th:unless="${currentPage != lastPage}" th:text="다음"></span>
-	    <span><a th:href="@{/board/list(currentPage=${lastPage})}">마지막</a></span>
+       <!-- 현재 페이지가 1보다 클 경우 이전 href, 1보다 작은 경우 이전 text -->
+     
+       
+       <!-- #number.sequence 인수로 지정한 2개의 수 범위에서 배열을 생성 -->
+       <th:block th:each="num : ${#numbers.sequence(startPageNum,lastPageNum)}">
+           <div th:data-id="1" th:data-query="${sendQuery}" class="btn btn-default current-page" th:if="${currentPage == num}" th:text="${num}"></div>
+           <div th:data-id="${num}" th:data-query="${sendQuery}" class="btn btn-default-line not-current-page" th:unless="${currentPage == num}" th:text="${num}"></div>
+       </th:block>
+       
+       <!-- 현재 페이지가 마지막페이지와 같지 않을 경우 다음 href, 같을 경우 다음 text -->
+       
     </div>
-					  </form>
-			   		 </div>
-			   		 </div>
-			 </div>
-			  </div>
-	</main>
+                   </div>
+                   </div>
+          </div>
+           </div>
+   </main>
 
 </body>
 </html>

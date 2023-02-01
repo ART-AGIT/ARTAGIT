@@ -3,7 +3,9 @@ package com.artagit.web.service;
 import java.util.List;
 import java.util.Map;
 
+import com.artagit.web.entity.BoardReport;
 import com.artagit.web.entity.Comment;
+import com.artagit.web.entity.CommentReport;
 
 public interface CommentService {
 	
@@ -23,7 +25,9 @@ public interface CommentService {
 	Comment getCommentId(int id);
 	
 	
-
+   int regReport(CommentReport report);
+   
+   int regReportBoard(BoardReport report);
 
 
 
