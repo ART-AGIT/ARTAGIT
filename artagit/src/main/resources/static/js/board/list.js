@@ -76,6 +76,7 @@ window.addEventListener("load", function() {
                     <div class="icon icon-view icon-size">조회수 아이콘</div>
                     <div>${notice.hit}</div>
                 </div>
+<<<<<<< HEAD
            </section>`;
            
             let el1 = new DOMParser().parseFromString(template1, "text/html").body.firstElementChild;
@@ -120,6 +121,52 @@ window.addEventListener("load", function() {
          
          let template = ` 
       <form class="board-box">
+=======
+	        </section>`;
+	        
+				let el1 = new DOMParser().parseFromString(template1, "text/html").body.firstElementChild;
+				//body를 지우면 body안쪽만 나온다. firstelement를 만들겠다.
+				noticebox.append(el1); //6개의 객체를 하나하나 넣어준다.
+		}})
+	console.log(queryString);
+	fetch(
+		`/boardApi/boards${queryString}`)
+		.then((response) => 
+			response.json())
+		.then((list) => {
+			boardbox.innerHTML="";
+		for (let board of list) {
+			//시간 format설정(->KST)
+			let beforeBoardDate = new Date(board.regDate);
+			let utcBoard = beforeBoardDate.getTime() + (beforeBoardDate.getTimezoneOffset() * 60 * 1000);
+			let time_diffBoard = 9 * 60 * 60 * 1000;
+			let cur_date_koreaBoard = new Date(utcBoard + (time_diffBoard));
+			
+			let year = board.regDate.toString().substring(2, 4);
+			let month = board.regDate.toString().substring(5, 7);
+			let day = board.regDate.toString().substring(8, 10);
+			let hour = cur_date_koreaBoard.toString().substring(15, 18);
+			let min = cur_date_koreaBoard.toString().substring(19, 21);
+			let titleImage = null;
+			if(board.image1!=null)
+				titleImage = board.image1;
+				
+			else if(board.image2 != null)
+				titleImage = board.image2;
+			else if(board.image3 !=null)
+				titleImage = board.image3;
+			else if(board.image4 != null)
+				titleImage = board.image4;
+			else
+				titleImage = null;
+			
+			
+			
+				
+			
+			let template = ` 
+		<form class="board-box">
+>>>>>>> jinhui
         <section class="board-list">
         <h1 class="board-title">
             <a href = "/member/board/${board.id}">${board.title}</a>
@@ -149,8 +196,11 @@ window.addEventListener("load", function() {
             </div>
         </div>
         <div class="board-post-img-box">
-        <a href="/member/board/${board.id}">
-           <img onerror="this.style.display='none'"  src="/image/board/${titleImage}" class="post-img">
+        <a href="/member/board/${board.id}">`
+        if(titleImage!=null)
+        template+=`
+           <img src="/image/board/${titleImage}" class="post-img">`
+        template+=`
            </a>
         </div>
           </section>
