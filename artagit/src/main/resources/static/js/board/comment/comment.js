@@ -8,7 +8,12 @@ window.addEventListener("load", function() {
 	let nickname =  document.querySelector(".add-modify")
 	let commentBox = document.querySelector(".comment")
 	let type = document.querySelector(".type-post")
-
+	let img = document.querySelector(".profile-photo")
+	let date = document.querySelector(".date")
+	
+	let time = date.dataset.id
+	
+		
 
 
 
@@ -20,20 +25,8 @@ window.addEventListener("load", function() {
 		fetch(`/api/reg`, { method: "post", body: formData })
 			.then(response => response.json())
 			.then(data => {
-//				for (form = e.target; form.tagName != "FORM"; form = form.parentElement);
-//				console.log(commentId = form.dataset.id)
 				let name = data.member
 				let name2 = data.comment
-				
-			let beforeNoticeDate = new Date(name2.regDate);
-			let utc = beforeNoticeDate.getTime() + (beforeNoticeDate.getTimezoneOffset() * 60 * 1000);
-			let time_diff = 9 * 60 * 60 * 1000;
-			let cur_date_korea = new Date(utc + (time_diff));
-			let year = name2.regDate.toString().substring(2, 4);
-			let month = name2.regDate.toString().substring(5, 7);
-			let day = name2.regDate.toString().substring(8, 10);
-			let hour = cur_date_korea.toString().substring(15, 18);
-			let min = cur_date_korea.toString().substring(19, 21);
 
 				let template = `
    <section class="comment-detail">
@@ -41,7 +34,7 @@ window.addEventListener("load", function() {
                <h1 class="d-none">댓글1개</h1>
                <div class="comment-writer-wrapper">
                   <div class="comment-writer">
-                     <img class="profile-photo" src="../../image/accountImage.png">
+                     <img class="profile-photo" src="${img.src}">
                      <div class="user-name">${name}</div>
                      
                   </div>
@@ -52,8 +45,8 @@ window.addEventListener("load", function() {
 
                <div class="comment-main" >${name2.content}</div>
                <div class="comment-info">
-                  <div >
-                    ${year}/${month}/${day}/${hour}:${min}</div>
+                  <div class="date" >
+                    ${time}</div>
                   <div class="re-comment">
                   </div>
                      <div class="add-modify">
@@ -116,7 +109,7 @@ window.addEventListener("load", function() {
        		<section class="comment-detail">
                <div class="comment-writer-wrapper">
                   <div class="comment-writer">
-                     <img class="profile-photo" src="../../image/accountImage.png">
+                         <img class="profile-photo" src="${img.src}">
                      <div class="user-name">${nickname.dataset.id}</div>
                   </div>
                   <div class="icon icon-report">
@@ -127,8 +120,8 @@ window.addEventListener("load", function() {
 
                <div class="comment-main" >${oldComment}</div>
                <div class="comment-info">
-                  <div >
-                     2022.11.26 18:38</div>
+              <div class="date" >
+                    ${time}</div>
                   <div class="re-comment">
                   </div>
                      <div class="add-modify">
@@ -156,7 +149,6 @@ window.addEventListener("load", function() {
 				fetch(`/api/update`, { method: "put", body: formData2})
 					.then(response => response.json())
 					.then(data => {
-						console.log(data)
 
 
 
@@ -166,7 +158,7 @@ window.addEventListener("load", function() {
                <h1 class="d-none">댓글1개</h1>
                <div class="comment-writer-wrapper">
                   <div class="comment-writer">
-                     <img class="profile-photo" src="../../image/accountImage.png">
+                         <img class="profile-photo" src="${img.src}">
                      <div class="user-name">${nickname.dataset.id}</div>
                   </div>
                  <div class="icon icon-report">
@@ -177,8 +169,8 @@ window.addEventListener("load", function() {
 
                <div class="comment-main" >${textValue}</div>
                <div class="comment-info">
-                  <div >
-                     2022.11.26 18:38</div>
+                  <div class="date" >
+                    ${time}</div>
                   <div class="re-comment">
                        	    </div>
                        	<div class="add-modify">
@@ -212,7 +204,6 @@ window.addEventListener("load", function() {
 						let result = (data.result)
 						if(result == 1)
 							form.remove();
-//						console.log(result);
 					})
 					
 			

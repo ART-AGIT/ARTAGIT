@@ -20,7 +20,7 @@
     border: 1px solid #707070;
     display:grid;
     grid-template-columns: 1fr 1.4fr; 
-    grid-template-rows: 0.4fr 0.4fr 1.5fr 0.3fr;
+    grid-template-rows: 0.4fr 0.4fr 1.5fr;
     text-align: center;
     border-radius: 15px;
 
@@ -67,7 +67,6 @@
     border-radius: 5px;
     border:none;
   	margin:0px;
-  	padding: 10px;
   }
   .btn-black-size{
   	background-color:#6e6868;
@@ -85,7 +84,7 @@
 .table :last-child{
     border-bottom: none;
 }
-.item:nth-child(7){
+.item:nth-child(5){
     border-bottom: none;
     
 }
