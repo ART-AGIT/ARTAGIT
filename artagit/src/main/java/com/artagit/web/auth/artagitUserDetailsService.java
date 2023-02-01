@@ -97,6 +97,7 @@ public class artagitUserDetailsService implements UserDetailsService {
 			user.setUsername(username);
 			user.setId(corp.getId());
 			user.setPassword(corp.getPassword());
+			System.out.println("여긴 안나오나?"+corp.getName());
 			user.setName(corp.getName());
 			user.setCeoName(corp.getCeoName());
 			user.setEmail(corp.getEmail());
@@ -118,9 +119,12 @@ public class artagitUserDetailsService implements UserDetailsService {
 			user.setAuthorities(authorities);
 			user.setImg(corp.getImg());
 			System.out.println("업체회원!==> "+user);
+			System.out.println("업체의 name = 법인명 "+user.getName());
+			
 		}
 		System.out.println(username + "회원의 권한 ====> "+authorities);
 		System.out.println(user.getCorpAddress());
+		
 		return user;
 	}
 }

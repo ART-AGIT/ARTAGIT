@@ -29,17 +29,24 @@ window.addEventListener("load", function(){
 
 
 	let check = false; // 수정 버튼 상태값
-	
+	let cancel = false;
     //////////// 수정 버튼 눌렀을 때
     modiBtn.onclick = function(e){
         e.preventDefault();
+
+        const cancelBtn = document.querySelector(".delete-btn");
+        cancelBtn.innerText = '취소';
+
+        if(e.target == cancelBtn) {
+            console.log("여기ㅕ여기ㅣ");
+            check == true;
+        }
 
 		if(!check){
 
         console.log("수정버튼 클릭");
         btnMore.classList.add('d-none');
         document.querySelector(".feed-content").classList.remove('hidden');
-        
         // 각 항목들에 contenteditable (편집모드) 속성을 추가해준다. 
         if(modiLine[0].getAttribute('contenteditable') == null) {
             for(let i = 0; i<modiLine.length; i++){
@@ -129,7 +136,7 @@ window.addEventListener("load", function(){
                             "id" : id[1].value,
                             "museumName" : muName,
                             "name" : corpName,
-                            "address" : corpAddr,
+                            "corpAddress" : corpAddr,
                             "phone" : corpPhone,
                             "manager" : corpManager
                             },
@@ -145,7 +152,7 @@ window.addEventListener("load", function(){
 				console.log("성공");
 				return response;
 				} else {console.log("실패")}})
-//            .then(location.href='/corp/exh/'+id[0].value);
+            // .then(location.href='/corp/exh/'+id[0].value);
             // .then(location.reload());
 		}
     }
