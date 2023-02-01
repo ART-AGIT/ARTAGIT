@@ -7,6 +7,9 @@ import com.artagit.web.entity.BookingList;
 
 public interface BookingService {
 
+	//bookingId 로 paynum 가져오기
+	String getPayNum (int bookingId);
+
 	//id로 booking 가져오기
 	Booking get(int id);
 	

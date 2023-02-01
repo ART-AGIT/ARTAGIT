@@ -227,21 +227,18 @@ window.addEventListener("load", function(){
             let user = data.user;
             let exhibition = data.exhibition;
             let booking = data.booking;
+            console.log("booking.date"+booking.date)
           	var bookingDate = booking.date.substring(0,10);
 
             console.log("payment"+payment)
             console.log("user"+user)
             console.log("exhibition"+exhibition)
             console.log("booking"+booking)
-
+			console.log("ㅠㅐㅐㅐㅐ"+bookingDate);	
          	console.log(booking.payNum);
          	console.log(data)
          
-//         <div class="item">${user.username}</div>
-//         <div class="item">${user.name}</div>
-//         <div class="item">아이디</div>
-                               
-//         <div class="item">이름</div>
+
 
          var template =
             `
@@ -555,6 +552,7 @@ window.addEventListener("load", function(){
             e.preventDefault();
             
             var bookingId = e.target.dataset.id;
+            console.log("bookingI+=========="+bookingId);
             
             fetch(
             `/member/mypage/review/api/view/${bookingId}`,{

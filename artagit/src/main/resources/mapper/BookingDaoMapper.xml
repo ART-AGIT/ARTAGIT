@@ -35,6 +35,12 @@
 		where id = #{bookId};
 	</select>
 	
+	<select id="getPayNum" resultType="String">
+		select payNum from Booking
+		where id = #{bookId};
+	</select>
+	
+	
 </mapper>
  
    

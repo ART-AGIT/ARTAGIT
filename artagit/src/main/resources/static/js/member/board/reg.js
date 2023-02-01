@@ -32,51 +32,51 @@ window.addEventListener("load", function(){
 			};
 			reader.readAsDataURL(url);
 			console.log(url);
-			del[0].classList.remove("d-none");
+//			del[0].classList.remove("d-none");
+//			
+//			del[0].onclick=function(){
+//				console.log("hh")
+//				fileInput[0].src="";
+//				
+//				var template=`
+//				<div class="reg-list-input-box-image">
+//		       		<div class=" icon icon-trash d-none"></div>
+//	            	<img src="../../image/camera.svg" class="input-image-button input-image-button1 input-image">
+//	            	<input name="img1"  id="img1" type="file" class="input-image1 d-none">
+//            	</div>
+//				`
+//				var inputBox = document.querySelector(".reg-list-input-box");
+//				inputBox.insertAdjacentHTML("beforebegin", template)
+//				
+//				
+//				var imgInputTemp = document.querySelector(".input-image-button1")
+//				var fileInputTemp = document.querySelector(".input-image1");
+//				
+//				
+//				
+//				imgInputTemp.onclick=function(){
+//			
+//					let event = new MouseEvent("click", {
+//						'view': window,
+//						'bubble': true,
+//								'cancelable': true
+//						});
+//				
+//						fileInputTemp.dispatchEvent(event);
+//				}
+//		
+//				fileInputTemp.oninput = function() {
+//					let url = fileInputTemp.files[0];
+//					let reader = new FileReader();
+//					reader.onload = (evt) => {
+//						imgInputTemp.src = evt.target.result;
+//					};
+//					reader.readAsDataURL(url);
+//					console.log(url);
+//					var trash = document.querySelector(".icon-trash");
+//					trash.classList.remove("d-none");
+//				}
 			
-			del[0].onclick=function(){
-				console.log("hh")
-				fileInput[0].src="";
-				
-				var template=`
-				<div class="reg-list-input-box-image">
-		       		<div class=" icon icon-trash d-none"></div>
-	            	<img src="../../image/camera.svg" class="input-image-button input-image-button1 input-image">
-	            	<input name="img1"  id="img1" type="file" class="input-image1 d-none">
-            	</div>
-				`
-				var inputBox = document.querySelector(".reg-list-input-box");
-				inputBox.insertAdjacentHTML("beforebegin", template)
-				
-				
-				var imgInputTemp = document.querySelector(".input-image-button1")
-				var fileInputTemp = document.querySelector(".input-image1");
-				
-				
-				
-				imgInputTemp.onclick=function(){
-			
-					let event = new MouseEvent("click", {
-						'view': window,
-						'bubble': true,
-								'cancelable': true
-						});
-				
-						fileInputTemp.dispatchEvent(event);
-				}
-		
-				fileInputTemp.oninput = function() {
-					let url = fileInputTemp.files[0];
-					let reader = new FileReader();
-					reader.onload = (evt) => {
-						imgInputTemp.src = evt.target.result;
-					};
-					reader.readAsDataURL(url);
-					console.log(url);
-					var trash = document.querySelector(".icon-trash");
-					trash.classList.remove("d-none");
-				}
-			}
 		}
 			
 			
@@ -102,7 +102,7 @@ window.addEventListener("load", function(){
 				imgInput[1].src = evt.target.result;
 			};
 			reader.readAsDataURL(url);
-			del[1].classList.remove("d-none");
+//			del[1].classList.remove("d-none");
 		}
 		
 		
@@ -124,7 +124,7 @@ window.addEventListener("load", function(){
 				imgInput[2].src = evt.target.result;
 			};
 			reader.readAsDataURL(url);
-			del[2].classList.remove("d-none");
+//			del[2].classList.remove("d-none");
 		}
 		
 		imgInput[3].onclick=function(){
@@ -144,7 +144,7 @@ window.addEventListener("load", function(){
 				imgInput[3].src = evt.target.result;
 			};
 			reader.readAsDataURL(url);
-			del[3].classList.remove("d-none");
+//			del[3].classList.remove("d-none");
 		}
 		
 //		=======================================================

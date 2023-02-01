@@ -171,7 +171,13 @@ public class MyPageApi {
 		
 		System.out.println("들어왔나 등록?"+bookingId);
 		System.out.println(review);
-		review.setPayId(bookingId);
+		
+		//가져와야함 부킹서비스가 bookId 로 payId 
+		String payNum = bookingService.getPayNum(bookingId);
+		int payId = paymentService.getIdByPayNum(payNum);
+		System.out.println("payId"+payId);
+//		System.out.println(payNum);
+		review.setPayId(payId);
 		System.out.println(review);
 		Review result = reviewService.reg(review);
 		System.out.println(result);
@@ -236,7 +242,7 @@ public class MyPageApi {
 		Map<String,Object> dto = new HashMap<>();
 		Payment payment = paymentService.get(bookId);
 		Booking booking = bookingService.get(bookId);
-
+		System.out.println("Booking"+booking);
 		System.out.println("payment"+payment);
 
 		int exhId = bookingService.getExhId(bookId);

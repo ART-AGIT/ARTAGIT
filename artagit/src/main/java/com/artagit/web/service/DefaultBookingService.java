@@ -93,6 +93,12 @@ public class DefaultBookingService implements BookingService {
 		return list;
 	}
 
+	@Override
+	public String getPayNum(int bookingId) {
+		// TODO Auto-generated method stub
+		return bookingDao.getPayNum(bookingId);
+	}
+
 }
 
 

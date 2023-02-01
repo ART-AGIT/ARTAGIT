@@ -19,6 +19,11 @@
 		where bookId = #{id}
 	</select>
 	
+	<select id="getIdByPayNum" resultType="int">
+		select id
+		from Payment
+		where payNum = #{payNum}
+	</select>
 	
 	
 </mapper>

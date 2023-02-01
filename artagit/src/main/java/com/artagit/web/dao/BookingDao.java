@@ -21,5 +21,8 @@ public interface BookingDao {
 	public int getExhId(int bookId);
 
 	public Booking get(int id);
+
+	//bookingId 로 paynum 가져오기
+	public String getPayNum(int bookingId);
 }
 

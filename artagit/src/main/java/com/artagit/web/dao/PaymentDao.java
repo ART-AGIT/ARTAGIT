@@ -31,5 +31,9 @@ public interface PaymentDao {
 
 	//int findByBookingId(int bookId);
 	Payment findByBookingId(int bookId);
+
+	
+	
+	int getIdByPayNum(String payNum);
 	
 }
