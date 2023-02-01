@@ -99,11 +99,9 @@
                   <div type="button" class="btn btn-default-line delete-btn">삭제</div>
                </div>
                <div class="icon-flex" th:classappend="${user.id != board.memId} ? '' : 'd-none'">
-               <div class="icon-flex" th:classappend="${user.id != board.memId} ? '' : 'd-none'">
                    <div class="heart-fix">
                       <div th:classappend="${board.heart} != 1? '' : 'icon-heart-red'" class="icon icon-heart post-like-btn"></div>
                    </div>
-                   <button   th:attr="data-id=${board.memId}" class="icon icon-report post-report" type="submit" value="게시글">수정</button>
                    <button   th:attr="data-id=${board.memId}" class="icon icon-report post-report" type="submit" value="게시글">수정</button>
             </div>
         </div>
