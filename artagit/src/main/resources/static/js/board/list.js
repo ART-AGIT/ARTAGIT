@@ -3,7 +3,7 @@ window.addEventListener("load", function() {
    const boardbox = document.querySelector(".post-list-box");
    const noticebox = document.querySelector(".notice-list-box");
    var currentPage = document.querySelector(".paging");
-      let currentLi = document.querySelector(".board-category-box ul li.board-selected");
+   let currentLi = document.querySelector(".board-category-box ul li.board-selected");
    
 
    ul.onclick = function(e) {
