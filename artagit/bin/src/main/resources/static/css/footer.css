@@ -1,0 +1,31 @@
+.footer{
+    height: 120px;
+    background-color: #F1F1F1;
+
+    margin-top: 50px;
+
+}
+.footer-btn-list{
+    width: 100px;
+
+    display: flex;
+    justify-content: space-between;
+
+    align-self: center;
+
+    margin: 6px 0;
+}
+    .footer-btn{
+        font-size: 6px;
+    }
+
+.footer-inf{
+    font-size: 6px !important;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+    .footer-inf small{
+        font-size: 4px !important;
+    }

@@ -1,0 +1,201 @@
+.icon{
+    content:'';
+    padding: .4em .8em;
+    display: inline-flex;
+    align-items: center;
+
+    -webkit-mask-size: 20px 20px;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+
+    background-color: #373737;
+
+    width: 20px;
+    height: 20px;
+    
+    text-indent: -999px;
+
+    box-sizing: border-box;
+}
+
+.mini-icon {
+    -webkit-mask-size: 10px 10px;
+    width: 10px;
+    height: 10px;
+    padding: 0;
+}
+
+/* .icon:hover{
+    background-color: #FC93AD;
+} */
+
+.icon-menu{
+    -webkit-mask-image: url(../image/menu.svg);
+}
+.icon-write{
+    -webkit-mask-image: url(../image/write.svg);
+}
+.icon-heart{
+    -webkit-mask-image: url(../image/heart.svg);
+}
+.icon-heart:hover{
+    -webkit-mask-image: url(../image/heart-red.svg);
+    background-color: red;
+}
+.icon-heart-red{
+    -webkit-mask-image: url(../image/heart-red.svg);
+    background-color: red;
+}
+.icon-trash{
+    -webkit-mask-image: url(../image/trash.svg);
+}
+.icon-category{
+    -webkit-mask-image: url(../image/category.svg);
+}
+.icon-home{
+    -webkit-mask-image: url(../image/home.svg);
+}
+.icon-login{
+    -webkit-mask-image: url(../image/login.svg);
+}
+.icon-note{
+    -webkit-mask-image: url(../image/note.svg);
+}
+.icon-food{
+    -webkit-mask-image: url(../image/food.svg);
+}
+.icon-smile{
+    -webkit-mask-image: url(../image/smile.svg);
+}
+.icon-picture{
+    -webkit-mask-image: url(../image/picture.svg);
+}
+.icon-report{
+    -webkit-mask-image: url(../image/report.svg);
+}
+.icon-miniMenu{
+    -webkit-mask-image: url(../image/miniMenu.svg);
+}
+.icon-ticket{
+    -webkit-mask-image: url(../image/ticket.svg);
+}
+.icon-corporate{
+    -webkit-mask-image: url(../image/corporate.svg);
+    -webkit-mask-size: 50px 50px;
+    width: 50px;
+    height: 50px;
+}
+.icon-chart{
+    -webkit-mask-image: url(../image/chart.svg);
+}
+.icon-exhibition{
+    -webkit-mask-image: url(../image/exhibition.svg);
+}
+.icon-board{
+    -webkit-mask-image: url(../image/board.svg);
+}
+.icon-search{
+    -webkit-mask-image: url(../image/search.svg);
+}
+.icon-calendar{
+    -webkit-mask-image: url(../image/calendar.svg);
+}
+.icon-toggle-down{
+    -webkit-mask-image: url(../image/toggleDown.svg);
+}
+.icon-toggle-up{
+    -webkit-mask-image: url(../image/toggleUp.svg);
+}
+
+.icon-view{
+    -webkit-mask-image: url(../image/icons/view-icon.svg);
+}
+.icon-like-up{
+    -webkit-mask-image: url(../image/icons/like-up-icon.svg);
+}
+.icon-comment{
+    -webkit-mask-image: url(../image/icons/comment-icon.svg);
+}
+.icon-arrow-right{
+    -webkit-mask-image: url(../image/icons/arrow-right.svg);
+}
+
+.icon-arrow-right2{
+    -webkit-mask-image: url(../image/icons/arrow-right2.svg);
+}
+
+.icon-arrow-left{
+    -webkit-mask-image: url(../image/icons/arrow-left.svg);
+}
+
+.icon-arrow-right-sm{
+    padding: 0em;
+    width: 10px;
+    height: 10px;
+    -webkit-mask-size: 10px 10px;
+
+    background-color: #7e7e7e;
+}
+
+.icon-member{
+    -webkit-mask-image: url(../../image/icons/member.svg);
+    -webkit-mask-size: 50px 50px;
+    width: 50px;
+    height: 50px;
+}
+
+.icon-write-on{
+    -webkit-mask-image: url(../image/write-on.png);
+    width: 35px; 
+    height: 35px;
+}
+
+.icon-arrow-toggle-up{
+    -webkit-mask-image: url(../../image/icons/arrow-toggle-up.svg);
+}
+
+.icon-arrow-toggle-down{
+    -webkit-mask-image: url(../../image/icons/arrow-toggle-down.svg);
+}
+
+.icon-question {
+    -webkit-mask-image: url(../image/icons/question.png);
+}
+
+.icon-question3 {
+    -webkit-mask-image: url(../image/icons/question3.svg);
+}
+
+/* ----- icon util ---------------------------- */
+.icon-white{
+    background-color: #fff;
+}
+.icon-black{
+    background-color: #000;
+}
+
+.icon-report{
+    -webkit-mask-image: url(../../image/icons/report.svg);
+   
+}
+
+/* --------------pc버전------------------ */
+@media (min-width: 992px) {
+	.icon-view {
+		-webkit-mask-size: 16px 18px;
+		margin-right: 3px;
+/* 		background-color: var(--color-white2); */
+    	background-color: #474747;
+	}
+	
+	.icon-like-up {
+	    -webkit-mask-size: 18px 20px;
+	    margin-right: 3px;
+	        background-color: #474747;
+	}
+	
+	.icon-comment {
+	    margin-right: 3px;
+	        background-color: #474747;
+	}
+}

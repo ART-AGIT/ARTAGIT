@@ -1,0 +1,78 @@
+.form{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 40px;
+    padding-top:30px;
+}
+
+.h1-descrip{
+    text-align: center;
+    padding-left: 10px;
+    padding-bottom: 20px;
+}
+
+.main-form{
+    display: flex;
+    justify-content: center;
+}
+
+
+/* -------이용약관 제목------ */
+.agree-tit-all{
+    display: flex;
+    align-items : center; 
+    font-size: 20px;
+    padding-bottom: 30px;
+}
+
+.agree-tit{
+    display: flex;
+    align-items : center; 
+    /* background: url(../image/toggleup.svg) no-repeat right 10px; */
+    /* background-size: 15px;  */
+    /* justify-content: space-around; */
+}
+
+.checkBtn,.checkAllBtn{
+    padding-right: 10px;
+}
+
+input[type="checkbox"]{
+    /* width: 20px;
+    height: 20px; */
+}
+
+em{
+    font-style: normal;
+    color: #FF6C9E;
+    padding-right: 5px;
+}
+
+
+/* -------이용약관 상세낸용------ */
+
+.agree-detail{
+    overflow-y: scroll;
+    border:1px solid #BCBCBC ;
+    margin-left: 5px;
+    margin-top: 10px;
+    width: 300px;
+    height:150px;
+    line-height: 20px;
+    margin-bottom: 30px;
+}
+
+/* ----- 가입버튼------- */
+.btn-default-fill-off{
+    display: block;
+    width: 300px;
+    height: 40px;
+    font-size: 18px;
+    margin:0 auto 20px auto;
+}
+
+.detail{
+    margin-left: auto;
+    cursor:pointer;
+    color:#F7A7BB;
+}

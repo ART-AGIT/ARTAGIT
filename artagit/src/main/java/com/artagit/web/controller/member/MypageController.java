@@ -107,6 +107,7 @@ public class MypageController {
 				bookingList.get(i).setPayMethod("미관람");
 //				
 		}
+		System.out.println();
 		System.out.println("user정보~~~~"+user);
 		model.addAttribute("user", user);
 		model.addAttribute("bookingList", bookingList);
@@ -219,7 +220,7 @@ public class MypageController {
 			member.setImage(user.getImg());
 		}
 
-
+		System.out.println("멤버의 이름"+member.getName());
 		user.setPassword(member.getPassword());
 		user.setImg(member.getImage());
 		user.setNickname(member.getNickname());
@@ -273,7 +274,7 @@ public class MypageController {
 		model.addAttribute("list", list);
 		Member member = memberService.get(user.getId());
 		model.addAttribute(member);
-
+		model.addAttribute("user", user);
 		System.out.println("로그인한 아이디가 쓴 글====>" + model);
 		return "member/mypage/post-list";
 
@@ -287,6 +288,7 @@ public class MypageController {
 		Member member = memberService.get(user.getId());
 		model.addAttribute(member);
 		model.addAttribute("list", list);
+		model.addAttribute("user", user);
 		System.out.println("++++++++++=" + list);
 		return "member/mypage/post-like";
 	}

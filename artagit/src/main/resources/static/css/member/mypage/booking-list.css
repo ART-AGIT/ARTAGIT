@@ -39,7 +39,7 @@
 
 .pay-state {
     grid-area: state;
-    color: #FF5171;
+/*     color: #FF5171; */
     font-size: 15px;
     font-weight: 700;
 }
@@ -120,6 +120,9 @@
 		font-size:18px;
 	}
 	
+	.exh-title {
+    	font-size:16px;
+	}
 	.btn-go-exh{
 		height:20px;
 	}
@@ -133,8 +136,8 @@
     grid-template: "img state" 60px
                     "img title" 23px
                     "img place" 18px
-                    "img date" 18px
-                    "img btn" 55px / 170px;
+                    "img date" 30px
+                    "img btn" 40px / 170px;
 	}
 	
 
@@ -192,7 +195,7 @@
   border-radius:10px;
   
   width: 400px;
-  height: 750px;
+  height: 650px;
 
 }
 
@@ -290,21 +293,123 @@
 .review-menu-list{
 	display: flex;
     flex-direction: column;
-    margin-left: 700px;
+    margin-left: 680px;
     font-size: 18px;
 }
 
 .select-btn{
 	font-weight: bold;
     color: #FF6C9E;
+/*     background-color: #FFBFCF; */
+/*     width: 100%; */
+/*      border-radius: 10px; */
 }
 
 
+.review-sub-menu{
+	height: 0; 
+    width: 100%;
+    background-color: #FFBFCF;
+    padding: 0;
+    overflow: hidden;
+
+    position: absolute;
+    z-index: 10;
+
+    border-radius: 10px;
+
+    /* effect */
+    transition: height 1s;
+	
+}
+
+.review-sub-menu>li:hover{
+    background-color: #FFBFCF;
+    border-radius: 10px;
+    transition: .5s;
+}
+
+/* ============ */
 
 
 
+.select-wrap{
+	display:flex;
+	gap:550px;
+	
+}
+.select-box{
+   
+    position: relative;
+    width: 100px;
+    height: 40px;
+    border: 1px solid #5454;
+    border-radius: 5px;
+  
+    background-size: 10px;
+    cursor: pointer;
+    
+/*     margin-left:80%; */
+	margin-right:5px;
+}
+.select-box .label {
+    display: flex;
+    padding-left: 15px;
+    align-items: center;
+    justify-content: flex-start;
+    width: inherit;
+    height: inherit;
+    border: 0 none;
+    outline: 0 none;
+    background: transparent;
+    cursor: pointer;
+    
+  }
 
+.select-box .category{
+    margin-top: 5px;
+    position: absolute; 
+    top: 28px;
+    left: 0;
+    width: 100%;
+    background: #FF6C9E;
+    color: #fff;
+    list-style-type: none;
+    padding: 0;
+    border-radius: 5px;
+    overflow: hidden;
+    max-height: 0;
+    transition: .3s ease-in;
+    
+  }
 
+  .select-box.active .category{
+    max-height: 500px;
+  }
+  .select-box .option{
+    border-bottom: 1px solid pink;
+    padding: 5px 15px 5px;
+    transition: .1s;
+  }
+  
+  .select-box .option:hover{
+    background: rgba(255, 192, 203, 0.677);
+    color: #fff;
+  }
+  
+  .select-box .option:last-child{
+    border-bottom: 0 none;
+  }
+
+  .category{
+    background: rgba(255, 192, 203, 0.677);
+    border-radius: 5px;
+  }
+
+  option{
+    background: rgba(255, 192, 203, 0.677);
+    border-radius: 5px;
+  }
 
 
 

@@ -21,5 +21,8 @@ public interface PaymentService {
 	//결제내역 get 메소드 
 	Payment get(int id);
 
+	//payNum 으로 아이디가져오기
+	int getIdByPayNum(String payNum);
+
 	
 }

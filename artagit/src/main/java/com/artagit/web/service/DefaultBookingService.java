@@ -11,6 +11,8 @@ import com.artagit.web.dao.BookingDao;
 import com.artagit.web.dao.BookingListDao;
 import com.artagit.web.entity.Booking;
 import com.artagit.web.entity.BookingList;
+
+import ch.qos.logback.core.recovery.ResilientSyslogOutputStream;
 @Service
 public class DefaultBookingService implements BookingService {
 
@@ -22,7 +24,7 @@ public class DefaultBookingService implements BookingService {
 	
 	@Override
 	public List<BookingList> getListById(int memId,int page) {
-		System.out.println("pppage"+page);
+//		System.out.println("pppage"+page);
 
 		int size = 6;
 		int offset = (page-1)*size;
@@ -50,8 +52,8 @@ public class DefaultBookingService implements BookingService {
 	
 	//bookingId(=payId) 로 exhId 가져오기
 	@Override
-	public int getExhId(int payId) {
-		int exhId = bookingDao.getExhId(payId);
+	public int getExhId(int bookId) {
+		int exhId = bookingDao.getExhId(bookId);
 		return exhId;
 	}
 
@@ -79,6 +81,22 @@ public class DefaultBookingService implements BookingService {
 	public int getCount(int id) {
 		// TODO Auto-generated method stub
 		return bookListDao.getCount(id);
+	}
+
+	@Override
+	public List<BookingList> getListBySearch(int memId, int page, int category) {
+		System.out.println("구현체에서 ");
+		int size = 6;
+		int offset = (page-1)*size;
+		List<BookingList> list = bookListDao.getListBySearch(memId,offset,size,category);
+		System.out.println("구현체에서 list"+list);
+		return list;
+	}
+
+	@Override
+	public String getPayNum(int bookingId) {
+		// TODO Auto-generated method stub
+		return bookingDao.getPayNum(bookingId);
 	}
 
 }

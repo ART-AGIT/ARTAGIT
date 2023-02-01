@@ -1,0 +1,162 @@
+.reg-list-box > div{
+    margin: 0 auto;
+}
+
+.reg-list-box > div{
+    margin: 0 auto;
+}
+
+.reg-list-box > input{
+    margin: 0 0;
+    justify-content: center;
+}
+.reg-list form>h1{
+    text-align: center;
+    padding-bottom: 18px;
+
+}
+.reg-list-input-box{
+    padding-bottom: 10px;
+    gap:4px;
+}
+.reg-list-input-box>div{
+    gap: 10px;
+}
+
+.reg-button-box{
+    display: flex;
+    padding: 20px 0;
+    justify-content: center;
+    gap : 20px;
+} 
+
+.unregister{
+    display: flex;
+    justify-content: end;
+    padding-top : 100px;
+    
+}
+
+.btn-certify{
+    width: 68px;
+}
+
+/*  */
+.toggle{
+    display: flex;
+    width: 320px;
+    height: 37px;
+    margin-top: 20px;
+    margin-bottom: 9px;
+    /* text-align: center; */
+    border: 1px solid #969696;
+    border-radius: 15px;
+    line-height : 37px;
+    align-items: center;
+
+}
+
+.toggle > h1{
+    font-size: 16px;
+    padding-left: 15px;
+    padding-right: 200px;
+    
+    /* line-height : 37px; */
+}
+
+/*회원가입 글씨*/
+.signup-corp{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top:50px;
+}
+
+.signup-corp>h1{
+    padding-bottom: 5px;
+   
+}
+
+.exh-name{
+    font-size: 18px;
+    font-weight: 600;
+    /* justify-content: center; */
+    padding : 5px 0;
+    margin: auto;
+    text-align: center;
+    
+}
+
+input:focus::placeholder {
+    color:transparent;
+}
+
+.icon-arrow-toggle-down, .icon-arrow-toggle-up{
+    -webkit-mask-size: 15px 15px;
+    height:0;
+}
+
+/* 아코디언 */
+/* .reg-list>.box{
+    height:400px;
+    display: flex;
+    flex-direction:column ;
+} */
+
+
+/* .reg-list>.box >h1,
+.accordion-header{/*h2에 대한 이름이 2개가 된다.*/
+   /* reset */
+    /* padding:0;
+    margin: 0; */
+
+    /* text */
+    /* font-size: 100%;
+    font-weight: normal;
+    color: #454545; */
+
+    /* layout */
+    /* cursor: pointer;
+    height:20px;
+    position:relative;
+    margin:2px 0 0 0;
+    padding : 0.5em 0.5em 0.5em 0.7em;
+    border: 1px solid #c5c5c5;
+    border-bottom-right-radius: 3px;
+    background : #f6f6f6; */
+
+    /* effect */
+    /* transition: background-color 1s;
+
+}
+.reg-list >.box>h1.active+section,
+.accordion-header.active+.accordion-content{  */
+/* 클래스 이름을 바로 이어서 쓰면 클래스명을 동시에 같이 사용됬음을 의미 */
+/* +를 쓰면 동생에 대해서 스타일을 주겠다.  */
+    /* height: 100px !important; */
+    /* flex-grow: 1;
+}
+.reg-list>.box >section,
+.accordion-content{ */
+    /* reset
+    margin : 0;
+    outline: 0;
+    line-height: 1.3;
+    text-decoration: none;
+    font-size: 100%;
+    list-style: none; */
+
+    /* text */
+    /* color : #333; */
+
+    /* layout  */
+    /* border : 1px solid #ddd; */
+    /* border-bottom-left-radius: 3px; */
+    /* background:#fff; */
+
+    /* padding : 1em 2.2em;
+    border-top:0;
+    overflow: auto;
+    height:0;
+
+} */

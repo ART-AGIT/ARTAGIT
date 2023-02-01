@@ -18,6 +18,8 @@ public interface BookingListDao {
 
 	public int getCount(int id);
 
+	public List<BookingList> getListBySearch(int memId, int offset, int size, int category);
+
 }
 
 

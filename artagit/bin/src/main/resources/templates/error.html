@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{/inc/layout.html}"
+>
+
+<!-- ---------------------------------------------------------------------- -->   
+	<main layout:fragment="content" style="padding-top: 100px;">
+        <section>
+            <header class="header-default">
+                <h1 class="text-title1-h1">오류</h1>
+            </header>
+            <div>
+            	오류가 발생하였습니다. <br>
+            	오류가 지속되는 경우 관리자에게 문의하시기 바랍니다.<br>
+            	<a href="javascript:history.go(-2);">&lt;&lt;이전 페이지로 가기</a>
+<!--             	2번째 전으로 돌아가기 (메뉴리스트) -->
+            </div>
+        </section>
+    </main>
+
+</html>

@@ -1,0 +1,139 @@
+/* section calendar */
+
+.calendar-section {
+    width: 350px;
+    margin: 0 auto;
+/*     font-family: "NotoSansR"; */
+}
+
+.calendar-section .calendar-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    font-size: 28px;
+/*     line-height: 78px; */
+}
+
+.calendar-section .calendar-nav .year-month {
+    width: 250px;
+    text-align: center;
+    line-height: 1;
+}
+
+.calendar-section .calendar-nav .nav {
+    display: flex;
+    border: 1px solid #333333;
+    border-radius: 5px;
+}
+
+.calendar-section .calendar-nav .go-prev,
+.calendar-section .calendar-nav .go-next {
+    display: block;
+/*     width: 50px; */
+    height: 40px;
+    font-size: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calendar-section .calendar-nav .go-prev::before,
+.calendar-section .calendar-nav .go-next::before {
+    content: "";
+    display: block;
+    width: 10px;
+    height: 10px;
+    border: 4px solid rgb(65, 65, 65);
+    border-width: 3px 3px 0 0;
+    transition: border 0.1s;
+}
+
+.calendar-section .calendar-nav .go-prev:hover::before,
+.calendar-section .calendar-nav .go-next:hover::before {
+    border-color: #ed2a61;
+}
+
+.calendar-section .calendar-nav .go-prev::before {
+    transform: rotate(-135deg);
+}
+
+.calendar-section .calendar-nav .go-next::before {
+    transform: rotate(45deg);
+}
+
+.calendar-section .calendar-wrap {
+    padding-top: 25px;
+    position: relative;
+    margin: 0 auto;
+}
+
+.calendar-section .calendar-wrap .days {
+    display: flex;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.calendar-section .calendar-wrap::after {
+    top: 368px;
+}
+
+.calendar-section .calendar-wrap .day {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    width: calc(100% / 7);
+    text-align: left;
+    color: #999;
+/*     font-size: 13px; */
+    text-align: center;
+/*     border-radius:5px */
+}
+
+.current.today {
+    background: url(../image/icons/today-date.svg) no-repeat;
+    background-size: 40px;
+    background-position: bottom;
+
+}
+
+
+.calendar-section .calendar-wrap .dates {
+    display: flex;
+    flex-flow: wrap;
+    height: 290px;
+}
+
+.calendar-section .calendar-wrap .day:nth-child(7n -1) {
+    color: #3c6ffa;
+}
+
+.calendar-section .calendar-wrap .day:nth-child(7n) {
+    color: #ed2a61;
+}
+
+.calendar-section .calendar-wrap .day.disable {
+    color: #ddd;
+}
+
+.current.active {
+	background: #FF6C9E;
+    border-radius: 30px;
+}
+
+.calendar-section .calendar-wrap .day:nth-child(7n -1).active {
+    color: white;
+}
+
+.calendar-section .calendar-wrap .day:nth-child(7n).active {
+    color: white;
+}
+
+.calendar-wrap .day.active {
+	color: white;
+}
+
+span.day.current {
+    cursor: pointer;
+}

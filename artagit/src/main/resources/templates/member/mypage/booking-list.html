@@ -46,25 +46,29 @@
 	        
 			<div>
 		         <div class="pay-list" >
-		         	<div class="my-booking">나의 예매내역</div>
-				        <div class="total-box">
-				            <span class="text total">Total:&nbsp;</span><span class="text total-num" th:text="${countOfBooking}" >2</span>
-				        </div>
-				        <div class="nonexistence-mess" th:if="${countOfBooking}==0" >
-				            <p class="">예매내역이 없습니다.</p>
-				            <a class="btn btn-default-fill btn-go-exh" th:href="@{/exhibition/list}" >전시 관람가기</a>
-				        </div>
+		         	<h2 class="my-booking">나의 예매내역</h2>
+				        
+				        
+				        <div class="select-wrap">
+					        <div class="total-box">
+					            <span class="text total">Total:&nbsp;</span><span class="text total-num" th:text="${countOfBooking}" >2</span>
+					        </div>
+					        <div class="nonexistence-mess" th:if="${countOfBooking}==0" >
+					            <p class="">예매내역이 없습니다.</p>
+					            <a class="btn btn-default-fill btn-go-exh" th:href="@{/exhibition/list}" >전시 관람가기</a>
+					        </div>
+					       
+					       
+<!-- 					       <select  class="select-box" id="selectValue" name="category" > -->
+<!-- 		                      <option class="option" value=1 selected="selected">전체</option> -->
+<!-- 		                      <option class="option" value=2>등록</option> -->
+<!-- 		                      <option class="option" value=3>미등록</option> -->
+<!-- 	                    	</select> -->
+
+	                    	
+				       </div>
 				       
-<!-- 				        <div class="review-menu-list"> -->
-<!-- 					        <div> -->
-<!-- 					        	<span class="select-btn">전체</span> -->
-<!-- 					        </div> -->
-<!-- 					        <ul> -->
-<!-- 					        	<li data-id="0" class="option1">전체</li> -->
-<!-- 					        	<li data-id="1" class="option2">등록</li> -->
-<!-- 					        	<li data-id="2" class="option3">미등록</li> -->
-<!-- 					        </ul> -->
-<!-- 			        	</div> -->
+
 			        
 			       
 						<div class= "booking-list" >
@@ -76,11 +80,11 @@
 					                    </a>			
 					                </div>
 					                
-				                    <div class="text pay-state" th:text="${bookingList.payMethod}"> 결제완료</div>
+				                    <div class="text pay-state" th:text="${bookingList.payMethod}" th:style="${bookingList.payMethod}=='미관람'?'color:#FF5171;'"> 결제완료</div>
 				                    <div class="text exh-title" th:text="${bookingList.exhName}"> 모네 인사이드</div> 
 				                    <div class="text exh-place" th:text="${bookingList.museumName}"> 국립현대미술관</div> 
 				
-				                    <div class="text exh-date" th:text="${#dates.format(bookingList.bookingDate,'yyyy-MM-dd')}">관람일 2022.09.22</div>
+				                    <div class="text exh-date" th:text="'관람일 : '+${#dates.format(bookingList.bookingDate,'yyyy-MM-dd')}">관람일 2022.09.22</div>
 				
 									<div class="button-list" >
 					                    <a class="btn btn-default-fill-off btn-review"   th:if="${bookingList.reviewCon}" href="" th:attr="data-id=${bookingList.reviewId}">리뷰보기</a>

@@ -1,0 +1,128 @@
+.btn{
+    padding: .4em .8em;
+    color: #1e1e1e;
+
+    display: inline-flex;
+    align-items: center;
+    
+    border: 1px solid #2e2e2e;
+    border-radius: 10px;
+
+
+    transition: .5s;
+
+    
+
+}
+
+.btn-ok{
+    /* ok 버튼만의 특화된 스타일 */
+    
+}
+
+.btn-cancel{
+    
+}
+
+.btn-srtong{
+    
+}
+
+.btn-clicked:hover{
+    /* click 버튼만의 특화된 스타일 */
+    background-color: #343843;
+    color: white;
+
+    border-radius: 10px;
+}
+
+
+
+
+
+.btn-toggle{
+    /* 상태가 2가지이다. */
+    --radius: 40px;
+
+    border: none;
+    
+    background-color: gray;
+    
+    box-sizing: border-box;
+    width: calc(var(--radius) * 2);
+    height: var(--radius);
+    border-radius: calc(var(--radius) / 2);
+
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+
+    position: relative;
+
+    text-indent: -999px;
+
+    cursor: pointer;
+    
+    transition: all 1.5s;
+}
+
+/* .btn-toggle .thumb,
+.btn-toggle span */
+.btn-toggle::before{
+    box-sizing: border-box;
+    width: calc(var(--radius) * 0.8);
+    height: calc(var(--radius) * 0.8);
+
+    position: absolute;
+    
+    background-color: black;
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    left: 2px;
+
+    content:'hahaha';
+
+    /* text를 없앤다. */
+    text-indent: -999px;
+
+    transition: left 1.5s;
+    
+}
+
+.btn-toggle-on{
+    background-color: black;
+
+    border-radius: calc(var(--radius) / 2);
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+
+}
+
+
+/* .btn-toggle-on .thumb,
+.btn-toggle-on span */
+.btn-toggle-on::before{
+    background-color: pink;
+
+    left: calc(var(--radius));
+
+}
+
+
+
+/* =========================== */
+@media (min-width: 500px) {
+    .btn-toggle-md{
+        --radius: 70px;
+    }
+}
+
+@media (min-width: 800px) {
+    /* .body{
+        flex-direction: row;
+    } */
+    .main{
+        background-color: whitesmoke;
+    }
+}

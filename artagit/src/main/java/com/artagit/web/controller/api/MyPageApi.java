@@ -71,11 +71,9 @@ public class MyPageApi {
 			@AuthenticationPrincipal ArtagitUserDetails user,
 			@RequestParam(defaultValue = "1", name = "p") int page) throws ParseException {
 				
-//		Map<String,Object> dto = new HashMap<>();
 		System.out.println("page"+page);
 		//ex) 2페이지이면 limit 6,6 개 보내기 
 		List<BookingList> bookingList = bookingService.getListById(user.getId(),page);
-//		dto.put("list", bookingList);
 		System.out.println(bookingList);
 		return bookingList;
 	}
@@ -105,6 +103,20 @@ public class MyPageApi {
 	
 	
 	
+		/*-----------예매내역리스트 (카테고리 + 페이지 추가) ------*/ 
+		@GetMapping("/review/api/list2")
+		public List<BookingList> list2(Model model,
+				@AuthenticationPrincipal ArtagitUserDetails user,
+				@RequestParam(defaultValue = "1", name = "c") int category, 
+				@RequestParam(defaultValue = "1", name = "p") int page) throws ParseException{
+					
+			
+			System.out.println("page"+page);
+			System.out.println("category"+category);
+			List<BookingList> bookingList = bookingService.getListBySearch(user.getId(),page,category);
+			
+			return bookingList;
+		}
 	
 	
 	
@@ -113,30 +125,6 @@ public class MyPageApi {
 	
 	
 	
-	
-	
-	/*-----------리뷰등록------*/ 
-	/*
-	@PostMapping("/review/reg/{id}")
-	@Transactional
-	public Map<String,Object> reg(Review review,Booking booking,@PathVariable("id") int payId
-			,@AuthenticationPrincipal ArtagitUserDetails user){
-		
-		System.out.println("들옴ㅇㅇㅇㅇ");
-		BookingList booking2 = bookingService.getReviewByBookingId(payId);
-		review.setPayId(payId);
-		review.setColor(review.getColor());
-		Review result = reviewService.reg(review);
-
-		Map<String,Object> dto = new HashMap<>();
-		
-		dto.put("status", 200);
-		dto.put("resultObject",result);
-		dto.put("booking2",booking2);
-
-		return dto;
-	}
-	*/
 	
 	/*-----------모달로 등록된 리뷰띄우기------*/ 
 	@GetMapping("/review/api/{reviewId}")
@@ -183,7 +171,13 @@ public class MyPageApi {
 		
 		System.out.println("들어왔나 등록?"+bookingId);
 		System.out.println(review);
-		review.setPayId(bookingId);
+		
+		//가져와야함 부킹서비스가 bookId 로 payId 
+		String payNum = bookingService.getPayNum(bookingId);
+		int payId = paymentService.getIdByPayNum(payNum);
+		System.out.println("payId"+payId);
+//		System.out.println(payNum);
+		review.setPayId(payId);
 		System.out.println(review);
 		Review result = reviewService.reg(review);
 		System.out.println(result);
@@ -236,64 +230,33 @@ public class MyPageApi {
 	
 	
 	
-	
-	
-
-	/*-----------리뷰수정------*/ 
-	/*
-	@PostMapping("/review/update/{id}")
-	@Transactional
-	public Map<String,Object> update(Review review,Booking booking,@PathVariable("id") int reviewId
-			,@AuthenticationPrincipal ArtagitUserDetails user){
-		
-		System.out.println("color"+review.getColor());
-		review.setColor(review.getColor());
-		System.out.println("review2---"+review);
-		Review result = reviewService.update(review);
-		System.out.println("result"+result);
-		
-		int payId = result.getPayId();
-		System.out.println(payId);
-		BookingList bookingList = bookingService.getReviewByBookingId(payId);
-		System.out.println(bookingList);
-	
-		Map<String,Object> dto = new HashMap<>();
-		dto.put("status", 200);
-		dto.put("resultObject",result);
-		dto.put("bookingList",bookingList);
-
-		return dto;
-	}
-	
-	*/
-	
-	
 	/*-----------모달로 결제상세------*/ 
 	@GetMapping("/payment/{id}")
 	@Transactional
-	public Map<String,Object> see(@PathVariable("id") int payId
+	public Map<String,Object> see(@PathVariable("id") int bookId
 			,@AuthenticationPrincipal ArtagitUserDetails user){
 		System.out.println("payment api안에 들어옴");
+		
+		
+		System.out.println(bookId); 
 		Map<String,Object> dto = new HashMap<>();
-		Payment payment = paymentService.get(payId);
-		Booking booking = bookingService.get(payId);
-		System.out.println("booking"+booking);
-		int exhId = bookingService.getExhId(payId);
+		Payment payment = paymentService.get(bookId);
+		Booking booking = bookingService.get(bookId);
+		System.out.println("Booking"+booking);
+		System.out.println("payment"+payment);
+
+		int exhId = bookingService.getExhId(bookId);
 		Exhibition exh = exhService.getExhById(exhId);
 		
 		dto.put("booking",booking);
 		dto.put("payment",payment);
-		dto.put("user",user);
+//		dto.put("user",user);
 		dto.put("exhibition",exh);
 		
 		return dto;
 	}
 	
-	
-	
-	
-	
-	
+
 
 	/******좋아요한 게시글***********/
 	@GetMapping("/board/api/list")

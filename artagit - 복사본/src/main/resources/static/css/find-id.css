@@ -1,0 +1,280 @@
+/******* 기본 설정 ****************************************/
+body {
+    background-color: #FDFBF9;
+}
+
+.text {
+    color: #333333;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+/* 아이디 찾기 or 비밀번호 초기화 버튼 클릭 시 속성 변경 */
+.find-id-on {
+    color: #FF6C9E;
+    border-bottom: 2px solid #FF6C9E;
+}
+
+.find-pw-on {
+    color: #FF6C9E;
+    border-bottom: 2px solid #FF6C9E;
+}
+
+
+/******* 콘텐츠 영역 ****************************************/
+.find-content-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 550px;
+}
+
+.find-content-box.find-result {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 550px;
+}
+
+.find-content-box.find-pw-box {
+    /* display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; */
+    height: 490px;
+}
+
+.text-box {
+    height: 110px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+}
+
+.result-box {
+    color: #606060;
+    margin: 35px 0 50px 0;
+
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.result-box span {
+    margin: 0 5px;
+}
+
+.mem-id {
+    color: #F7A7BB;
+    font-weight: 500;
+}
+
+
+
+.input-box {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+label {
+    margin-bottom: 5px;
+}
+
+p {
+    font-size: 12px;
+    font-weight: 300;
+    color: #a8a8a8;
+    width: 100%;
+    height: 20px;
+    margin: 0;
+}
+
+/******* 버튼 영역 ****************************************/
+.btn-box {
+    margin-top: 50px;
+    width: 140px;
+    display: flex;
+    justify-content: space-around;
+    font-weight: 400;
+}
+
+.btn-box>a{
+    width: 38px;
+    height: 19px;
+}
+
+.find-content-box>span {
+    font-size: 13px;
+    font-weight: 400;
+    margin-top: 100px;
+    margin-bottom: 20px;
+}
+
+.find-content-box>a:last-child {
+    width: 110px;
+    height: 22px;
+
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.find-content-box .find-result>a:last-child {
+    width: 140px;
+    height: 21px;
+
+    font-size: 16px;
+    font-weight: 300;
+}
+
+/* --------------pc버전------------------ */
+@media (min-width: 992px) {
+	main {
+		width: 1000px;
+		min-height: 700px;
+	}
+	
+	.text {
+		font-size: 24px;
+		margin: 0;
+	}
+	
+	.sm-text {
+		font-size: 12px;
+	}
+
+	.md-text {
+		font-size: 20px;
+		font-weight: 600;
+		color: #333333;
+	}
+
+	.md-2-text {
+		font-size: 16px;
+		color: #5b5b5b;
+
+	}
+	.flow-btn-box {
+	    display: flex;
+	    align-items: center;
+    	margin: 15px 0 8px 90px;
+	}
+	
+	.arrow-box {
+	    margin: 0 8px;
+	}
+	
+	.go-exh-detail {
+	    color: #F7A7BB;
+	}
+	
+	
+	/* p:first-child {
+		color: black;	
+	} */
+	
+	.input-box span {
+		font-size: 16px;
+		color: #6f6f6f;
+		margin-bottom: 20px;
+	}
+
+	.input {
+	    font-size: 16px;
+	    font-weight: 600;
+	}
+	
+	.input-lg {
+		width: 320px;
+		height: 48px;
+	}
+	
+	.btn-box {
+	    margin: 16px 0;
+	    width: 320px;
+	}
+	
+	.btn-box>.submit-btn {
+	    width: 100%;
+	    height: 48px;
+		border-radius: 5px;
+	    font-size: 18px;
+	    cursor: pointer;
+	}
+	
+	.find-id-box>span {
+		color: #6f6f6f;
+		font-size: 14px;
+		font-weight: 500;
+		margin: 50px 0 4px 0;
+	}
+	
+	.find-content-box.find-pw-box {
+    	height: 452px;
+	}
+
+	.find-content-box>a:last-child  {
+		background-color: #ff6c9e00;
+		border: 0.3px solid #ffffff;
+		color: #FF6C9E;
+		font-weight: 700;
+		font-size: 15px;
+		cursor: pointer;
+	}
+	
+	.pw-box .id-input{
+		margin-bottom: 5px;
+	}
+	
+	.mail-img-box {
+		width: 90px;
+	}
+
+	.mail-img {
+		width: 100%;
+	}
+
+	.user-email {
+		color: #FF6C9E;
+	}
+
+	.result-text-box {
+		height: 55px;
+	}
+
+	.result-text-box>span:last-child {
+		margin-top: 7px;
+	}
+
+	.result-btn-box {
+		margin-top: 80px;
+		display: flex;
+    	gap: 19px;
+	}
+	.home-btn, .login-btn, .find-pw-btn {
+		width: 78px;
+		height: 22px;
+		font-size: 16px;
+		justify-content: space-evenly;
+	}
+	
+	.id-btn {
+		height: 47px;
+    	padding: 0;
+	}
+	.whtie-btn {
+		width: 90px;
+	}
+	
+	.caution-msg {
+		color: #ff5252;
+	    font-weight: 500;
+	    font-size: 14px;
+	}
+	
+	.mg-0 {
+		margin: 0;
+	}
+}

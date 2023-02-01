@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.artagit.web.dao.LocalDao">
+	<select id="get" resultType="com.artagit.web.entity.Local">
+		select * from Local	where id = #{id}
+	</select>
+	
+	<!-- 주최자가 등록한 전시 수정 -->
+ 	<update id="update" parameterType="com.artagit.web.entity.Local">
+ 		update Local 
+ 		<set>
+ 			<if test="name != null">name = #{name},</if>
+ 		</set>
+ 			where id = #{id}
+ 	</update>
+</mapper>

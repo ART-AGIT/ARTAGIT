@@ -50,6 +50,11 @@ public class DefaultPaymentService implements PaymentService {
 		Payment payment = payDao.get(id);
 		return payment;
 	}
+	@Override
+	public int getIdByPayNum(String payNum) {
+		// TODO Auto-generated method stub
+		return payDao.getIdByPayNum(payNum);
+	}
 	
 	
 	

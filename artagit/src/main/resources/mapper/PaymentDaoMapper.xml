@@ -16,9 +16,14 @@
 	<select id="get" resultType="com.artagit.web.entity.Payment">
 		select *
 		from Payment
-		where id = #{id}
+		where bookId = #{id}
 	</select>
 	
+	<select id="getIdByPayNum" resultType="int">
+		select id
+		from Payment
+		where payNum = #{payNum}
+	</select>
 	
 	
 </mapper>

@@ -1,0 +1,100 @@
+.main-box{
+    width: 100%;
+    height: 100%;
+}
+
+.table-box{
+    width: 100%;
+    height: 100%;
+    margin-top: 30px;
+    
+}
+.title{
+    display: flex;
+    justify-content: center;
+}
+
+.table{
+    width: 100%;
+    height: 330px;
+    border: 1px solid #707070;
+    display:grid;
+    grid-template-columns: 1fr 1.4fr; 
+    grid-template-rows: 0.4fr 0.4fr 1.5fr 0.3fr;
+    text-align: center;
+    border-radius: 15px;
+
+}
+
+.item{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%; 
+    border-right:1px solid #707070; 
+    border-bottom:1px solid #707070;
+
+    
+}
+
+.item-report{
+    border-top: 1px solid black;
+}
+
+ 
+  
+  
+  .btn-select, .box-select {
+      width: 170px;
+      height: 35px;
+      background: #FF6C9E;
+      /* margin-left: 30px; */
+      text-align-last: center;
+      color: #fff;
+    line-height: 1;
+    border-radius: 10px;
+        border: none;
+    justify-self: center;
+    align-self: center;
+    
+  }
+  
+  .report-form{
+      resize: none;
+    width: 93%;
+    height: 89%;
+    border-radius: 5px;
+    border:none;
+  	margin:0px;
+  	padding: 10px;
+  }
+  .btn-black-size{
+  	background-color:#6e6868;
+  	border:none;
+	width:45px;
+  	
+  }
+  .btn-large{
+    width: 60px;
+    height: 35px;
+    margin-left:20px;
+  }
+ 
+
+.table :last-child{
+    border-bottom: none;
+}
+.item:nth-child(7){
+    border-bottom: none;
+    
+}
+.item:nth-child(even){
+    border-right:none;
+    
+}
+.icon-box{
+        display: flex;
+        margin-top: 30px ;
+        justify-content: center;
+}

@@ -2,6 +2,8 @@ package com.artagit.web.dao;
 
 import java.util.List;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Mapper;
 
 import com.artagit.web.entity.ArtagitUserDetails;
@@ -35,6 +37,4 @@ public interface CorporateDao {
 
 	// 아이디 중복 확인
 	int chkId(String loginId);
-
-
 }

@@ -1,0 +1,180 @@
+body {
+    background-color: #FDFBF9;
+    padding: 0;
+}
+
+table {
+    width: 80%;
+    border-bottom: 1px solid rgb(218, 218, 218);
+}
+main{
+    padding-bottom: 60px;
+}
+
+main h1 {
+    font-size: 18px;
+    color: #F7A7BB;
+    margin: 0 0 10px 38px;
+}
+
+main section {
+    margin-top: 25px;
+}
+
+
+/******* 포스터 영역 ****************************************/
+.img-and-info {
+    position: relative;
+}
+
+.exh-img-box {
+    display: flex;
+    height: 150px;
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+.exh-img {
+    width: 100%;
+    transform: scale(1);
+    filter: blur(7px);
+    -webkit-filter: blur(7px);
+    object-fit: cover;
+}
+
+.text-box {
+    color: #ffffff;
+    position: absolute;
+
+    left: 20px;
+    top: 85px;
+}
+
+.exh-title {
+    font-size: 19px;
+    font-weight: 600;
+}
+
+.exh-place {
+    font-size: 14px;
+    font-weight: 200;
+}
+.exh-date {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/******* 달력 영역 ****************************************/
+.choice-date {
+    margin: 0 0 0 10%;
+    font-size: 13px;
+    color: #888888;
+}
+
+
+/****** 관람 인원 ******************************************/
+.rect-box {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: auto;
+
+    box-sizing: border-box;
+    
+    width: 295px;
+    height: 70px;
+    
+    background-color: #FFFFFF;
+    border: 1px solid #BCBCBC;
+    border-radius: 30px;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.25);
+}
+
+.rect-box span {
+    font-size: 17px;
+    font-weight: 500;
+    color: #4b4b4b;
+}
+
+.item {
+    display: flex;
+}
+
+.item:first-child {
+    flex-direction: column;
+}
+
+.item:nth-child(2)>* {
+    border: 1px solid rgba(177, 177, 177, 0.685);
+    padding: 3px 11px 3px 11px;
+}
+
+.minus {
+    color: rgb(150, 150, 150);
+}
+
+
+/******* input 영역 ****************************************/
+.name, .phone, .e-mail {
+    display: flex;
+    flex-direction: column;
+    
+    width: 300px;
+    height: 53px;
+
+    border: 0.3px solid #BCBCBC;
+    border-radius: 5px;
+    
+    background-color: #fff;
+}
+
+.input-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 17px;
+}
+
+.input-box label {
+    color: #4b4b4b;
+    font-size: 13px;
+    margin: 7px 0 0 12px;
+}
+
+/* 투명한 input 태그 속성 */
+.transparency, .username {
+    border: 0;
+    border-radius: 5px;
+    height: 30px;
+    box-sizing: border-box;
+    font-size: 14px;
+    color: #545454;
+    line-height: 24px;
+    text-indent: 14px;
+    background-color: #FFFFFF;
+}
+
+.name, .username {
+    background: #f2f2f2cf;
+}
+
+input:focus{
+    outline: none;
+}
+
+.caution {
+    font-size: 12px;
+    margin: 0 0 0 10px;
+    line-height: 16px;
+    height: 130px;
+}
+
+.highlight {
+    color: rgb(228, 29, 29);
+}
+
+.booking-btn {
+    display: flex;
+    justify-content: space-between;
+    /* flex-direction: row; */
+}

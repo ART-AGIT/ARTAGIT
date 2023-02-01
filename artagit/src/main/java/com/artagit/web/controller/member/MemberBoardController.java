@@ -56,7 +56,7 @@ public class MemberBoardController {
 		model.addAttribute("user", user);
 		List<Comment> comments = commentService.getNickname(id);
 		model.addAttribute("comments", comments);
-	
+
 		
 		//조회수(중복 제거)
 		Cookie oldCookie = null; //쿠키 객체 만들고 초기화
@@ -125,7 +125,10 @@ public class MemberBoardController {
 		System.out.println("img4"+img4.getOriginalFilename());
 		List<MultipartFile> imgList = new ArrayList<>();
 		
+		System.out.println("테스트1");
+		
 		if(!img1.getOriginalFilename().isEmpty()) {
+			System.out.println("1이미지 테스트");
 			board.setImage1(img1.getOriginalFilename());
 			imgList.add(img1);
 		}
@@ -143,7 +146,7 @@ public class MemberBoardController {
 		}
 		
 		
-	
+		System.out.println("테스트2");
 		for(MultipartFile img:imgList) {
 			System.out.println(img);
 			
@@ -173,7 +176,7 @@ public class MemberBoardController {
 		
 		int memId = user.getId();
 		board.setMemId(memId);	
-		System.out.println(imgList.size());
+		System.out.println("size"+imgList.size());
 		int result =service.reg(board);
 		System.out.println(result);
 		String id = String.valueOf(board.getId());

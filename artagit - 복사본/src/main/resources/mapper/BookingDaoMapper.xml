@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.artagit.web.dao.BookingDao">
+
+
+	<select id="get" resultType="com.artagit.web.entity.Booking">
+		select * from Booking
+		where id = #{id};
+	</select>
+
+
+	<select id="getListById" resultType="com.artagit.web.entity.Booking">
+		select * from Booking
+		where Booking.memId = #{memId};
+	</select>
+	
+	<!-- 주문번호를 기준으로 bookId 가져오기 -->
+	<select id="getBookIdBypayNum" resultType="int">
+		select id from Booking
+		where payNum = #{payNum};
+	</select>
+	
+	<!-- 예매내역 insert -->
+	<insert id="add" parameterType="com.artagit.web.entity.Booking">
+		insert into Booking (date, amount, phone, email, memId, exhId, payNum)
+			values (#{date}, #{amount}, #{phone}, #{email}, #{memId}, #{exhId}, #{payNum});
+	</insert>
+	
+	
+	<select id="getExhId" resultType="int">
+		select exhId from Booking
+		where id = #{payId};
+	</select>
+	
+</mapper>
+ 
+   
+   
+

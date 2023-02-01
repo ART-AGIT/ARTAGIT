@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{inc/layout}">
+	
+	<th:block layout:fragment="css">
+	    <link href="/css/component/reg.css" type="text/css" rel="stylesheet">
+	    <link href="/css/signup-corp.css" type="text/css" rel="stylesheet">
+	
+		<script src="/js/signup-corp.js"></script>
+	</th:block>
+
+<body layout:fragment="content">
+    
+    <main>
+        <!-- 회원  -->
+        <div class="signup-corp">
+            <h1>업체 회원가입</h1>
+        </div>
+
+        <!-- 사업자 정보 -->
+        <section class="reg-list">            
+            <form action="">
+                <div class="toggle">
+                    <h1 class="accordion-header">사업자 정보</h1>
+                    <div class="icon arrow-icon icon-arrow-toggle-down"></div>
+                </div>
+
+                <section class="reg-list-box accordion-content">
+                    <div class="reg-list-input-box">
+                        <label for="login-id">사업자 등록 번호</label>
+                        <div>
+                            <input name="businessNum" id="login-id" type="text" required class="input input-md-2" placeholder="10자리 ('-'제외)">
+                            <button class="btn btn-default btn-default-fill btn-default-fill-off btn-certify">인증</button>
+                        </div>
+                    </div>
+                    <div class="reg-list-input-box">
+                        <label for="login-id">아이디</label>
+                            <input name="loginId" id="login-id" type="text" required class="input input-lg">
+                    </div>
+                    <div class="reg-list-input-box">
+                        <label for="password">비밀번호</label>
+                        <input name="password" id="password" type="password" required class="input input-lg"
+                            placeholder="영문자, 숫자, 특수문자 포함 8자 이상">
+                    </div>
+        
+                    <div class="reg-list-input-box">
+                        <label for="password-check">비밀번호 확인</label>
+                        <input name="password" id="password-check" type="password" required class="input input-lg"
+                            placeholder="영문자, 숫자, 특수문자 포함 8자 이상">
+                    </div>
+
+    
+                    <div class="reg-list-input-box">
+                        <label for="exh-name">전시관 이름</label>
+                        <input name="museumName" id="exh-name" type="text" class="input input-lg">
+                    </div>
+        
+                    <div class="reg-list-input-box">
+                        <label for="ceo-name">대표자명</label>
+                        <input name="ceoName" id="ceo-name" type="text" required class="input input-lg">
+                    </div>
+        
+                    <div class="reg-list-input-box">
+                        <label for="corp-name">법인명</label>
+                        <input name="name" id="corp-name" type="text" class="input input-lg">
+                    </div>
+                    <div class="reg-list-input-box">
+                        <label for="corp-phone">대표 전화번호</label>
+                        <input name="phone" id="corp-phone" type="text" required class="input input-lg">
+                    </div>
+        
+                    <div class="reg-list-input-box">
+                        <label for="business-num">사업자 번호</label>
+                        <input name="businessNum" id="business-num" type="text" required class="input input-lg">
+                    </div>
+        
+                    <div class="reg-list-input-box">
+                        <label for="address">전시관 주소</label>
+                        <div>
+                            <input name="address" id="login-id" type="text" required class="input input-md-2" placeholder="주소 입력">
+                            <button class="btn btn-default btn-default-fill-off">주소검색</button>
+                        </div>
+                        <input name="address" id="address-detail" type="text" class="input input-lg" placeholder="상세 주소 입력">
+                    </div>
+        
+        
+                </section>
+        
+        
+                <!-- 담당자 정보 -->
+                <div class="toggle">
+                    <h1 class="accordion-header">담당자 정보</h1>
+                    <div class="icon arrow-icon icon-arrow-toggle-up"></div>
+                </div>
+                
+                <section class="reg-list-box accordion-content d-none">
+                    
+                    <div class="reg-list-input-box">
+                        <label for="name">이름</label>
+                        <input name="manager" id="name" type="text" class="input input-lg">
+                    </div>
+                    
+                    <div class="reg-list-input-box">
+                        <label for="email">이메일</label>
+                        <input name="" id="email" type="email" class="input input-lg">
+                    </div>
+                    <div class="reg-list-input-box">
+                        <label for="phone">휴대폰</label>
+                        <input name="managerPhone" id="phone" type="text" class="input input-lg">
+                    </div>
+
+                    <!-- 가입 -->
+                </section>
+                <div class="reg-button-box">
+                    <button type="submit" class="btn btn-default-fill-off btn-xl">가입하기</button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+</body>
+</html>
