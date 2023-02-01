@@ -71,11 +71,11 @@
             
             <div class="post-info">
                 <div>
-                    <div class="icon icon-view">조회수 </div>
+                    <div class="icon icon-edit icon-view">조회수 </div>
                     <div th:text=${board.hit} >11</div>
                 </div>
                 <div>
-                    <div class="icon icon-like-up">추천 </div>
+                    <div class="icon icon-edit icon-like-up">추천 </div>
                     <div th:text="${board.hearts}">11</div>
                 </div>
                
@@ -100,9 +100,9 @@
                </div>
                <div class="icon-flex" th:if="${user.id != board.memId}">
                    <div class="heart-fix">
-                      <div th:classappend="${board.heart} != 1? '' : 'icon-heart-red'" class="icon icon-heart post-like-btn"></div>
+                      <div th:classappend="${board.heart} != 1? '' : 'icon-heart-red'" class="icon icon-edit icon-heart post-like-btn"></div>
                    </div>
-                   <button  th:attr="data-id=${board.memId}" class="icon icon-report post-report" type="submit" value="게시글">수정</button>
+                   <button  th:attr="data-id=${board.memId}" class="icon icon-edit icon-report post-report" type="submit" value="게시글">수정</button>
             </div>
         </div>
         </div>
@@ -118,7 +118,7 @@
                <h1 class="d-none">댓글1개</h1>
                <div class="comment-writer-wrapper" >
                   <div class="comment-writer">
-                     <img class="profile-photo" src = "../../image/accountImage.png">
+                       <img class="profile-photo" th:src="@{|/image/${comment.image}|}">
                      <div class="user-name" th:text="${comment.nickname}">오라클</div>
                   </div>
                   <div class="icon icon-report" >
