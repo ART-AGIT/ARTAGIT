@@ -127,9 +127,28 @@ window.addEventListener("load", function(){
             
                if(list.length<6)
                   itemMore.classList.add("d-none");
-      
+                  
+                  
             var bookingDate = booking.bookingDate.substring(0,10);
             var state ="";
+           
+            
+            //KST 시간변환
+          let beforeDate = new Date(booking.bookingDate);
+			let utcBoard = beforeDate.getTime() + (beforeDate.getTimezoneOffset() * 60 * 1000);
+			let time_diff = 9 * 60 * 60 * 1000;
+			let cur_date_korea = new Date(utcBoard + (time_diff));
+			
+			let year = booking.bookingDate.toString().substring(2, 4);
+			let month = booking.bookingDate.toString().substring(5, 7);
+			let day = booking.bookingDate.toString().substring(8, 10);
+			let hour = cur_date_korea.toString().substring(15, 18);
+			let min = cur_date_korea.toString().substring(19, 21);
+            
+            var dayReal = cur_date_korea.toString().substring(8,11)
+            var date = booking.bookingDate.substring(0,7)+"-"+dayReal
+            
+            console.log("관람일"+date);   
             
             if(bookingDate >=  now)
                state="<div style='color:#FF5171;'>미관람</div>";
@@ -152,7 +171,7 @@ window.addEventListener("load", function(){
                         <div class="text pay-state"> ${state}</div>
                              <div class="text exh-title" >${booking.exhName}</div> 
                              <div class="text exh-place" > ${booking.museumName}</div> 
-                             <div class="text exh-date">관람일 : ${bookingDate}</div>
+                             <div class="text exh-date">관람일 : ${date}</div>
          
                         <div class="button-list" >
                                 <a class="btn btn-default-fill btn-write" data-id="${booking.bookingId}" href="${booking.bookingId}">리뷰작성</a>
@@ -180,7 +199,7 @@ window.addEventListener("load", function(){
                                    <div class="text exh-title" >${booking.exhName}</div> 
                                    <div class="text exh-place" > ${booking.museumName}</div> 
                
-                                   <div class="text exh-date">관람일 : ${bookingDate}</div>
+                                   <div class="text exh-date">관람일 : ${date}</div>
                
                               <div class="button-list" >
                                  
@@ -224,21 +243,28 @@ window.addEventListener("load", function(){
          .then((data)=>{
 			 console.log(data)
             let payment = data.payment;
-            let user = data.user;
+//            let user = data.user;
             let exhibition = data.exhibition;
             let booking = data.booking;
-            console.log("booking.date"+booking.date)
-          	var bookingDate = booking.date.substring(0,10);
-
-            console.log("payment"+payment)
-            console.log("user"+user)
-            console.log("exhibition"+exhibition)
-            console.log("booking"+booking)
-			console.log("ㅠㅐㅐㅐㅐ"+bookingDate);	
-         	console.log(booking.payNum);
-         	console.log(data)
-         
-
+            console.log("booking.date  "+booking.date)
+            
+            
+            //KST 시간변환
+            let beforeDate = new Date(booking.date);
+			let utcBoard = beforeDate.getTime() + (beforeDate.getTimezoneOffset() * 60 * 1000);
+			let time_diff = 9 * 60 * 60 * 1000;
+			let cur_date_korea = new Date(utcBoard + (time_diff));
+			
+			let year = booking.date.toString().substring(2, 4);
+			let month = booking.date.toString().substring(5, 7);
+			let day = booking.date.toString().substring(8, 10);
+			let hour = cur_date_korea.toString().substring(15, 18);
+			let min = cur_date_korea.toString().substring(19, 21);
+            
+            var dayReal = cur_date_korea.toString().substring(8,11)
+            var date = booking.date.substring(0,7)+"-"+dayReal
+            console.log("관람일"+date);
+            
 
          var template =
             `
@@ -247,7 +273,7 @@ window.addEventListener("load", function(){
                  <div class=" pay-modal-popup"> 
                      <section class="payment-list"> 
                          <h1>결제 상세</h1> 
-                          <a class="btn btn-default btn-default-fill-off pay-cancel"  value="닫기">결제 취소</a> 
+                          
                          <div class=""> 
                         <div class="payment-table">
                                <div class="item" >결제번호</div>
@@ -258,8 +284,8 @@ window.addEventListener("load", function(){
                                <div class="item">${exhibition.name}</div>
                                <div class="item">인원</div>
                                <div class="item">${booking.amount}</div>
-                               <div class="item">관람일</div>
-                               <div class="item">${bookingDate}</div>
+							   <div class="item">관람일</div>
+                               <div class="item">${date}</div>
                                <div class="item">결제금액</div>
                                <div class="item">${payment.price}</div>
                                <div class="item">결제방식</div>

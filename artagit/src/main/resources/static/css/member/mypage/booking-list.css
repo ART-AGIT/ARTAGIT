@@ -113,7 +113,7 @@
 	.nonexistence-mess{
 		display:flex;
 		flex-direction:column;
-		padding-left: 300px;
+		padding-left: 0px;
 	}
 	
 	.nonexistence-mess p{
@@ -335,7 +335,7 @@
 
 .select-wrap{
 	display:flex;
-	gap:550px;
+	gap:300px;
 	
 }
 .select-box{
