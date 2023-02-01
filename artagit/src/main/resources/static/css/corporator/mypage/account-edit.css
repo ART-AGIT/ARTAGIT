@@ -339,8 +339,9 @@ top: -5px;
 	
 	.content-wrap{
 		display:flex;
-		margin-top: 80px;
+		margin-top: 160px;
 	}
+	
 	
 	.reg-list{
 		margin : auto;
