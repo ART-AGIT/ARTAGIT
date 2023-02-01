@@ -81,7 +81,7 @@ public class ArtagitSecurityConfig {
 	private OAuth2UserService<OidcUserRequest, OidcUser> oidcUserService() {
 		// 자식 클래스를 정의해서 객체로 만들어서 반환하는 코드... (OAuth2UserService 는 인터페이스 이기 때문에 구현체가 필요)
 		return (oidcUserRequest) -> { // Request 정보를 받으면, 그걸로 
-	
+			System.out.println("순서체크");
 			OidcUserService oidcUserService = new OidcUserService();
 			OidcUser oidcUser = oidcUserService.loadUser(oidcUserRequest);
 	
@@ -94,9 +94,10 @@ public class ArtagitSecurityConfig {
 			String providerId = oidcUser.getAttribute("sub");
 			String username = oidcUser.getAttribute("name");
 			
-			// OidcUser (아무것도 없는 맨땅 사용자 정보) 를 -> ArtagitOidcUser(우리가 원하는 사용자 정보 객체로 반환)
 			Set<GrantedAuthority> mappedAuthorities = new HashSet<>();
 			
+			
+			// OidcUser (아무것도 없는 맨땅 사용자 정보) 를 -> ArtagitOidcUser(우리가 원하는 사용자 정보 객체로 반환)
 			ArtagitOidcUser user = new ArtagitOidcUser(oidcUser);
 			System.out.println("getName ==> " + oidcUser.getName());
 			System.out.println("getAttribute ==> " + oidcUser.getAttribute("iss"));
@@ -138,18 +139,27 @@ public class ArtagitSecurityConfig {
 				System.out.println("회원의 권한==> "+roleDao.getMemberByUserName(username));
 			}
 //			return user;
+			mappedAuthorities.add(new SimpleGrantedAuthority("ROLE_MEMBER"));
+			System.out.println("mappedAuthorities===> " +mappedAuthorities);
 			return new DefaultOidcUser(mappedAuthorities, oidcUser.getIdToken(), oidcUser.getUserInfo()); // <OidcUserRequest, OidcUser> 를 자료로 하는 userService를 반환
 		};
 	}
 	
 	// 소셜(구글, 카카오, 네이버) 로그인 시, 회원의 권한을 부여해주는 메서드
 	private GrantedAuthoritiesMapper userAuthoritiesMapper() {
+		System.out.println("왔나요1");
 		return (authorities) -> {
+			System.out.println("왔나요2");
 			Set<GrantedAuthority> mappedAuthorities = new HashSet<>();
+			System.out.println("authorities ==> " + authorities);
+			System.out.println("mappedAuthorities ==> " + mappedAuthorities);
 			
 			authorities.forEach(authority -> {
+				System.out.println("왔나요3");
+				System.out.println("authority ===> " + authority );
 	        	 // id를 사용하는 오픈어스 (ex. google)
 	            if (OidcUserAuthority.class.isInstance(authority)) {
+	            	System.out.println("여기로왔스비낟.");
 	               OidcUserAuthority oidcUserAuthority = (OidcUserAuthority)authority;
 	               
 	               OidcIdToken idToken = oidcUserAuthority.getIdToken();
@@ -160,10 +170,11 @@ public class ArtagitSecurityConfig {
 	               // Map the claims found in idToken and/or userInfo
 	               // to one or more GrantedAuthority's and add it to mappedAuthorities (원한다면 사용자에 대한 정보를 이부분에서 추가할 수 있다.)
 	               System.out.println("========= Oidc User authorities =========");
-	               
+	               mappedAuthorities.add(new SimpleGrantedAuthority("ROLE_MEMBER"));
 	               
 	            // user를 사용하는 오픈어스 (ex. facebook)
 	            } else if (OAuth2UserAuthority.class.isInstance(authority)) {
+	            	System.out.println("여기로왔어요");
 	               OAuth2UserAuthority oauth2UserAuthority = (OAuth2UserAuthority)authority;
 
 	               Map<String, Object> userAttributes = oauth2UserAuthority.getAttributes();
@@ -171,7 +182,7 @@ public class ArtagitSecurityConfig {
 	               // Map the attributes found in userAttributes
 	               // to one or more GrantedAuthority's and add it to mappedAuthorities
 	               System.out.println("========= OAuth2 User authorities =========");
-
+	               mappedAuthorities.add(new SimpleGrantedAuthority("ROLE_MEMBER"));
 	            }
 	         });
 
