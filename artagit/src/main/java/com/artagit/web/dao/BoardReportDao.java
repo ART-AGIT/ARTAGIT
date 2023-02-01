@@ -5,24 +5,25 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import com.artagit.web.entity.Report;
+import com.artagit.web.entity.BoardReport;
+import com.artagit.web.entity.CommentReport;
 
 @Mapper
-public interface ReportDao {
+public interface BoardReportDao {
 	
-	List<Report> getList(
+	List<CommentReport> getList(
 			int page,
 			Date startDate,
 			Date endDate,
 			String field,
 			String input);
 	
-	Report get(int id);
+	CommentReport get(int id);
 	int count(String query); // 집계 count
 	
 	
-	int insert(Report report); 
-	int update(Report report);
+	int insert(BoardReport report); 
+	int update(CommentReport report);
 	int delete(int id); 
-	int deleteAll(Report report);
+	int deleteAll(CommentReport report);
 }

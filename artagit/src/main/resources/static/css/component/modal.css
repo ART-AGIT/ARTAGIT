@@ -88,7 +88,7 @@
     border-radius: 0.6rem;
     text-decoration: none;
     color: #545454;
-	font-size: 14px;
+   font-size: 14px;
     width: 3.8rem;
     height: 1.5rem;
     cursor: pointer;
@@ -105,20 +105,19 @@
 }
 
 .modal.show {
-	transform: translate(-50%, -50%);
+   transform: translate(-50%, -50%);
     transition: all 0.5s;
 }
 
 @media (min-width: 992px){
-	.modal {
-	    width: 260px;
-	}
-	
-	.d-modal {
-	    width: 20%;
-	    height: 8rem;
-	    gap: 10px;
-	}
+   .modal {
+       width: 260px;
+   }
+   
+   .d-modal {
+       width: 20%;
+       height: 8rem;
+       gap: 10px;
+   }
 
 }
-

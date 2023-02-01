@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.artagit.web.dao.BoardReportDao">
+
+	
+	<insert id="insert" parameterType="com.artagit.web.entity.BoardReport">
+		  insert into BoardReport (postId, content,roleId )
+        values(#{postId}, #{content}, #{roleId})
+	</insert>
+		
+	
+</mapper>
+ 
