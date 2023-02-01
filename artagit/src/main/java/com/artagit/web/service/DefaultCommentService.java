@@ -68,7 +68,7 @@ public class DefaultCommentService implements CommentService {
 		Comment lastOne = dao.getLast();
 		
 		Map<String, Object> dto = new HashMap<>();
-		dto.put("member", member.getNickname());
+		dto.put("member", member);
 		dto.put("comment", lastOne);
 		return dto;
 	}
