@@ -7,10 +7,14 @@
    <th:block layout:fragment="css">
     <link href="../../css/component/board-list.css" type="text/css" rel="stylesheet">
     <link href="../../css/component/board-detail.css" type="text/css" rel="stylesheet">
-   <link href="/css/component/modal.css" type="text/css" rel="stylesheet">
-   <script src="../../js/header-menu.js"></script>
-   <script src="../../js/board/comment/comment.js"></script>
-   <script src="../../js/member/board/detail.js"></script>
+    <link href="../../css/component/board-detail.css" type="text/css" rel="stylesheet">
+    <link href="../../css/component/report.css" type="text/css" rel="stylesheet">
+	 <link href="/css/component/modal.css" type="text/css" rel="stylesheet">
+	
+	
+	<script src="../../js/header-menu.js"></script>
+	<script src="../../js/board/comment/comment.js"></script>
+	<script src="../../js/member/board/detail.js"></script>
 
 
 </head>
@@ -18,30 +22,19 @@
 <script src="../../js/board/comment/comment.js" defer></script>
 <body>
 
-   </th:block>
-   
+	</th:block>
+	
 <body layout:fragment="content">
 
     
-    <main class="main-container">   
-    <div class="content-wrapper">
-      <nav class = "board-category-box">
-        <ul class="board-category-l">
-            <!-- <li>전체 글</li> -->
-             <li data-id="0" th:class="${board.roleId}==null?'board-selected'" class="deco-ticket-on"><a href="/board/list" class="deco deco-total">전체 글</a></li>
-            <li data-id="1" th:class="${#strings.equals(board.roleId, '1')}?'board-selected'"class="line-on icon-note"><div class="deco deco-free"><a th:href="@{|/board/list${1}|}">자유게시판</a></div></li>
-            <li data-id="2" th:class="${#strings.equals(board.roleId, '2')}?'board-selected'" class="icon-picture"><div class="deco deco-picture"><a th:href="@{|/board/list${2}|}">전시후기</a></div></li>
-            <li data-id="3" th:class="${#strings.equals(board.roleId, '3')}?'board-selected'" class="icon-food"><div class="deco deco-food"><a th:href="@{|/board/list${3}|}">맛집후기</a></div></li>
-            <li data-id="4" th:class="${#strings.equals(board.roleId, '4')}?'board-selected'" class="icon-smile"><div class="deco deco-together"><a th:href="@{|/board/list${4}|}">같이가요</a></div></li>
-        </ul> 
-    </nav>
+    <main class="main-container">	
     <div class="post-container">
     <nav class = "">
         <div class="post-detail-header">
             <div class="current-location">
-                <div><a href="../../">HOME ></a></div>
+                <div><a href="../../index">HOME ></a></div>
                 <div><a href="../../board/list">커뮤니티 ></a></div>
-                <div><a th:utext="${board.name}"href="../../board/list">전시후기</a></div>
+                <div><a href="../../board/list">전시후기</a></div>
             </div>
             <div class="list-btn">
                 <a class="btn btn-default-line" href="../../board/list">목록</a>
@@ -61,7 +54,7 @@
             </div>
            
                 <div class="post-writer-info">
-                    <img class = "profile-photo" th:src="@{|/image/${board.memImage}|}" src = "../../image/accountImage.png">
+                    <img class = "profile-photo" src = "../../image/accountImage.png">
                     <div><a th:text="${board.nickname}" href = "../mypage/like-list.html">운영자</a></div>
                 </div>
             
@@ -79,26 +72,24 @@
         </section>
         </section>
         <div class="post-content">
-           <div class="text-image-wrapper">
+        	<div class="text-image-wrapper">
         <input type="hidden" class="board-id" th:attr="data-id=${board.id}">
             <div th:utext="${board.content}"class="post-content-message">
                 <span>회원님들 그만 좀 싸우세asdffsdsdㅁ아품아ㅜ 마이ㅏ무아뮝 ㅏㅜ미ㅏㅍ우ㅏ미 아미아뮈아ㅟasdfdasdfasdfasdasdfasdfsda요들</span>
             </div>
-                <img class="board-img" th:if="${board.image1}" th:src="@{/image/board/{img}(img=${board.image1})}">
-                <img class="board-img" th:if="${board.image2}" th:src="@{/image/board/{img}(img=${board.image2})}">
-                <img class="board-img" th:if="${board.image3}" th:src="@{/image/board/{img}(img=${board.image3})}">
-                <img class="board-img" th:if="${board.image4}" th:src="@{/image/board/{img}(img=${board.image4})}">
+<!--                  <img class="board-img" th:classappend="${board.image.isEmpty()}?d-none" th:src="@{/image/{img}(img=${board.image})}"> -->
             </div>
             <div class="like">
-             	<div th:if="${user.id == board.memId}">
-	               	<a th:href="@{|/member/board/edit/${id}|}" class="btn btn-default-line">수정</a>
-	            	<div type="button" class="btn btn-default-line delete-btn">삭제</div>
+             <div th:if="${user.id == board.memId}">
+               <a th:href="@{|/member/board/edit/${id}|}" class="btn btn-default-line">수정</a>
+               <div type="button" class="btn btn-default-line delete-btn">삭제</div>
                </div>
-               <div class="icon-flex" th:if="${user.id != board.memId}">
-                	<div class="heart-fix">
-                		<div th:classappend="${board.heart} != 1? '' : 'icon-heart-red'" class="icon icon-heart post-like-btn"></div>
-                	</div>
-                	<a class="icon icon-report" href=""></a>
+               <div th:if="${user.id != board.memId}">
+                <span class="heart-fix">
+                <div th:classappend="${board.heart != 0}  ? 'icon-heart-red' : ''" class="icon icon-heart post-like-btn"></div>
+                
+                </span>
+                  <button  th:attr="data-id=${board.memId}" class="icon icon-report post-report" type="submit" value="게시글">수정</button>
             </div>
         </div>
         </div>
@@ -109,43 +100,51 @@
             </section>
                    <section  class="comment-detail" >
            <th:block   th:each="comment : ${comments}" >
-
            <th:block th:if="${#strings.equals(comment.useYn,'Y')}">
             <form class="CommentId" th:attr="data-id=${comment.id}" >
                <h1 class="d-none">댓글1개</h1>
                <div class="comment-writer-wrapper" >
                   <div class="comment-writer">
-                     <img class="profile-photo" src="../../image/accountImage.png">
+                     <img class="profile-photo" src = "../../image/accountImage.png">
                      <div class="user-name" th:text="${comment.nickname}">오라클</div>
                   </div>
-                  <div class="icon icon-miniMenu">
-                            <button id="4"    class="icon icon-miniMenu" type="submit" value="수정">수정</button>
-                           
+                  <div class="icon icon-report" >
+                        <button id="4" th:attr="data-id=${comment.memId}" class="icon icon-report btn-black" type="submit" value="댓글">수정</button>
                   </div>
+                  
+                  
                </div>
 
                <div class="comment-main" th:text=${comment.content} th:attr="data-id=${comment.content}">저도 거기
                   다녀왔는데 정말 좋더라고요~ 굿즈asfdddddddddddddddddddddsdaaaaaaaaaaaaaaaaaas도 다
                   너무 예뻣더라는..</div>
                <div class="comment-info">
-                  <div th:text="${#dates.format(board.regDate, 'yy/MM/dd HH:mm')}">
+                  <div th:text="${#dates.format(comment.regDate, 'yy/MM/dd HH:mm')}">
                      2022.11.26 18:38</div>
                   <div class="re-comment"  >
 <!--                  <button id="3"    class="btn btn-default comment" type="submit" value="수정">답변쓰기</button> -->
                   </div>
-                     <div class="add-modify" th:attr="data-id=${comment.nickname}"  >
+                  	<div class="add-modify" th:attr="data-id=${comment.nickname}"  >
                      <th:block th:if="${user.id == comment.memId}">
-                     <button id="1"    class="btn btn-default comment-modify" type="submit" value="수정">수정</button>
-                     <button id="2"    class="btn btn-default comment-del" type="submit" value="삭제">삭제</button>
+                     <a class="a-btn" href=""  id="1">수정</a>
+                     <a class="a-btn a-btn-black"  id="2">삭제</a>
                      </th:block>
                      </div>
                </div>
                </form>
                 </th:block>
+             
             </section>
+            
+            
+            
             <div class="comment-page"  >
-               <a href="">1</a>
+           		
+           		
+           		
             </div> 
+
+
 
                <div class="comment-section" >
                <form id="comment-form"  >
@@ -153,33 +152,89 @@
                <input type="hidden"  name="postId" th:value="${board.id}">
                   <div class="user-name" ></div>
                   <div class="comment-writing">
-                     <textarea class="content-null" name="content"></textarea>
-                     <button class="btn btn-default-fill btn-write" type="submit" value="작성">작성</button>
+                     <textarea class="content-null" name="content" spellcheck="false"></textarea>
+                     <button class="btn btn-large btn-write" type="submit" value="작성">작성</button>
                   </div>
                </form>
-            </th:block>
                </div>
-             </section>
-              <div class="list-btn">
-                <a class="btn btn-default-line" href="../../board/list">목록</a>
-            </div>
+             
     
     
     
-
-    	<div id="modal" class="modal-overlay d-none">
-        	<div class="modal-window">
-	                <div class="modal-header">
-			        	<h1 class="header-title">정말 삭제하시겠습니까?</h1>
-			        </div>
-	            <div class="button-wrap modal-actions">
-	            <a th:href="@{/member/board/delete(id=${id})}" class="modal-action yes">예</a>
-	            <button class="modal-action no">아니오</button>
-	            </div>
+        
+        
+        
+          <div id="modal" class="modal-overlay d-none">
+           <div class="modal-window">
+                   <div class="modal-header">
+                    <h1 class="header-title">정말 삭제하시겠습니까?</h1>
+                 </div>
+               <div class="button-wrap modal-actions">
+               <a th:href="@{/member/board/delete(id=${id})}" class="modal-action yes">예</a>
+               <button class="modal-action no">아니오</button>
+               </div>
             </div>
         </div>
+        
+        
+        
+        
+         <div id="modal-popup" class="modal-overlay d-none">
+		        <div class="modal-window">
+            	<div class="content">신고가 완료되었습니다</div>
+	            <a class="button-wrap"></a>
+	            <div class="btn btn-default-fill close">확인</div>
+           </div>
+        </div>
+    
+    
+    
+    		 <div id="popup" class="popup-overlay popup-over d-none">
+		        		<div class="popup-window">
+		            <div class="popup-content"> 
+					  <div class="main-box">
+					<h1 class="title">신고하기</h1>
+					<section class="table-box">
+						<div class="table">
+							<div class="item item-type">신고유형</div>
+							<th:block >
+							<div class="item  type-post"></div>
+							</th:block>
+							<div class="item">신고사유</div>
+							<select name="pets" id="pet-select" class="box-select">
+								<option value="1">스팸/홍보입니다</option>
+								<option value="2">음란물입니다</option>
+								<option value="3">불법정보 입니다</option>
+								<option value="4">청소년에게 유해합니다</option>
+								<option value="5">욕설/혐오 표현입니다</option>
+							</select>
+							<div class="item">신고 내용</div>
+							<div class="item item-report">
+							    <textarea class="report-form" spellcheck="false"></textarea>
+							</div>
+							<div class="item">이미지 첨부</div>
+							<div class="item">ddd</div>
+						</div>
+						<div class="icon-box">
+						</div>
+					</section>
+				</div>
+		            </div>
+		            	<div class="button-popup">
+<!-- 		            	      <button id="5"   th:href="@{/member/board/delete(id=${id})}" class="btn btn-default-fill yes">수정</button> -->
+<!-- 				         <button class="btn btn-large btn-write" type="submit" value="작성">작성</button> -->
+				            <button  class="btn btn-large yes" type="submit">신고</button>
+<!-- 				              <input type="hidden"  name="memId" th:value="${}"> -->
+				            <div class="btn btn-default-dark no">취소</div>
+		           	 </div>
+		            </div>
+		            </div>
+		               </th:block>
+		            </section>
     </div>
-    </div>
+    
+    
+    
 </main>
 
 </body>
