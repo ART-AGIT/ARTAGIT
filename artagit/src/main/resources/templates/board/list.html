@@ -73,7 +73,7 @@
 						        </h1>
 						     <div><a th:text="[+${board.name}+]" class="board-category-s" href="">[같이가요]</a></div>
 						        
-						        <div class="board-regdate" th:text="${#dates.format(board.regDate, 'YY/MM/DD HH:mm')}">1분전</div>
+						        <div class="board-regdate" th:text="${#dates.format(board.regDate, 'YY/MM/dd HH:mm')}">1분전</div>
 						     
 						        <div class="board-writer-info">
 					                <img class="profile" src = "" th:src="@{|/image/${board.memImage}|}">
