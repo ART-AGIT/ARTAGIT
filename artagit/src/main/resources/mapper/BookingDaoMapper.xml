@@ -32,7 +32,7 @@
 	
 	<select id="getExhId" resultType="int">
 		select exhId from Booking
-		where id = #{payId};
+		where id = #{bookId};
 	</select>
 	
 </mapper>

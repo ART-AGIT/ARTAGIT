@@ -224,64 +224,33 @@ public class MyPageApi {
 	
 	
 	
-	
-	
-
-	/*-----------리뷰수정------*/ 
-	/*
-	@PostMapping("/review/update/{id}")
-	@Transactional
-	public Map<String,Object> update(Review review,Booking booking,@PathVariable("id") int reviewId
-			,@AuthenticationPrincipal ArtagitUserDetails user){
-		
-		System.out.println("color"+review.getColor());
-		review.setColor(review.getColor());
-		System.out.println("review2---"+review);
-		Review result = reviewService.update(review);
-		System.out.println("result"+result);
-		
-		int payId = result.getPayId();
-		System.out.println(payId);
-		BookingList bookingList = bookingService.getReviewByBookingId(payId);
-		System.out.println(bookingList);
-	
-		Map<String,Object> dto = new HashMap<>();
-		dto.put("status", 200);
-		dto.put("resultObject",result);
-		dto.put("bookingList",bookingList);
-
-		return dto;
-	}
-	
-	*/
-	
-	
 	/*-----------모달로 결제상세------*/ 
 	@GetMapping("/payment/{id}")
 	@Transactional
-	public Map<String,Object> see(@PathVariable("id") int payId
+	public Map<String,Object> see(@PathVariable("id") int bookId
 			,@AuthenticationPrincipal ArtagitUserDetails user){
 		System.out.println("payment api안에 들어옴");
+		
+		
+		System.out.println(bookId); 
 		Map<String,Object> dto = new HashMap<>();
-		Payment payment = paymentService.get(payId);
-		Booking booking = bookingService.get(payId);
-		System.out.println("booking"+booking);
-		int exhId = bookingService.getExhId(payId);
+		Payment payment = paymentService.get(bookId);
+		Booking booking = bookingService.get(bookId);
+
+		System.out.println("payment"+payment);
+
+		int exhId = bookingService.getExhId(bookId);
 		Exhibition exh = exhService.getExhById(exhId);
 		
 		dto.put("booking",booking);
 		dto.put("payment",payment);
-		dto.put("user",user);
+//		dto.put("user",user);
 		dto.put("exhibition",exh);
 		
 		return dto;
 	}
 	
-	
-	
-	
-	
-	
+
 
 	/******좋아요한 게시글***********/
 	@GetMapping("/board/api/list")
