@@ -24,17 +24,15 @@
 	        	<div class="profile-box">
 	        		<div class="profile-content">
 		                <div class="profile-img-box" >
-		                   <img th:if="${user.img}!= null" th:src="@{|/image/${user.img}|}" class="profile-img ">
-                            <img th:unless="${user.img}!= null" th:src="@{/image/프사.jpg}" class="profile-img ">
+		                    <img th:src="@{|/image/${user.img}|}" class="profile-img">
+		                	<img th:if="${user.provider != null}" th:src="${user.img}" class="profile-img img-input">
 		                </div>
-		                <div></div>
-			                <div class="profile-name"> 
-			                    <span th:text="${user.nickname}+' 님'">1004님</span>
-			                </div>
-			                <div class="member-grade">
+		                <div class="profile-name">
+		                    <span th:text="${user.nickname} +' 님'">1004님</span>
+		                </div>
+		                <div class="member-grade">
                         		일반회원
-                    		</div>
-		                
+                    	</div>
 		            </div>
 	            </div>
 	            <ul class="menu-list">
@@ -54,8 +52,9 @@
                     <div class="member">
                         <input type="hidden" th:value="${user.id}" name="id">
                         <div class="member-profile">
-                            <img th:src="@{|/image/${user.img}|}" src="../../image/회원기본이미지.svg"
+                            <img th:if="${user.provider == null}" th:src="@{|/image/${user.img}|}" src="../../image/회원기본이미지.svg"
                                 class="member-profile-img img-input">
+                            <img th:if="${user.provider != null}" th:src="${user.img}" class="member-profile-img img-input">
                             <div class="icon-img-choice">
                                 <div class="circle-edit"></div>
                                 <input name="img" type="file" src="../../image/icons/icon-edit.svg"

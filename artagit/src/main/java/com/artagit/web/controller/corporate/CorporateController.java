@@ -54,10 +54,11 @@ public class CorporateController {
 			System.out.println("정보 수정 하자~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 			// 정보 수정 - 비밀번호 수정 안했을 때 유지코드
 			if (!corporate.getPassword().isEmpty()) {
-				String password = corporate.getPassword();
-				String encPassword = passwordEncoder.encode(password);
-				
-				corporate.setPassword(encPassword);
+				System.out.println("비번 을 바꿨어..");
+//				String password = corporate.getPassword();
+//				String encPassword = passwordEncoder.encode(password);
+//				
+//				corporate.setPassword(encPassword);
 				
 				user.setPassword(corporate.getPassword());
 				System.out.println(user.getPassword());
@@ -101,7 +102,7 @@ public class CorporateController {
 			user.setCorpAddress(corporate.getCorpAddress());
 			user.setAddressDetail(corporate.getAddressDetail());
 			// 담당자 정보
-					
+			user.setPassword(corporate.getPassword());
 			user.setManager(corporate.getManager());
 			user.setEmail(corporate.getEmail());
 			user.setManagerPhone(corporate.getManagerPhone());	
@@ -109,7 +110,7 @@ public class CorporateController {
 			
 			model.addAttribute("user",user);
 //			model.addAttribute("corporate",corporate);
-			corpService.updateAccount(user);
+			corpService.updateAccount(corporate);
 			System.out.println("user~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"+user);
 			
 			return "corporator/mypage/account-edit";

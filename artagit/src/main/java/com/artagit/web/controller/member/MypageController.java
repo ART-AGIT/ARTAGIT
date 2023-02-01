@@ -169,7 +169,7 @@ public class MypageController {
 		model.addAttribute("user", user);
 		
 		// System.out.println(user.getPhone());
-		// memberService.update(user);
+//		 memberService.update(user);
 
 		return "member/mypage/account-edit";
 	}
@@ -181,10 +181,11 @@ public class MypageController {
 	
 		if (!member.getPassword().isEmpty()) {
 			//비번칸이 빈칸이 아니면
-			String password = member.getPassword();
-			String encPassword = passwordEncoder.encode(password);
+//			String password = member.getPassword();
+//			String encPassword = passwordEncoder.encode(password);
+			
 
-			member.setPassword(encPassword);
+//			member.setPassword(encPassword);
 
 			user.setPassword(member.getPassword());
 			System.out.println(user.getPassword());

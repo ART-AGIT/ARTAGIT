@@ -122,37 +122,42 @@ public class ArtagitSecurityConfig {
 				
 				// 넘어온 해당 유저의 정보들을 담아서
 				temp = new Member();
+//				temp.setId(0);
 				temp.setEmail(oidcUser.getEmail());
 				temp.setLoginId(username); // id와 pw는 저장할 필요 없다.
 				temp.setProvider(provider);
 				temp.setProviderId(providerId);
 				temp.setName(oidcUser.getAttribute("name"));
 				temp.setPassword("NULL");
-				temp.setImage(oidcUser.getPicture());
+				temp.setImage((String)oidcUser.getPicture());
 				temp.setRoleId(2);
 				temp.setNickname(oidcUser.getGivenName());
 				
-				memberDao.insert(temp); // 새로 추가(insert) 해준다.
 				
-				System.out.println("회원의 권한==> "+roleDao.getMemberByUserName(username));
+				memberDao.insert(temp); // 새로 추가(insert) 해준다.
+				member = memberDao.getByUserName(username);
+				System.out.println("신규 회원의 권한==> "+roleDao.getMemberByUserName(username));
+				System.out.println("getId => " + member.getId());
+//				return new DefaultOidcUser(mappedAuthorities, oidcUser.getIdToken(), oidcUser.getUserInfo());
 			} else if (member != null) {
 				System.out.println("계정이 있는 회언");
 				System.out.println("회원의 권한==> "+roleDao.getMemberByUserName(username));
-				user.setId(member.getId());
-				user.setEmail(member.getEmail());
-				user.setLoginId(member.getLoginId()); // id와 pw는 저장할 필요 없다.
-//				user.setProvider(provider);
-//				user.setProviderId(providerId);
-				user.setName(member.getName());
-				user.setPassword("NULL");
-				user.setImg(member.getImage());
-				user.setRoleId(2);
-				user.setNickname(member.getNickname());
-				user.setProvider(member.getProvider());
-				user.setUsername(member.getProviderId());
-//				member.setAuthorities(mappedAuthorities);
 			}
+			
+			user.setId(member.getId());
+			user.setEmail(member.getEmail());
+			user.setLoginId(member.getLoginId()); // id와 pw는 저장할 필요 없다.
+//				user.setProvider(member.getProvider());
+//				user.setProviderId(providerId);
+			user.setName(member.getName());
+			user.setPassword("NULL");
+			user.setImg((String)member.getImage());
+			user.setRoleId(2);
+			user.setNickname(member.getNickname());
+			user.setProvider(member.getProvider());
+			user.setUsername(member.getProviderId());
 			System.out.println("user========" + user);
+			
 			return user;
 			
 //			System.out.println("mappedAuthorities===> " +mappedAuthorities);

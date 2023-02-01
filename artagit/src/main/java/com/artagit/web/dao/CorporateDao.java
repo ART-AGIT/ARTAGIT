@@ -19,7 +19,7 @@ public interface CorporateDao {
 	Corporate get(int id);
 	
 	// (주최자가 전시정보 수정 시) 주최측에 대한 정보 수정 (성공하면 1 실패하면 0)
-	int update(Corporate corporate);
+	int updateExhInfo(Corporate corporate);
 	
 	// 회원가입 메서드
 	int insert(Corporate corporate);
@@ -33,7 +33,7 @@ public interface CorporateDao {
 	int deleteYN(int id);
 
 	// mypage 주최자 정보 수정
-	int updateAccount(ArtagitUserDetails user);
+	int updateAccount(Corporate corp);
 
 	// 아이디 중복 확인
 	int chkId(String loginId);

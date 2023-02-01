@@ -74,7 +74,9 @@
 			                <div class="item">주최</div>
 			                <div class="item content corp-name" th:text="${corporate.name}" name="name">그라운드시소 서촌</div>
 			                <div class="item">주소</div>
-			                <div class="item content corp-address" th:text="${corporate.corpAddress} + ' '+${corporate.addressDetail}" name="corpAddress">서울특별시 종로구 동의동 35-17</div>
+			                <div class="item content corp-address" th:text="${corporate.corpAddress}" name="corpAddress">서울특별시 종로구 동의동</div>
+			                <div class="item">상세주소</div>
+			                <div class="item content corp-detail-address" th:text="${corporate.addressDetail}" name="addressDetail">35-17</div>
 			                <div class="item">전화번호</div>
 			                <div class="item content corp-phone" th:text="${corporate.phone}" name="phone">02-123-4567</div>
 			                <div class="item">홈페이지</div>
@@ -145,7 +147,7 @@
 	        </div>
 	        <div class="modal-actions">
 	            <a class="modal-action yes-btn" href="" type="" th:attr="data-id=${exh.id}">예</a>
-	            <a class="modal-action no-btn">아니오</a>
+	            <a class="modal-action no-btn" >아니오</a>
 	    	</div>
     	</div>
     </div>

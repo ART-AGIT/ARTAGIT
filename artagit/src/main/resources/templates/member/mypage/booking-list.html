@@ -23,17 +23,16 @@
 	        	<div class="profile-box">
 	        		<div class="profile-content">
 		                <div class="profile-img-box" >
-		                   <img th:if="${user.img}!= null" th:src="@{|/image/${user.img}|}" class="profile-img img-input">
+		                    <img th:if="${user.img}!= null" th:src="@{|/image/${user.img}|}" class="profile-img">
                             <img th:unless="${user.img}!= null" th:src="@{/image/프사.jpg}" class="profile-img img-input">
+		                	<img th:if="${user.provider != null}" th:src="${user.img}" class="profile-img img-input">		                
 		                </div>
-		                <div></div>
-			                <div class="profile-name"> 
-			                    <span th:text="${user.nickname}+' 님'">1004님</span>
-			                </div>
-			                <div class="member-grade">
+		                <div class="profile-name">
+		                    <span th:text="${user.nickname} +' 님'">1004님</span>
+		                </div>
+		                <div class="member-grade">
                         		일반회원
-                    		</div>
-		                
+                    	</div>
 		            </div>
 	            </div>
 	            <ul class="menu-list">

@@ -129,7 +129,7 @@ public class ExhibitionController {
 			
 			// 각 객체를 인자로 넘겨 update 진행
 			int result = service.update(exh);
-						 corporateService.update(corp);
+						 corporateService.updateExhInfo(corp);
 						 localService.update(local);
 			
 			System.out.println("전시정보 update결과: "+result);

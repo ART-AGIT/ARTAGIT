@@ -15,7 +15,7 @@ public interface CorporateService {
 
 	
 	// [주최자] 나의 등록전시 수정 -> 주최측 정보 수정
-	int update(Corporate corp);
+	int updateExhInfo(Corporate corp);
 
 
 	// [주최자] 회원가입
@@ -28,7 +28,8 @@ public interface CorporateService {
 	
 	
 	// mypage 주최자 정보 수정
-	int updateAccount(ArtagitUserDetails user);
+//	int updateAccount(ArtagitUserDetails user);
+	int updateAccount(Corporate corp);
 
 
 	int chkId(String loginId);

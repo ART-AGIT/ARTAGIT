@@ -4,6 +4,7 @@ window.addEventListener("load", function(){
     const deleteBtn = this.document.querySelector(".delete-btn");
     const modal = this.document.querySelector(".d-modal");
     const yesBtn = document.querySelector(".yes-btn");
+    const noBtn = document.querySelector(".no-btn");
     const detailSection = this.document.querySelector(".exh-content-container");
     const modiLine = detailSection.querySelectorAll(".content");
     
@@ -29,18 +30,10 @@ window.addEventListener("load", function(){
 
 
 	let check = false; // 수정 버튼 상태값
-	let cancel = false;
+
     //////////// 수정 버튼 눌렀을 때
     modiBtn.onclick = function(e){
         e.preventDefault();
-
-        const cancelBtn = document.querySelector(".delete-btn");
-        cancelBtn.innerText = '취소';
-
-        if(e.target == cancelBtn) {
-            console.log("여기ㅕ여기ㅣ");
-            check == true;
-        }
 
 		if(!check){
 
@@ -106,6 +99,7 @@ window.addEventListener("load", function(){
         let exhPrice = detailSection.querySelector(".exh-price").innerText;
         let corpName = detailSection.querySelector(".corp-name").innerText;
         let corpAddr = detailSection.querySelector(".corp-address").innerText;
+        let corpDetailAddr = detailSection.querySelector(".corp-detail-address").innerText;
         let corpPhone = detailSection.querySelector(".corp-phone").innerText;
         let exhStock = detailSection.querySelector(".exh-stock").innerText;
         let corpManager = detailSection.querySelector(".corp-manager").innerText;
@@ -137,6 +131,7 @@ window.addEventListener("load", function(){
                             "museumName" : muName,
                             "name" : corpName,
                             "corpAddress" : corpAddr,
+                            "addressDetail" : corpDetailAddr,
                             "phone" : corpPhone,
                             "manager" : corpManager
                             },
@@ -169,7 +164,14 @@ window.addEventListener("load", function(){
                 document.body.classList.add("stop-scroll");
             }
         };
-	
+
+
+        noBtn.onclick = function(e){
+			console.log("아니요 버튼 클릭..")
+            modal.classList.add("d-none");
+            document.body.classList.remove("stop-scroll");
+        };
+
         yesBtn.onclick = function(e){
             let id = e.target.dataset.id;
             console.log("id========>" + id);
