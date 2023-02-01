@@ -76,7 +76,7 @@ window.addEventListener("load", function() {
                     <div class="icon icon-view icon-size">조회수 아이콘</div>
                     <div>${notice.hit}</div>
                 </div>
-<<<<<<< HEAD
+
            </section>`;
            
             let el1 = new DOMParser().parseFromString(template1, "text/html").body.firstElementChild;
@@ -121,7 +121,7 @@ window.addEventListener("load", function() {
          
          let template = ` 
       <form class="board-box">
-=======
+
 	        </section>`;
 	        
 				let el1 = new DOMParser().parseFromString(template1, "text/html").body.firstElementChild;
@@ -166,7 +166,7 @@ window.addEventListener("load", function() {
 			
 			let template = ` 
 		<form class="board-box">
->>>>>>> jinhui
+
         <section class="board-list">
         <h1 class="board-title">
             <a href = "/member/board/${board.id}">${board.title}</a>
