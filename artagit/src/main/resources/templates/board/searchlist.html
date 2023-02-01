@@ -100,7 +100,6 @@
                        <div class="board-post-img-box">
                            
 
-<<<<<<< HEAD
                                  <a th:href="@{|/member/board/${board.id}|}"><img class="post-img" onerror="this.style.display='none'"    src = "../image/전시포스터.jpg" 
                           th:src="${board.image1}==null?(${board.image2}==null?
                           (${board.image3}==null?(${board.image4}==null?''
@@ -132,40 +131,6 @@
           </div>
            </div>
    </main>
-=======
-					        	    	<a th:href="@{|/member/board/${board.id}|}"><img class="post-img" onerror="this.style.display='none'" 	src = "../image/전시포스터.jpg" 
-					        	th:src="${board.image1}==null?(${board.image2}==null?
-					        	(${board.image3}==null?(${board.image4}==null?''
-					        	:@{|/image/board/${board.image4}|})
-					        	:@{|/image/board/${board.image3}|})
-					        	:@{|/image/board/${board.image2}|})
-					        	:@{|/image/board/${board.image1}|}"></a>					        </div>
-					         <div class="writing-img-box">
-							        <a href = "../member/board/reg"><img src = "../image/writing-img.png"></img></a>
-					    	</div>
-					        </section>
-					       </section>
-					      
-    <div class="paging">
-	    <!-- 현재 페이지가 1보다 클 경우 이전 href, 1보다 작은 경우 이전 text -->
-	  
-	    
-	    <!-- #number.sequence 인수로 지정한 2개의 수 범위에서 배열을 생성 -->
-	    <th:block th:each="num : ${#numbers.sequence(startPageNum,lastPageNum)}">
-	        <div th:data-id="1" th:data-query="${sendQuery}" class="btn btn-default current-page" th:if="${currentPage == num}" th:text="${num}"></div>
-	        <div th:data-id="${num}" th:data-query="${sendQuery}" class="btn btn-default-line not-current-page" th:unless="${currentPage == num}" th:text="${num}"></div>
-	    </th:block>
-	    
-	    <!-- 현재 페이지가 마지막페이지와 같지 않을 경우 다음 href, 같을 경우 다음 text -->
-	    
-    </div>
-					 
-			   		 </div>
-			   		 </div>
-			 </div>
-			  </div>
-	</main>
->>>>>>> jinhui
 
 </body>
 </html>
