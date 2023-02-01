@@ -55,7 +55,7 @@ public class DefaultBoardService implements BoardService{
 		// TODO Auto-generated method stub
 //		메인페이지의 게시판 숫자때문에 설정해놓음
 		if(size == 0) {
-			size = 5;			
+			size = 100;			
 		}
 		int startPageNum = 1;
 		int lastPageNum = size;
