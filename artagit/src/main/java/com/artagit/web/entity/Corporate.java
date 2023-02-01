@@ -12,36 +12,54 @@ public class Corporate {
 	private String phone;
 	private String regState;
 	private String processDate;
-	private String address;
+	private String corpAddress;
 	private String refuseReason;
 	private String managerPhone;
 	private String museumName; 
+	private String useYN;
 	private int roleId;
 	private int localId;
+	private String img;
+	private String addressDetail;
 	
 	public Corporate() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Corporate(String name, String loginId, String password, String ceoName, int businessNum,
-			String manager, String phone, String processDate, String address, String refuseReason,
-			String managerPhone, String museumName, int localId) {
 
+
+
+	public Corporate(int id, String name, String loginId, String password, String ceoName, String email,
+			int businessNum, String manager, String phone, String regState, String processDate, String corpAddress,
+			String refuseReason, String managerPhone, String museumName, String img, int roleId, int localId, String useYN,String addressDetail) {
+		
+		this.id = id;
 		this.name = name;
 		this.loginId = loginId;
 		this.password = password;
 		this.ceoName = ceoName;
+		this.email = email;
 		this.businessNum = businessNum;
 		this.manager = manager;
 		this.phone = phone;
-
+		this.regState = regState;
 		this.processDate = processDate;
-		this.address = address;
+		this.corpAddress = corpAddress;
 		this.refuseReason = refuseReason;
 		this.managerPhone = managerPhone;
 		this.museumName = museumName;
 
+		this.useYN = useYN;
+		this.img = img;
+
+		this.roleId = roleId;
+		this.localId = localId;
+		this.addressDetail = addressDetail;
+		
+
 	}
+
+
 
 	public int getId() {
 		return id;
@@ -131,12 +149,12 @@ public class Corporate {
 		this.processDate = processDate;
 	}
 
-	public String getAddress() {
-		return address;
+	public String getCorpAddress() {
+		return corpAddress;
 	}
 
-	public void setAddress(String address) {
-		this.address = address;
+	public void setCorpAddress(String corpAddress) {
+		this.corpAddress = corpAddress;
 	}
 
 	public String getRefuseReason() {
@@ -178,15 +196,57 @@ public class Corporate {
 	public void setRoleId(int roleId) {
 		this.roleId = roleId;
 	}
+	
+
+
+	public String getUseYN() {
+		return useYN;
+	}
+
+	public void setUseYN(String useYN) {
+		this.useYN = useYN;
+	}
+	
+
+	public String getImg() {
+		return img;
+	}
+
+
+	public void setImg(String img) {
+		this.img = img;
+	}
+
+	public String getAddressDetail() {
+		return addressDetail;
+	}
+
+
+	public void setAddressDetail(String addressDetail) {
+		this.addressDetail = addressDetail;
+	}
+
+
+
 
 	@Override
 	public String toString() {
-		return "Coporate [id=" + id + ", name=" + name + ", loginId=" + loginId + ", password=" + password
-				+ ", ceoName=" + ceoName + ", businessNum=" + businessNum + ", manager=" + manager + ", phone=" + phone
-				+ ", regState=" + regState + ", processDate=" + processDate + ", address=" + address + ", refuseReason="
-				+ refuseReason + ", managerPhone=" + managerPhone + ", museumName=" + museumName + ", localId="
-				+ localId + "]";
+		return "Corporate [id=" + id + ", name=" + name + ", loginId=" + loginId + ", password=" + password
+				+ ", ceoName=" + ceoName + ", email=" + email + ", businessNum=" + businessNum + ", manager=" + manager
+				+ ", phone=" + phone + ", regState=" + regState + ", processDate=" + processDate + ", corpAddress="
+				+ corpAddress + ", refuseReason=" + refuseReason + ", managerPhone=" + managerPhone + ", museumName="
+				+ museumName + ", useYN=" + useYN + ", roleId=" + roleId + ", localId=" + localId + ", img=" + img
+				+ ", addressDetail=" + addressDetail + "]";
 	}
+
+
+
+
+
+
+
+
+
 
 	
 }

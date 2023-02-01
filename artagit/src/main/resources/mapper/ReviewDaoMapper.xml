@@ -30,11 +30,14 @@
 	</delete>
 	
 	
-	<delete id="update" parameterType="com.artagit.web.entity.Review" >
+	<update id="update" parameterType="com.artagit.web.entity.Review" >
 		update Review 
 		set 
-		content=#{content},color=#{color} where id = #{id};
-	</delete>
+		<if test='!color.equals("1")'>  
+			color = #{color},
+		</if>
+		content=#{content} where id = #{id};
+	</update>
 	
 </mapper>
  

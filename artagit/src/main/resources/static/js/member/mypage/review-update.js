@@ -6,10 +6,33 @@ window.addEventListener("load",function(){
 	var colorInput = document.querySelector(".color-input");
 	const reviewForm = document.querySelector(".review-form");
 //	const optionList = document.querySelector(".review-option-list");
+	const colorOption = document.querySelector(".color-option");
+	var color=1;
+
 	
-	colorInput.oninput= function(e){
-        box.style.background = colorInput.value;
-    }
+	
+	colorOption.onclick=function(e){
+		
+		if(e.target.classList.contains("purple")){
+			box.style.background = "#E2D1F0";
+			color = "#E2D1F0";
+			}
+		else if(e.target.classList.contains("green")){
+			box.style.background = "#E4F0D1";
+			color = "#E4F0D1";
+			}
+		else if(e.target.classList.contains("blue")){
+			box.style.background = "#D1EBF0";
+			color = "#D1EBF0";
+			}
+			console.log(color);
+	}
+	
+	
+	
+	
+	
+	
 	
 	btnList.onclick=function(e){
 		
@@ -18,7 +41,8 @@ window.addEventListener("load",function(){
 			
 			let form = new FormData();
 			form.append("content",writeForm.querySelector(".input-review").value);
-			form.append("color",box.querySelector(".color-input").value);
+//			form.append("color",box.querySelector(".color-input").value);
+			form.append("color",color);
 			var id = document.querySelector(".reviewId").value;
 			var payid = document.querySelector(".payId").value;
 			console.log(payid);
@@ -35,11 +59,12 @@ window.addEventListener("load",function(){
 				let review = data.resultObject;
 				let bookingList = data.bookingList;
 				console.log(review);	
+				var bookingDate =bookingList.bookingDate.substring(0,10);
 				
 			let template =`
 				<div class="review-form" >
 	        
-		            <div class="box" style="background-color:${review.color}"}>
+		            <div class="box" style="background-color:${review.color}">
 		                <div class="write-form" >
 		                    <div class="content" >${review.content}</div>			                    
 		                    
@@ -50,15 +75,15 @@ window.addEventListener("load",function(){
 		                    </div>
 		                    <div>
 		                        <span class="exh-loc" >${bookingList.museumName}</span>
-		                        <span class="exh-date" >${bookingList.bookingDate}</span>
+		                        <span class="exh-date" >${bookingDate}</span>
 		                    </div>
-		    
-		                    <div class="color-option">
-		                        <input type="color" class="color-input" name="color"></input>
+		 
+		                    <div class="color-option" >
+		                        <div  class="color" name="color" style="background-color:${review.color}"></div>
 		                    </div>
 		                    
 		                    <div class="trash">
-                        		<a href="/member/mypage/review/del/${review.id}"><img class="trash-img" src="../../../../image/trash.png" ></a>
+                        		<a href="/member/mypage/review/del/${review.id}"><img class="trash-img" src="../../../../image/trash2.png" ></a>
                     	
                     		</div>
 		                    
@@ -69,7 +94,7 @@ window.addEventListener("load",function(){
     
 			        
 			
-			        <div class="review-button-list">
+			        <div class="review-button-list" style="margin-left:0px">
 			        	<input type="hidden" class= "bookingId" name="bookingId" >
 
 			            <a href="/member/mypage/review/update/${review.id}" class="btn btn-default btn-default-fill btn-mod" type="submit" value="수정">수정</a>
@@ -78,10 +103,8 @@ window.addEventListener("load",function(){
 			          	
 	        	`;
 		        	
-		        	
-	        	// 2번째시도 
+		        
 	        	reviewForm.innerHTML="";
-//	        	optionList.innerHTML="";
 	        	btnList.innerHTML="";
 						
 	        	reviewForm.insertAdjacentHTML("afterend",template);	

@@ -65,17 +65,13 @@ public class ExhibitionController2 {
 		else
 			memberId = user.getId();
 		
-		ExhibitionView exh = service.getExhById(exhId, memberId);
-		System.out.println(exh);
-		model.addAttribute("exh", exh);
-		Corporate corp = corporateService.getCorpById(exh.getCorpId());
+		ExhibitionView exh = service.getExhById(exhId, memberId); // 전시 id값으로 전시 데이터 얻기
+		model.addAttribute("exh", exh); // 전시정보 model에 추가
+		Corporate corp = corporateService.getCorpById(exh.getCorpId()); // exh 객체에서 얻을 수 있는 corpId로 
 		model.addAttribute("corp", corp);
 		
 		int count = service.countOfLike(exhId);
 		model.addAttribute("count",count);
-		System.out.println(count);
-		System.out.println("전시관 id========>"+exh.getMuseumId());
-		System.out.println("전시관 name========>"+corp.getName());
 		
 		return "exhibition/detail";
 	}

@@ -1,8 +1,54 @@
 window.addEventListener("load", function() {
-	let firstNext = document.querySelector(".btn-next");
-	let secondNext = document.querySelector("#btn-y");
-	let btnReg = document.querySelector(".exh-reg-button-box-page3");
-	let page1 = document.querySelector(".page1");
+	const firstNext = document.querySelector(".btn-next");
+	const secondNext = document.querySelector("#btn-y");
+	const btnReg = document.querySelector(".exh-reg-button-box-page3");
+	const page1 = document.querySelector(".page1");
+
+	// 페이지 전환(위저드)
+	const register = document.querySelector(".btn-register");
+	const registercancelBtn = this.document.querySelector(".register-cancel-btn");
+	const registermodal = this.document.querySelector(".modalregister");
+	//전시등록날짜제한걸기
+	const startDate = document.querySelector("#start-date");
+	const endDate = document.querySelector("#end-date");
+	const regDate = document.querySelector("#regdate");
+
+	const date = new Date().toISOString().substring(0, 10);
+	//오늘날짜
+
+	 startDate.onchange = function(e) {
+	// 	//오늘날짜보다 전날을 누르면 적용되지않고 오늘날짜로적용되도록
+		console.log("date ==> " + date)
+		console.log("startDate.value ==> " + startDate.value);
+
+		if (startDate.value != "" && startDate.value < date) {
+			alert('현재 시간보다 이전의 날짜는 설정할 수 없습니다.');
+			startDate.value = date;
+		}
+
+	}
+	endDate.onchange = function(e) {
+		
+		if (endDate.value != "" && endDate.value < date) {
+	 		//빈칸이거나 오늘보다 이전일때
+			alert('현재 시간보다 이전의 날짜는 설정할 수 없습니다.');
+			endDate.value = startDate.value;
+		} else if (endDate.value != "" && endDate.value < startDate.value) {
+	 		//빈칸이거나 끝나는날이 시작날보다 이전일때 
+			alert('전시시작일 이전의 날짜는 설정할 수 없습니다.');
+			endDate.value = startDate.value;
+		}
+	
+	}
+	register.onclick = function(e) {
+		e.preventDefault();
+		registermodal.style.display = "flex";
+	};
+	registercancelBtn.onclick = function(e) {
+		e.preventDefault();
+		registermodal.style.display = "none";
+
+	}
 
 	firstNext.onclick = function(e) {
 		e.preventDefault();
@@ -24,18 +70,8 @@ window.addEventListener("load", function() {
 		document.querySelector("#third-circle").classList.remove("circle-off");
 	};
 
-//	btnReg.onclick = function(e) {
-//		e.preventDefault();
-//		
-//		location.href = 'http://localhost:8080/corporator/mypage/exh-list.html';
-//
-//
-//	};
-	btnReg.onclick = function(e) {
-//		e.preventDefault();
-		
-		//location.href = 'http://localhost:8080/corporator/mypage/exh-list.html';
 
+	btnReg.onclick = function(e) {
 
 	};
 
@@ -113,24 +149,20 @@ window.addEventListener("load", function() {
 		reader.readAsDataURL(url);
 	}
 
-	imgInput3.onclick = function(e) {
-
-		let event = new MouseEvent("click", {
-			'view': window,
-			'bubbles': true,
-			'cancelable': true
-		});
-
-		fileInput3.dispatchEvent(event);
-	}
-
-	fileInput3.oninput = function(e) {
-		let url = fileInput3.files[0];
-		let reader = new FileReader();
-		reader.onload = (evt) => {
-			imgInput3.src = evt.target.result;
-		};
-		reader.readAsDataURL(url);
-	}
-
 });
+
+// function IsNullOrWhiteSpace(input) {
+// 	const okBtn = document.querySelector(".ok-btn");
+// 	//let fer = document.getElementsByTagName('input');
+// 	okBtn.onclick = function(e){
+// 		e.preventDefault();
+// 		console.log("클릭")
+		
+// 		if (typeof input === 'undefined' || input === null)
+// 			alert('모든 정보를 입력해 주세요');
+		
+		
+// 	};
+	
+
+// }  => <input>에 require로 대체하겠습니다

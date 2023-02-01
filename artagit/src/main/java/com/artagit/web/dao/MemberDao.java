@@ -23,13 +23,21 @@ public interface MemberDao {
 	// 회원정보 수정
 	int update(Member member);
 	
-	void deleteUseYN(int id); // 회원 탈퇴
+	// 회원 탈퇴
+	int deleteUseYN(int id); 
 
 	Member getByUserName(String username);
 	
+	// 사용자가 입력한 정보로 ID 확인
+	Member getId(String name, String email);
+	
+	
 	//비밀번호 변경 메서드
 	public void updatePassword(String tmpPassword, String memberEmail);
-	int chkId(String loginId);
-
 	
+	int chkId(String loginId);
+	
+	// member 테이블에 있는 oAuthId, oAuthIss 를 매개변수로 한다.
+	Member getByOAuthIdWithIss(String provider, Object providerId);
+
 }

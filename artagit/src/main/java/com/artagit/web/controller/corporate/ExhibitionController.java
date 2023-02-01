@@ -4,24 +4,27 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+//import com.artagit.web.entity.ArtagitOidcUser;
 import com.artagit.web.entity.ArtagitUserDetails;
 import com.artagit.web.entity.Corporate;
 import com.artagit.web.entity.Exhibition;
@@ -32,6 +35,9 @@ import com.artagit.web.service.ExhibitionService;
 import com.artagit.web.service.LocalService;
 import com.artagit.web.service.MuseumService;
 import com.artagit.web.service.PaymentService;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import jakarta.servlet.http.HttpServletRequest;
 
@@ -60,13 +66,19 @@ public class ExhibitionController {
 	@Autowired
 	private PaymentService payListService;
 	
-	//내가 등록한 전시리스트 -----------------
+	//내가 등록한 전시리스트 ========================
 	@GetMapping("list")
-	public String list(Model model) {
-			//@RequestParam(name="memId")int memId,Model model) {
-		int memId=1;
-		List<Exhibition> list = service.getListById(memId);
-		int countOfExh = service.countOfExh(memId);
+	public String list(Model model,@AuthenticationPrincipal ArtagitUserDetails user) {
+		int userId = user.getId();
+		System.out.println(userId);
+		List<Exhibition> list = service.getListById(userId);
+		int countOfExh = service.getCountOfExh(user.getId());
+		
+		System.out.println("img"+user.getImg());
+		System.out.println("user"+user);
+		
+		model.addAttribute("user",user);
+		model.addAttribute("nickname",user.getUsername());
 		model.addAttribute("list",list);
 		model.addAttribute("countOfExh",countOfExh);
 		
@@ -96,52 +108,34 @@ public class ExhibitionController {
 	}
 
 	// 주최자가 등록한 전시 수정 ========================
-	@PostMapping("update")
-	@ResponseBody
-	public void update(@RequestBody HashMap<String,Object> map) {
-		System.out.println("update 메서드 진입");
-		HashMap<String, Object> exhList = (HashMap<String, Object>) map.get("exh");
-		Exhibition exh = new Exhibition();
-		// 아이디
-		exh.setId(Integer.parseInt(String.valueOf(exhList.get("id"))));		
-		exh.setName(String.valueOf(exhList.get("name")));
-		exh.setArtist(String.valueOf(exhList.get("artist")));
-		exh.setStartDate(String.valueOf(exhList.get("startDate")));
-		exh.setEndDate(String.valueOf(exhList.get("endDate")));
-		exh.setStartTime(String.valueOf(exhList.get("startTime")));
-		exh.setEndTime(String.valueOf(exhList.get("endTime")));
-		exh.setTicketPrice(Integer.parseInt(String.valueOf(exhList.get("ticketPrice"))));
-		exh.setTicketStock(Integer.parseInt(String.valueOf(exhList.get("ticketStock"))));
-		exh.setContent(String.valueOf(exhList.get("content")));
-		
-		
-		HashMap<String, Object> corpList = (HashMap<String, Object>) map.get("corp");
-		Corporate corp = new Corporate();
-		corp.setId(Integer.parseInt(String.valueOf(corpList.get("id"))));
-		corp.setMuseumName(String.valueOf(corpList.get("museumName")));
-		corp.setName(String.valueOf(corpList.get("name")));
-		corp.setAddress(String.valueOf(corpList.get("address")));
-		corp.setPhone(String.valueOf(corpList.get("phone")));
-		corp.setManager(String.valueOf(corpList.get("manager")));
+		@Transactional
+		@PostMapping("update")
+		@ResponseBody
+		public String update(@RequestBody ObjectNode exhInfo) throws JsonProcessingException, IllegalArgumentException {
+			System.out.println("update 메서드 진입");
+			
+			// ObjectMapper = json 형태의 데이터를 java Object 로 변환해주는 클래스 (json 라이브러리 Jackson)
+			ObjectMapper mapper = new ObjectMapper();
 
-		HashMap<String, Object> localList = (HashMap<String, Object>) map.get("local");
-		Local local = new Local();
-		local.setId(Integer.parseInt(String.valueOf(localList.get("id"))));
-		local.setName(String.valueOf(localList.get("name")));
-		
-		
-		System.out.println("전시데이터 ===> " + exh);
-		System.out.println("주최자데이터 ===> " + corp);
-		System.out.println("지역데이터 ===> " + local);
-		
-		int result = service.update(exh);
-		System.out.println("전시정보 update결과: "+result);
-
-		corporateService.update(corp);
-		localService.update(local);
-		
-		System.out.println(exh.getId()+"번 전시 수정완료");
-	}
+			// 클라이언트에서 넘어온 json의 키값을 가지고 클래스 정보를 얻어 자동으로 매핑을 해준다.
+			// 매핑된 값들을 각각의 객체에 담기.
+			Exhibition exh = mapper.treeToValue(exhInfo.get("exh"), Exhibition.class);
+			Corporate corp = mapper.treeToValue(exhInfo.get("corp"), Corporate.class);
+			Local local = mapper.treeToValue(exhInfo.get("local"), Local.class);
+			
+			System.out.println("전시데이터 ===> " + exh);
+			System.out.println("주최자데이터 ===> " + corp);
+			System.out.println("지역데이터 ===> " + local);
+			
+			// 각 객체를 인자로 넘겨 update 진행
+			int result = service.update(exh);
+						 corporateService.update(corp);
+						 localService.update(local);
+			
+			System.out.println("전시정보 update결과: "+result);
+			System.out.println(exh.getId()+"번 전시 수정완료");
+			return "redirect:{id}";
+		}
 	
 	// 주최자가 등록한 전시 삭제 ========================
 	@GetMapping("delete")
@@ -153,45 +147,74 @@ public class ExhibitionController {
 		 return "redirect:list";
 	}
 	
-	//전시등록하기
+	//===================전시등록하기====================
 	@GetMapping("reg")
 	public String reg(Model model, @AuthenticationPrincipal ArtagitUserDetails user) {
 		//전시페이지 불러오면 주최자정보입력돼있기
 		System.out.println(user);
 		model.addAttribute("user",user);
-		System.out.println(user.getAddress());
+		System.out.println(user.getCorpAddress());
 		return "corporator/mypage/exh-reg";
 	}
-	// 주최자가 전시 등록하기 insert==========================
-	@PostMapping("insert") 
-	public String insert(Exhibition exhibition) throws IOException{
+	
+	@PostMapping("insert")
+//	@ResponseBody
+	public String insert(MultipartFile file1,MultipartFile file2, Exhibition exhibition,HttpServletRequest request
+			,@AuthenticationPrincipal ArtagitUserDetails user) throws IOException{
 		
-		System.out.print("전시 :" +exhibition.toString());
+//		System.out.println("들어옴들어옴");
+//		System.out.println("poster" +file1);
+//		System.out.println("detailImage" +file2);
+//		System.out.println("exhibition" +exhibition);
+//		System.out.println("주최자의 전시등록에서 user" +user.getId());
+//		
+//		System.out.println("이미지파일명"+file1.getOriginalFilename());
+//		System.out.println("이미지파일명"+file2.getOriginalFilename());
 		
-		
-		service.insert(exhibition);
+		exhibition.setCorpId(user.getId());
+		exhibition.setPoster(file1.getOriginalFilename());
+		exhibition.setDetailImage(file2.getOriginalFilename());
+		List<MultipartFile> imgList = new ArrayList<>();
 
-		//int result = 0;
-		// result =
+		imgList.add(file1);
+		imgList.add(file2);
 		
+		System.out.println(imgList);
 		
-//		try {
-//		}
-//		catch(Exception e) {
-//			result = -1;
-//		}
-//		
-//		if(result >0 ) {
-//			//log
-//		}else if(result == 0) {
-//		
-//		}else if( result == -1) {
-//		 
-//		}else {
-//			
-//		}
-		return "redirect:list";
-	}
+		for(MultipartFile file: imgList) {
+			
+			if(!file.isEmpty()) {
+				String path = "/image/poster"; 
+				String realPath = request.getServletContext().getRealPath(path);
+				System.out.println(realPath);
+				
+				File pathFile = new File(realPath);
+				if (!pathFile.exists())
+					pathFile.mkdirs();
+				
+				String fullPath = realPath + File.separator + file.getOriginalFilename();
+				InputStream fis = file.getInputStream();
+				OutputStream fos = new FileOutputStream(fullPath);
+				byte[] buf = new byte[1024];
+				int size = 0;
+				while ((size = fis.read(buf)) >= 0)
+					fos.write(buf, 0, size);
+				
+				fos.close();
+				fis.close();
+				
+			}
+		}
+		System.out.println(exhibition);
+		Exhibition result = service.insert(exhibition,user.getId());
+		String id = String.valueOf(result.getId());
+		System.out.println(id);
+		System.out.println("전시정보"+exhibition);
+	
+		return "redirect:/exhibition/"+id;
+	 }
+	
+	
 
 	// 주최자가 등록한 전시 데이터 수정페이지에 불러오기
 	@GetMapping("modify/{id}")

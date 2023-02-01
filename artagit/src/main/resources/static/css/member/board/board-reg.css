@@ -49,9 +49,10 @@ textarea.input{
     background-color: transparent;
 }
 
-img{
-  max-height: 40vh;
-  max-width: 40vw;
+.reg-list-input-box-image img{
+  height: 130px;
+  width: 120px;
+  object-fit: cover;
 }
 
 /* -------------셀렉트박스 커스텀-------------- */
@@ -133,5 +134,38 @@ img{
       margin-left:200px;
       margin-right:200px;
     }
-
+    .board-category-l{
+      display:flex;
+      flex-direction:column;
+      font-size: 16px;
+    
+      width: 200px;
   }
+
+  .board-category-l li{
+      width: 200px;
+      gap: 10px;
+      line-height: 40px;
+      font-size: 18px;
+  }
+  .board-category-box{
+      display: flex;
+      justify-content: flex-end;
+  }
+
+  .main-container{
+    width:1000px;
+  }
+
+  .detail{
+    display:flex;
+    justify-content: space-between;
+    margin-top: 30px;
+  }
+.reg-list-input-box-image{
+  	display: flex;
+    flex-direction: column;
+    align-items: end;
+    cursor:pointer;
+	}
+ }

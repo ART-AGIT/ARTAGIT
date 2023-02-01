@@ -22,12 +22,11 @@ window.addEventListener("load", function(){
 
 
 
-
     // input에 값 입력시 버튼색 바뀜
     elInputLoginId.onkeyup = function(){
 
         // console.log(input)s
-        var regExpId = /^[a-z0-9_]{8,16}$/
+        var regExpId = /^[a-z0-9_]{6,16}$/
        
 
         if(elInputLoginId.value==false){ 
@@ -69,7 +68,7 @@ window.addEventListener("load", function(){
 
     // 비빌번호 정규식
     elInputPassword.onkeyup = function(){
-        var regExpPwd = /^(?=.*[a-z])(?=.*\d)(?=.*[~!@#$%^&*()+|=])[a-z\d~!@#$%^&*()+|=]{8,16}$/
+        var regExpPwd = /^[a-z0-9_]{8,16}$/
 
         
         if(elInputPassword.value==false){ 

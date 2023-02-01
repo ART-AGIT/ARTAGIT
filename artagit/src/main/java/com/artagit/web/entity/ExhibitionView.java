@@ -21,13 +21,14 @@ public class ExhibitionView {
 	private int corpLocalId;
 	private int hearts; //전체 좋아요 수
 	private int	memberId; //좋아요 목록위해
+	private String homepage;
 	
 	
 	
 	// NN 제거한 생성자. 전시 등록 시 사용되는 생성자
 	public ExhibitionView(int memId, int cateId, String name, String poster,
 			String startDate, String endDate, String startTime, String endTime, int ticketPrice, int ticketStock,
-			String artist, int stateId, int museumId, int hearts, int memberId) {
+			String artist, int stateId, int museumId, int hearts, int memberId, String homepage) {
 		this.memId = memId;
 		this.cateId = cateId;
 		this.name = name;
@@ -43,12 +44,14 @@ public class ExhibitionView {
 		this.museumId = museumId;
 		this.hearts = hearts;
 		this.memberId = memberId;
+		this.homepage = homepage;
 	}
 	
 	// 전시 정보를 모두 불러올 때 사용되는 생성자
 	public ExhibitionView(int id, int memId, int cateId, String name, String content, String poster, String detailImage,
 			String startDate, String endDate, String startTime, String endTime, int ticketPrice, int ticketStock,
-			String regDate, String artist, int stateId, int museumId,int corpId,int corpLocalId, int hearts, int memberId) {
+			String regDate, String artist, int stateId, int museumId,int corpId,int corpLocalId, int hearts, int memberId,
+			String homepage) {
 		this.id = id;
 		this.memId = memId;
 		this.cateId = cateId;
@@ -69,11 +72,9 @@ public class ExhibitionView {
 		this.corpLocalId = corpLocalId;
 		this.hearts = hearts;
 		this.memberId = memberId;
+		this.homepage = homepage;
 	}
 	
-
-
-
 	@Override
 	public String toString() {
 		return "ExhibitionView [id=" + id + ", memId=" + memId + ", cateId=" + cateId + ", name=" + name + ", content="
@@ -81,7 +82,7 @@ public class ExhibitionView {
 				+ ", endDate=" + endDate + ", startTime=" + startTime + ", endTime=" + endTime + ", ticketPrice="
 				+ ticketPrice + ", ticketStock=" + ticketStock + ", artist=" + artist + ", stateId=" + stateId
 				+ ", museumId=" + museumId + ", corpId=" + corpId + ", corpLocalId=" + corpLocalId + ", hearts="
-				+ hearts + ", memberId=" + memberId + "]";
+				+ hearts + ", memberId=" + memberId + ", homepage=" + homepage + "]";
 	}
 
 	public int getHearts() {
@@ -243,6 +244,14 @@ public class ExhibitionView {
 
 	public void setCorpLocalId(int corpLocalId) {
 		this.corpLocalId = corpLocalId;
+	}
+
+	public String getHomepage() {
+		return homepage;
+	}
+
+	public void setHomepage(String homepage) {
+		this.homepage = homepage;
 	}
 
 	public ExhibitionView() {

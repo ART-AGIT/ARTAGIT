@@ -1,0 +1,51 @@
+.main-container{
+	width: 100%;
+	height: 750px;
+	
+	text-align: center;
+	vertical-align: middle;
+}
+.error-wrap{
+    display: inline-block;
+    position: relative;
+    width: 100%;
+	
+	top:200px;
+
+}
+.error-emoji{
+	width: 72px;
+	height: 72px;
+
+	display: inline-block;
+}
+
+.error-title{
+	color: #333;
+    font-size: 22px;
+    
+    margin-top: 20px;
+}
+.error-sub-title{
+	color: #959595;
+    font-size: 14px;
+    line-height: 22px;
+    
+    margin-top: 10px;
+}
+
+.error-button{
+	background-color: #fff;
+	border: 1px solid #bbb;
+	border-radius: 16px;
+	color: #959595;
+	height: 30px;
+	
+	font-size: 13px;
+	line-height: 32px;
+	
+	margin-top: 20px;
+	padding: 0 20px;
+	
+	display: inline-block;
+}

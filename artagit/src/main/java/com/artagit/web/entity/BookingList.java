@@ -1,37 +1,34 @@
 package com.artagit.web.entity;
 
+import java.util.Date;
+
 public class BookingList {
 	private int bookingId;
 	private String exhName;
+	private int exhId;
 	private String museumName;
-	private String bookingDate;
+	private Date bookingDate;
 	private String payMethod;
 	private String reviewCon;
 	private int memId;
 	private String exhPoster;
 	private int reviewId;
+	private String reviewColor;
+	
 	public BookingList() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	
-	
-
-	
 
 	
 
 
-
-
-
-
-
-	public BookingList(int bookingId, String exhName, String museumName, String bookingDate, String payMethod,
-			String reviewCon, int memId, String exhPoster, int reviewId) {
+	public BookingList(int bookingId, String exhName, int exhId, String museumName, Date bookingDate, String payMethod,
+			String reviewCon, int memId, String exhPoster, int reviewId, String reviewColor) {
 		super();
 		this.bookingId = bookingId;
 		this.exhName = exhName;
+		this.exhId = exhId;
 		this.museumName = museumName;
 		this.bookingDate = bookingDate;
 		this.payMethod = payMethod;
@@ -39,7 +36,23 @@ public class BookingList {
 		this.memId = memId;
 		this.exhPoster = exhPoster;
 		this.reviewId = reviewId;
+		this.reviewColor = reviewColor;
 	}
+
+
+
+
+
+	public String getColor() {
+		return reviewColor;
+	}
+
+	public void setColor(String reviewColor) {
+		this.reviewColor = reviewColor;
+	}
+
+
+
 
 
 	public int getReviewId() {
@@ -53,15 +66,9 @@ public class BookingList {
 
 
 
-
-
 	public String getExhPoster() {
 		return exhPoster;
 	}
-
-
-
-
 
 
 	public void setExhPoster(String exhPoster) {
@@ -70,6 +77,16 @@ public class BookingList {
 
 
 
+
+
+
+	public int getExhId() {
+		return exhId;
+	}
+
+	public void setExhId(int exhId) {
+		this.exhId = exhId;
+	}
 
 
 
@@ -116,11 +133,11 @@ public class BookingList {
 		this.museumName = museumName;
 	}
 
-	public String getBookingDate() {
+	public Date getBookingDate() {
 		return bookingDate;
 	}
 
-	public void setBookingDate(String bookingDate) {
+	public void setBookingDate(Date bookingDate) {
 		this.bookingDate = bookingDate;
 	}
 
@@ -136,13 +153,17 @@ public class BookingList {
 
 
 
-
 	@Override
 	public String toString() {
-		return "BookingList [bookingId=" + bookingId + ", exhName=" + exhName + ", museumName=" + museumName
-				+ ", bookingDate=" + bookingDate + ", payMethod=" + payMethod + ", reviewCon=" + reviewCon + ", memId="
-				+ memId + ", exhPoster=" + exhPoster + "]";
+		return "BookingList [bookingId=" + bookingId + ", exhName=" + exhName + ", exhId=" + exhId + ", museumName="
+				+ museumName + ", bookingDate=" + bookingDate + ", payMethod=" + payMethod + ", reviewCon=" + reviewCon
+				+ ", memId=" + memId + ", exhPoster=" + exhPoster + ", reviewId=" + reviewId + ", reviewColor=" + reviewColor + "]";
 	}
+
+
+
+
+
 
 
 

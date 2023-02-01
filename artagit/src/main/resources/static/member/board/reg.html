@@ -15,15 +15,27 @@
     <link href="../../css/form.css" type="text/css" rel="stylesheet">
     <link href="../../css/header.css" type="text/css" rel="stylesheet">
     <link href="../../css/input.css" type="text/css" rel="stylesheet">
+    <!-- Summernote JS, CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18
+    /dist/summernote.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18
+    /dist/summernote.min.js"></script>
+<script src="http://code.jquery.com/jquery-latest.js"></script> 
+ 
 
-
+    <script src="/js/summernote/summernote-lite.js"></script>
+    <script src="/js/summernote/lang/summernote-ko-KR.js"></script>
+    <script src="/js/member/board/summernote.js"></script>
+    
+    <link rel="stylesheet" href="/css/summernote/summernote-lite.css">
+    <link href="../../css/editor-edit.css" type="text/css" rel="stylesheet">
     <link href="../../css/utils.css" type="text/css" rel="stylesheet">
 </head>
 
 
 <script src="../../js/header-menu.js"></script>
 <script src="../../js/member/board/reg.js"></script>
-<body id="summernote">
+<body>
     <header class="header">
         <section class="header-wrapper">
             <div class="header-box">
@@ -98,10 +110,10 @@
         </div>
     </header>
     
-
+    
     
     <main class="main-container">
-        <form action="member/board/reg" method="post">
+        <form action="member/board/reg" onsubmit="return doAction()" method="post">
             <section class="post-option">
                 <div class="first-line">
                 <h1 class="d-none">글작성 옵션</h1>
@@ -126,22 +138,20 @@
             </div>
         </section>
     </div>
+  
         <section>
                 <h1 class="">
                     <label  for="" class="d-none" >제목</label>
                     <input class="input" name = "title" placeholder="제목" type="text" class="board-title" id="title">
                 </h1>
-                <div id="summernote">Hello Summernote</div>
+               
                
                 <div class="">
                     <label class="d-none" for="" >내용</label>
-                    <textarea class="input" rows="20" cols="80" id="content" name="content" placeholder="내용을 입력해주세요."></textarea>
-                    <div class="toolbox">
-                        <button class="btn btn-default-line btn-bold">B</button>
-                        <button class="btn btn-italic">I</button>
-                        <button class="btn btn-underline">U</button>
-                        <button class="btn btn-color">C</button>
+                    <div>
+                        <textarea id="summernote" name="editordata"></textarea>
                     </div>
+                 
                 </div>
                 
                 <div class="reg-list-input-box detail">

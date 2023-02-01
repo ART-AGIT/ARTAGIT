@@ -1,15 +1,19 @@
 .icon{
     background-color: #353535;
-    -webkit-mask-size: 16px 16px;
+    -webkit-mask-size: 14px 14px;
     padding:0;
     
 }
 .icon-report{
     -webkit-mask-size: 20px 20px;
     cursor:pointer;
+    cursor:pointer;
 }
 
 .post-like-btn{
+    cursor:pointer;
+}
+.delete-btn{
     cursor:pointer;
 }
 
@@ -78,6 +82,7 @@
 .profile-photo{
     height: 12px;
     width: 12px;
+   
 }
 
 .board-img{
@@ -218,6 +223,7 @@ textarea:focus{
     width: 25px;
     padding-right: 3px;
     padding-top: 5px;
+    border-radius:100px;
 }
 .comment-writing>div{
     max-width: 40px;
@@ -235,10 +241,14 @@ textarea:focus{
 }
 
 .heart-fix{
-    padding-top:10px;
+    padding-top: 2px;
 }
 .icon-report{
     padding-top: 10px;
+}
+
+.icon-flex{
+    display:flex;
 }
 
 .a-btn{
@@ -269,29 +279,48 @@ textarea:focus{
             border-radius: 10px;
             border: 1px solid rgba(255, 255, 255, 0.18);
         }
-        #modal .modal-window {
-            background: white;
-            box-shadow: 0 8px 32px 0 rgb(177, 41, 126);
-            backdrop-filter: blur( 13.5px );
-            -webkit-backdrop-filter: blur( 13.5px );
-            border-radius: 10px;
-            border: 1px solid rgba( 255, 255, 255, 0.18 );
-            width:  200px;
-            height: 100px;
-            position: relative;
-            top: -100px;
-            padding: 10px;
-        }
-       
         
-        #modal .content {
-            margin-top: 20px;
-             margin-bottom:20px;
-            padding: 0px 10px;
-            color: gray;
-        }
+#modal .modal-window {
+	/*     background: rgba(255, 255, 255); */
+	/*     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 ); */
+	/*     backdrop-filter: blur( 13.5px ); */
+	/*     -webkit-backdrop-filter: blur( 13.5px ); */
+	/*     border-radius: 10px; */
+	/*     border: 1px solid rgba( 255, 255, 255, 0.18 ); */
+	/*     width: 200px; */
+	/*     height: 100px; */
+	/*     position: relative; */
+	/*     top: -100px; */
+	/*     padding: 10px; */
+	
+	position: fixed;
+    box-shadow: 0px 0px 19px 1px rgb(31 38 135 / 16%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 200;
+    top: 50%;
+    left: 50%;
+    width: 20%;
+    height: 7rem;
+    transform: translate(-50%, -50%);
+    background: rgb(255, 255, 255);
+    padding: 1rem;
+    border: 1px solid #a9a9a996;
+    box-sizing: border-box;
+    border-radius: 0.5rem;
+}
+       
+/*         #modal .content { */
+/*             margin-top: 20px; */
+/*              margin-bottom:20px; */
+/*             padding: 0px 10px; */
+/*             color: gray; */
+/*         } */
+
 		.button-wrap{
-		   margin-left: 30%;
+/* 		   margin-left: 30%; */
 		
 		}
 
@@ -405,8 +434,24 @@ textarea:focus{
 @media (min-width: 992px) {
 
     .post-container{
-        margin-left:200px;
-        margin-right:200px;
+       width: 700px;
+       margin-left:60px;
     }
+
+    .text-image-wrapper{
+       padding: 10px;    
+    }
+
+    .post-title{
+        font-size: 18px;
+    }
+    .content-wrapper{
+        display:flex;
+        margin-top: 80px;
+        margin-left:100px;
+
+    }
+
+
 
   }

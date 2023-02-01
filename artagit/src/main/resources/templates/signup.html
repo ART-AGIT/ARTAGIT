@@ -16,7 +16,7 @@
     </th:block>
 </head>
 
-<body layout:fragment="content">
+<body spellcheck="false" layout:fragment="content">
     <main class="main-container">
         <section class="reg-list">
             <form action="" method="post">
@@ -24,23 +24,25 @@
                 <div class="reg-list-input-box value-check-box">
                     <label for="login-id">아이디</label>
                     <input id="login-id" name="loginId" type="text" required class="input input-lg input-check" placeholder="영문자, 숫자 포함 6~16자">
-                    <span class="idFialure-message d-none">사용 불가능한 아이디입니다</span>
-                    <span class="idSuccess-message d-none">사용 가능한 아이디입니다</span>
-                    <span class="id-check-massage d-none">중복된 아이디입니다</span>
                 </div>
+                <span class="idFialure-message d-none message">영문자, 숫자 포함 6~16자만 가능합니다.</span>
+                <span class="idSuccess-message d-none message">사용 가능한 아이디입니다</span>
+                <span class="id-check-massage d-none message message-id">중복된 아이디입니다</span>
+               
                 <div class="reg-list-input-box">
                     <label for="password">비밀번호</label>
-                    <input id="password" name="password" type="password" required class="input input-lg" placeholder="영문자, 숫자, 특수문자 포함 8자 이상">
-                    <span class="passwordFialure-message d-none">사용 불가능한 비밀번호입니다</span>
-                    <span class="passwordSuccess-message d-none">사용 가능한 비밀번호입니다</span>
+                    <input id="password" name="password" type="password" required class="input input-lg" placeholder="영문자, 숫자 포함 8자 이상">
                 </div>
+                <span class="passwordFialure-message d-none message">영문자, 숫자 포함 8자 이상만 가능합니다.</span>
+                <span class="passwordSuccess-message d-none message">사용 가능한 비밀번호입니다</span>
 
                 <div class="reg-list-input-box">
                     <label for="password-check">비밀번호 확인</label>
-                    <input id="password-check" name="password" type="password" required class="input input-lg" placeholder="영문자, 숫자, 특수문자 포함 8자 이상">
-                    <span class="chkFialure-message d-none">비밀번호가 일치하지 않습니다</span>
-                    <span class="chkSuccess-message d-none">비밀번호가 일치합니다</span>
+                    <input id="password-check" name="password" type="password" required class="input input-lg" placeholder="영문자, 숫자 포함 8자 이상">
                 </div>
+                <span class="chkFialure-message d-none message">비밀번호가 일치하지 않습니다</span>
+                <span class="chkSuccess-message d-none message">비밀번호가 일치합니다</span>
+               
                 <div class="reg-list-input-box">
                     <label for="name">이름</label>
                     <input id="name" name="name" type="text" class="input input-lg">
@@ -58,7 +60,7 @@
                     <input id="phone" name="phone" type="text" class="input input-lg">
                 </div>
                 <div class="reg-button-box">
-                    <button id="btn-join" type="submit" class="btn btn-default btn-default-fill btn-xl btn-default-fill-off">가입하기</button>
+                    <button id="btn-join" type="submit" class="btn btn-default btn-default-fill btn-xl">가입하기</button>
                 </div>
             </form>
         </section>

@@ -30,3 +30,7 @@ body {
 body::-webkit-scrollbar, div::-webkit-scrollbar {
     display: none;
 }
+
+*{
+    font-family: 'Pretendard', Tahoma, Geneva, Verdana, sans-serif;
+}

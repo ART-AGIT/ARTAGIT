@@ -8,4 +8,12 @@ public interface NoticeService {
 	
 	// 공지 목록를 불러오는 메서드 
 	List<Notice> getList(int page);
+
+	List<Notice> getListInit(int page, int size, int roleId);
+	
+	List<Notice> getListByCategory(int page,int category);
+
+	Notice getNoticeById(int id);
+
+	int hitUp(int id);
 }

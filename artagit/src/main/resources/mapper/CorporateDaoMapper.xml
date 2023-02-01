@@ -10,10 +10,9 @@
 	<update id="update" parameterType="com.artagit.web.entity.Corporate">
 		update Corporate
  		<set>
- 			
  			<if test="museumName != null">museumName = #{museumName},</if>
  			<if test="name != null">name = #{name},</if>
- 			<if test="address != null">address = #{address},</if>
+ 			<if test="corpAddress != null">corpAddress = #{corpAddress},</if>
  			<if test="phone != null">phone = #{phone},</if>
  			<if test="manager != null">manager = #{manager},</if>
  		</set>
@@ -22,15 +21,65 @@
 	
 	<!-- 주최자 회원가입 -->
 	<insert id="insert" parameterType="com.artagit.web.entity.Corporate">
-		insert into Corporate(loginId, password, name, phone, ceoName, email, businessNum, manager, managerPhone, roleId, address, museumName, localId)
-			values(#{loginId}, #{password}, #{name}, #{phone}, #{ceoName}, #{email}, #{manager}, #{managerPhone}, #{businessNum}, #{roleId}, #{address}, #{museumName}, 3)
+		insert into Corporate
+			<set> 
+					roleId = 3, 
+                    name = #{name} ,           
+                    loginId = #{loginId}, 
+                    password = #{password}, 
+                    ceoName = #{ceoName}, 
+                    businessNum = #{businessNum}, 
+                    manager = #{manager}, 
+                    phone = #{phone}, 
+                    corpAddress = #{corpAddress}, 
+                    addressDetail = #{addressDetail}, 
+                    managerPhone = #{managerPhone}, 
+                    museumName= #{museumName}, 
+                    email = #{email},
+					<choose>
+						
+						<when test='corpAddress.contains("종로구") '>
+							localId = 1
+						</when>
+						<when test='corpAddress.contains("강남구") '>
+							localId = 2
+						</when>
+						<when test='corpAddress.contains("성동구") '>
+							localId = 3
+						</when>
+						<when test='corpAddress.contains("인천") '>
+							localId = 5
+						</when>
+						<when test=' !corpAddress.contains("서울") and address.contains("경기")'>
+							localId = 5
+						</when>
+						<when test='corpAddress.contains("서울") '>
+							localId = 4
+						</when>
+						<otherwise>
+					   		localId = 4
+					    </otherwise>
+					
+					</choose>
+
+                   
+           </set>
+                    
 	</insert>
+
+
+
+
 	
 		<!-- 사용자가 입력한 id를 가지고 권한 확인하기 위한 쿼리문 -->
 	<select id="getByUserName" resultType="com.artagit.web.entity.Corporate">
 		select * from Corporate where loginId=#{username}
 	</select>
 	
+	<!-- 사용자가 입력한 정보를 가지고 ID를 확인하기 위한 쿼리문 -->
+	<select id="getId" resultType="Corporate">
+		select * from Corporate where name = #{name} and email = #{email}
+	</select>
 	
 	<update id="deleteYN" parameterType="com.artagit.web.entity.Corporate">
 		update Corporate
@@ -40,21 +89,29 @@
 	
 	<update id="updateAccount" parameterType="com.artagit.web.entity.Corporate">
 	update Corporate
-		<trim prefix="SET" suffixOverrides=",">
+<!-- 		<trim prefix="SET" suffixOverrides=","> -->
+		<set>		
+			<if test="img != null">img=#{img},</if>
 			<if test="ceoName != null">ceoName = #{ceoName},</if>
 			<if test="name != null">name = #{name},</if>
 			<if test="phone != null">phone = #{phone},</if>
 			<if test="businessNum != null">businessNum = #{businessNum},</if>
-			<if test="address != null">address = #{address},</if>
+			<if test="corpAddress != null">corpAddress = #{corpAddress},</if>
+			<if test="addressDetail != null">addressDetail = #{addressDetail},</if>
 			
 			<if test="password != null"> password = #{password},</if>
 			<if test="manager != null">manager = #{manager},</if>
 			<if test="email != null">email = #{email},</if>
 			<if test="managerPhone!= null">managerPhone = #{managerPhone}</if>
-			
-		</trim>
+			</set>
+<!-- 		</trim> -->
 			where id = #{id}
 	</update>
 	
+<!-- 	아이디 중복확인 -->
+	<select id="chkId" resultType="int">
+		select count(id) from Corporate
+			where loginId = #{loginId}
+	</select>
 	
 </mapper>

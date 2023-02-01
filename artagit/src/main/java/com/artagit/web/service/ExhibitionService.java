@@ -4,6 +4,7 @@ import java.sql.SQLSyntaxErrorException;
 import java.util.List;
 
 import com.artagit.web.entity.Corporate;
+import com.artagit.web.entity.ExhLikeList;
 import com.artagit.web.entity.Exhibition;
 import com.artagit.web.entity.ExhibitionView;
 
@@ -24,10 +25,12 @@ public interface ExhibitionService {
 	// [주최자] 나의 등록전시 수정
 	int update(Exhibition exh);
 	
+
+
 	// [주최자] 나의 등록전시 리스트 
 	List<Exhibition> getListById(int id);
 	
-	int countOfExh(int memId);
+	int getCountOfExh(int memId);
 
 	//List<Exhibition> getListByCategory(int page, int local, int state, int category);
 
@@ -60,10 +63,20 @@ public interface ExhibitionService {
 
 	
 	//전시 등록 
-	int insert(Exhibition exhibition);
+	Exhibition insert(Exhibition exhibition, int corpId);
 
 	// [일반회원] 좋아요 전시
 	List<Exhibition> getLikeListById(int id);
 
+	List<Exhibition> getListById(int id, int page);
+	
+	
+
+	String getPayNum();
+	// 좋아요 전시 API
+	List<Exhibition> getLikeListByIdAll(int id);
+	
+	// 주최자 등록한 전시 리스트 필터링
+	List<Exhibition> getListByDateId(int page, int id, int state);
 
 }

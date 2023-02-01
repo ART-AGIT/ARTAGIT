@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.artagit.web.dao.BookingDao;
 import com.artagit.web.dao.BookingListDao;
@@ -19,8 +21,12 @@ public class DefaultBookingService implements BookingService {
 	private BookingDao bookingDao;
 	
 	@Override
-	public List<BookingList> getListById(int memId) {
-		return bookListDao.getListById(memId);
+	public List<BookingList> getListById(int memId,int page) {
+		System.out.println("pppage"+page);
+
+		int size = 6;
+		int offset = (page-1)*size;
+		return bookListDao.getListById(memId,page,offset,size);
 	}
 
 	@Override
@@ -40,6 +46,39 @@ public class DefaultBookingService implements BookingService {
 	public int getBookIdBypayNum(String payNum) {
 		// TODO Auto-generated method stub
 		return bookingDao.getBookIdBypayNum(payNum);
+	}
+	
+	//bookingId(=payId) 로 exhId 가져오기
+	@Override
+	public int getExhId(int payId) {
+		int exhId = bookingDao.getExhId(payId);
+		return exhId;
+	}
+
+	 
+	@Override
+	public Booking get(int id) {
+		Booking booking = bookingDao.get(id);
+		return booking;
+	}
+
+	@Override
+	public BookingList getBookingViewByReviewId(int id) {
+		// TODO Auto-generated method stub
+		return bookListDao.getByReviewId(id);
+	}
+
+	@Override
+	public BookingList getBookingViewByBookingId(int bookingId) {
+		// TODO Auto-generated method stub
+		return bookListDao.getByBookingId(bookingId);
+	}
+
+	//예매내역 건수 가져오기
+	@Override
+	public int getCount(int id) {
+		// TODO Auto-generated method stub
+		return bookListDao.getCount(id);
 	}
 
 }

@@ -1,84 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{inc/layout}">
+   <!-- ---------------------------------------------------------------------->
     <title>ID찾기</title>
-    <link href="../../css/header.css" type="text/css" rel="stylesheet">
-    <link href="../../css/reset.css" type="text/css" rel="stylesheet">
-    <link href="../../css/deco.css" type="text/css" rel="stylesheet">
-    
-    <link href="../../css/icon.css" type="text/css" rel="stylesheet">
-    <link href="../../css/button.css" type="text/css" rel="stylesheet">
-    <link href="../css/form.css" type="text/css" rel="stylesheet">
-    <link href="../../css/input.css" type="text/css" rel="stylesheet">
-    
-    <link href="../css/footer.css" type="text/css" rel="stylesheet">
-    <link href="./css/find-id.css" type="text/css" rel="stylesheet">
-    <link href="./css/component/sub-menu.css" type="text/css" rel="stylesheet">
-    <link href="css/style.css" type="text/css" rel="stylesheet">
-    <!-- <link href="./css/find-id-result.css" type="text/css" rel="stylesheet"> -->
-    <!-- <link href="./css/find-pw.css" type="text/css" rel="stylesheet"> -->
-</head>
-<script src="./js/header-menu.js"></script>
-<script src="./js/find-id.js"></script>
-<body>
-    <header class="header">
-        <section class="header-wrapper">
-            <div class="header-box">
-                <h1 class="logo"><a href="">Art Agit</a></h1>
-                <ul class="d-none">
-                    <!-- <li><a href="">전시</a></li>
-                    <li><a href="">커뮤니티</a></li>
-                    <li><a href="">로그인</a></li> -->
-                </ul>
-                <div>
-                    <a class="icon icon-menu burger-nav" href="">확장메뉴</a>
-                </div>
-            </div>
-            <div class="sub-menu-box">
-                <div class="sub-menu">
-                    <div class="sub-menu-1">
-                        <ul>
-                            <li><a href="exhibition/list.html">전시</a></li>
-                            <li><a href="board/list.html">커뮤니티</a></li>
-                            <li><a href="">-</a></li>
-                        </ul>
-                    </div>
-                    <div class="sub-menu-2">
-                        <ul>
-                            <li><a href="login.html">로그인</a></li>
-                            <li><a href="">검색</a></li>
-                            <li><a href="">고객센터</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </header>
+    <th:block layout:fragment="css">
+	    <link href="../css/find-id.css" type="text/css" rel="stylesheet">
+	    <script src="../../js/header-menu.js"></script>
+	    <script src="../../js/find-id.js"></script>
+	</th:block>
 
+
+<body layout:fragment="content">
     <main>
+    	<!---------------- 모바일ver 상단메뉴 ---------------->
         <div class="find-box">
             <a class="text find find-id select-on" href=""></a>
             <a class="text find find-pw" href="./find-pw.html"></a>
         </div>
+        
+        <!---------------- 피씨ver 상단메뉴 ---------------->
+		<div class="flow-btn-box">
+            <div class="flow-item">
+                <a class="sm-text" href="/">HOME</a>
+            </div>
+            <div class="arrow-box">
+                <a class="icon icon-arrow-right icon-arrow-right-sm" href="">다음</a>
+            </div>
+            <div class="flow-item">
+                <a class="sm-text" href="/user/login">로그인</a>
+            </div>
+            <div class="arrow-box">
+                <a class="icon icon-arrow-right icon-arrow-right-sm" href="">다음</a>
+            </div>
+            <div class="flow-item">
+                <a class="sm-text go-exh-detail" href="/user/find-id">아이디 찾기</a>
+            </div>
+        </div>
 
         <!---------------- ID 찾기 ---------------->
-        <div class="find-content-box">
-            <form action="" class="input-box">
-                <label class="text find-email">이메일로 찾기</label>
-                <input class="input input-lg input-border input-white" name="name" type="text" placeholder="이름">
-                <input class="input input-lg input-border input-white" name="email" type="text" placeholder="이메일">
-                <p>입력하신 이메일로 아이디를 전송해드립니다.</p>
+        <div class="find-content-box find-id-box">
+            <form action="" class="input-box id-box">
+                <label class="text find-email">아이디 찾기</label>
+                <span>회원가입 시 입력했던 정보를 확인합니다.</span>
+                <input class="input input-lg input-border input-white name-input" name="name" type="text" placeholder="이름">
+                <p>* 사업자 회원은 전시관 명을 입력해주세요.</p>
+                <input class="input input-lg input-border input-white email-input" name="email" type="text" placeholder="이메일">
+            	<p class="msg"></p>
             </form>
             
-            <div class="btn-box">
-                <a class="btn btn-default btn-default-fill" href="./find-id-result.html">확인</a>
-                <a class="btn btn-default btn-default-line" href="./login.html">취소</a>
+            <div class="btn-box mg-0">
+                <input class="btn btn-default btn-default-fill submit-btn" type="submit" value="확인">
             </div>
             <span class="text">아직 아트아지트 회원이 아니세요?</span>
-            <a class="btn btn-default btn-default-fill" href="./signup-choice.html">회원가입 바로가기</a>
+            <a class="btn" href="/signup-choice">회원가입 바로가기</a>
         </div>
 
         <!---------------- ID 찾기 결과 ---------------->
@@ -94,24 +69,6 @@
             </div>
 
             <a class="btn btn-default btn-default-fill" href="./login.html">로그인</a>
-        </div>
-
-        <!---------------- PW 찾기 ---------------->
-        <div class="find-content-box find-pw-box d-none">
-            <form action="" class="input-box">
-                <label class="text find-email">이메일로 찾기</label>
-                <input class="input input-lg input-border input-white" name="loginId" type="text" placeholder="아이디">
-                <input class="input input-lg input-border input-white" name="email" type="text" placeholder="이메일">
-                <p>입력하신 이메일로 임시 비밀번호를 전송해드립니다.</p>
-            </form>
-
-            <div class="text-box">
-            </div>
-
-            <div class="btn-box">
-                <a class="btn btn-default btn-default-fill" href="">확인</a>
-                <a class="btn btn-default btn-default-line" href="">취소</a>
-            </div>
         </div>
     </main>
 </body>

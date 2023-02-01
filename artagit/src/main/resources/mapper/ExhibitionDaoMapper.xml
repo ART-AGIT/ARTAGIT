@@ -83,10 +83,20 @@
 		select * from Exhibition
 		where id=#{id}
 	</select>
-	<select id="getListByID" resultType="com.artagit.web.entity.Exhibition">
+	<select id="getListById" resultType="com.artagit.web.entity.Exhibition">
 		select * from Exhibition
-		where useYN = 'Y'
+		where corpId = #{id}
+		limit #{offset},#{size};
 	</select>
+	<select id="getListByIdInit" resultType="com.artagit.web.entity.Exhibition">
+		select * from Exhibition
+		where corpId = #{id} and useYN = 'Y'
+		limit #{limit};
+	</select>
+<!-- 	<select id="getListByID" resultType="com.artagit.web.entity.Exhibition"> -->
+<!-- 		select * from Exhibition -->
+<!-- 		where useYN = 'Y' -->
+<!-- 	</select> -->
 	<select id="getListtt" resultType="com.artagit.web.entity.Exhibition">
 		select * from Exhibition
 			join Booking 
@@ -114,6 +124,7 @@
 		ticketPrice,
 		ticketStock,
 		artist,
+		corpId,
 		homepage)
 	
 		VALUES
@@ -128,6 +139,7 @@
 		#{ticketPrice},
 		#{ticketStock},
 		#{artist},
+		#{corpId},
 		#{homepage});
 	</insert>
 	
@@ -145,6 +157,7 @@
  			<if test="ticketStock != null">ticketStock = #{ticketStock},</if>
  			<if test="artist != null">artist = #{artist},</if>
  			<if test="poster != null">poster = #{poster},</if>
+<!--  			<if test="poster != null">poster = #{poster},</if> -->
  		</set>
  			where id = #{id}
  	</update>
@@ -153,14 +166,14 @@
 		update Exhibition set useYn = 'N' where id = #{id}
 	</update>
 	
-	<delete id="">
-		delete from Exhibition
-			where id = #{id}
-	</delete>
+<!-- 	<delete id=""> -->
+<!-- 		delete from Exhibition -->
+<!-- 			where id = #{id} -->
+<!-- 	</delete> -->
 	
 <!-- 	전시 좋아요 -->
 	<select id="getLikeList" resultType="com.artagit.web.entity.ExhLikeList">
-		select E.name,E.startDate, E.endDate, E.id, E.poster, C.museumName
+		select E.name,E.startDate, E.endDate, E.id, E.poster, C.museumName, M.nickname
 			from Member M
 			    inner join ExhLike L
 			    on M.id = L.memId
@@ -169,7 +182,60 @@
 				inner join Corporate C
 				on E.corpId = C.id
 		    where L.memId = #{id}
-		    order by M.id;
+		    order by M.id
+		    limit 6;
+	</select>
+	
+	<select id="getLikeListAll" resultType="com.artagit.web.entity.ExhLikeList">
+		select E.name,E.startDate, E.endDate, E.id, E.poster, C.museumName, M.nickname
+			from Member M
+			    inner join ExhLike L
+			    on M.id = L.memId
+				inner join Exhibition E
+				on L.exhId = E.id
+				inner join Corporate C
+				on E.corpId = C.id
+		    where L.memId = #{id};
+<!-- 		    order by M.id; -->
+	</select>
+	
+	
+	<select id="getLast" resultType="com.artagit.web.entity.Exhibition">
+		select * from Exhibition
+		where corpId =#{corpId}
+		order by regDate
+		desc
+		limit 0 ,1
+	</select>
+	
+	<select id="getPayNum" resultType="String">
+		select concat(today, right(concat("00000", rowCount+1), 6)) as payNum
+	    from 
+		    (select date_format(now(), '%Y%m%d-') as today,
+		    (select id as cnt from Booking order by id desc limit 1) as rowCount from dual) d;
+	</select>
+	
+	
+	<!--	주최자가등록한전시날짜에따른필터기능-->
+	<select id="getListByDateId" resultType="com.artagit.web.entity.Exhibition">
+		select 
+			* from Exhibition 
+		<trim prefix="WHERE" prefixOverrides="AND | OR">
+			<if test="state != null and state != 0">
+<!-- 				AND stateId = #{stateId} -->
+				<if test="state == 1">
+					AND startDate <![CDATA[< now() and endDate >= now() - INTERVAL 1 DAY]]>
+				</if>
+				<if test="state == 2">
+					AND startDate <![CDATA[>= now()]]>
+				</if>
+				<if test="state == 3">
+					AND endDate <![CDATA[< now() - INTERVAL 1 DAY]]>
+				</if>
+			</if>
+			and corpId = #{corpId}
+		</trim>
+		limit #{offset},#{size};
 	</select>
 
 </mapper>

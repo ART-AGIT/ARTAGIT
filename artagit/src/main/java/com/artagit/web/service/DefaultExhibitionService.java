@@ -11,8 +11,9 @@ import org.springframework.transaction.annotation.Transactional;
 import com.artagit.web.dao.CorporateDao;
 import com.artagit.web.dao.ExhLikeDao;
 import com.artagit.web.dao.ExhibitionDao;
-import com.artagit.web.entity.Corporate;
 import com.artagit.web.entity.ExhLike;
+import com.artagit.web.entity.ExhLikeList;
+import com.artagit.web.entity.ExhLikeList;
 import com.artagit.web.entity.Exhibition;
 import com.artagit.web.entity.ExhibitionView;
 
@@ -33,19 +34,18 @@ public class DefaultExhibitionService implements ExhibitionService {
 
 	}
 	
-	// @Autowired ==> 여기에 애너테이션을 붙이면 Constructor DI ==> 뭐가 다른거지?
-	// constructor injection 랑 setter injection 의 차이점 질문하기
 	public DefaultExhibitionService(ExhibitionDao exhDao) {
 		this.exhDao = exhDao;
 	}
 	
 	
-	
 	@Override
-	public int insert (Exhibition exhibition) {
+	//전시등록
+	public Exhibition insert (Exhibition exhibition,int corpId) {
 		
-		int result = exhDao.insert(exhibition);
-		
+//		int result = exhDao.insert(exhibition);
+		exhDao.insert(exhibition);
+		Exhibition result = exhDao.getLast(corpId);
 		return result;
 		
 	}
@@ -73,6 +73,7 @@ public class DefaultExhibitionService implements ExhibitionService {
 
 	// [주최자] 나의 등록전시 수정
 	@Override
+	@Transactional(isolation = Isolation.READ_UNCOMMITTED)
 	public int update(Exhibition exh) {
 		 int result = exhDao.update(exh);
 		 return result;
@@ -86,9 +87,9 @@ public class DefaultExhibitionService implements ExhibitionService {
 	}
 	
 	// [주최자] 나의 등록전시 리스트
-	public List<Exhibition> getListById(int id) {
-		
-		List<Exhibition> list =exhDao.getListByID(id);
+	public List<Exhibition> getListById(int corpId) {
+		int limit = 6;
+		List<Exhibition> list =exhDao.getListByIdInit(corpId,limit);
 		return list;
 
 	}
@@ -117,18 +118,17 @@ public class DefaultExhibitionService implements ExhibitionService {
 	
 	//나의 등록전시 개수 
 	@Override
-	public int countOfExh(int memId) {
+	public int getCountOfExh(int memId) {
 		int count = exhDao.getCount(memId);
 		return count;
 	}
 
 	@Override
 	public List<Exhibition> getListtt(int memId) {
-		
 		return exhDao.getListtt(memId);
 	}
+	
 	public int likeUp(int exhId, int memId) {
-		
 		ExhLike exhLike = new ExhLike(memId, exhId);
 
 		return exhLikeDao.add(exhLike);
@@ -143,7 +143,6 @@ public class DefaultExhibitionService implements ExhibitionService {
 
 	@Override
 	public int countOfLike(int exhId) {
-		
 		return exhLikeDao.count(exhId);
 
 	}
@@ -185,11 +184,44 @@ public class DefaultExhibitionService implements ExhibitionService {
 	}
 
 
-	// LikeList
+	// LikeList -controller
 	@Override
 	public List<Exhibition> getLikeListById(int id) {
 		List<Exhibition> list = exhDao.getLikeList(id);
 		return list;
 	}
+
+	@Override
+	public List<Exhibition> getListById(int id, int page) {
+		// TODO Auto-generated method stub
+		int size = 6;
+		int offset = (page-1)*size;
+		List<Exhibition> list = exhDao.getListById(id,size,offset);
+		return list;
+	}
+	
+	// 주문번호 생성 후 가져오는 메서드
+	@Transactional(isolation = Isolation.READ_UNCOMMITTED)
+	public String getPayNum() {
+		return exhDao.getPayNum();
+	}	
+	@Override
+	public List<Exhibition> getLikeListByIdAll(int id) {
+		List<Exhibition> list = exhDao.getLikeListAll(id);
+		return list;
+	}
+	
+	
+	// 주최자가 등록한 전시date필터링
+	@Override
+	public List<Exhibition> getListByDateId(int page, int state,int corpId) {
+		int size = 6;
+	      int offset = (page-1)*size;
+	      System.out.println("오프셋"+offset);
+	      System.out.println("페이지"+page);
+		List<Exhibition> list = exhDao.getListByDateId(offset, state, corpId, size);
+		return list;
+	}
+
 
 }

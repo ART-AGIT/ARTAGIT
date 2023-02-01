@@ -23,16 +23,20 @@
 	        	<div class="profile-box">
 	        		<div class="profile-content">
 		                <div class="profile-img-box" >
-		                    <img class="profile-img" src="../../../image/camera.svg">
+<!-- 		                th:src="@{|/image/poster/${user.img}|}" -->
+		                    <img class="profile-img"  src="../../../image/camera.svg">
 		                </div>
 		                <div class="profile-name">
-		                    <span>1004님</span>
+		                    <span th:text="${nickname}+' 님'">1004님</span>
 		                </div>
+		                <div class="member-grade">
+                        		일반회원
+                    	</div>
 		            </div>
 	            </div>
 	            <ul class="menu-list">
-	                <li class="list line-on"><a class="deco deco-ticket deco-ticket-on" href="">나의 예매내역</a></li>
-	                <li class="list"><a class="deco deco-heart-red" href="../../member/mypage/like-list.html">좋아요 전시</a></li>
+	                <li class="list line-on"><a class="deco deco-ticket deco-ticket-on" th:href="@{/member/mypage/review/list}">나의 예매내역</a></li>
+	                <li class="list"><a class="deco deco-heart-red" href="../../member/mypage/like-list.html" th:href="@{/member/mypage/like-list}" >좋아요 전시</a></li>
 	                <li class="list"><a class="deco deco-smile"  href="./account-edit.html">내 정보 수정</a></li>
 	                <li class="list"><a class="deco deco-write" href="./post-list.html">작성글 관리</a></li>
 	            </ul>
@@ -49,7 +53,7 @@
 				
 				
 				
-				<!-------------------------------------------------------------------------------------->
+				<!--------리뷰 보기용 ------------------------------------------------------------------------------>
 				<div class="box" th:if="${review}" th:style="|background-color:${review.color}|">
 	                <div class="write-form" >
 	                    <div class="content" th:text="${review.content}" th:if="${review}">리뷰 작성중</div>
@@ -63,26 +67,29 @@
 	                    </div>
 	                    <div>
 	                        <span class="exh-loc" th:text="${booking.museumName}" >국립현대미술관</span>
-	                        <span class="exh-date" th:text="${booking.bookingDate}">2022.08.08</span>
+	                        <span class="exh-date" th:text="${#dates.format(booking.bookingDate,'yyyy-MM-dd')}" >2022.08.08</span>
 	                    </div>
 	    
 	                    <div class="color-option">
-
-<!-- 	                        <input type="color" class="color-input" name="color" > -->
-								<a class="color purple" value="pink"></a>
-								<a class=" color green"></a>
-								<a class="color blue"></a>
+								<a class="color purple" value="pink"  th:if="!${review}"></a>
+								<a class=" color green"  th:if="!${review}" ></a>
+								<a class="color blue"  th:if="!${review}"></a>
 	                    </div>
 	                    
 	                    <div >
-							<a  th:href="@{/member/mypage/review/del/{id}(id = ${review.id})}" th:if="${review}" class="trash"><img class="trash-img" src="../../../image/trash.png"></a>
+<!-- 	                    	<a  th:if="${review}" class="trash"> -->
+<!-- 	                    		<img th:attr="data-id=${review.id}" class="trash-img" src="../../../image/trash2.png"> -->
+<!-- 	                    	</a> --> 
+							<a  th:href="@{/member/mypage/review/del/{id}(id = ${review.id})}" th:if="${review}" class="trash">
+								<img class="trash-img" src="../../../image/trash2.png">
+							</a>
 	                    </div>
 	                </div>
 	             </div> 
 	           
 			
 			
-				<!-------------------------------------------------------------------------------------->
+				<!-------- 리뷰 작성용------------------------------------------------------------------------------>
 				<div class="box" th:if="${review==null}" th:style="|background-color:#EDEDED|">
 	                <div class="write-form" >
 <!-- 	                    <div class="content" th:text="${review.content}" th:if="${review}">리뷰 작성중</div> -->
@@ -96,10 +103,10 @@
 	                    </div>
 	                    <div>
 	                        <span class="exh-loc" th:text="${booking.museumName}" >국립현대미술관</span>
-	                        <span class="exh-date" th:text="${booking.bookingDate}">2022.08.08</span>
+	                        <span class="exh-date" th:text="${#dates.format(booking.bookingDate,'yyyy-MM-dd')}">2022.08.08</span>
 	                    </div>
 	    
-	                    <div class="color-option">
+	                    <div class="color-option" >
 	                    		<a class="color purple" ></a>
 								<a class=" color green"></a>
 								<a class="color blue"></a>
@@ -107,12 +114,38 @@
 	                    </div>
 	                    
 	                    <div >
-							<a  th:href="@{/member/mypage/review/del/{id}(id = ${review.id})}" th:if="${review}" class="trash"><img class="trash-img" src="../../../image/trash.png"></a>
+							<a    th:href="@{/member/mypage/review/del/{id}(id = ${review.id})}" th:if="${review}" class="trash"><img  class="trash-img" src="../../../image/trash2.png"></a>
+<!-- 								<a  th:if="${review}" class="trash"><img class="trash-img" src="../../../image/trash2.png"></a> --> 
 	                    </div>
 	                </div>
+	                
 	             </div> 
+<!-- 	             <div class="form-color"><img class="help-img" src="../../../../image/help3.png"></div> -->
 	           <!-------------------------------------------------------------------------------------->
 			</div>
+   	
+   	
+   	
+   	
+   			<div class="del-modal-background d-none">
+	        	<div class="del-modal-window">
+		        	<div class="del-modal-popup">
+		        		<div class="del-wrap">
+			        		<div class="del-mess">리뷰를 삭제하시겠습니까?</div>
+				        	<div class = "button-wrap">
+	                             <button class="btn btn-default del-btn" type="submit" >삭제</button>
+	                             <button class="btn btn-default-line cancel-btn" type="button">취소</button>
+	                        </div>
+	                   </div>
+		        	</div>
+		        </div>
+		    </div>
+   	
+   	
+   	
+   			
+   	
+   	
    	
         </form>
    </div>

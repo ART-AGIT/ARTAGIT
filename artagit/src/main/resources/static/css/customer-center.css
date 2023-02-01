@@ -36,13 +36,15 @@ body::-webkit-scrollbar, div::-webkit-scrollbar {
 }
 
 .accordion-header.active + .accordion-content {
-    /* section1 */
-    /* flex-grow: 1; */
     height: auto;
+    opacity: 1;
+    
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
 }
 
 .section span {
-    margin: 0 5px 0 7px;
+    margin: 0;
 }
 
 /******* 자주 묻는 질문, 공지사항 아이콘 ****************************************/
@@ -71,11 +73,6 @@ body::-webkit-scrollbar, div::-webkit-scrollbar {
     height: 20px;
 }
 
-.notice {
-    /* width: 80px; */
-}
-
-
 /******* 자주 묻는 질문 ****************************************/
 .customer-center {
     font-size: 22px;
@@ -88,23 +85,18 @@ body::-webkit-scrollbar, div::-webkit-scrollbar {
 .accordion-header {
     /* reset */
     margin: 12px 0 0 0;
-
     /* layout */
     display: flex;
     align-items: center;
     cursor: pointer;
     /* height: 20px; */
     position: relative;
-    /* padding: 0.5em 0.5em 0.5em 0.7em; */
-
-    transition: background-color 1s;
 }
 
 .section>.box>div,
 .accordion-content {
     /* reset */
     margin: 10px 0 10px 0;
-    /* padding: 15px; */
     outline: 0;
     line-height: 1.4;
     text-decoration: none;
@@ -116,32 +108,18 @@ body::-webkit-scrollbar, div::-webkit-scrollbar {
 
     /* layout */
     display: flex;
-    /* display:inline-block; */
-    flex-direction: column;
-    /* justify-content: flex-start; */
+    justify-content: flex-start;
     align-items: center;
 
     box-sizing: content-box;
     background-color: #fff1f5;
 
-    /* padding: 1em 2.2em; */
-    
-    /* border-top: 0; */
     overflow: auto;
     height: 0px;
-
-    /* effect */
-    transition: height 1.5s, padding 1s;
+    opacity: 0;
 }
 
 /******* 공지사항 ****************************************/
-.date {
-    /* display: flex;
-    justify-content: flex-end; */
-    /* margin-bottom: 5px; */
-    padding: 7px 0 7px 0;
-    text-align: end;
-}
 
 .notice-category {
     border: 1px solid #303030;
@@ -165,16 +143,135 @@ body::-webkit-scrollbar, div::-webkit-scrollbar {
 }
 
 
+/******* PC버전 ****************************************/
+
+@media (min-width: 992px) {
+	main {
+		width: 800px;
+	}
+	
+	.icon-title {
+		margin-bottom: 10px;
+	}
+	
+	.section>.box>h4, .accordion-header {
+	    margin: 0;
+	    display: flex;
+	    align-items: center;
+	    cursor: pointer;
+	    height: 70px;
+	    position: relative;
+	    padding-left: 0.7em;
+	    transition: background-color 1s;
+	    border-bottom: 1px solid #dbdbdb;
+	}
+	
+	.section>.box>div, .accordion-content {
+	    margin: 0;
+	}
+	
+	p {
+	    padding: 16px;
+	    margin: 0;
+	    font-size: 16px;
+	}
+	
+	.q-numbering {
+		padding-right: 5px;
+		font-size: 18px;
+	}
+	
+	.notice-box {
+		display: flex;
+    	align-items: center;
+    	border-bottom: 1px solid #dbdbdb;
+    	height: 75px;
+    }
+    
+    .notice-box section {
+    	margin: 0 10px;
+    	cursor: pointer;
+    }
+    
+    .notice-title {
+    	margin: 0;
+    }
+    .notice-date {
+    	font-size: 14px;
+    	margin: 5px 0;
+    	display: block;
+	    color: #828c94;
+	    line-height: 17px;
+	    font-weight: 500;
+	    padding-top: 5px;
+	}
+	
+		/* 공지사항 디테일 페이지 */
+	.notice-detail-container {
+		width: 100%;
+	/*     max-width: 780px; */
+	    box-sizing: border-box;
+	}
+	
+	.notice-detail-title {
+		word-break: keep-all;
+	    overflow-wrap: break-word;
+	    margin: 0 0 10px;
+	    font-size: 24px;
+	    font-weight: 700;
+	    line-height: 30px;
+	    color: #292929;
+	}
+	
+	.notice-detail-date {
+		display: block;
+	    font-size: 16px;
+	    line-height: 20px;    
+	    font-weight: 500;
+	    color: #828c94;
+	}
+	
+	.notice-detail-content {
+		word-break: keep-all;
+	    overflow-wrap: break-word;
+		border: solid #dbdbdb;
+	    border-width: 1px 0 0;
+	    font-size: 15px;
+	    line-height: 28px;
+	    color: #000;
+		margin: 20px 0;
+	    padding: 30px 0;
+	    border-width: 1px 0;
+	    display: flex;
+	    flex-direction: column;
+	    align-items: center;
+	    text-align: justify;
+	}
+	
+	.notice-detail-content p {
+		padding: 0;
+	}
+	
+	.notice-detail-back {
+		background: none;
+	    font: inherit;
+	    display: block;
+	    width: 160px;
+	    margin: 0 auto;
+	   	padding: 11px 0 12px;
+	   	
+	    text-align: center;    
+	    font-weight: 500;
+	    font-size: 17px;
+	    line-height: 22px;
+	    
+	    background-color: #FF6C9E;
+	    border: none;
+	    color: #fff;
+	    border-radius: 4px;
+	    transition: background-color .1s;
+	}
+
+}
 
 
-
-
-
-/* .notice-content-box {
-    margin-left: 5px;
-} */
-
-/* .title-box {
-    display: flex;
-    align-items: center;
-} */

@@ -1,5 +1,7 @@
 package com.artagit.web.controller;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -17,6 +19,7 @@ import com.artagit.web.entity.ArtagitUserDetails;
 import com.artagit.web.entity.Board;
 import com.artagit.web.entity.BoardListView;
 import com.artagit.web.entity.Comment;
+import com.artagit.web.entity.Notice;
 import com.artagit.web.service.BoardService;
 import com.artagit.web.service.CommentService;
 import com.artagit.web.service.NoticeService;
@@ -38,20 +41,88 @@ public class BoardController {
 	/*************게시글 리스트 불러오기*********/
 	@GetMapping("list")
 	public String list(
-		
-		@RequestParam(defaultValue = "1", name ="p")int page,
+		@RequestParam(defaultValue = "1", name ="currentPage")int page,
+		@RequestParam(value = "currentPage", required = false, defaultValue = "1") int currentPage,
 		Model model,
 		HttpSession session){
-			
-		List<BoardListView> list = service.getListInit(page, 0);
-		model.addAttribute("list",list);
+		Board roleId = new Board();
+		roleId.setRoleId(0);
+		int category = 0;
+		System.out.println("category?"+category);
+		Map<String,Object> board = service.getListInit(page, 0,category);
+		List<Notice> notice = noticeService.getListInit(page,0,category);
+		model.addAttribute("noticeList",notice);
+		model.addAttribute("roleId", roleId);
+//		model.addAttribute("boardList",board);
+		model.addAttribute("standardDate", new Date());
+//		페이징
+		model.addAttribute("boardList", board.get("list"));
+		model.addAttribute("currentPage", board.get("currentPage"));
+		model.addAttribute("lastPage", board.get("lastPage"));
+		model.addAttribute("startPageNum", board.get("startPageNum"));
+		model.addAttribute("lastPageNum", board.get("lastPageNum"));
 		
+		System.out.println("page"+board.get("currentPage"));
+		
+		return "board/list";
+			
+		}
+	
+	//게시글 검색 결과
+	@GetMapping("search")
+	public String searchList(
+		@RequestParam(defaultValue = "", name ="q")String query,
+		Model model){
+		System.out.println("ㅎㅎ");
+		int page = 1;
+		Board roleId = new Board();
+		Map<String,Object> board = service.getSearchList(query,page);
+		model.addAttribute("roleId", roleId);		
+//		model.addAttribute("boardList",board);	
+		System.out.println(board);
+		
+		//페이징-----------------
+		model.addAttribute("sendQuery",query);
+		model.addAttribute("boardList", board.get("list"));
+		model.addAttribute("currentPage", board.get("currentPage"));
+		model.addAttribute("lastPage", board.get("lastPage"));
+		model.addAttribute("startPageNum", board.get("startPageNum"));
+		model.addAttribute("lastPageNum", board.get("lastPageNum"));
+		
+		return "board/searchlist";
+			
+		}
+	
+	@GetMapping("list{id}")
+	public String listByCategory(
+		
+		@RequestParam(defaultValue = "1", name ="p")int page,
+		@PathVariable("id") int id,
+		Model model,
+		HttpSession session){
+		Board roleId = new Board();
+		int category = 0;
+		if(id!=0) {
+			category = id;
+			roleId.setRoleId(id);
+		}
+		else
+			roleId.setRoleId(0);
+		System.out.println("category?"+roleId.getRoleId());
+		Map<String,Object> board = service.getListInit(page, 0,category);
+		
+		
+		List<Notice> notice = noticeService.getListInit(page,0,category);
+		model.addAttribute("boardList", board.get("list"));
+		model.addAttribute("noticeList",notice);
+		model.addAttribute("roleId", roleId);
+		System.out.println("model에 들어가는지"+notice);
 		
 		return "board/list";
 			
 		}
 
-	
+
 	
 	
 	/***게시글 내용 조회****/

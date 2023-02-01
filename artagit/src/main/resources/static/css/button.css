@@ -8,7 +8,7 @@
     border: 1px solid #FF6C9E;
     border-radius: 10px;
     background-color: #FF6C9E;
-
+   
     font-size: 12px;
 }
 
@@ -192,7 +192,7 @@
 	    width: 65px;
 	    height: 65px;
 	    /* position: fixed; */
-	    right: 250px;
+	    right: 230px;
 	    bottom: 30px;
 	    font-size: 16px;
 	}
@@ -200,5 +200,46 @@
 	.btn-payment {
 	    font-size: 14px;
 	}
+	.btn-unregister{
+        
+            width: 65px;
+            height: 25px;
+            font-size: 11px;
+        }
+        .unregister {
+            position: relative;
+            left: 108px;
+            padding-top: 30px;
+        }
+        .btn-next {
+            width: 45px;
+            height: 45px;
+        }
+        .btn-before {
+            width: 45px;
+            height: 45px;
+            
+        }
+        .btn-register {
+            height: 45px;
+        }
+        
+        	.btn-pay {
+	    border-radius: 10px 0 0 10px;
+	    padding: 0;
+	    height: 44px;
+	    font-size: 18px;
+	    position: fixed;
+	    width: 160px;
+	    bottom: 103px;
+	    right: 519px;
+	}
 	
+	.btn-way {
+	    border-left: 1px solid #ffffff55;
+	    right: 387px;
+	    cursor: pointer;
+	    width: 136px;
+	    border-radius: 0 10px 10px 0;
+	}
 }

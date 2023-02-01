@@ -6,6 +6,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 
 import com.artagit.web.entity.Corporate;
+import com.artagit.web.entity.ExhLikeList;
 import com.artagit.web.entity.Exhibition;
 import com.artagit.web.entity.ExhibitionView;
 
@@ -34,7 +35,7 @@ public interface ExhibitionDao {
 	
 	/*********** 주최자 ************/
 	//나의 등록전시 리스트
-	List<Exhibition> getListByID(int id);
+	List<Exhibition> getListByIdInit(int id, int limit);
 	
 	// 내가 등록한 전시 수정
 //	int update(int id);
@@ -62,11 +63,25 @@ public interface ExhibitionDao {
 
 	Exhibition getexh(int exhId);
 
+	//[주최자] 전시등록
 	int insert(Exhibition exhibition);
+	
+	//[주최자] 가장 최근에 등록한 전시
+	Exhibition getLast(int corpId);
 
 	// [일반회원] 좋아요 전시
 	List<Exhibition> getLikeList(int id);
-
+//	List<Exhibition> getLikeList(int id, int page, int offset, int size);
 	
+	List<Exhibition> getListById(int id,int size,int offset);
+
+	// 좋아요 전시 더보기
+	List<ExhLikeList> getLikeListById(int id, int size, int offset);
+	List<Exhibition> getLikeListAll(int id);
+
+	String getPayNum();
+	
+	// 주최자가 등록한 전시date필터링
+	List<Exhibition> getListByDateId(int offset, int state, int corpId ,int size);
 }
  

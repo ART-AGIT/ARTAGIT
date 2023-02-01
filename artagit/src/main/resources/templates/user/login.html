@@ -6,7 +6,8 @@
 	layout:decorate="~{inc/layout}">
 
  	<th:block layout:fragment="css">
-		 <link href="../css/login.css" type="text/css" rel="stylesheet">
+		<link href="../css/login.css" type="text/css" rel="stylesheet">
+		<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 	</th:block>
  
 <body layout:fragment="content">
@@ -62,9 +63,9 @@
             <div class="line">간편 로그인</div>
 
             <div class="login-social">
-                <a href="" class="simpleIcon"><img src="../image/kakao.svg" class="icon-img"></a>
+                <a href="https://kauth.kakao.com/oauth/authorize?client_id=1b1ecb2d4d54ce53576dff3479bcf44d&redirect_uri=http://localhost:8080/user/login&response_type=code" class="simpleIcon"><img src="../image/kakao.svg" class="icon-img"></a>
                 <a href="" class="simpleIcon"><img src="../image/naver.svg" class="icon-img"></a>
-                <a href="" class="simpleIcon"><img src="../image/facebook.svg" class="icon-img"></a>
+                <a href="/oauth2/authorization/google" class="simpleIcon"><img src="../image/facebook.svg" class="icon-img"></a>
             </div>
          </form>
     </main>

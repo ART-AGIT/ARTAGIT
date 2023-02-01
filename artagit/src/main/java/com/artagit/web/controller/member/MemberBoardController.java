@@ -5,6 +5,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.artagit.web.entity.ArtagitUserDetails;
@@ -54,9 +56,7 @@ public class MemberBoardController {
 		model.addAttribute("user", user);
 		List<Comment> comments = commentService.getNickname(id);
 		model.addAttribute("comments", comments);
-		model.addAttribute("reportType","게시글");
-		model.addAttribute("reportType1","댓글");
-		
+
 		
 		//조회수(중복 제거)
 		Cookie oldCookie = null; //쿠키 객체 만들고 초기화
@@ -112,47 +112,71 @@ public class MemberBoardController {
 	}
 
 	@PostMapping("reg")
-	public String reg(int roleId, MultipartFile img,Board board, HttpServletRequest request,
+	public String reg(int roleId, MultipartFile img1,MultipartFile img2,MultipartFile img3,MultipartFile img4,Board board, HttpServletRequest request,
 			Model model,
 			@AuthenticationPrincipal ArtagitUserDetails user)
 			throws IOException {
-		System.out.println(board.toString());
-		model.addAttribute(user);
-		System.out.println(user.getId());
 		
-		int memId = user.getId();
-		System.out.println("이미지이름" + img.getOriginalFilename());
-		board.setMemId(memId);
-		board.setImage(img.getOriginalFilename());
-		if (!img.isEmpty()) {
-			String path = "/image"; // 어디에서 돌아갈지 모르니 운영되고 있는 home directory에서 생각 앞쪽은 어케될지 모름
-			String realPath = request.getServletContext().getRealPath(path);
-			System.out.println(realPath);
-
-			File pathFile = new File(realPath);
-			if (!pathFile.exists())
-				pathFile.mkdirs();
-
-			String fullPath = realPath + File.separator + img.getOriginalFilename();
-			InputStream fis = img.getInputStream();
-			OutputStream fos = new FileOutputStream(fullPath);
-			byte[] buf = new byte[1024];
-			int size = 0;
-			while ((size = fis.read(buf)) >= 0)
-				fos.write(buf, 0, size);
-
-			fos.close();
-			fis.close();
+		
+		System.out.println("board"+board.toString());
+		System.out.println("img1"+img1.getOriginalFilename());
+		System.out.println("img2"+img2.getOriginalFilename());
+		System.out.println("img3"+img3.getOriginalFilename());
+		System.out.println("img4"+img4.getOriginalFilename());
+		List<MultipartFile> imgList = new ArrayList<>();
+		
+		if(!img1.getOriginalFilename().isEmpty()) {
+			board.setImage1(img1.getOriginalFilename());
+			imgList.add(img1);
+		}
+		if(!img2.getOriginalFilename().isEmpty()) {
+			board.setImage2(img2.getOriginalFilename());
+			imgList.add(img2);
+		}
+		if(!img3.getOriginalFilename().isEmpty()) {
+			board.setImage3(img3.getOriginalFilename());
+			imgList.add(img3);
+		}
+		if(!img4.getOriginalFilename().isEmpty()) {
+			board.setImage4(img4.getOriginalFilename());
+			imgList.add(img4);
 		}
 		
-		service.reg(board);
 		
+	
+		for(MultipartFile img:imgList) {
+			System.out.println(img);
+			
+			if(!img.isEmpty()) {
+				String path = "/image/board"; 
+				String realPath = request.getServletContext().getRealPath(path);
+				System.out.println(realPath);
+				
+				File pathFile = new File(realPath);
+				if (!pathFile.exists())
+					pathFile.mkdirs();
+				
+				String fullPath = realPath + File.separator + img.getOriginalFilename();
+				InputStream fis = img.getInputStream();
+				OutputStream fos = new FileOutputStream(fullPath);
+				byte[] buf = new byte[1024];
+				int size = 0;
+				while ((size = fis.read(buf)) >= 0)
+					fos.write(buf, 0, size);
+				
+				fos.close();
+				fis.close();
+				
+			}
+			
+		}
+		
+		int memId = user.getId();
+		board.setMemId(memId);	
+		System.out.println(imgList.size());
+		int result =service.reg(board);
+		System.out.println(result);
 		String id = String.valueOf(board.getId());
-		
-		System.out.println("등록한 글 ===> " + img);
-//		String referer = request.getHeader("Referer");
-//		System.out.println(referer);
-		
 		return "redirect:/member/board/"+id;
 	}
 
@@ -163,12 +187,12 @@ public class MemberBoardController {
    public String Boardedit(@PathVariable("id") int id,Model model) {
        
 	   Board board = service.get(id);
+	   System.out.println("수정은 왜 또 안돼ㅡㅡㅡㅡ?");
 	   model.addAttribute("board",board);
-       
        return "member/board/edit";
    }
  
-   
+   /*
 	@PostMapping("edit")
 	public String edit(int roleId, MultipartFile img,Board board, HttpServletRequest request,
 			Model model,
@@ -179,9 +203,12 @@ public class MemberBoardController {
 		int memId = user.getId();
 		System.out.println("이미지이름" + img.getOriginalFilename());
 		board.setMemId(memId);
-		board.setImage(img.getOriginalFilename());
 		
 		if (!img.isEmpty()) {
+			board.setImage(img.getOriginalFilename());
+			
+		
+		
 			String path = "/image"; // 어디에서 돌아갈지 모르니 운영되고 있는 home directory에서 생각 앞쪽은 어케될지 모름
 			String realPath = request.getServletContext().getRealPath(path);
 			System.out.println(realPath);
@@ -202,7 +229,6 @@ public class MemberBoardController {
 			fis.close();
 		}
 		
-		System.out.println(board.toString());
 		service.edit(board);
 		
 		String OriginalId = String.valueOf(board.getId());
@@ -213,5 +239,8 @@ public class MemberBoardController {
 		
 		return "redirect:/member/board/"+OriginalId;
 	}
+	*/
+	
+	
 	
 }

@@ -6,6 +6,7 @@
 
     -webkit-mask-size: 20px 20px;
     -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
 
     background-color: #373737;
 
@@ -95,7 +96,6 @@
 }
 .icon-search{
     -webkit-mask-image: url(../image/search.svg);
-    -webkit-mask-size: 18px 18px;
 }
 .icon-calendar{
     -webkit-mask-image: url(../image/calendar.svg);
@@ -162,6 +162,10 @@
     -webkit-mask-image: url(../image/icons/question.png);
 }
 
+.icon-question3 {
+    -webkit-mask-image: url(../image/icons/question3.svg);
+}
+
 /* ----- icon util ---------------------------- */
 .icon-white{
     background-color: #fff;
@@ -173,4 +177,25 @@
 .icon-report{
     -webkit-mask-image: url(../../image/icons/report.svg);
    
+}
+
+/* --------------pc버전------------------ */
+@media (min-width: 992px) {
+	.icon-view {
+		-webkit-mask-size: 16px 18px;
+		margin-right: 3px;
+/* 		background-color: var(--color-white2); */
+    	background-color: #474747;
+	}
+	
+	.icon-like-up {
+	    -webkit-mask-size: 18px 20px;
+	    margin-right: 3px;
+	        background-color: #474747;
+	}
+	
+	.icon-comment {
+	    margin-right: 3px;
+	        background-color: #474747;
+	}
 }

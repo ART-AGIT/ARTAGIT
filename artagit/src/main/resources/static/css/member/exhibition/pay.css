@@ -133,7 +133,7 @@
     align-items: center;
 
     width: 350px;
-    height: 400px;
+/*     height: 400px; */
 
     margin: 0;
 }
@@ -148,9 +148,10 @@
 }
 
 .caution-ment{
-    align-self: flex-start;
+/*     align-self: flex-start; */
     font-size: 12px;
     line-height: 20px;
+    text-align: justify;
 }
 
 .btn-default-line.active{
@@ -172,5 +173,13 @@
 	
 	.pay-container {
 		padding-top: 10px;
+	}
+	
+	.btn-pay-price {
+		width: 190px;
+	}
+	
+	.do-pay {
+		width: 157px;
 	}
 }

@@ -1,6 +1,7 @@
 package com.artagit.web.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -33,8 +34,8 @@ public class HomeController {
 //		게시판
 		int boardPage = 1;
 		int boardSize = 4;
-		
-		List<BoardListView> boardList = boardService.getListInit(boardPage, boardSize);
+		int category = 0;
+		Map<String, Object> boardList = boardService.getListInit(boardPage, boardSize,category);
 		
 //		전시
 		int exhPage = 1;
@@ -48,8 +49,8 @@ public class HomeController {
 			memberId = user.getId();
 		
 		List<ExhibitionView> exhList = exhService.getListByMemberId(exhPage,exhSize, 0,1,2,memberId);
-	
-		model.addAttribute("boardList",boardList);
+		model.addAttribute("boardList", boardList.get("list"));
+		
 		model.addAttribute("exhList", exhList);
 		
 		return "index";

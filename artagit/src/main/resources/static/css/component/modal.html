@@ -5,14 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="modal.css">
+    <link rel="stylesheet" href="/css/component/modal.css">
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f83ef3606f2a72bf9f1425fe76734149&libraries=services"></script> 
     <script src="modal.js" defer></script>
 </head>
 <body>
+	<!---------------- 지도 모달 시작 ----------------->
     <input type="checkbox" id="popup">
     <label for="popup">View</label> <!-- 팝업을 띄우기 위한 버튼 -->
-    <div>
+    <div style="display: none;">
         <div>
             <!-- 팝업 닫기(X) 버튼 -->
             <div class="popup-head">
@@ -31,11 +32,25 @@
                 </div>
             </div>
             <div class="popup-footer">
-                <label for="popup" class="text popup-close-btn">닫기</>
-                <!-- <a for="popup" type="button" class="text popup-close-btn">닫기</a> -->
+                <label for="popup" class="text popup-close-btn">닫기</div>
             </div>
         </div>
         <label for="popup"></label> <!-- 팝업 외부를 클릭했을 때도 팝업이 닫히기 위한 버튼 -->
+    </div>
+    <!---------------- 지도 모달 끝 ----------------->
+    
+    
+    <!---------------- 삭제 모달 시작 ----------------->
+    <div class="d-modal modal-overlay">
+    	<div class="modal-window">
+	    	<div class="modal-header">
+	        	<h1 class="header-title">정말 삭제하시겠습니까?</h1>
+	        </div>
+	        <div class="modal-actions">
+	            <a class="modal-action yes-btn" href="" type="" th:attr="data-id=${exh.id}">예</a>
+	            <a class="modal-action no-btn">아니오</a>
+	    	</div>
+    	</div>
     </div>
 </body>
 </html>

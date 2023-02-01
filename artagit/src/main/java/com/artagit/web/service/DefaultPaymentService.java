@@ -44,5 +44,14 @@ public class DefaultPaymentService implements PaymentService {
 		return result;
 	}
 	
+	//결제내역 get 메소드 
+	@Override
+	public Payment get(int id) {
+		Payment payment = payDao.get(id);
+		return payment;
+	}
+	
+	
+	
 	
 }

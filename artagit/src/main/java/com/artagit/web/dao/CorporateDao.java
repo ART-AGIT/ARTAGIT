@@ -1,9 +1,13 @@
 package com.artagit.web.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Mapper;
 
 import com.artagit.web.entity.ArtagitUserDetails;
 import com.artagit.web.entity.Corporate;
+import com.artagit.web.entity.Exhibition;
+import com.artagit.web.entity.ExhibitionView;
 import com.artagit.web.entity.Member;
 import com.artagit.web.entity.Museum;
 
@@ -20,10 +24,17 @@ public interface CorporateDao {
 	
 	// 주최자회원 로그인 시 권한 확인을 위해 호출되는 메서드 
 	Corporate getByUserName(String username);
-
+	
+	// 사용자가 입력한 정보로 ID 확인
+	Corporate getId(String name, String email);
 	
 	int deleteYN(int id);
 
 	// mypage 주최자 정보 수정
 	int updateAccount(ArtagitUserDetails user);
+
+	// 아이디 중복 확인
+	int chkId(String loginId);
+
+
 }

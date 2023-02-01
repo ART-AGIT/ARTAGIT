@@ -6,114 +6,150 @@
 	<th:block layout:fragment="css">
 	    <link href="/css/component/sub-menu.css" type="text/css" rel="stylesheet">
 	    <link href="/css/component/exh-detail.css" type="text/css" rel="stylesheet">
+	    <link href="/css/component/modal.css" type="text/css" rel="stylesheet">
 	    <script src="/js/corporator/mypage/exh-detail.js" type="text/javascript"></script>
 	</th:block>
 <body spellcheck="false"  layout:fragment="content">
+
+
 <main>
-    <div class="menu-box">
-        <ul class="menu-list">
-            <li class="list line-on"><a class="deco deco-ticket deco-ticket-on" href="">나의 등록전시</a></li>
-            <li class="list "><a class="deco deco-smile" href="./account-edit.html">회원 정보 수정</a></li>
-        </ul>
+		<div class="menu-and-exh">
+	        <div class="menu-box">
+	            <div class="profile-box">
+	                <div class="profile-content">
+	                    <div class="profile-img-box" >
+	                        <img class="profile-img" src="../../image/camera.svg">
+	                    </div>
+	                    <div>
+	                        <div class="profile-name">
+	                             <span>1004님</span>
+	                        </div>
+	                        <div class="member-grade">
+	                        	<span>업체회원</span>
+	                        </div>
+	                    </div>
+	                    
+	                </div>
+	            </div>
+	            <ul class="menu-list">
+	                <li class="list line-on"><a class="deco deco-ticket deco-ticket-on" href="">나의 예매내역</a></li>
+	                <li class="list"><a class="deco deco-heart-red" href="../../member/mypage/like-list.html">좋아요 전시</a></li>
+	                <li class="list"><a class="deco deco-smile" href="./account-edit.html">내 정보 수정</a></li>
+	                <li class="list"><a class="deco deco-write" href="./post-list.html">게시글 관리</a></li>
+	            </ul>
+	        </div>
+	
+	<!--     <section class="exh-detail-section"> -->
+	        <section class="exh-detail">
+		        <h2 class="guide-line">
+					전시 수정		        
+		        </h2>
+	        	
+	        	<div class="img-and-content">
+		            <div class="exh-detail-img-box">
+		                <img class="exh-detail-img" th:src="@{|/image/poster/${exh.poster}|}" src="../../image/anonymousProject.png">
+		            </div>
+		            
+		            <div class="exh-content-container">
+			            <h1 class="title content exh-name" th:text="${exh.name}" name=name>어노나미스 프로젝트</h1>
+			            <div class="exh-detail-table">
+			                <div class="item">작가</div>
+			                <div class="item content exh-artist" th:text="${exh.artist}" name="artist">김작가</div>
+			                <div class="item">전시장소</div>
+			                <div class="item content museum-name" th:text="${corporate.museumName}" name="museumName">그라운드시소 서촌</div>
+			                <div class="item">지역상세</div>
+			                <div class="item content local-name" th:text="${local.name}" name="name">서울-종로구</div>
+			                <div class="item exh-date">전시기간</div>
+			                
+			                <div class="item start-date" th:text="${exh.startDate  +' ~ '+ exh.endDate}" name="startDate">2022.11.01</div>
+<!-- 			                <span class="during-date"></span> -->
+<!-- 			                <div class="item end-date" name="endDate"></div> -->
+			                
+			                <div class="item exh-time">관람시간</div>
+			                <div class="item start-time" th:text="${#strings.substring(exh.startTime, 0,5) +' ~ '+ #strings.substring(exh.endTime, 0,5)} " name="startTime">10:00</div>
+<!-- 			                <span class="during-time"></span> -->
+<!-- 			                <div class="item end-time" name="endTime"></div> -->
+			                
+			                <div class="item">관람료</div>
+			                <div class="item content exh-price" th:text="${exh.ticketPrice}" name="price">12,000원</div>
+			                <div class="item">주최</div>
+			                <div class="item content corp-name" th:text="${corporate.name}" name="name">그라운드시소 서촌</div>
+			                <div class="item">주소</div>
+			                <div class="item content corp-address" th:text="${corporate.address}" name="address">서울특별시 종로구 동의동 35-17</div>
+			                <div class="item">전화번호</div>
+			                <div class="item content corp-phone" th:text="${corporate.phone}" name="phone">02-123-4567</div>
+			                <div class="item">홈페이지</div>
+			                <div class="item content exh-url" th:text="${exh.homepage}" name="homepage"></div>
+			                <div class="item">재고</div>
+			                <div class="item content exh-stock" th:text="${exh.ticketStock}" name="ticketStock">999장</div>
+			                <div class="item">담당자</div>
+			                <div class="item content corp-manager" th:text="${corporate.manager}" name="manager">시소</div>
+			                <div class="item">상세 내용</div>
+			                <div class="item content feed-content hidden" th:text="${exh.content}" name="content">세상에서 가장 독특한 아마추어 사진 컬렉션이라고 할 수 있는 어노니머스 프로젝트는 사회학적, 지리학적 의미를 갖는 버네큘러 사진 전시회다.이번 전시는 누가 언제 어디서 사진을 촬영했는지보다 촬영자가 셔터를 누르게 만든 그 순간과 동기를 상상할 수 있도록 해 준다.</div>
+			                <div class="item btn-more">더보기</div>
+			            </div>
+		            </div>
+	            </div>
+	            
+				<div class="btn-container">
+<!-- 		            <div class="user-box"> -->
+<!-- 		            </div> -->
+		                <a class="btn btn-default-line btn-hpg" th:href="@{/exhibition/{id}(id=${exh.id})}">사용자 페이지 바로가기</a>
+		            
+			        <div class="button-box-wrap">
+			            <button class="btn btn-default btn-size-1 modify-btn" type="">수정</button>
+			            <input type="hidden" name="exhId" th:value="${exh.id}">
+			            <input type="hidden" name="corpId" th:value="${corporate.id}">
+			            <input type="hidden" name="localId" th:value="${local.id}">
+			            <button class="btn btn-default-line btn-size-1 delete-btn" type="submit">삭제</button>
+			<!--             <a class="btn btn-default-line btn-size-1" th:href="@{/corp/exh/delete(id=${id})}">삭제</a> -->
+			        </div>
+				</div>
+	        </section>
+        </div>
+        
+<!--     </section> -->
+
+	<div class="payment-container">
+	    <section class="exh-detail-pay">
+	        <div class="toggle">
+	            <h1 class="payDetail">결제 내역</h1>
+	            <!-- <div class="icon icon-arrow-toggle-down"></div> -->
+	        </div>
+	        
+	        <div class="exh-detailPay-table-title">
+	            <div class="pay pay-colums"></div>
+	            <div class="pay pay-colums">결제번호</div>
+	            <div class="pay pay-colums">인원</div>
+	            <div class="pay pay-colums">결제금액</div> 
+	            <div class="pay pay-colums">결제방식</div>
+	            <div class="pay pay-colums">결제일</div>
+	        </div>
+	        
+	        
+	        <div class="exh-detailPay-table" th:each="payList:${payList}">
+	                <div class="pay">1</div>
+	                <div class="pay" th:text="${payList.payNum}">20221122-0000001</div>
+	                <div class="pay" th:text="${payList.amount}">1</div>
+	                <div class="pay" th:text="${payList.price}">12,000</div>
+	                <div class="pay" th:text="${payList.method}">카카오페이</div>
+	                <div class="pay" th:text="${#dates.format(payList.regDate,'yy-MM-dd HH:mm:ss')}">22.11.22 14:01:30</div>
+	            <!-- </div> -->
+	        </div>
+	    </section>
     </div>
-
-    <section class="exh-detail-section">
-        <section class="exh-detail">
-            <div class="exh-detail-img-box">
-                <img class="exh-detail-img" th:src="@{|/image/poster/${exh.poster}|}" src="../../image/anonymousProject.png">
-            </div>
-            <h1 class="title content exh-name" th:text="${exh.name}" name=name>어노나미스 프로젝트</h1>
-            <div class="exh-detail-table">
-                <div class="item">작가</div>
-                <div class="item content exh-artist" th:text="${exh.artist}" name="artist">김작가</div>
-                <div class="item">전시장소</div>
-                <div class="item content museum-name" th:text="${corporate.museumName}" name="museumName">그라운드시소 서촌</div>
-                <div class="item">지역상세</div>
-                <div class="item content local-name" th:text="${local.name}" name="name">서울-종로구</div>
-                <div class="item exh-date">전시기간</div>
-                
-                <div class="item start-date" th:text="${exh.startDate}" name="startDate">2022.11.01</div>
-                <span class="during-date">~</span>
-                <div class="item end-date" th:text="${exh.endDate}" name="endDate">2022.11.01</div>
-                
-                <div class="item exh-time">관람시간</div>
-                <div class="item start-time" th:text="${#strings.substring(exh.startTime, 0,5)}" name="startTime">10:00</div>
-                <span class="during-time">~</span>
-                <div class="item end-time" th:text="${#strings.substring(exh.endTime, 0,5)}" name="endTime">18:00</div>
-                
-                <div class="item">관람료</div>
-                <div class="item content exh-price" th:text="${exh.ticketPrice}" name="price">12,000원</div>
-                <div class="item">주최</div>
-                <div class="item content corp-name" th:text="${corporate.name}" name="name">그라운드시소 서촌</div>
-                <div class="item">주소</div>
-                <div class="item content corp-address" th:text="${corporate.address}" name="address">서울특별시 종로구 동의동 35-17</div>
-                <div class="item">전화번호</div>
-                <div class="item content corp-phone" th:text="${corporate.phone}" name="phone">02-123-4567</div>
-                <div class="item">재고</div>
-                <div class="item content exh-stock" th:text="${exh.ticketStock}" name="ticketStock">999장</div>
-                <div class="item">담당자</div>
-                <div class="item content corp-manager" th:text="${corporate.manager}" name="manager">시소</div>
-                <div class="item">상세 내용</div>
-                <div class="item content feed-content hidden" th:text="${exh.content}" name="content">세상에서 가장 독특한 아마추어 사진 컬렉션이라고 할 수 있는 어노니머스 프로젝트는 사회학적, 지리학적 의미를 갖는 버네큘러 사진 전시회다.이번 전시는 누가 언제 어디서 사진을 촬영했는지보다 촬영자가 셔터를 누르게 만든 그 순간과 동기를 상상할 수 있도록 해 준다.</div>
-
-                <div class="item btn-more">더보기</div>
-            </div>
-
-            <div class="user-box">
-                <a class="btn btn-default-line btn-hpg" th:href="@{/exhibition/{id}(id=${exh.id})}">사용자 페이지 바로가기</a>
-            </div>
-
-        </section>
-        <div class="button-box-wrap">
-<!--  th:href="@{modify/{id}(id=${exh.id})} -->
-            <button class="btn btn-default btn-size-1 modify-btn" type="">수정</button>
-            <input type="hidden" name="exhId" th:value="${exh.id}">
-            <input type="hidden" name="corpId" th:value="${corporate.id}">
-            <input type="hidden" name="localId" th:value="${local.id}">
-            <button class="btn btn-default-line btn-size-1 delete-btn" type="submit">삭제</button>
-<!--             <a class="btn btn-default-line btn-size-1" th:href="@{/corp/exh/delete(id=${id})}">삭제</a> -->
-        </div>
-    </section>
-
-
-    <section class="exh-detail-pay">
-        <div class="toggle">
-            <h1 class="payDetail">결제 내역</h1>
-            <!-- <div class="icon icon-arrow-toggle-down"></div> -->
-        </div>
-        
-        <div class="exh-detailPay-table-title">
-            <div class="pay pay-colums"></div>
-            <div class="pay pay-colums">결제번호</div>
-            <div class="pay pay-colums">인원</div>
-            <div class="pay pay-colums">결제금액</div> 
-            <div class="pay pay-colums">결제방식</div>
-            <div class="pay pay-colums">결제일</div>
-        </div>
-        
-        
-        <div class="exh-detailPay-table" th:each="payList:${payList}">
-                <div class="pay">1</div>
-                <div class="pay" th:text="${payList.payNum}">20221122-0000001</div>
-                <div class="pay" th:text="${payList.amount}">1</div>
-                <div class="pay" th:text="${payList.price}">12,000</div>
-                <div class="pay" th:text="${payList.method}">카카오페이</div>
-                <div class="pay" th:text="${#dates.format(payList.regDate,'yy-MM-dd HH:mm:ss')}">22.11.22 14:01:30</div>
-            <!-- </div> -->
-        </div>
-        
-    </section>
-    
 		<!------------ 모달 ------------>
-         <div class="modal d-none">
-            <div class="modal-header">
-                <h1 class="header-title">정말 삭제하시겠습니까?</h1>
-            </div>
-            <div class="modal-actions">
-                <a class="modal-action yes-btn" href="" type="" th:attr="data-id=${exh.id}">예</a>
-                <a class="modal-action no-btn">아니오</a>
-            </div>
-        </div>
+	<div class="d-modal modal-overlay d-none">
+    	<div class="modal-window">
+	    	<div class="modal-header">
+	        	<h1 class="header-title">정말 삭제하시겠습니까?</h1>
+	        </div>
+	        <div class="modal-actions">
+	            <a class="modal-action yes-btn" href="" type="" th:attr="data-id=${exh.id}">예</a>
+	            <a class="modal-action no-btn">아니오</a>
+	    	</div>
+    	</div>
+    </div>
     
 </main>
 </body>

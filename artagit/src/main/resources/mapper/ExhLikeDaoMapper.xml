@@ -25,7 +25,27 @@
 		select count(id) from ExhLike 
 		where exhId=#{exhId}
 	</select>
-
 	
+	<select id="getCount" resultType="int">
+		select count(id) 
+		from ExhLike where  memId =#{id};
+	</select>
+	
+	<!-- 	전시 좋아요 더보기-->
+	<select id="getLikeListById" resultType="com.artagit.web.entity.ExhLikeList">
+		select E.name,E.startDate, E.endDate, E.id, E.poster, C.museumName, M.nickname
+			from Member M
+			    inner join ExhLike L
+			    on M.id = L.memId
+				inner join Exhibition E
+				on L.exhId = E.id
+				inner join Corporate C
+				on E.corpId = C.id
+		    where L.memId = #{id}
+<!-- 		    order by M.id -->
+		    limit #{offset},#{size};
+	</select>
+	
+
 	
 </mapper>

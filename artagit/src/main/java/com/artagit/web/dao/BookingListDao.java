@@ -10,9 +10,13 @@ import com.artagit.web.entity.BookingList;
 @Mapper
 public interface BookingListDao {
 
-	public List<BookingList> getListById(int memId) ;
+	public List<BookingList> getListById(int memId, int page, int offset,int size) ;
 
 	public BookingList getByBookingId(int id);
+
+	public BookingList getByReviewId(int id);
+
+	public int getCount(int id);
 
 }
 

@@ -7,7 +7,9 @@
 
 	<select id="getListById" resultType="com.artagit.web.entity.BookingList">
 		select * from BookingListView
-		where memId = #{memId};
+		where memId = #{memId}
+		order by bookingDate desc
+		limit #{offset},#{size};
 	</select>
 	
 	<select id="getByBookingId" resultType="com.artagit.web.entity.BookingList">
@@ -15,6 +17,16 @@
 		where bookingId = #{id};
 	</select>
 	
+	
+	<select id="getByReviewId" resultType="com.artagit.web.entity.BookingList">
+		select * from BookingListView
+		where reviewId = #{id};
+	</select>
+
+	<select id="getCount" resultType="int">
+		select count(bookingId) 
+		from BookingListView where  memId =#{id};
+	</select>	
 	
 </mapper>
  

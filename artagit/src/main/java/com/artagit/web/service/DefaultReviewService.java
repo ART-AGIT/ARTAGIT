@@ -46,10 +46,8 @@ public class DefaultReviewService implements ReviewService{
 		return reviewDao.getbyId(id);
 	}
 	@Override
-	public Review update(Review review) {
-		reviewDao.update(review);
-		int id = review.getId();
-		System.out.println("service"+id);
-		return reviewDao.getbyId(id);
+	public int update(Review review) {
+		int result = reviewDao.update(review);
+		return result;
 	}
 }

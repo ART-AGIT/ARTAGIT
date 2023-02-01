@@ -3,6 +3,7 @@ package com.artagit.web.service;
 import java.util.List;
 import java.util.Map;
 
+
 import com.artagit.web.entity.Board;
 import com.artagit.web.entity.BoardListView;
 
@@ -14,7 +15,7 @@ public interface BoardService {
 
 	Board get(int id);
 
-	List<BoardListView> getListInit(int page, int size);
+	Map<String, Object> getListInit(int currentPage, int size, int roleId);
 
 	int delete(int id);
 
@@ -25,7 +26,7 @@ public interface BoardService {
 
 	Board getDetail(int id, int memId);
 
-
+	//게시글 등록
 	int reg(Board board);
 
 
@@ -51,6 +52,15 @@ public interface BoardService {
 
 
 	List<BoardListView> getLikeList(int memId);
+
+
+	List<BoardListView> getListById(int id, int page);
+
+
+	 Map<String, Object> getSearchList(String query, int page);
+
+
+	List<BoardListView> getListByPage(int page, String query);
 
 
 

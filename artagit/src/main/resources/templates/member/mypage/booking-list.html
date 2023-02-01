@@ -5,18 +5,11 @@
 	layout:decorate="~{inc/layout}">
 	
 	<th:block layout:fragment="css">
-
 		<link href="/css/component/sub-menu.css" type="text/css" rel="stylesheet">
-
-<!-- 		<script src="../js/modal.js"></script> -->
-<!-- 		<script src="../../../js/index.js"></script> -->
-<!-- 		<script src="../../../js/modal.js"></script> -->
-<!-- 		<script src="../js/exhibition/list.js"></script> -->
-<!--     	<link href="../../../css/member/mypage/mypage-payment.css" type="text/css" rel="stylesheet"> -->
 		<link href="/css/member/mypage/booking-list.css" type="text/css" rel="stylesheet">
-		<script src="/js/booking-list.js"></script>
-<!-- 		<script src="../../../js/header-menu.js"></script> -->
-<!-- 		<script src="../../../js/booking-list.js"></script> -->
+		<link href="/css/member/mypage/review-detail.css" type="text/css" rel="stylesheet">
+		<script src="/js/member/mypage/booking-list.js"></script>
+		<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 	</th:block>
 	
   
@@ -30,77 +23,85 @@
 	        	<div class="profile-box">
 	        		<div class="profile-content">
 		                <div class="profile-img-box" >
-		                    <img class="profile-img" src="../../../image/camera.svg">
+		                    <img  th:src="@{|/image/${user.img}|}" class="profile-img"  src="../../../image/camera.svg">
 		                </div>
-		                <div class="profile-name">
-		                    <span>1004님</span>
-		                </div>
+		                <div></div>
+			                <div class="profile-name"> 
+			                    <span th:text="${user.nickname}+' 님'">1004님</span>
+			                </div>
+			                <div class="member-grade">
+                        		일반회원
+                    		</div>
+		                
 		            </div>
 	            </div>
 	            <ul class="menu-list">
 	                <li class="list line-on"><a class="deco deco-ticket deco-ticket-on" href="">나의 예매내역</a></li>
-	                <li class="list"><a class="deco deco-heart-red" href="../../member/mypage/like-list.html">좋아요 전시</a></li>
-	                <li class="list"><a class="deco deco-smile"  href="./account-edit.html">내 정보 수정</a></li>
-	                <li class="list"><a class="deco deco-write" href="./post-list.html">작성글 관리</a></li>
+	                <li class="list"><a class="deco deco-heart-red" href="/member/mypage/like-list">좋아요 전시</a></li>
+	                <li class="list"><a class="deco deco-smile"  href="/member/mypage/account-edit">내 정보 수정</a></li>
+	                <li class="list"><a class="deco deco-write" href="/member/mypage/post-list" >작성글 관리</a></li>
+
 	            </ul>
 	        </div>
 	        
-			
-	         <div class="pay-list" >
-	         	<h2 class="my-booking">나의 예매내역</h2>
-		        <div class="total-box">
-		            <span class="text total">Total:&nbsp;</span><span class="text total-num" th:text="${countOfBooking}">2</span>
-		        </div>
-		        <div class="nonexistence-mess" th:if="${countOfBooking}==0" >
-		            <p>예매내역이 없습니다.</p>
-		        </div>
-
-	            <form action="" th:each="bookingList:${bookingList}">
-	                <div class="exh-img-box">
-	                    <img class="exh-img"  th:src="@{|/image/poster/${bookingList.exhPoster}|}" src="../../image/exhimage.png" alt="">
-	                </div>
-	                
-                    <div class="text pay-state" th:text="${bookingList.payMethod}">결제완료</div>
-                    <div class="text exh-title" th:text="${bookingList.exhName}"> 모네 인사이드</div> 
-                    <div class="text exh-place" th:text="${bookingList.museumName}"> 국립현대미술관</div> 
-                    <div class="text exh-date" th:text="${bookingList.bookingDate}">관람일 2022.09.22</div>
+			<div>
+		         <div class="pay-list" >
+		         	<div class="my-booking">나의 예매내역</div>
+				        <div class="total-box">
+				            <span class="text total">Total:&nbsp;</span><span class="text total-num" th:text="${countOfBooking}" >2</span>
+				        </div>
+				        <div class="nonexistence-mess" th:if="${countOfBooking}==0" >
+				            <p class="">예매내역이 없습니다.</p>
+				            <a class="btn btn-default-fill btn-go-exh" th:href="@{/exhibition/list}" >전시 관람가기</a>
+				        </div>
+				       
+<!-- 				        <div class="review-menu-list"> -->
+<!-- 					        <div> -->
+<!-- 					        	<span class="select-btn">전체</span> -->
+<!-- 					        </div> -->
+<!-- 					        <ul> -->
+<!-- 					        	<li data-id="0" class="option1">전체</li> -->
+<!-- 					        	<li data-id="1" class="option2">등록</li> -->
+<!-- 					        	<li data-id="2" class="option3">미등록</li> -->
+<!-- 					        </ul> -->
+<!-- 			        	</div> -->
+			        
+			       
+						<div class= "booking-list" >
+					            <form action="" class ="list-form" th:each="bookingList:${bookingList}">
+					                <div class="exh-img-box">
+				
+					                    <a    src="../../image/exhimage.png" th:href="@{|/exhibition/${bookingList.exhId}|}" alt="">
+					                    	<img class="exh-img" th:src="@{|/image/poster/${bookingList.exhPoster}|}">
+					                    </a>			
+					                </div>
+					                
+				                    <div class="text pay-state" th:text="${bookingList.payMethod}"> 결제완료</div>
+				                    <div class="text exh-title" th:text="${bookingList.exhName}"> 모네 인사이드</div> 
+				                    <div class="text exh-place" th:text="${bookingList.museumName}"> 국립현대미술관</div> 
+				
+				                    <div class="text exh-date" th:text="${#dates.format(bookingList.bookingDate,'yyyy-MM-dd')}">관람일 2022.09.22</div>
+				
+									<div class="button-list" >
+					                    <a class="btn btn-default-fill-off btn-review"   th:if="${bookingList.reviewCon}" href="" th:attr="data-id=${bookingList.reviewId}">리뷰보기</a>
+					                    <a class="btn btn-default-fill btn-write" th:if="!${bookingList.reviewCon}" th:attr="data-id=${bookingList.bookingId}" href="" >리뷰작성</a>
+					                    <a class="text btn btn-default-line pay-detail" th:attr="data-id=${bookingList.bookingId}" >결제상세</a>
+					                </div>
 	
-	                <div class="button-list" th:if="${bookingList.payMethod}=='결제완료'">
-	                    <a class="btn btn-default-fill-off"  th:href="@{{id}(id=${bookingList.bookingId})}" th:if="${bookingList.reviewCon}" href="../mypage/review-detail.html" >리뷰보기</a>
-	                    <a class="btn btn-default-fill" th:href="@{{id}(id=${bookingList.bookingId})}" th:if="!${bookingList.reviewCon}"  href="../mypage/review-detail.html" >리뷰작성</a>
-	                    <a class="text btn btn-default-line pay-detail" href="../exhibition">결제상세</a>
-	                </div>
-	            </form>
-	        
-	        	<div class="modal d-none">
-		            <section class="payment-list">
-		                <h1>결제 상세</h1>
-		                <div class="">
-		                    <div class="payment-table">
-		                        <div class="item">결제번호</div>
-		                        <div class="item">20221122-00001</div>
-		                        <div class="item">아이디</div>
-		                        <div class="item">abcdef</div>
-		                        <div class="item">이름</div>
-		                        <div class="item">주성균</div>
-		                        <div class="item">전시</div>
-		                        <div class="item">어노니머스 프로젝트</div>
-		                        <div class="item">인원</div>
-		                        <div class="item">1</div>
-		                        <div class="item">결제금액</div>
-		                        <div class="item">12,00처</div>
-		                        <div class="item">결제방식</div>
-		                        <div class="item">카카오페이</div>
-		                        <div class="item" >결제일</div>
-		                        <div class="item">2022.11.22 14:01:30</div>
-		                    </div>
-		                    <div class="btn-box">
-		                        <a class="btn btn-default btn-default-fill" href="">결제취소</a>
-		                    </div>
-		                </div>
-		            </section>
-	        	</div>     
-	        </div>        
+					        	</form>			        	
+					  	</div>       	
+		        	
+		        	</div>        
+	        	
+	       	  
+		        <button class="text item-more" th:if="${countOfBooking}>6">
+		        	<div>더보기</div>
+<!-- 		        	<div>(6</div>	 -->
+<!-- 		        	<div>/</div> -->
+<!-- 		        	<div th:text="${countOfBooking}+')'">10)</div> -->
+		        </button>
+	        	
+	        </div>
         </div>
     </main>
 </body>

@@ -1,8 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.artagit.web.dao.NoticeDao">
-	<select id="getList" resultType="Notice">
-		select * from Notice
-			limit #{offset}, #{size}
-	</select>
+		<select id="getList" resultType="Notice">
+			select * from Notice
+				limit #{offset}, #{size}
+		</select>
+		
+		<select id="getNoticeById" resultType="Notice">
+			select * from Notice
+			join NoticeCategory on Notice.roleId = NoticeCategory.id
+				where Notice.id = #{id}
+		</select>
+	
+		<select id="getListInit" resultType="Notice">
+			select * from Notice
+			<trim prefix="WHERE" prefixOverrides="AND | OR">
+				<if test="roleId != null and roleId != 0">
+				roleId = #{roleId}
+				</if>
+				<if test="roleId == null or roleId == 0">
+				roleId != 5
+				</if>
+				
+		</trim>
+			limit #{size}
+		</select>
+		
+		<select id="getListByCategory" resultType="Notice">
+			select * from Notice
+				<trim prefix="WHERE" prefixOverrides="AND | OR">
+					<if test="category != null and category != 0">
+						roleId = #{category}
+					</if>
+					<if test="category == null or category == 0">
+						roleId != 5
+					</if>
+				</trim>
+			order by regDate desc limit #{size}; 
+		</select>
+		
+		<update id="hitUp" parameterType="com.artagit.web.entity.Notice">
+   		update Notice 
+		<set>
+			hit = hit+1
+		</set>
+		where id =#{id}
+   </update>
+		
+		
 </mapper>

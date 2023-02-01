@@ -27,8 +27,8 @@ public class Exhibition {
 		// TODO Auto-generated constructor stub
 	}
 	public Exhibition(String name, String content, String poster, String detailImage, String startDate,
-			String endDate, String startTime, String endTime, int ticketPrice, int ticketStock, String artist
-			) {
+			String endDate, String startTime, String endTime, int ticketPrice, int ticketStock, String artist,
+			String homepage) {
 
 		this.name = name;
 		this.content = content;
@@ -41,6 +41,7 @@ public class Exhibition {
 		this.ticketPrice = ticketPrice;
 		this.ticketStock = ticketStock;
 		this.artist = artist;
+		this.homepage = homepage;
 
 	}
 
@@ -72,6 +73,7 @@ public class Exhibition {
 		this.useYN = useYN;
 		this.homepage = homepage;
 	}
+	
 	public String getHomepage() {
 		return homepage;
 	}

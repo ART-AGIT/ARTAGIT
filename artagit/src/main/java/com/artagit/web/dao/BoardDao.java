@@ -22,6 +22,7 @@ public interface BoardDao {
 
 	void hitCountUp(Board board);
 
+	//게시물등록
 	int insert(Board board);
 
 //	int insert(int roleId, String originalFilename, String title, String content, int memId);

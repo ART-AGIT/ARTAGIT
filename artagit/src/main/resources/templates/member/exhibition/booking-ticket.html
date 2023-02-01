@@ -18,20 +18,22 @@
     <main>
     	<div class="img-and-cal">
 	        <div class="img-and-info">
-	            <div class="exh-img-box">
-	                <img class="exh-img" th:src="@{|/image/poster/${exh.poster}|}" src="/image/전시사진.jpg" alt="">
-	            </div>
-	    
-	            <div class="text-box">
-	                <div class="exh-title" th:text="${exh.name}">합스부르크 600년, 매혹의 걸작들</div>
-	                <div class="exh-place" th:text="${corp.museumName}">국립현대미술관</div>
-	                <!-- 날짜출력 -->
-	                <div class="exh-date">
-	                    <span class="select-year">&npsp;</span>
-	                    <span class="select-month">&npsp;</span>
-	                    <span class="select-day">&npsp;</span>
-	                </div>
-	            </div>
+	      	   <div class="img-and-text">
+		            <div class="exh-img-box">
+		                <img class="exh-img" th:src="@{|/image/poster/${exh.poster}|}" src="/image/전시사진.jpg" alt="">
+		            </div>
+		    
+		            <div class="text-box">
+		                <div class="exh-title" th:text="${exh.name}">합스부르크 600년, 매혹의 걸작들</div>
+		                <div class="exh-place" th:text="${corp.museumName}">국립현대미술관</div>
+		                <!-- 날짜출력 -->
+<!-- 		                <div class="exh-date"> -->
+<!-- 		                    <span class="select-year">&npsp;</span> -->
+<!-- 		                    <span class="select-month">&npsp;</span> -->
+<!-- 		                    <span class="select-day">&npsp;</span> -->
+<!-- 		                </div> -->
+		            </div>
+				</div>	            
 	        </div>
 	            <!-- 달력 -->
 	        <div class="booking-container">
@@ -55,6 +57,9 @@
 		            </div>
 		        </div>
 		        <p class="choice-date">날짜를 선택해 주세요.</p>
+		        
+
+		        
 		        <div class="info-box">
 		            <section class="client-number d-none">
 		                <h1>관람인원</h1>
@@ -72,7 +77,7 @@
 		                        </div>
 		                    </div>
 		            </section>
-		
+
 		            <section class="client-info d-none">
 		                <h1>예매자 정보 입력</h1>
 		                <div class="input-box">
@@ -92,17 +97,25 @@
 		                        <label for="">이메일주소</label>
 		                        <input class="transparency" name="email" type="text">
 		                    </div>
-		                    <p class="caution">티켓수령 및 본인확인을 위해 정확한 정보를 입력해주세요.<br>
-		                    티켓수령은 예매시 부여되는 <span class="highlight">"예약번호"로 관람일 당일 현장에서
-		                    수령하여 입장</span>할 수 있습니다.</p>
+<!-- 		                    <p class="caution">티켓수령 및 본인확인을 위해 정확한 정보를 입력해주세요.<br> -->
+<!-- 		                    티켓수령은 예매시 부여되는 <span class="highlight">"예약번호"로 관람일 당일 현장에서 -->
+<!-- 		                    수령하여 입장</span>할 수 있습니다.</p> -->
 		                </div>
 		            </section>
-		          </div>
-		        </div>
-			        <div class="booking-btn">
+		            <div class="booking-btn d-none">
 			            <a class="btn btn-pay btn-price">결제금액&nbsp;<span class="total-price">0</span>원</a>
 			            <a class="btn btn-pay btn-way" href="/member/exh/pay">결제방식 선택</a>
 			        </div>
+			        <div class="msg-box d-none">			        
+				        <p class="caution">
+					        티켓수령 및 본인확인을 위해 정확한 정보를 입력해주세요.<br>
+				            티켓수령은 예매시 부여되는 <span class="highlight">"예약번호"로 관람일 당일 현장에서
+				            수령하여 입장</span>할 수 있습니다.
+			            </p>
+			        </div>
+					
+		        </div>
+		          </div>
 			
 	        
 	        <div class="pay-container d-none">
@@ -191,7 +204,6 @@
 		                        <div class="payment-select-simple img-box">
 		                                <img class="kakao-img" tabindex=0 src="/image/카카오페이.png" alt="">
 		                                <span>카카오페이</span>
-
 		                        </div>
 		                    </div>
 		                </section>
@@ -240,13 +252,23 @@
 		                </div>
 		            </section>
 		        </div>
-		
-		        <div class="booking-btn">
-		            <a class="btn btn-pay btn-price">결제금액&nbsp;<span class="total-price">0</span>원</a>
-		            <a class="btn btn-pay btn-way do-pay" th:data-memId="${mem.id}" th:data-exhId="${exh.id}">결제하기</a>
-		        </div>
+		              <div class="booking-btn">
+                  <a class="btn btn-pay btn-pay-price">결제금액&nbsp;<span class="total-price">0</span>원</a>
+                  <a class="btn btn-pay btn-way do-pay" th:data-memId="${mem.id}" th:data-exhId="${exh.id}">결제하기</a>
+              </div>
+
 	        </div>
+<!-- 	        		<div class="booking-btn"> -->
+<!-- 			            <a class="btn btn-pay btn-price">결제금액&nbsp;<span class="total-price">0</span>원</a> -->
+<!-- 			            <a class="btn btn-pay btn-way" href="/member/exh/pay">결제방식 선택</a> -->
+<!-- 			        </div> -->
 	        </div>
+	        
+	        		                <div class="exh-date">
+		                    <span class="select-year">&nbsp;</span>
+		                    <span class="select-month">&nbsp;</span>
+		                    <span class="select-day">&nbsp;</span>
+		                </div>
     </main>
     
 </body>
