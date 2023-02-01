@@ -188,6 +188,8 @@ public class MypageController {
 
 			user.setPassword(member.getPassword());
 			System.out.println(user.getPassword());
+		}else {
+			member.setPassword(user.getPassword());
 		}
 		
 //		String password = member.getPassword();
