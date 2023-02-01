@@ -40,7 +40,7 @@ order by regDate desc;
 				 and useYN = "Y"
 		</trim>
 		order by regDate desc
-		
+		limit #{offset}, #{size};
 		</select>
 		
 		<select id="getListById" resultType="com.artagit.web.entity.BoardListView">

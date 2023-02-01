@@ -192,54 +192,72 @@ public class MemberBoardController {
        return "member/board/edit";
    }
  
-   /*
+   
 	@PostMapping("edit")
-	public String edit(int roleId, MultipartFile img,Board board, HttpServletRequest request,
+	public String edit(int roleId,MultipartFile img1,MultipartFile img2,MultipartFile img3,MultipartFile img4,Board board, HttpServletRequest request,
 			Model model,
 			@AuthenticationPrincipal ArtagitUserDetails user)
 			throws IOException {
 		model.addAttribute(user);
 		
 		int memId = user.getId();
-		System.out.println("이미지이름" + img.getOriginalFilename());
 		board.setMemId(memId);
 		
-		if (!img.isEmpty()) {
-			board.setImage(img.getOriginalFilename());
+		List<MultipartFile> imgList = new ArrayList<>();
+		
+		if(!img1.getOriginalFilename().isEmpty()) {
+			board.setImage1(img1.getOriginalFilename());
+			imgList.add(img1);
+		}
+		if(!img2.getOriginalFilename().isEmpty()) {
+			board.setImage2(img2.getOriginalFilename());
+			imgList.add(img2);
+		}
+		if(!img3.getOriginalFilename().isEmpty()) {
+			board.setImage3(img3.getOriginalFilename());
+			imgList.add(img3);
+		}
+		if(!img4.getOriginalFilename().isEmpty()) {
+			board.setImage4(img4.getOriginalFilename());
+			imgList.add(img4);
+		}
+		
+		for(MultipartFile img:imgList) {
+			System.out.println(img);
 			
-		
-		
-			String path = "/image"; // 어디에서 돌아갈지 모르니 운영되고 있는 home directory에서 생각 앞쪽은 어케될지 모름
-			String realPath = request.getServletContext().getRealPath(path);
-			System.out.println(realPath);
-
-			File pathFile = new File(realPath);
-			if (!pathFile.exists())
-				pathFile.mkdirs();
-
-			String fullPath = realPath + File.separator + img.getOriginalFilename();
-			InputStream fis = img.getInputStream();
-			OutputStream fos = new FileOutputStream(fullPath);
-			byte[] buf = new byte[1024];
-			int size = 0;
-			while ((size = fis.read(buf)) >= 0)
-				fos.write(buf, 0, size);
-
-			fos.close();
-			fis.close();
+			if(!img.isEmpty()) {
+				String path = "/image/board"; 
+				String realPath = request.getServletContext().getRealPath(path);
+				System.out.println(realPath);
+				
+				File pathFile = new File(realPath);
+				if (!pathFile.exists())
+					pathFile.mkdirs();
+				
+				String fullPath = realPath + File.separator + img.getOriginalFilename();
+				InputStream fis = img.getInputStream();
+				OutputStream fos = new FileOutputStream(fullPath);
+				byte[] buf = new byte[1024];
+				int size = 0;
+				while ((size = fis.read(buf)) >= 0)
+					fos.write(buf, 0, size);
+				
+				fos.close();
+				fis.close();
+				
+			}
+			
 		}
 		
 		service.edit(board);
 		
 		String OriginalId = String.valueOf(board.getId());
 		
-		System.out.println("등록한 글 ===> " + img);
-//		String referer = request.getHeader("Referer");
-//		System.out.println(referer);
+
 		
 		return "redirect:/member/board/"+OriginalId;
 	}
-	*/
+	
 	
 	
 	
