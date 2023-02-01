@@ -245,6 +245,7 @@ textarea:focus{
 }
 .icon-report{
     padding-top: 10px;
+    /* margin-bottom:5px; */
 }
 
 .icon-flex{
@@ -254,7 +255,7 @@ textarea:focus{
 .a-btn{
 	color:#FF6C9E;
 	font-size:14px;
-	margin-right: 20px;
+	margin-right: 10px;
 	cursor: pointer;
 }
 .a-btn-black{
@@ -319,10 +320,6 @@ textarea:focus{
 /*             color: gray; */
 /*         } */
 
-		.button-wrap{
-/* 		   margin-left: 30%; */
-		
-		}
 
 
   
@@ -368,7 +365,6 @@ textarea:focus{
         }
 		.button-wrap{
 		margin-bottom: 10px;
-		   margin-left: 35%;
 		
 		}
 
