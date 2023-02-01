@@ -1,9 +1,11 @@
 window.addEventListener("load", function () {
 	//  예매내역리스트 보여주기 (더보기 기능)
 	const itemMore = document.querySelector(".item-more");
-	var page = 0;
+	let page = 1;
 	let today = new Date();
 	var state = null;
+	let queryString;
+
 	itemMore.onclick = function () {
 		
 		 page += 1;
@@ -12,9 +14,11 @@ window.addEventListener("load", function () {
 	
 		queryString = `?p=${page}`;
 		console.log(page)
+		console.log(queryString)
 		fetch(`/corpApi/exh/list${queryString}`)
-			.then((response) => response.json())
-			.then((lists) => {
+		.then((response) => response.json())
+		.then((lists) => {
+			console.log(lists)
 				for (list of lists) {
 					console.log(Object.keys(lists).length);
 					if (Object.keys(lists).length < 6)
@@ -67,7 +71,7 @@ function selectexh() {
 	const selectList = document.querySelector("#selectexhibition");
 	const selectBtnTwo = document.querySelector(".select-box");
 	const optionsTwo = document.querySelectorAll(".option-2");
-	var page = 1;
+	let page = 1;
 	
 	let current = document.querySelector(".active");
 	let isEndPage = true;

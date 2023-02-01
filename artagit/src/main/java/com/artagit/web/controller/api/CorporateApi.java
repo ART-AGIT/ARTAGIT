@@ -51,7 +51,7 @@ public class CorporateApi {
 		System.out.println("page"+page);
 		//ex) 2페이지이면 limit 6,6 개 보내기 
 		List<Exhibition> list = exhService.getListById(user.getId(),page);
-		System.out.println(list.size()+"----------------exhList");
+		System.out.println("전시!!!"+list);
 		
 		return list;
 	}

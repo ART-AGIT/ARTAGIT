@@ -90,7 +90,8 @@
 	</select>
 	<select id="getListByIdInit" resultType="com.artagit.web.entity.Exhibition">
 		select * from Exhibition
-		where corpId = #{id} and useYN = 'Y'
+		where corpId = #{id}
+		<!-- and useYN = 'Y'-->
 		limit #{limit};
 	</select>
 <!-- 	<select id="getListByID" resultType="com.artagit.web.entity.Exhibition"> -->
