@@ -34,6 +34,7 @@
                     <div class="sub-menu-2">
                         <ul>
                             <li>
+                            	<span sec:authentication="principal">테스트</span>
 <!--                            로그인되지 않은 사용자는 회원가입 -->
                             	<a href="/signup-choice" sec:authorize="isAnonymous()">회원가입</a>
 <!--                            admin 이거나 corp면 내 전시등록 리스트 -->
@@ -42,7 +43,7 @@
                            		</a>
 <!--                            role이 member면 내 예매 리스트 -->
                             	<a href="/member/mypage/review/list" sec:authorize="hasAnyRole('MEMBER')">
-                            		<span sec:authentication="name"></span>
+                            		<span sec:authentication="principal.username"></span>
                            		</a>
                            	</li>
                             <li>
@@ -64,8 +65,8 @@
 	        <div class="modal-body modal-search">
 	            <!-- 모달 내용 -->
 	            <form action="/exhibition/search" method="GET">
-	                <input class="input input-search header-search" type="text" placeholder="전시 검색">
-	                <button type="submit" name="q" class="icon icon-search btn-search" value="바보">검색</button>
+	                <input name="q" class="input input-search header-search" type="text" placeholder="전시 검색">
+	                <button type="submit" class="icon icon-search btn-search"  th:value="${q}">검색</button>
 	            </form>
 	        </div>
 	    </div>
@@ -142,9 +143,9 @@
 	        <!-- 모달 창 -->
 	        <div class="modal-body modal-search">
 	            <!-- 모달 내용 -->
-	            <form action="/exhibition/search" method="GET">
-	                <input class="input input-search header-search" type="text" placeholder="전시 검색">
-	                <button type="submit" name="q" class="icon icon-search btn-search" value="바보">검색</button>
+	           <form action="/exhibition/search" method="GET">
+	                <input name="q" class="input input-search header-search" type="text" placeholder="전시 검색">
+	                <button type="submit" class="icon icon-search btn-search"  th:value="${q}">검색</button>
 	            </form>
 	        </div>
 	    </div>

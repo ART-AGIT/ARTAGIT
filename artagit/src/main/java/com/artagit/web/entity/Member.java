@@ -37,8 +37,9 @@ public class Member {
 //		      this.image = image;
 //		}
 		
-		public Member(String loginId, String password, String name, String phone, String nickname, String email,
+		public Member(int id, String loginId, String password, String name, String phone, String nickname, String email,
 				Date regDate, int roleId, String image, String useYN, String provider, String providerId) {
+			this.id = id;
 			this.loginId = loginId;
 			this.password = password;
 			this.name = name;

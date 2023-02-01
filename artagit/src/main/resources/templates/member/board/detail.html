@@ -9,12 +9,12 @@
     <link href="../../css/component/board-detail.css" type="text/css" rel="stylesheet">
     <link href="../../css/component/board-detail.css" type="text/css" rel="stylesheet">
     <link href="../../css/component/report.css" type="text/css" rel="stylesheet">
-	 <link href="/css/component/modal.css" type="text/css" rel="stylesheet">
-	
-	
-	<script src="../../js/header-menu.js"></script>
-	<script src="../../js/board/comment/comment.js"></script>
-	<script src="../../js/member/board/detail.js"></script>
+    <link href="/css/component/modal.css" type="text/css" rel="stylesheet">
+   
+   
+   <script src="../../js/header-menu.js"></script>
+   <script src="../../js/board/comment/comment.js"></script>
+   <script src="../../js/member/board/detail.js"></script>
 
 
 </head>
@@ -22,8 +22,8 @@
 <script src="../../js/board/comment/comment.js" defer></script>
 <body>
 
-	</th:block>
-	
+   </th:block>
+   
 <body layout:fragment="content">
 
     
@@ -60,13 +60,13 @@
             <div th:utext="${board.title}" class="post-title">
                 <span>회원님들 그만 asdffffffffffffffffffffffffffffffffff좀 싸우ads22</span>
             </div>
-            <div th:text="${#dates.format(board.regDate, 'yy/MM/dd HH:mm')}" class="post-reg-time">
+            <div th:text="${#dates.format(board.regDate, 'yy/MM/dd HH:mm')}" class="post-reg-time"  >
                     22-11-30 11:30
             </div>
            
                 <div class="post-writer-info">
                     <img class = "profile-photo" th:src="@{|/image/${board.memImage}|}" src = "../../image/accountImage.png">
-                    <div><a th:text="${board.nickname}" href = "../mypage/like-list.html">운영자</a></div>
+                    <div><a th:text="${board.nickname}">운영자</a></div>
                 </div>
             
             <div class="post-info">
@@ -98,11 +98,11 @@
                      <a th:href="@{|/member/board/edit/${id}|}" class="btn btn-default-line">수정</a>
                   <div type="button" class="btn btn-default-line delete-btn">삭제</div>
                </div>
-               <div class="icon-flex" th:if="${user.id != board.memId}">
+               <div class="icon-flex" th:classappend="${user.id != board.memId} ? '' : 'd-none'">
                    <div class="heart-fix">
                       <div th:classappend="${board.heart} != 1? '' : 'icon-heart-red'" class="icon icon-heart post-like-btn"></div>
                    </div>
-                   <button  th:attr="data-id=${board.memId}" class="icon icon-report post-report" type="submit" value="게시글">수정</button>
+                   <button   th:attr="data-id=${board.memId}" class="icon icon-report post-report" type="submit" value="게시글">수정</button>
             </div>
         </div>
         </div>
@@ -118,12 +118,13 @@
                <h1 class="d-none">댓글1개</h1>
                <div class="comment-writer-wrapper" >
                   <div class="comment-writer">
-                     <img class="profile-photo" src = "../../image/accountImage.png">
+                     <img class="profile-photo comment-profile" th:src="@{|/image/${comment.image}|}" th:attr="data-id=${comment.image}" >
                      <div class="user-name" th:text="${comment.nickname}">오라클</div>
                   </div>
                   <div class="icon icon-report" >
                         <button id="4" th:attr="data-id=${comment.memId}" class="icon icon-report btn-black" type="submit" value="댓글">수정</button>
                   </div>
+                  
                   
                   
                </div>
@@ -132,12 +133,12 @@
                   다녀왔는데 정말 좋더라고요~ 굿즈asfdddddddddddddddddddddsdaaaaaaaaaaaaaaaaaas도 다
                   너무 예뻣더라는..</div>
                <div class="comment-info">
-                  <div class="date" th:text="${#dates.format(comment.regDate, 'yy/MM/dd HH:mm')}">
+                  <div class="date" th:text="${#dates.format(comment.regDate, 'yy/MM/dd HH:mm')}" th:attr="data-id=${#dates.format(comment.regDate, 'yy/MM/dd HH:mm')}">
                      2022.11.26 18:38</div>
                   <div class="re-comment"  >
 <!--                  <button id="3"    class="btn btn-default comment" type="submit" value="수정">답변쓰기</button> -->
                   </div>
-                  	<div class="add-modify" th:attr="data-id=${comment.nickname}"  >
+                     <div class="add-modify" th:attr="data-id=${comment.nickname}"  >
                      <th:block th:if="${user.id == comment.memId}">
                      <a class="a-btn" href=""  id="1">수정</a>
                      <a class="a-btn a-btn-black"  id="2">삭제</a>
@@ -152,9 +153,9 @@
             
             
             <div class="comment-page"  >
-           		
-           		
-           		
+                 
+                 
+                 
             </div> 
 
 
@@ -193,10 +194,10 @@
         
         
          <div id="modal-popup" class="modal-overlay d-none">
-		        <div class="modal-window">
-            	<div class="content">신고가 완료되었습니다</div>
-	            <a class="button-wrap"></a>
-	            <div class="btn btn-default-fill close">확인</div>
+              <div class="modal-window">
+               <div class="content">신고가 완료되었습니다</div>
+               <a class="button-wrap"></a>
+               <div class="btn btn-default-fill close">확인</div>
            </div>
         </div>
     
@@ -225,8 +226,6 @@
 							<div class="item item-report">
 							    <textarea class="report-form" spellcheck="false"></textarea>
 							</div>
-							<div class="item">이미지 첨부</div>
-							<div class="item">ddd</div>
 						</div>
 						<div class="icon-box">
 						</div>
@@ -244,6 +243,46 @@
 		            </div>
 		               </th:block>
 		            </section>
+           <div id="popup" class="popup-overlay popup-over d-none">
+                    <div class="popup-window">
+                  <div class="popup-content"> 
+                 <div class="main-box">
+               <h1 class="title">신고하기</h1>
+               <section class="table-box">
+                  <div class="table">
+                     <div class="item item-type">신고유형</div>
+                     <th:block >
+                     <div class="item  type-post"></div>
+                     </th:block>
+                     <div class="item">신고사유</div>
+                     <select name="pets" id="pet-select" class="box-select">
+                        <option value="1">스팸/홍보입니다</option>
+                        <option value="2">음란물입니다</option>
+                        <option value="3">불법정보 입니다</option>
+                        <option value="4">청소년에게 유해합니다</option>
+                        <option value="5">욕설/혐오 표현입니다</option>
+                     </select>
+                     <div class="item">신고 내용</div>
+                     <div class="item item-report">
+                         <textarea class="report-form" spellcheck="false"></textarea>
+                     </div>
+                  </div>
+                  <div class="icon-box">
+                  </div>
+               </section>
+            </div>
+                  </div>
+                     <div class="button-popup">
+<!--                            <button id="5"   th:href="@{/member/board/delete(id=${id})}" class="btn btn-default-fill yes">수정</button> -->
+<!--                      <button class="btn btn-large btn-write" type="submit" value="작성">작성</button> -->
+                        <button  class="btn btn-large yes" type="submit">신고</button>
+<!--                           <input type="hidden"  name="memId" th:value="${}"> -->
+                        <div class="btn btn-default-dark no">취소</div>
+                     </div>
+                  </div>
+                  </div>
+                     </th:block>
+                  </section>
     </div>
     
     
