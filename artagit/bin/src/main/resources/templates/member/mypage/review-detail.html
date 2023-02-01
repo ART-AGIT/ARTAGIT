@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+   xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+   layout:decorate="~{inc/layout.html}">
+	
+	
+	<th:block layout:fragment="css">
+	    <link href="../../../css/member/mypage/review-detail.css" type="text/css" rel="stylesheet">
+		<script src="../../../js/review-detail.js"></script>
+	</th:block>
+
+<!-- <script src="../../js/header-menu.js"></script> -->
+<body id="body" layout:fragment="content" >
+<!-- ------------------------------------------ -->
+
+
+	<main>
+        <h2 class="review">리뷰 보기</h2>
+
+        <form action ="/review/reg" method="POST" id="form">
+	        
+	        <div class="review-form" >
+				
+				
+				<div class="box" th:if="${review}" th:style="|background-color:${review.color}|">
+<!-- 					<div class="box" th:unless="${review}" th:style="|background-color:#cbd5f7|">  -->
+					<!-- <div class="box" th:style="${review ? background-color:${review.color}"> -->	
+<!-- 				<div class="box"  th:if="${review}" th:style="|background-color:${review.color}|" > -->
+<!-- 	            <div class="box"  th:style ="${review==null} ? background-color:black"> -->
+<!-- 				<div class="box"> -->
+	                <div class="write-form" >
+	                    <div class="content" th:text="${review.content}" th:if="${review}">리뷰 작성중</div>
+	                    <textarea name ="content" class="input-review" placeholder="리뷰를 작성해주세요" th:if="!${review}"></textarea>
+	                   
+	                </div>
+	                
+	                <div class="detail-info">
+	                    <div>
+	                        <label class="exh-name" th:text="${booking.exhName}" id="exhName">함스부르크 600년,매혹의 걸작들</label>
+	                    </div>
+	                    <div>
+	                        <span class="exh-loc" th:text="${booking.museumName}" >국립현대미술관</span>
+	                        <span class="exh-date" th:text="${booking.bookingDate}">2022.08.08</span>
+	                    </div>
+	    
+	                    <div class="color-option">
+	                        <input type="color" class="color-input" name="color" >
+	                    </div>
+	                    
+	                    <div >
+							<a  th:href="@{/member/mypage/review/del/{id}(id = ${review.id})}" th:if="${review}" class="trash"><img class="trash-img" src="../../../image/trash.png"></a>
+	                    </div>
+	                </div>
+	             </div> 
+	           
+			
+			
+			
+			
+			
+			
+<!-- 				<div class="box" th:if="${review}" th:style="|background-color:${review.color}|"> -->
+				<div class="box" th:if="${review==null}" th:style="|background-color:#EDEDED|">
+<!-- 					<div class="box" th:unless="${review}" th:style="|background-color:#cbd5f7|">  -->
+					<!-- <div class="box" th:style="${review ? background-color:${review.color}"> -->	
+<!-- 				<div class="box"  th:if="${review}" th:style="|background-color:${review.color}|" > -->
+<!-- 	            <div class="box"  th:style ="${review==null} ? background-color:black"> -->
+<!-- 				<div class="box"> -->
+	                <div class="write-form" >
+	                    <div class="content" th:text="${review.content}" th:if="${review}">리뷰 작성중</div>
+	                    <textarea name ="content" class="input-review" placeholder="리뷰를 작성해주세요" th:if="!${review}"></textarea>
+	                   
+	                </div>
+	                
+	                <div class="detail-info">
+	                    <div>
+	                        <label class="exh-name" th:text="${booking.exhName}" id="exhName">함스부르크 600년,매혹의 걸작들</label>
+	                    </div>
+	                    <div>
+	                        <span class="exh-loc" th:text="${booking.museumName}" >국립현대미술관</span>
+	                        <span class="exh-date" th:text="${booking.bookingDate}">2022.08.08</span>
+	                    </div>
+	    
+	                    <div class="color-option">
+	                        <input type="color" class="color-input" name="color" >
+	                    </div>
+	                    
+	                    <div >
+							<a  th:href="@{/member/mypage/review/del/{id}(id = ${review.id})}" th:if="${review}" class="trash"><img class="trash-img" src="../../../image/trash.png"></a>
+	                    </div>
+	                </div>
+	             </div> 
+	           
+			</div>
+   		 
+        
+	        <div class="review-option-list">
+	            <span class="review-option">
+	                <input type="radio" name="공개여부">
+	                <label>공개</label>
+	            </span>
+	
+	            <span class="review-option">
+	                <input type="radio" name="공개여부">
+	                <label>비공개</label>
+	            </span>    
+	        </div>
+
+        <div class="review-button-list">
+        	<input type="hidden" class= "bookingId" name="bookingId" th:value="${bookingId}"></input>
+        	<input class="btn btn-default btn-default-fill btn-reg" type="submit"  th:if="!${review}" value="등록"></input>
+            <a class="btn btn-default btn-default-fill btn-mod" type="button"  th:if="${review}"  value="수정" th:href="@{/member/mypage/review/update/{id}(id = ${review.id})}">수정</a>
+            <a class="btn btn-default btn-default-line btn-exit" type="button" href="/member/mypage/review/list" value="닫기">닫기</a>
+        </div>
+        </form>
+    </main>
+
+<!-- ------------------------------ -->
+
+</body>
+</html>

@@ -1,0 +1,103 @@
+
+/* ============================================================ */
+
+.exh-menu-box{
+    display: flex;
+    align-items: center;
+    height: 50px;
+    border-bottom: 1.5px solid #878787;
+    margin-top: 40px;
+}
+.exh-menu-list {
+    width: 220px;
+
+    display: flex;
+    justify-content: space-around;
+    
+    cursor: pointer;
+
+}
+.exh-menu-list>li{
+    width: 80px;
+    position: relative;
+    text-align: center;
+}
+
+.exh-menu-selected > span{
+    font-weight: bold;
+    color: #FF6C9E;
+
+}
+
+
+/* 서브메뉴 펼칠 때, 각 높이만큼 펼치기 */
+.exh-menu-selected.active+.sub-menu-1{
+    display: block;
+    height: 260px;
+}
+.exh-menu-selected.active+.sub-menu-2{
+    display: block;
+    height: 108px;
+}
+
+.exh-menu-selected.active+.sub-menu-3{
+    display: block;
+    height: 75px;
+}
+
+
+/* 서브메뉴 */
+.exh-sub-menu{
+    height: 0; 
+    width: 100%;
+    background-color: #fff;
+    padding: 0;
+    overflow: hidden;
+
+    position: absolute;
+    z-index: 10;
+
+    border-radius: 10px;
+
+    /* effect */
+    transition: height 1s;
+}
+
+.exh-sub-menu>li{
+    padding: 10px 0;
+}
+.exh-sub-menu>li:hover{
+    background-color: #FFBFCF;
+    border-radius: 10px;
+    transition: .5s;
+}
+
+.exh-sub-menu a{
+    display: block;
+    padding: 4px 0;
+}
+
+.icon-heart{
+    background-color: #fff;
+}
+
+.icon-heart.icon-heart-red{
+    background-color: red;
+
+}
+
+/* ------------------------------------------ */
+
+@media (min-width: 992px) {
+    .main{
+        display: flex;
+        flex-direction: column;
+        width: 1300px;
+        margin: 0 auto;
+    }
+    .exh-menu-list{
+        width: 300px;
+
+        font-size: 16px;
+    }
+}

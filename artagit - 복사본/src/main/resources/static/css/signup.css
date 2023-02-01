@@ -1,0 +1,50 @@
+.reg-list form>h1{
+    text-align: center;
+    padding-bottom: 18px;
+    font-size: 22px;
+
+}
+.reg-list-input-box>div{
+    gap: 10px;
+}
+
+.reg-button-box{
+    padding: 37px 0px 0px 107px;
+    
+}
+
+.checkBtn{
+    padding-right: 100px;
+}
+
+
+.confirm-name{
+    font-size: 12px;
+    color: #F7A7BB;
+}
+
+/*  chk-message  */
+
+.idFialure-message,
+.passwordFialure-message,
+.chkFialure-message,
+.id-check-massage{
+    color : #ff4e4e;
+}
+
+.idSuccess-message,
+.passwordSuccess-message,
+.chkSuccess-message{
+    color: #268e48;
+}
+.message{
+    /* 코드가 더러워요,,이해부탁 */
+	margin-top: -20px;
+    margin-left: 115px;
+    margin-bottom: 8px;
+    font-size: 12px;
+}
+.message-id{
+    margin-bottom: -6px;
+    margin-top: -15px;
+} 

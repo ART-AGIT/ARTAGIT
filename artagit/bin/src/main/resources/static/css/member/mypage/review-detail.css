@@ -1,0 +1,140 @@
+
+.review{
+    padding-bottom: 12px;
+    border-bottom: 2px solid #929292;
+    padding-left: 10px;
+}
+
+.review-form{
+    display: flex;
+    justify-content: center;
+}
+
+.box{
+    margin-top: 13px;
+    width: 355px;
+    height: 406px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    background-color: #EDEDED;
+}
+
+.trash-img{
+    width: 25px;
+    height: 25px;
+}
+.write-form{
+    margin: 17px;
+    width:320px;
+    height: 310px;
+    background-color: white;
+    border: 1px solid #ddd;
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    word-break: break-all;
+}
+
+.content{
+    display: block;
+    margin: 10px;
+    word-break: break all;
+}
+
+.input-review{
+    /* align-items: center; */
+    width:320px;
+    height: 310px;
+}
+
+.detail-info{
+    display:grid;
+    grid-template:
+    "exh-name  color" 30px
+    "exh-loc  trash" 30px / 6fr 1fr;
+    padding-left: 20px;
+}
+
+    .exh-name{
+        grid-area: exh-name;
+        font-size: 16px;
+    }
+    .exh-loc{
+        grid-area:exh-loc;
+        font-size: 14px;
+    }
+    .exh-date{
+        font-size: 10px;
+    }
+    .color-option{
+        grid-area: color;
+    }
+    .trash-img{
+        /* padding-left: -5px; */
+        grid-area:trash;
+    }
+
+
+
+.color-input{
+    width:20px;
+    height: 20px;
+    background-color: gray;
+    border-radius: 50%;
+    color:#D9D9D9;
+    border-color: #D9D9D9;
+}
+
+.review-option-list{
+    display: flex;
+    gap:20px;
+    justify-content: center;
+    padding-top: 15px;
+}
+    .review-option{
+        font-size: 16px;;
+    }
+
+.review-button-list{
+    display: flex;
+    gap:20px;
+    justify-content: center;
+    padding-top: 31px;
+}
+
+
+@media (min-width: 993px){ 
+
+    .box{
+            margin-top: 13px;
+            width:650px;
+            height: 406px;
+            border-radius: 10px;
+            border: 1px solid #ddd;
+            background-color: #EDEDED;
+    }
+
+    .write-form{
+        margin: 17px;
+        width:610px;
+        height: 312px;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        justify-content: center;
+        align-items: center;
+        word-break: break-all;
+    }
+
+    .detail-info{
+
+        grid-template:
+        "exh-name  color" 30px
+        "exh-loc  trash" 30px / 10fr 1fr;
+    }
+    
+    .input-review{
+    
+        width:610px;
+        height: 312px;
+    }
+} 

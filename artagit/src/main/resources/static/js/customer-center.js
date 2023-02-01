@@ -54,21 +54,23 @@ window.addEventListener("load", function(){
                 main.innerHTML = "";
                 console.log(notice);
                 console.log(notice.image);
-                if(notice.image == ""){
-                    notice.image == "/image/idresult.png";
-                }
+
             let template = `<main>
                             <section class="notice-detail-container">
                                 <h1 class="notice-detail-title">${notice.title}</h1>
                                 <span class="notice-detail-date">관리자&nbsp;&nbsp;${notice.regDate}</span>
 
-                                <div class="notice-detail-content">
-                                    <img class="notice-img" src="/image/딸기청.jpg">
-                                    <p>${notice.content}</p>
-                                </div>
-                                <a class="notice-detail-back" href="/customer_notice">목록보기</a>
-                            </section>
-                            </main>`
+                                <div class="notice-detail-content">`
+
+                                if(notice.image != null){
+                                    template += `<img class="notice-img" src="/image/poster/${notice.image}">`
+                                }
+
+                                template += `<p>${notice.content}</p>
+                                            </div>
+                                            <a class="notice-detail-back" href="/customer_notice">목록보기</a>
+                                        </section>
+                                        </main>`
 
             let el = new DOMParser() // string으로 된 HTML 태그들을 DOM 객체로 변환해준다.
             .parseFromString(template, "text/html") // 어떤 문자열(1st param)을 어떠한 형식(2nd param)으로 변환할건지.

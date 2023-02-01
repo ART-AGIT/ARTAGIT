@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>업체 계정 수정</title>
+    <link href="../../css/reset.css" type="text/css" rel="stylesheet">
+    <link href="../../css/style.css" type="text/css" rel="stylesheet">
+
+    <link href="../../css/icon.css" type="text/css" rel="stylesheet">
+    <link href="../../css/form.css" type="text/css" rel="stylesheet">
+    <link href="../../css/deco.css" type="text/css" rel="stylesheet">
+    <link href="../../css/input.css" type="text/css" rel="stylesheet">
+    <link href="../../css/button.css" type="text/css" rel="stylesheet">
+    
+    <link href="../../css/component/sub-menu.css" type="text/css" rel="stylesheet">
+    <link href="../../css/component/reg.css" type="text/css" rel="stylesheet">
+    <link href="../../css/corporator/mypage/account-edit.css" type="text/css" rel="stylesheet">
+    <link href="../../css/header.css" type="text/css" rel="stylesheet">
+    <link href="../../css/footer.css" type="text/css" rel="stylesheet">
+    <!-- <link href="../../css/signup.css" type="text/css" rel="stylesheet"> -->
+
+    <link href="../../css/utils.css" type="text/css" rel="stylesheet">
+</head>
+<script src="../../js/header-menu.js"></script>
+<script src="../../js/corporator/mypage/account-edit.js"></script>
+<body>
+    <header class="header">
+        <section class="header-wrapper">
+            <div class="header-box">
+                <h1 class="logo"><a href="../../index.html">Art Agit</a></h1>
+                <ul class="d-none">
+                    <!-- <li><a href="">전시</a></li>
+                    <li><a href="">커뮤니티</a></li>
+                    <li><a href="">로그인</a></li> -->
+                </ul>
+                <div>
+                    <a class="icon icon-menu burger-nav" href="">확장메뉴</a>
+                </div>
+            </div>
+            <div class="sub-menu-box">
+                <div class="sub-menu">
+                    <div class="sub-menu-1">
+                        <ul>
+                            <li><a href="../../exhibition/list.html">전시</a></li>
+                            <li><a href="../board/list.html">커뮤니티</a></li>
+                            <li><a href="">-</a></li>
+                        </ul>
+                    </div>
+                    <div class="sub-menu-2">
+                        <ul>
+                            <li><a href="../../login.html">로그인</a></li>
+                            <li><a href="">검색</a></li>
+                            <li><a href="">고객센터</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </header>
+    
+
+    
+    <main>
+        <div class="menu-box">
+            <ul class="menu-list">
+                <li class="list"><a class="deco deco-ticket" href="">나의 등록전시</a></li>
+                <li class="list line-on"><a class="deco deco-smile deco-ticket-on" href="./account-edit.html">회원 정보 수정</a></li>
+            </ul>
+        </div>
+
+        
+        <!-- 담당장 정보 -->
+        
+        <section class="reg-list"> 
+            
+            <form action="reg" method="post" enctype="multipart/form-data">
+                <div class="form-wrap">
+                    <div class="member">   
+                        <div class="member-profile">
+                            <img src="../../image/회원.svg" class="member-profile-img img-input">
+                            <div class="icon-img-choice">
+                                <div class="circle-edit"></div>
+                            <input type="file" src="../../image/icons/icon-edit.svg" class="icon icon-write icon-write-edit file-input">
+                            </div>
+                        </div>
+                        <div class="member-name-grade">
+                            <div class="member-name">현대미술관</div>
+                            <div class="member-grade">업체회원</div>
+                        </div>
+                    </div>
+                    
+                    <div class="toggle">
+                        <h1 class="accordion-header">사업자 정보</h1>
+                        <div class="icon arrow-icon icon-arrow-toggle-down"></div> 
+                    </div>
+
+                    <section class="reg-list-box accordion-content"> 
+                        
+                        <div class="reg-list-input-box">
+                            <label for="exh-name">전시관 이름</label>
+                            <input name="name" id="exh-name" type="text" class="input input-lg input-unable" value="국립현대미술관" disabled>
+                        </div>
+
+                        <div class="reg-list-input-box">
+                            <label for="ceo-name">대표자명</label>
+                            <input name="ceoName" id="ceo-name" type="text" required class="input input-lg" value="뉴렉처">
+                        </div>
+                        
+                        <div class="reg-list-input-box">
+                            <label for="corp-name">법인명</label>
+                            <input name="name" id="corp-name" type="text" class="input input-lg" value="전시">
+                        </div>
+                        <div class="reg-list-input-box">
+                            <label for="corp-phone">대표 전화번호</label>
+                            <input name="phone" id="corp-phone" type="text" required class="input input-lg" value="02-4561-5412">
+                        </div>
+
+                        <div class="reg-list-input-box">
+                            <label for="business-num">사업자 번호</label>
+                            <input  name="businessNum" id="business-num" type="text" required class="input input-lg" value="12345-78965">
+                        </div>      
+                        
+                        <div class="reg-list-input-box">
+                            <label for="address">전시관 주소</label>
+                            <div>
+                                <input name="address" id="login-id" type="text" required class="input input-md-2" value="경기도 과천시 광명로 313">
+                                <button class="btn btn-default btn-default-fill-off">주소검색</button>
+                            </div>
+                            <input name="address" id="address-detail" type="text" class="input input-lg" value="" placeholder="">
+                        </div>
+            
+                    </section>
+
+                    <!-- 담당자 정보 -->
+                    <div class="toggle">
+                        <h1 class="accordion-header">담당자 정보</h1>
+                        <div class="icon arrow-icon icon-arrow-toggle-down"></div>
+                    </div>
+                    
+                    <section class="reg-list-box accordion-content d-none">
+                        <div class="reg-list-input-box">
+                            <label for="login-id">아이디</label>
+                            <input name="loginId" id="login-id" type="text" required class="input input-lg input-unable" value="hihi123" disabled>
+                        </div>
+                        <div class="reg-list-input-box">
+                            <label for="name">이름</label>
+                            <input  name="name" id="name" type="text" class="input input-lg" value="홍길동">
+                        </div>
+                        
+                        <div class="reg-list-input-box">
+                            <label for="password">비밀번호</label>
+                            <input name="password" id="password" type="password" required class="input input-lg" placeholder="영문자, 숫자, 특수문자 포함 8자 이상" value="1234qwer">
+                        </div>
+
+                        <div class="reg-list-input-box">
+                            <label for="password-check">비밀번호 확인</label>
+                            <input name="password" id="password-check" type="password" required class="input input-lg" placeholder="영문자, 숫자, 특수문자 포함 8자 이상" value="1234qwer">
+                        </div>                
+                        <div class="reg-list-input-box">
+                            <label for="email">이메일</label>
+                            <input name="email" id="email" type="email" class="input input-lg" value="hihi123@naver.com">
+                        </div>
+                        <div class="reg-list-input-box">
+                            <label for="phone">휴대폰</label>
+                            <input name="phone" id="phone" type="text" class="input input-lg" value="010-1234-5678">
+                        </div>
+               
+                    </section>
+
+                    <!-- 저장 / 취소 버튼 / 회원탈퇴-->
+                    <div class="reg-button-box">
+                        <button type="submit" class="btn btn-default-fill btn-size-1 save-btn">저장</button>
+                        <button onclick="" type="submit" class="btn btn-default-fill btn-size-1">취소</button>
+                    </div>    
+                </div>
+            </form>
+                <div class="unregister">
+                    <a href="account-edit/delete"><button type="submit" class="btn-unregister">회원 탈퇴</button></a>
+                </div>  
+        </section>
+    </main>
+
+
+
+<!-- footer  --------------------->
+    <footer class="footer">
+        <h1 class="d-none" style="display: none;">footer</h1>
+        <div class="footer-inf">
+            <div class="footer-btn">
+                <a class="btn btn-rec btn-default-line" href="">로그인</a>
+                <a class="btn btn-rec btn-default-line" href="">PC버전</a>
+            </div>
+            <h1>ARTAGIT</h1>
+            <div>대표자: 주성균 | 3F, 23, Baekbeom-ro, Mapo-gu, Seoul, Republic of Korea</div>
+            <div>사업자등록번호: 123-45-67890</div>
+            <div>이메일 문의:admin@artagit.com | 대표번호: 1588-1588</div>
+            <small>Copyright 2022. ARTAGIT All rights reserved.</small>
+        </div>
+    </footer>
+
+</body>
+</html>

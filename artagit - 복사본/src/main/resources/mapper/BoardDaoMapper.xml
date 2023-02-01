@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.artagit.web.dao.BoardDao">
+  
+   
+   <select id="get" resultType="com.artagit.web.entity.Board">
+    select 
+			B.*,
+			(select count(memId) from BoardLike where memId = #{memId} and postId = B.id group by postId) heart,
+			(select memId from BoardLike where memId = B.memId and memId = #{memId}) memberId
+		from Board B
+      where id =#{id}
+      and useYN='Y'
+   </select>
+   <insert id="insert" parameterType="board" useGeneratedKeys="true"
+    keyProperty="id">
+      INSERT INTO Board
+      (title,
+      content,
+      memId,
+      roleId,
+      image1,
+      image2,
+      image3,
+      image4)
+      VALUES
+      (#{title},
+      #{content},
+      #{memId},
+      #{roleId},
+      #{image1},
+      #{image2},
+      #{image3},
+      #{image4}
+      );
+   </insert>
+   
+   
+	<update id="delete" parameterType="com.artagit.web.entity.Board">
+		update Board 
+		<set>
+			<if test="useYN != null">useYN='N'</if>
+		</set>
+		where id =#{id}
+	</update>
+   	<update id="update" parameterType="com.artagit.web.entity.Board">
+		update Board 
+		<set>
+			title = #{title},
+			content=#{content},
+			roleId=#{roleId},
+			<if test="image != null">image=#{image}</if>
+		</set>
+		where id =#{id}
+	</update>
+	 <select id="getDetail" resultType="com.artagit.web.entity.Board">
+     select
+   b.*, 
+    (select count(id) from Comment where Comment.postid = b.id and Comment.useYn = "Y" group by postId) commentTotal,
+    (select nickname from Member where  id = b.memId ) nickname,
+    (select count(memId) from BoardLike where memId = #{memId} and postId = b.id group by postId) heart,
+    (select name from BoardCategory where id = b.roleId) name,
+    (select count(memId) from BoardLike where postId = b.id group by postId) hearts,
+    (select image from Member where id = b.memId ) memImage
+from Board b
+where
+			 b.id = #{id}
+		
+order by regDate desc;
+   </select>
+   <update id="hitUp" parameterType="com.artagit.web.entity.Board">
+   update Board 
+		<set>
+			hit = hit+1
+		</set>
+		where id =#{id}
+   </update>
+   
+     
+   
+   
+  
+   
+   
+</mapper>

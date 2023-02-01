@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{inc/layout}">
+	
+	<th:block layout:fragment="css">
+	    <link href="/css/component/like-list.css" type="text/css" rel="stylesheet">
+	    <link href="/css/component/sub-menu.css" type="text/css" rel="stylesheet">
+	    <link href="/css/component/modal.css" type="text/css" rel="stylesheet">
+		<script src="../../js/header-menu.js"></script>
+		<script src="../../js/member/mypage/like-list.js"></script>
+	</th:block>
+<body layout:fragment="content">
+    <main>
+    <div class = "content-wrap">
+    <!-- pc 프로필 +  부분 버전 =======-->
+       <div class="menu-box">
+	        	<div class="profile-box">
+	        		<div class="profile-content">
+		                <div class="profile-img-box" >
+<!-- 		                    	<img th:src="@{|/image/${user.img}|}" class="profile-img" src="../../../image/camera.svg"> -->
+							<img th:if="${user.img}!= null" th:src="@{|/image/${user.img}|}" class="profile-img img-input">
+                            <img th:unless="${user.img}!= null" th:src="@{/image/프사.jpg}" class="profile-img img-input">
+		                </div>
+		                <div>
+			                <div class="profile-name"> 
+			                    <span th:text="${member.nickname} +' 님'">1004님</span>
+			                </div>
+			                <div class="member-grade">
+                        		일반회원
+                    		</div>
+		                </div>
+		            </div>
+	            </div>
+	            <ul class="menu-list">
+	                <li class="list line-on"><a class="deco deco-ticket " href="/member/mypage/review/list">나의 예매내역</a></li>
+	                <li class="list"><a class="deco deco-heart-red deco-ticket-on" href="/member/mypage/like-list">좋아요 전시</a></li>
+	                <li class="list"><a class="deco deco-smile"  href="/member/mypage/account-edit">내 정보 수정</a></li>
+	                <li class="list"><a class="deco deco-write" href="/member/mypage/post-list">작성글 관리</a></li>
+	            </ul>
+	        </div>
+    <!-- pc 프로필 부분 끝 ==== -->
+    
+   
+    <div class="my-like-list">
+        <h2 class="my-like-list-title">좋아요 전시</h2>
+        <section class="like-list-section">
+	        <section class="like-list" th:each="list:${list}" th:attr="data-id=${list.id}">
+	        	<div class="nonexistence-mess" th:if="${#lists.isEmpty(list)}" >
+	        		<p>좋아요 한 전시가 없습니다.</p>
+	       		</div>
+	            <form action="">
+<!-- 				<input type="hidden" class="find-id" th:attr="data-id=${list.id}"> -->
+	                <div class="exh-img-box">
+	                    <a href="" th:href="@{|/exhibition/${list.id}|}"><img th:src="@{|/image/poster/${list.poster}|}" class="exh-img" src="../../image/exhimage.png" alt=""></a>
+	                </div>
+	               
+                    <div class="icon icon-heart icon-heart-red exh-like"></div>
+                    <div class="text exh-title" th:text="${list.name}">모네 인사이드</div>
+                    <div class="text exh-place" th:text="${list.museumName}">국립현대미술관</div>
+                    <div class="text exh-date" th:text="${list.startDate} +' ~ '+ ${list.endDate}">2022.09.22 ~ 2022.09.22</div>
+	            </form>
+	        </section>
+		</section> 
+				 <!-- 좋아요 전시 삭제  modal -->
+			         <div id="modal" class="modal-overlay modal-delete">
+		                <div class="modal-window">
+<!-- 			                 <div class="title"> -->
+<!-- 			                     <h2>좋아요 삭제</h2> -->
+<!-- 			                 </div> -->
+			                 <div class="modal-header">
+					        	<h1 class="header-title">정말 삭제하시겠습니까?</h1>
+					         </div>
+			                 <div class="button-wrap modal-actions">
+			                     <button class="modal-action del-btn" type="submit" >예</button>
+			                     <button  class="modal-action cancel-btn" type="button">아니오</button>
+			                 </div>
+			               </div>
+			         </div> 
+				<!--  좋아요 전시 삭제  modal -->  
+		
+		  
+			<button class="text item-more" th:if="${countOfExhLike}>6">
+				<div>더보기</div>
+			</button>          
+	</div>	
+	</div>	
+  </main>
+</body>
+</html>
+

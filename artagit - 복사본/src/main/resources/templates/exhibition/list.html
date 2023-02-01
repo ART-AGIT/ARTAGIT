@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{inc/layout}">
+	
+	<th:block layout:fragment="css">
+	    <link href="../css/component/exhibition-list.css" type="text/css" rel="stylesheet">
+		
+		<link href="../css/exhibition/list.css" type="text/css" rel="stylesheet">
+		<script src="../js/modal.js"></script>
+		<script src="../js/index.js"></script>
+		<script src="../js/exhibition/list.js"></script>
+	</th:block>
+
+<body id="body" layout:fragment="content" >
+
+    <main class="main-container">
+        <h1 class="d-none">전시 목록</h1>
+        <section class="exhibition-section">
+            <h1 class="d-none">전시 목록</h1>
+            <div class="exh-menu-box">
+                <ul class="exh-menu-list">
+                    <li class="exh-menu-1">
+                        <div data-id="0" class="exh-menu-selected select-btn-1">
+                            <span class="select-btn-1-text">지역</span>
+                        </div>
+                        <!-- <div data-id="0" class="exh-menu-selected">
+                            <a class="sBtn-text" href="">지역</a>
+                        </div> -->
+                        <ul class="exh-sub-menu sub-menu-1">
+                            <li class="option-1" data-id="0">전체</li>
+                            <li class="option-1" data-id="1">서울-종로구</li>
+                            <li class="option-1" data-id="2">서울-강남구</li>
+                            <li class="option-1" data-id="3">서울-성동구</li>
+                            <li class="option-1" data-id="4">서울-기타</li>
+                            <li class="option-1" data-id="5">인천</li>
+                            <li class="option-1" data-id="6">경기</li>
+                        </ul>
+                    </li>
+                    <li class="exh-menu-2">
+                        <div data-id="1" class="exh-menu-selected select-btn-2">
+                            <span class="select-btn-2-text">진행중</span>
+                        </div>
+                        <!-- <div data-id="1" class="exh-menu-selected">
+                            <a href="">진행중</a>
+                        </div> -->
+                        <ul class="exh-sub-menu sub-menu-2">
+                            <li class="option-2" data-id="1">진행중</li>
+                            <li class="option-2" data-id="2">진행예정</li>
+                            <li class="option-2" data-id="3">진행종료</li>
+                        </ul>
+                    </li>
+                    <li class="exh-menu-3">
+                        <div data-id="1" class="exh-menu-selected select-btn-3">
+                            <span class="select-btn-3-text">최신</span>
+                        </div>
+                        <ul class="exh-sub-menu sub-menu-3">
+                            <li class="option-3" data-id="1">최신</li>
+                            <li class="option-3" data-id="2">인기</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            
+            <section class="exhibition-list">
+            	<section th:if="${lists.size()==0}">
+            		<div>검색결과가 없습니다.</div>
+            	</section>
+                <section th:each="list:${lists}" th:attr="data-id=${list.id}" class="exhibition">
+                    <form  action="">
+                       <h1 th:utext="${list.name}">이노니머스 프로젝트</h1>
+                        <div class="exhibition-img-box">
+                            <a href="detail.html" th:href="@{{id}(id=${list.id})}"><img class="exhibition-img" th:src="@{|/image/poster/${list.poster}|}" src="/image/anonymousProject.png" alt=""></a>
+                            <!-- <a class="icon icon-heart exhibition-heart" href=""></a> -->
+                            <a th:classappend="${list.memberId != 0}  ? 'icon-heart-red' : ''" class="icon icon-heart exhibition-heart" href=""></a>
+                        </div>
+                        <div class="exhibititon-date" th:text="${#strings.substring(list.startDate, 2)} +' ~ '+ ${#strings.substring(list.endDate, 2)}">22.11.25 ~ 23.04.02</div>
+                        <div class="exhibition-place" th:text="${list.artist}">그라운드시소 서촌</div>
+                        
+                    </form>
+                </section>
+            </section>
+        
+        </section>
+    </main>
+</body>
+</html>

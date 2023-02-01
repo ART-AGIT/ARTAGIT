@@ -1,0 +1,154 @@
+
+.welcome{
+    padding: 40px 0;
+
+    padding-top:60px;
+    padding-bottom: 40px;
+    font-size: 26px;
+    font-weight: bold;
+    display: flex;
+    padding-right: 100px;
+    justify-content: center;
+}
+
+
+/* ------------로그인 유형 -------- */
+.login-type-option{
+    display: flex;
+    gap :10px;
+    justify-content: center;
+    padding-right: 40px;
+}
+
+input[type=radio]{
+    cursor: pointer;
+    width: 15px;
+    height: 15px;
+    margin :0;
+    margin-right: 5px;
+}
+
+.radio-wrap{
+    display: flex;
+    align-items: center;
+    
+   
+
+}
+
+/* ---------- 아이디 비번 입력------ */
+
+.login-input-wrap{
+    padding-top: 8px;
+    padding-bottom: 23px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    gap:8px;
+}
+
+
+.btn-login{
+    display: block;
+    width: 300px;
+    height: 40px;
+    font-size: 18px;
+    margin:0 auto 20px auto;
+}
+
+.line{
+    display: flex;
+    flex-basis: 100%;
+    align-items: center;
+    padding: 24px 0;
+    justify-content: center;
+    
+    
+}
+    .line::before{
+        content:"";
+        margin:0px 10px;
+        background:#9E9E9E;
+        height:1px;
+
+        justify-content: center;
+        /* padding: 10px 40px; */
+}
+    .line::before{
+        content:"";
+        margin:0px 10px;
+        background:#9E9E9E;
+        height:1px;
+        width: 110px;
+    }
+
+    .line::after{
+        content:"";
+        margin:0px 10px;
+        background:#9E9E9E;
+        height:1px;
+        margin:0px 10px;
+        background:#9E9E9E;
+        height:1px;
+        width: 110px;
+
+    }
+
+
+/* -------아이디 비번찾기 ---------*/
+
+.find-wrap{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 10px;
+}
+
+    .find-wrap li{
+        position: relative;
+        display: inline-block;
+    }
+
+    .find-wrap li+li::before {
+        content: '';
+        position: absolute;
+        top: 3px;
+        left: 12px;
+        width: 1px;
+        height: 12px;
+        background-color: black;
+    }
+
+    .find-wrap li+li {
+        padding-left: 28px;
+    } 
+
+/* -----소셜로그인 ----------*/
+.login-social{
+    display: flex;
+    justify-content: center;
+    gap: 27px;
+}
+
+.login-input-wrap>div>input{
+    font-size: 14px;
+}
+
+.hihi{
+    display: flex;
+    flex-direction: column;
+}
+
+input::placeholder {
+    color: #BCBCBC;
+    font-weight: 500;
+}
+
+input:focus::placeholder {
+    color:transparent;
+}
+
+/* 
+input[type=radio]{
+    display: none;
+} */

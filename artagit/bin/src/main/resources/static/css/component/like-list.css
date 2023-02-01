@@ -1,0 +1,98 @@
+
+
+/* ----------------------------------- */
+
+
+.text {
+    color: #545454;
+    /* font-size: 13px; */
+}
+
+form {
+  
+    padding: 15px 0;
+}
+
+.like-list form {
+    /* margin: 15px 0; */
+    display: grid;
+    justify-content: start;
+    align-items: end;
+    grid-template: "img blank" 50px
+                    "img like" 23px
+                    "img title" 18px
+                    "img place" 18px
+                    "img date" 55px / 170px;
+}
+
+.exh-img-box {
+    grid-area: img;
+}
+
+.exh-like {
+    grid-area: like;
+    font-size: 14px;
+}
+
+.exh-title {
+    grid-area: title;
+}
+
+.exh-place {
+    grid-area: place;
+}
+
+.exh-date {
+    grid-area: date;
+}
+
+.exh-img {
+    margin-left: 10px;
+}
+
+/* 모바일x */
+.account{
+    display: none;
+}
+
+@media (min-width: 992px) {
+    .header{
+        display: none;
+        z-index: 999;
+    }
+    .account{
+        display: grid;
+        width: 300px;
+        grid-template: 
+                "img name" 60px
+                "img corpMem" 30px /100px;
+    }
+    .exh-name{
+        grid-area : name;
+        align-self: flex-end;
+        font-size: 26px;
+        font-weight: bold;
+    }
+    .corpMem{
+        grid-area : corpMem;
+        align-self: flex-end;
+
+        width:100px;
+        text-align: center;
+        font-size: 20px;
+        font-weight: bold;
+        border-radius: 10px;
+        background-color: #D9D9D9;        
+    }
+    .edit-img{
+        width: 90px;
+        height:90px;
+    }
+    .list{
+        list-style: none;
+    }
+    .deco::before{
+        display: none;
+    }
+
+}

@@ -1,0 +1,102 @@
+/* ============================================================ */
+.exhibition-list{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+    padding-top: 20px;
+    
+}
+.exhibition{
+    padding: 5px;
+
+    flex-shrink: 1;
+}
+.exhibition form{
+    position: relative;
+    display: grid;
+    grid-template: 
+    "img " 230px
+    "title" 20px
+    "date" 18px
+    "place" 18px
+    / 1fr;
+
+    justify-items: center;
+
+
+}
+    .exhibition form>h1{
+        grid-area: title;
+        font-size: 16px;
+
+        justify-self: center;
+        align-self: center;
+    }
+    .exhibition-img-box{
+        grid-area: img;
+        position: relative;
+
+        text-align: center;
+        align-self: center;
+
+        height: 100%;
+        width: 100%;
+
+    }
+        .exhibition-img{
+            width: 95%;
+            height: 95%;
+
+            transition: .5s;
+            
+        }
+
+        .exhibition-heart{
+            position: absolute;
+            z-index: 1;
+
+            right: 6px;
+            top: 4px;
+        }
+
+    .exhibititon-date{
+        grid-area: date;
+        font-size: 12px;
+
+        justify-self: center;
+        align-self: center;
+    }
+    .exhibition-place{
+        grid-area: place;
+
+        font-size: 12px;
+
+        justify-self: center;
+        align-self: center;
+    }
+/* ========================================================= */
+
+@media (min-width: 992px) {
+    .exhibition form{
+        grid-template: 
+        "img " 360px
+        "title" 40px
+        "date" 36px
+        "place" 36px
+        / 1fr;
+    }
+    .exhibition-heart{
+        right: 10px;
+        top: 5px;
+    }
+    .exhibition-list{
+        grid-template-columns: repeat(4, 1fr);
+    }
+    .exhibition form>h1{
+        font-size: 18px;
+    }
+    .exhibititon-date, .exhibition-place{
+        font-size: 16px;
+    }
+
+}

@@ -1,0 +1,273 @@
+/* header */
+.header{
+    --color-background: #FDFBF9;
+
+    position: fixed;
+    top:  0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background-color: var(--color-background);
+
+    z-index: 999;
+
+    /* effect */
+    transition: 1s;
+}   
+    /* 서브메뉴 눌렸을 때, 헤더 높이 늘리기 */
+    .header.show{
+        height: 140.4px;
+    }
+.header-wrapper{
+    display: flex;
+    flex-direction: column;
+    
+    justify-content: center;
+}
+.header-box{
+    line-height: 40px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 15px;
+}
+    .header-box div{
+        align-self: center;
+    }
+/* logo 색 */
+.logo>a{
+    color: #FF6C9E;
+}
+/* ===== pc버젼 header 숨기기 ===== */
+.header-pc{
+    display: none;
+}
+.header-menu-box{
+    display: flex;
+    gap: 6px;
+}
+.header-member{
+    -webkit-mask-size: 20px 20px;
+    width: 20px;
+    height: 20px;
+}
+.icon-close{
+    -webkit-mask-image: url(../image/icons/close.svg);
+    background-color: #fff !important;
+}
+.btn-close{
+    position: absolute;
+    top: 55px;
+    right: 20px;
+
+    cursor: pointer;
+}
+.modal-search{
+    top: 14%;
+    left: 50%;
+
+    width: 300px;
+    height: 50px;
+}
+.input-search{
+    width: 300px;
+    height: 50px;
+    background-color: #fdfdfd;
+}
+.btn-search{
+    position: absolute;
+    right: 10px;
+    top: 14px;
+    z-index: 2;
+    background-color: #777777 !important;
+
+    cursor: pointer;
+}
+
+/* -----------햄버거버튼 눌렀을 때------------- */
+.sub-menu-box{
+    height: 0;
+    overflow: hidden;
+    padding: 0px 15px;
+    background-color: var(--color-background);
+
+    transition: 1s;
+}   
+    /* 서브메뉴 보여주기 */
+    .sub-menu-box.show{
+        height: 90.4px;
+        z-index: 999;
+    }
+.sub-menu{
+    display: flex;
+    justify-items: flex-end;
+}
+.sub-menu-1{
+    width: 50%;
+}
+.sub-menu-2{
+    width: 50%;
+    justify-items: flex-end;
+    
+}
+.sub-menu-2>ul{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+.sub-menu li{
+    color: var(--color-background);
+    padding: 5px;
+    display: block;
+    margin: 0;
+}
+/* ----- fixed 때문에 윗부분이 가려져, main 부분에 padding 줌 ----------- */
+main{
+    padding-top: 60px;
+    /* effect */
+    transition: 1s;
+}   
+    /* 서브메뉴 눌렸을 때, 메인 밀기 */
+    main.show{
+        padding-top: 140.4px; 
+    }
+
+
+
+/* -------------------------------------------------------------------------- */
+
+@media (min-width: 992px) {
+    .header{
+        display: none;
+        z-index: 999;
+    }
+
+    .header-pc{
+        display: block;
+        /* padding-top: 40px; */
+        width: 100%;
+        background-color: #FDFBF9;
+        
+        position: fixed;
+        z-index: 10;
+    }
+    
+    .content-box{
+        width: 1300px;
+/*         height: 100px; */
+
+        padding: 0 20px;
+        margin: 20px auto 0 auto;
+    
+        display: flex;
+        align-items: center;
+        top: 0;
+        left: 0;
+    
+        justify-content: space-between;
+    
+    }
+        .content-box>section{
+            display: inline-block;
+        }
+    
+        .main-menu{
+            width: 500px;
+            height: 50px;
+            margin: 0 auto;
+            display: inline-block;
+            justify-items: center;
+            align-items: center;
+        
+        }
+            .main-menu>ul{
+                height: 100%;
+                display: flex;
+                align-items: center;
+            }
+            .main-menu>ul>li {
+                display: inline-block; 
+                line-height: 50px;
+                width: 100%;
+                height: 100%;
+                text-align: center;
+            }
+            .main-menu>ul>li>a{
+                height: 100%;
+                width: 100%;
+                display: inline-block;
+
+                font-size: 16px;
+            }
+            .main-menu>ul>li:hover>a{
+                cursor: pointer;
+                background-color:#F7A7BB;
+                color: #fff;
+                transition: 1s;
+            }
+                .main-menu>ul>li:hover>.sub-menu{
+                    display: block;
+        
+                    cursor: pointer;
+                    background-color:#F7A7BB;
+                    color: #fff;
+
+                    transition: 1s;
+                }
+                .sub-menu{
+                    display: none;
+                    padding: 0;
+        
+                    position: relative;
+                    z-index: 10;
+                }
+                .sub-menu a{
+                    display: block;
+                    padding: 10px 0;
+                }
+                .sub-menu a:hover{
+                    text-decoration: underline;
+        
+                }
+
+                    /*기본 팝업*/
+                    .nav-search:hover .search{
+                        display: block;
+                        top: 0px;
+                        transition: 1s;
+        
+                    }
+                    .main-menu>ul>li>div{
+                    position: relative;
+                    }
+                    .search{
+                        width: 160px;
+                        height: 40px;
+                        border-radius: 24px;
+                        
+    
+                        padding: 10px;
+    
+                        background-image: url(../image/icons/search.svg);
+                        background-repeat: no-repeat;
+                        background-position: right 8px center;
+    
+                        position: absolute;
+                        top:-200px;
+    
+                        display: hidden;
+                    }
+
+/* ----- fixed 때문에 윗부분이 가려져, main 부분에 padding 줌 ----------- */
+    main{
+        padding-top: 100px;
+        width: 1300px;
+        margin: 0 auto;
+    }
+                
+    
+    
+}
+
+

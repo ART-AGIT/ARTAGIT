@@ -1,0 +1,76 @@
+
+
+/* 모달2 */
+
+.modal-hj {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: center;
+    z-index: 200;
+    top: 50%;
+    left: 50%;
+    width: 60%;
+    height: 7rem;
+    transform: translate(-50%, -50%);
+    background: rgb(255, 255, 255);
+    /* padding: 1rem; */
+/*     border: 1px solid #ccc; */
+    border: 1px solid #a2a2a2;
+    box-sizing: border-box;
+    border-radius: .5rem;
+}
+
+.header-title-hj {
+    margin: 0;
+    text-align: center;
+    padding: 1rem 0;
+    color: #545454;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.modal-actions-hj {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+  /* 버튼 */
+.modal-action-hj {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgb(170, 170, 170);
+    border-radius: .3rem;
+    text-decoration: none;
+    color: #545454;
+    font: 500;
+    font-size: 14px;
+    width: 4.5rem;
+    height: 1.5rem;
+    cursor: pointer;
+    margin: 0 8px;
+}
+
+.modal-action-hj:hover,
+.modal-action-hj:active {
+    background: #FF6B90;
+    color: #ffffff;
+    border: none;
+    border: 1px solid #FF6B90;
+}
+
+.modal-hj.show {
+	transform: translate(-50%, -50%);
+    transition: all 0.5s;
+}
+
+@media (min-width: 992px){
+	.modal-hj {
+	    width: 260px;
+	}
+}

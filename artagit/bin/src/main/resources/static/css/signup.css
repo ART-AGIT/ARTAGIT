@@ -1,0 +1,37 @@
+.reg-list form>h1{
+    text-align: center;
+    padding-bottom: 18px;
+
+}
+.reg-list-input-box>div{
+    gap: 10px;
+}
+
+.reg-button-box{
+    padding-top: 37px;
+}
+
+.checkBtn{
+    padding-right: 100px;
+}
+
+
+.confirm-name{
+    font-size: 12px;
+    color: #F7A7BB;
+}
+
+/*  chk-message  */
+
+.idFialure-message,
+.passwordFialure-message,
+.chkFialure-message,
+.id-check-massage{
+    color : red;
+}
+
+.idSuccess-message,
+.passwordSuccess-message,
+.chkSuccess-message{
+    color: green;
+}

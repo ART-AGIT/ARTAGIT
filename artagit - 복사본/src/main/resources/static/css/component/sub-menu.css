@@ -1,0 +1,228 @@
+/******* 마이페이지 서브 메뉴 속성 ****************************************/
+.profile-box{
+    display: none;
+}
+
+.menu-list {
+    padding : 20px 0 10px 0;
+    display: flex;
+}
+
+.list{
+    border-bottom: 2px solid #A8A8A8;
+    /* width: 25%; */
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-around;
+}
+
+.line-on{
+    border-bottom: 2px solid #FF6B90;
+}
+
+
+li .deco-ticket-on {
+    /* color: #FF6B90; */
+}
+
+
+/******* ID/PW 찾기 메뉴 속성 ****************************************/
+.find-box {
+    margin-top: 15px;
+    height: 40px;
+    display: flex;
+    /* text-align: center; */
+}
+
+.find {
+    /* height: 100%; */
+    align-items: center;
+    border-bottom: 2px solid #A8A8A8;
+
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+}
+
+.find-id::before {
+    content: '아이디 찾기';
+}
+
+.find-pw::before {
+    content: '비밀번호 초기화';
+}
+
+
+/******* 커뮤니티 메뉴 속성 ****************************************/
+.total-brd::before {
+    content: '전체글';
+}
+
+.free-brd::before {
+    content: '자유게시판';
+}
+
+.exh-review-brd::before {
+    content: '전시후기';
+}
+
+.food-review-brd::before {
+    content: '맛집후기';
+}
+
+.together-brd::before {
+    content: '같이가요';
+}
+
+
+/* 메뉴 클릭 시 변경되는 속성 */
+.select-on {
+    color: #FF6C9E;
+    border-bottom: 2px solid #FF6C9E;
+}
+
+
+
+/******* 마이페이지 pc버전용 사이드 메뉴 속성 ****************************************/
+@media (min-width: 993px){ 
+    .menu-box{
+        display:inline-block;
+    }
+
+    .profile-box{
+        display: flex;
+        width: 180px;
+        height: 230px;
+        border:1.5px solid rgba(157, 157, 157, 0.353);
+        border-radius: 10px;
+        /* margin-bottom: 20px;   */
+    }
+
+    .profile-content{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin:0 auto;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .profile-img-box{
+        display: flex;
+        width: 130px;
+        height: 130px;
+        border-radius: 70%;
+        overflow: hidden;
+
+    }
+
+    .profile-img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .profile-name{
+        font-size: 18px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .member-grade{
+        background-color:#FFBFCF;
+        border-radius:20px;
+        width:60px;
+        height:24px;
+        text-align: center;
+        line-height: 24px;
+    }
+
+    .list{
+        justify-content: left;
+        line-height: 40px;
+        padding-left: 20px;
+        border-bottom:2px solid rgba(157, 157, 157, 0.353);
+    }
+
+    .deco{
+        display: flex;
+        flex-direction: row;
+        gap:20px;
+        font-size: 18px;
+    }
+    
+    	.mini-menu-list {
+		display: flex;
+	    
+	    flex-direction: column;
+	    align-items: flex-start;
+	    padding-left: 80px;
+	    gap: 10px;
+	    font-weight: 400;
+	    
+/* 	    transition: ; */
+	}
+
+
+	.mini-menu-list a {
+		font-size: 14px;
+	}
+	
+	.about-mypost>a:hover, .my-like-post>a:hover {
+		font-weight: 500;
+		color: #FF6B90;
+
+		transition: all .5s;
+	}
+	
+	.menu-list{
+	    width: 200px;
+	    height: 250px;
+	    margin: 0 auto;
+	    display: inline-block;
+	    justify-items: center;
+	    align-items: center;
+	
+	}
+	
+	.post-manage{
+		display: flex;
+		flex-direction: column;
+		
+		border-bottom: none;
+	    height: 52px;
+	}
+	.post-manage:hover>.mini-menu-list{
+		display: block;
+        transition: all 1s;
+	}
+	
+	.mini-menu-list{
+	    display: none;
+	    width: 100px;
+	    padding: 0;
+	
+	    position: relative;
+	    z-index: 10;
+	    left: 48px;
+	}
+	
+	.mini-menu-list.show{
+		display: block;
+	}
+	.mini-menu.selected a{
+		font-weight: 500;
+		color: #FF6B90;
+	}
+	.mini-menu-list > li{
+		width: 100%;
+	}
+	.mini-menu-list a{
+	    display: block;
+	    width: 100%;
+	    height: 100%;
+	}
+         
+         
+}
+
+

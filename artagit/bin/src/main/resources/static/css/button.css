@@ -1,0 +1,196 @@
+.btn {
+    padding: .4em .8em;
+    color: #fff;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #FF6C9E;
+    border-radius: 10px;
+    background-color: #FF6C9E;
+
+    font-size: 12px;
+}
+
+.btn-default-fill {
+    background-color: #FF6C9E;
+    border: 0.3px solid #FC93AD;
+}
+
+
+.btn-default-fill-off{
+    background-color: #ffc7d5;
+    border: 0.3px solid #ffc7d5;
+}
+
+.btn-default-line {
+    border: 1px solid #8686869c;
+    background-color: #fff;
+    color: #3a3a3a;
+
+}
+
+.btn-default-line-rec {
+    border-radius: 0;
+}
+
+.btn-default-line-left-radius {
+    border-radius: 5px 0 0 5px;
+}
+
+.btn-default-line-right-radius {
+    border-radius: 0 5px 5px 0;
+}
+
+.btn-hpg {
+    width: 90%;
+    height: 18px;
+    font-size: 12px;
+    border-radius: 0;
+}
+
+.btn-login {
+    padding: .4em 2.8em;
+}
+
+.btn-booking {
+    padding: 0;
+    border-radius: 0;
+    width: 100%;
+    height: 44px;
+
+    font-size: 18px;
+    position: fixed;
+    bottom: 0;
+}
+
+.btn-pay {
+    border-radius: 0;
+    padding: 0;
+    height: 44px;
+    font-size: 18px;
+    position: fixed;
+    width: 50%;
+    bottom: 0px;
+}
+
+.btn-way {
+    border-left: 1px solid #ffffff55;
+    right: 0;
+    cursor: pointer;
+}
+
+.btn-report {
+    font-size: 18px
+}
+
+.btn-payment-list {
+    display: inline-flex;
+}
+
+.btn-payment {
+    box-sizing: border-box;
+    width: 80px;
+    height: 36px;
+}
+
+.btn-rec {
+    border-radius: 0;
+}
+
+.btn-left-radius {
+    border-radius: 5px 0 0 5px;
+}
+
+.btn-right-radius {
+    border-radius: 0 5px 5px 0;
+}
+
+
+
+.btn-size-1 {
+    min-width: 80px;
+}
+
+.btn-unregister {
+    background-color: #FFFFFF;
+    color: #CD2323;
+    border: 1px solid #2E2E2E;
+    border-radius: 10px;
+    width: 54px;
+    height: 18px;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.btn-next {
+    border: #FF6C9E;
+    background-color: #FF6C9E;
+    width: 36px;
+    height: 36px;
+    display: inline-flex;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.btn-before {
+    border: #FF6C9E;
+    background-color: #FF6C9E;
+    width: 36px;
+    height: 36px;
+    display: inline-flex;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.btn-next:after {
+    content: '';
+    display: inline-block;
+    width: 0.8rem;
+    height: 0.8rem;
+    margin-left: 0.5rem;
+    border-top: 0.12rem solid #ffffff;
+    border-right: 0.12rem solid #ffffff;
+    transform: rotate(45deg);
+}
+
+.btn-before::before {
+    content: '';
+    display: inline-block;
+    width: 0.8rem;
+    height: 0.8rem;
+    margin-left: 0.8rem;
+    border-top: 0.12rem solid #ffffff;
+    border-right: 0.12rem solid #ffffff;
+    transform: rotate(222deg);
+}
+
+.btn-register {
+    width: 200px;
+    height: 36px;
+    color: #ffffff;
+    border-radius: 10px;
+    background-color: #FF6C9E;
+}
+
+.btn-xl {
+    width: 295px;
+    height: 40px;
+    font-size: 18px;
+}
+.btn-size-2 {
+    min-width: 80px;
+    height: 35px;
+}
+
+@media (min-width: 992px){
+
+	.btn-booking {
+	    padding: 0;
+	    border-radius: 0;
+	    width: 100%;
+	    height: 44px;
+	    font-size: 18px;
+	    margin-left: 40px;
+	}
+}

@@ -1,0 +1,48 @@
+/* a태그 */
+.deco{
+    display: inline-flex;
+    align-items: center;
+}
+
+.deco:hover{
+    color: #FC93AD;
+    transition: 1s;
+}
+.deco::before{
+    margin: 10px;
+
+    content:'';
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    
+    -webkit-mask-size: 24px 24px;
+    -webkit-mask-repeat: no-repeat;
+
+
+    background-color: #000;
+    box-sizing: border-box;
+    transition: 1s;
+}
+.deco:hover::before{
+    background-color: #FC93AD;
+}
+
+
+
+.deco-home::before{
+    -webkit-mask-image: url(../../image/icons/home.svg);
+}
+.deco-member::before{
+    -webkit-mask-image: url(../../image/icons/member.svg);
+}
+.deco-exhibition::before{
+    -webkit-mask-image: url(../../image/icons/exhibition.svg);
+}
+.deco-board::before{
+    -webkit-mask-image: url(../../image/icons/board.svg);
+}
+.deco-chart::before{
+    -webkit-mask-image: url(../../image/icons/chart.svg);
+}
+    
