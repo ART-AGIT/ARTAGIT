@@ -8,26 +8,23 @@ window.addEventListener("load", function() {
 	let nickname =  document.querySelector(".add-modify")
 	let commentBox = document.querySelector(".comment")
 	let type = document.querySelector(".type-post")
-	let img = document.querySelector(".profile-photo")
+	let img = document.querySelector(".comment-profile")
+
 	let date = document.querySelector(".date")
 	
-	let time = date.dataset.id
-	
-		
-
 
 
 	btnReg.onclick = function(e) {
 		e.preventDefault();
 		
-		
+				
 		let formData = new FormData(document.querySelector("#comment-form"));
 		fetch(`/api/reg`, { method: "post", body: formData })
 			.then(response => response.json())
 			.then(data => {
 				let name = data.member
 				let name2 = data.comment
-
+				
 				let template = `
    <section class="comment-detail">
             <form data-id=${name2.id}>
@@ -46,7 +43,7 @@ window.addEventListener("load", function() {
                <div class="comment-main" >${name2.content}</div>
                <div class="comment-info">
                   <div class="date" >
-                    ${time}</div>
+                    ${date.dataset.id}</div>
                   <div class="re-comment">
                   </div>
                      <div class="add-modify">
@@ -77,7 +74,7 @@ window.addEventListener("load", function() {
 
 	commentBox.onclick = function(e) {
 		e.preventDefault();
-
+	let img = document.querySelector(".comment-profile")
 	
 		if (e.target.id == 1) {
 			
@@ -141,6 +138,7 @@ window.addEventListener("load", function() {
 //				for (el = e.target; form.tagName != "FORM"; el = el.parentElement);
 //				console.log(el.parentElement.parentElement.dataset.id)
 //				for (el = e.target; form.tagName != "SECTION"; el = el.parentElement);
+	let img = document.querySelector(".comment-profile")
 				let textValue = e.target.previousElementSibling.value
 //				nickName = asd
 				let formData2 = new FormData();

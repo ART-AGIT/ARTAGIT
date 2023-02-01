@@ -66,7 +66,7 @@
            
                 <div class="post-writer-info">
                     <img class = "profile-photo" th:src="@{|/image/${board.memImage}|}" src = "../../image/accountImage.png">
-                    <div><a th:text="${board.nickname}" href = "../mypage/like-list.html">운영자</a></div>
+                    <div><a th:text="${board.nickname}">운영자</a></div>
                 </div>
             
             <div class="post-info">
@@ -118,12 +118,13 @@
                <h1 class="d-none">댓글1개</h1>
                <div class="comment-writer-wrapper" >
                   <div class="comment-writer">
-                     <img class="profile-photo" th:src="@{|/image/${comment.image}|}" th:attr="data-id=${comment.image}" >
+                     <img class="profile-photo comment-profile" th:src="@{|/image/${comment.image}|}" th:attr="data-id=${comment.image}" >
                      <div class="user-name" th:text="${comment.nickname}">오라클</div>
                   </div>
                   <div class="icon icon-report" >
                         <button id="4" th:attr="data-id=${comment.memId}" class="icon icon-report btn-black" type="submit" value="댓글">수정</button>
                   </div>
+                  
                   
                   
                </div>
