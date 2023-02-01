@@ -9,8 +9,11 @@ window.addEventListener("load", function() {
 	let commentBox = document.querySelector(".comment")
 	let type = document.querySelector(".type-post")
 
+
+
+
 	btnReg.onclick = function(e) {
-e.preventDefault();
+		e.preventDefault();
 		
 		
 		let formData = new FormData(document.querySelector("#comment-form"));
@@ -21,7 +24,16 @@ e.preventDefault();
 //				console.log(commentId = form.dataset.id)
 				let name = data.member
 				let name2 = data.comment
-				console.log(name2)
+				
+			let beforeNoticeDate = new Date(name2.regDate);
+			let utc = beforeNoticeDate.getTime() + (beforeNoticeDate.getTimezoneOffset() * 60 * 1000);
+			let time_diff = 9 * 60 * 60 * 1000;
+			let cur_date_korea = new Date(utc + (time_diff));
+			let year = name2.regDate.toString().substring(2, 4);
+			let month = name2.regDate.toString().substring(5, 7);
+			let day = name2.regDate.toString().substring(8, 10);
+			let hour = cur_date_korea.toString().substring(15, 18);
+			let min = cur_date_korea.toString().substring(19, 21);
 
 				let template = `
    <section class="comment-detail">
@@ -41,7 +53,7 @@ e.preventDefault();
                <div class="comment-main" >${name2.content}</div>
                <div class="comment-info">
                   <div >
-                     2022.11.26 18:38</div>
+                    ${year}/${month}/${day}/${hour}:${min}</div>
                   <div class="re-comment">
                   </div>
                      <div class="add-modify">

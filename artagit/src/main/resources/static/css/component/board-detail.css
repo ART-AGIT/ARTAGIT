@@ -5,7 +5,7 @@
     
 }
 .icon-report{
-    -webkit-mask-size: 20px 20px;
+    -webkit-mask-size: 15px 15px;
     cursor:pointer;
     cursor:pointer;
 }
@@ -260,6 +260,9 @@ textarea:focus{
 }
 .a-btn-black{
 	color:#837e7e;
+}
+.date{
+	font-size:12px;
 }
 
 
