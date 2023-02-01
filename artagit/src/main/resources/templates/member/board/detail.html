@@ -118,7 +118,7 @@
                <h1 class="d-none">댓글1개</h1>
                <div class="comment-writer-wrapper" >
                   <div class="comment-writer">
-                     <img class="profile-photo" src = "../../image/accountImage.png">
+                     <img class="profile-photo" th:src="@{|/image/${comment.image}|}">
                      <div class="user-name" th:text="${comment.nickname}">오라클</div>
                   </div>
                   <div class="icon icon-report" >
