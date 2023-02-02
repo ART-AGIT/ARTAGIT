@@ -98,14 +98,26 @@
                      <a th:href="@{|/member/board/edit/${id}|}" class="btn btn-default-line">수정</a>
                   <div type="button" class="btn btn-default-line delete-btn">삭제</div>
                </div>
-               <div class="icon-flex" th:classappend="${user.id != board.memId} ? '' : 'd-none'">
+               <div class="icon-flex" th:if="${user.id != board.memId}">
                    <div class="heart-fix">
                       <div th:classappend="${board.heart} != 1? '' : 'icon-heart-red'" class="icon icon-heart post-like-btn"></div>
                    </div>
-                   <button   th:attr="data-id=${board.memId}" class="icon icon-report post-report" type="submit" value="게시글">수정</button>
+                   <button  th:attr="data-id=${board.memId}" class="icon icon-report post-report" type="submit" value="게시글">수정</button>
             </div>
         </div>
         </div>
+             <div id="modal" class="modal-overlay d-none">
+           <div class="modal-window">
+                   <div class="modal-header">
+                    <h1 class="header-title">정말 삭제하시겠습니까?</h1>
+                 </div>
+               <div class="button-wrap modal-actions">
+               <a th:href="@{/member/board/delete(id=${id})}" class="modal-action yes">예</a>
+               <button class="modal-action no">아니오</button>
+               </div>
+            </div>
+        </div>
+        
         <section class="comment">
             <section class="comment-title-wrapper">
                 <h1 class="icon icon-comment">댓글</h1>
@@ -118,7 +130,7 @@
                <h1 class="d-none">댓글1개</h1>
                <div class="comment-writer-wrapper" >
                   <div class="comment-writer">
-                     <img class="profile-photo comment-profile" th:src="@{|/image/${comment.image}|}" th:attr="data-id=${comment.image}" >
+                     <img class="profile-photo" th:src="@{|/image/${comment.image}|}" th:attr="data-id=${comment.image}" >
                      <div class="user-name" th:text="${comment.nickname}">오라클</div>
                   </div>
                   <div class="icon icon-report" >
@@ -147,7 +159,8 @@
                </div>
                </form>
                 </th:block>
-             
+          
+        
             </section>
             
             
@@ -177,18 +190,6 @@
     
         
         
-        
-          <div id="modal" class="modal-overlay d-none">
-           <div class="modal-window">
-                   <div class="modal-header">
-                    <h1 class="header-title">정말 삭제하시겠습니까?</h1>
-                 </div>
-               <div class="button-wrap modal-actions">
-               <a th:href="@{/member/board/delete(id=${id})}" class="modal-action yes">예</a>
-               <button class="modal-action no">아니오</button>
-               </div>
-            </div>
-        </div>
         
         
         
