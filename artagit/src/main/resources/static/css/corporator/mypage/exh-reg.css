@@ -198,7 +198,9 @@ div.exh-reg-button-box {
 }
 
 @media (min-width: 993px) {
-
+main {
+    width: 1000px;
+}
 
 	.step {
     width: 430px;
@@ -232,23 +234,27 @@ div.exh-reg-button-box {
 
 	.main-contents {
 		display: flex;
-		gap: 20px;
-		padding-top: 160px;
-		justify-content: space-around;
+/* 		gap: 20px; */
+		    padding-top: 80px;
+		justify-content: space-between;
 		width: 1000px;
 	}
 	
 }
 
-.menu-box.exh-reg{
-	padding-left: 106px;
-	padding-top: 0;
+/* .menu-box.exh-reg{ */
+/* 	padding-left: 106px; */
+/* 	padding-top: 0; */
 	
-}
+/* } */
 
-.exh-reg-list{
-	width: 500px;
-}
+	.sub-contents {
+		width: 100%;
+	}
+	
+	.exh-reg-list{
+	/* 	width: 500px; */
+	}
 
 .member-grade {
     background-color: #414141;
