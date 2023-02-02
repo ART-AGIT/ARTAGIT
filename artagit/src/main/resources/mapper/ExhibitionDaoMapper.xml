@@ -91,6 +91,7 @@
 	<select id="getListByIdInit" resultType="com.artagit.web.entity.Exhibition">
 		select * from Exhibition
 		where corpId = #{id}
+		order by regDate desc
 		<!-- and useYN = 'Y'-->
 		limit #{limit};
 	</select>
