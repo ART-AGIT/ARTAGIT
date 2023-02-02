@@ -70,6 +70,7 @@ public class artagitUserDetailsService implements UserDetailsService {
 			
 			user.setUsername(username);
 			user.setId(member.getId());
+			user.setLoginId(member.getLoginId());
 			user.setPassword(member.getPassword());
 			user.setName(member.getName());
 			user.setPhone(member.getPhone());
@@ -123,7 +124,7 @@ public class artagitUserDetailsService implements UserDetailsService {
 			
 		}
 		System.out.println(username + "회원의 권한 ====> "+authorities);
-		System.out.println(user.getCorpAddress());
+		System.out.println(user);
 		
 		return user;
 	}

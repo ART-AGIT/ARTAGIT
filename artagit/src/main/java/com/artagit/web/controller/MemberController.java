@@ -58,6 +58,7 @@ public class MemberController {
 	
 	@GetMapping("login")
 	public String login() {
+		//System.out.println("멤버의 비번"+ );
 		return "user/login";
 	}
 
@@ -69,9 +70,11 @@ public class MemberController {
 	// 회원가입
 	@PostMapping("signup")
 	public String reg(Member member) {
+		
+		
 		int result = service.signUp(member);
 		System.out.println("insert 결과 => " + result);
-		System.out.println("가입된 member => " + member);
+		System.out.println("가입된 member => " + member.getPassword());
 		return "redirect:/";
 	}
 	

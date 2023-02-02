@@ -25,8 +25,9 @@ public class DefaultMemberService implements MemberService{
 	public int signUp(Member member) {
 		String password = member.getPassword();
 		String encPassword = passwordEncoder.encode(password);
-		
+		//인코딩1
 		member.setPassword(encPassword); // 인코딩한 비번을 member 객체에 담는다.
+		
 		member.setRoleId(2); // 일반회원에게는 roleId를 2번으로 부여해준다.
 		
 		int result = memberDao.insert(member);
