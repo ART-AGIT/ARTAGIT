@@ -196,9 +196,12 @@
         
          <div id="modal-popup" class="modal-overlay d-none">
               <div class="modal-window">
-               <div class="content">신고가 완료되었습니다</div>
-               <a class="button-wrap"></a>
-               <div class="btn btn-default-fill close">확인</div>
+                <div class="modal-header">
+	        	  <h1 class="header-title">신고가 접수되었습니다.</h1>
+				</div>
+               <div class="button-wrap modal-actions">
+               <div class="modal-action close">확인</div>
+           	   </div>
            </div>
         </div>
     
@@ -228,22 +231,20 @@
 							    <textarea class="report-form" spellcheck="false"></textarea>
 							</div>
 						</div>
-						<div class="icon-box">
-						</div>
 					</section>
-				</div>
-		            </div>
-		            	<div class="button-popup">
+		            	<div class="button-popup modal-actions">
 <!-- 		            	      <button id="5"   th:href="@{/member/board/delete(id=${id})}" class="btn btn-default-fill yes">수정</button> -->
 <!-- 				         <button class="btn btn-large btn-write" type="submit" value="작성">작성</button> -->
-				            <button  class="btn btn-large yes" type="submit">신고</button>
+				            <button  class="modal-action yes" type="submit">신고</button>
 <!-- 				              <input type="hidden"  name="memId" th:value="${}"> -->
-				            <div class="btn btn-default-dark no">취소</div>
+				            <div class="modal-action no">취소</div>
 		           	 </div>
+				</div>
 		            </div>
 		            </div>
-		               </th:block>
-		            </section>
+		            </div>
+<!-- 		               </th:block> -->
+<!-- 		            </section> -->
            <div id="popup" class="popup-overlay popup-over d-none">
                     <div class="popup-window">
                   <div class="popup-content"> 

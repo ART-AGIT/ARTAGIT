@@ -103,7 +103,7 @@ form {
 	    display: flex;
 	    flex-direction: row;
 	    gap:60px;
-	    margin-top:80px;
+/* 	    margin-top:80px; */
 	}
 	.member-grade-corp{
 		background-color: #414141;
