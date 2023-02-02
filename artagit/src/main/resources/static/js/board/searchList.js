@@ -59,7 +59,7 @@ window.addEventListener("load", function() {
 			else if(board.image4 != null)
 				titleImage = board.image4;
 			else
-				titleImage = '';
+				titleImage = null;
 			
 			
 		
