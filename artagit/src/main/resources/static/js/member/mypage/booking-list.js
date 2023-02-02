@@ -134,7 +134,7 @@ window.addEventListener("load", function(){
            
             
             //KST 시간변환
-          let beforeDate = new Date(booking.bookingDate);
+          	let beforeDate = new Date(booking.bookingDate);
 			let utcBoard = beforeDate.getTime() + (beforeDate.getTimezoneOffset() * 60 * 1000);
 			let time_diff = 9 * 60 * 60 * 1000;
 			let cur_date_korea = new Date(utcBoard + (time_diff));
@@ -333,7 +333,31 @@ window.addEventListener("load", function(){
          .then((data)=>{
          
          let bookingInfo = data.bookingInfo;
-         var bookingDate = bookingInfo.bookingDate.substring(0,10);
+//         var bookingDate = bookingInfo.bookingDate.substring(0,10);
+         
+         let beforeDate = new Date(bookingInfo.bookingDate);
+			let utcBoard = beforeDate.getTime() + (beforeDate.getTimezoneOffset() * 60 * 1000);
+			let time_diff = 9 * 60 * 60 * 1000;
+			let cur_date_korea = new Date(utcBoard + (time_diff));
+//			
+			let year = bookingInfo.bookingDate.toString().substring(2, 4);
+			let month = bookingInfo.bookingDate.toString().substring(5, 7);
+			let day = bookingInfo.bookingDate.toString().substring(8, 10);
+			let hour = cur_date_korea.toString().substring(15, 18);
+			let min = cur_date_korea.toString().substring(19, 21);
+//            
+            var dayReal = cur_date_korea.toString().substring(8,11)
+            var date = bookingInfo.bookingDate.substring(0,7)+"-"+dayReal
+//            
+            console.log("관람일===================="+date); 
+         
+         
+         
+         
+         
+         
+         
+         
          
          
          var template =
@@ -355,7 +379,7 @@ window.addEventListener("load", function(){
                                 </div>
                                 <div>
                                     <span class="exh-loc" >${bookingInfo.museumName}</span>
-                                    <span class="exh-date"  >[ 관람일 : ${bookingDate} ] </span>
+                                    <span class="exh-date"  >[ 관람일 : ${date} ] </span>
                                 </div>
           
                                 <div class="color-option">
@@ -400,10 +424,37 @@ window.addEventListener("load", function(){
                      
                         console.log("수정등록에서 "+reviewId);
          
-                        let bookingInfo = data.bookingInfo;
-                        var bookingDate = bookingInfo.bookingDate.substring(0,10);
+//                        let bookingInfo = data.bookingInfo;
+//                        var bookingDate = bookingInfo.bookingDate.substring(0,10);
                         const reviewModal = document.querySelector(".review-modal-background");
                         reviewModal.classList.add("d-none")
+                        
+                        
+                        
+                        let bookingInfo = data.bookingInfo;
+//         var bookingDate = bookingInfo.bookingDate.substring(0,10);
+         
+         				let beforeDate = new Date(bookingInfo.bookingDate);
+						let utcBoard = beforeDate.getTime() + (beforeDate.getTimezoneOffset() * 60 * 1000);
+						let time_diff = 9 * 60 * 60 * 1000;
+						let cur_date_korea = new Date(utcBoard + (time_diff));
+			//			
+						let year = bookingInfo.bookingDate.toString().substring(2, 4);
+						let month = bookingInfo.bookingDate.toString().substring(5, 7);
+						let day = bookingInfo.bookingDate.toString().substring(8, 10);
+						let hour = cur_date_korea.toString().substring(15, 18);
+						let min = cur_date_korea.toString().substring(19, 21);
+			//            
+			            var dayReal = cur_date_korea.toString().substring(8,11)
+			            var date = bookingInfo.bookingDate.substring(0,7)+"-"+dayReal
+			//            
+			            console.log("관람일===================="+date); 
+                        
+                        
+                        
+                        
+                        
+                        
                         
                         var template =
                            `
@@ -425,7 +476,7 @@ window.addEventListener("load", function(){
                                                </div>
                                                <div>
                                                    <span class="exh-loc" >${bookingInfo.museumName}국립현대미술관</span>
-                                                   <span class="exh-date"  >[ 관람일 : ${bookingDate} ]</span>
+                                                   <span class="exh-date"  >[ 관람일 : ${date} ]</span>
                                                </div>
                          
                                                <div class="color-option">
@@ -589,8 +640,26 @@ window.addEventListener("load", function(){
             var bookingInfo = data.bookingInfo;
             var bookingDate = bookingInfo.bookingDate.substring(0,10);
 
-
-
+			//KST 시간변환
+          	let beforeDate = new Date(bookingInfo.bookingDate);
+			let utcBoard = beforeDate.getTime() + (beforeDate.getTimezoneOffset() * 60 * 1000);
+			let time_diff = 9 * 60 * 60 * 1000;
+			let cur_date_korea = new Date(utcBoard + (time_diff));
+//			
+			let year = bookingInfo.bookingDate.toString().substring(2, 4);
+			let month = bookingInfo.bookingDate.toString().substring(5, 7);
+			let day = bookingInfo.bookingDate.toString().substring(8, 10);
+			let hour = cur_date_korea.toString().substring(15, 18);
+			let min = cur_date_korea.toString().substring(19, 21);
+//            
+            var dayReal = cur_date_korea.toString().substring(8,11)
+            var date = bookingInfo.bookingDate.substring(0,7)+"-"+dayReal
+//            
+            console.log("관람일===================="+date); 
+            
+            
+            
+			
             
             if(bookingDate >=  now){
                 alert("관람 전인 리뷰에 대해서는 작성할 수 없습니다. \n관람 후에 작성해 주세요.");
@@ -609,7 +678,7 @@ window.addEventListener("load", function(){
                                            <span id="textLengthCheck" style="padding-left:600px;">(0 / 최대 950자)</span>
                                        </div>
                                        <div class="write-form" style="margin-top:0px;">
-                                           <textarea  id="content" name ="content" spellcheck="false" class="input-review" placeholder="리뷰를 작성해주세요\n최대 1000자까지 작성가능합니다." ></textarea>       
+                                           <textarea  id="content" name ="content" spellcheck="false" class="input-review" placeholder="리뷰를 작성해주세요\n최대 950자까지 작성가능합니다." ></textarea>       
                                           
                                        </div>        
                                            <div class="detail-info">
@@ -618,7 +687,7 @@ window.addEventListener("load", function(){
                                                </div>
                                                <div>
                                                    <span class="exh-loc"  >${bookingInfo.museumName}</span>
-                                                   <span class="exh-date" >[ 관람일 : ${bookingDate} ]</span>
+                                                   <span class="exh-date" >[ 관람일 : ${date} ]</span>
                                                </div>
                                
                                                <div class="color-option">

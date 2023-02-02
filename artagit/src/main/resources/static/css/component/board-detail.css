@@ -5,7 +5,7 @@
     
 }
 .icon-report{
-    -webkit-mask-size: 15px 15px;
+    -webkit-mask-size: 20px 20px;
     cursor:pointer;
     cursor:pointer;
 }
@@ -152,24 +152,24 @@
 
 .comment-info{
     display:grid;
-  	border-bottom: 1px solid #BCBCBC;
-	padding-bottom: 10px;
+     border-bottom: 1px solid #BCBCBC;
+   padding-bottom: 10px;
     grid-template-columns: 110px 80px 1fr;
     align-items: center;
 
 }
 
 .comment-infoline{
-	border-bottom: 1px solid #BCBCBC;
-	padding-bottom: 10px;
+   border-bottom: 1px solid #BCBCBC;
+   padding-bottom: 10px;
 }
 .add-modify{
-	 justify-self: end;
+    justify-self: end;
 }
 .report{
-	    display: flex;
-    	justify-content: end;
-    	    margin-top: 10px;
+       display: flex;
+       justify-content: end;
+           margin-top: 10px;
 }
 
 .re-comment>a{
@@ -253,16 +253,16 @@ textarea:focus{
 }
 
 .a-btn{
-	color:#FF6C9E;
-	font-size:14px;
-	margin-right: 10px;
-	cursor: pointer;
+   color:#FF6C9E;
+   font-size:14px;
+   margin-right: 10px;
+   cursor: pointer;
 }
 .a-btn-black{
-	color:#837e7e;
+   color:#837e7e;
 }
 .date{
-	font-size:12px;
+   font-size:12px;
 }
 
 
@@ -285,19 +285,19 @@ textarea:focus{
         }
         
 #modal .modal-window {
-	/*     background: rgba(255, 255, 255); */
-	/*     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 ); */
-	/*     backdrop-filter: blur( 13.5px ); */
-	/*     -webkit-backdrop-filter: blur( 13.5px ); */
-	/*     border-radius: 10px; */
-	/*     border: 1px solid rgba( 255, 255, 255, 0.18 ); */
-	/*     width: 200px; */
-	/*     height: 100px; */
-	/*     position: relative; */
-	/*     top: -100px; */
-	/*     padding: 10px; */
-	
-	position: fixed;
+   /*     background: rgba(255, 255, 255); */
+   /*     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 ); */
+   /*     backdrop-filter: blur( 13.5px ); */
+   /*     -webkit-backdrop-filter: blur( 13.5px ); */
+   /*     border-radius: 10px; */
+   /*     border: 1px solid rgba( 255, 255, 255, 0.18 ); */
+   /*     width: 200px; */
+   /*     height: 100px; */
+   /*     position: relative; */
+   /*     top: -100px; */
+   /*     padding: 10px; */
+   
+   position: fixed;
     box-shadow: 0px 0px 19px 1px rgb(31 38 135 / 16%);
     display: flex;
     flex-direction: column;
@@ -326,44 +326,37 @@ textarea:focus{
 
 
   
-		
-/* 		================================================= */
-	#modal-popup.modal-overlay {
-		width: 100%;
-	    height: 100%; 
-	    position: fixed;
-	    left: 0;
-	    top: 0;
-	/*     display: none; */
-	    flex-direction: column;
-	    align-items: center;
-	    justify-content: center;
-	    background: rgba(255, 255, 255, 0.25);
-	    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-	    backdrop-filter: blur(1.5px);
-	    -webkit-backdrop-filter: blur(1.5px);
-	    border-radius: 10px;
-	    border: 1px solid rgba(255, 255, 255, 0.18);
-      }
       
-      #modal-popup .modal-window {
-			position: fixed;
-		    box-shadow: 0px 0px 19px 1px rgb(31 38 135 / 16%);
-		    display: flex;
-		    flex-direction: column;
-		    align-items: center;
-		    justify-content: center;
-		    z-index: 200;
-		    top: 50%;
-		    left: 50%;
-		    width: 20%;
-		    height: 7rem;
-		    transform: translate(-50%, -50%);
-		    background: rgb(255, 255, 255);
-		    padding: 1rem;
-		    border: 1px solid #a9a9a996;
-		    box-sizing: border-box;
-		    border-radius: 0.5rem;
+/*       ================================================= */
+#modal-popup.modal-overlay {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            left: 0;
+            top: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.25);
+            box-shadow: 0 3px 5px 0 rgb(136, 30, 123);
+            backdrop-filter: blur(1.5px);
+            -webkit-backdrop-filter: blur(1.5px);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+        #modal-popup .modal-window {
+            background: white;
+            box-shadow: 0 3px 5px 0 rgb(177, 41, 126);
+            backdrop-filter: blur( 13.5px );
+            -webkit-backdrop-filter: blur( 13.5px );
+            border-radius: 10px;
+            border: 1px solid rgba( 255, 255, 255, 0.18 );
+            width:  200px;
+            height: 100px;
+            position: relative;
+            top: -100px;
+            padding: 10px;
         }
        
         
@@ -373,18 +366,18 @@ textarea:focus{
             padding: 0px 10px;
             color: gray;
         }
-		.button-wrap{
-		margin-bottom: 10px;
-		
-		}
+      .button-wrap{
+      margin-bottom: 10px;
+      
+      }
 
 
 
         
 /*         =============================================== */
-		
-		
-		
+      
+      
+      
 
 
         #popup.popup-overlay {
@@ -424,15 +417,17 @@ textarea:focus{
             padding: 0px 10px;
 /*             color: gray; */
         }
-		.button-popup{
+      .button-popup{
+            display: flex;
             gap: 70px;
-            padding: 24px 0;
-		}
-		
-	.btn{
-		cursor: pointer;
-	}
-	
+         margin-left: 32%;
+      
+      }
+      
+   .btn{
+      cursor: pointer;
+   }
+   
 
 /* --------pc버전--------------- */
 @media (min-width: 992px) {
