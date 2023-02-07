@@ -69,6 +69,7 @@ public class artagitUserDetailsService implements UserDetailsService {
 			authorities.add(new SimpleGrantedAuthority(role.getName())); // authorities에 추가한다. 회원의 id에서 얻어온 권한의 이름을..
 			
 			user.setUsername(username);
+			user.setLoginId(username);
 			user.setId(member.getId());
 			user.setPassword(member.getPassword());
 			user.setName(member.getName());
