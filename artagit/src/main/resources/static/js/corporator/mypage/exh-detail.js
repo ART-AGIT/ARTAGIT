@@ -147,8 +147,12 @@ window.addEventListener("load", function(){
 				console.log("성공");
 				return response;
 				} else {console.log("실패")}})
-            // .then(location.href='/corp/exh/'+id[0].value);
-            // .then(location.reload());
+//             .then(console.log(id[0].value))
+////             .then(location.href='/corp/exh/'+id[0].value);
+//			.then(window.location.reload())
+//			.then(window.scrollTo(0,0));
+
+		location.href='/corp/exh/'+id[0].value;
 		}
     }
 

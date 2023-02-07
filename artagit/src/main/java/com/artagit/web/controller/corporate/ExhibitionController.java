@@ -111,7 +111,7 @@ public class ExhibitionController {
 		@Transactional
 		@PostMapping("update")
 		@ResponseBody
-		public String update(@RequestBody ObjectNode exhInfo) throws JsonProcessingException, IllegalArgumentException {
+		public void update(@RequestBody ObjectNode exhInfo) throws JsonProcessingException, IllegalArgumentException {
 			System.out.println("update 메서드 진입");
 			
 			// ObjectMapper = json 형태의 데이터를 java Object 로 변환해주는 클래스 (json 라이브러리 Jackson)
@@ -134,7 +134,9 @@ public class ExhibitionController {
 			
 			System.out.println("전시정보 update결과: "+result);
 			System.out.println(exh.getId()+"번 전시 수정완료");
-			return "redirect:{id}";
+			int id = exh.getId();
+			System.out.println(id);
+//			return id;
 		}
 	
 	// 주최자가 등록한 전시 삭제 ========================

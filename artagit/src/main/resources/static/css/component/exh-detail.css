@@ -387,4 +387,15 @@ h1.mody-on:focus {
 	    height: 25px;
 	    font-size: 14px;
 	}
+	.member-grade-corp{
+		background-color: #414141;
+	    border-radius: 20px;
+	    width: 60px;
+	    height: 24px;
+	    text-align: center;
+	    line-height: 24px;
+	    color: #fff;
+		background-color:#414141;
+		margin: auto;
+	}
 }

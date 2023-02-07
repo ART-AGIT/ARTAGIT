@@ -24,8 +24,8 @@
 	        	<div class="profile-box">
 	        		<div class="profile-content">
 		                <div class="profile-img-box" >
-		                    <img th:src="@{|/image/${user.img}|}" class="profile-img">
-		                	<img th:if="${user.provider != null}" th:src="${user.img}" class="profile-img img-input">
+		                  <img th:if="${user.img}!= null" th:src="@{|/image/${user.img}|}"  src="../../image/회원기본이미지.svg" class="member-profile-img">
+                            <img th:unless="${user.img}!= null" th:src="@{/image/프사.jpg}" src="../../image/회원기본이미지.svg" class="member-profile-img">     
 		                </div>
 		                <div class="profile-name">
 		                    <span th:text="${user.nickname} +' 님'">1004님</span>
