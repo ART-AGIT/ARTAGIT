@@ -19,7 +19,8 @@ Art Agit
 
 ## ⚙ 개발환경
 - java 17
-  <img src="https://img.shields.io/badge/java-007396?style=for-the-badge&logo=java&logoColor=white"> 
+<img src="https://img.shields.io/badge/java-007396?style=for-the-badge&logo=java&logoColor=white">
+<img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black">
 - jkd 17.0.4
 - IDE STS 4.0
 - database : maria DB
