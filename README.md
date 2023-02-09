@@ -23,7 +23,8 @@ Art Agit
 <img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black">
 - jkd 17.0.4
 - IDE STS 4.0
-- database : maria DB
+- database : maria DB  
+<img src="https://img.shields.io/badge/mariaDB-003545?style=for-the-badge&logo=mariaDB&logoColor=white"> 
 - ORM : Mybatis
 
 ## git commit message convention  
