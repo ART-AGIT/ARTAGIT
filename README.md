@@ -41,11 +41,10 @@
  
  </br>
  
-| 모바일 | 데스크탑 | 반응형 |
-| :---: | :---: | :---: |
-| <img src="https://user-images.githubusercontent.com/112043767/215289582-7fbe12d8-274d-4a9a-a72f-b40183af1cf0.png">  | <img src="https://user-images.githubusercontent.com/112043767/215288758-f3c2b9ec-b14d-44af-bdca-c9109488b5d2.png" >| <img src="https://user-images.githubusercontent.com/112043767/215290919-bd74d3e1-9218-4f27-b2bc-166b0af7d031.gif"  >|
-
-
+| 데스크탑 | 
+| :---: |
+|  <img src="https://user-images.githubusercontent.com/112796798/218294092-2223e442-afae-427a-8bea-b64493020bc3.gif"> |
+ 
 
  </br> </br> 
 ### 2️⃣ 전시 조회 페이지
@@ -60,10 +59,9 @@
 
 </br> 
 
-
-| 모바일 | 데스크탑 | 반응형 |
-| :---: | :---: | :---: |
-| <img src="https://user-images.githubusercontent.com/112043767/215292160-dee58f4d-8c18-4a29-9fa4-e1d70b81951e.png">  | <img src="https://user-images.githubusercontent.com/112043767/215291189-27a10606-98d4-437a-9819-8ad852f28704.png" >| <img src="https://user-images.githubusercontent.com/112043767/215291171-798763c1-69e1-4ca0-b2f3-7a468e62f6a1.gif"  >|
+| 데스크탑 | 
+| :---: |
+|  <img src="https://user-images.githubusercontent.com/112796798/218295171-73c0a579-66a8-4776-b646-05b25cf64d0d.gif"> |
 
 
 
