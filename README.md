@@ -54,7 +54,7 @@
 
 | 데스크탑 | 
 | :---: |
-|  <img src="https://user-images.githubusercontent.com/112796798/218295171-73c0a579-66a8-4776-b646-05b25cf64d0d.gif"> |
+|  <img src="https://user-images.githubusercontent.com/104054366/218314869-2be08dba-c962-466f-8c49-932b599d68ac.gif"> |
 
  </br> </br> 
  
@@ -65,9 +65,9 @@
 - 이러한 소통의 갈증을 해결해 줄 수 있는 자유로운 소통공간이에요. 
 - 원활한 운영을 위해 부적절한 게시글과 댓글에 대해서는 사용자들간의 신고가 가능하답니다.🚨
 
-| 모바일: 내 프로필 | 모바일: 내 프로필 수정 | 모바일: 내가 참여한 모임 |
-| :---: | :---: | :---: |
-| <img src="https://user-images.githubusercontent.com/112043767/215292791-2f09afc2-0b16-4370-924c-239ecc980b1d.png">  | <img src="https://user-images.githubusercontent.com/112043767/215292761-e6ae8e44-44e6-4bb4-824b-6907726000d3.png" >| <img src="https://user-images.githubusercontent.com/112043767/215293148-3a069573-2e2d-477c-968c-113342284b55.png"  >|
+| 데스크탑 | 
+| :---: |
+|  <img src="https://user-images.githubusercontent.com/112796798/218295171-73c0a579-66a8-4776-b646-05b25cf64d0d.gif"> |
 
  </br> </br> 
 
@@ -82,20 +82,19 @@
  <table>
   <tbody>
     <tr>
-      <td align="center"><a href="https://github.com/sungkyoonjoo"><img src="https://avatars.githubusercontent.com/u/102606939?v=4" width="50"><br /><sub><b>주성균<br />천둥호랑이</b></sub></a><br /></td>
-      <td align="center"><a href="https://github.com/HOJUNGYANG"><img src="https://avatars.githubusercontent.com/u/112043767?v=4" width="50" alt=""/><br /><sub><b>양호정<br />번개강아지 </b></sub></a><br /></td>
-      <td align="center"><a href="https://github.com/HWANGBOEUNJIN"><img src="https://avatars.githubusercontent.com/u/105474635?v=4" width="50" alt=""/><br /><sub><b>황보은진<br />보은진</b></sub></a><br /></td>
-      <td align="center"><a href="https://github.com/LeeSangmin0424"><img src="https://avatars.githubusercontent.com/u/69413567?v=4" width="50" alt=""/><br /><sub><b>이상민<br />킬베로스1</b></sub></a><br /></td>
-      <td align="center"><a href="https://github.com/kyoumin"><img src="https://avatars.githubusercontent.com/u/117254352?v=4" width="50" alt=""/><br /><sub><b>김유민<br />킬베로스2</</sub></a><br /></td>
-      <td align="center"><a href="https://github.com/Lampjin"><img src="https://avatars.githubusercontent.com/u/117254352?v=4" width="50" alt=""/><br /><sub><b>이진희<br />킬베로스3</</sub></a><br /></td>
-      <td align="center"><a href="https://github.com/jeonghyun22"><img src="https://avatars.githubusercontent.com/u/117254352?v=4" width="50" alt=""/><br /><sub><b>김정현<br />소음인</</sub></a><br /></td>
+      <td align="center"><a href="https://github.com/sungkyoonjoo"><img src="https://avatars.githubusercontent.com/u/112796798?v=4" width="50"><br /><sub><b>주성균<br />천둥호랑이</b></sub></a><br /></td>
+      <td align="center"><a href="https://github.com/HOJUNGYANG"><img src="https://avatars.githubusercontent.com/u/104054366?s=400&u=ed899c27843fef05c745031f65818fd83e8e2f63&v=4" width="50" alt=""/><br /><sub><b>양호정<br />번개강아지 </b></sub></a><br /></td>
+      <td align="center"><a href="https://github.com/HWANGBOEUNJIN"><img src="https://avatars.githubusercontent.com/u/113825041?v=4" width="50" alt=""/><br /><sub><b>황보은진<br />보은진</b></sub></a><br /></td>
+      <td align="center"><a href="https://github.com/LeeSangmin0424"><img src="https://avatars.githubusercontent.com/u/112687027?v=4" width="50" alt=""/><br /><sub><b>이상민<br />킬베로스1</b></sub></a><br /></td>
+      <td align="center"><a href="https://github.com/kyoumin"><img src="https://avatars.githubusercontent.com/u/86357444?v=4" width="50" alt=""/><br /><sub><b>김유민<br />킬베로스2</</sub></a><br /></td>
+      <td align="center"><a href="https://github.com/Lampjin"><img src="https://avatars.githubusercontent.com/u/73868229?v=4" width="50" alt=""/><br /><sub><b>이진희<br />킬베로스3</</sub></a><br /></td>
+      <td align="center"><a href="https://github.com/jeonghyun22"><img src="https://avatars.githubusercontent.com/u/106044593?v=4" width="50" alt=""/><br /><sub><b>김정현<br />소음인</</sub></a><br /></td>
     </tr>
   </tbody>
 </table>
 
 - 저희 팀은 7명으로 이루어져 있습니다.
-- 프로젝트는 대면위주로 약 3개월간 진행되었습니다.
-- 깃 커밋 컨벤션과 PR 규칙을 정해서 깃을 적극적으로 활용해보고자 했습니다!
+- FE, BE 따로 구분짓지 않고 다함께 진행하였습니다.
 - 팀원 모두 서로를 존중하는 마음으로 프로젝트에 임했습니다.🙂
 <br /><br /> <br />
 
@@ -114,25 +113,3 @@
 <img src="https://img.shields.io/badge/MariaDB-003545?style=flat-square&logo=MariaDB&logoColor=white"/>
  </p>
 
-
-
-
-//body  
-무엇을, 왜(What, Why)에 대해서 작성  
-ex)   
-1 기능 추가   
-- 1.ts : 쏼라  
-- 2.ts : 쏼라  
-
-//footer  
-해결, 관련, 참고  
-ex) 해결: {이슈번호}  
-
-//예시  
-✨ feat : 홈 검색기능 추가  
-
-홈에서 검색기능 추가  
-- searchViewController.swift: 검색 api function 추가, 검색 되었을때 emptyStateView 보이게 추가  
-- emptyStateView.swift: 검색결과 없을시 뜨는 view 로직 추가  
-
-해결: PI-323  
