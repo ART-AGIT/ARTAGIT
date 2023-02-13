@@ -2,30 +2,25 @@
 
 # 우리들의 아지트, Art Agit
  전시를 러라ㅓ마 럼나얼 마니얾ㄴㅇ러말ㅇㄹㅇㄻ
-</br></br> 
+</br> 
  
  ## 📑 Contents
 - [우리들의 아지트, Art Agit](#우리들의-아지트-art-agit)
     + [🤔 <b>Why, Art Agit</b>](#-why----art-agit)
-    
-  * 🤗 <b>Art Agit를 소개합니다.</b>
+  * [🤗 <b>Art Agit를 소개합니다.</b>](#-art-agit를-소개합니다)
     + [메인페이지](#1%EF%B8%8F⃣-반전을-주는-메인화면)
     + [전시 조회](#2%EF%B8%8F⃣-전시-조회-페이지)
     + [전시 예매](#3%EF%B8%8F⃣-전시-예매-페이지)
     + [커뮤니티](#4%EF%B8%8F⃣-커뮤니티-페이지)
-    </br>
-  * 😇 <b>Art Agit, 이렇게 만들어 졌어요.</b>
-    + [프로젝트 진행 기간](#1%EF%B8%8F⃣-개발기간)
-    + [우리 팀원들을 소개합니다](#2%EF%B8%8F⃣-팀원소개)
-    + [Art Agit 를 만들기 위한 초석들](#3%EF%B8%8F⃣-art-agit-를-만들기-위한-초석들)
-    + [이런 기술을 사용했어요](#4%EF%B8%8F⃣-개발환경)
+  * [😇 <b>Art Agit, 이렇게 만들어 졌어요.</b>](#-art-agit,-이렇게-만들어-졌어요)
+    + [저희 팀원들을 소개합니다](#팀원소개)
+    + [Art Agit 만들기 위한 초석들](#-zpop-을-만들기-위한-초석들)
+    + [이런 기술을 사용했어요](#-개발환경)
      </br></br> 
 
 
 ## 🤔 Why, Art Agit
- <p align="center"><img src="https://user-images.githubusercontent.com/112687027/218246518-ea3eac19-f936-45a2-89d8-31876510a83a.png" style="width: 560px; height: 430px;"></p>
- <p>ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ</p>
- 
+<img src="https://user-images.githubusercontent.com/112687027/218246518-ea3eac19-f936-45a2-89d8-31876510a83a.png" style="width: 560px; height: 430px;"> 
 </br></br> 
 
 ## 🤗 Art Agit를 소개합니다.
@@ -59,7 +54,7 @@
 
 | 데스크탑 | 
 | :---: |
-|  <img src="https://user-images.githubusercontent.com/104054366/218426078-dc70642f-d2bc-476c-a4e2-c9c848492676.gif" style="width: 600px; height: 350px;"> |
+|  <img src="https://user-images.githubusercontent.com/104054366/218314869-2be08dba-c962-466f-8c49-932b599d68ac.gif"> |
 
  </br> </br> 
  
@@ -103,28 +98,28 @@
 - 팀원 모두 서로를 존중하는 마음으로 프로젝트에 임했습니다.🙂
 <br /><br />
 
-### 3️⃣ Art Agit 를 만들기 위한 초석들
+### 3️⃣ Art Agit 만들기 위한 초석들
+ - 사용자의 요구사항을 구글 스프레드시트에 정리하며 확인했습니다.
  - 역할자 도출 -> 개념적, 논리적, 물리적 설계를 진행했습니다.
- - 정규화를 거쳐 최종적으로 만들어진 테이블 수는 총 19개입니다. 
+ - 정규화를 거쳐 최종적으로 만들어진 테이블 수는 총 19개입니다.  
+
+| [ 요구사항 정의 바로가기 🔗 ](https://docs.google.com/spreadsheets/d/1h-G7JMxEAI8jR8bQlTDQlZmps-Qx7Dr09sB2g4IVBKE/edit?usp=sharing ) |
+| :---: | 
+| <img src="https://user-images.githubusercontent.com/112687027/218436843-adb4a195-2058-415d-a152-9e79d1cbb3ff.png"> |
  
-| 요구사항 정의 | 
-| :---: |
-| <img src=""> | 
-      
 | 역할자 | 
 | :---: |
 |  <img src="https://user-images.githubusercontent.com/73868229/218390744-89833b95-997a-4fbc-aee4-619440c0cd6d.png" style="width: 600px; height: 350px;"> |
 |  <img src="https://user-images.githubusercontent.com/73868229/218390842-a965ca28-0c9d-4617-8bff-527a8873de6b.png" style="width: 600px; height: 350px;"> |
 
-| ERD | 
+| erd | 
 | :---: |
 |  <img src="https://user-images.githubusercontent.com/73868229/218392969-38dbe5b1-d952-4d1f-b3f2-e11bb54d848d.png" style="width: 600px; height: 350px;"> |
 
         
-<br/><br/>
 
-### 4️⃣ 개발환경
- <p align="center"> 
+### 4️⃣개발환경
+ <p align="center"></br>  
  <img src="https://img.shields.io/badge/Git-F05032?style=flat-square&logo=Git&logoColor=white"/></a>
  <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=HTML5&logoColor=white"/>
 <img src="https://img.shields.io/badge/css3-1572B6?style=flat-square&logo=css3&logoColor=white"/></a>
@@ -136,5 +131,4 @@
 <img src="https://img.shields.io/badge/mysql-4479A1?style=flat-sqaure&logo=mysql&logoColor=white">
 <img src="https://img.shields.io/badge/MariaDB-003545?style=flat-square&logo=MariaDB&logoColor=white"/>
  </p>
- 
-- Spring Boot 및 Spring MVC, Thymeleaf를 이용한 Server-side Rendering (SSR) 를 사용하여 웹사이트를 구축하였습니다. 이와 더불어 Vanilla JS를 이용해 ajax를 포함한 DOM 프로그래밍을 통해 동적인 client 화면을 구성할 수 있었습니다.
+
