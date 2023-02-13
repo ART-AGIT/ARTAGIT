@@ -67,7 +67,7 @@
 
 | 데스크탑 | 
 | :---: |
-|  ![커뮤니티](https://user-images.githubusercontent.com/73868229/218380636-5e63569e-e23d-4af6-b4b7-41c60296c87e.gif) |
+| <img src = "https://user-images.githubusercontent.com/73868229/218380636-5e63569e-e23d-4af6-b4b7-41c60296c87e.gif" style="width: 560px; height: 430px;"> |
 
  </br> </br> 
 
