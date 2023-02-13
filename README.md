@@ -96,10 +96,27 @@
 - 저희 팀은 7명으로 이루어져 있습니다.
 - FE, BE 따로 구분짓지 않고 다함께 진행하였습니다.
 - 팀원 모두 서로를 존중하는 마음으로 프로젝트에 임했습니다.🙂
-<br /><br /> <br />
+<br /><br />
 
+### 3️⃣ Art Agit 만들기 위한 초석들
+ - 역할자 도출 -> 개념적, 논리적, 물리적 설계를 진행했습니다.
+ - 정규화를 거쳐 최종적으로 만들어진 테이블 수는 총 19개입니다.  
+| 요구사항 정의 | 
+| :---: |
+|  <img src=""> | 
+      
+| 역할자 | 
+| :---: |
+|  <img src="https://user-images.githubusercontent.com/73868229/218390744-89833b95-997a-4fbc-aee4-619440c0cd6d.png" style="width: 600px; height: 350px;"> |
+|  <img src="https://user-images.githubusercontent.com/73868229/218390842-a965ca28-0c9d-4617-8bff-527a8873de6b.png" style="width: 600px; height: 350px;"> |
 
-### 3️⃣ 개발환경
+| erd | 
+| :---: |
+|  <img src="https://user-images.githubusercontent.com/73868229/218392969-38dbe5b1-d952-4d1f-b3f2-e11bb54d848d.png" style="width: 600px; height: 350px;"> |
+
+        
+
+### 4️⃣개발환경
  <p align="center"></br>  
  <img src="https://img.shields.io/badge/Git-F05032?style=flat-square&logo=Git&logoColor=white"/></a>
  <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=HTML5&logoColor=white"/>
