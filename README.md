@@ -107,12 +107,13 @@
 <br /><br />
 
 ### 3️⃣ Art Agit 를 만들기 위한 초석들
+ - 사용자의 요구사항을 구글 스프레드시트에 정리하며 확인했습니다.
  - 역할자 도출 -> 개념적, 논리적, 물리적 설계를 진행했습니다.
  - 정규화를 거쳐 최종적으로 만들어진 테이블 수는 총 19개입니다. 
  
-| 요구사항 정의 | 
-| :---: |
-| <img src=""> | 
+| [ 요구사항 정의 바로가기 🔗 ](https://docs.google.com/spreadsheets/d/1h-G7JMxEAI8jR8bQlTDQlZmps-Qx7Dr09sB2g4IVBKE/edit?usp=sharing ) |
+| :---: | 
+| <img src="https://user-images.githubusercontent.com/112687027/218436843-adb4a195-2058-415d-a152-9e79d1cbb3ff.png"> |
       
 | 역할자 | 
 | :---: |
