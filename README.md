@@ -6,7 +6,7 @@
  
  ## 📑 Contents
 - [우리들의 아지트, Art Agit](#우리들의-아지트-art-agit)
-    + [🤔 <b>Why, Art Agit</b>](#-why----art-agit)
+    + [🤔 <b>Why, Art Agit</b>](#🤔-why,-art-agit)
     
   * 🤗 <b>Art Agit를 소개합니다.</b>
     + [메인페이지](#1%EF%B8%8F⃣-반전을-주는-메인화면)
