@@ -1,7 +1,7 @@
 <img src="https://user-images.githubusercontent.com/112687027/218246880-6214a72c-b29b-4398-a4d0-30706c070b41.png">
 
 # 우리들의 아지트, Art Agit
- 전시를 러라ㅓ마 럼나얼 마니얾ㄴㅇ러말ㅇㄹㅇㄻ
+ 
 </br></br> 
  
  ## 📑 Contents
